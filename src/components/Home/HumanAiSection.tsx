@@ -26,9 +26,6 @@ const differences = [
   },
 ];
 
-<<<<<<< HEAD
-export default function HumanAISection() {
-=======
 type HumanAIContent = Partial<{
   eyebrow: string;
   heading: string;
@@ -53,7 +50,6 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
   };
   const rows = content.rows?.length ? content.rows : differences;
 
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   return (
     <section className="relative overflow-hidden py-20">
       <Image
@@ -67,18 +63,6 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-10">
           <p className="mb-3 text-xs uppercase tracking-[0.3em] text-primary text-center">
-<<<<<<< HEAD
-            HUMAN × INTELLIGENCE
-          </p>
-
-          <h2 className="text-heading text-3xl font-semibold text-center">
-            How We Work Today
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-center text-body">
-            AI doesn&apos;t replace expertise. It removes repetitive work,
-            accelerates execution, and helps teams make better decisions.
-=======
             {c.eyebrow}
           </p>
 
@@ -88,7 +72,6 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
 
           <p className="mx-auto mt-3 max-w-2xl text-center text-body">
             {c.description}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
           </p>
         </div>
 
@@ -102,16 +85,6 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
 
           <div className="overflow-hidden rounded-3xl">
             <div className="grid grid-cols-[1fr_auto_1fr] border-b border-border bg-surface/50 px-6 py-4">
-<<<<<<< HEAD
-              <span className="font-medium text-heading">Before</span>
-              <span />
-              <span className="text-right font-medium text-heading">
-                Today
-              </span>
-            </div>
-
-            {differences.map((item, index) => (
-=======
               <span className="font-medium text-heading">{c.beforeLabel}</span>
               <span />
               <span className="text-right font-medium text-heading">
@@ -120,7 +93,6 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
             </div>
 
             {rows.map((item, index) => (
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
               <div
                 key={index}
                 className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-6 py-5 last:border-0"
@@ -143,11 +115,7 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
         </div>
 
         <p className="mt-6 text-sm text-center text-body">
-<<<<<<< HEAD
-          The future isn&apos;t Human or AI. It&apos;s Human × Intelligence.
-=======
           {c.footer}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
         </p>
       </div>
     </section>

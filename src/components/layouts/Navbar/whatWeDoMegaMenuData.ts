@@ -16,7 +16,6 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Custom Website Development",
-<<<<<<< HEAD
           href: "/services/website-development",
         },
         {
@@ -30,21 +29,6 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         {
           label: "Software Development",
           href: "/services/software-development",
-=======
-          href: "/website-development",
-        },
-        {
-          label: "E-Commerce Development",
-          href: "/ecommerce-development",
-        },
-        {
-          label: "WordPress Development",
-          href: "/wordpress-development",
-        },
-        {
-          label: "Software Development",
-          href: "/software-development",
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
         },
       ],
     },
@@ -94,10 +78,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Facebook Marketing",
-<<<<<<< HEAD
 
-=======
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
         },
         {
           label: "Instagram Marketing",
@@ -119,10 +100,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Fb & Ig Ads Management",
-<<<<<<< HEAD
            href: "/performance-marketing",
-=======
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
         },
         {
           label: "Google Ads Management",

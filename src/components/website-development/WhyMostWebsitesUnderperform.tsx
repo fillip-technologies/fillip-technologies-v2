@@ -10,10 +10,7 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
-<<<<<<< HEAD
 import type { Service } from "@/data/services";
-=======
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
 const challenges = [
   {
@@ -54,7 +51,6 @@ const challenges = [
   },
 ];
 
-<<<<<<< HEAD
 type WhyWebsitesUnderperformProps = {
   data?: Service["challenges"];
 };
@@ -74,9 +70,6 @@ const defaultData: Service["challenges"] = {
 export default function WhyWebsitesUnderperform({
   data = defaultData,
 }: WhyWebsitesUnderperformProps) {
-=======
-export default function WhyWebsitesUnderperform() {
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   return (
     <section className="relative overflow-hidden bg-[var(--background)] py-24 lg:py-10">
       {/* Background Glow */}
@@ -105,7 +98,6 @@ export default function WhyWebsitesUnderperform() {
           {/* Left Content */}
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-<<<<<<< HEAD
               {data.eyebrow}
             </div>
 
@@ -114,21 +106,10 @@ export default function WhyWebsitesUnderperform() {
               <br />
               <span className="text-[var(--primary)]">
                 {data.highlightedTitle}
-=======
-              Business Website Challenges
-            </div>
-
-            <h2 className="mt-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
-              Most Websites Look Good.
-              <br />
-              <span className="text-[var(--primary)]">
-                Few Generate Real Results.
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
               </span>
             </h2>
 
             <p className="mt-6 text-lg leading-relaxed text-[var(--body)]">
-<<<<<<< HEAD
               {data.description}
             </p>
 
@@ -138,34 +119,14 @@ export default function WhyWebsitesUnderperform() {
 
             <button className="group mt-8 inline-flex items-center gap-2 font-semibold text-[var(--primary)] transition-all hover:gap-3">
               {data.cta}
-=======
-              Many businesses invest in websites that appear modern but fail to
-              attract customers, generate leads, improve visibility, or support
-              long-term growth.
-            </p>
-
-            <p className="mt-4 text-lg leading-relaxed text-[var(--body)]">
-              At Fillip Technologies, we build websites engineered for
-              performance, discoverability, scalability, and measurable
-              business outcomes.
-            </p>
-
-            <button className="group mt-8 inline-flex items-center gap-2 font-semibold text-[var(--primary)] transition-all hover:gap-3">
-              See How We Solve These Challenges
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 
           {/* Right Grid */}
           <div className="grid gap-5 sm:grid-cols-2">
-<<<<<<< HEAD
             {data.items.map((item, index) => {
               const Icon = challenges[index]?.icon ?? Rocket;
-=======
-            {challenges.map((item, index) => {
-              const Icon = item.icon;
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
               return (
                 <div

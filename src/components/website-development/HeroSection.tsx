@@ -2,10 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
 import type { Service } from "@/data/services";
-=======
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
 const images = [
   "/images/patna-zoo.png",
@@ -13,7 +10,6 @@ const images = [
   "/images/patna-zoo.png",
 ];
 
-<<<<<<< HEAD
 type HeroSectionProps = {
   data?: Service["hero"];
 };
@@ -26,9 +22,6 @@ const defaultData: Service["hero"] = {
 };
 
 export default function HeroSection({ data = defaultData }: HeroSectionProps) {
-=======
-export default function HeroSection() {
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -58,27 +51,15 @@ export default function HeroSection() {
       <div className="container relative mx-auto max-w-7xl px-6 pt-28">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-5xl font-bold leading-[0.92] tracking-[-0.06em] text-[var(--heading)] md:text-5xl">
-<<<<<<< HEAD
             {data.title}
             <br />
             <span className="text-[var(--primary)]">
               {data.highlightedTitle}
-=======
-            Build Faster Websites
-            <br />
-            <span className="text-[var(--primary)]">
-              Grow Smarter Businesses
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-<<<<<<< HEAD
             {data.description}
-=======
-            Custom website design and development services that help businesses
-            attract, engage and convert more customers online.
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
           </p>
         </div>
       </div>

@@ -48,9 +48,6 @@ const items = [
   },
 ];
 
-<<<<<<< HEAD
-export default function IndustriesImpactSection() {
-=======
 type IndustriesContent = Partial<{
   headingLead: string;
   headingHighlight: string;
@@ -91,18 +88,10 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
   };
   const data = content.items?.length ? content.items : items;
 
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-<<<<<<< HEAD
-      setActive((prev) => (prev + 1) % items.length);
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, []);
-=======
       setActive((prev) => (prev + 1) % data.length);
     }, 3000);
 
@@ -112,7 +101,6 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
   const safeActive = data.length ? active % data.length : 0;
   const card = data[safeActive] ?? { title: "", description: "", stat: "", label: "", image: "" };
   const palette = PALETTE[safeActive % PALETTE.length];
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
   return (
     <section className="relative overflow-hidden py-22 bg-[#fafafa]">
@@ -186,31 +174,19 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
         <div className="mb-20 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <h2 className="max-w-[700px] text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
             <span className="text-slate-900">
-<<<<<<< HEAD
-              Proven Impact
-=======
               {c.headingLead}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </span>
 
             <br />
 
             <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-<<<<<<< HEAD
-              Across Industries.
-=======
               {c.headingHighlight}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </span>
           </h2>
 
           <button className="group flex h-16 items-center overflow-hidden rounded-full border border-indigo-100 bg-white">
             <span className="px-8 text-sm font-medium text-slate-900">
-<<<<<<< HEAD
-              Get Started
-=======
               {c.ctaLabel}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </span>
 
             <span className="flex h-16 w-16 items-center justify-center bg-gradient-to-r from-indigo-500 to-cyan-500 text-white transition-all duration-300 group-hover:w-20">
@@ -249,44 +225,25 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
                 transition={{
                   duration: 0.5,
                 }}
-<<<<<<< HEAD
-                className={`absolute inset-0 overflow-hidden rounded-[24px] bg-gradient-to-br ${items[active].color} p-8`}
-              >
-                <Image
-                  src={items[active].image}
-=======
                 className={`absolute inset-0 overflow-hidden rounded-[24px] bg-gradient-to-br ${palette.color} p-8`}
               >
                 <Image
                   src={card.image}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                   alt=""
                   fill
                   sizes="340px"
                   className="object-cover"
                 />
-<<<<<<< HEAD
-                <div className={`absolute inset-0 ${items[active].overlay}`} />
-=======
                 <div className={`absolute inset-0 ${palette.overlay}`} />
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
                 <div className="relative z-10 flex h-full flex-col justify-between">
                   <div>
                     <div className="text-6xl font-bold text-slate-900">
-<<<<<<< HEAD
-                      {items[active].stat}
-                    </div>
-
-                    <div className="mt-3 text-lg text-slate-700">
-                      {items[active].label}
-=======
                       {card.stat}
                     </div>
 
                     <div className="mt-3 text-lg text-slate-700">
                       {card.label}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                     </div>
                   </div>
 
@@ -310,19 +267,11 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
                 transition={{ duration: 0.4 }}
               >
                 <h3 className="max-w-[500px] text-5xl font-medium leading-tight text-slate-900">
-<<<<<<< HEAD
-                  {items[active].title}
-                </h3>
-
-                <p className="mt-8 max-w-[520px] text-lg leading-relaxed text-slate-600">
-                  {items[active].description}
-=======
                   {card.title}
                 </h3>
 
                 <p className="mt-8 max-w-[520px] text-lg leading-relaxed text-slate-600">
                   {card.description}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                 </p>
 
                 <button className="mt-10 flex items-center gap-3 font-medium text-violet-600">
@@ -345,12 +294,7 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
             />
 
             <p className="text-lg leading-relaxed text-slate-600">
-<<<<<<< HEAD
-              We build scalable AI, cloud, automation and enterprise
-              technology solutions that help organizations grow faster.
-=======
               {c.sideText}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </p>
           </div>
         </div>
@@ -360,55 +304,31 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
         <div className="mt-24 grid gap-10 border-t border-slate-200 pt-12 lg:grid-cols-5">
           <div>
             <div className="text-5xl font-semibold text-slate-900">
-<<<<<<< HEAD
-              320M<span className="text-violet-500">+</span>
-            </div>
-
-            <div className="mt-3 text-slate-500">
-              Business Users
-=======
               {c.stat1Value}
             </div>
 
             <div className="mt-3 text-slate-500">
               {c.stat1Label}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </div>
           </div>
 
           <div>
             <div className="text-5xl font-semibold text-slate-900">
-<<<<<<< HEAD
-              590K<span className="text-violet-500">+</span>
-            </div>
-
-            <div className="mt-3 text-slate-500">
-              Happy Clients
-=======
               {c.stat2Value}
             </div>
 
             <div className="mt-3 text-slate-500">
               {c.stat2Label}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </div>
           </div>
 
           <div>
             <div className="text-5xl font-semibold text-slate-900">
-<<<<<<< HEAD
-              $438B<span className="text-violet-500">+</span>
-            </div>
-
-            <div className="mt-3 text-slate-500">
-              Revenue Impact
-=======
               {c.stat3Value}
             </div>
 
             <div className="mt-3 text-slate-500">
               {c.stat3Label}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </div>
           </div>
 

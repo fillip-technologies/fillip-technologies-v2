@@ -1,17 +1,8 @@
 import ServicePage from "@/components/services/ServicePage";
+import { getServiceBySlug } from "@/data/services";
 
 export default function EcommerceDevelopmentPage() {
-  return (
-    <ServicePage
-      eyebrow="E-Commerce Development"
-      title="Build Online Stores That Sell Faster"
-      description="We create scalable commerce experiences with clean storefronts, secure checkout flows, product management, and conversion-focused user journeys."
-      highlights={[
-        "Custom storefront design",
-        "Secure checkout experiences",
-        "Product and inventory workflows",
-        "Performance and SEO foundations",
-      ]}
-    />
-  );
+  const service = getServiceBySlug("ecommerce-development");
+
+  return service ? <ServicePage service={service} /> : null;
 }

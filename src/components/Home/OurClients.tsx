@@ -63,9 +63,6 @@ function LogoRow({
   );
 }
 
-<<<<<<< HEAD
-export default function OurClients() {
-=======
 type ClientsContent = Partial<{
   eyebrow: string;
   heading: string;
@@ -84,7 +81,6 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
     stat3: content.stat3 ?? "20+ Industries Served",
   };
 
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   return (
     <section className="relative overflow-hidden bg-white py-20">
       {/* Background */}
@@ -138,21 +134,6 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
 
         <div className="mx-auto max-w-5xl px-6 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-primary">
-<<<<<<< HEAD
-            TRUSTED BY ORGANIZATIONS
-          </p>
-
-          <h2 className="text-heading text-3xl font-semibold text-center">
-            Organizations That Trust Fillip
-          </h2>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-body md:gap-8">
-            <span>13+ Years Experience</span>
-            <span>•</span>
-            <span>1000+ Projects Delivered</span>
-            <span>•</span>
-            <span>20+ Industries Served</span>
-=======
             {c.eyebrow}
           </p>
 
@@ -166,7 +147,6 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
             <span>{c.stat2}</span>
             <span>•</span>
             <span>{c.stat3}</span>
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
           </div>
         </div>
 

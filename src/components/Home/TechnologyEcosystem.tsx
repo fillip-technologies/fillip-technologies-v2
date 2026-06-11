@@ -106,9 +106,6 @@ function TechLogo({
     );
 }
 
-<<<<<<< HEAD
-export default function TechnologyEcosystem() {
-=======
 type TechnologyContent = Partial<{
     eyebrow: string;
     headingLead: string;
@@ -127,7 +124,6 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
             "From AI and cloud platforms to modern frameworks and enterprise tools, we leverage proven technologies to build scalable digital experiences.",
     };
 
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
     return (
         <section className="relative overflow-hidden py-20 xl:pt-28 xl:pb-0">
             <div
@@ -142,15 +138,6 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
 
                 <div className="text-center">
                     <p className="mb-4 text-xs uppercase tracking-[0.35em] text-primary">
-<<<<<<< HEAD
-                        OUR TECH STACK
-                    </p>
-
-                    <h2 className="text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
-                        Technologies Behind Every{" "}
-                        <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-                            Intelligent Solution.
-=======
                         {c.eyebrow}
                     </p>
 
@@ -158,18 +145,11 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
                         {c.headingLead}{" "}
                         <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
                             {c.headingHighlight}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                         </span>
                     </h2>
 
                     <p className="mx-auto mt-6 max-w-3xl text-lg text-body">
-<<<<<<< HEAD
-                        From AI and cloud platforms to modern frameworks and enterprise
-                        tools, we leverage proven technologies to build scalable digital
-                        experiences.
-=======
                         {c.description}
->>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                     </p>
                 </div>
 
