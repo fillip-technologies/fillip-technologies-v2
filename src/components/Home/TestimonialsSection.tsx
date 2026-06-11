@@ -116,7 +116,7 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
             </div>
 
             <div className="text-[120px] leading-none text-slate-100">
-              "
+              &ldquo;
             </div>
 
             <div className="-mt-10 flex gap-1">

@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import NavSubmenuLink from "./NavSubmenuLink";
 import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
@@ -29,14 +29,16 @@ export default function WhatWeDoMegaMenu({
   variant = "full",
 }: WhatWeDoMegaMenuProps) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  // false on the server + first client render, true after hydration — lets the
+  // portal mount only on the client without a server/client markup mismatch.
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const columns = WHAT_WE_DO_MENU;
   const isHeroMenu = variant === "compact";
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const closeOnScroll = () => {
