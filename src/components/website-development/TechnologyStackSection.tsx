@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
+<<<<<<< HEAD
 import type { Service } from "@/data/services";
+=======
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
 const techStacks = {
     frontend: {
@@ -98,6 +101,7 @@ const techStacks = {
     },
 };
 
+<<<<<<< HEAD
 type TechnologyStackSectionProps = {
     data?: Service["technologyStack"];
 };
@@ -132,6 +136,13 @@ export default function TechnologyStackSection({
     const current = data.stacks[active] ?? stackEntries[0]?.[1] ?? defaultData.stacks.frontend;
     const currentVisual =
         techStacks[active as keyof typeof techStacks] ?? techStacks.frontend;
+=======
+export default function TechnologyStackSection() {
+    const [active, setActive] =
+        useState<keyof typeof techStacks>("frontend");
+
+    const current = techStacks[active];
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
     return (
         <section className="relative overflow-hidden py-24 lg:py-20">
@@ -150,6 +161,7 @@ export default function TechnologyStackSection({
                 {/* Header */}
                 <div className="mx-auto max-w-3xl text-center">
                     <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
+<<<<<<< HEAD
                         {data.eyebrow}
                     </span>
 
@@ -158,22 +170,46 @@ export default function TechnologyStackSection({
                         <span className="text-[var(--primary)]">
                             {" "}
                             {data.highlightedTitle}
+=======
+                        Our Stack
+                    </span>
+
+                    <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+                        Built With Modern
+                        <span className="text-[var(--primary)]">
+                            {" "}
+                            Technologies
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                         </span>
                     </h2>
 
                     <p className="mt-5 text-lg leading-relaxed text-[var(--body)]">
+<<<<<<< HEAD
                         {data.description}
+=======
+                        We leverage industry-leading technologies, frameworks,
+                        and platforms to deliver secure, scalable, and future-ready
+                        websites.
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                     </p>
                 </div>
 
                 {/* Tabs */}
                 <div className="mt-12 flex flex-wrap justify-center gap-3">
+<<<<<<< HEAD
                     {stackEntries.map(([key, item]) => {
+=======
+                    {Object.entries(techStacks).map(([key, item]) => {
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                         return (
                             <button
                                 key={key}
                                 onClick={() =>
+<<<<<<< HEAD
                                     setActive(key)
+=======
+                                    setActive(key as keyof typeof techStacks)
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                                 }
                                 className={`flex items-center gap-2 rounded-full px-5 py-3 transition-all duration-300 ${active === key
                                         ? "bg-[var(--primary)] text-white shadow-lg"
@@ -198,7 +234,11 @@ export default function TechnologyStackSection({
 
                             {/* Floating Logos */}
                             <div className="absolute inset-0 orbit-ring">
+<<<<<<< HEAD
                                 {currentVisual.orbitIcons.slice(0, 3).map((logo, index) => {
+=======
+                                {current.orbitIcons.slice(0, 3).map((logo, index) => {
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                                     const angle = (index / 3) * Math.PI * 2;
                                     const x = 210 * Math.cos(angle);
                                     const y = 210 * Math.sin(angle);
@@ -228,7 +268,11 @@ export default function TechnologyStackSection({
 
                             <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2">
                                 <div className="absolute inset-0 orbit-ring-reverse">
+<<<<<<< HEAD
                                     {currentVisual.orbitIcons.slice(3).map((logo, index) => {
+=======
+                                    {current.orbitIcons.slice(3).map((logo, index) => {
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                                         const angle = (index / 3) * Math.PI * 2 + Math.PI / 3;
                                         const x = 150 * Math.cos(angle);
                                         const y = 150 * Math.sin(angle);
@@ -263,7 +307,11 @@ export default function TechnologyStackSection({
                             <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[32px] border border-white/50 bg-white/70 shadow-[0_40px_100px_rgba(15,111,255,0.20)] backdrop-blur-xl">
                                 <div className="relative h-20 w-20">
                                     <Image
+<<<<<<< HEAD
                                         src={currentVisual.centerImage}
+=======
+                                        src={current.centerImage}
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                                         alt={current.title}
                                         fill
                                         className="object-contain"
@@ -296,11 +344,21 @@ export default function TechnologyStackSection({
 
                         <div className="mt-10 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6">
                             <div className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
+<<<<<<< HEAD
                                 {data.whyTitle}
                             </div>
 
                             <p className="mt-3 text-[var(--body)]">
                                 {data.whyDescription}
+=======
+                                Why This Stack?
+                            </div>
+
+                            <p className="mt-3 text-[var(--body)]">
+                                We carefully choose technologies based on performance,
+                                maintainability, scalability, security, and long-term
+                                business requirements rather than following trends.
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                             </p>
                         </div>
                     </div>

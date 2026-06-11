@@ -51,7 +51,30 @@ const capabilities = [
  
 ];
 
+<<<<<<< HEAD
 export default function CapabilitiesSection() {
+=======
+type CapabilitiesContent = Partial<{
+  eyebrow: string;
+  headingLine1: string;
+  headingLine2: string;
+  description: string;
+  cards: { title: string; description: string; image: string }[];
+}>;
+
+export default function CapabilitiesSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as CapabilitiesContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "WHAT WE DO",
+    headingLine1: content.headingLine1 ?? "End-to-End Digital Services",
+    headingLine2: content.headingLine2 ?? "for Modern Organizations",
+    description:
+      content.description ??
+      "From software engineering and mobile applications to marketing, design, automation, and growth solutions, we help organizations build stronger digital foundations and unlock new opportunities.",
+  };
+  const cards = content.cards?.length ? content.cards : capabilities;
+
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   const sectionRef = useRef(null);
 
   const inView = useInView(sectionRef, {
@@ -105,6 +128,7 @@ export default function CapabilitiesSection() {
             transition={{ duration: 0.7 }}
           >
             <div className="mb-6 text-xs uppercase tracking-[0.35em] text-body">
+<<<<<<< HEAD
               WHAT WE DO
             </div>
 
@@ -118,12 +142,29 @@ export default function CapabilitiesSection() {
               From software engineering and mobile applications to marketing,
               design, automation, and growth solutions, we help organizations
               build stronger digital foundations and unlock new opportunities.
+=======
+              {c.eyebrow}
+            </div>
+
+            <h2 className="text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
+              {c.headingLine1}
+              <br />
+              {c.headingLine2}
+            </h2>
+
+            <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-body md:text-lg">
+              {c.description}
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </p>
           </motion.div>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+<<<<<<< HEAD
           {capabilities.map((item, index) => (
+=======
+          {cards.map((item, index) => (
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             <motion.article
               key={item.title}
               initial={{ opacity: 0, y: 60 }}

@@ -6,7 +6,10 @@ import {
   Search,
   ShieldCheck,
 } from "lucide-react";
+<<<<<<< HEAD
 import type { Service } from "@/data/services";
+=======
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
 const stats = [
   {
@@ -31,6 +34,7 @@ const stats = [
   },
 ];
 
+<<<<<<< HEAD
 type BusinessOutcomesSectionProps = {
   data?: Service["outcomes"];
 };
@@ -49,6 +53,9 @@ const defaultData: Service["outcomes"] = {
 export default function BusinessOutcomesSection({
   data = defaultData,
 }: BusinessOutcomesSectionProps) {
+=======
+export default function BusinessOutcomesSection() {
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   return (
     <section className="relative overflow-hidden py-24 lg:py-32">
       {/* Glow */}
@@ -61,6 +68,7 @@ export default function BusinessOutcomesSection({
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
+<<<<<<< HEAD
             {data.eyebrow}
           </span>
 
@@ -69,11 +77,27 @@ export default function BusinessOutcomesSection({
             <span className="text-[var(--primary)]">
               {" "}
               {data.highlightedTitle}
+=======
+            Business Outcomes
+          </span>
+
+          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-6xl">
+            Results That Drive
+            <span className="text-[var(--primary)]">
+              {" "}
+              Real Business Growth
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
             </span>
           </h2>
 
           <p className="mt-5 text-lg leading-relaxed text-[var(--body)]">
+<<<<<<< HEAD
             {data.description}
+=======
+            Every website we build is engineered to improve visibility,
+            increase conversions, strengthen customer trust, and support
+            long-term business growth.
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
           </p>
         </div>
 
@@ -93,14 +117,23 @@ export default function BusinessOutcomesSection({
             />
 
             <div className="grid gap-0 md:grid-cols-4">
+<<<<<<< HEAD
               {data.stats.map((item, index) => {
                 const Icon = stats[index]?.icon ?? Gauge;
+=======
+              {stats.map((item, index) => {
+                const Icon = item.icon;
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
 
                 return (
                   <div
                     key={item.label}
                     className={`relative px-8 py-12 text-center ${
+<<<<<<< HEAD
                       index !== data.stats.length - 1
+=======
+                      index !== stats.length - 1
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
                         ? "border-b md:border-b-0 md:border-r border-[var(--border)]"
                         : ""
                     }`}
@@ -124,14 +157,26 @@ export default function BusinessOutcomesSection({
 
           {/* Floating Decorative Pills */}
           <div className="absolute -left-6 top-10 hidden rounded-full border border-[var(--border)] bg-white px-4 py-2 shadow-lg lg:block">
+<<<<<<< HEAD
             {data.leftPill}
           </div>
 
           <div className="absolute -right-6 bottom-10 hidden rounded-full border border-[var(--border)] bg-white px-4 py-2 shadow-lg lg:block">
             {data.rightPill}
+=======
+            🚀 Faster Performance
+          </div>
+
+          <div className="absolute -right-6 bottom-10 hidden rounded-full border border-[var(--border)] bg-white px-4 py-2 shadow-lg lg:block">
+            📈 Higher Conversions
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
           </div>
         </div>
       </div>
     </section>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)

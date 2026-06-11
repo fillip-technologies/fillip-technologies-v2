@@ -29,11 +29,22 @@ export default function WhatWeDoMegaMenu({
   variant = "full",
 }: WhatWeDoMegaMenuProps) {
   const [open, setOpen] = useState(false);
+<<<<<<< HEAD
+=======
+  const [mounted, setMounted] = useState(false);
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const columns = WHAT_WE_DO_MENU;
   const isHeroMenu = variant === "compact";
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
     const closeOnScroll = () => {
       if (closeTimer.current) clearTimeout(closeTimer.current);
       setOpen(false);
@@ -119,7 +130,11 @@ export default function WhatWeDoMegaMenu({
         />
       </button>
 
+<<<<<<< HEAD
       {typeof document !== "undefined" ? createPortal(panel, document.body) : null}
+=======
+      {mounted ? createPortal(panel, document.body) : null}
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
     </div>
   );
 }

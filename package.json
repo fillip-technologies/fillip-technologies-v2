@@ -6,23 +6,39 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:migrate": "node --env-file-if-exists=.env --env-file-if-exists=.env.local src/server/db/migrate.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "axios": "^1.16.1",
+<<<<<<< HEAD
+=======
+    "bcryptjs": "^3.0.3",
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.40.0",
     "gsap": "^3.15.0",
+<<<<<<< HEAD
     "lucide-react": "^1.17.0",
     "next": "16.2.6",
+=======
+    "jose": "^6.2.3",
+    "lucide-react": "^1.17.0",
+    "next": "16.2.6",
+    "pg": "^8.21.0",
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
     "radix-ui": "^1.4.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.76.1",
     "react-icons": "^5.6.0",
+<<<<<<< HEAD
+=======
+    "server-only": "^0.0.1",
+>>>>>>> af48a69 (This describes the CMS expansion specifically. If you want the commit to also cover the earlier work on this branch (admin auth, leads API, the (site) route-group split), let me know and the message can be broadened — or keep commits scoped per-feature, which is cleaner.)
     "shadcn": "^4.8.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
@@ -33,6 +49,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
