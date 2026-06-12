@@ -34,27 +34,39 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#edf5ff] via-[#f8fbff] to-white pb-[420px]">
-      <div className="absolute left-[-150px] top-0 h-[500px] w-[500px] rounded-full bg-blue-300/20 blur-[140px]" />
-
-      <div className="absolute right-[-150px] top-0 h-[500px] w-[500px] rounded-full bg-violet-300/20 blur-[140px]" />
-
-      <div className="absolute left-1/2 top-10 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-cyan-200/20 blur-[120px]" />
-
-      <Image
-        src="/images/cloud.png"
-        alt=""
-        width={350}
-        height={180}
-        className="absolute right-0 top-40 opacity-60"
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `
+      linear-gradient(to right, #000 1px, transparent 1px),
+      linear-gradient(to bottom, #000 1px, transparent 1px)
+    `,
+          backgroundSize: "80px 80px",
+        }}
       />
 
+      {/* Main Glow */}
+      <div className="absolute left-1/2 top-1/2 h-[550px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-purple-500/10 blur-3xl" />
+
       <div className="container relative mx-auto max-w-7xl px-6 pt-28">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl font-bold leading-[0.92] tracking-[-0.06em] text-[var(--heading)] md:text-5xl">
+        <div className="mx-auto max-w-5xl text-center mt-10">
+          <h1 className="text-5xl font-bold leading-[1.1] text-[var(--heading)] md:text-5xl lg:text-6xl">
             {data.title}
             <br />
-            <span className="text-[var(--primary)]">
-              {data.highlightedTitle}
+
+            <span className="inline-flex flex-wrap items-center justify-center gap-3">
+              {data.prefixText && (
+                <span>{data.prefixText}</span>
+              )}
+
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
+                {data.highlightedTitle}
+              </span>
+
+              {data.suffixText && (
+                <span>{data.suffixText}</span>
+              )}
             </span>
           </h1>
 
@@ -66,7 +78,7 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
 
       <div className="absolute left-1/2 top-[420px] z-0 h-[220px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
 
-      <div className="absolute left-[12%] top-[430px] z-10 hidden xl:block">
+      <div className="absolute left-[12%] top-[520px] z-10 hidden xl:block">
         <Image
           src={images[(active + 1) % images.length]}
           alt=""
@@ -92,9 +104,8 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
                 alt=""
                 fill
                 priority={index === 0}
-                className={`absolute inset-0 object-cover transition-opacity duration-700 ease-in-out ${
-                  active === index ? "z-10 opacity-100" : "z-0 opacity-0"
-                }`}
+                className={`absolute inset-0 object-cover transition-opacity duration-700 ease-in-out ${active === index ? "z-10 opacity-100" : "z-0 opacity-0"
+                  }`}
               />
             ))}
           </div>
@@ -107,9 +118,8 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
               type="button"
               aria-label={`Show website preview ${index + 1}`}
               onClick={() => setActive(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                active === index ? "w-8 bg-blue-600" : "w-2 bg-slate-300"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${active === index ? "w-8 bg-blue-600" : "w-2 bg-slate-300"
+                }`}
             />
           ))}
         </div>

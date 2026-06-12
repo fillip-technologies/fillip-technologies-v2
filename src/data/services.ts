@@ -31,7 +31,9 @@ export type Service = {
   slug: string;
   hero: {
     title: string;
+    prefixText?: string;
     highlightedTitle: string;
+    suffixText?: string;
     description: string;
   };
   challenges: {

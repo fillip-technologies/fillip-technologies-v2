@@ -18,18 +18,23 @@ export default function ServicePage({ service }: ServicePageProps) {
         key={`${service.slug}-challenges`}
         data={service.challenges}
       />
-      <WhatWeBuildSection
-        key={`${service.slug}-what-we-build`}
-        data={service.whatWeBuild}
-      />
+      
       <TechnologyStackSection
         key={`${service.slug}-technology-stack`}
         data={service.technologyStack}
       />
+
       <DevelopmentProcessTimeline
         key={`${service.slug}-process`}
         data={service.process}
       />
+
+      <WhatWeBuildSection
+        key={`${service.slug}-what-we-build`}
+        data={service.whatWeBuild}
+      />
+      
+      
       <BusinessOutcomesSection
         key={`${service.slug}-outcomes`}
         data={service.outcomes}

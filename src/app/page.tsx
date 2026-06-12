@@ -7,6 +7,7 @@ import OurClients from "@/components/Home/OurClients";
 import IndustriesImpactSection from "@/components/Home/IndustriesImpactSection";
 import TechnologyEcosystem from "@/components/Home/TechnologyEcosystem";
 import TestimonialsSection from "@/components/Home/TestimonialsSection"
+import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <OurClients />
       <TechnologyEcosystem />
       <TestimonialsSection />
+      <ConsultationFormSection />
      
 
     </>

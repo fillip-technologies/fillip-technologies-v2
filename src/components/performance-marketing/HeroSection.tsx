@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-20">
+    <section className="relative overflow-hidden bg-white pt-28 ">
       {/* Grid Background */}
       <div
         className="absolute inset-0 opacity-[0.04]"
@@ -19,7 +19,7 @@ export default function HeroSection() {
       />
 
       {/* Gradient Glow */}
-      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-purple-500/10 blur-3xl" />
+      <div className="absolute left-1/2 top-1/2 h-[550px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-purple-500/10 blur-3xl" />
 
       <div className="container relative mx-auto px-6">
         {/* Heading */}
@@ -40,9 +40,9 @@ export default function HeroSection() {
           </p>
         </div>
 
-        
+
         {/* Visual Area */}
-        <div className="relative mx-auto  h-[600px] max-w-6xl">
+        <div className="relative mx-auto h-[450px] max-w-6xl">
           {/* CTA */}
           <div className="absolute left-10 top-16 hidden lg:block z-20">
             <button className="group flex items-center gap-3 rounded-full bg-blue-50 px-5 py-3 font-medium text-blue-600">
@@ -141,19 +141,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Brands Row */}
-        <div className="mt-12 border-t border-slate-200 pt-10">
-          <div className="grid grid-cols-2 items-center gap-8 text-center md:grid-cols-5">
-            <div className="font-semibold text-slate-900">
-              Trusted by global brands
-            </div>
 
-            <div className="font-semibold text-slate-500">CodeCraft</div>
-            <div className="font-semibold text-slate-500">CoreOS</div>
-            <div className="font-semibold text-slate-500">Frequence</div>
-            <div className="font-semibold text-slate-500">Kintsugi</div>
-          </div>
-        </div>
       </div>
     </section>
   );
