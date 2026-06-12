@@ -1,20 +1,34 @@
 "use client";
 
-export default function TrustedBy() {
+// CMS-editable content (key: home.trustedby). Falls back to these defaults.
+type TrustedByContent = Partial<{
+  headingLead: string;
+  headingHighlight: string;
+  description: string;
+}>;
+
+export default function TrustedBy({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as TrustedByContent;
+  const c = {
+    headingLead: content.headingLead ?? "The Future Isn't Human or AI.",
+    headingHighlight: content.headingHighlight ?? "It's Human + AI.",
+    description:
+      content.description ??
+      "For 13+ years, we've helped businesses navigate technology change. Now, we're combining deep industry expertise with artificial intelligence to unlock the next generation of growth.",
+  };
+
   return (
     <section className="py-16 md:py-20">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h2 className="text-[28px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-heading">
-          The Future Isn't Human or AI.{" "}
+          {c.headingLead}{" "}
           <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-            It's Human + AI.
+            {c.headingHighlight}
           </span>
         </h2>
 
         <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
-          For 13+ years, we've helped businesses navigate technology change.
-          Now, we're combining deep industry expertise with artificial
-          intelligence to unlock the next generation of growth.
+          {c.description}
         </p>
 
         {/* Animated Line */}

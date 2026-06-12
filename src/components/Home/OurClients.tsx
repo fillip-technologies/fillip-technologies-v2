@@ -63,7 +63,24 @@ function LogoRow({
   );
 }
 
-export default function OurClients() {
+type ClientsContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  stat1: string;
+  stat2: string;
+  stat3: string;
+}>;
+
+export default function OurClients({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as ClientsContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "TRUSTED BY ORGANIZATIONS",
+    heading: content.heading ?? "Organizations That Trust Fillip",
+    stat1: content.stat1 ?? "13+ Years Experience",
+    stat2: content.stat2 ?? "1000+ Projects Delivered",
+    stat3: content.stat3 ?? "20+ Industries Served",
+  };
+
   return (
     <section className="relative overflow-hidden bg-white py-20">
       {/* Background */}
@@ -117,19 +134,19 @@ export default function OurClients() {
 
         <div className="mx-auto max-w-5xl px-6 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-primary">
-            TRUSTED BY ORGANIZATIONS
+            {c.eyebrow}
           </p>
 
           <h2 className="text-heading text-3xl font-semibold text-center">
-            Organizations That Trust Fillip
+            {c.heading}
           </h2>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-body md:gap-8">
-            <span>13+ Years Experience</span>
+            <span>{c.stat1}</span>
             <span>•</span>
-            <span>1000+ Projects Delivered</span>
+            <span>{c.stat2}</span>
             <span>•</span>
-            <span>20+ Industries Served</span>
+            <span>{c.stat3}</span>
           </div>
         </div>
 

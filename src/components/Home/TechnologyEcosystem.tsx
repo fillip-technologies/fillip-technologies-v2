@@ -106,7 +106,24 @@ function TechLogo({
     );
 }
 
-export default function TechnologyEcosystem() {
+type TechnologyContent = Partial<{
+    eyebrow: string;
+    headingLead: string;
+    headingHighlight: string;
+    description: string;
+}>;
+
+export default function TechnologyEcosystem({ content: raw = {} }: { content?: Record<string, unknown> }) {
+    const content = raw as TechnologyContent;
+    const c = {
+        eyebrow: content.eyebrow ?? "OUR TECH STACK",
+        headingLead: content.headingLead ?? "Technologies Behind Every",
+        headingHighlight: content.headingHighlight ?? "Intelligent Solution.",
+        description:
+            content.description ??
+            "From AI and cloud platforms to modern frameworks and enterprise tools, we leverage proven technologies to build scalable digital experiences.",
+    };
+
     return (
         <section className="relative overflow-hidden py-20 xl:pt-28 xl:pb-0">
             <div
@@ -121,20 +138,18 @@ export default function TechnologyEcosystem() {
 
                 <div className="text-center">
                     <p className="mb-4 text-xs uppercase tracking-[0.35em] text-primary">
-                        OUR TECH STACK
+                        {c.eyebrow}
                     </p>
 
                     <h2 className="text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
-                        Technologies Behind Every{" "}
+                        {c.headingLead}{" "}
                         <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-                            Intelligent Solution.
+                            {c.headingHighlight}
                         </span>
                     </h2>
 
                     <p className="mx-auto mt-6 max-w-3xl text-lg text-body">
-                        From AI and cloud platforms to modern frameworks and enterprise
-                        tools, we leverage proven technologies to build scalable digital
-                        experiences.
+                        {c.description}
                     </p>
                 </div>
 

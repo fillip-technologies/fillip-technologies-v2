@@ -26,7 +26,30 @@ const differences = [
   },
 ];
 
-export default function HumanAISection() {
+type HumanAIContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  description: string;
+  beforeLabel: string;
+  afterLabel: string;
+  footer: string;
+  rows: { before: string; after: string }[];
+}>;
+
+export default function HumanAISection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as HumanAIContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "HUMAN × INTELLIGENCE",
+    heading: content.heading ?? "How We Work Today",
+    description:
+      content.description ??
+      "AI doesn't replace expertise. It removes repetitive work, accelerates execution, and helps teams make better decisions.",
+    beforeLabel: content.beforeLabel ?? "Before",
+    afterLabel: content.afterLabel ?? "Today",
+    footer: content.footer ?? "The future isn't Human or AI. It's Human × Intelligence.",
+  };
+  const rows = content.rows?.length ? content.rows : differences;
+
   return (
     <section className="relative overflow-hidden py-20">
       <Image
@@ -40,16 +63,15 @@ export default function HumanAISection() {
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-10">
           <p className="mb-3 text-xs uppercase tracking-[0.3em] text-primary text-center">
-            HUMAN × INTELLIGENCE
+            {c.eyebrow}
           </p>
 
           <h2 className="text-heading text-3xl font-semibold text-center">
-            How We Work Today
+            {c.heading}
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-center text-body">
-            AI doesn&apos;t replace expertise. It removes repetitive work,
-            accelerates execution, and helps teams make better decisions.
+            {c.description}
           </p>
         </div>
 
@@ -63,14 +85,14 @@ export default function HumanAISection() {
 
           <div className="overflow-hidden rounded-3xl">
             <div className="grid grid-cols-[1fr_auto_1fr] border-b border-border bg-surface/50 px-6 py-4">
-              <span className="font-medium text-heading">Before</span>
+              <span className="font-medium text-heading">{c.beforeLabel}</span>
               <span />
               <span className="text-right font-medium text-heading">
-                Today
+                {c.afterLabel}
               </span>
             </div>
 
-            {differences.map((item, index) => (
+            {rows.map((item, index) => (
               <div
                 key={index}
                 className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-6 py-5 last:border-0"
@@ -93,7 +115,7 @@ export default function HumanAISection() {
         </div>
 
         <p className="mt-6 text-sm text-center text-body">
-          The future isn&apos;t Human or AI. It&apos;s Human × Intelligence.
+          {c.footer}
         </p>
       </div>
     </section>
