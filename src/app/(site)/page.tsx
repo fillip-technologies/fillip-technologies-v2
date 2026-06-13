@@ -45,7 +45,7 @@ export default async function HomePage() {
 
       <OurClients content={clients} />
       <ClientListCTA />
-      <TestimonialsSection content={testimonials} />
+      <TestimonialsSection />
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip />
       <ConsultationFormSection />

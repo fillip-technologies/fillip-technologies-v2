@@ -1,10 +1,32 @@
-
 "use client";
 
 import Image from "next/image";
 import { Star } from "lucide-react";
 
-const testimonialCards = [
+type StatCard = {
+  type: "stat";
+  value: string;
+  label: string;
+  color: string;
+};
+
+type ReviewCard = {
+  type: "review";
+  name: string;
+  role: string;
+  image: string;
+  content: string;
+  color: string;
+};
+
+type ImageCard = {
+  type: "image";
+  image: string;
+};
+
+type TestimonialCard = StatCard | ReviewCard | ImageCard;
+
+const testimonialCards: TestimonialCard[] = [
   {
     type: "stat",
     value: "4.8★",
@@ -15,7 +37,7 @@ const testimonialCards = [
     type: "review",
     name: "Sarah Johnson",
     role: "Marketing Director",
-    image: "/testimonials/user-1.jpg",
+    image: "/images/background.png",
     content:
       "Fillip Technologies transformed our digital presence completely. The team delivered a modern website and strategic guidance that improved engagement and lead generation.",
     color: "bg-[#F8FAFC]",
@@ -24,7 +46,7 @@ const testimonialCards = [
     type: "review",
     name: "Michael Roberts",
     role: "Business Owner",
-    image: "/testimonials/user-2.jpg",
+    image: "/images/background.png",
     content:
       "Professional, responsive, and highly skilled. The project was delivered on time and exceeded our expectations.",
     color: "bg-[#FDF4FF]",
@@ -39,20 +61,20 @@ const testimonialCards = [
     type: "review",
     name: "Emily Carter",
     role: "Operations Head",
-    image: "/testimonials/user-3.jpg",
+    image: "/images/background.png",
     content:
       "Their combination of design expertise and technical execution helped us launch faster and scale with confidence.",
     color: "bg-[#ECFDF5]",
   },
   {
     type: "image",
-    image: "/testimonials/team-1.jpg",
+    image: "/images/background.png",
   },
   {
     type: "review",
     name: "James Walker",
     role: "Startup Founder",
-    image: "/testimonials/user-4.jpg",
+    image: "/images/background.png",
     content:
       "From strategy to deployment, every stage was handled with clarity and professionalism.",
     color: "bg-[#EEF6FF]",
@@ -67,14 +89,14 @@ const testimonialCards = [
     type: "review",
     name: "Sophia Brown",
     role: "CEO",
-    image: "/testimonials/user-5.jpg",
+    image: "/images/background.png",
     content:
       "One of the most reliable technology partners we've worked with. Great communication and measurable outcomes.",
     color: "bg-[#F8FAFC]",
   },
   {
     type: "image",
-    image: "/testimonials/team-2.jpg",
+    image: "/images/background.png",
   },
   {
     type: "stat",
@@ -105,9 +127,8 @@ export default function TestimonialsSection() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Trusted by businesses across industries. Every review
-            reflects real-world impact, measurable growth, and
-            long-term partnerships.
+            Trusted by businesses across industries. Every review reflects
+            real-world impact, measurable growth, and long-term partnerships.
           </p>
         </div>
 
@@ -139,7 +160,7 @@ export default function TestimonialsSection() {
                 >
                   <Image
                     src={card.image}
-                    alt=""
+                    alt="Client success story"
                     width={600}
                     height={700}
                     className="h-full w-full object-cover"
@@ -148,6 +169,7 @@ export default function TestimonialsSection() {
               );
             }
 
+            // Here card is automatically narrowed to ReviewCard
             return (
               <div
                 key={index}
@@ -195,4 +217,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-export default function WebsiteSolutionsSection() {
+export default function WhatWeBuildSection() {
   return (
     <section className="relative overflow-hidden py-24 lg:py-26">
       {/* Background Glow */}

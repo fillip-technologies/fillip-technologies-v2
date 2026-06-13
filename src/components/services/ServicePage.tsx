@@ -30,10 +30,7 @@ export default function ServicePage({ service }: ServicePageProps) {
 
       <WebsiteAuditCTA />
 
-      <WhatWeBuildSection
-        key={`${service.slug}-what-we-build`}
-        data={service.whatWeBuild}
-      />
+      <WhatWeBuildSection />
 
       <OurClients />
 
@@ -43,10 +40,7 @@ export default function ServicePage({ service }: ServicePageProps) {
       />
 
 
-      <TechnologyStackSection
-        key={`${service.slug}-technology-stack`}
-        data={service.technologyStack}
-      />
+      <TechnologyStackSection />
 
       <ConsultationFormSection />
     </>
