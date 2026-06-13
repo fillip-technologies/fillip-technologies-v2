@@ -35,9 +35,9 @@ export default async function HomePage() {
   return (
     <>
       <Hero content={hero} />
-    
+
       <TrustBar />
-      
+
       <CapabilitiesSection content={capabilities} />
       <NeedGuidanceSection />
       <HumanAISection content={humanai} />
