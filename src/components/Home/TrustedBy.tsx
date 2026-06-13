@@ -1,5 +1,7 @@
 "use client";
 
+
+
 // CMS-editable content (key: home.trustedby). Falls back to these defaults.
 type TrustedByContent = Partial<{
   headingLead: string;
@@ -18,16 +20,16 @@ export default function TrustedBy({ content: raw = {} }: { content?: Record<stri
   };
 
   return (
-    <section className="py-16 md:py-20">
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        <h2 className="text-[28px] md:text-[42px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-heading">
+    <section className="py-12 md:py-14">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <h2 className="text-[28px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-heading">
           {c.headingLead}{" "}
           <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
             {c.headingHighlight}
           </span>
         </h2>
 
-        <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
+        <p className="mt-5 max-w-4xl mx-auto text-base md:text-lg text-muted-foreground">
           {c.description}
         </p>
 
@@ -64,6 +66,8 @@ export default function TrustedBy({ content: raw = {} }: { content?: Record<stri
           </svg>
         </div>
       </div>
+
+      
     </section>
   );
 }

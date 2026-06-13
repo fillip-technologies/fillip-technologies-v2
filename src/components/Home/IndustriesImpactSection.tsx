@@ -301,63 +301,7 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
 
         {/* Stats */}
 
-        <div className="mt-24 grid gap-10 border-t border-slate-200 pt-12 lg:grid-cols-5">
-          <div>
-            <div className="text-5xl font-semibold text-slate-900">
-              {c.stat1Value}
-            </div>
-
-            <div className="mt-3 text-slate-500">
-              {c.stat1Label}
-            </div>
-          </div>
-
-          <div>
-            <div className="text-5xl font-semibold text-slate-900">
-              {c.stat2Value}
-            </div>
-
-            <div className="mt-3 text-slate-500">
-              {c.stat2Label}
-            </div>
-          </div>
-
-          <div>
-            <div className="text-5xl font-semibold text-slate-900">
-              {c.stat3Value}
-            </div>
-
-            <div className="mt-3 text-slate-500">
-              {c.stat3Label}
-            </div>
-          </div>
-
-          {/* Bottom Cards */}
-
-          <div className="rounded-[20px] bg-slate-200 p-6">
-            <div className="h-24 rounded-xl bg-slate-300" />
-
-            <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm text-slate-600">
-                Technology
-              </span>
-
-              <ArrowUpRight size={14} />
-            </div>
-          </div>
-
-          <div className="rounded-[20px] bg-slate-200 p-6">
-            <div className="h-24 rounded-xl bg-slate-300" />
-
-            <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm text-slate-600">
-                Artificial Intelligence
-              </span>
-
-              <ArrowUpRight size={14} />
-            </div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );

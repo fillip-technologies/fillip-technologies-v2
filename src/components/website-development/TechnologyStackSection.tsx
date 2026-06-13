@@ -1,347 +1,165 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import type { Service } from "@/data/services";
 
-const techStacks = {
-    frontend: {
-        title: "Frontend Development",
-        description:
-            "Modern interfaces engineered for speed, responsiveness, and exceptional user experiences.",
-        technologies: [
-            "Next.js",
-            "React",
-            "TypeScript",
-            "Tailwind CSS",
-            "Vue.js",
-            "Angular",
-        ],
-        centerImage: "/images/stack/frontend-hub.png",
-        orbitIcons: [
-            "/images/tech/nextjs.png",
-            "/images/tech/react.png",
-            "/images/tech/typescript.png",
-            "/images/tech/tailwind.png",
-            "/images/tech/vue.png",
-            "/images/tech/angular.png",
-        ],
-    },
+const integrations = [
+  {
+    label: "CMS & Ecommerce",
+    color: "bg-black",
+    tools: [
+      { name: "WordPress", logo: "/images/tech/wordpress.png" },
+      { name: "Shopify", logo: "/images/tech/shopify.png" },
+      { name: "WooCommerce", logo: "/images/tech/woocommerce.png" },
+      { name: "Strapi", logo: "/images/tech/strapi.png" },
+      { name: "Webflow", logo: "/images/tech/webflow.png" },
+      { name: "Contentful", logo: "/images/tech/contentful.png" },
+    ],
+  },
 
-    backend: {
-        title: "Backend Development",
-        description:
-            "Robust server-side architectures built for performance, security, and scalability.",
-        technologies: [
-            "Node.js",
-            "Laravel",
-            ".NET",
-            "Python",
-            "Java",
-            "REST APIs",
-        ],
-        centerImage: "/images/stack/backend-hub.png",
-        orbitIcons: [
-            "/images/tech/nodejs.png",
-            "/images/tech/laravel.png",
-            "/images/tech/dotnet.png",
-            "/images/tech/python.png",
-            "/images/tech/java.png",
-            "/images/tech/rest-api.png",
-        ],
-    },
+  {
+    label: "Payments",
+    color: "bg-blue-600",
+    tools: [
+      { name: "Stripe", logo: "/images/tech/stripe.png" },
+      { name: "PayPal", logo: "/images/tech/paypal.png" },
+      { name: "Razorpay", logo: "/images/tech/razorpay.png" },
+      { name: "Square", logo: "/images/tech/square.png" },
+      { name: "PayU", logo: "/images/tech/payu.png" },
+      { name: "Authorize.net", logo: "/images/tech/authorize.png" },
+    ],
+  },
 
-    cms: {
-        title: "CMS & Ecommerce",
-        description:
-            "Flexible content and commerce platforms tailored for business growth.",
-        technologies: [
-            "WordPress",
-            "Shopify",
-            "WooCommerce",
-            "Strapi",
-            "Headless CMS",
-            "Contentful",
-        ],
-        centerImage: "/images/stack/cms-hub.png",
-        orbitIcons: [
-            "/images/tech/wordpress.png",
-            "/images/tech/shopify.png",
-            "/images/tech/woocommerce.png",
-            "/images/tech/strapi.png",
-            "/images/tech/headless-cms.png",
-            "/images/tech/contentful.png",
-        ],
-    },
+  {
+    label: "Marketing",
+    color: "bg-amber-500",
+    tools: [
+      { name: "HubSpot", logo: "/images/tech/hubspot.png" },
+      { name: "Mailchimp", logo: "/images/tech/mailchimp.png" },
+      { name: "Zapier", logo: "/images/tech/zapier.png" },
+      { name: "Google Analytics", logo: "/images/tech/ga4.png" },
+      { name: "Meta Pixel", logo: "/images/tech/meta.png" },
+      { name: "Hotjar", logo: "/images/tech/hotjar.png" },
+    ],
+  },
 
-    cloud: {
-        title: "Cloud & Deployment",
-        description:
-            "Reliable cloud infrastructure and DevOps practices for continuous delivery.",
-        technologies: [
-            "AWS",
-            "Azure",
-            "Google Cloud",
-            "Docker",
-            "CI/CD",
-            "Vercel",
-        ],
-        centerImage: "/images/stack/cloud-hub.png",
-        orbitIcons: [
-            "/images/tech/aws.png",
-            "/images/tech/azure.png",
-            "/images/tech/google-cloud.png",
-            "/images/tech/docker.png",
-            "/images/tech/cicd.png",
-            "/images/tech/vercel.png",
-        ],
-    },
-};
+  {
+    label: "Cloud & DevOps",
+    color: "bg-emerald-600",
+    tools: [
+      { name: "AWS", logo: "/images/tech/aws.png" },
+      { name: "Vercel", logo: "/images/tech/vercel.png" },
+      { name: "Cloudflare", logo: "/images/tech/cloudflare.png" },
+      { name: "Docker", logo: "/images/tech/docker.png" },
+      { name: "Azure", logo: "/images/tech/azure.png" },
+      { name: "GitHub", logo: "/images/tech/github.png" },
+    ],
+  },
+];
 
-type TechnologyStackSectionProps = {
-    data?: Service["technologyStack"];
-};
+export default function TechnologyStackSection() {
+  return (
+    <section className="relative overflow-hidden py-24 lg:py-32">
+      {/* Background Glow */}
+      <div
+        className="absolute left-0 top-20 h-[400px] w-[400px] rounded-full blur-[120px]"
+        style={{ background: "var(--glow-primary)" }}
+      />
 
-const defaultData: Service["technologyStack"] = {
-    eyebrow: "Our Stack",
-    title: "Built With Modern",
-    highlightedTitle: "Technologies",
-    description:
-        "We leverage industry-leading technologies, frameworks, and platforms to deliver secure, scalable, and future-ready websites.",
-    stacks: Object.fromEntries(
-        Object.entries(techStacks).map(([key, item]) => [
-            key,
-            {
-                title: item.title,
-                description: item.description,
-                technologies: item.technologies,
-            },
-        ])
-    ),
-    whyTitle: "Why This Stack?",
-    whyDescription:
-        "We carefully choose technologies based on performance, maintainability, scalability, security, and long-term business requirements rather than following trends.",
-};
+      <div
+        className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full blur-[120px]"
+        style={{ background: "var(--glow-accent)" }}
+      />
 
-export default function TechnologyStackSection({
-    data = defaultData,
-}: TechnologyStackSectionProps) {
-    const stackEntries = Object.entries(data.stacks);
-    const [active, setActive] = useState(stackEntries[0]?.[0] ?? "frontend");
+      <div className="container relative mx-auto max-w-7xl px-6">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
+            TOOLS & PLATFORMS
+          </span>
 
-    const current = data.stacks[active] ?? stackEntries[0]?.[1] ?? defaultData.stacks.frontend;
-    const currentVisual =
-        techStacks[active as keyof typeof techStacks] ?? techStacks.frontend;
+          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-6xl">
+            Technologies We
+            <span className="text-[var(--primary)]"> Work With</span>
+          </h2>
 
-    return (
-        <section className="relative overflow-hidden py-24 lg:py-20">
-            {/* Background Glow */}
+          <p className="mt-5 text-lg leading-relaxed text-[var(--body)]">
+            We integrate websites with the tools, payment gateways,
+            marketing platforms, and cloud infrastructure your business
+            already relies on.
+          </p>
+        </div>
+
+        {/* Integration Grid */}
+        <div className="mt-16 overflow-hidden rounded-[32px] border border-[var(--border)] bg-white shadow-[0_20px_80px_rgba(0,0,0,0.04)]">
+          {integrations.map((category, index) => (
             <div
-                className="absolute left-0 top-20 h-[350px] w-[350px] rounded-full blur-[120px]"
-                style={{ background: "var(--glow-primary)" }}
-            />
+              key={category.label}
+              className={`grid lg:grid-cols-[240px_1fr] ${
+                index !== integrations.length - 1
+                  ? "border-b border-[var(--border)]"
+                  : ""
+              }`}
+            >
+              {/* Left Label */}
+              <div className="flex items-start p-6 lg:p-8">
+                <span
+                  className={`${category.color} rounded-full px-5 py-3 text-sm font-medium text-white`}
+                >
+                  {category.label}
+                </span>
+              </div>
 
-            <div
-                className="absolute right-0 bottom-20 h-[350px] w-[350px] rounded-full blur-[120px]"
-                style={{ background: "var(--glow-accent)" }}
-            />
+              {/* Tools */}
+              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+                {category.tools.map((tool) => (
+                  <div
+                    key={tool.name}
+                    className="group flex flex-col items-center justify-center border-l border-[var(--border)] p-6 transition-all duration-300 hover:bg-slate-50"
+                  >
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm">
+                      <Image
+                        src={tool.logo}
+                        alt={tool.name}
+                        width={38}
+                        height={38}
+                        className="object-contain transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </div>
 
-            <div className="container mx-auto max-w-7xl px-6">
-                {/* Header */}
-                <div className="mx-auto max-w-3xl text-center">
-                    <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-                        {data.eyebrow}
+                    <span className="mt-4 text-center text-sm font-medium text-[var(--heading)]">
+                      {tool.name}
                     </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
 
-                    <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
-                        {data.title}
-                        <span className="text-[var(--primary)]">
-                            {" "}
-                            {data.highlightedTitle}
-                        </span>
-                    </h2>
+        {/* Bottom CTA */}
+        <div className="mt-10 rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8">
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 className="text-xl font-semibold text-[var(--heading)]">
+                Need A Custom Integration?
+              </h3>
 
-                    <p className="mt-5 text-lg leading-relaxed text-[var(--body)]">
-                        {data.description}
-                    </p>
-                </div>
-
-                {/* Tabs */}
-                <div className="mt-12 flex flex-wrap justify-center gap-3">
-                    {stackEntries.map(([key, item]) => {
-                        return (
-                            <button
-                                key={key}
-                                onClick={() =>
-                                    setActive(key)
-                                }
-                                className={`flex items-center gap-2 rounded-full px-5 py-3 transition-all duration-300 ${active === key
-                                        ? "bg-[var(--primary)] text-white shadow-lg"
-                                        : "border border-[var(--border)] bg-white text-[var(--heading)] hover:border-[var(--primary)]"
-                                    }`}
-                            >
-                                {item.title}
-                            </button>
-                        );
-                    })}
-                </div>
-
-                {/* Main Visual */}
-                <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-                    {/* Orbit Animation */}
-                    <div className="flex justify-center">
-                        <div className="relative h-[420px] w-[420px]">
-                            {/* Outer Ring */}
-                            <div className="absolute inset-0 rounded-full border border-[var(--border)]" />
-
-                            <div className="absolute inset-[60px] rounded-full border border-[var(--border)]/70" />
-
-                            {/* Floating Logos */}
-                            <div className="absolute inset-0 orbit-ring">
-                                {currentVisual.orbitIcons.slice(0, 3).map((logo, index) => {
-                                    const angle = (index / 3) * Math.PI * 2;
-                                    const x = 210 * Math.cos(angle);
-                                    const y = 210 * Math.sin(angle);
-
-                                    return (
-                                        <div
-                                            key={logo}
-                                            className="absolute left-1/2 top-1/2"
-                                            style={{
-                                                transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-                                            }}
-                                        >
-                                            <div className="orbit-card-counter">
-                                                <div className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105">
-                                                    <Image
-                                                        src={logo}
-                                                        alt=""
-                                                        width={32}
-                                                        height={32}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2">
-                                <div className="absolute inset-0 orbit-ring-reverse">
-                                    {currentVisual.orbitIcons.slice(3).map((logo, index) => {
-                                        const angle = (index / 3) * Math.PI * 2 + Math.PI / 3;
-                                        const x = 150 * Math.cos(angle);
-                                        const y = 150 * Math.sin(angle);
-
-                                        return (
-                                            <div
-                                                key={logo}
-                                                className="absolute left-1/2 top-1/2"
-                                                style={{
-                                                    transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-                                                }}
-                                            >
-                                                <div className="orbit-card-counter-reverse">
-                                                    <div className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105">
-                                                        <Image
-                                                            src={logo}
-                                                            alt=""
-                                                            width={32}
-                                                            height={32}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-
-                            {/* Center Hub */}
-                            <div className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(15,111,255,0.20)] blur-3xl" />
-
-                            <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[32px] border border-white/50 bg-white/70 shadow-[0_40px_100px_rgba(15,111,255,0.20)] backdrop-blur-xl">
-                                <div className="relative h-20 w-20">
-                                    <Image
-                                        src={currentVisual.centerImage}
-                                        alt={current.title}
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Content */}
-                    <div>
-                        <h3 className="text-3xl font-bold text-[var(--heading)]">
-                            {current.title}
-                        </h3>
-
-                        <p className="mt-4 max-w-xl text-lg text-[var(--body)]">
-                            {current.description}
-                        </p>
-
-                        <div className="mt-8 flex flex-wrap gap-3">
-                            {current.technologies.map((tech) => (
-                                <div
-                                    key={tech}
-                                    className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--heading)]"
-                                >
-                                    {tech}
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="mt-10 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6">
-                            <div className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
-                                {data.whyTitle}
-                            </div>
-
-                            <p className="mt-3 text-[var(--body)]">
-                                {data.whyDescription}
-                            </p>
-                        </div>
-                    </div>
-                </div>
+              <p className="mt-2 max-w-2xl text-[var(--body)]">
+                We can connect your website with CRMs, ERPs, payment
+                gateways, marketing tools, booking systems, and other
+                business software.
+              </p>
             </div>
 
-            <style jsx>{`
-                @keyframes orbit {
-                    from {
-                        transform: rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(360deg);
-                    }
-                }
-
-                @keyframes orbitReverse {
-                    from {
-                        transform: rotate(0deg);
-                    }
-                    to {
-                        transform: rotate(-360deg);
-                    }
-                }
-
-                .orbit-ring {
-                    animation: orbit 40s linear infinite;
-                }
-
-                .orbit-ring-reverse {
-                    animation: orbitReverse 40s linear infinite;
-                }
-
-                .orbit-card-counter {
-                    animation: orbitReverse 40s linear infinite;
-                }
-
-                .orbit-card-counter-reverse {
-                    animation: orbit 40s linear infinite;
-                }
-            `}</style>
-        </section>
-    );
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--primary)] px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-[1.02]"
+            >
+              Discuss Integration
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

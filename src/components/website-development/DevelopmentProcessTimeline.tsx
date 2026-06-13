@@ -82,12 +82,20 @@ export default function WebsiteProcessTimeline({
   data = defaultData,
 }: WebsiteProcessTimelineProps) {
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
+    <section className="relative overflow-hidden py-24 lg:py-28">
+      <Image
+        src="/images/4.png"
+        alt=""
+        width={520}
+        height={520}
+        className="pointer-events-none absolute -left-28 -top-28 z-0 h-auto w-[320px] opacity-60 lg:w-[450px]"
+      />
+
       <div className="container relative z-10 mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-           
+
 
             <h2 className="mt-10 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-7xl">
               {data.title}
@@ -104,7 +112,7 @@ export default function WebsiteProcessTimeline({
         </div>
 
         {/* Timeline */}
-        <div className="relative mt-20">
+        <div className="relative mt-10">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-6 lg:gap-0">
             {data.steps.map((step, index) => (
               <div
@@ -138,19 +146,16 @@ export default function WebsiteProcessTimeline({
               </div>
             ))}
           </div>
-
-          {/* Bottom Capsules */}
-         
         </div>
       </div>
 
-     <Image
-  src="/images/process.png"
-  alt=""
-  width={420}
-  height={420}
-  className="pointer-events-none absolute right-2 top-100 z-0 hidden h-auto w-[300px] lg:block xl:w-[420px]"
-/>
+      <Image
+        src="/images/process.png"
+        alt=""
+        width={420}
+        height={420}
+        className="pointer-events-none absolute right-2 top-100 z-0 hidden h-auto w-[300px] lg:block xl:w-[420px]"
+      />
     </section>
   );
 }

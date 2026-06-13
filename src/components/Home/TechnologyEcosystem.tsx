@@ -205,7 +205,7 @@ hover:border-indigo-300
                             style={{
                                 top,
                                 left,
-                            }}
+                            }}  
                         >
                             <TechLogo
                                 Icon={Icon}

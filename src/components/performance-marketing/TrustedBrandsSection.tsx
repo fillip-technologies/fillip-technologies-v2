@@ -13,7 +13,7 @@ const brands = [
 
 export default function TrustedBrandsSection() {
   return (
-    <section className="relative border-y border-[var(--border)] bg-white py-8 overflow-hidden">
+    <section className="relative  bg-white py-12 overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6">
         {/* Label */}
         <div className="mb-8 text-center">

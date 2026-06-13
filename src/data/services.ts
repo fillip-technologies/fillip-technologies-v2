@@ -82,8 +82,8 @@ export const services: Service[] = [
   {
     slug: "website-development",
     hero: {
-      title: "Build Faster Websites",
-      highlightedTitle: "Grow Smarter Businesses",
+      title: "Websites Designed to Convert ",
+      highlightedTitle: "Visitors Into Customers.",
       description:
         "Custom website design and development services that help businesses attract, engage and convert more customers online.",
     },
@@ -117,16 +117,7 @@ export const services: Service[] = [
           description:
             "Outdated systems struggle to support growing traffic, content, and business requirements.",
         },
-        {
-          title: "Weak SEO Foundation",
-          description:
-            "Without proper technical SEO, websites remain difficult to discover through search engines.",
-        },
-        {
-          title: "Difficult Content Management",
-          description:
-            "Complex backend systems make updates time-consuming and limit marketing agility.",
-        },
+       
       ],
     },
     whatWeBuild: {
