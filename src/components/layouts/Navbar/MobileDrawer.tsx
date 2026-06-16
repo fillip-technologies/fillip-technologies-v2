@@ -7,10 +7,10 @@ import MenuButton from "./MenuButton";
 import NavSubmenuLink from "./NavSubmenuLink";
 import { PLATFORMS_MENU } from "./platformsMegaMenuData";
 import { SOLUTIONS_MENU } from "./solutionsMegaMenuData";
-import type { MobileDrawerProps } from "./types";
+import type { MegaMenuItem, MobileDrawerProps } from "./types";
 import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
 
-const SIMPLE_MOBILE_MENUS: Partial<Record<(typeof NAV_LINKS)[number], readonly string[]>> = {
+const SIMPLE_MOBILE_MENUS: Partial<Record<(typeof NAV_LINKS)[number], readonly (string | MegaMenuItem)[]>> = {
   About: ABOUT_MENU,
   Industries: INDUSTRIES_MENU,
   Platforms: PLATFORMS_MENU,
@@ -79,14 +79,23 @@ function MobileDrawer({
                 </summary>
 
                 <div className="space-y-2 pb-5">
-                  {simpleMenu.map((item) => (
-                    <NavSubmenuLink
-                      key={item}
-                      label={item}
-                      onClick={closeDrawer}
-                      variant="mobile"
-                    />
-                  ))}
+                  {simpleMenu.map((item) =>
+                    typeof item === "string" ? (
+                      <NavSubmenuLink
+                        key={item}
+                        label={item}
+                        onClick={closeDrawer}
+                        variant="mobile"
+                      />
+                    ) : (
+                      <NavSubmenuLink
+                        key={item.href ?? item.label}
+                        item={item}
+                        onClick={closeDrawer}
+                        variant="mobile"
+                      />
+                    ),
+                  )}
                 </div>
               </details>
             ) : label === "What We Do" ? (

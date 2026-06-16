@@ -3,10 +3,11 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import NavSubmenuLink from "./NavSubmenuLink";
+import type { MegaMenuItem } from "./types";
 
 type NavDropdownMenuProps = {
   label: string;
-  items: readonly string[];
+  items: readonly (string | MegaMenuItem)[];
 };
 
 export default function NavDropdownMenu({ label, items }: NavDropdownMenuProps) {
@@ -55,9 +56,13 @@ export default function NavDropdownMenu({ label, items }: NavDropdownMenuProps) 
         "
       >
         <div className="space-y-1">
-          {items.map((item) => (
-            <NavSubmenuLink key={item} label={item} />
-          ))}
+          {items.map((item) =>
+            typeof item === "string" ? (
+              <NavSubmenuLink key={item} label={item} />
+            ) : (
+              <NavSubmenuLink key={item.href ?? item.label} item={item} />
+            ),
+          )}
         </div>
       </div>
     </div>

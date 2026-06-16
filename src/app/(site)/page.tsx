@@ -13,6 +13,8 @@ import TrustBar from "@/components/TrustBar/TrustBar";
 import WhyChooseFillip from "@/components/Home/WhyChooseFillip";
 import NeedGuidanceSection from "@/components/Cta/NeedGuidanceSection";
 import ClientListCTA from "@/components/Cta/ClientListCTA";
+import CaseStudies from "@/components/Home/CaseStudies";
+
 
 // Load a Home section's saved CMS content (falls back to registry defaults).
 function sectionContent(id: string) {
@@ -48,6 +50,8 @@ export default async function HomePage() {
       <TestimonialsSection />
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip />
+      <CaseStudies />
+    
       <ConsultationFormSection />
     </>
   );

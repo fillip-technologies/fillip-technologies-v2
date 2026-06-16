@@ -1,5 +1,10 @@
+import type { MegaMenuItem } from "./types";
+
 export const INDUSTRIES_MENU = [
-  "Healthcare",
+  {
+    label: "Healthcare",
+    href: "/industries/healthcare-web-design",
+  },
   "Finance",
   "Manufacturing",
   "Retail",
@@ -7,4 +12,4 @@ export const INDUSTRIES_MENU = [
   "Travel & Hospitality",
   "Real Estate",
   "Logistics",
-] as const;
+] as const satisfies readonly (string | MegaMenuItem)[];

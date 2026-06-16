@@ -121,155 +121,172 @@ export default function ConsultationFormSection() {
                 </div>
 
                 {/* Content */}
-                <div className="mt-16 grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-                    {/* Form */}
-                    <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_30px_80px_rgba(15,23,42,0.08)] md:p-10">
-                        <form onSubmit={handleSubmit}>
-                            <div className="grid gap-6 md:grid-cols-2">
-                                <InputField
-                                    label="Full Name *"
-                                    value={form.fullName}
-                                    error={errors.fullName}
-                                    onChange={(value) =>
-                                        setForm({
-                                            ...form,
-                                            fullName: value,
-                                        })
-                                    }
-                                />
+                <div className="mt-16 overflow-hidden rounded-[36px] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
+                    <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
 
-                                <InputField
-                                    label="Company Name"
-                                    value={form.company}
-                                    onChange={(value) =>
-                                        setForm({
-                                            ...form,
-                                            company: value,
-                                        })
-                                    }
-                                />
+                        {/* Form Column */}
+                        <div className="p-8 md:p-10">
+                            <form onSubmit={handleSubmit}>
+                                <div className="grid gap-6 md:grid-cols-2">
+                                    <InputField
+                                        label="Full Name *"
+                                        value={form.fullName}
+                                        error={errors.fullName}
+                                        onChange={(value) =>
+                                            setForm({
+                                                ...form,
+                                                fullName: value,
+                                            })
+                                        }
+                                    />
 
-                                <InputField
-                                    label="Email Address *"
-                                    value={form.email}
-                                    error={errors.email}
-                                    onChange={(value) =>
-                                        setForm({
-                                            ...form,
-                                            email: value,
-                                        })
-                                    }
-                                />
+                                    <InputField
+                                        label="Company Name"
+                                        value={form.company}
+                                        onChange={(value) =>
+                                            setForm({
+                                                ...form,
+                                                company: value,
+                                            })
+                                        }
+                                    />
 
-                                <InputField
-                                    label="Phone Number *"
-                                    value={form.phone}
-                                    error={errors.phone}
-                                    onChange={(value) =>
-                                        setForm({
-                                            ...form,
-                                            phone: value,
-                                        })
-                                    }
-                                />
-                            </div>
+                                    <InputField
+                                        label="Email Address *"
+                                        value={form.email}
+                                        error={errors.email}
+                                        onChange={(value) =>
+                                            setForm({
+                                                ...form,
+                                                email: value,
+                                            })
+                                        }
+                                    />
 
-                            {/* Budget */}
-                            <div className="mt-8">
-                                <label className="mb-4 block text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
-                                    Project Budget
-                                </label>
-
-                                <div className="grid gap-3 md:grid-cols-5">
-                                    {budgets.map((budget) => (
-                                        <button
-                                            key={budget}
-                                            type="button"
-                                            onClick={() =>
-                                                setForm({
-                                                    ...form,
-                                                    budget,
-                                                })
-                                            }
-                                            className={`rounded-2xl border p-4 text-sm transition ${form.budget === budget
-                                                    ? "border-blue-600 bg-blue-50 text-blue-700"
-                                                    : "border-slate-200 hover:border-blue-300"
-                                                }`}
-                                        >
-                                            {budget}
-                                        </button>
-                                    ))}
+                                    <InputField
+                                        label="Phone Number *"
+                                        value={form.phone}
+                                        error={errors.phone}
+                                        onChange={(value) =>
+                                            setForm({
+                                                ...form,
+                                                phone: value,
+                                            })
+                                        }
+                                    />
                                 </div>
 
-                                {errors.budget && (
-                                    <p className="mt-2 text-sm text-red-500">
-                                        {errors.budget}
-                                    </p>
-                                )}
-                            </div>
+                                {/* Budget */}
+                                <div className="mt-8">
+                                    <label className="mb-4 block text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
+                                        Project Budget
+                                    </label>
 
-                            {/* Message */}
-                            <div className="mt-8">
-                                <label className="mb-2 block text-sm font-medium text-slate-700">
-                                    Project Requirements *
-                                </label>
+                                    <div className="grid gap-3 md:grid-cols-5">
+                                        {budgets.map((budget) => (
+                                            <button
+                                                key={budget}
+                                                type="button"
+                                                onClick={() =>
+                                                    setForm({
+                                                        ...form,
+                                                        budget,
+                                                    })
+                                                }
+                                                className={`rounded-2xl border p-4 text-sm transition ${form.budget === budget
+                                                    ? "border-blue-600 bg-blue-50 text-blue-700"
+                                                    : "border-slate-200 hover:border-blue-300"
+                                                    }`}
+                                            >
+                                                {budget}
+                                            </button>
+                                        ))}
+                                    </div>
 
-                                <textarea
-                                    rows={6}
-                                    value={form.message}
-                                    onChange={(e) =>
-                                        setForm({
-                                            ...form,
-                                            message: e.target.value,
-                                        })
-                                    }
-                                    placeholder="Tell us about your project goals, features, timeline and requirements..."
-                                    className="w-full rounded-2xl border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
-                                />
+                                    {errors.budget && (
+                                        <p className="mt-2 text-sm text-red-500">
+                                            {errors.budget}
+                                        </p>
+                                    )}
+                                </div>
 
-                                {errors.message && (
-                                    <p className="mt-2 text-sm text-red-500">
-                                        {errors.message}
-                                    </p>
-                                )}
-                            </div>
+                                {/* Message */}
+                                <div className="mt-8">
+                                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                                        Project Requirements *
+                                    </label>
 
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="mt-8 flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white"
+                                    <textarea
+                                        rows={6}
+                                        value={form.message}
+                                        onChange={(e) =>
+                                            setForm({
+                                                ...form,
+                                                message: e.target.value,
+                                            })
+                                        }
+                                        placeholder="Tell us about your project goals, features, timeline and requirements..."
+                                        className="w-full rounded-2xl border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                                    />
+
+                                    {errors.message && (
+                                        <p className="mt-2 text-sm text-red-500">
+                                            {errors.message}
+                                        </p>
+                                    )}
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="mt-8 flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white"
+                                >
+                                    {loading
+                                        ? "Submitting..."
+                                        : "Schedule A Consultation"}
+
+                                    <ArrowRight size={18} />
+                                </button>
+
+                                <p className="mt-5 text-center text-sm text-slate-500">
+                                    🔒 We respect your privacy. Your information is secure and
+                                    confidential.
+                                </p>
+                            </form>
+                        </div>
+
+                        {/* Video Column */}
+                        <div className="relative min-h-[500px]">
+                            <video
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className="absolute inset-0 h-full w-full object-cover"
                             >
-                                {loading
-                                    ? "Submitting..."
-                                    : "Schedule A Consultation"}
+                                <source
+                                    src="/images/consultation.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
 
-                                <ArrowRight size={18} />
-                            </button>
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
 
-                            <p className="mt-5 text-center text-sm text-slate-500">
-                                🔒 We respect your privacy. Your information
-                                is secure and confidential.
-                            </p>
-                        </form>
-                    </div>
+                            <div className="absolute bottom-8 left-8 right-8 text-white">
+                                <div className="text-sm uppercase tracking-[0.2em] text-white/70">
+                                    Fillip Technologies
+                                </div>
 
-                    {/* Right Side */}
-                    <div className="relative hidden lg:flex items-center justify-center">
-                        <div className="absolute h-[450px] w-[450px] rounded-full bg-blue-500/10 blur-3xl" />
+                                <h3 className="mt-3 text-3xl font-semibold">
+                                    Building Intelligent Solutions
+                                </h3>
 
-                        <Image
-                            src="/images/consultation-3dd.jpg"
-                            alt="Consultation"
-                            width={700}
-                            height={700}
-                            className="relative z-10 object-contain"
-                        />
-
-
-
-
-
-
+                                <p className="mt-3 text-white/80">
+                                    AI, Cloud, Software Engineering and Digital Growth
+                                    Solutions designed for modern organizations.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

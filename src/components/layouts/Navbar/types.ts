@@ -10,6 +10,11 @@ export interface NavLinkProps {
   label: string;
 }
 
+export type MegaMenuItem = {
+  label: string;
+  href?: string;
+};
+
 export interface TalkButtonProps {
   dark?: boolean;
 }
