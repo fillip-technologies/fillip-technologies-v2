@@ -60,6 +60,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Technical SEO",
+          href: "/technical-seo",
         },
 
         {
@@ -102,16 +103,16 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       title: "Creative Experience Design",
       items: [
         {
-          label: "Graphic Designing",
+          label: "Marketing Creatives",
         },
         {
-          label: "Logo Designing",
+          label: "Brand Identity",
         },
         {
           label: "UI/UX Designing",
         },
         {
-          label: "Video Editing",
+          label: "Motion & Video Design",
         },
       ],
     },
