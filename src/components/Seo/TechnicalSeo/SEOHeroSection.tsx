@@ -85,25 +85,7 @@ export default function SEOHeroSection() {
                             </button>
                         </div>
 
-                        {/* Stats */}
-                        <div className="mt-14 grid max-w-xl grid-cols-2 gap-5 md:grid-cols-4">
-                            {[
-                                ["500+", "Keywords Ranked"],
-                                ["250+", "Projects"],
-                                ["10M+", "Organic Visits"],
-                                ["92%", "Retention"],
-                            ].map(([value, label]) => (
-                                <div key={label}>
-                                    <div className="text-3xl font-bold text-slate-900">
-                                        {value}
-                                    </div>
-
-                                    <div className="mt-1 text-sm text-slate-500">
-                                        {label}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        
                     </div>
 
                     {/* Right */}
@@ -124,7 +106,7 @@ export default function SEOHeroSection() {
                             alt="SEO Illustration"
                             width={650}
                             height={650}
-                            className="relative z-10 max-w-[520px]"
+                            className="relative z-10 max-w-[320px]"
                         />
 
                     </div>
