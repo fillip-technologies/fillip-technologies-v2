@@ -124,8 +124,6 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
           </motion.div>
         </div>
       </div>
-
-      
     </section>
   );
 }
