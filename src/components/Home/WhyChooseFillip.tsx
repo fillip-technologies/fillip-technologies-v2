@@ -12,7 +12,7 @@ import {
 const features = [
   {
     icon: Briefcase,
-    title: "Strategy-First Thinking",
+    title: "Strategy- First Thinking",
     description:
       "Every project starts with understanding your business goals, market opportunities, and customer journey before execution begins.",
     featured: true,
