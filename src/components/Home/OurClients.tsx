@@ -2,36 +2,148 @@
 
 import Image from "next/image";
 
-const row1 = [
-  "/images/clients/Abhyanand-Super-30-Logo-21-June-2022-Final-2022-300x182-1.png",
-  "/images/clients/Domus-BHDGAjch-768x139.png",
-  "/images/clients/logo.png",
-  "/images/clients/logo_proptru1.png",
-  "/images/clients/logo-2-768x311.png",
-  "/images/clients/logo-Copy.png",
+const logoDirectory = "/images/NEW%20CLIENTS%20LOGO";
+
+const priorityClientLogoFiles = [
+  "Patna Park.png",
+  "Nature Safari logo copy.png",
+  "BMC NEW LOGO-011.png",
+  "jamui logo.png",
+  "THAKUR GANJ NAGAR PANCHAYAT.png",
 ];
 
-const row2 = [
-  "/images/clients/logo-green-new.png",
-  "/images/clients/LVS_logo-768x754.png",
-  "/images/clients/Patna-Park-768x212.png",
-  "/images/clients/rajgir-zoo-safari-768x225.png",
-  "/images/clients/THAKUR-GANJ-NAGAR-PANCHAYAT.png",
-  "/images/clients/vanu-van-768x148.png",
+const clientLogoFiles = [
+  ...priorityClientLogoFiles,
+  "abhayanand_logo-170x115.png",
+  "Advance Line Logo Final.png",
+  "ADVANCED NEURO HOSPITAL.png",
+  "Advante Logo Final - 25-07-2022 - Copy.png",
+  "Ahl-logo-copy-300x76.png",
+  "ARCS.png",
+  "arvind foundation logo copy.png",
+  "cropped-Capture_Atithi_prev_ui.png",
+  "cropped-Screenshot-2024-09-10-184114-300x300.png",
+  "darsh logo copy (1).png",
+  "darsh news logo.png",
+  "DHPL logo 1 copy.png",
+  "Diagno-lab-PNG.png",
+  "Domus-logo png.png",
+  "gadgethubpatna logo 900.png",
+  "golden apple logo.png",
+  "Green and Beige Groceries Business Logo.png",
+  "Inception logo.png",
+  "Janya-Hospital-Logo-PNG copy.png",
+  "K.P Sinha Logo.png",
+  "kashlaya reahb logo.png",
+  "Krrish Fabricators Logo - Copy.png",
+  "LANDMARK LOGO.png",
+  "logo (1).png",
+  "logo (10).png",
+  "logo (11).png",
+  "logo (13).png",
+  "logo (14).png",
+  "logo (15).png",
+  "logo (16) - Copy.png",
+  "logo (17).png",
+  "logo (18).png",
+  "logo (19).png",
+  "Logo (2).png",
+  "logo (20).png",
+  "logo (21).png",
+  "logo (22).png",
+  "logo (23).png",
+  "logo (24).png",
+  "logo (25) - Copy.png",
+  "logo (26).png",
+  "logo (27).png",
+  "logo (28).png",
+  "logo (29).png",
+  "logo (3) - Copy.png",
+  "logo (30).png",
+  "logo (4) - Copy.png",
+  "logo (5).png",
+  "logo (6).png",
+  "logo (7).png",
+  "logo (8).png",
+  "logo (9).png",
+  "logo - Copy (2).png",
+  "logo - Copy - Copy.png",
+  "Logo Black.png",
+  "logo-01-removebg-preview-768x257.png",
+  "Logo-1 - Copy.png",
+  "logo-2 - Copy.png",
+  "logo-fotter-300x69.png",
+  "logo-green-new.png",
+  "logo-lg.png",
+  "logo-name.png",
+  "logo-partyt patna zone.png",
+  "logo-removebg-preview - Copy.png",
+  "logo-rng.png",
+  "logo-shubh momentz.png",
+  "logo.png",
+  "logo1 (2).png",
+  "logo1 - Copy.png",
+  "logo1-1536x359.png",
+  "Logo2-01 - Copy.png",
+  "Logo2-01.png",
+  "logo2.png",
+  "logo4.png",
+  "logonew2.png",
+  "logo_old - Copy.png",
+  "logo_old.png",
+  "Map sketch logo.png",
+  "Medica Emergency logo.png",
+  "Medica Logo for Social Media.png",
+  "MIA logo.png",
+  "NATURAL SPA.png",
+  "New era high school LOGO copy.png",
+  "NEW ERA HIGH SCHOOL LOGO.png",
+  "Nirmal Inn logo2.png",
+  "Parkomiko.png",
+  "Patna Dental Final Logo.png",
+  "Rakshit Logo.PNG",
+  "RAMRATAN LOGO.png",
+  "rapid_logo.png",
+  "rkch-logo.png",
+  "Ruban@logo-with-NABH-2-ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm.png",
+  "SAI CARE CLININC.png",
+  "Saicare logo.png",
+  "Sanjivani medicine logo copy.png",
+  "Savij LOGO-01 (1) - Copy.png",
+  "SHEODENI SAO COLLEGE LOGO-01.png",
+  "Startup Logo.png",
+  "tanush ent fnail logo.png",
+  "Tax Protect Logo - 09-June-2022.png",
+  "technosys-logo (1).png",
+  "Unicare logo.png",
+  "vedantalogo.png",
+  "WEDDINGS72 LOGO.png",
 ];
+
+const clientLogos = clientLogoFiles.map((file) => ({
+  src: `${logoDirectory}/${encodeURIComponent(file)}`,
+  alt: file
+    .replace(/\.[^.]+$/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim(),
+}));
+
+const row1 = clientLogos.filter((_, index) => index % 2 === 0);
+const row2 = clientLogos.filter((_, index) => index % 2 === 1);
 
 function LogoRow({
   logos,
   reverse = false,
 }: {
-  logos: string[];
+  logos: { src: string; alt: string }[];
   reverse?: boolean;
 }) {
   return (
     <div className="overflow-hidden">
       <div
         className={`flex w-max items-center gap-20 ${
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
+          reverse ? "animate-client-marquee-reverse" : "animate-client-marquee"
         }`}
       >
         {[...logos, ...logos, ...logos].map((logo, index) => (
@@ -40,8 +152,8 @@ function LogoRow({
             className="flex h-16 shrink-0 items-center justify-center"
           >
             <Image
-              src={logo}
-              alt=""
+              src={logo.src}
+              alt={logo.alt}
               width={200}
               height={80}
               className="
