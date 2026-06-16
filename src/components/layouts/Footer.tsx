@@ -31,7 +31,7 @@ const footerColumns: FooterColumn[] = [
       { label: "Capabilities", href: "#" },
       { label: "Products", href: "#" },
       { label: "Platforms", href: "#" },
-      { label: "AI Lab", href: "#" },
+      { label: "AI Lab", href: "/mobile-app-development" },
     ],
   },
   {

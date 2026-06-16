@@ -4,5 +4,5 @@ export const NAV_LINKS = [
   "What We Do",
   "Platforms",
   "Solutions",
-  "Company",
+  "Contact",
 ] as const;

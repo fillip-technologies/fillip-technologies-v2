@@ -38,7 +38,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Enterprise Mobile Applications",
-           href: "/mobile-app-development",
+          href: "/mobile-app-development",
         },
         {
           label: "E-Commerce Mobile Solutions",
@@ -59,49 +59,27 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       title: "Search Visibility Engineering",
       items: [
         {
-          label: "Local Business SEO",
+          label: "Technical SEO",
         },
 
         {
-          label: "On Page SEO",
+          label: "Local SEO",
         },
         {
-          label: "Off Page SEO",
+          label: "Enterprise SEO",
         },
         {
-          label: "CMS SEO",
+          label: "AI Search Optimization",
         },
       ],
     },
 
-    {
-      title: "Digital Growth Marketing",
-      items: [
-        {
-          label: "Facebook Marketing",
-
-        },
-        {
-          label: "Instagram Marketing",
-        },
-        {
-          label: "YouTube Marketing",
-        },
-        {
-          label: "LinkedIn Marketing",
-        },
-      ],
-    },
-
-
-  ],
-  [
     {
       title: "Performance Marketing",
       items: [
         {
           label: "Fb & Ig Ads Management",
-           href: "/performance-marketing",
+          href: "/performance-marketing",
         },
         {
           label: "Google Ads Management",
@@ -109,8 +87,16 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         {
           label: "Youtube Ads Campaign",
         },
+        {
+          label: "WhatsApp Ads Campaign",
+        },
       ],
     },
+
+
+
+  ],
+  [
 
     {
       title: "Creative Experience Design",
@@ -132,9 +118,9 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
 
     {
       title: "Content Marketing",
-    
+
     },
 
-      
+
   ],
 ];

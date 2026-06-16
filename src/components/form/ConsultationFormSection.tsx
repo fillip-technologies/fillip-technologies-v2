@@ -121,7 +121,7 @@ export default function ConsultationFormSection() {
                 </div>
 
                 {/* Content */}
-                <div className="mt-16 overflow-hidden rounded-[36px] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
+                <div className="mt-16 overflow-hidden rounded-[4px] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
                     <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
 
                         {/* Form Column */}
@@ -217,7 +217,7 @@ export default function ConsultationFormSection() {
                                     </label>
 
                                     <textarea
-                                        rows={6}
+                                        rows={4}
                                         value={form.message}
                                         onChange={(e) =>
                                             setForm({
@@ -226,7 +226,7 @@ export default function ConsultationFormSection() {
                                             })
                                         }
                                         placeholder="Tell us about your project goals, features, timeline and requirements..."
-                                        className="w-full rounded-2xl border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                                        className="w-full rounded border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                                     />
 
                                     {errors.message && (
@@ -239,7 +239,7 @@ export default function ConsultationFormSection() {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="mt-8 flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white"
+                                    className="mt-8 flex w-full items-center justify-center gap-3 rounded bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white"
                                 >
                                     {loading
                                         ? "Submitting..."
@@ -315,7 +315,7 @@ function InputField({
                 type="text"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                className="h-14 w-full rounded-2xl border border-slate-200 px-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                className="h-14 w-full rounded border border-slate-200 px-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
             />
 
             {error && (
