@@ -6,48 +6,42 @@ import {
   Users,
   Share2,
   Megaphone,
+  Clock3,
+  MapPin,
+  ShieldCheck,
+  TrendingUp,
 } from "lucide-react";
 
-const steps = [
-  {
-    step: "01",
-    title: "Website Design",
-    description:
-      "Build a professional healthcare website that creates trust and converts visitors.",
-    icon: Globe,
-  },
-  {
-    step: "02",
-    title: "Healthcare SEO",
-    description:
-      "Rank higher on Google and attract patients searching for your services.",
-    icon: Search,
-  },
-  {
-    step: "03",
-    title: "Patient Growth Engine",
-    description:
-      "Transform website traffic into appointment requests and qualified leads.",
-    icon: Users,
-    active: true,
-  },
-  {
-    step: "04",
-    title: "Social Media",
-    description:
-      "Increase visibility and strengthen patient trust across platforms.",
-    icon: Share2,
-  },
-  {
-    step: "05",
-    title: "Paid Advertising",
-    description:
-      "Generate targeted patient enquiries with Google & Meta Ads.",
-    icon: Megaphone,
-  },
-];
+const iconMap = {
+  Globe,
+  Search,
+  Users,
+  Share2,
+  Megaphone,
+  Clock3,
+  MapPin,
+  ShieldCheck,
+  TrendingUp,
+};
 
-export default function HealthcareProcessFlow() {
+type IndustryProcessTimelineProps = {
+  data: {
+    headingPrimary: string;
+    headingSecondary: string;
+    tags: string[];
+    eyebrow: string;
+    labels: string[];
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      icon: string;
+      active?: boolean;
+    }[];
+  };
+};
+
+export default function IndustryProcessTimeline({ data }: IndustryProcessTimelineProps) {
   return (
     <section className="relative overflow-hidden bg-[#071428] py-24">
       {/* Background Glow */}
@@ -60,20 +54,22 @@ export default function HealthcareProcessFlow() {
         {/* Heading */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl font-bold text-white md:text-6xl">
-            <span className="text-cyan-400">Healthcare</span>{" "}
-            <span className="text-blue-400">Growth</span>
+            <span className="text-cyan-400">{data.headingPrimary}</span>{" "}
+            <span className="text-blue-400">{data.headingSecondary}</span>
           </h2>
 
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm text-slate-400">
-            <span>Patient Trust</span>
-            <span>•</span>
-            <span>Google Visibility</span>
-            <span>•</span>
-            <span>More Appointments</span>
+            {data.tags.map((tag, index) => (
+              <span key={`${tag}-${index}`}>{tag}</span>
+            )).flatMap((item, index, items) =>
+              index < items.length - 1
+                ? [item, <span key={`separator-${index}`}>â€¢</span>]
+                : [item],
+            )}
           </div>
 
           <p className="mt-10 text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
-            HOW IT WORKS — PATIENT ACQUISITION FLOW
+            {data.eyebrow}
           </p>
         </div>
 
@@ -87,32 +83,32 @@ export default function HealthcareProcessFlow() {
           {/* Labels */}
           <div className="absolute left-[21%] top-[44%] hidden lg:block">
             <span className="text-[10px] font-bold tracking-[0.25em] text-cyan-300">
-              TRAFFIC
+              {data.labels[0]}
             </span>
           </div>
 
           <div className="absolute left-[40%] top-[44%] hidden lg:block">
             <span className="text-[10px] font-bold tracking-[0.25em] text-cyan-300">
-              RANKING
+              {data.labels[1]}
             </span>
           </div>
 
           <div className="absolute left-[59%] top-[44%] hidden lg:block">
             <span className="text-[10px] font-bold tracking-[0.25em] text-cyan-300">
-              TRUST
+              {data.labels[2]}
             </span>
           </div>
 
           <div className="absolute left-[78%] top-[44%] hidden lg:block">
             <span className="text-[10px] font-bold tracking-[0.25em] text-cyan-300">
-              LEADS
+              {data.labels[3]}
             </span>
           </div>
 
           {/* Cards */}
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
-            {steps.map((item) => {
-              const Icon = item.icon;
+            {data.steps.map((item) => {
+              const Icon = iconMap[item.icon as keyof typeof iconMap];
 
               return (
                 <div
@@ -144,13 +140,15 @@ export default function HealthcareProcessFlow() {
                         : "bg-white/10"
                     }`}
                   >
-                    <Icon
-                      className={`h-8 w-8 ${
-                        item.active
-                          ? "text-white"
-                          : "text-cyan-300"
-                      }`}
-                    />
+                    {Icon && (
+                      <Icon
+                        className={`h-8 w-8 ${
+                          item.active
+                            ? "text-white"
+                            : "text-cyan-300"
+                        }`}
+                      />
+                    )}
                   </div>
 
                   <h3 className="mt-6 text-xl font-bold text-white">

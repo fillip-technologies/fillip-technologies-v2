@@ -104,13 +104,15 @@ export default function TestimonialsSection({
                   {/* Avatar */}
                   <div className="absolute -top-14 left-1/2 -translate-x-1/2">
                     <div className="h-28 w-28 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        width={120}
-                        height={120}
-                        className="h-full w-full object-cover"
-                      />
+                      {item.image ? (
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          width={120}
+                          height={120}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : null}
                     </div>
                   </div>
 
@@ -124,7 +126,7 @@ export default function TestimonialsSection({
                     </p>
 
                     <p className="mt-6 leading-8 text-slate-600">
-                      "{item.review}"
+                      &quot;{item.review}&quot;
                     </p>
 
                     <div className="mt-6 flex justify-center gap-1 text-yellow-400">

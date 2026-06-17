@@ -1,4 +1,4 @@
-import Hero from "@/components/Home/hero";
+import Hero from "@/components/Home/HeroSection";
 import TrustedBy from "@/components/Home/TrustedBy";
 import CapabilitiesSection from "@/components/Home/Capabilities";
 import HumanAISection from "@/components/Home/HumanAiSection";
@@ -14,6 +14,7 @@ import WhyChooseFillip from "@/components/Home/WhyChooseFillip";
 import NeedGuidanceSection from "@/components/Cta/NeedGuidanceSection";
 import ClientListCTA from "@/components/Cta/ClientListCTA";
 import CaseStudies from "@/components/Home/CaseStudies";
+import HeroSection from "@/components/Home/HeroSection";
 
 
 // Load a Home section's saved CMS content (falls back to registry defaults).
@@ -36,8 +37,8 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero content={hero} />
 
+      <HeroSection />
       <TrustBar />
 
       <CapabilitiesSection content={capabilities} />
@@ -51,7 +52,7 @@ export default async function HomePage() {
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip />
       <CaseStudies />
-    
+
       <ConsultationFormSection />
     </>
   );

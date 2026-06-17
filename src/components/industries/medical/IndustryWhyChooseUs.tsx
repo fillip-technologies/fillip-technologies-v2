@@ -2,40 +2,48 @@
 
 import Image from "next/image";
 import {
+    Globe,
+    Search,
+    Users,
+    Share2,
+    Megaphone,
     Clock3,
     MapPin,
     ShieldCheck,
     TrendingUp,
 } from "lucide-react";
 
-const reasons = [
-    {
-        icon: Clock3,
-        title: "Faster Patient Acquisition",
-        description:
-            "Healthcare-focused growth systems designed to reduce the gap between patient discovery and appointment booking.",
-    },
-    {
-        icon: MapPin,
-        title: "Precision Local Visibility",
-        description:
-            "Appear where patients actively search for treatments, specialists, and healthcare services in your area.",
-    },
-    {
-        icon: ShieldCheck,
-        title: "Trust Before Contact",
-        description:
-            "Professional websites, educational content, and social proof help patients trust your organization before they reach out.",
-    },
-    {
-        icon: TrendingUp,
-        title: "Measurable Growth",
-        description:
-            "Track enquiries, appointments, rankings, and engagement through transparent performance reporting.",
-    },
-];
+const iconMap = {
+    Globe,
+    Search,
+    Users,
+    Share2,
+    Megaphone,
+    Clock3,
+    MapPin,
+    ShieldCheck,
+    TrendingUp,
+};
 
-export default function WhyChooseUs() {
+type IndustryWhyChooseUsProps = {
+    data: {
+        badge: string;
+        image: { src: string; alt: string };
+        titlePrefix: string;
+        titleHighlight: string;
+        titleSuffix: string;
+        description: string;
+        reasons: {
+            icon: string;
+            title: string;
+            description: string;
+        }[];
+        quoteTitle: string;
+        quoteDescription: string;
+    };
+};
+
+export default function IndustryWhyChooseUs({ data }: IndustryWhyChooseUsProps) {
     return (
         <section className="relative overflow-hidden py-24 lg:py-38">
             {/* Grid Background */}
@@ -58,40 +66,40 @@ export default function WhyChooseUs() {
 
                     {/* LEFT IMAGE */}
                     <div className="relative flex justify-center">
-                        <Image
-                            src="/images/hourglass.png"
-                            alt="Every Patient Opportunity Counts"
-                            width={700}
-                            height={700}
-                            className="w-full max-w-[600px] object-contain"
-                        />
+                        {data.image.src ? (
+                            <Image
+                                src={data.image.src}
+                                alt={data.image.alt}
+                                width={700}
+                                height={700}
+                                className="w-full max-w-[600px] object-contain"
+                            />
+                        ) : null}
                     </div>
 
                     {/* RIGHT CONTENT */}
                     <div>
                         <span className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">
-                            WHY CHOOSE US
+                            {data.badge}
                         </span>
 
                         <h2 className="mt-6 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
-                            Patients Are Searching
+                            {data.titlePrefix}
                             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
                                 {" "}
-                                Right Now.
+                                {data.titleHighlight}
                             </span>{" "}
-                            Will They Find You?
+                            {data.titleSuffix}
                         </h2>
 
                         <p className="mt-6 text-lg leading-8 text-slate-600">
-                            Patients make healthcare decisions quickly. If your
-                            website is invisible, outdated, or inactive online,
-                            those opportunities often go to competitors instead.
+                            {data.description}
                         </p>
 
                         {/* Reasons */}
                         <div className="mt-10 space-y-5">
-                            {reasons.map((item, index) => {
-                                const Icon = item.icon;
+                            {data.reasons.map((item, index) => {
+                                const Icon = iconMap[item.icon as keyof typeof iconMap];
 
                                 return (
                                     <div
@@ -100,7 +108,7 @@ export default function WhyChooseUs() {
                                     >
                                         <div className="flex gap-4">
                                             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50">
-                                                <Icon className="h-5 w-5 text-blue-600" />
+                                                {Icon && <Icon className="h-5 w-5 text-blue-600" />}
                                             </div>
 
                                             <div>
@@ -126,11 +134,11 @@ export default function WhyChooseUs() {
             </div>
             <div className="mt-5  bg-gradient-to-r from-blue-50 via-white to-cyan-50 p-10 text-center">
                 <p className="mx-auto max-w-5xl text-3xl font-bold leading-snug text-slate-900">
-                    Every moment a patient spends searching is an opportunity to choose your competitor.
+                    {data.quoteTitle}
                 </p>
 
                 <p className="mt-4 text-lg text-slate-600">
-                    Make your practice the obvious choice.
+                    {data.quoteDescription}
                 </p>
             </div>
         </section>

@@ -4,41 +4,45 @@ import Image from "next/image";
 import {
     Globe,
     Search,
+    Users,
     Share2,
     Megaphone,
+    Clock3,
+    MapPin,
+    ShieldCheck,
+    TrendingUp,
 } from "lucide-react";
 
-const leftCards = [
-    {
-        icon: Globe,
-        title: "Website Development",
-        description:
-            "Build a modern healthcare website that creates trust and converts visitors into patients.",
-    },
-    {
-        icon: Search,
-        title: "SEO Optimization",
-        description:
-            "Increase your online visibility and rank higher in search results.",
-    },
-];
+const iconMap = {
+    Globe,
+    Search,
+    Users,
+    Share2,
+    Megaphone,
+    Clock3,
+    MapPin,
+    ShieldCheck,
+    TrendingUp,
+};
 
-const rightCards = [
-    {
-        icon: Share2,
-        title: "Social Media",
-        description:
-            "Engage your audience and grow your healthcare brand across platforms.",
-    },
-    {
-        icon: Megaphone,
-        title: "Paid Advertising",
-        description:
-            "Generate qualified leads through targeted advertising campaigns.",
-    },
-];
+type GrowthCard = {
+    icon: string;
+    title: string;
+    description: string;
+};
 
-export default function HealthcareGrowthEngine() {
+type IndustryGrowthEngineProps = {
+    data: {
+        badge: string;
+        title: string;
+        description: string;
+        image: { src: string; alt: string };
+        leftCards: GrowthCard[];
+        rightCards: GrowthCard[];
+    };
+};
+
+export default function IndustryGrowthEngine({ data }: IndustryGrowthEngineProps) {
     return (
         <section className="relative overflow-hidden py-28">
             {/* Background */}
@@ -65,15 +69,15 @@ export default function HealthcareGrowthEngine() {
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto ">
                     <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
-                        Growth Ecosystem
+                        {data.badge}
                     </span>
 
                     <h2 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
-                       One Growth Engine. Four Digital Channels.
+                       {data.title}
                     </h2>
 
                     <p className="mt-6 text-lg text-slate-600">
-                       Website Development, SEO, Social Media, and Paid Advertising work together inside one connected healthcare growth system to attract, engage, and convert more patients.
+                       {data.description}
                     </p>
                 </div>
 
@@ -81,8 +85,8 @@ export default function HealthcareGrowthEngine() {
                 <div className="hidden lg:flex justify-center items-center gap-12">
                     {/* Left Cards */}
                     <div className="flex flex-col gap-8 w-[300px]">
-                        {leftCards.map((card, index) => {
-                            const Icon = card.icon;
+                        {data.leftCards.map((card, index) => {
+                            const Icon = iconMap[card.icon as keyof typeof iconMap];
 
                             return (
                                 <div
@@ -90,7 +94,7 @@ export default function HealthcareGrowthEngine() {
                                     className="group rounded-3xl border border-white/60 bg-white/70 backdrop-blur-xl p-6 shadow-[0_15px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:shadow-[0_20px_70px_rgba(37,99,235,0.15)] transition-all duration-300"
                                 >
                                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50">
-                                        <Icon className="h-6 w-6 text-blue-600" />
+                                        {Icon && <Icon className="h-6 w-6 text-blue-600" />}
                                     </div>
 
                                     <h3 className="text-lg font-semibold text-slate-900">
@@ -113,14 +117,16 @@ export default function HealthcareGrowthEngine() {
                         {/* Glow */}
                         <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-[120px]" />
 
-                        <Image
-                            src="/images/funel-stack.png"
-                            alt="Healthcare Funnel"
-                            width={500}
-                            height={500}
-                            className="relative z-10 "
-                            priority
-                        />
+                        {data.image.src ? (
+                            <Image
+                                src={data.image.src}
+                                alt={data.image.alt}
+                                width={500}
+                                height={500}
+                                className="relative z-10 "
+                                priority
+                            />
+                        ) : null}
 
                         {/* Output Pills */}
 
@@ -128,8 +134,8 @@ export default function HealthcareGrowthEngine() {
 
                     {/* Right Cards */}
                     <div className="flex flex-col gap-8 w-[300px]">
-                        {rightCards.map((card, index) => {
-                            const Icon = card.icon;
+                        {data.rightCards.map((card, index) => {
+                            const Icon = iconMap[card.icon as keyof typeof iconMap];
 
                             return (
                                 <div
@@ -137,7 +143,7 @@ export default function HealthcareGrowthEngine() {
                                     className="group rounded-3xl border border-white/60 bg-white/70 backdrop-blur-xl p-6 shadow-[0_15px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:shadow-[0_20px_70px_rgba(37,99,235,0.15)] transition-all duration-300"
                                 >
                                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50">
-                                        <Icon className="h-6 w-6 text-blue-600" />
+                                        {Icon && <Icon className="h-6 w-6 text-blue-600" />}
                                     </div>
 
                                     <h3 className="text-lg font-semibold text-slate-900">
