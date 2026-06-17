@@ -1,0 +1,18 @@
+
+> fillip-technologies@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.14:3000
+- Environments: .env
+✓ Ready in 1571ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3001
+- PID:          28328
+- Dir:          D:\Fillip\fillip-technologies
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 28328 /F to stop it.
+[?25h
