@@ -15,9 +15,7 @@ export default function WebsiteAuditCTA() {
 
             <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[var(--heading)] md:text-2xl">
               Your Website Might Be Losing Customers.
-              <span className="text-[var(--primary)]">
-                {" "}Let's Find Out.
-              </span>
+              <span className="highlight-text">{" Let's Find Out."}</span>
             </h2>
 
             <p className="mt-2 text-sm text-[var(--body)]">

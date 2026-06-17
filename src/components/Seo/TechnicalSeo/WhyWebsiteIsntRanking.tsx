@@ -2,74 +2,41 @@
 
 import Image from "next/image";
 import {
-  Rocket,
-  Target,
-  TrendingDown,
-  Settings,
-  Search,
-  FileText,
+  Bot,
+  SearchX,
+  Gauge,
+  TriangleAlert,
   ArrowRight,
 } from "lucide-react";
-import type { Service } from "@/data/services";
 
 const challenges = [
   {
-    icon: Rocket,
-    title: "Slow Performance",
+    icon: Bot,
+    title: "Crawlability Issues",
     description:
-      "Visitors abandon websites that take too long to load, reducing engagement and conversions.",
+      "Search engines cannot efficiently discover important pages because of poor site architecture, broken internal linking, crawl restrictions, and technical barriers. Impact: Reduced Search Visibility.",
   },
   {
-    icon: Target,
-    title: "Poor User Experience",
+    icon: SearchX,
+    title: "Indexing Problems",
     description:
-      "Confusing layouts and difficult navigation create friction and decrease customer trust.",
+      "Critical pages remain absent from search results due to duplicate URLs, noindex errors, incorrect canonicals, and indexing issues. Impact: Missing Search Traffic.",
   },
   {
-    icon: TrendingDown,
-    title: "Low Conversion Rates",
+    icon: Gauge,
+    title: "Slow Site Performance",
     description:
-      "Many websites attract visitors but fail to convert them into leads, inquiries, or customers.",
+      "Poor Core Web Vitals and slow loading experiences negatively impact rankings, engagement, conversions, and overall user satisfaction. Impact: Lower Rankings.",
   },
   {
-    icon: Settings,
-    title: "Limited Scalability",
+    icon: TriangleAlert,
+    title: "Technical SEO Errors",
     description:
-      "Outdated systems struggle to support growing traffic, content, and business requirements.",
-  },
-  {
-    icon: Search,
-    title: "Weak SEO Foundation",
-    description:
-      "Without proper technical SEO, websites remain difficult to discover through search engines.",
-  },
-  {
-    icon: FileText,
-    title: "Difficult Content Management",
-    description:
-      "Complex backend systems make updates time-consuming and limit marketing agility.",
+      "Redirect chains, schema issues, broken links, duplicate content, and technical mistakes weaken website authority and search performance. Impact: Lost Organic Growth.",
   },
 ];
 
-type WhyWebsitesUnderperformProps = {
-  data?: Service["challenges"];
-};
-
-const defaultData: Service["challenges"] = {
-  eyebrow: "Business Website Challenges",
-  title: "Most Websites Look Good.",
-  highlightedTitle: "Few Generate Real Results.",
-  description:
-    "Many businesses invest in websites that appear modern but fail to attract customers, generate leads, improve visibility, or support long-term growth.",
-  secondaryDescription:
-    "At Fillip Technologies, we build websites engineered for performance, discoverability, scalability, and measurable business outcomes.",
-  cta: "See How We Solve These Challenges",
-  items: challenges.map(({ title, description }) => ({ title, description })),
-};
-
-export default function WhyWebsitesUnderperform({
-  data = defaultData,
-}: WhyWebsitesUnderperformProps) {
+export default function WhyWebsiteIsntRanking() {
   return (
     <section className="relative overflow-hidden bg-[var(--background)] py-24 lg:py-10">
       {/* Background Glow */}
@@ -98,35 +65,35 @@ export default function WhyWebsitesUnderperform({
           {/* Left Content */}
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-              {data.eyebrow}
+              TECHNICAL SEO CHALLENGES
             </div>
 
             <h2 className="mt-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-[var(--heading)] md:text-4xl">
-              {data.title}
+              Why Your Website
               <br />
-              <span className="highlight-text">
-                {data.highlightedTitle}
-              </span>
+              <span className="highlight-text">{"Isn't Ranking"}</span>
             </h2>
 
             <p className="mt-6 text-lg leading-relaxed text-[var(--body)]">
-              {data.description}
+              Even great content cannot rank if search engines struggle to
+              crawl, index, and understand your website correctly.
             </p>
 
             <p className="mt-4 text-lg leading-relaxed text-[var(--body)]">
-              {data.secondaryDescription}
+              Technical SEO helps remove the barriers that stop important pages
+              from being discovered, indexed, and trusted by search engines.
             </p>
 
             <button className="group mt-8 inline-flex items-center gap-2 font-semibold text-[var(--primary)] transition-all hover:gap-3">
-              {data.cta}
+              See How We Solve These Challenges
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 
           {/* Right Grid */}
           <div className="grid gap-5 sm:grid-cols-2">
-            {data.items.map((item, index) => {
-              const Icon = challenges[index]?.icon ?? Rocket;
+            {challenges.map((item, index) => {
+              const Icon = challenges[index]?.icon ?? Bot;
 
               return (
                 <div

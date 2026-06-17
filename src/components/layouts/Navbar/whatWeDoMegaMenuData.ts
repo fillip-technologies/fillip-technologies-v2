@@ -12,7 +12,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
   [
 
     {
-      title: "Application Engineering",
+      title: "Web Development",
       items: [
         {
           label: "Custom Website Development",
@@ -59,7 +59,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
   ],
   [
     {
-      title: "Search Visibility Engineering",
+      title: "Search Engine Optimization ",
       items: [
         {
           label: "Technical SEO",
@@ -106,10 +106,10 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       title: "Creative Experience Design",
       items: [
         {
-          label: "Marketing Creatives",
+          label: "Graphics Designing ",
         },
         {
-          label: "Brand Identity",
+          label: "Logo Designing",
         },
         {
           label: "UI/UX Designing",

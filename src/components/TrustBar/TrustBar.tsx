@@ -19,7 +19,7 @@ export default function TrustBar() {
                     <h2 className="text-[28px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-heading">
                         {c.headingLead}
                         <br />
-                        <span className="animated-gradient-text">
+                        <span className="highlight-text">
                             {c.headingHighlight}
                         </span>
                     </h2>
@@ -114,32 +114,6 @@ export default function TrustBar() {
                     </p>
                 </div>
             </div>
-
-            {/* Animated Gradient CSS */}
-            <style jsx>{`
-                .animated-gradient-text {
-                    background: linear-gradient(
-                        90deg,
-                        #2563eb,
-                        #7c3aed,
-                        #ec4899,
-                        #2563eb
-                    );
-                    background-size: 300% auto;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    animation: gradientMove 6s linear infinite;
-                }
-
-                @keyframes gradientMove {
-                    0% {
-                        background-position: 0% center;
-                    }
-                    100% {
-                        background-position: 300% center;
-                    }
-                }
-            `}</style>
         </section>
     );
 }

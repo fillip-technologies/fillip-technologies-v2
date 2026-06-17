@@ -26,7 +26,7 @@ export default function GrowthStoriesSection() {
 
           <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
             Growth Stories.
-            <span className="block text-[var(--primary)]">
+            <span className="highlight-text block">
               Not Marketing Claims.
             </span>
           </h2>

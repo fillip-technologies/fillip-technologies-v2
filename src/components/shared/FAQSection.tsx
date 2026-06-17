@@ -31,7 +31,7 @@ export default function FAQSection({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
+    <section className="relative overflow-hidden py-24 lg:py-26">
       <div className="container mx-auto max-w-5xl px-6">
         {/* Heading */}
         <div className="text-center">

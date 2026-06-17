@@ -1,5 +1,8 @@
 export const SOLUTIONS_MENU = [
-  "Ticket Booking Solution",
+  {
+    label: "Ticketing Platform Development",
+    href: "/ticket-booking",
+  },
 
   "WhatsApp Business Solutions",
   "SMS Communication Solutions",

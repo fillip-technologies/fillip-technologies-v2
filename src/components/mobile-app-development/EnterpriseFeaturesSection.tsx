@@ -55,7 +55,7 @@ export default function MobileAppFeatures({ data }: MobileAppFeaturesProps) {
 
                     <h2 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
                         {data.title}
-                        <span className="block text-[var(--primary)]">
+                        <span className="highlight-text block">
                             {data.highlightedTitle}
                         </span>
                     </h2>

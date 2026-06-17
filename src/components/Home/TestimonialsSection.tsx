@@ -121,7 +121,7 @@ export default function TestimonialsSection() {
               Real Reviews.
             </span>
             <br />
-            <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="highlight-text">
               Real Business Outcomes.
             </span>
           </h2>
@@ -186,7 +186,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 <p className="mt-5 text-base leading-relaxed text-slate-700">
-                  "{card.content}"
+                  &quot;{card.content}&quot;
                 </p>
 
                 <div className="mt-6 flex items-center gap-3">

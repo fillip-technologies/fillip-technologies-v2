@@ -179,7 +179,7 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
 
             <br />
 
-            <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="highlight-text">
               {c.headingHighlight}
             </span>
           </h2>

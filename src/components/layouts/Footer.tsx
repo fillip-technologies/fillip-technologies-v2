@@ -241,9 +241,9 @@ export default function Footer() {
         <section className="py-8 sm:py-10">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-2xl font-semibold tracking-tight text-primary-foreground">
+              <Link href="/" className="block text-2xl font-semibold tracking-tight text-primary-foreground">
                 Fillip Technologies
-              </p>
+              </Link>
               <p className="mt-2 text-xs font-medium uppercase tracking-[0.42em] text-primary-foreground/42">
                 Human &times; Intelligence
               </p>

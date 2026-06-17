@@ -7,8 +7,8 @@ import Image from "next/image";
 
 const capabilities = [
   {
-    category: "APPLICATION ENGINEERING",
-    title: "Application Engineering",
+    category: "Web Development",
+    title: "Web Development",
     image: "/images/SERVICES/APPLICATION.jpg",
     description:
       "Custom Website Development, E-Commerce Development, WordPress Development, and Enterprise Software Solutions built for scale.",
@@ -48,7 +48,7 @@ const capabilities = [
     description:
       "Graphic Design, Logo Design, UI/UX Design, Video Editing, and brand experiences that drive engagement.",
   },
- 
+
 ];
 
 type CapabilitiesContent = Partial<{
@@ -114,7 +114,7 @@ export default function CapabilitiesSection({ content: raw = {} }: { content?: R
         className="pointer-events-none absolute -bottom-[10%] -left-[16%] w-[clamp(380px,78vw,720px)] opacity-85"
       />
 
-    
+
 
       <div className="relative z-10 mx-auto max-w-[1800px] px-6 lg:px-12 2xl:px-20">
         <div className="mx-auto max-w-5xl text-center">
@@ -130,7 +130,7 @@ export default function CapabilitiesSection({ content: raw = {} }: { content?: R
             <h2 className="text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
               {c.headingLine1}
               <br />
-              {c.headingLine2}
+              <span className="highlight-text">{c.headingLine2}</span>
             </h2>
 
             <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-body md:text-lg">
@@ -147,9 +147,9 @@ export default function CapabilitiesSection({ content: raw = {} }: { content?: R
               animate={
                 inView
                   ? {
-                      opacity: 1,
-                      y: 0,
-                    }
+                    opacity: 1,
+                    y: 0,
+                  }
                   : {}
               }
               transition={{
@@ -163,7 +163,7 @@ export default function CapabilitiesSection({ content: raw = {} }: { content?: R
             >
               {/* Notch */}
 
-              
+
 
               <div className="relative h-58 w-full shrink-0 overflow-hidden rounded-[12px] border-b border-border">
                 <Image

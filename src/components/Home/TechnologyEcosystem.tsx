@@ -143,7 +143,7 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
 
                     <h2 className="text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
                         {c.headingLead}{" "}
-                        <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+                        <span className="highlight-text">
                             {c.headingHighlight}
                         </span>
                     </h2>

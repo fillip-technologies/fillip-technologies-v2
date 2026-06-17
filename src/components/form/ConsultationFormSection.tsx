@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -107,9 +106,9 @@ export default function ConsultationFormSection() {
                     </span>
 
                     <h2 className="mt-6 text-5xl font-bold leading-[1.05] text-slate-900 md:text-6xl">
-                        Let's Discuss Your
+                        {"Let's Discuss Your"}
                         <br />
-                        <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
+                        <span className="highlight-text">
                             Next Project
                         </span>
                     </h2>

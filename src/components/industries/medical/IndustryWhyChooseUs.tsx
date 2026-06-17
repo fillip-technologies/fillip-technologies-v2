@@ -85,7 +85,7 @@ export default function IndustryWhyChooseUs({ data }: IndustryWhyChooseUsProps) 
 
                         <h2 className="mt-6 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
                             {data.titlePrefix}
-                            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
+                            <span className="highlight-text">
                                 {" "}
                                 {data.titleHighlight}
                             </span>{" "}

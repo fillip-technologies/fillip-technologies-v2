@@ -28,7 +28,7 @@ export default function ResultsSection() {
 
             <h2 className="mt-6 text-4xl font-bold leading-[1] tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
               Growth You Can
-              <span className="block text-[var(--primary)]">
+              <span className="highlight-text block">
                 Actually Measure.
               </span>
             </h2>

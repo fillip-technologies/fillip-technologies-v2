@@ -27,7 +27,7 @@ export default function HowItWorksSection() {
             <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
               We Make Campaign
               <br />
-              <span className="text-[var(--primary)]">
+              <span className="highlight-text">
                 Growth Easy.
               </span>
             </h2>

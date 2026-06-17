@@ -24,7 +24,7 @@ export default function TrustedBy({ content: raw = {} }: { content?: Record<stri
       <div className="max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-[28px] md:text-[40px] lg:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-heading">
           {c.headingLead}{" "}
-          <span className="bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+          <span className="highlight-text">
             {c.headingHighlight}
           </span>
         </h2>

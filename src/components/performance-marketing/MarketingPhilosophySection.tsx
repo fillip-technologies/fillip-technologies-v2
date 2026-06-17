@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
 
 export default function PerformancePhilosophySection() {
     return (
@@ -30,8 +29,8 @@ export default function PerformancePhilosophySection() {
                                 Outperform Competitors.
                             </span>
 
-                            <span className="block whitespace-nowrap text-[var(--primary)]">
-                                Don't Outspend Them.
+                            <span className="highlight-text block whitespace-nowrap">
+                                {"Don't Outspend Them."}
                             </span>
                         </h2>
 

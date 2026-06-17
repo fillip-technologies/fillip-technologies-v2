@@ -219,6 +219,14 @@
   }
 }
 
+@utility highlight-text {
+  background-image: linear-gradient(to right, #2563eb, #06b6d4, #1d4ed8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .human-ai-text {
   background: var(--gradient-text);
 
