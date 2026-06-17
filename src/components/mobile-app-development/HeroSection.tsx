@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import type { MobileAppHeroContent } from "@/data/mobile-app-development";
 
-export default function HeroSection() {
+type MobileAppHeroProps = {
+  data: MobileAppHeroContent;
+};
+
+export default function MobileAppHero({ data }: MobileAppHeroProps) {
   return (
     <section className="relative overflow-hidden bg-white pt-24 lg:pt-28 pb-8">
       {/* Background */}
@@ -56,16 +61,15 @@ export default function HeroSection() {
         {/* Content */}
         <div className="mx-auto max-w-5xl text-center">
           <h1 className="text-4xl font-bold leading-[1.05] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl mt-6">
-            Build Mobile Apps
+            {data.title}
             <br />
             <span className="bg-gradient-to-r from-[#0242A2] via-[#0F6FFF] to-[#38BDF8] bg-clip-text text-transparent">
-              Users Love to Use
+              {data.highlightedTitle}
             </span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-xl text-base text-slate-600 sm:text-lg">
-            From startup MVPs to enterprise-grade applications, we build
-            scalable mobile experiences that users love and businesses trust.
+            {data.description}
           </p>
         </div>
 
@@ -103,11 +107,11 @@ export default function HeroSection() {
           <div className="absolute left-0 top-[150px] hidden xl:block rounded-3xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur">
             <div className="text-left">
               <h4 className="text-sm font-semibold text-slate-900">
-                Real-Time Updates
+                {data.leftCard.title}
               </h4>
 
               <p className="mt-2 max-w-[180px] text-xs leading-relaxed text-slate-500">
-                Deliver instant notifications and seamless user experiences.
+                {data.leftCard.description}
               </p>
             </div>
           </div>
@@ -116,11 +120,11 @@ export default function HeroSection() {
           <div className="absolute right-0 top-[140px] hidden xl:block rounded-3xl border border-white/70 bg-white/80 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur">
             <div className="text-center">
               <h3 className="text-4xl font-bold text-slate-900">
-                100K+
+                {data.rightCard.value}
               </h3>
 
               <p className="mt-2 text-sm text-slate-500">
-                Downloads Supported
+                {data.rightCard.label}
               </p>
             </div>
           </div>
@@ -128,8 +132,8 @@ export default function HeroSection() {
           {/* Phones */}
           <div className="absolute left-1/2 -top-12 -translate-x-1/2">
             <Image
-              src="/images/tilt.png"
-              alt="Mobile App"
+              src={data.image.src}
+              alt={data.image.alt}
               width={1600}
               height={1200}
               priority

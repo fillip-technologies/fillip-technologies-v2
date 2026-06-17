@@ -1,61 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import {
-    ShieldCheck,
-    KeyRound,
-    BarChart3,
-    Lock,
-    RefreshCw,
-    Cloud,
-    Layers3,
-    Workflow,
-} from "lucide-react";
+import type { MobileAppFeaturesContent } from "@/data/mobile-app-development";
+import { mobileAppIcons } from "./icons";
 
-const features = [
-    {
-        title: "Enterprise Security",
-        description: "Advanced encryption and secure enterprise-grade protection.",
-        icon: ShieldCheck,
-    },
-    {
-        title: "Single Sign-On (SSO)",
-        description: "Unified authentication across all enterprise systems.",
-        icon: KeyRound,
-    },
-    {
-        title: "Real-Time Analytics",
-        description: "Monitor KPIs and business performance instantly.",
-        icon: BarChart3,
-    },
-    {
-        title: "Role-Based Access Control",
-        description: "Granular permissions for departments and teams.",
-        icon: Lock,
-    },
-    {
-        title: "Offline Synchronization",
-        description: "Continue operations even without connectivity.",
-        icon: RefreshCw,
-    },
-    {
-        title: "Cloud & API Integration",
-        description: "Connect seamlessly with third-party systems.",
-        icon: Cloud,
-    },
-    {
-        title: "Scalable Architecture",
-        description: "Built to grow alongside your organization.",
-        icon: Layers3,
-    },
-    {
-        title: "Multi-Department Workflows",
-        description: "Enable collaboration across business units.",
-        icon: Workflow,
-    },
-];
+type MobileAppFeaturesProps = {
+    data: MobileAppFeaturesContent;
+};
 
-export default function EnterpriseFeaturesSection() {
+export default function MobileAppFeatures({ data }: MobileAppFeaturesProps) {
     return (
         <section className="relative overflow-hidden py-22 lg:py-24">
 
@@ -97,19 +50,18 @@ export default function EnterpriseFeaturesSection() {
                 {/* Heading */}
                 <div className="mx-auto max-w-3xl text-center">
                     <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-                        ENTERPRISE FEATURES
+                        {data.badge}
                     </span>
 
                     <h2 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
-                        Built For Enterprise
+                        {data.title}
                         <span className="block text-[var(--primary)]">
-                            Performance
+                            {data.highlightedTitle}
                         </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-relaxed text-[var(--body)]">
-                        Enterprise-grade capabilities designed to deliver
-                        security, scalability and operational efficiency.
+                        {data.description}
                     </p>
                 </div>
 
@@ -134,8 +86,8 @@ export default function EnterpriseFeaturesSection() {
 
                             <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-200/30" />
                             <Image
-                                src="/images/enterprise-mobile-dashboardd.png"
-                                alt="Enterprise Mobile Dashboard"
+                                src={data.image.src}
+                                alt={data.image.alt}
                                 width={650}
                                 height={800}
                                 className="relative z-10 mx-auto max-w-[480px]"
@@ -153,8 +105,8 @@ export default function EnterpriseFeaturesSection() {
                         <div className="absolute left-6 top-4 bottom-4 w-px bg-slate-200" />
 
                         <div className="space-y-8">
-                            {features.map((feature) => {
-                                const Icon = feature.icon;
+                            {data.items.map((feature) => {
+                                const Icon = mobileAppIcons[feature.icon];
 
                                 return (
                                     <div

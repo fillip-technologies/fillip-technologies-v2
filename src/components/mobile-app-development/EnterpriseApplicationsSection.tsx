@@ -1,67 +1,16 @@
 "use client";
 
 import {
-    Boxes,
-    Users,
-    UserRound,
-    Package,
-    Workflow,
-    BarChart3,
     ArrowRight,
 } from "lucide-react";
+import type { MobileAppSolutionsContent } from "@/data/mobile-app-development";
+import { mobileAppIcons } from "./icons";
 
-const solutions = [
-    {
-        title: "ERP Mobile Applications",
-        description:
-            "Centralize business operations, finance, HR, procurement and reporting into a unified mobile experience.",
-        icon: Boxes,
-        iconColor: "text-blue-600",
-        iconBg: "bg-blue-50",
-    },
-    {
-        title: "Field Workforce Management Apps",
-        description:
-            "Manage field teams, attendance, task assignments, live tracking and productivity in real time.",
-        icon: Users,
-        iconColor: "text-indigo-600",
-        iconBg: "bg-indigo-50",
-    },
-    {
-        title: "Employee Self-Service Applications",
-        description:
-            "Empower employees with leave requests, approvals, payroll access and internal communication tools.",
-        icon: UserRound,
-        iconColor: "text-cyan-600",
-        iconBg: "bg-cyan-50",
-    },
-    {
-        title: "Inventory & Asset Tracking Apps",
-        description:
-            "Track inventory, equipment and assets with real-time visibility across locations and teams.",
-        icon: Package,
-        iconColor: "text-violet-600",
-        iconBg: "bg-violet-50",
-    },
-    {
-        title: "Workflow Automation Platforms",
-        description:
-            "Automate repetitive processes, approvals and operational workflows to improve efficiency.",
-        icon: Workflow,
-        iconColor: "text-sky-600",
-        iconBg: "bg-sky-50",
-    },
-    {
-        title: "Executive Analytics Dashboards",
-        description:
-            "Transform business data into actionable insights through interactive executive reporting dashboards.",
-        icon: BarChart3,
-        iconColor: "text-blue-700",
-        iconBg: "bg-blue-50",
-    },
-];
+type MobileAppSolutionsProps = {
+    data: MobileAppSolutionsContent;
+};
 
-export default function EnterpriseApplicationsSection() {
+export default function MobileAppSolutions({ data }: MobileAppSolutionsProps) {
     return (
         <section className="relative overflow-hidden py-20 lg:py-22 pb-8">
             {/* Glow */}
@@ -79,27 +28,25 @@ export default function EnterpriseApplicationsSection() {
                 {/* Heading */}
                 <div className="mx-auto max-w-3xl text-center">
                     <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-                        ENTERPRISE APPLICATIONS
+                        {data.badge}
                     </span>
 
                     <h2 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
-                        Enterprise Solutions
+                        {data.title}
                         <span className="block text-[var(--primary)]">
-                            Tailored To Your Business
+                            {data.highlightedTitle}
                         </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-relaxed text-[var(--body)]">
-                        We design and develop enterprise-grade applications that
-                        streamline operations, improve workforce productivity,
-                        and provide real-time business intelligence.
+                        {data.description}
                     </p>
                 </div>
 
                 {/* Cards */}
                 <div className="mt-20 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                    {solutions.map((item) => {
-                        const Icon = item.icon;
+                    {data.items.map((item, index) => {
+                        const Icon = mobileAppIcons[item.icon];
 
                         return (
                             <div
@@ -122,9 +69,7 @@ export default function EnterpriseApplicationsSection() {
                                 {/* Number */}
                                 <div className="absolute right-6 top-6 text-5xl font-bold text-slate-100">
                                     {String(
-                                        solutions.findIndex(
-                                            (s) => s.title === item.title
-                                        ) + 1
+                                        index + 1
                                     ).padStart(2, "0")}
                                 </div>
 
@@ -138,7 +83,7 @@ export default function EnterpriseApplicationsSection() {
 
                                 <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-5">
                                     <span className="text-sm text-slate-500">
-                                        Enterprise Solution
+                                        {item.footerLabel}
                                     </span>
 
                                     <div className="flex items-center gap-2 font-medium text-[var(--primary)]">

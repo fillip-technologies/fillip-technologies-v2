@@ -2,15 +2,13 @@
 
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import type { MobileAppChallengesContent } from "@/data/mobile-app-development";
 
-const challenges = [
-  "Disconnected Business Systems",
-  "Manual & Time-Consuming Processes",
-  "Limited Workforce Visibility",
-  "Legacy Infrastructure Challenges",
-];
+type MobileAppChallengesProps = {
+  data: MobileAppChallengesContent;
+};
 
-export default function EnterpriseChallengesSection() {
+export default function MobileAppChallenges({ data }: MobileAppChallengesProps) {
   return (
     <section className="relative overflow-hidden py-24 lg:py-28">
       {/* Background Glow */}
@@ -29,36 +27,33 @@ export default function EnterpriseChallengesSection() {
           {/* Left Content */}
           <div>
             <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-              ENTERPRISE CHALLENGES
+              {data.badge}
             </span>
 
             <h2 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
-              Enterprise Challenges
+              {data.title}
               <span className="block text-[var(--primary)]">
-                We Solve
+                {data.highlightedTitle}
               </span>
             </h2>
 
             <div className="mt-8 border-l-4 border-[var(--primary)] pl-6">
               <p className="text-xl font-medium leading-relaxed text-[var(--heading)]">
-                Growing organizations often face operational bottlenecks.
+                {data.lead}
               </p>
 
               <p className="mt-3 text-lg text-[var(--body)]">
-                We help eliminate inefficiencies through intelligent
-                enterprise software solutions.
+                {data.support}
               </p>
             </div>
 
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--body)]">
-              From fragmented systems to outdated infrastructure,
-              we help businesses streamline operations, improve
-              visibility, and create scalable digital ecosystems.
+              {data.description}
             </p>
 
             {/* Challenge Cards */}
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {challenges.map((item) => (
+              {data.items.map((item) => (
                 <div
                   key={item}
                   className="group flex items-start gap-3 rounded-2xl border border-[var(--border)] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
@@ -86,8 +81,8 @@ export default function EnterpriseChallengesSection() {
               />
 
               <Image
-                src="/images/enterprise-dashboard.png"
-                alt="Enterprise Dashboard"
+                src={data.image.src}
+                alt={data.image.alt}
                 width={1000}
                 height={1000}
                 className="relative z-10 max-w-[560px]"

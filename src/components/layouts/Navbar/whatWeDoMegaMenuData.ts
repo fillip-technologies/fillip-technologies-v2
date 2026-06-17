@@ -38,16 +38,19 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Enterprise Mobile Applications",
-          href: "/mobile-app-development",
+          href: "/mobile-app-development/enterprise",
         },
         {
           label: "E-Commerce Mobile Solutions",
+          href: "/mobile-app-development/ecommerce",
         },
         {
           label: "On-Demand Service Applications",
+          href: "/mobile-app-development/on-demand",
         },
         {
           label: "Business Process Automation Apps",
+          href: "/mobile-app-development/business-automation",
         },
       ],
     }

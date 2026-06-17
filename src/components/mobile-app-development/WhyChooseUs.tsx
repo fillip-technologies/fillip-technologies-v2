@@ -1,41 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Clock3,
-  Smartphone,
-  ShieldCheck,
-  TrendingUp,
-} from "lucide-react";
+import type { MobileAppWhyChooseUsContent } from "@/data/mobile-app-development";
+import { mobileAppIcons } from "./icons";
 
-const reasons = [
-  {
-    icon: Clock3,
-    title: "Faster Customer Engagement",
-    description:
-      "Connect with users instantly through push notifications, personalized experiences, and real-time interactions.",
-  },
-  {
-    icon: Smartphone,
-    title: "Always Within Reach",
-    description:
-      "Keep your business accessible 24/7 with a mobile experience your customers can access anytime, anywhere.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Stronger Customer Loyalty",
-    description:
-      "Deliver seamless experiences that increase trust, encourage repeat usage, and strengthen long-term relationships.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scalable Business Growth",
-    description:
-      "Generate more leads, improve conversions, and unlock new revenue opportunities through mobile technology.",
-  },
-];
+type MobileAppWhyChooseUsProps = {
+  data: MobileAppWhyChooseUsContent;
+};
 
-export default function WhyChooseUs() {
+export default function MobileAppWhyChooseUs({ data }: MobileAppWhyChooseUsProps) {
   return (
     <section className="relative overflow-hidden py-24 lg:py-38">
       {/* Grid Background */}
@@ -59,8 +32,8 @@ export default function WhyChooseUs() {
           {/* LEFT IMAGE */}
           <div className="relative flex justify-center">
             <Image
-              src="/images/mobile-app-growth.png"
-              alt="Mobile App Development"
+              src={data.image.src}
+              alt={data.image.alt}
               width={700}
               height={700}
               className="w-full max-w-[600px] object-contain"
@@ -70,27 +43,25 @@ export default function WhyChooseUs() {
           {/* RIGHT CONTENT */}
           <div>
             <span className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">
-              WHY MOBILE APPS MATTER
+              {data.badge}
             </span>
 
             <h2 className="mt-6 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
-              Your Customers Expect Mobile.
+              {data.title}
               <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
                 {" "}
-                Your Competitors Already Deliver It.
+                {data.highlightedTitle}
               </span>
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Modern customers expect speed, convenience, and personalized
-              experiences. A powerful mobile app helps your business stay
-              connected, relevant, and competitive in a mobile-first world.
+              {data.description}
             </p>
 
             {/* Reasons */}
             <div className="mt-10 space-y-5">
-              {reasons.map((item, index) => {
-                const Icon = item.icon;
+              {data.reasons.map((item, index) => {
+                const Icon = mobileAppIcons[item.icon];
 
                 return (
                   <div
@@ -124,12 +95,11 @@ export default function WhyChooseUs() {
       {/* Bottom Quote */}
       <div className="mt-5 bg-gradient-to-r from-blue-50 via-white to-cyan-50 p-10 text-center">
         <p className="mx-auto max-w-5xl text-3xl font-bold leading-snug text-slate-900">
-          The question is no longer whether your business needs a mobile app.
-          It's how much growth you're missing without one.
+          {data.quote}
         </p>
 
         <p className="mt-4 text-lg text-slate-600">
-          Put your business directly into your customers' hands.
+          {data.quoteDescription}
         </p>
       </div>
     </section>
