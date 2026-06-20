@@ -15,7 +15,7 @@ import NeedGuidanceSection from "@/components/Cta/NeedGuidanceSection";
 import ClientListCTA from "@/components/Cta/ClientListCTA";
 import CaseStudies from "@/components/Home/CaseStudies";
 import HeroSection from "@/components/Home/HeroSection";
-
+import ServicesSection from "@/components/Home/ServicesSection";
 
 // Load a Home section's saved CMS content (falls back to registry defaults).
 function sectionContent(id: string) {
@@ -27,7 +27,7 @@ export default async function HomePage() {
     await Promise.all([
       sectionContent("hero"),
       sectionContent("trustedby"),
-      sectionContent("capabilities"),
+
       sectionContent("humanai"),
       sectionContent("industries"),
       sectionContent("clients"),
@@ -40,13 +40,14 @@ export default async function HomePage() {
 
       <HeroSection />
       <TrustBar />
+      <ServicesSection />
 
-      <CapabilitiesSection content={capabilities} />
+
       <NeedGuidanceSection />
       <HumanAISection content={humanai} />
       <IndustriesImpactSection content={industries} />
 
-      <OurClients content={clients} />
+      <OurClients />
       <ClientListCTA />
       <TestimonialsSection />
       <TechnologyEcosystem content={technology} />

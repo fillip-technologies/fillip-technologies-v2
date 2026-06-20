@@ -1,11 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import { ABOUT_MENU } from "./aboutMegaMenuData";
+import { AI_AUTOMATION_MENU } from "./aiAutomationMenuData";
 import { NAV_LINKS } from "./data";
 import { INDUSTRIES_MENU } from "./industriesMegaMenuData";
 import Logo from "./Logo";
 import MenuButton from "./MenuButton";
 import NavSubmenuLink from "./NavSubmenuLink";
-import { PLATFORMS_MENU } from "./platformsMegaMenuData";
 import { SOLUTIONS_MENU } from "./solutionsMegaMenuData";
 import type { MegaMenuItem, MobileDrawerProps } from "./types";
 import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
@@ -13,7 +13,7 @@ import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
 const SIMPLE_MOBILE_MENUS: Partial<Record<(typeof NAV_LINKS)[number], readonly (string | MegaMenuItem)[]>> = {
   About: ABOUT_MENU,
   Industries: INDUSTRIES_MENU,
-  Platforms: PLATFORMS_MENU,
+  "AI & Automation": AI_AUTOMATION_MENU,
   Solutions: SOLUTIONS_MENU,
 };
 

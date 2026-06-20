@@ -1,7 +1,10 @@
 export const ABOUT_MENU = [
   "Our Story",
 
-  "Portfolio",
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+  },
 
 
   "Our Culture",

@@ -143,7 +143,7 @@ function LogoRow({
     <div className="overflow-hidden">
       <div
         className={`flex w-max items-center gap-20 ${
-          reverse ? "animate-client-marquee-reverse" : "animate-client-marquee"
+          reverse ? "animate-marquee-reverse" : "animate-marquee"
         }`}
       >
         {[...logos, ...logos, ...logos].map((logo, index) => (

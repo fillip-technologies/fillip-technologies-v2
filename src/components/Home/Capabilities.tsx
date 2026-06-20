@@ -81,7 +81,7 @@ export default function CapabilitiesSection({ content: raw = {} }: { content?: R
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-surface py-24 lg:py-32"
+      className="relative overflow-hidden bg-surface py-22 lg:py-24"
     >
       {/* Background Mesh */}
 

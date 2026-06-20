@@ -72,6 +72,15 @@
   --color-body: var(--body);
   --color-surface: var(--surface);
   --color-navy: var(--navy);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-primary-glow: var(--primary-glow);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-dark: var(--surface-dark);
+  --color-border-strong: var(--border-strong);
+  --shadow-soft: 0 10px 30px rgb(7 47 55 / 0.08);
+  --shadow-elevated: 0 24px 60px rgb(7 47 55 / 0.14);
+  --shadow-glow: 0 28px 80px rgb(15 128 140 / 0.2);
 }
 
 :root {
@@ -225,6 +234,79 @@
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+}
+
+/* Ticket-booking editorial design system. Scoped to keep other pages unchanged. */
+.ticket-page {
+  --background: #f9fbfb;
+  --foreground: #102d34;
+  --primary: #075d6c;
+  --primary-foreground: #ffffff;
+  --primary-glow: #20b8c5;
+  --ink: #102d34;
+  --ink-muted: #687c81;
+  --surface: #f0f6f6;
+  --surface-elevated: #ffffff;
+  --surface-dark: #061b22;
+  --border: #dce8e8;
+  --border-strong: #bfd2d4;
+  background: var(--background);
+}
+
+.ticket-page .font-display {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.ticket-page .grid-bg {
+  background-image:
+    linear-gradient(rgb(7 93 108 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(7 93 108 / 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.ticket-page .surface-glass {
+  border: 1px solid rgb(191 210 212 / 0.72);
+  background: rgb(255 255 255 / 0.82);
+  box-shadow: 0 10px 30px rgb(7 47 55 / 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.ticket-page .text-gradient {
+  color: #087282;
+  background: linear-gradient(110deg, #075d6c, #18a8b7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ticket-page .hairline-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.ticket-page .glow-ring {
+  box-shadow:
+    0 0 0 1px rgb(32 184 197 / 0.08),
+    0 28px 70px rgb(7 93 108 / 0.16);
+}
+
+@keyframes ticket-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes ticket-float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.ticket-page .animate-float {
+  animation: ticket-float 5s ease-in-out infinite;
+}
+
+.ticket-page .animate-float-slow {
+  animation: ticket-float-slow 7s ease-in-out infinite;
 }
 
 .human-ai-text {

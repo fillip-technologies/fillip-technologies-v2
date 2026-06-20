@@ -10,7 +10,6 @@ export type MegaMenuGroup = {
 
 export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
   [
-
     {
       title: "Web Development",
       items: [
@@ -27,15 +26,26 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
           href: "/services/wordpress-development",
         },
         {
-          label: "Software Development",
-          href: "/services/software-development",
+          label: "Web Application Development",
+        },
+        {
+          label: "Website Redesign",
+        },
+        {
+          label: "Website Maintenance",
         },
       ],
     },
-
     {
       title: "Mobile App Development",
       items: [
+        {
+          label: "Android App Development",
+        },
+        {
+          label: "iOS App Development",
+        },
+        
         {
           label: "Enterprise Mobile Applications",
           href: "/mobile-app-development/enterprise",
@@ -44,87 +54,122 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
           label: "E-Commerce Mobile Solutions",
           href: "/mobile-app-development/ecommerce",
         },
-        {
-          label: "On-Demand Service Applications",
-          href: "/mobile-app-development/on-demand",
-        },
+       
         {
           label: "Business Process Automation Apps",
           href: "/mobile-app-development/business-automation",
         },
-      ],
-    }
-
-
-  ],
-  [
-    {
-      title: "Search Engine Optimization ",
-      items: [
         {
-          label: "Technical SEO",
-          href: "/technical-seo",
-        },
-
-        {
-          label: "Local SEO",
-        },
-        {
-          label: "Enterprise SEO",
-        },
-        {
-          label: "AI Search Optimization",
+          label: "App UI/UX Design",
         },
       ],
     },
-
+  ],
+  [
     {
-      title: "Performance Marketing",
+      title: "Software & Enterprise",
       items: [
         {
-          label: "Fb & Ig Ads Management",
-          href: "/performance-marketing",
+          label: "Software Development",
+          href: "/services/software-development",
         },
         {
-          label: "Google Ads Management",
+          label: "Custom Software Development",
         },
         {
-          label: "Youtube Ads Campaign",
+          label: "CRM Development",
         },
         {
-          label: "WhatsApp Ads Campaign",
+          label: "ERP Solutions",
+        },
+        {
+          label: "SaaS Product Development",
+        },
+
+        {
+          label: "API Integration",
         },
       ],
     },
-
-
-
-  ],
-  [
-
     {
       title: "Creative Experience Design",
       items: [
         {
-          label: "Graphics Designing ",
+          label: "UI/UX Designing",
+        },
+        {
+          label: "Product Design",
+        },
+        {
+          label: "Graphics Designing",
         },
         {
           label: "Logo Designing",
         },
         {
-          label: "UI/UX Designing",
+          label: "Brand Identity",
         },
         {
           label: "Motion & Video Design",
         },
       ],
     },
-
+  ],
+  [
     {
-      title: "Content Marketing",
+      title: "SEO & Performance Marketing",
+      items: [
+        {
+          label: "Technical SEO",
+          href: "/technical-seo",
+        },
+        {
+          label: "Local SEO",
+        },
+        {
+          label: "Enterprise SEO",
+        },
 
+        {
+          label: "Google Ads Management",
+        },
+        {
+          label: "Fb & Ig Ads Management",
+          href: "/performance-marketing",
+        },
+
+        {
+          label: "Youtube Ads Campaign",
+        },
+        {
+          label: "WhatsApp Ads Campaign",
+        },
+        {
+          label: "Lead Generation Campaigns",
+        },
+      ],
     },
 
+    {
+  title: "Challenges We Solve",
+  items: [
+    {
+      label: "My Website Doesn't Generate Leads",
+    },
+    {
+      label: "I Struggle to Generate Quality Leads",
+    },
+    {
+      label: "My Business Isn't Ranking on Google",
+    },
+    {
+      label: "I Have Low Organic Traffic",
+    },
+   
+    
+    
+  ],
+}
 
   ],
 ];

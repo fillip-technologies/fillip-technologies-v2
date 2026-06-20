@@ -4,13 +4,14 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NAV_LINKS } from "./data";
+import { AI_AUTOMATION_MENU } from "./aiAutomationMenuData";
 import AboutMegaMenu from "./AboutMegaMenu";
 import IndustriesMegaMenu from "./IndustriesMegaMenu";
 import Logo from "./Logo";
 import MobileDrawer from "./MobileDrawer";
 import MenuButton from "./MenuButton";
+import NavDropdownMenu from "./NavDropdownMenu";
 import NavLink from "./NavLink";
-import PlatformsMegaMenu from "./PlatformsMegaMenu";
 import SolutionsMegaMenu from "./SolutionsMegaMenu";
 import TalkButton from "./TalkButton";
 import WhatWeDoMegaMenu from "./WhatWeDoMegaMenu";
@@ -37,8 +38,8 @@ function DesktopNavItem({
     return <WhatWeDoMegaMenu panelTopClass={panelTopClass} variant={variant} />;
   }
 
-  if (label === "Platforms") {
-    return <PlatformsMegaMenu />;
+  if (label === "AI & Automation") {
+    return <NavDropdownMenu label="AI & Automation" items={AI_AUTOMATION_MENU} />;
   }
 
   if (label === "Solutions") {

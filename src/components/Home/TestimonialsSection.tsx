@@ -1,217 +1,191 @@
 "use client";
 
 import Image from "next/image";
-import { Star } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Quote,
+  Star,
+} from "lucide-react";
 
-type StatCard = {
-  type: "stat";
-  value: string;
-  label: string;
-  color: string;
-};
-
-type ReviewCard = {
-  type: "review";
-  name: string;
-  role: string;
-  image: string;
-  content: string;
-  color: string;
-};
-
-type ImageCard = {
-  type: "image";
-  image: string;
-};
-
-type TestimonialCard = StatCard | ReviewCard | ImageCard;
-
-const testimonialCards: TestimonialCard[] = [
+const testimonials = [
   {
-    type: "stat",
-    value: "4.8★",
-    label: "Google Rating",
-    color: "bg-[#EEF6FF]",
-  },
-  {
-    type: "review",
     name: "Sarah Johnson",
     role: "Marketing Director",
     image: "/images/background.png",
     content:
       "Fillip Technologies transformed our digital presence completely. The team delivered a modern website and strategic guidance that improved engagement and lead generation.",
-    color: "bg-[#F8FAFC]",
   },
   {
-    type: "review",
     name: "Michael Roberts",
     role: "Business Owner",
     image: "/images/background.png",
     content:
       "Professional, responsive, and highly skilled. The project was delivered on time and exceeded our expectations.",
-    color: "bg-[#FDF4FF]",
   },
   {
-    type: "stat",
-    value: "137+",
-    label: "Verified Reviews",
-    color: "bg-[#FEF9C3]",
-  },
-  {
-    type: "review",
     name: "Emily Carter",
     role: "Operations Head",
     image: "/images/background.png",
     content:
       "Their combination of design expertise and technical execution helped us launch faster and scale with confidence.",
-    color: "bg-[#ECFDF5]",
   },
   {
-    type: "image",
-    image: "/images/background.png",
-  },
-  {
-    type: "review",
     name: "James Walker",
     role: "Startup Founder",
     image: "/images/background.png",
     content:
       "From strategy to deployment, every stage was handled with clarity and professionalism.",
-    color: "bg-[#EEF6FF]",
   },
   {
-    type: "stat",
-    value: "98%",
-    label: "Client Satisfaction",
-    color: "bg-[#FCE7F3]",
-  },
-  {
-    type: "review",
     name: "Sophia Brown",
     role: "CEO",
     image: "/images/background.png",
     content:
       "One of the most reliable technology partners we've worked with. Great communication and measurable outcomes.",
-    color: "bg-[#F8FAFC]",
-  },
-  {
-    type: "image",
-    image: "/images/background.png",
-  },
-  {
-    type: "stat",
-    value: "3000+",
-    label: "Businesses Served",
-    color: "bg-[#ECFCCB]",
   },
 ];
 
 export default function TestimonialsSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    dragFree: true,
+  });
+
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
+
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
-        <div className="mb-20 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-[#0F6FFF]">
-            Client Testimonials
-          </p>
+    <section className="relative overflow-hidden bg-surface py-16 lg:py-20">
+      <div className="absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 opacity-70"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, color-mix(in srgb, var(--heading) 4.5%, transparent) 1px, transparent 1px),
+              linear-gradient(to bottom, color-mix(in srgb, var(--heading) 4.5%, transparent) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="absolute -left-24 top-16 h-[420px] w-[420px] rounded-full bg-[var(--glow-primary)] opacity-55 blur-[120px]" />
+        <div className="absolute right-[-10%] top-24 h-[480px] w-[480px] rounded-full bg-[var(--glow-cyan)] opacity-50 blur-[130px]" />
+        <div className="absolute bottom-[-18%] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[var(--glow-accent)] opacity-35 blur-[140px]" />
+      </div>
 
-          <h2 className="text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]">
-            <span className="text-slate-900">
-              Real Reviews.
-            </span>
-            <br />
-            <span className="highlight-text">
-              Real Business Outcomes.
-            </span>
-          </h2>
+      <div className="mx-auto max-w-[1540px] px-4 sm:px-6">
+        {/* Main Layout */}
+        <div className="grid gap-10 lg:grid-cols-[330px_1fr] lg:items-center">
+          {/* Left Content */}
+          <div className="flex flex-col justify-center">
+            <Quote
+              size={92}
+              strokeWidth={1.35}
+              className="mb-8 text-slate-300"
+            />
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Trusted by businesses across industries. Every review reflects
-            real-world impact, measurable growth, and long-term partnerships.
-          </p>
-        </div>
+            <h2 className="text-[42px] font-semibold leading-[1.28] tracking-[-0.03em] text-slate-950 lg:text-[44px]">
+              What our
+              <br />
+              customers are
+              <br />
+              saying
+            </h2>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 gap-5 md:columns-2 xl:columns-4">
-          {testimonialCards.map((card, index) => {
-            if (card.type === "stat") {
-              return (
-                <div
-                  key={index}
-                  className={`mb-5 break-inside-avoid rounded-[28px] p-8 ${card.color}`}
-                >
-                  <div className="text-5xl font-bold text-slate-900">
-                    {card.value}
-                  </div>
+            <div className="mt-10 flex items-center gap-3">
+              <span className="text-xl font-medium text-slate-800">
+                4.8/5
+              </span>
 
-                  <div className="mt-3 text-slate-600">
-                    {card.label}
-                  </div>
-                </div>
-              );
-            }
-
-            if (card.type === "image") {
-              return (
-                <div
-                  key={index}
-                  className="mb-5 break-inside-avoid overflow-hidden rounded-[28px]"
-                >
-                  <Image
-                    src={card.image}
-                    alt="Client success story"
-                    width={600}
-                    height={700}
-                    className="h-full w-full object-cover"
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={18}
+                    className="fill-yellow-400 text-yellow-400"
                   />
-                </div>
-              );
-            }
-
-            // Here card is automatically narrowed to ReviewCard
-            return (
-              <div
-                key={index}
-                className={`mb-5 break-inside-avoid rounded-[28px] p-7 ${card.color}`}
-              >
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className="fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-
-                <p className="mt-5 text-base leading-relaxed text-slate-700">
-                  &quot;{card.content}&quot;
-                </p>
-
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="relative h-12 w-12 overflow-hidden rounded-full">
-                    <Image
-                      src={card.image}
-                      alt={card.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="font-semibold text-slate-900">
-                      {card.name}
-                    </div>
-
-                    <div className="text-sm text-slate-500">
-                      {card.role}
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-            );
-          })}
+            </div>
+
+            <p className="mt-3 text-base text-slate-500">
+              Based on 5,210+ reviews
+            </p>
+
+            {/* Navigation */}
+            <div className="mt-12 flex items-center gap-4">
+              <button
+                onClick={scrollPrev}
+                aria-label="Previous testimonial"
+                className="group flex h-14 w-14 items-center justify-center rounded-full border border-slate-200 bg-white transition-all duration-300 hover:border-slate-300 hover:bg-slate-950"
+              >
+                <ChevronLeft className="h-5 w-5 text-slate-800 group-hover:text-white" />
+              </button>
+
+              <div className="h-px w-24 bg-slate-300" />
+
+              <button
+                onClick={scrollNext}
+                aria-label="Next testimonial"
+                className="group flex h-14 w-14 items-center justify-center rounded-full border border-slate-200 bg-white transition-all duration-300 hover:border-slate-300 hover:bg-slate-950"
+              >
+                <ChevronRight className="h-5 w-5 text-slate-800 group-hover:text-white" />
+              </button>
+            </div>
+          </div>
+
+          {/* Slider */}
+          <div
+            ref={emblaRef}
+            className="overflow-hidden cursor-grab active:cursor-grabbing"
+          >
+            <div className="flex gap-6">
+              {testimonials.map((item, index) => (
+                <div
+                  key={index}
+                  className="min-w-[min(340px,calc(100vw-48px))] flex-[0_0_auto] md:min-w-[360px] lg:min-w-0 lg:basis-[calc((100%_-_48px)/3)]"
+                >
+                  <div className="flex h-[418px] flex-col rounded-[24px] border border-card/70 bg-card/78 px-7 py-8 shadow-[0_18px_45px_color-mix(in_srgb,var(--heading)_7%,transparent)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_color-mix(in_srgb,var(--heading)_10%,transparent)]">
+                    <p className="text-[16px] leading-7 text-slate-600">
+                      {item.content}
+                    </p>
+
+                    <div className="mt-auto flex gap-1.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={18}
+                          className="fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+
+                    <div className="mt-7 flex items-center gap-4 border-t border-slate-100 pt-8">
+                      <div className="relative h-14 w-14 overflow-hidden rounded-full bg-slate-100">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold text-slate-950">
+                          {item.name}
+                        </h4>
+
+                        <p className="mt-1 text-base text-slate-500">
+                          {item.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

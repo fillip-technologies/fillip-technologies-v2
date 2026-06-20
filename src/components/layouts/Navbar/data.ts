@@ -2,7 +2,7 @@ export const NAV_LINKS = [
   "About",
   "Industries",
   "What We Do",
-  "Platforms",
+  "AI & Automation",
   "Solutions",
   "Contact",
 ] as const;

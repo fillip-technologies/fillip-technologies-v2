@@ -53,6 +53,15 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
   return (
     <section className="relative overflow-hidden py-20">
       <Image
+        src="/images/AI-BACK.png"
+        alt=""
+        width={1024}
+        height={1024}
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 -top-24 z-0 w-[min(72vw,520px)] rotate-[28deg] opacity-25 blur-[1px] [mask-image:radial-gradient(circle_at_42%_55%,black_0%,black_42%,transparent_78%)]"
+      />
+
+      <Image
         src="/images/ai.png"
         alt=""
         width={1536}
@@ -66,7 +75,7 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
             {c.eyebrow}
           </p>
 
-          <h2 className="text-heading text-3xl font-semibold text-center">
+          <h2 className="text-heading text-5xl font-semibold text-center">
             {c.heading}
           </h2>
 

@@ -4,7 +4,10 @@ export const SOLUTIONS_MENU = [
     href: "/ticket-booking",
   },
 
-  "WhatsApp Business Solutions",
+  {
+    label: "WhatsApp Business Solutions",
+    href: "/messenger",
+  },
   "SMS Communication Solutions",
 
 ] as const;
