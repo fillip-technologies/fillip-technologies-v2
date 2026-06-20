@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import type { Service } from "@/data/services";
+import type { Service } from "@/data/website-development";
 
 const images = [
   "/images/patna-zoo.png",

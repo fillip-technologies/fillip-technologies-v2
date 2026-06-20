@@ -6,7 +6,7 @@ import {
   Search,
   ShieldCheck,
 } from "lucide-react";
-import type { Service } from "@/data/services";
+import type { Service } from "@/data/website-development";
 
 const stats = [
   {

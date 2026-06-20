@@ -10,22 +10,22 @@ import TrustBar from "../TrustBar/TrustBar";
 import WebsiteAuditCTA from "../Cta/WebsiteAuditCTA";
 import OurClients from "../Home/OurClients";
 
-import type { Service } from "@/data/services";
+import type { Service } from "@/data/website-development";
 
 type ServicePageProps = {
-  service: Service;
+  data: Service;
 };
 
-export default function ServicePage({ service }: ServicePageProps) {
+export default function ServicePage({ data }: ServicePageProps) {
   return (
     <>
-      <HeroSection key={`${service.slug}-hero`} data={service.hero} />
+      <HeroSection key={`${data.slug}-hero`} data={data.hero} />
 
       <TrustedBrandsSection />
 
       <WhyMostWebsitesUnderperform
-        key={`${service.slug}-challenges`}
-        data={service.challenges}
+        key={`${data.slug}-challenges`}
+        data={data.challenges}
       />
 
       <WebsiteAuditCTA />
@@ -35,8 +35,8 @@ export default function ServicePage({ service }: ServicePageProps) {
       <OurClients />
 
       <DevelopmentProcessTimeline
-        key={`${service.slug}-process`}
-        data={service.process}
+        key={`${data.slug}-process`}
+        data={data.process}
       />
 
 

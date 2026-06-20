@@ -1,8 +1,6 @@
 import ServicePage from "@/components/services/ServicePage";
-import { getServiceBySlug } from "@/data/services";
+import { softwareDevelopmentContent } from "@/data/website-development";
 
 export default function SoftwareDevelopmentPage() {
-  const service = getServiceBySlug("software-development");
-
-  return service ? <ServicePage service={service} /> : null;
+  return <ServicePage data={softwareDevelopmentContent} />;
 }

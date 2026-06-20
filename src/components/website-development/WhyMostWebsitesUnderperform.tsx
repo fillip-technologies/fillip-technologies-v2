@@ -10,7 +10,7 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
-import type { Service } from "@/data/services";
+import type { Service } from "@/data/website-development";
 
 const challenges = [
   {

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { Service } from "@/data/services";
+import type { Service } from "@/data/website-development";
 
 const processSteps = [
   {

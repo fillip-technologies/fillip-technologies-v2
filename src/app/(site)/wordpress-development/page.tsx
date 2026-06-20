@@ -1,8 +1,6 @@
 import ServicePage from "@/components/services/ServicePage";
-import { getServiceBySlug } from "@/data/services";
+import { wordpressDevelopmentContent } from "@/data/website-development";
 
 export default function WordpressDevelopmentPage() {
-  const service = getServiceBySlug("wordpress-development");
-
-  return service ? <ServicePage service={service} /> : null;
+  return <ServicePage data={wordpressDevelopmentContent} />;
 }

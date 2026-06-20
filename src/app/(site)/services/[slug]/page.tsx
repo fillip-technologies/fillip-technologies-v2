@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import ServicePage from "@/components/services/ServicePage";
-import { getServiceBySlug, services } from "@/data/services";
+import { getServiceBySlug, services } from "@/data/website-development";
 
 export function generateStaticParams() {
   return services.map((service) => ({
@@ -20,5 +20,5 @@ export default async function ServiceSlugPage({
     notFound();
   }
 
-  return <ServicePage service={service} />;
+  return <ServicePage data={service} />;
 }
