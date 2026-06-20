@@ -1,0 +1,43 @@
+{
+  "slug": "lead-generation-campaigns",
+  "enabled": true,
+  "serviceKey": "performance-marketing",
+  "seo": {
+    "title": "Lead Generation Campaigns | Fillip Technologies",
+    "description": "Performance-focused lead generation campaigns designed to attract qualified prospects and improve conversion efficiency.",
+    "canonical": "/lead-generation-campaigns",
+    "openGraph": { "title": "Lead Generation Campaigns", "description": "Generate qualified business leads through measurable digital campaigns.", "image": "/images/seo-magnifier.png" },
+    "robots": { "index": true, "follow": true }
+  },
+  "content": {
+    "hero": {
+      "title": "Build your pipeline with",
+      "highlightedTitle": "Lead Generation",
+      "suffix": "Campaigns",
+      "description": "Attract qualified prospects and convert campaign traffic into measurable sales opportunities.",
+      "cta": "Plan Your Campaign",
+      "metricValue": "Leads",
+      "metricLabel": "Campaigns focused on quality and conversion efficiency",
+      "image": { "src": "/images/seo-magnifier.png", "alt": "Lead generation campaigns" }
+    },
+    "philosophy": {
+      "badge": "OUR LEAD GENERATION PHILOSOPHY", "title": "Generate Better Leads.", "highlightedTitle": "Not Just More Leads.", "lead": "High lead volume has little value when prospects are not qualified.", "support": "We optimize campaigns around relevance, intent, and sales potential.", "description": "Effective lead generation connects precise targeting, compelling offers, focused landing pages, reliable tracking, and continuous sales feedback.", "caption": "Lead quality matters more than volume", "metrics": [{ "label": "Qualified Leads", "value": "+58%" }, { "label": "Lead-to-Sale Rate", "value": "+37%" }]
+    },
+    "workflow": {
+      "badge": "HOW LEAD GENERATION WORKS", "title": "From Campaign Click to", "highlightedTitle": "Sales Opportunity.", "description": "We connect targeting, offers, landing pages, qualification, and reporting into one measurable acquisition process.", "steps": [
+        { "title": "Audience & Offer Strategy", "description": "We define ideal prospects, campaign channels, offers, qualification rules, and conversion goals.", "image": "/images/research-mockup.png", "alt": "Lead generation research" },
+        { "title": "Launch & Capture Leads", "description": "We launch campaigns with focused landing experiences, forms, tracking, and CRM-ready lead capture.", "image": "/images/launch-mockup.png", "alt": "Lead generation campaign launch", "cta": "Launch Lead Campaign" },
+        { "title": "Qualify & Scale", "description": "We use campaign and sales feedback to improve lead quality and scale the strongest sources.", "image": "/images/scale-mockup.png", "alt": "Lead generation scaling" }
+      ]
+    },
+    "results": {
+      "badge": "LEAD GENERATION RESULTS", "title": "Pipeline Growth You Can", "highlightedTitle": "Measure Clearly.", "description": "We focus on qualified leads, efficient acquisition costs, stronger conversion rates, and meaningful sales opportunities.", "image": { "src": "/images/results-dashboard.png", "alt": "Lead generation results dashboard" }, "metrics": [{ "label": "Qualified Leads", "value": "+58%" }, { "label": "Lead-to-Sale Rate", "value": "+37%" }, { "label": "Cost Per Lead", "value": "-29%" }, { "label": "Sales Pipeline", "value": "+84%" }]
+    }
+  },
+  "faq": {
+    "badge": "LEAD GENERATION FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about digital lead generation campaigns.",
+    "items": [{ "question": "How do you measure lead quality?", "answer": "We align campaign targeting and conversion tracking with your qualification criteria, then optimize using lead quality and sales feedback." }]
+  }
+}

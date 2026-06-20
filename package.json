@@ -10,6 +10,7 @@
     "db:migrate": "node --env-file-if-exists=.env --env-file-if-exists=.env.local src/server/db/migrate.ts"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@hookform/resolvers": "^5.4.0",
     "axios": "^1.16.1",
     "bcryptjs": "^3.0.3",

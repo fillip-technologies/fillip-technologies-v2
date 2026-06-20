@@ -1,0 +1,6 @@
+{
+  "slug": "aichatbots", "serviceKey": "ai-automation", "enabled": true,
+  "seo": { "title": "AI Chatbot Development | Fillip Technologies", "description": "Custom AI chatbots for lead generation, support, booking, and workflow automation.", "canonical": "/aichatbots", "openGraph": { "title": "AI Chatbot Development", "description": "Intelligent chatbots built around your business.", "image": "/images/tilt.png" }, "robots": { "index": true, "follow": true } },
+  "content": {},
+  "faq": { "badge": "AI CHATBOT FAQS", "title": "Frequently Asked Questions", "description": "Common questions about AI chatbot development.", "items": [{ "question": "Can an AI chatbot connect with our CRM?", "answer": "Yes. We can connect supported CRMs, APIs, websites, and messaging platforms." }] }
+}

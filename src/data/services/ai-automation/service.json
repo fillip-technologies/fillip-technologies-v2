@@ -1,0 +1,7 @@
+{
+  "serviceKey": "ai-automation",
+  "name": "AI and Automation",
+  "templateKey": "ai-automation",
+  "defaultsFile": "defaults.json",
+  "enabled": true
+}

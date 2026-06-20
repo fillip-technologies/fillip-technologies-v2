@@ -1,0 +1,43 @@
+{
+  "slug": "youtube-ads-campaign",
+  "enabled": true,
+  "serviceKey": "performance-marketing",
+  "seo": {
+    "title": "YouTube Ads Campaign Management | Fillip Technologies",
+    "description": "YouTube advertising campaigns designed to build awareness, reach relevant audiences, and generate conversions.",
+    "canonical": "/youtube-ads-campaign",
+    "openGraph": { "title": "YouTube Ads Campaign Management", "description": "Strategic YouTube advertising for awareness and conversions.", "image": "/images/tilt.png" },
+    "robots": { "index": true, "follow": true }
+  },
+  "content": {
+    "hero": {
+      "title": "Reach more customers with",
+      "highlightedTitle": "YouTube Ads",
+      "suffix": "Campaigns",
+      "description": "Turn video attention into measurable business outcomes with targeted YouTube advertising campaigns.",
+      "cta": "Launch Your Campaign",
+      "metricValue": "Video",
+      "metricLabel": "Audience targeting built around your campaign goals",
+      "image": { "src": "/images/tilt.png", "alt": "YouTube advertising campaigns" }
+    },
+    "philosophy": {
+      "badge": "OUR YOUTUBE ADS PHILOSOPHY", "title": "Earn Attention.", "highlightedTitle": "Create Action.", "lead": "Video views matter only when they support a clear business goal.", "support": "We connect creative storytelling with measurable campaign outcomes.", "description": "Effective YouTube campaigns combine audience insight, strong opening moments, relevant offers, frequency control, and conversion measurement.", "caption": "Creative attention should lead to action", "metrics": [{ "label": "Video Engagement", "value": "+74%" }, { "label": "View Rate", "value": "38%" }]
+    },
+    "workflow": {
+      "badge": "HOW YOUTUBE ADS WORK", "title": "From Audience Insight to", "highlightedTitle": "Video Performance.", "description": "We align video creative, targeting, placements, and measurement with your campaign objective.", "steps": [
+        { "title": "Audience & Creative Strategy", "description": "We define audiences, messages, video formats, offers, and measurable campaign goals.", "image": "/images/research-mockup.png", "alt": "YouTube audience strategy" },
+        { "title": "Campaign Launch", "description": "We configure formats, targeting, placements, budgets, and conversion measurement.", "image": "/images/launch-mockup.png", "alt": "YouTube campaign launch", "cta": "Launch YouTube Ads" },
+        { "title": "Test & Scale", "description": "We test creative variations, audiences, frequency, and bids to improve results.", "image": "/images/scale-mockup.png", "alt": "YouTube campaign scaling" }
+      ]
+    },
+    "results": {
+      "badge": "YOUTUBE ADS RESULTS", "title": "Video Impact You Can", "highlightedTitle": "Track and Optimize.", "description": "We focus on meaningful reach, engagement, assisted conversions, and efficient customer acquisition.", "image": { "src": "/images/results-dashboard.png", "alt": "YouTube Ads results dashboard" }, "metrics": [{ "label": "Video Engagement", "value": "+74%" }, { "label": "View Rate", "value": "38%" }, { "label": "Cost Per View", "value": "-26%" }, { "label": "Assisted Conversions", "value": "+51%" }]
+    }
+  },
+  "faq": {
+    "badge": "YOUTUBE ADS FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about YouTube advertising campaigns.",
+    "items": [{ "question": "Can YouTube Ads generate leads?", "answer": "Yes. With the right targeting, creative, landing page, and measurement setup, YouTube campaigns can support both awareness and lead generation." }]
+  }
+}

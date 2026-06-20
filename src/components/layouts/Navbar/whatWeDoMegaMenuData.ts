@@ -132,6 +132,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
 
         {
           label: "Google Ads Management",
+          href: "/google-ads-management",
         },
         {
           label: "Fb & Ig Ads Management",
@@ -140,12 +141,15 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
 
         {
           label: "Youtube Ads Campaign",
+          href: "/youtube-ads-campaign",
         },
         {
           label: "WhatsApp Ads Campaign",
+          href: "/whatsapp-ads-campaign",
         },
         {
           label: "Lead Generation Campaigns",
+          href: "/lead-generation-campaigns",
         },
       ],
     },

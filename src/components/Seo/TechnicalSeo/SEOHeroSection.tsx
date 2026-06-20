@@ -2,8 +2,13 @@
 
 import Image from "next/image";
 import { Search, ArrowRight } from "lucide-react";
+import type { TechnicalSeoHeroContent } from "@/lib/service-content/types";
 
-export default function SEOHeroSection() {
+type SEOHeroSectionProps = {
+    data?: TechnicalSeoHeroContent;
+};
+
+export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
     return (
         <section className="relative overflow-hidden pt-32 pb-24">
             {/* Grid Background */}
@@ -39,25 +44,40 @@ export default function SEOHeroSection() {
                     {/* Left */}
                     <div>
                         <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
-                            SEO SERVICES
+                            {data?.badge ?? "SEO SERVICES"}
                         </span>
 
                         <h1 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-slate-900 md:text-7xl">
-                            Let{" "}
-                            <span>
-                                <span className="text-[#4285F4]">G</span>
-                                <span className="text-[#EA4335]">o</span>
-                                <span className="text-[#FBBC05]">o</span>
-                                <span className="text-[#4285F4]">g</span>
-                                <span className="text-[#34A853]">l</span>
-                                <span className="text-[#EA4335]">e</span>
-                            </span>{" "}
-                            Find Your Business.
+                            {data ? (
+                                <>
+                                    {data.title}{" "}
+                                    <span className="text-blue-600">
+                                        {data.highlightedTitle}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    Let{" "}
+                                    <span>
+                                        <span className="text-[#4285F4]">G</span>
+                                        <span className="text-[#EA4335]">o</span>
+                                        <span className="text-[#FBBC05]">o</span>
+                                        <span className="text-[#4285F4]">g</span>
+                                        <span className="text-[#34A853]">l</span>
+                                        <span className="text-[#EA4335]">e</span>
+                                    </span>{" "}
+                                    Find Your Business.
+                                </>
+                            )}
                         </h1>
 
                         <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                            Increase visibility, attract qualified traffic, and generate
-                            consistent leads through data-driven SEO strategies.
+                            {data?.description ?? (
+                                <>
+                                    Increase visibility, attract qualified traffic, and generate
+                                    consistent leads through data-driven SEO strategies.
+                                </>
+                            )}
                         </p>
 
                         {/* Search Bar */}
@@ -65,7 +85,7 @@ export default function SEOHeroSection() {
                             <Search className="h-5 w-5 text-slate-400" />
 
                             <span className="ml-4 text-slate-700">
-                                Best SEO Agency Near Me
+                                {data?.searchText ?? "Best SEO Agency Near Me"}
                             </span>
 
                             <div className="ml-auto h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center">
@@ -76,12 +96,12 @@ export default function SEOHeroSection() {
                         {/* CTA */}
                         <div className="mt-10 flex flex-wrap gap-4">
                             <button className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-4 font-semibold text-white transition hover:bg-blue-700">
-                                Get Free SEO Audit
+                                {data?.primaryCta ?? "Get Free SEO Audit"}
                                 <ArrowRight className="h-4 w-4" />
                             </button>
 
                             <button className="rounded-full border border-slate-200 bg-white px-7 py-4 font-semibold text-slate-900">
-                                View Case Studies
+                                {data?.secondaryCta ?? "View Case Studies"}
                             </button>
                         </div>
 
@@ -102,8 +122,8 @@ export default function SEOHeroSection() {
 
                         {/* SEO Image */}
                         <Image
-                            src="/images/seo-magnifier.png"
-                            alt="SEO Illustration"
+                            src={data?.image.src ?? "/images/seo-magnifier.png"}
+                            alt={data?.image.alt ?? "SEO Illustration"}
                             width={650}
                             height={650}
                             className="relative z-10 max-w-[320px]"

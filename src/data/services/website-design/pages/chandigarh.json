@@ -1,0 +1,92 @@
+{
+  "slug": "website-design-company-in-chandigarh",
+  "serviceKey": "website-design",
+  "enabled": true,
+  "city": {
+    "name": "Chandigarh",
+    "state": "Chandigarh",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Website Design Company in Chandigarh | Fillip Technologies",
+    "description": "Professional website design and development services in Chandigarh focused on performance, user experience, lead generation, and scalable business growth.",
+    "canonical": "/website-design-company-in-chandigarh",
+    "openGraph": {
+      "title": "Website Design Company in Chandigarh",
+      "description": "Conversion-focused website design and development services for businesses in Chandigarh.",
+      "image": "/images/tilt.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Website Design Company in ",
+      "highlightedTitle": "Chandigarh",
+      "description": "Custom website design and development services for Chandigarh businesses that want to attract customers, generate qualified leads, and grow online."
+    },
+    "challenges": {
+      "eyebrow": "Website Challenges for Chandigarh Businesses",
+      "title": "Your Website Should Do More Than",
+      "highlightedTitle": "Simply Look Good.",
+      "description": "Many businesses in Chandigarh rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
+      "secondaryDescription": "At Fillip Technologies, we build fast, discoverable, scalable websites designed around measurable business outcomes.",
+      "cta": "See How We Solve These Challenges",
+      "items": [
+        {
+          "title": "Slow Performance",
+          "description": "Slow pages create poor first impressions and cause potential customers to leave before they explore your services. Chandigarh's fast-paced business environment demands lightning-fast loading times."
+        },
+        {
+          "title": "Poor User Experience",
+          "description": "Unclear navigation and confusing layouts make it harder for visitors to understand your business and take action. Intuitive design is critical for Chandigarh's discerning and tech-savvy audience."
+        },
+        {
+          "title": "Low Conversion Rates",
+          "description": "Traffic has limited value when pages do not guide visitors toward calls, inquiries, bookings, or purchases. Every website should drive measurable business outcomes."
+        },
+        {
+          "title": "Limited Scalability",
+          "description": "Outdated platforms become difficult to manage as your content, services, integrations, and customer base grow. Future-proof your business with scalable solutions."
+        },
+        {
+          "title": "Weak Local SEO Visibility",
+          "description": "With Chandigarh being the capital of Punjab and Haryana and a major business hub in North India, businesses need websites that rank well locally and stand out in the competitive digital landscape."
+        }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "Website Design Chandigarh FAQs",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about website design and development services for businesses in Chandigarh.",
+    "items": [
+      {
+        "question": "How much does website design cost in Chandigarh?",
+        "answer": "The cost depends on the number of pages, required features, integrations, content needs, and overall project complexity. We provide a tailored estimate after understanding your requirements. Prices typically range from ₹20,000 to ₹3,50,000+ depending on project scope."
+      },
+      {
+        "question": "How long does it take to build a business website?",
+        "answer": "A typical business website can take 4-8 weeks from discovery to launch. Larger ecommerce or custom application projects may require 10-12 weeks or more. We provide realistic timelines during the consultation phase."
+      },
+      {
+        "question": "Will my website be mobile-friendly and SEO-ready?",
+        "answer": "Yes. We build responsive websites with performance, accessibility, technical SEO foundations, and clear content structure considered throughout development. All websites are mobile-first by design."
+      },
+      {
+        "question": "Can you redesign an existing website?",
+        "answer": "Yes. We can review your current website, retain what is working, and improve its design, structure, performance, usability, and conversion paths. We work with you to modernize your online presence without losing existing brand equity."
+      },
+      {
+        "question": "Do you offer website maintenance services?",
+        "answer": "Yes, we provide comprehensive website maintenance packages including security updates, backups, content updates, performance optimization, and technical support."
+      },
+      {
+        "question": "What industries do you serve in Chandigarh?",
+        "answer": "We serve businesses across all industries in Chandigarh including IT, education, healthcare, hospitality, real estate, retail, manufacturing, and professional services. Our experience spans diverse sectors."
+      }
+    ]
+  }
+}

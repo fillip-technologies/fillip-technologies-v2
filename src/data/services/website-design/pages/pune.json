@@ -1,0 +1,80 @@
+{
+  "slug": "website-design-company-in-pune",
+  "serviceKey": "website-design",
+  "enabled": true,
+  "city": {
+    "name": "Pune",
+    "state": "Maharashtra",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Website Design Company in Pune | Fillip Technologies",
+    "description": "Website design and development services in Pune focused on performance, user experience, lead generation, and scalable business growth.",
+    "canonical": "/website-design-company-in-pune",
+    "openGraph": {
+      "title": "Website Design Company in Pune",
+      "description": "Conversion-focused website design and development services for businesses in Pune.",
+      "image": "/images/tilt.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Website Design Company in ",
+      "highlightedTitle": "Pune",
+      "description": "Custom website design and development services for Pune businesses that want to attract customers, generate qualified leads, and grow online."
+    },
+    "challenges": {
+      "eyebrow": "Website Challenges for Pune Businesses",
+      "title": "Your Website Should Do More Than",
+      "highlightedTitle": "Simply Look Good.",
+      "description": "Many businesses in Pune rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
+      "secondaryDescription": "At Fillip Technologies, we build fast, discoverable, scalable websites designed around measurable business outcomes.",
+      "cta": "See How We Solve These Challenges",
+      "items": [
+        {
+          "title": "Slow Performance",
+          "description": "Slow pages create poor first impressions and cause potential customers to leave before they explore your services."
+        },
+        {
+          "title": "Poor User Experience",
+          "description": "Unclear navigation and confusing layouts make it harder for visitors to understand your business and take action."
+        },
+        {
+          "title": "Low Conversion Rates",
+          "description": "Traffic has limited value when pages do not guide visitors toward calls, inquiries, bookings, or purchases."
+        },
+        {
+          "title": "Limited Scalability",
+          "description": "Outdated platforms become difficult to manage as your content, services, integrations, and customer base grow."
+        }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "Website Design Pune FAQs",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about website design and development services for businesses in Pune.",
+    "items": [
+      {
+        "question": "How much does website design cost in Pune?",
+        "answer": "The cost depends on the number of pages, required features, integrations, content needs, and overall project complexity. We provide a tailored estimate after understanding your requirements."
+      },
+      {
+        "question": "How long does it take to build a business website?",
+        "answer": "A typical business website can take several weeks from discovery to launch. Larger ecommerce or custom application projects may require a longer delivery timeline."
+      },
+      {
+        "question": "Will my website be mobile-friendly and SEO-ready?",
+        "answer": "Yes. We build responsive websites with performance, accessibility, technical SEO foundations, and clear content structure considered throughout development."
+      },
+      {
+        "question": "Can you redesign an existing website?",
+        "answer": "Yes. We can review your current website, retain what is working, and improve its design, structure, performance, usability, and conversion paths."
+      }
+    ]
+  }
+}

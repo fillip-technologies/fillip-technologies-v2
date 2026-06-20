@@ -1,0 +1,118 @@
+{
+  "slug": "lead-generation-service-in-bangalore",
+  "enabled": true,
+  "serviceKey": "lead-generation",
+  "city": {
+    "name": "Bangalore",
+    "state": "Karnataka",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Lead Generation Service in Bangalore | Fillip Technologies",
+    "description": "Lead generation services in Bangalore designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
+    "canonical": "https://filliptechnologies.com/lead-generation-service-in-bangalore/",
+    "openGraph": {
+      "title": "Lead Generation Service in Bangalore",
+      "description": "Generate qualified business leads in Bangalore through measurable, performance-focused digital campaigns.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Build your pipeline with",
+      "highlightedTitle": "Lead Generation",
+      "suffix": "Services in Bangalore",
+      "description": "Attract qualified prospects in Bangalore and convert campaign traffic into measurable sales opportunities.",
+      "cta": "Plan Your Campaign",
+      "metricValue": "Leads",
+      "metricLabel": "Campaigns focused on quality and conversion efficiency",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Lead generation services in Bangalore"
+      }
+    },
+    "philosophy": {
+      "badge": "OUR LEAD GENERATION PHILOSOPHY",
+      "title": "Generate Better Leads.",
+      "highlightedTitle": "Not Just More Leads.",
+      "lead": "High lead volume has little value when prospects are not qualified.",
+      "support": "We optimize Bangalore campaigns around relevance, intent, and sales potential.",
+      "description": "Effective lead generation connects precise targeting, compelling offers, focused landing pages, reliable tracking, and continuous sales feedback.",
+      "caption": "Lead quality matters more than volume",
+      "metrics": [
+        { "label": "Qualified Leads", "value": "+58%" },
+        { "label": "Lead-to-Sale Rate", "value": "+37%" }
+      ]
+    },
+    "workflow": {
+      "badge": "HOW LEAD GENERATION WORKS",
+      "title": "From Campaign Click to",
+      "highlightedTitle": "Sales Opportunity.",
+      "description": "We connect targeting, offers, landing pages, qualification, and reporting into one measurable acquisition process.",
+      "steps": [
+        {
+          "title": "Audience & Offer Strategy",
+          "description": "We define ideal prospects in Bangalore, campaign channels, offers, qualification rules, and conversion goals.",
+          "image": "/images/research-mockup.png",
+          "alt": "Lead generation research in Bangalore"
+        },
+        {
+          "title": "Launch & Capture Leads",
+          "description": "We launch campaigns with focused landing experiences, forms, tracking, and CRM-ready lead capture.",
+          "image": "/images/launch-mockup.png",
+          "alt": "Lead generation campaign launch",
+          "cta": "Launch Lead Campaign"
+        },
+        {
+          "title": "Qualify & Scale",
+          "description": "We use campaign and sales feedback to improve lead quality and scale the strongest sources.",
+          "image": "/images/scale-mockup.png",
+          "alt": "Lead generation campaign scaling"
+        }
+      ]
+    },
+    "results": {
+      "badge": "LEAD GENERATION RESULTS",
+      "title": "Pipeline Growth You Can",
+      "highlightedTitle": "Measure Clearly.",
+      "description": "We focus on qualified leads, efficient acquisition costs, stronger conversion rates, and meaningful sales opportunities.",
+      "image": {
+        "src": "/images/results-dashboard.png",
+        "alt": "Lead generation results dashboard"
+      },
+      "metrics": [
+        { "label": "Qualified Leads", "value": "+58%" },
+        { "label": "Lead-to-Sale Rate", "value": "+37%" },
+        { "label": "Cost Per Lead", "value": "-29%" },
+        { "label": "Sales Pipeline", "value": "+84%" }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "LEAD GENERATION BANGALORE FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about lead generation services in Bangalore.",
+    "items": [
+      {
+        "question": "Which lead generation channels work for businesses in Bangalore?",
+        "answer": "The right mix depends on your audience and offer. Campaigns may use Google Ads, Meta Ads, landing pages, WhatsApp, remarketing, and other targeted digital channels."
+      },
+      {
+        "question": "How do you measure lead quality?",
+        "answer": "We align targeting and conversion tracking with your qualification criteria, then optimize campaigns using lead quality and sales feedback."
+      },
+      {
+        "question": "Can you connect campaign leads with our CRM?",
+        "answer": "Yes. We can plan lead capture and integration workflows for supported CRMs, email tools, spreadsheets, and other business systems."
+      },
+      {
+        "question": "How quickly can a lead generation campaign start?",
+        "answer": "Timelines depend on strategy, creative assets, landing pages, tracking, and approvals. We provide a launch plan after reviewing your requirements."
+      }
+    ]
+  }
+}

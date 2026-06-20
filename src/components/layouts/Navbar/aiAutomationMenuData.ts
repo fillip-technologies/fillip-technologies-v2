@@ -1,8 +1,8 @@
 export const AI_AUTOMATION_MENU = [
-  "AI Consulting",
+  { label: "AI Consulting", href: "/ai-consulting" },
   { label: "AI Chatbots", href: "/aichatbots" },
-  "AI Agent Development",
-  "AI + GPT Integration",
-  "Workflow Automation",
-  "Business Process Automation",
+  { label: "AI Agent Development", href: "/ai-agent-development" },
+  { label: "AI + GPT Integration", href: "/ai-gpt-integration" },
+  { label: "Workflow Automation", href: "/workflow-automation" },
+  { label: "Business Process Automation", href: "/business-process-automation" },
 ] as const;

@@ -1,0 +1,43 @@
+{
+  "slug": "google-ads-management",
+  "enabled": true,
+  "serviceKey": "performance-marketing",
+  "seo": {
+    "title": "Google Ads Management | Fillip Technologies",
+    "description": "Google Ads campaign management focused on qualified leads, conversions, and measurable return on ad spend.",
+    "canonical": "/google-ads-management",
+    "openGraph": { "title": "Google Ads Management", "description": "Conversion-focused Google Ads campaign management.", "image": "/images/seo-magnifier.png" },
+    "robots": { "index": true, "follow": true }
+  },
+  "content": {
+    "hero": {
+      "title": "Grow your business with",
+      "highlightedTitle": "Google Ads",
+      "suffix": "Management",
+      "description": "Reach high-intent customers and generate measurable leads through strategically managed Google Ads campaigns.",
+      "cta": "Plan Your Campaign",
+      "metricValue": "ROI",
+      "metricLabel": "Campaigns optimized for measurable business growth",
+      "image": { "src": "/images/seo-magnifier.png", "alt": "Google Ads management" }
+    },
+    "philosophy": {
+      "badge": "OUR GOOGLE ADS PHILOSOPHY", "title": "Capture Existing Demand.", "highlightedTitle": "Convert It Efficiently.", "lead": "More clicks do not automatically create more customers.", "support": "We optimize for qualified actions and profitable growth.", "description": "Successful Google Ads campaigns connect search intent, relevant messaging, landing pages, conversion tracking, and continuous bid optimization.", "caption": "Intent and relevance drive stronger returns", "metrics": [{ "label": "Conversion Rate", "value": "+42%" }, { "label": "Return on Ad Spend", "value": "4.1x" }]
+    },
+    "workflow": {
+      "badge": "HOW GOOGLE ADS WORK", "title": "From Search Intent to", "highlightedTitle": "Qualified Conversions.", "description": "We build campaigns around customer intent, measurable actions, and continuous performance improvement.", "steps": [
+        { "title": "Keyword & Competitor Research", "description": "We identify valuable searches, customer intent, competitors, and campaign opportunities.", "image": "/images/research-mockup.png", "alt": "Google Ads keyword research" },
+        { "title": "Campaign Build & Launch", "description": "We structure campaigns, write relevant ads, configure targeting, and validate conversion tracking.", "image": "/images/launch-mockup.png", "alt": "Google Ads campaign launch", "cta": "Launch Google Ads" },
+        { "title": "Optimize & Scale", "description": "We improve bids, search terms, ads, audiences, and budgets using conversion data.", "image": "/images/scale-mockup.png", "alt": "Google Ads campaign optimization" }
+      ]
+    },
+    "results": {
+      "badge": "GOOGLE ADS RESULTS", "title": "Performance You Can", "highlightedTitle": "Measure and Improve.", "description": "Campaign decisions focus on qualified conversions, efficient acquisition costs, and sustainable return on ad spend.", "image": { "src": "/images/results-dashboard.png", "alt": "Google Ads results dashboard" }, "metrics": [{ "label": "Qualified Conversions", "value": "+42%" }, { "label": "Average ROAS", "value": "4.1x" }, { "label": "Cost Per Conversion", "value": "-31%" }, { "label": "Conversion Value", "value": "+96%" }]
+    }
+  },
+  "faq": {
+    "badge": "GOOGLE ADS FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about Google Ads management.",
+    "items": [{ "question": "Which Google Ads campaigns do you manage?", "answer": "We manage Search, Display, Shopping, Performance Max, remarketing, and other campaign types based on your goals." }]
+  }
+}

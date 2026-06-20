@@ -1,0 +1,62 @@
+{
+  "slug": "mobile-app-development-company-in-faridabad",
+  "enabled": true,
+  "serviceKey": "mobile-app-development",
+  "city": {
+    "name": "Faridabad",
+    "state": "Haryana",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Mobile App Development Company in Faridabad | Fillip Technologies",
+    "description": "Mobile app development services in Faridabad for secure, scalable Android, iOS, and cross-platform business applications.",
+    "canonical": "/mobile-app-development-company-in-faridabad",
+    "openGraph": {
+      "title": "Mobile App Development Company in Faridabad",
+      "description": "Build secure, scalable mobile applications for your business with an experienced development team in Faridabad.",
+      "image": "/images/tilt.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Mobile App Development Company in",
+      "highlightedTitle": "Faridabad",
+      "description": "We build secure, scalable Android, iOS, and cross-platform mobile applications for businesses in Faridabad."
+    },
+    "challenges": {
+      "badge": "MOBILE APP CHALLENGES",
+      "title": "Mobile App Challenges",
+      "highlightedTitle": "We Solve in Faridabad",
+      "lead": "Successful mobile products need more than an attractive interface.",
+      "support": "We help businesses plan, build, launch, and improve mobile applications with confidence.",
+      "description": "From unclear product requirements to performance and scalability concerns, we solve the technical challenges that can prevent mobile applications from delivering lasting business value."
+    }
+  },
+  "faq": {
+    "badge": "Mobile App Development Faridabad FAQs",
+    "title": "Frequently Asked Questions About Mobile App Development in Faridabad",
+    "description": "Common questions businesses ask before starting a mobile application project in Faridabad.",
+    "items": [
+      {
+        "question": "How much does mobile app development cost in Faridabad?",
+        "answer": "The cost depends on the platforms, features, integrations, design requirements, security needs, and overall project scope. We provide a tailored estimate after reviewing your requirements."
+      },
+      {
+        "question": "Do you build applications for both Android and iOS?",
+        "answer": "Yes. We develop Android and iOS applications as well as cross-platform solutions when that approach best fits the product, budget, and delivery goals."
+      },
+      {
+        "question": "Can you integrate a mobile app with our existing systems?",
+        "answer": "Yes. We can connect mobile applications with APIs, CRMs, ERPs, payment gateways, inventory platforms, authentication services, and other business systems."
+      },
+      {
+        "question": "Do you provide support after the application launches?",
+        "answer": "Yes. We can provide maintenance, monitoring, security updates, performance improvements, bug fixes, and ongoing feature development after launch."
+      }
+    ]
+  }
+}

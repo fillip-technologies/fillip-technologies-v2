@@ -2,8 +2,13 @@
 
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import type { PerformanceMarketingHeroContent } from "@/lib/service-content/types";
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  data?: PerformanceMarketingHeroContent;
+};
+
+export default function HeroSection({ data }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden bg-white pt-28 ">
       {/* Grid Background */}
@@ -25,18 +30,22 @@ export default function HeroSection() {
         {/* Heading */}
         <div className="mx-auto max-w-5xl text-center mt-10">
           <h1 className="text-5xl font-bold leading-[1.1] text-slate-900 md:text-5xl lg:text-6xl">
-            Elevate your brand with
+            {data?.title ?? "Elevate your brand with"}
             <br />
             Elite{" "}
             <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
-              Meta Ads
+              {data?.highlightedTitle ?? "Meta Ads"}
             </span>{" "}
-            Expertise
+            {data?.suffix ?? "Expertise"}
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-            We help brands increase visibility, generate leads, and maximize
-            conversions through strategic Meta advertising campaigns.
+            {data?.description ?? (
+              <>
+                We help brands increase visibility, generate leads, and maximize
+                conversions through strategic Meta advertising campaigns.
+              </>
+            )}
           </p>
         </div>
 
@@ -46,7 +55,7 @@ export default function HeroSection() {
           {/* CTA */}
           <div className="absolute left-10 top-16 hidden lg:block z-20">
             <button className="group flex items-center gap-3 rounded-full bg-blue-50 px-5 py-3 font-medium text-blue-600">
-              Get Started Free
+              {data?.cta ?? "Get Started Free"}
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white transition group-hover:rotate-45">
                 <ArrowUpRight size={16} />
               </span>
@@ -56,11 +65,17 @@ export default function HeroSection() {
           {/* Trust Card */}
           <div className="absolute right-10 top-10 hidden lg:block z-20">
             <div>
-              <h3 className="text-5xl font-bold text-slate-900">2.3M+</h3>
+              <h3 className="text-5xl font-bold text-slate-900">
+                {data?.metricValue ?? "2.3M+"}
+              </h3>
               <p className="mt-2 text-sm text-slate-500">
-                Trusted by thousand of users
-                <br />
-                across 20+ citites
+                {data?.metricLabel ?? (
+                  <>
+                    Trusted by thousand of users
+                    <br />
+                    across 20+ citites
+                  </>
+                )}
               </p>
             </div>
           </div>
@@ -86,8 +101,8 @@ export default function HeroSection() {
           {/* Meta Logo */}
           <div className="absolute left-1/2 top-[20px] z-10 -translate-x-1/2">
             <Image
-              src="/images/meta.png"
-              alt="Meta"
+              src={data?.image.src ?? "/images/meta.png"}
+              alt={data?.image.alt ?? "Meta"}
               width={290}
               height={290}
               priority
@@ -95,6 +110,7 @@ export default function HeroSection() {
             />
           </div>
 
+          {!data ? <>
           {/* Facebook */}
           <div className="absolute left-20 top-[210px] rotate-[-18deg]  ">
             <Image
@@ -134,6 +150,7 @@ export default function HeroSection() {
               height={52}
             />
           </div>
+          </> : null}
 
           {/* Arrow Down */}
           <div className="absolute left-1/2 top-[390px] -translate-x-1/2 text-blue-500">

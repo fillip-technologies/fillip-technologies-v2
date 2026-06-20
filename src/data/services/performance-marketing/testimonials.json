@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Rajesh Mehta",
+    "role": "Director, Education Services",
+    "image": "/images/testimonials/client-1.jpg",
+    "review": "The campaign strategy helped us improve enquiry quality while giving our team much clearer visibility into advertising performance."
+  },
+  {
+    "name": "Priya Sharma",
+    "role": "Marketing Head, Healthcare Group",
+    "image": "/images/testimonials/client-2.jpg",
+    "review": "The team continuously optimized our campaigns and landing experience, resulting in more relevant leads and better conversion efficiency."
+  },
+  {
+    "name": "Amit Verma",
+    "role": "Founder, Ecommerce Brand",
+    "image": "/images/testimonials/client-3.jpg",
+    "review": "We received structured reporting, practical recommendations, and measurable improvements across our paid acquisition campaigns."
+  }
+]

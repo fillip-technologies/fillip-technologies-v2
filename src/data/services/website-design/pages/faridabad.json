@@ -1,0 +1,92 @@
+{
+  "slug": "website-design-company-in-faridabad",
+  "serviceKey": "website-design",
+  "enabled": true,
+  "city": {
+    "name": "Faridabad",
+    "state": "Haryana",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Website Design Company in Faridabad | Fillip Technologies",
+    "description": "Professional website design and development services in Faridabad focused on performance, user experience, lead generation, and scalable business growth.",
+    "canonical": "/website-design-company-in-faridabad",
+    "openGraph": {
+      "title": "Website Design Company in Faridabad",
+      "description": "Conversion-focused website design and development services for businesses in Faridabad.",
+      "image": "/images/tilt.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Website Design Company in ",
+      "highlightedTitle": "Faridabad",
+      "description": "Custom website design and development services for Faridabad businesses that want to attract customers, generate qualified leads, and grow online."
+    },
+    "challenges": {
+      "eyebrow": "Website Challenges for Faridabad Businesses",
+      "title": "Your Website Should Do More Than",
+      "highlightedTitle": "Simply Look Good.",
+      "description": "Many businesses in Faridabad rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
+      "secondaryDescription": "At Fillip Technologies, we build fast, discoverable, scalable websites designed around measurable business outcomes.",
+      "cta": "See How We Solve These Challenges",
+      "items": [
+        {
+          "title": "Slow Performance",
+          "description": "Slow pages create poor first impressions and cause potential customers to leave before they explore your services. Faridabad's competitive market demands lightning-fast loading times."
+        },
+        {
+          "title": "Poor User Experience",
+          "description": "Unclear navigation and confusing layouts make it harder for visitors to understand your business and take action. Mobile-first design is essential for local customers."
+        },
+        {
+          "title": "Low Conversion Rates",
+          "description": "Traffic has limited value when pages do not guide visitors toward calls, inquiries, bookings, or purchases. Every website should drive measurable business outcomes."
+        },
+        {
+          "title": "Limited Scalability",
+          "description": "Outdated platforms become difficult to manage as your content, services, integrations, and customer base grow. Future-proof your business with scalable solutions."
+        },
+        {
+          "title": "Poor Local SEO Visibility",
+          "description": "Even well-designed websites fail when they're not optimized for local search. Rank higher for 'website design in Faridabad' and related keywords."
+        }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "Website Design Faridabad FAQs",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about website design and development services for businesses in Faridabad.",
+    "items": [
+      {
+        "question": "How much does website design cost in Faridabad?",
+        "answer": "The cost depends on the number of pages, required features, integrations, content needs, and overall project complexity. We provide a tailored estimate after understanding your requirements. Prices typically range from ₹25,000 to ₹3,00,000+ depending on project scope."
+      },
+      {
+        "question": "How long does it take to build a business website?",
+        "answer": "A typical business website can take 4-8 weeks from discovery to launch. Larger ecommerce or custom application projects may require 10-12 weeks or more. We provide realistic timelines during the consultation phase."
+      },
+      {
+        "question": "Will my website be mobile-friendly and SEO-ready?",
+        "answer": "Yes. We build responsive websites with performance, accessibility, technical SEO foundations, and clear content structure considered throughout development. All websites are mobile-first by design."
+      },
+      {
+        "question": "Can you redesign an existing website?",
+        "answer": "Yes. We can review your current website, retain what is working, and improve its design, structure, performance, usability, and conversion paths. We work with you to modernize your online presence without losing existing brand equity."
+      },
+      {
+        "question": "Do you offer website maintenance services?",
+        "answer": "Yes, we provide comprehensive website maintenance packages including security updates, backups, content updates, performance optimization, and technical support."
+      },
+      {
+        "question": "How do I get started with a website design project in Faridabad?",
+        "answer": "Simply contact us through our website, call us, or schedule a consultation. We'll discuss your requirements, provide a proposal, and outline the project timeline."
+      }
+    ]
+  }
+}

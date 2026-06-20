@@ -1,0 +1,43 @@
+{
+  "slug": "whatsapp-ads-campaign",
+  "enabled": true,
+  "serviceKey": "performance-marketing",
+  "seo": {
+    "title": "WhatsApp Ads Campaign Management | Fillip Technologies",
+    "description": "Click-to-WhatsApp advertising campaigns that turn customer interest into direct business conversations.",
+    "canonical": "/whatsapp-ads-campaign",
+    "openGraph": { "title": "WhatsApp Ads Campaign Management", "description": "Generate direct customer conversations with Click-to-WhatsApp ads.", "image": "/images/whatsapp.png" },
+    "robots": { "index": true, "follow": true }
+  },
+  "content": {
+    "hero": {
+      "title": "Start more conversations with",
+      "highlightedTitle": "WhatsApp Ads",
+      "suffix": "Campaigns",
+      "description": "Connect interested customers directly with your business through targeted Click-to-WhatsApp advertising campaigns.",
+      "cta": "Start Generating Chats",
+      "metricValue": "1:1",
+      "metricLabel": "Direct conversations with interested customers",
+      "image": { "src": "/images/whatsapp.png", "alt": "WhatsApp advertising campaigns" }
+    },
+    "philosophy": {
+      "badge": "OUR WHATSAPP ADS PHILOSOPHY", "title": "Reduce Customer Friction.", "highlightedTitle": "Start Real Conversations.", "lead": "Interested customers should not struggle to contact your business.", "support": "We turn advertising attention into direct WhatsApp conversations.", "description": "Strong WhatsApp campaigns combine relevant targeting, clear offers, conversation-ready teams, quick responses, and lead-quality tracking.", "caption": "Fewer steps create more conversations", "metrics": [{ "label": "Qualified Chats", "value": "+63%" }, { "label": "Response Rate", "value": "82%" }]
+    },
+    "workflow": {
+      "badge": "HOW WHATSAPP ADS WORK", "title": "From Ad Click to", "highlightedTitle": "Customer Conversation.", "description": "We design the campaign and messaging journey around fast, useful conversations with interested customers.", "steps": [
+        { "title": "Offer & Audience Planning", "description": "We define the audience, offer, ad message, qualification criteria, and conversation flow.", "image": "/images/research-mockup.png", "alt": "WhatsApp advertising strategy" },
+        { "title": "Launch Click-to-WhatsApp Ads", "description": "We launch targeted ads with clear messages and reliable conversion tracking.", "image": "/images/launch-mockup.png", "alt": "WhatsApp ads launch", "cta": "Launch WhatsApp Ads" },
+        { "title": "Improve Chat Quality", "description": "We optimize audiences, creatives, offers, response times, and lead qualification using campaign data.", "image": "/images/scale-mockup.png", "alt": "WhatsApp lead optimization" }
+      ]
+    },
+    "results": {
+      "badge": "WHATSAPP ADS RESULTS", "title": "Conversations That Create", "highlightedTitle": "Business Opportunities.", "description": "We focus on qualified chats, response efficiency, lower conversation costs, and stronger lead-to-sale potential.", "image": { "src": "/images/results-dashboard.png", "alt": "WhatsApp Ads results dashboard" }, "metrics": [{ "label": "Qualified Chats", "value": "+63%" }, { "label": "Response Rate", "value": "82%" }, { "label": "Cost Per Chat", "value": "-34%" }, { "label": "Sales Opportunities", "value": "+48%" }]
+    }
+  },
+  "faq": {
+    "badge": "WHATSAPP ADS FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about WhatsApp advertising campaigns.",
+    "items": [{ "question": "How do Click-to-WhatsApp ads work?", "answer": "Customers click an ad on supported Meta platforms and are taken directly into a WhatsApp conversation with your business." }]
+  }
+}
