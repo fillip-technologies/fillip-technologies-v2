@@ -27,7 +27,7 @@ export default async function HomePage() {
     await Promise.all([
       sectionContent("hero"),
       sectionContent("trustedby"),
-
+      sectionContent("capabilities"),
       sectionContent("humanai"),
       sectionContent("industries"),
       sectionContent("clients"),

@@ -239,42 +239,38 @@
 /* Ticket-booking editorial design system. Scoped to keep other pages unchanged. */
 .ticket-page {
   --background: #f9fbfb;
-  --foreground: #102d34;
-  --primary: #075d6c;
+  --foreground: #0f172a;
+  --primary: #0242a2;
   --primary-foreground: #ffffff;
-  --primary-glow: #20b8c5;
-  --ink: #102d34;
-  --ink-muted: #687c81;
-  --surface: #f0f6f6;
+  --primary-glow: #38bdf8;
+  --ink: #0f172a;
+  --ink-muted: #64748b;
+  --surface: #f8fafc;
   --surface-elevated: #ffffff;
-  --surface-dark: #061b22;
-  --border: #dce8e8;
-  --border-strong: #bfd2d4;
+  --surface-dark: #081C2E;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
   background: var(--background);
-}
-
-.ticket-page .font-display {
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 .ticket-page .grid-bg {
   background-image:
-    linear-gradient(rgb(7 93 108 / 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(7 93 108 / 0.045) 1px, transparent 1px);
+    linear-gradient(rgb(2 66 162 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(2 66 162 / 0.045) 1px, transparent 1px);
   background-size: 34px 34px;
   mask-image: linear-gradient(to bottom, black, transparent 88%);
 }
 
 .ticket-page .surface-glass {
-  border: 1px solid rgb(191 210 212 / 0.72);
+  border: 1px solid rgb(203 213 225 / 0.72);
   background: rgb(255 255 255 / 0.82);
-  box-shadow: 0 10px 30px rgb(7 47 55 / 0.08);
+  box-shadow: 0 10px 30px rgb(15 23 42 / 0.08);
   backdrop-filter: blur(16px);
 }
 
 .ticket-page .text-gradient {
-  color: #087282;
-  background: linear-gradient(110deg, #075d6c, #18a8b7);
+  color: #0242a2;
+  background: linear-gradient(110deg, #0242a2, #38bdf8);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -287,8 +283,13 @@
 
 .ticket-page .glow-ring {
   box-shadow:
-    0 0 0 1px rgb(32 184 197 / 0.08),
-    0 28px 70px rgb(7 93 108 / 0.16);
+    0 0 0 1px rgb(56 189 248 / 0.08),
+    0 28px 70px rgb(2 66 162 / 0.16);
+}
+
+.ticket-page .animate-pulse-ring {
+  border: 1px solid rgb(56 189 248 / 0.32);
+  animation: ticket-pulse-ring 2.4s ease-out infinite;
 }
 
 @keyframes ticket-float {
@@ -299,6 +300,17 @@
 @keyframes ticket-float-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
+}
+
+@keyframes ticket-pulse-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
 }
 
 .ticket-page .animate-float {
