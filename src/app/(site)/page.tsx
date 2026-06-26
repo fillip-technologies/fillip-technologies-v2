@@ -23,7 +23,7 @@ function sectionContent(id: string) {
 }
 
 export default async function HomePage() {
-  const [hero, trustedBy, capabilities, humanai, industries, clients, technology, testimonials] =
+  const [hero, trustedBy, humanai, industries, clients, technology, testimonials] =
     await Promise.all([
       sectionContent("hero"),
       sectionContent("trustedby"),

@@ -1,5 +1,8 @@
 export const ABOUT_MENU = [
-  "Our Story",
+  {
+    label: "Our Story",
+    href: "/our-story",
+  },
 
   {
     label: "Portfolio",
@@ -7,6 +10,9 @@ export const ABOUT_MENU = [
   },
 
 
-  "Our Culture",
+  {
+    label: "Our Culture",
+    href: "/our-culture",
+  },
 
 ] as const;

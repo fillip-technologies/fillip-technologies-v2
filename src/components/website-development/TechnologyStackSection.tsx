@@ -1,57 +1,54 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 
 const integrations = [
   {
     label: "CMS & Ecommerce",
-    color: "bg-black",
+    bgColor: "bg-pink-50/40 dark:bg-pink-950/10 border-pink-100/60 dark:border-pink-900/20",
     tools: [
-      { name: "WordPress", logo: "/images/tech/wordpress.png" },
-      { name: "Shopify", logo: "/images/tech/shopify.png" },
-      { name: "WooCommerce", logo: "/images/tech/woocommerce.png" },
-      { name: "Strapi", logo: "/images/tech/strapi.png" },
-      { name: "Webflow", logo: "/images/tech/webflow.png" },
-      { name: "Contentful", logo: "/images/tech/contentful.png" },
+      { name: "WordPress", slug: "wordpress" },
+      { name: "Shopify", slug: "shopify" },
+      { name: "WooCommerce", slug: "woocommerce" },
+      { name: "Strapi", slug: "strapi" },
+      { name: "Webflow", slug: "webflow" },
+      { name: "Contentful", slug: "contentful" },
     ],
   },
-
   {
     label: "Payments",
-    color: "bg-blue-600",
+    bgColor: "bg-blue-50/40 dark:bg-blue-950/10 border-blue-100/60 dark:border-blue-900/20",
     tools: [
-      { name: "Stripe", logo: "/images/tech/stripe.png" },
-      { name: "PayPal", logo: "/images/tech/paypal.png" },
-      { name: "Razorpay", logo: "/images/tech/razorpay.png" },
-      { name: "Square", logo: "/images/tech/square.png" },
-      { name: "PayU", logo: "/images/tech/payu.png" },
-      { name: "Authorize.net", logo: "/images/tech/authorize.png" },
+      { name: "Stripe", slug: "stripe" },
+      { name: "PayPal", slug: "paypal" },
+      { name: "Razorpay", slug: "razorpay" },
+      { name: "Square", slug: "square" },
+      { name: "PayU", slug: "payu" },
+      { name: "Authorize.net", slug: "authorizenet" },
     ],
   },
-
   {
     label: "Marketing",
-    color: "bg-amber-500",
+    bgColor: "bg-amber-50/40 dark:bg-amber-950/10 border-amber-100/60 dark:border-amber-900/20",
     tools: [
-      { name: "HubSpot", logo: "/images/tech/hubspot.png" },
-      { name: "Mailchimp", logo: "/images/tech/mailchimp.png" },
-      { name: "Zapier", logo: "/images/tech/zapier.png" },
-      { name: "Google Analytics", logo: "/images/tech/ga4.png" },
-      { name: "Meta Pixel", logo: "/images/tech/meta.png" },
-      { name: "Hotjar", logo: "/images/tech/hotjar.png" },
+      { name: "HubSpot", slug: "hubspot" },
+      { name: "Mailchimp", slug: "mailchimp" },
+      { name: "Zapier", slug: "zapier" },
+      { name: "Google Analytics", slug: "googleanalytics" },
+      { name: "Meta Pixel", slug: "meta" },
+      { name: "Hotjar", slug: "hotjar" },
     ],
   },
-
   {
     label: "Cloud & DevOps",
-    color: "bg-emerald-600",
+    bgColor: "bg-emerald-50/40 dark:bg-emerald-950/10 border-emerald-100/60 dark:border-emerald-900/20",
     tools: [
-      { name: "AWS", logo: "/images/tech/aws.png" },
-      { name: "Vercel", logo: "/images/tech/vercel.png" },
-      { name: "Cloudflare", logo: "/images/tech/cloudflare.png" },
-      { name: "Docker", logo: "/images/tech/docker.png" },
-      { name: "Azure", logo: "/images/tech/azure.png" },
-      { name: "GitHub", logo: "/images/tech/github.png" },
+      { name: "AWS", slug: "amazonwebservices" },
+      { name: "Vercel", slug: "vercel" },
+      { name: "Cloudflare", slug: "cloudflare" },
+      { name: "Docker", slug: "docker" },
+      { name: "Azure", slug: "microsoftazure" },
+      { name: "GitHub", slug: "github" },
     ],
   },
 ];
@@ -60,26 +57,27 @@ export default function TechnologyStackSection() {
   return (
     <section className="relative overflow-hidden py-24 lg:py-32">
       {/* Background Glow */}
-      <div
-        className="absolute left-0 top-20 h-[400px] w-[400px] rounded-full blur-[120px]"
-        style={{ background: "var(--glow-primary)" }}
-      />
-
-      <div
-        className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full blur-[120px]"
-        style={{ background: "var(--glow-accent)" }}
-      />
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute left-0 top-20 h-[500px] w-[500px] rounded-full blur-[140px] opacity-40"
+          style={{ background: "var(--glow-primary)" }}
+        />
+        <div
+          className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full blur-[140px] opacity-40"
+          style={{ background: "var(--glow-accent)" }}
+        />
+      </div>
 
       <div className="container relative mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-slate-50 border border-slate-100 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--primary)] dark:bg-slate-900 dark:border-slate-800">
             TOOLS & PLATFORMS
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-6xl">
+          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
             Technologies We
-            <span className="highlight-text"> Work With</span>
+            <span className="text-[var(--primary)]"> Work With</span>
           </h2>
 
           <p className="mt-5 text-lg leading-relaxed text-[var(--body)]">
@@ -89,44 +87,38 @@ export default function TechnologyStackSection() {
           </p>
         </div>
 
-        {/* Integration Grid */}
-        <div className="mt-16 overflow-hidden rounded-[32px] border border-[var(--border)] bg-white shadow-[0_20px_80px_rgba(0,0,0,0.04)]">
-          {integrations.map((category, index) => (
+        {/* Integration Rows */}
+        <div className="mt-16 flex flex-col gap-6">
+          {integrations.map((category) => (
             <div
               key={category.label}
-              className={`grid lg:grid-cols-[240px_1fr] ${
-                index !== integrations.length - 1
-                  ? "border-b border-[var(--border)]"
-                  : ""
-              }`}
+              className={`flex flex-col lg:flex-row lg:items-center justify-between p-6 lg:p-8 rounded-3xl border ${category.bgColor} shadow-xs transition-all duration-300 hover:shadow-sm`}
             >
-              {/* Left Label */}
-              <div className="flex items-start p-6 lg:p-8">
-                <span
-                  className={`${category.color} rounded-full px-5 py-3 text-sm font-medium text-white`}
-                >
+              {/* Left Side: Category Label */}
+              <div className="lg:w-1/4 mb-5 lg:mb-0 shrink-0">
+                <h3 className="text-xl font-bold text-slate-850 dark:text-white">
                   {category.label}
-                </span>
+                </h3>
               </div>
 
-              {/* Tools */}
-              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+              {/* Right Side: Tools list as pill badges */}
+              <div className="flex flex-wrap gap-3 lg:w-3/4">
                 {category.tools.map((tool) => (
                   <div
                     key={tool.name}
-                    className="group flex flex-col items-center justify-center border-l border-[var(--border)] p-6 transition-all duration-300 hover:bg-slate-50"
+                    className="flex items-center gap-3 px-4.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 rounded-full shadow-xs hover:shadow-md hover:scale-[1.03] transition-all duration-300"
                   >
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm">
-                      <Image
-                        src={tool.logo}
+                    {/* Icon wrapper */}
+                    <div className="h-5 w-5 flex items-center justify-center shrink-0">
+                      <img
+                        src={`https://cdn.simpleicons.org/${tool.slug}`}
                         alt={tool.name}
-                        width={38}
-                        height={38}
-                        className="object-contain transition-transform duration-300 group-hover:scale-110"
+                        className="h-4.5 w-4.5 object-contain"
+                        loading="lazy"
                       />
                     </div>
 
-                    <span className="mt-4 text-center text-sm font-medium text-[var(--heading)]">
+                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-350">
                       {tool.name}
                     </span>
                   </div>
@@ -137,7 +129,7 @@ export default function TechnologyStackSection() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-10 rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8">
+        <div className="mt-12 rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <h3 className="text-xl font-semibold text-[var(--heading)]">
@@ -151,12 +143,12 @@ export default function TechnologyStackSection() {
               </p>
             </div>
 
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center justify-center rounded-full bg-[var(--primary)] px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-[1.02]"
             >
               Discuss Integration
-            </a>
+            </Link>
           </div>
         </div>
       </div>
