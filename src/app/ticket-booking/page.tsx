@@ -378,6 +378,18 @@ function WhatWeOffer() {
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface/60 py-24 lg:py-32">
       <div className="absolute right-0 top-0 h-[360px] w-[360px] rounded-full bg-[var(--glow-accent)] blur-[120px]" />
+      <Image
+        src="/images/ticket-booking-What.png"
+        alt=""
+        aria-hidden="true"
+        width={500}
+        height={500}
+        className="pointer-events-none absolute right-0 top-4 w-[260px] opacity-60 mix-blend-multiply sm:-top-16 sm:w-[360px] lg:-top-24 lg:w-[480px]"
+        style={{
+          maskImage: "radial-gradient(ellipse at top right, black 0%, black 32%, transparent 72%)",
+          WebkitMaskImage: "radial-gradient(ellipse at top right, black 0%, black 32%, transparent 72%)",
+        }}
+      />
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="What We Offer"
@@ -663,6 +675,18 @@ function HowItWorks() {
 
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface/60 py-28 lg:py-36">
+      <Image
+        src="/images/How-we-work.png"
+        alt=""
+        aria-hidden="true"
+        width={500}
+        height={500}
+        className="pointer-events-none absolute left-0 top-1/2 w-[260px] -translate-y-1/2 opacity-65 mix-blend-multiply sm:w-[360px] lg:w-[500px]"
+        style={{
+          maskImage: "radial-gradient(ellipse at center left, black 0%, black 30%, transparent 72%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center left, black 0%, black 30%, transparent 72%)",
+        }}
+      />
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="How It Works"

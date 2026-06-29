@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import MenuButton from "./MenuButton";
 import NavSubmenuLink from "./NavSubmenuLink";
 import { SOLUTIONS_MENU } from "./solutionsMegaMenuData";
+import type { SolutionMenuItem } from "./solutionsMegaMenuData";
 import type { MegaMenuItem, MobileDrawerProps } from "./types";
 import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
 
@@ -14,8 +15,53 @@ const SIMPLE_MOBILE_MENUS: Partial<Record<(typeof NAV_LINKS)[number], readonly (
   About: ABOUT_MENU,
   Industries: INDUSTRIES_MENU,
   "AI & Automation": AI_AUTOMATION_MENU,
-  Solutions: SOLUTIONS_MENU,
 };
+
+function MobileSolutionItems({
+  items,
+  closeDrawer,
+  depth = 0,
+}: {
+  items: SolutionMenuItem[];
+  closeDrawer: () => void;
+  depth?: number;
+}) {
+  return (
+    <div className={depth === 0 ? "space-y-2 pb-5" : "mt-2 space-y-2 pl-3"}>
+      {items.map((item) =>
+        item.children?.length ? (
+          <details key={item.label} className="group/solution">
+            <summary
+              className="
+                flex cursor-pointer list-none items-center justify-between py-1.5
+                text-sm font-medium leading-6 text-heading marker:content-none
+              "
+            >
+              <span>{item.label}</span>
+              <ChevronDown
+                size={16}
+                className="text-muted-foreground/70 transition-transform duration-200 group-open/solution:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            <MobileSolutionItems
+              items={item.children}
+              closeDrawer={closeDrawer}
+              depth={depth + 1}
+            />
+          </details>
+        ) : (
+          <NavSubmenuLink
+            key={item.label}
+            item={item}
+            onClick={closeDrawer}
+            variant="mobile"
+          />
+        ),
+      )}
+    </div>
+  );
+}
 
 function MobileDrawer({
   overlayRef,
@@ -97,6 +143,24 @@ function MobileDrawer({
                     ),
                   )}
                 </div>
+              </details>
+            ) : label === "Solutions" ? (
+              <details key={label} className="group border-b border-heading/6">
+                <summary
+                  className="
+                    flex cursor-pointer list-none items-center justify-between py-4
+                    text-base font-medium tracking-wide marker:content-none
+                  "
+                >
+                  <span>{label}</span>
+                  <ChevronDown
+                    size={18}
+                    className="text-muted-foreground/70 transition-transform duration-200 group-open:rotate-180"
+                    aria-hidden="true"
+                  />
+                </summary>
+
+                <MobileSolutionItems items={SOLUTIONS_MENU} closeDrawer={closeDrawer} />
               </details>
             ) : label === "What We Do" ? (
               <details key={label} className="group border-b border-heading/6">

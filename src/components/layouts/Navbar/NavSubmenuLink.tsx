@@ -28,7 +28,7 @@ function NavSubmenuLink({
   if (!linkLabel) return null;
 
   const className = `
-    block border-l border-heading/12 py-0.5 pl-4 text-left text-body
+    block w-full border-l border-heading/12 py-0.5 pl-4 text-left font-normal not-italic text-body
     transition-colors hover:text-heading
     ${sizeClass}
   `;

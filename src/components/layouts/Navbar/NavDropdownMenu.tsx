@@ -42,7 +42,7 @@ export default function NavDropdownMenu({ label, items }: NavDropdownMenuProps) 
       onMouseEnter={showMenu}
       onMouseLeave={hideMenu}
       className={`
-        absolute left-1/2 top-full z-[940] w-[min(320px,calc(100vw-32px))] pt-3
+        absolute left-1/2 top-full z-[940] w-[min(380px,calc(100vw-32px))] pt-3
         -translate-x-1/2
         transition-all duration-200
         ${open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}
@@ -50,7 +50,7 @@ export default function NavDropdownMenu({ label, items }: NavDropdownMenuProps) 
     >
       <div
         className="
-          rounded-lg border border-card/55 bg-card/72 px-5 py-4
+          rounded-lg border border-card/70 bg-card/95 px-5 py-4
           text-heading shadow-[0_22px_64px_color-mix(in_srgb,var(--heading)_16%,transparent),inset_0_1px_0_color-mix(in_srgb,var(--card)_75%,transparent)]
           backdrop-blur-xl
         "

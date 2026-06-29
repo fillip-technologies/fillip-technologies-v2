@@ -75,7 +75,7 @@ export default function SocialMediaHero() {
               className="mt-10 flex flex-wrap gap-4"
             >
               <button className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105">
-                Get Free Strategy Call
+                Call Us
                 <ArrowRight
                   size={18}
                   className="transition-transform duration-300 group-hover:translate-x-1"

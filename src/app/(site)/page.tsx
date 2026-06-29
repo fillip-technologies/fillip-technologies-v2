@@ -16,6 +16,7 @@ import ClientListCTA from "@/components/Cta/ClientListCTA";
 import CaseStudies from "@/components/Home/CaseStudies";
 import HeroSection from "@/components/Home/HeroSection";
 import ServicesSection from "@/components/Home/ServicesSection";
+import IndustriesSection from "@/components/Home/IndustriesSection"
 
 // Load a Home section's saved CMS content (falls back to registry defaults).
 function sectionContent(id: string) {
@@ -41,11 +42,11 @@ export default async function HomePage() {
       <HeroSection />
       <TrustBar />
       <ServicesSection />
-
-
       <NeedGuidanceSection />
+
       <HumanAISection content={humanai} />
-      <IndustriesImpactSection content={industries} />
+      <IndustriesSection />
+
 
       <OurClients />
       <ClientListCTA />

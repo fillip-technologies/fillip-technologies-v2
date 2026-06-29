@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import IndustriesImpactBackground, { INDUSTRIES_IMPACT_IMAGE } from "./IndustriesImpactBackground";
 
 const items = [
   {
@@ -13,7 +14,7 @@ const items = [
     stat: "50+",
     label: "Healthcare Solutions",
     color: "from-emerald-200 to-emerald-100",
-    image: "/images/impact.jpg",
+    image: INDUSTRIES_IMPACT_IMAGE,
     overlay: "bg-emerald-100/70",
   },
   {
@@ -106,68 +107,7 @@ export default function IndustriesImpactSection({ content: raw = {} }: { content
     <section className="relative overflow-hidden py-22 bg-[#fafafa]">
       {/* Premium Background */}
 
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Grid */}
-
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `
-        linear-gradient(to right, #0f172a 1px, transparent 1px),
-        linear-gradient(to bottom, #0f172a 1px, transparent 1px)
-      `,
-            backgroundSize: "80px 80px",
-          }}
-        />
-
-        {/* Main Glow */}
-
-        <div
-          className="
-      absolute
-      left-1/2
-      top-[10%]
-      h-[700px]
-      w-[700px]
-      -translate-x-1/2
-      rounded-full
-      bg-gradient-to-r
-      from-indigo-200/30
-      to-cyan-200/30
-      blur-[120px]
-    "
-        />
-
-        {/* Left Glow */}
-
-        <div
-          className="
-      absolute
-      left-[-100px]
-      top-1/3
-      h-[400px]
-      w-[400px]
-      rounded-full
-      bg-indigo-100/30
-      blur-[100px]
-    "
-        />
-
-        {/* Right Glow */}
-
-        <div
-          className="
-      absolute
-      right-[-100px]
-      bottom-0
-      h-[400px]
-      w-[400px]
-      rounded-full
-      bg-cyan-100/30
-      blur-[100px]
-    "
-        />
-      </div>
+      <IndustriesImpactBackground />
       <div className="relative z-10 mx-auto max-w-[1400px] px-6">
         {/* Header */}
 
