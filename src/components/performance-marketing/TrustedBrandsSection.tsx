@@ -13,7 +13,7 @@ const brands = [
 
 export default function TrustedBrandsSection() {
   return (
-    <section className="relative  bg-white py-12 overflow-hidden">
+    <section className="relative overflow-hidden bg-transparent py-12">
       <div className="container mx-auto max-w-7xl px-6">
         {/* Label */}
         <div className="mb-8 text-center">
@@ -60,8 +60,8 @@ export default function TrustedBrandsSection() {
       </div>
 
       {/* Gradient Fades */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-[var(--background)] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-[var(--background)] to-transparent" />
     </section>
   );
 }

@@ -21,7 +21,7 @@ export const financeData = {
       "Lead Generation"
     ],
     "image": {
-      "src": "",
+      "src": "/images/finance.png",
       "alt": "Finance Industry"
     }
   },

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function OurStoryPage() {
   return (
-    <main className="bg-white dark:bg-slate-950 overflow-hidden">
+    <main className="overflow-hidden bg-background text-heading">
       <StoryHero />
       <StatsSection />
       <StoryTimeline />

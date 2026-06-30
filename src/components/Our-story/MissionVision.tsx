@@ -5,26 +5,26 @@ import { Target, Eye, Compass } from "lucide-react";
 
 export default function MissionVision() {
   return (
-    <section className="relative overflow-hidden bg-[#fbf9f4] py-24 pb-32 text-heading dark:bg-slate-950 dark:text-white border-t border-slate-200/40 dark:border-slate-800/40">
+    <section className="relative overflow-hidden border-t border-border bg-surface py-24 pb-32 text-heading">
       
       {/* Decorative Book Page corner folds backgrounds */}
-      <div className="absolute bottom-0 right-0 -z-10 w-48 h-48 bg-gradient-to-tl from-slate-200/30 to-transparent dark:from-slate-900/10 pointer-events-none" />
+      <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-48 w-48 bg-gradient-to-tl from-primary/10 to-transparent" />
 
       <div className="container mx-auto max-w-5xl px-6 relative z-10">
         
         {/* Afterword Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary dark:text-blue-400">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
             AFTERWORD
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white font-serif">
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl">
             The Next Chapter
           </h2>
-          <div className="mt-4 mx-auto h-0.5 w-16 bg-primary/30 dark:bg-blue-500/30" />
+          <div className="mx-auto mt-4 h-0.5 w-16 bg-primary/30" />
         </div>
 
         {/* 3-Column Ledger Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch divide-y md:divide-y-0 md:divide-x divide-slate-300/40 dark:divide-slate-800/40">
+        <div className="grid grid-cols-1 items-stretch gap-10 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
           
           {/* Mission Column */}
           <motion.div
@@ -35,15 +35,15 @@ export default function MissionVision() {
             className="flex flex-col justify-between pt-8 md:pt-0 md:px-6 first:pl-0"
           >
             <div>
-              <div className="flex items-center gap-2 text-primary dark:text-blue-400 mb-4">
+              <div className="mb-4 flex items-center gap-2 text-primary">
                 <Target className="size-4.5" />
                 <span className="text-xs font-extrabold uppercase tracking-widest">Our Mission</span>
               </div>
-              <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="text-sm leading-relaxed text-body sm:text-base">
                 To empower modern brands with high-performance custom engineering and search optimization, transforming complex operational workflows and marketing budgets into measurable business growth.
               </p>
             </div>
-            <span className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Section I</span>
+            <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section I</span>
           </motion.div>
 
           {/* Vision Column */}
@@ -55,15 +55,15 @@ export default function MissionVision() {
             className="flex flex-col justify-between pt-8 md:pt-0 md:px-6"
           >
             <div>
-              <div className="flex items-center gap-2 text-primary dark:text-blue-400 mb-4">
+              <div className="mb-4 flex items-center gap-2 text-primary">
                 <Eye className="size-4.5" />
                 <span className="text-xs font-extrabold uppercase tracking-widest">Our Vision</span>
               </div>
-              <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="text-sm leading-relaxed text-body sm:text-base">
                 To establish ourselves as a global benchmark for digital execution, proving that client transparency, clean scalable code, and creative engineering can consistently win on the international stage.
               </p>
             </div>
-            <span className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Section II</span>
+            <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section II</span>
           </motion.div>
 
           {/* Creed Column */}
@@ -75,15 +75,15 @@ export default function MissionVision() {
             className="flex flex-col justify-between pt-8 md:pt-0 md:px-6"
           >
             <div>
-              <div className="flex items-center gap-2 text-primary dark:text-blue-400 mb-4">
+              <div className="mb-4 flex items-center gap-2 text-primary">
                 <Compass className="size-4.5" />
                 <span className="text-xs font-extrabold uppercase tracking-widest">Our Creed</span>
               </div>
-              <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                We make commitments, not excuses. We work with absolute accountability, refuse code shortcuts, and measure our agency's reputation directly by the scalability and success of the products we launch.
+              <p className="text-sm leading-relaxed text-body sm:text-base">
+                We make commitments, not excuses. We work with absolute accountability, refuse code shortcuts, and measure our agency&apos;s reputation directly by the scalability and success of the products we launch.
               </p>
             </div>
-            <span className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Section III</span>
+            <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section III</span>
           </motion.div>
 
         </div>
@@ -94,12 +94,12 @@ export default function MissionVision() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-20 pt-10 border-t border-slate-300/40 dark:border-slate-800/40 flex flex-col items-center justify-center text-center"
+          className="mt-20 flex flex-col items-center justify-center border-t border-border pt-10 text-center"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-450 dark:text-slate-500 mb-1">
+          <span className="mb-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Signed in code and character,
           </span>
-          <span className="font-serif italic text-2xl sm:text-3xl text-primary dark:text-blue-400 tracking-wide select-none">
+          <span className="select-none text-2xl font-semibold tracking-wide text-primary sm:text-3xl">
             The Fillip Team
           </span>
         </motion.div>

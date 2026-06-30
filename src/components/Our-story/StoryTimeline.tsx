@@ -93,14 +93,14 @@ export default function StoryTimeline() {
   const activeChapter = chapters[activeIndex];
 
   return (
-    <section id="story-book-section" className="relative overflow-hidden bg-slate-50 py-24 dark:bg-slate-900/20">
+    <section id="story-book-section" className="relative overflow-hidden bg-background py-24">
       {/* Background decorations */}
       <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative">
         
         {/* Book Outer Wrapper: Leather binding effect */}
-        <div className="relative mx-auto max-w-[960px] bg-slate-800 dark:bg-slate-900 border-[8px] sm:border-[12px] border-slate-700 dark:border-slate-800 rounded-[2.5rem] p-1.5 sm:p-3 shadow-2xl">
+        <div className="relative mx-auto max-w-[960px] rounded-[2.5rem] border-[8px] border-border bg-surface-dark p-1.5 shadow-elevated sm:border-[12px] sm:p-3">
           
           {/* Inner Book Cover Shadow */}
           <div className="absolute inset-0 rounded-[1.8rem] shadow-[inset_0_4px_24px_rgba(0,0,0,0.5)] pointer-events-none z-20" />
@@ -147,16 +147,16 @@ export default function StoryTimeline() {
           </div>
 
           {/* Book Body / Pages Spread */}
-          <div className="relative min-h-[550px] lg:min-h-[500px] bg-[#fbf9f4] dark:bg-slate-900 border border-black/10 rounded-[1.8rem] overflow-hidden flex flex-col lg:flex-row shadow-inner">
+          <div className="relative flex min-h-[550px] flex-col overflow-hidden rounded-[1.8rem] border border-border bg-surface lg:min-h-[500px] lg:flex-row">
             
             {/* Center spine split line shadow (Desktop Only) */}
-            <div className="absolute top-0 bottom-0 left-1/2 w-[6px] bg-gradient-to-r from-slate-300/40 via-slate-400/60 to-slate-300/40 dark:from-slate-950/40 dark:via-slate-950/70 dark:to-slate-950/40 -translate-x-1/2 z-25 pointer-events-none hidden lg:block" />
+            <div className="absolute bottom-0 left-1/2 top-0 z-25 hidden w-[6px] -translate-x-1/2 bg-gradient-to-r from-border/30 via-border-strong/70 to-border/30 pointer-events-none lg:block" />
 
             {/* Left Page Soft Shadow Fold (Desktop Only) */}
-            <div className="absolute top-0 bottom-0 right-1/2 left-0 pointer-events-none z-20 bg-gradient-to-r from-transparent to-slate-950/[0.04] dark:to-black/[0.15] hidden lg:block" />
+            <div className="absolute bottom-0 left-0 right-1/2 top-0 z-20 hidden bg-gradient-to-r from-transparent to-heading/[0.04] pointer-events-none lg:block" />
 
             {/* Right Page Soft Shadow Fold (Desktop Only) */}
-            <div className="absolute top-0 bottom-0 left-1/2 right-0 pointer-events-none z-20 bg-gradient-to-l from-transparent to-slate-950/[0.04] dark:to-black/[0.15] hidden lg:block" />
+            <div className="absolute bottom-0 left-1/2 right-0 top-0 z-20 hidden bg-gradient-to-l from-transparent to-heading/[0.04] pointer-events-none lg:block" />
 
             {/* Animate Page Flipping Content */}
             <AnimatePresence mode="wait">
@@ -173,7 +173,7 @@ export default function StoryTimeline() {
                 <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:pr-12 flex flex-col justify-between relative z-10">
                   <div>
                     {/* Chapter Title Badge */}
-                    <div className="flex items-center gap-2 text-primary dark:text-blue-400">
+                    <div className="flex items-center gap-2 text-primary">
                       <BookOpen className="size-4" />
                       <span className="text-[11px] font-extrabold uppercase tracking-widest">
                         Chapter {activeChapter.roman}
@@ -181,40 +181,40 @@ export default function StoryTimeline() {
                     </div>
 
                     {/* Milestone title */}
-                    <h3 className="mt-4 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white font-serif">
+                      <h3 className="mt-4 text-2xl font-extrabold tracking-tight text-heading sm:text-3xl">
                       {activeChapter.title}
                     </h3>
                     
-                    <div className="mt-3.5 h-0.5 w-14 bg-primary/20 dark:bg-blue-500/20" />
+                    <div className="mt-3.5 h-0.5 w-14 bg-primary/20" />
 
                     {/* Book drop-cap narrative */}
-                    <p className="mt-6 text-base sm:text-[15px] leading-relaxed text-slate-700 dark:text-slate-350 first-letter:float-left first-letter:text-5xl first-letter:font-extrabold first-letter:text-primary dark:first-letter:text-blue-400 first-letter:mr-2.5 first-letter:mt-1 first-letter:bg-primary/[0.05] dark:first-letter:bg-blue-500/10 first-letter:px-3 first-letter:py-1 first-letter:rounded-lg">
+                    <p className="mt-6 text-base leading-relaxed text-body first-letter:float-left first-letter:mr-2.5 first-letter:mt-1 first-letter:rounded-lg first-letter:bg-primary/[0.05] first-letter:px-3 first-letter:py-1 first-letter:text-5xl first-letter:font-extrabold first-letter:text-primary sm:text-[15px]">
                       {activeChapter.story}
                     </p>
                   </div>
 
                   {/* Handwritten-style quote block */}
-                  <div className="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800/80">
-                    <p className="text-sm sm:text-base font-serif italic text-primary dark:text-blue-400 pl-4 border-l-2 border-primary/20 dark:border-blue-500/20">
-                      "{activeChapter.quote}"
+                  <div className="mt-8 border-t border-border pt-6">
+                    <p className="border-l-2 border-primary/20 pl-4 text-sm font-medium text-primary sm:text-base">
+                      &quot;{activeChapter.quote}&quot;
                     </p>
                   </div>
                 </div>
 
                 {/* ================= RIGHT PAGE (THE SCRAPBOOK) ================= */}
-                <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:pl-12 bg-[#fcfbf9]/60 dark:bg-slate-900/40 flex flex-col justify-between items-center relative z-10 border-t lg:border-t-0 lg:border-l border-slate-200/30 dark:border-slate-800/30">
+                <div className="relative z-10 flex w-full flex-col items-center justify-between border-t border-border bg-card/30 p-6 sm:p-10 lg:w-1/2 lg:border-l lg:border-t-0 lg:pl-12">
                   
                   {/* Polaroid Photo Frame */}
-                  <div className="relative w-full max-w-[290px] bg-white dark:bg-slate-800 p-3 pb-8 rounded-lg shadow-lg border border-slate-200/30 dark:border-slate-700 rotate-[1.5deg] group hover:rotate-0 transition-transform duration-300">
+                  <div className="group relative w-full max-w-[290px] rotate-[1.5deg] rounded-lg border border-border bg-card p-3 pb-8 shadow-soft transition-transform duration-300 hover:rotate-0">
                     
                     {/* Sticky Tape Effect Top-Left */}
-                    <div className="absolute top-[-10px] left-[-20px] w-14 h-5.5 bg-yellow-100/40 dark:bg-yellow-950/20 backdrop-blur-xs border border-yellow-200/10 rotate-[-28deg] shadow-sm pointer-events-none" />
+                    <div className="pointer-events-none absolute left-[-20px] top-[-10px] h-5.5 w-14 rotate-[-28deg] border border-primary/10 bg-primary/10 shadow-sm backdrop-blur-xs" />
                     
                     {/* Sticky Tape Effect Top-Right */}
-                    <div className="absolute top-[-8px] right-[-18px] w-14 h-5.5 bg-yellow-100/40 dark:bg-yellow-950/20 backdrop-blur-xs border border-yellow-200/10 rotate-[22deg] shadow-sm pointer-events-none" />
+                    <div className="pointer-events-none absolute right-[-18px] top-[-8px] h-5.5 w-14 rotate-[22deg] border border-primary/10 bg-primary/10 shadow-sm backdrop-blur-xs" />
 
                     {/* Image Area */}
-                    <div className="relative w-full aspect-[4/3] rounded-md overflow-hidden bg-slate-50 dark:bg-slate-900">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-surface">
                       <Image 
                         src={activeChapter.image} 
                         alt={activeChapter.title} 
@@ -226,25 +226,25 @@ export default function StoryTimeline() {
 
                     {/* Polaroid Handwritten Caption */}
                     <div className="mt-3.5 text-center">
-                      <span className="font-serif italic text-xs tracking-wider text-slate-500 dark:text-slate-400">
+                      <span className="text-xs font-medium tracking-wider text-muted-foreground">
                         {activeChapter.title} - {activeChapter.year}
                       </span>
                     </div>
                   </div>
 
                   {/* Chapter Scorecard Ledger */}
-                  <div className="w-full mt-8 bg-white/70 dark:bg-slate-950/40 border border-slate-200/50 dark:border-slate-800 rounded-xl p-4.5 shadow-xs">
-                    <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-3 border-b border-slate-100 dark:border-slate-800 pb-1.5">
+                  <div className="mt-8 w-full rounded-xl border border-border bg-card/70 p-4.5 shadow-soft">
+                    <h4 className="mb-3 border-b border-border pb-1.5 text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground">
                       Chapter Ledger Details
                     </h4>
                     
                     <div className="space-y-2">
                       {activeChapter.stats.map((stat, i) => (
                         <div key={i} className="flex justify-between items-center text-xs">
-                          <span className="font-semibold text-slate-500 dark:text-slate-400">
+                          <span className="font-semibold text-body">
                             {stat.label}
                           </span>
-                          <span className="font-bold text-slate-800 dark:text-slate-200">
+                          <span className="font-bold text-heading">
                             {stat.value}
                           </span>
                         </div>

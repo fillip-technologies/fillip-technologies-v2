@@ -10,19 +10,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ data }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-white pt-28 ">
-      {/* Grid Background */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #000 1px, transparent 1px),
-            linear-gradient(to bottom, #000 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
+    <section className="relative overflow-hidden bg-transparent pt-28 ">
       {/* Gradient Glow */}
       <div className="absolute left-1/2 top-1/2 h-[550px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-purple-500/10 blur-3xl" />
 

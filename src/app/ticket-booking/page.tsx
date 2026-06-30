@@ -92,7 +92,6 @@ export default function TicketingService() {
         <WhyChoose />
         <DashboardShowcase />
         <FAQ />
-        <FinalCTA />
       </main>
       <Footer />
     </>
@@ -792,19 +791,38 @@ function WhyChoose() {
     <section className="relative overflow-hidden bg-surface-dark py-28 text-white lg:py-36">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(56,189,248,0.22),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_90%,rgba(2,66,162,0.36),transparent_55%)]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-[620px] w-[560px] overflow-visible">
+        <div className="absolute bottom-14 left-10 h-80 w-80 rounded-full bg-cyan-200/10 blur-[90px]" />
+        <Image
+          src="/images/tckt-why.png"
+          alt=""
+          aria-hidden="true"
+          width={640}
+          height={960}
+          className="relative bottom-[-9px] left-[-18px] h-[900px] w-auto origin-bottom-left rotate-[-14deg] object-contain opacity-58 mix-blend-screen"
+          style={{
+            maskImage:
+              "radial-gradient(ellipse at 42% 58%, black 0%, black 42%, rgba(0,0,0,0.68) 58%, transparent 82%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 42% 58%, black 0%, black 42%, rgba(0,0,0,0.68) 58%, transparent 82%)",
+          }}
+        />
+      </div>
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12">
-          <motion.div {...fadeUp} className="lg:col-span-5">
-            <div className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
-              Why Choose Fillip Technologies
+          <motion.div {...fadeUp} className="relative min-h-[640px] lg:col-span-5">
+            <div className="relative z-10">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
+                Why Choose Fillip Technologies
+              </div>
+              <h2 className="mt-4 text-4xl font-bold leading-tight tracking-[-0.04em] md:text-5xl">
+                Built for organizations that need reliable ticketing operations.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-white/70">
+                We combine product strategy, software engineering, UX design and operational support to deliver
+                ticketing platforms your teams can trust every day.
+              </p>
             </div>
-            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-[-0.04em] md:text-5xl">
-              Built for organizations that need reliable ticketing operations.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-white/70">
-              We combine product strategy, software engineering, UX design and operational support to deliver
-              ticketing platforms your teams can trust every day.
-            </p>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
@@ -938,50 +956,6 @@ function FAQ() {
             </motion.details>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function FinalCTA() {
-  return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
-      <div className="absolute inset-0 grid-bg opacity-70" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <motion.div
-          {...fadeUp}
-          className="overflow-hidden rounded-[32px] bg-slate-950 p-8 text-white shadow-elevated md:p-12"
-        >
-          <div className="grid items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-8">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
-                Build Your Ticketing Platform
-              </div>
-              <h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.04em] md:text-5xl">
-                Need a secure ticketing system for your organization?
-              </h2>
-              <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">
-                Fillip Technologies can plan, design, develop and support a complete ticketing platform
-                for your visitors, staff and leadership teams.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:justify-end">
-              <Link
-                href="/get-a-quote"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
-              >
-                Start a Conversation
-                <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                Explore Services
-              </Link>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

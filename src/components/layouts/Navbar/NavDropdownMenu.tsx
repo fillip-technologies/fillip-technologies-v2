@@ -8,9 +8,16 @@ import type { MegaMenuItem } from "./types";
 type NavDropdownMenuProps = {
   label: string;
   items: readonly (string | MegaMenuItem)[];
+  align?: "center" | "left";
+  widthClass?: string;
 };
 
-export default function NavDropdownMenu({ label, items }: NavDropdownMenuProps) {
+export default function NavDropdownMenu({
+  label,
+  items,
+  align = "center",
+  widthClass = "w-[min(380px,calc(100vw-32px))]",
+}: NavDropdownMenuProps) {
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -42,8 +49,8 @@ export default function NavDropdownMenu({ label, items }: NavDropdownMenuProps) 
       onMouseEnter={showMenu}
       onMouseLeave={hideMenu}
       className={`
-        absolute left-1/2 top-full z-[940] w-[min(380px,calc(100vw-32px))] pt-3
-        -translate-x-1/2
+        absolute top-full z-[940] ${widthClass} pt-3
+        ${align === "left" ? "left-0" : "left-1/2 -translate-x-1/2"}
         transition-all duration-200
         ${open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}
       `}

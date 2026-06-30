@@ -32,7 +32,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#081C2E] py-14 text-white dark:bg-slate-950 border-y border-slate-800">
+    <section className="relative overflow-hidden border-y border-border bg-surface-dark py-14 text-white">
       {/* Visual background noise/dots overlay */}
       <div
         className="absolute inset-0 opacity-[0.02] pointer-events-none -z-10"

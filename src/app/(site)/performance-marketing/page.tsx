@@ -1,4 +1,3 @@
-import TrustedBy from "@/components/Home/TrustedBy";
 import HeroSection from "@/components/performance-marketing/HeroSection";
 import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
 import MarketingPhilosophySection from "@/components/performance-marketing/MarketingPhilosophySection";
@@ -8,13 +7,16 @@ import GrowthStoriesSection from "@/components/performance-marketing/GrowthStori
 
 export default function PerformanceMarketingPage() {
   return (
-    <main>
-      <HeroSection />
-      <TrustedBrandsSection />
-      <MarketingPhilosophySection />
-      <HowItWorksSection />
-      <ResultsSection />
-      <GrowthStoriesSection />
+    <main className="ticket-page relative overflow-hidden bg-background text-heading">
+      <div className="pointer-events-none absolute inset-0 grid-bg" />
+      <div className="relative">
+        <HeroSection />
+        <TrustedBrandsSection />
+        <MarketingPhilosophySection />
+        <HowItWorksSection />
+        <ResultsSection />
+        <GrowthStoriesSection />
+      </div>
     </main>
   );
 }

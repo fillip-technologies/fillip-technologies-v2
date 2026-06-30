@@ -7,53 +7,53 @@ import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const projects = [
-  { 
-    src: "/images/patna-zoo-portal.png", 
-    alt: "Patna Zoo ticketing platform", 
-    title: "Patna Zoo Ticketing",
-    category: "Govt Portal"
+  {
+    src: "/images/portfolio/litera-mockup.png",
+    alt: "Litera Valley School",
+    title: "Litera Valley School",
+    category: "Education Industry"
   },
-  { 
-    src: "/images/analytics-dashboard.jpg", 
-    alt: "Business analytics dashboard", 
-    title: "SaaS Analytics",
-    category: "Dashboard"
+  {
+    src: "/images/portfolio/sita-mockup.png",
+    alt: "Sita Interior",
+    title: "Sita Interior",
+    category: "Architecture Industry "
   },
-  { 
-    src: "/images/rajgir-safari-dashboard.jpg", 
-    alt: "Rajgir Safari operations dashboard", 
-    title: "Rajgir Safari Operations",
-    category: "Operations Center"
+  {
+    src: "/images/portfolio/domus-mockup.png",
+    alt: "Domus Cure",
+    title: "Domus Cure",
+    category: "HealthCare Indsutry"
   },
-  { 
-    src: "/images/case-studies.png", 
-    alt: "Fillip Technologies case studies", 
-    title: "Case Studies",
-    category: "Success Logs"
+  {
+    src: "/images/portfolio/abhijeet-mockup.png",
+    alt: "Dr Abhijeet Jha",
+    title: "Dr Abhijeet Jha",
+    category: "Dermat"
   },
-  { 
-    src: "/images/team/team1.png", 
-    alt: "Fillip Technologies team", 
-    title: "Our Engineering",
-    category: "Fillip Culture"
+  {
+    src: "/images/portfolio/chaapak-mockup.png",
+    alt: "Chappak Resort",
+    title: "Chappak Resort",
+    category: "Event Planning"
   },
-  { 
-    src: "/images/team/team2.png", 
-    alt: "Fillip Technologies delivery team", 
-    title: "Delivery & Agile",
-    category: "Success"
+  {
+    src: "/images/portfolio/wedding-mockups.png",
+    alt: "Weddings72",
+    title: "Weddings72",
+    category: "Event Planning"
   },
-  { 
-    src: "/images/analytics-dashboard.jpg", 
-    alt: "Custom software interface", 
-    title: "Enterprise SaaS",
-    category: "Automation App"
+  {
+    src: "/images/portfolio/technosys-mockup.png",
+    alt: "Technosys It and Managment",
+    title: "Technosys It and Managment",
+    category: "It Industry"
   },
-  { 
-    src: "/images/patna-zoo-portal.png", 
-    alt: "Public platform experience", 
-    title: "Zoo Experience Portal",
-    category: "Civic UX"
+  {
+    src: "/images/patna-zoo-portal.png",
+    alt: "Patna Zoo",
+    title: "Patna Zoo",
+    category: "Government Industry"
   },
 ];
 
@@ -98,9 +98,9 @@ export default function PortfolioHero() {
 
   const sheenVariants = {
     rest: { x: "-100%" },
-    hover: { 
-      x: "100%", 
-      transition: { duration: 0.6, ease: "easeOut" as const } 
+    hover: {
+      x: "100%",
+      transition: { duration: 0.6, ease: "easeOut" as const }
     }
   };
 
@@ -149,7 +149,7 @@ export default function PortfolioHero() {
       <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-primary/10 to-accent/15 blur-3xl opacity-60 dark:opacity-20 pointer-events-none" />
 
       {/* Grid Overlay */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.02] dark:opacity-[0.01] pointer-events-none -z-10"
         style={{
           backgroundImage: `
@@ -161,12 +161,12 @@ export default function PortfolioHero() {
       />
 
       <div className="mx-auto flex flex-col items-center text-center max-w-[1440px]">
-        
+
         {/* Centered Heading Layout */}
-        <motion.div 
-          initial={{ opacity: 0, y: 24 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} 
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 flex flex-col items-center"
         >
           {/* Badge */}
@@ -247,15 +247,15 @@ export default function PortfolioHero() {
                 className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing select-none"
               >
                 {/* Image */}
-                <Image 
-                  src={projects[page].src} 
-                  alt={projects[page].alt} 
-                  fill 
-                  sizes="(max-width: 640px) 100vw, 290px" 
-                  className="object-cover pointer-events-none" 
+                <Image
+                  src={projects[page].src}
+                  alt={projects[page].alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 290px"
+                  className="object-cover pointer-events-none"
                   priority
                 />
-                
+
                 {/* Details Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent flex flex-col justify-end p-5 text-white">
                   <span className="text-[10px] font-extrabold uppercase tracking-widest text-accent leading-none">
@@ -271,7 +271,7 @@ export default function PortfolioHero() {
 
           {/* Slider Pagination Controls */}
           <div className="mt-4 flex items-center justify-between px-2">
-            <button 
+            <button
               onClick={() => paginate(-1)}
               className="flex size-10 items-center justify-center rounded-full bg-slate-50 border border-slate-100 hover:bg-slate-100 active:scale-95 transition-all text-slate-700 cursor-pointer"
               aria-label="Previous Project"
@@ -288,17 +288,16 @@ export default function PortfolioHero() {
                     const dir = index > page ? 1 : -1;
                     setPage([index, dir]);
                   }}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    index === page 
-                      ? "w-6 bg-primary" 
-                      : "w-2 bg-slate-200 hover:bg-slate-300"
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${index === page
+                    ? "w-6 bg-primary"
+                    : "w-2 bg-slate-200 hover:bg-slate-300"
+                    }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
 
-            <button 
+            <button
               onClick={() => paginate(1)}
               className="flex size-10 items-center justify-center rounded-full bg-slate-50 border border-slate-100 hover:bg-slate-100 active:scale-95 transition-all text-slate-700 cursor-pointer"
               aria-label="Next Project"
@@ -309,7 +308,7 @@ export default function PortfolioHero() {
         </div>
 
         {/* ================= CURVED PORTFOLIO CARD FAN ================= */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -331,14 +330,14 @@ export default function PortfolioHero() {
                 className="relative shrink-0 w-[110px] h-[155px] sm:w-[160px] sm:h-[225px] lg:w-[200px] lg:h-[280px] rounded-2xl border-[3px] sm:border-[4px] border-white bg-surface shadow-[0_12px_28px_rgba(15,23,42,0.1)] transition-shadow duration-300 hover:shadow-[0_24px_48px_rgba(2,66,162,0.2)] overflow-hidden group cursor-pointer"
               >
                 {/* Image desaturated by default */}
-                <Image 
-                  src={project.src} 
-                  alt={project.alt} 
-                  fill 
-                  sizes="(max-width: 768px) 34vw, 200px" 
-                  className="object-cover filter saturate-[0.85] contrast-[1.02] transition-all duration-300 group-hover:filter-none group-hover:saturate-[1.1] group-hover:scale-102" 
+                <Image
+                  src={project.src}
+                  alt={project.alt}
+                  fill
+                  sizes="(max-width: 768px) 34vw, 200px"
+                  className="object-cover filter saturate-[0.85] contrast-[1.02] transition-all duration-300 group-hover:filter-none group-hover:saturate-[1.1] group-hover:scale-102"
                 />
-                
+
                 {/* Shimmer sheen reflection sweep overlay */}
                 <motion.div
                   variants={sheenVariants}
