@@ -22,6 +22,7 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
       },
       {
         label: "SMS Communication Solution",
+        href: "/sms-communication",
       },
       {
         label: "WhatsApp Business Solution",

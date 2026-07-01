@@ -46,6 +46,10 @@ function DesktopNavItem({
     return <SolutionsMegaMenu />;
   }
 
+  if (label === "Contact") {
+    return <NavLink label={label} href="/contact" />;
+  }
+
   return <NavLink label={label} />;
 }
 

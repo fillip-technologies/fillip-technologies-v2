@@ -103,6 +103,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "Graphics Designing",
+          href: "/graphic-designing",
         },
         {
           label: "Logo Designing",

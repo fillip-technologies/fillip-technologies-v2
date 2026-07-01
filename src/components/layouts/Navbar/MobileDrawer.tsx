@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { ABOUT_MENU } from "./aboutMegaMenuData";
 import { AI_AUTOMATION_MENU } from "./aiAutomationMenuData";
@@ -22,7 +23,7 @@ function MobileSolutionItems({
   closeDrawer,
   depth = 0,
 }: {
-  items: SolutionMenuItem[];
+  items: { label: string; href?: string; children?: SolutionMenuItem[] }[];
   closeDrawer: () => void;
   depth?: number;
 }) {
@@ -205,20 +206,37 @@ function MobileDrawer({
                 </div>
               </details>
             ) : (
-              <button
-                key={label}
-                type="button"
-                onClick={closeDrawer}
-                className="
-                  flex items-center justify-between border-b border-heading/6 py-4
-                  text-left
-                  text-base font-medium tracking-wide transition-all duration-200
-                  after:text-sm after:text-muted-foreground/50 after:content-['->']
-                  last:border-0 hover:pl-1
-                "
-              >
-                {label}
-              </button>
+              label === "Contact" ? (
+                <Link
+                  key={label}
+                  href="/contact"
+                  onClick={closeDrawer}
+                  className="
+                    flex items-center justify-between border-b border-heading/6 py-4
+                    text-left
+                    text-base font-medium tracking-wide transition-all duration-200
+                    after:text-sm after:text-muted-foreground/50 after:content-['->']
+                    last:border-0 hover:pl-1
+                  "
+                >
+                  {label}
+                </Link>
+              ) : (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={closeDrawer}
+                  className="
+                    flex items-center justify-between border-b border-heading/6 py-4
+                    text-left
+                    text-base font-medium tracking-wide transition-all duration-200
+                    after:text-sm after:text-muted-foreground/50 after:content-['->']
+                    last:border-0 hover:pl-1
+                  "
+                >
+                  {label}
+                </button>
+              )
             );
           })}
         </nav>

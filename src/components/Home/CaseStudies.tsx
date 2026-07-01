@@ -12,7 +12,7 @@ const caseStudies = [
     title: "Increase in Patient Leads",
     description:
       "SEO, website redesign, and performance campaigns generated a 250% increase in qualified patient inquiries.",
-    image: "/images/SERVICES/APPLICATION.jpg",
+    image: "/images/case-bg.jpg",
   },
   {
     industry: "E-Commerce",
@@ -20,7 +20,7 @@ const caseStudies = [
     title: "Revenue Growth",
     description:
       "Conversion optimization and paid acquisition strategies delivered 3.8X growth in online revenue.",
-    image: "/images/SERVICES/MOBILE.jpg",
+    image: "/images/case-1.jpg",
   },
   {
     industry: "Real Estate",
@@ -28,7 +28,7 @@ const caseStudies = [
     title: "Qualified Leads",
     description:
       "Landing pages and lead funnels generated over 500 qualified prospects within months.",
-    image: "/images/SERVICES/SEO.jpg",
+    image: "/images/case-3.jpg",
   },
   {
     industry: "Education",
@@ -36,7 +36,7 @@ const caseStudies = [
     title: "Enrollment Growth",
     description:
       "Digital marketing campaigns significantly increased admissions and student engagement.",
-    image: "/images/SERVICES/SOCIAL.jpg",
+    image: "/images/case-4.jpg",
   },
   {
     industry: "FinTech",
@@ -44,7 +44,7 @@ const caseStudies = [
     title: "Faster Customer Acquisition",
     description:
       "Customer journey optimization reduced acquisition time while improving conversion rates.",
-    image: "/images/SERVICES/ADS.jpg",
+    image: "/images/case-5.jpg",
   },
   {
     industry: "Manufacturing",
@@ -52,7 +52,7 @@ const caseStudies = [
     title: "Market Expansion",
     description:
       "A scalable digital platform enabled expansion into new international markets.",
-    image: "/images/SERVICES/APPLICATION.jpg",
+    image: "/images/case-6..jpg",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function CaseStudies() {
         </svg>
       </div>
 
-            <Image
+      <Image
         src="/images/capabilities-background.png"
         alt=""
         width={1536}

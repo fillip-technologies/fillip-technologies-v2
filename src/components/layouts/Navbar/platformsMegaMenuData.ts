@@ -1,7 +1,13 @@
-export const PLATFORMS_MENU = [
-  "Ticket Booking Platform",
+import type { MegaMenuItem } from "./types";
+
+export const PLATFORMS_MENU: readonly (string | MegaMenuItem)[] = [
+  {
+    label: "Ticket Booking Platform",
+    href: "/ticket-booking",
+  },
   "CRM Platform",
-
-  "SMS Platform",
-
-] as const;
+  {
+    label: "SMS Platform",
+    href: "/sms-communication",
+  },
+];

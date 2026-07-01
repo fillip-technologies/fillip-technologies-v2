@@ -83,12 +83,22 @@ const categories: ServiceCategory[] = [
     "Creative Experience Design",
 ];
 
-const categoryImages: Record<ServiceCategory, string> = {
-    "Web Development": "/images/SERVICES/APPLICATION.jpg",
-    "Mobile App Development": "/images/SERVICES/MOBILE.jpg",
-    "Software & Enterprise": "/images/SERVICES/APPLICATION.jpg",
-    "SEO & Performance Marketing": "/images/SERVICES/SEO.jpg",
-    "Creative Experience Design": "/images/SERVICES/SOCIAL.jpg",
+const serviceImages: Record<ServiceCategory, string> = {
+    "Custom Website Development": "/images/SERVICES/custom-website.jpg",
+    "E-Commerce Development": "/images/SERVICES/e-commerce.jpg",
+    "WordPress Development": "/images/SERVICES/wordpress.jpg",
+    "Android App Development": "/images/SERVICES/app-development.jpg",
+    "iOS App Development": "/images/SERVICES/ios-app.jpg",
+    "Cross-Platform Apps": "/images/SERVICES/custom-app.jpg",
+    "Custom Software Development": "/images/SERVICES/SOCIAL.jpg",
+    "CRM Development": "/images/SERVICES/crm-development.jpg",
+    "ERP Solutions": "/images/SERVICES/erp.jpg",
+    "Technical SEO": "/images/SERVICES/technical-seo.jpg",
+    "Local SEO": "/images/SERVICES/local-seo.jpg",
+    "Enterprise SEO": "/images/SERVICES/enterprise.jpg",
+    "UI/UX Design": "/images/SERVICES/ui-ux.jpg",
+    "Product Design": "/images/SERVICES/brand.jpg",
+    "Graphic Design": "/images/SERVICES/graphic-design.jpg",
 };
 
 const services: Service[] = [
@@ -368,14 +378,14 @@ export default function ServicesSection() {
                 <div className="mx-auto max-w-4xl text-center">
 
 
-          <h2
-            id="services-heading"
-            className=" text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]"
-          >
-            End-to-End Digital Services
-            <br />
-            <span className="highlight-text">for Modern Organizations</span>
-          </h2>
+                    <h2
+                        id="services-heading"
+                        className=" text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]"
+                    >
+                        End-to-End Digital Services
+                        <br />
+                        <span className="highlight-text">for Modern Organizations</span>
+                    </h2>
 
                     <p className="mt-6 text-lg leading-relaxed text-slate-600">
                         From websites and apps to enterprise software, performance
@@ -502,7 +512,7 @@ function ServiceCard({ service }: { service: Service }) {
                         transition={{ duration: 0.4, ease: "easeOut" }}
                     >
                         <Image
-                            src={categoryImages[service.category]}
+                            src={serviceImages[service.title]}
                             alt={service.title}
                             fill
                             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
