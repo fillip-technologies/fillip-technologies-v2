@@ -20,13 +20,18 @@ function sec(id: string) {
 }
 
 export default async function OurStoryPage() {
-  const [hero, missionvision] = await Promise.all([sec("hero"), sec("missionvision")]);
+  const [hero, stats, timeline, missionvision] = await Promise.all([
+    sec("hero"),
+    sec("stats"),
+    sec("timeline"),
+    sec("missionvision"),
+  ]);
 
   return (
     <main className="overflow-hidden bg-background text-heading">
       <StoryHero content={hero} />
-      <StatsSection />
-      <StoryTimeline />
+      <StatsSection content={stats} />
+      <StoryTimeline content={timeline} />
       <MissionVision content={missionvision} />
     </main>
   );

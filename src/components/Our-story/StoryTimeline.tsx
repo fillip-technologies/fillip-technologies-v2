@@ -5,7 +5,7 @@ import { Sprout, Globe, TrendingUp, Laptop, Cpu, BookOpen } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 
-const chapters = [
+const DEFAULT_CHAPTERS = [
   {
     year: "2018",
     roman: "I",
@@ -88,9 +88,37 @@ const chapters = [
   },
 ];
 
-export default function StoryTimeline() {
+type FlatChapter = {
+  year: string; title: string; story: string; quote: string; image: string;
+  stat1Label: string; stat1Value: string; stat2Label: string; stat2Value: string; stat3Label: string; stat3Value: string;
+};
+
+export default function StoryTimeline({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as { chapters?: FlatChapter[] };
+  const chapters = content.chapters?.length
+    ? content.chapters.map((ch, i) => {
+        const v = DEFAULT_CHAPTERS[i % DEFAULT_CHAPTERS.length];
+        return {
+          year: ch.year,
+          roman: v.roman,
+          title: ch.title,
+          dropCap: v.dropCap,
+          story: ch.story,
+          quote: ch.quote,
+          icon: v.icon,
+          image: ch.image,
+          tabColor: v.tabColor,
+          stats: [
+            { label: ch.stat1Label, value: ch.stat1Value },
+            { label: ch.stat2Label, value: ch.stat2Value },
+            { label: ch.stat3Label, value: ch.stat3Value },
+          ].filter((s) => s.label || s.value),
+        };
+      })
+    : DEFAULT_CHAPTERS;
+
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeChapter = chapters[activeIndex];
+  const activeChapter = chapters[activeIndex] ?? chapters[0];
 
   return (
     <section id="story-book-section" className="relative overflow-hidden bg-background py-24">

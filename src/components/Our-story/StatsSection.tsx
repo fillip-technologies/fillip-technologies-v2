@@ -3,34 +3,27 @@
 import { motion } from "framer-motion";
 import { Award, Users, CheckCircle2, Calendar } from "lucide-react";
 
-const stats = [
-  {
-    value: "13+",
-    label: "Years of Innovation",
-    icon: Calendar,
-    color: "from-sky-400 to-blue-500",
-  },
-  {
-    value: "1500+",
-    label: "Projects Delivered",
-    icon: CheckCircle2,
-    color: "from-blue-400 to-indigo-400",
-  },
-  {
-    value: "50+",
-    label: "Team Experts",
-    icon: Users,
-    color: "from-sky-300 to-teal-400",
-  },
-  {
-    value: "98%",
-    label: "Client Satisfaction",
-    icon: Award,
-    color: "from-emerald-400 to-teal-400",
-  },
+// Visual props (icon + gradient) stay in code; text comes from the CMS.
+const STAT_VISUALS = [
+  { icon: Calendar, color: "from-sky-400 to-blue-500" },
+  { icon: CheckCircle2, color: "from-blue-400 to-indigo-400" },
+  { icon: Users, color: "from-sky-300 to-teal-400" },
+  { icon: Award, color: "from-emerald-400 to-teal-400" },
 ];
 
-export default function StatsSection() {
+const DEFAULT_STATS = [
+  { value: "13+", label: "Years of Innovation" },
+  { value: "1500+", label: "Projects Delivered" },
+  { value: "50+", label: "Team Experts" },
+  { value: "98%", label: "Client Satisfaction" },
+];
+
+type StatsContent = Partial<{ stats: { value: string; label: string }[] }>;
+
+export default function StatsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as StatsContent;
+  const stats = content.stats?.length ? content.stats : DEFAULT_STATS;
+
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface-dark py-14 text-white">
       {/* Visual background noise/dots overlay */}
@@ -46,7 +39,8 @@ export default function StatsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 items-center divide-y lg:divide-y-0 lg:divide-x divide-slate-800/80">
 
           {stats.map((stat, index) => {
-            const Icon = stat.icon;
+            const visual = STAT_VISUALS[index % STAT_VISUALS.length];
+            const Icon = visual.icon;
             return (
               <motion.div
                 key={index}
@@ -62,7 +56,7 @@ export default function StatsSection() {
                 </div>
 
                 {/* Massive Number */}
-                <span className={`text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r ${stat.color} bg-clip-text text-transparent pb-1 [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]`}>
+                <span className={`text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r ${visual.color} bg-clip-text text-transparent pb-1 [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]`}>
                   {stat.value}
                 </span>
 

@@ -24,7 +24,7 @@ export type Field = {
 export type ItemField = {
   name: string;
   label: string;
-  type: "text" | "textarea";
+  type: "text" | "textarea" | "image";
 };
 
 export type ListDef = {

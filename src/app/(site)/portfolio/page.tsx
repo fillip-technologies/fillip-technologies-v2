@@ -7,18 +7,25 @@ import { getPageSection, pageSectionDefaults } from "@/server/content/page-secti
 
 export const dynamic = "force-dynamic";
 
+function sec(id: string) {
+  return getContentData(`page.portfolio.${id}`, pageSectionDefaults(getPageSection("portfolio", id)!));
+}
+
 export default async function PortfolioPage() {
-  const hero = await getContentData(
-    "page.portfolio.hero",
-    pageSectionDefaults(getPageSection("portfolio", "hero")!)
-  );
+  const [hero, showcase, industries, impact, impactstories] = await Promise.all([
+    sec("hero"),
+    sec("showcase"),
+    sec("industries"),
+    sec("impact"),
+    sec("impactstories"),
+  ]);
 
   return (
     <main className="bg-[#f8fafc]">
       <PortfolioHero content={hero} />
-      <PortfolioShowcase />
-      <PortfolioIndustries />
-      <PortfolioImpact />
+      <PortfolioShowcase content={showcase} />
+      <PortfolioIndustries content={industries} />
+      <PortfolioImpact content={impact} stories={impactstories} />
     </main>
   );
 }

@@ -28,7 +28,7 @@ interface Testimonial {
   accentColor: string;
 }
 
-const metrics: Metric[] = [
+const DEFAULT_METRICS: Metric[] = [
   {
     value: "45+",
     label: "Projects Delivered",
@@ -67,7 +67,7 @@ const metrics: Metric[] = [
   }
 ];
 
-const testimonials: Testimonial[] = [
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     id: "litera",
     client: "Administration & IT Team",
@@ -122,7 +122,40 @@ const testimonials: Testimonial[] = [
   }
 ];
 
-export default function PortfolioImpact() {
+type ImpactContent = Partial<{
+  eyebrow: string; headingLine1: string; headingLine2: string; description: string;
+  metrics: (Partial<Metric>)[];
+}>;
+type StoriesContent = Partial<{ testimonials: (Partial<Testimonial>)[] }>;
+
+export default function PortfolioImpact({
+  content: raw = {},
+  stories: rawStories = {},
+}: {
+  content?: Record<string, unknown>;
+  stories?: Record<string, unknown>;
+}) {
+  const content = raw as ImpactContent;
+  const storiesC = rawStories as StoriesContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "Proof in Performance",
+    headingLine1: content.headingLine1 ?? "Real Projects.",
+    headingLine2: content.headingLine2 ?? "Measurable Success.",
+    description:
+      content.description ??
+      "We don't just build interfaces; we engineer digital products that drive engagement, scale operations, and deliver real return on investment.",
+  };
+  const metrics: Metric[] = content.metrics?.length
+    ? content.metrics.map((m, i) => ({ ...DEFAULT_METRICS[i % DEFAULT_METRICS.length], ...m }))
+    : DEFAULT_METRICS;
+  const testimonials: Testimonial[] = storiesC.testimonials?.length
+    ? storiesC.testimonials.map((t, i) => ({
+        ...DEFAULT_TESTIMONIALS[i % DEFAULT_TESTIMONIALS.length],
+        ...t,
+        id: t.company || String(i),
+      }))
+    : DEFAULT_TESTIMONIALS;
+
   const [activeStory, setActiveStory] = useState(testimonials[0].id);
 
   const selectedStory = testimonials.find((t) => t.id === activeStory) || testimonials[0];
@@ -144,16 +177,16 @@ export default function PortfolioImpact() {
         {/* SECTION HEADER */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-200 bg-white text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-6">
-            <Sparkles size={10} className="text-cyan-500" /> Proof in Performance
+            <Sparkles size={10} className="text-cyan-500" /> {c.eyebrow}
           </span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-6 uppercase">
-            Real Projects.<br />
+            {c.headingLine1}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600">
-              Measurable Success.
+              {c.headingLine2}
             </span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base font-light leading-relaxed">
-            We don&apos;t just build interfaces; we engineer digital products that drive engagement, scale operations, and deliver real return on investment.
+            {c.description}
           </p>
         </div>
 

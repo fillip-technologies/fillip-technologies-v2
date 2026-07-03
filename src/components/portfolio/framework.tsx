@@ -16,7 +16,7 @@ interface Industry {
   services: { title: string; desc: string }[];
 }
 
-const industries: Industry[] = [
+const DEFAULT_INDUSTRIES: Industry[] = [
   {
     num: "01",
     title: "Education & E-Learning",
@@ -96,7 +96,43 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 120, damping: 15 } }
 };
 
-export default function PortfolioIndustries() {
+type FlatIndustry = {
+  num: string; title: string; desc: string; image: string; caseStudy: string;
+  svc1Title: string; svc1Desc: string; svc2Title: string; svc2Desc: string;
+  svc3Title: string; svc3Desc: string; svc4Title: string; svc4Desc: string;
+};
+type IndustriesContent = Partial<{ eyebrow: string; heading: string; description: string; industries: FlatIndustry[] }>;
+
+export default function PortfolioIndustries({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as IndustriesContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "✦ Industries We Serve",
+    heading: content.heading ?? "Our Industries",
+    description:
+      content.description ??
+      "We design and engineer bespoke software applications, web platforms, and design systems across core industry sectors.",
+  };
+  const industries: Industry[] = content.industries?.length
+    ? content.industries.map((ind, i) => {
+        const v = DEFAULT_INDUSTRIES[i % DEFAULT_INDUSTRIES.length];
+        return {
+          num: ind.num,
+          title: ind.title,
+          desc: ind.desc,
+          color: v.color,
+          accent: v.accent,
+          src: ind.image,
+          caseStudy: ind.caseStudy,
+          services: [
+            { title: ind.svc1Title, desc: ind.svc1Desc },
+            { title: ind.svc2Title, desc: ind.svc2Desc },
+            { title: ind.svc3Title, desc: ind.svc3Desc },
+            { title: ind.svc4Title, desc: ind.svc4Desc },
+          ].filter((s) => s.title || s.desc),
+        };
+      })
+    : DEFAULT_INDUSTRIES;
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -119,14 +155,14 @@ export default function PortfolioIndustries() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
           <div>
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-900/5 text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
-              ✦ Industries We Serve
+              {c.eyebrow}
             </span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase text-slate-950">
-              Our Industries
+              {c.heading}
             </h2>
           </div>
           <p className="max-w-md text-slate-500 text-sm font-light leading-relaxed">
-            We design and engineer bespoke software applications, web platforms, and design systems across core industry sectors.
+            {c.description}
           </p>
         </div>
 

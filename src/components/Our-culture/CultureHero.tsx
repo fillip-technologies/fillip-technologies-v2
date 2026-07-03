@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Compass, Lightbulb, ShieldCheck, Cpu } from "lucide-react";
 
-const pillars = [
+const DEFAULT_PILLARS = [
   {
     title: "Curiosity",
     description: "Always asking 'why', exploring new ideas, and seeking out better ways to solve complex challenges.",
@@ -52,6 +52,7 @@ type CultureHeroContent = Partial<{
   badge: string;
   headingLead: string;
   headingHighlight: string;
+  pillars: { title: string; description: string }[];
 }>;
 
 export default function CultureHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -61,6 +62,9 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
     headingLead: content.headingLead ?? "Shaping ideas through",
     headingHighlight: content.headingHighlight ?? "collaborative minds.",
   };
+  const pillars = content.pillars?.length
+    ? content.pillars.map((p, i) => ({ ...DEFAULT_PILLARS[i % DEFAULT_PILLARS.length], title: p.title, description: p.description }))
+    : DEFAULT_PILLARS;
 
   const containerVariants = {
     hidden: { opacity: 0 },

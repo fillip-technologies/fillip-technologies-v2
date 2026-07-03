@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Compass, GraduationCap, Sparkles, Handshake, Target, TrendingUp } from "lucide-react";
 
-const beliefs = [
+const DEFAULT_BELIEFS = [
   {
     title: "Thinking Beyond Boundaries",
     description: "We don't limit ourselves to conventional thinking. We push past predefined constraints to discover breakthrough ideas that shape markets.",

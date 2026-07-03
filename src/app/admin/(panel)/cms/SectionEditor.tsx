@@ -109,9 +109,11 @@ export default function SectionEditor({
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
                 {list.itemFields.map((f) => (
-                  <div key={f.name} className={f.type === "textarea" ? "sm:col-span-2" : ""}>
+                  <div key={f.name} className={f.type === "textarea" || f.type === "image" ? "sm:col-span-2" : ""}>
                     <label className="mb-1 block text-xs text-body">{f.label}</label>
-                    {f.type === "textarea" ? (
+                    {f.type === "image" ? (
+                      <ImageField value={item[f.name] ?? ""} onChange={(v) => setItemField(idx, f.name, v)} />
+                    ) : f.type === "textarea" ? (
                       <textarea
                         value={item[f.name] ?? ""}
                         onChange={(e) => setItemField(idx, f.name, e.target.value)}

@@ -27,7 +27,7 @@ const categories = [
   "Graphic Design & Branding"
 ];
 
-const projects: Project[] = [
+const DEFAULT_PROJECTS: Project[] = [
   {
     id: "litera",
     serial: "01",
@@ -126,12 +126,38 @@ const projects: Project[] = [
   }
 ];
 
-export default function PortfolioShowcase() {
+type ShowcaseContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  projects: (Partial<Project> & { image?: string })[];
+}>;
+
+export default function PortfolioShowcase({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as ShowcaseContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "✦ Selected Case Studies",
+    heading: content.heading ?? "Our Portfolio",
+  };
+  const projectsList: Project[] = content.projects?.length
+    ? content.projects.map((p, i) => ({
+        id: p.serial || String(i),
+        serial: p.serial ?? "",
+        title: p.title ?? "",
+        category: p.category ?? "",
+        client: p.client ?? "",
+        desc: p.desc ?? "",
+        tag: p.tag ?? "",
+        src: p.image ?? "",
+        url: p.url ?? "",
+        link: p.link ?? "#",
+      }))
+    : DEFAULT_PROJECTS;
+
   const [activeTab, setActiveTab] = useState("All");
   const [scrollProgress, setScrollProgress] = useState(0);
   const runwayRef = useRef<HTMLDivElement>(null);
 
-  const filteredProjects = projects.filter(
+  const filteredProjects = projectsList.filter(
     (p) => activeTab === "All" || p.category === activeTab
   );
 
@@ -178,10 +204,10 @@ export default function PortfolioShowcase() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-900/5 text-slate-600 text-xs font-semibold uppercase tracking-widest mb-6">
-              ✦ Selected Case Studies
+              {c.eyebrow}
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 uppercase">
-              Our Portfolio
+              {c.heading}
             </h2>
           </div>
 
