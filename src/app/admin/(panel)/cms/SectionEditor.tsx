@@ -2,19 +2,18 @@
 
 import { useState, useTransition } from "react";
 import { ChevronDown, ChevronUp, Trash2, Plus } from "lucide-react";
-import { saveHomeSection } from "@/server/content/actions";
 import type { Field, ListDef } from "@/server/content/home-sections";
 import type { SaveState } from "@/server/content/types";
 
 type Item = Record<string, string>;
 
 export default function SectionEditor({
-  sectionId,
+  onSave,
   fields,
   list,
   initial,
 }: {
-  sectionId: string;
+  onSave: (payload: Record<string, unknown>) => Promise<SaveState>;
   fields: Field[];
   list: ListDef | null;
   initial: Record<string, unknown>;
@@ -46,7 +45,7 @@ export default function SectionEditor({
   const save = () => {
     startTransition(async () => {
       const payload = { ...values, ...(list ? { [list.name]: items } : {}) };
-      setState(await saveHomeSection(sectionId, payload));
+      setState(await onSave(payload));
     });
   };
 

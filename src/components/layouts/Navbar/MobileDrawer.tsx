@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { ABOUT_MENU } from "./aboutMegaMenuData";
+import { useAboutMenu } from "./useAboutMenu";
 import { AI_AUTOMATION_MENU } from "./aiAutomationMenuData";
 import { NAV_LINKS } from "./data";
 import { INDUSTRIES_MENU } from "./industriesMegaMenuData";
@@ -69,6 +70,10 @@ function MobileDrawer({
   drawerRef,
   closeDrawer,
 }: MobileDrawerProps) {
+  // About items are CMS-managed; the rest stay static.
+  const aboutItems = useAboutMenu();
+  const mobileMenus = { ...SIMPLE_MOBILE_MENUS, About: aboutItems };
+
   return (
     <>
       {/* Backdrop overlay */}
@@ -107,7 +112,7 @@ function MobileDrawer({
         {/* Drawer links */}
         <nav className="flex flex-col px-6 py-4 flex-1 overflow-y-auto">
           {NAV_LINKS.map((label) => {
-            const simpleMenu = SIMPLE_MOBILE_MENUS[label];
+            const simpleMenu = mobileMenus[label];
 
             return simpleMenu ? (
               <details key={label} className="group border-b border-heading/6">

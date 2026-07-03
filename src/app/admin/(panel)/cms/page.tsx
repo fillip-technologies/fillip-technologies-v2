@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Home } from "lucide-react";
+import { Home, Menu, FileText } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
 
@@ -10,6 +10,18 @@ const CMS_AREAS = [
     label: "Home Page",
     description: "Edit the hero, headings and sections on the public home page.",
     icon: Home,
+  },
+  {
+    href: "/admin/cms/nav",
+    label: "Navigation",
+    description: "Manage the top-nav “About” dropdown — add, edit or reorder pages with their URLs.",
+    icon: Menu,
+  },
+  {
+    href: "/admin/cms/pages",
+    label: "About Pages",
+    description: "Edit the content of the Our Story, Portfolio and Our Culture pages.",
+    icon: FileText,
   },
 ];
 

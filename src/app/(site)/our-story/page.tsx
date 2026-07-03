@@ -3,6 +3,8 @@ import StoryHero from "@/components/Our-story/StoryHero";
 import StatsSection from "@/components/Our-story/StatsSection";
 import StoryTimeline from "@/components/Our-story/StoryTimeline";
 import MissionVision from "@/components/Our-story/MissionVision";
+import { getContentData } from "@/server/content/queries";
+import { getPageSection, pageSectionDefaults } from "@/server/content/page-sections";
 
 export const metadata: Metadata = {
   title: "Our Story | Fillip Technologies",
@@ -10,13 +12,22 @@ export const metadata: Metadata = {
   alternates: { canonical: "/our-story" },
 };
 
-export default function OurStoryPage() {
+// Always render the latest CMS content (edits show without a rebuild).
+export const dynamic = "force-dynamic";
+
+function sec(id: string) {
+  return getContentData(`page.our-story.${id}`, pageSectionDefaults(getPageSection("our-story", id)!));
+}
+
+export default async function OurStoryPage() {
+  const [hero, missionvision] = await Promise.all([sec("hero"), sec("missionvision")]);
+
   return (
     <main className="overflow-hidden bg-background text-heading">
-      <StoryHero />
+      <StoryHero content={hero} />
       <StatsSection />
       <StoryTimeline />
-      <MissionVision />
+      <MissionVision content={missionvision} />
     </main>
   );
 }

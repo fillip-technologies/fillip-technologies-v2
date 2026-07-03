@@ -47,7 +47,21 @@ const pillars = [
   },
 ];
 
-export default function CultureHero() {
+// CMS-editable content (key: page.our-culture.hero). Falls back to defaults.
+type CultureHeroContent = Partial<{
+  badge: string;
+  headingLead: string;
+  headingHighlight: string;
+}>;
+
+export default function CultureHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as CultureHeroContent;
+  const c = {
+    badge: content.badge ?? "Our Culture",
+    headingLead: content.headingLead ?? "Shaping ideas through",
+    headingHighlight: content.headingHighlight ?? "collaborative minds.",
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -108,14 +122,14 @@ export default function CultureHero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Our Culture
+              {c.badge}
             </span>
 
             {/* Premium Gradient Title */}
             <h1 className="text-[clamp(2.3rem,5vw,4.8rem)] font-extrabold leading-[1.05] tracking-[-0.05em] text-heading dark:text-white max-w-2xl">
-              Shaping ideas through
+              {c.headingLead}
               <span className="block mt-3 bg-gradient-to-r from-primary via-accent to-indigo-600 bg-clip-text text-transparent pb-3 [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
-                collaborative minds.
+                {c.headingHighlight}
               </span>
             </h1>
 

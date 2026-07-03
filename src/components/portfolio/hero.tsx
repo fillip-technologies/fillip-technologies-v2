@@ -88,7 +88,23 @@ const slideVariants: Variants = {
   })
 };
 
-export default function PortfolioHero() {
+// CMS-editable content (key: page.portfolio.hero). Falls back to defaults.
+type PortfolioHeroContent = Partial<{
+  headingLead: string;
+  headingHighlight: string;
+  description: string;
+}>;
+
+export default function PortfolioHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as PortfolioHeroContent;
+  const c = {
+    headingLead: content.headingLead ?? "Ideas shaped into",
+    headingHighlight: content.headingHighlight ?? "digital experiences.",
+    description:
+      content.description ??
+      "Explore digital products, platforms and growth experiences built by Fillip Technologies for ambitious businesses and public institutions.",
+  };
+
   const [[page, direction], setPage] = useState([0, 0]);
 
   const paginate = (newDirection: number) => {
@@ -180,15 +196,15 @@ export default function PortfolioHero() {
 
           {/* Heading */}
           <h3 className="max-w-4xl text-[clamp(2.4rem,5.5vw,5.2rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-heading">
-            Ideas shaped into
+            {c.headingLead}
             <span className="block mt-2 bg-gradient-to-r from-primary via-accent to-indigo-600 bg-clip-text text-transparent pb-2 [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
-              digital experiences.
+              {c.headingHighlight}
             </span>
           </h3>
 
           {/* Description */}
           <p className="mt-8 max-w-xl text-base leading-relaxed text-body md:text-lg">
-            Explore digital products, platforms and growth experiences built by Fillip Technologies for ambitious businesses and public institutions.
+            {c.description}
           </p>
 
           {/* CTAs */}

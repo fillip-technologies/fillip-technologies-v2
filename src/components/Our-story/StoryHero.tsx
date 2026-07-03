@@ -3,7 +3,25 @@
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 
-export default function StoryHero() {
+// CMS-editable content (key: page.our-story.hero). Falls back to defaults.
+type StoryHeroContent = Partial<{
+  badge: string;
+  headingLead: string;
+  headingHighlight: string;
+  subheadline: string;
+}>;
+
+export default function StoryHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as StoryHeroContent;
+  const c = {
+    badge: content.badge ?? "Volume 01: The Journey",
+    headingLead: content.headingLead ?? "The Story of",
+    headingHighlight: content.headingHighlight ?? "Fillip Technologies",
+    subheadline:
+      content.subheadline ??
+      "Explore the milestones, minds, and methodologies that built our agency from a three-person workspace into a powerhouse of digital transformation.",
+  };
+
   return (
     <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-background px-6 py-28 text-heading lg:px-10 lg:py-36">
       {/* Continuous Brand Line Grid Background */}
@@ -105,7 +123,7 @@ export default function StoryHero() {
         className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary shadow-soft"
         >
           <BookOpen className="size-4 text-primary" />
-          Volume 01: The Journey
+          {c.badge}
         </motion.div>
 
         {/* Embossed Book Title */}
@@ -115,9 +133,9 @@ export default function StoryHero() {
           transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-heading sm:text-6xl md:text-7xl"
         >
-          The Story of
+          {c.headingLead}
           <span className="block mt-4 bg-gradient-to-r from-primary via-accent to-indigo-600 bg-clip-text text-transparent pb-3 [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
-            Fillip Technologies
+            {c.headingHighlight}
           </span>
         </motion.h1>
 
@@ -136,7 +154,7 @@ export default function StoryHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-xl text-lg font-medium leading-relaxed text-body sm:text-xl"
         >
-          Explore the milestones, minds, and methodologies that built our agency from a three-person workspace into a powerhouse of digital transformation.
+          {c.subheadline}
         </motion.p>
 
       </div>

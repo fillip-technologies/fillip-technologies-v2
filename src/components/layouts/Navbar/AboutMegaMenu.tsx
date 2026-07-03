@@ -1,11 +1,15 @@
+"use client";
+
 import NavDropdownMenu from "./NavDropdownMenu";
-import { ABOUT_MENU } from "./aboutMegaMenuData";
+import { useAboutMenu } from "./useAboutMenu";
 
 export default function AboutMegaMenu() {
+  const items = useAboutMenu();
+
   return (
     <NavDropdownMenu
       label="About"
-      items={ABOUT_MENU}
+      items={items}
       align="left"
       widthClass="w-[min(260px,calc(100vw-32px))]"
     />

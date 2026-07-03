@@ -3,7 +3,35 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Compass } from "lucide-react";
 
-export default function MissionVision() {
+// CMS-editable content (key: page.our-story.missionvision). Falls back to defaults.
+type MissionVisionContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  missionText: string;
+  visionText: string;
+  creedText: string;
+  signatureLead: string;
+  signatureName: string;
+}>;
+
+export default function MissionVision({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as MissionVisionContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "AFTERWORD",
+    heading: content.heading ?? "The Next Chapter",
+    missionText:
+      content.missionText ??
+      "To empower modern brands with high-performance custom engineering and search optimization, transforming complex operational workflows and marketing budgets into measurable business growth.",
+    visionText:
+      content.visionText ??
+      "To establish ourselves as a global benchmark for digital execution, proving that client transparency, clean scalable code, and creative engineering can consistently win on the international stage.",
+    creedText:
+      content.creedText ??
+      "We make commitments, not excuses. We work with absolute accountability, refuse code shortcuts, and measure our agency's reputation directly by the scalability and success of the products we launch.",
+    signatureLead: content.signatureLead ?? "Signed in code and character,",
+    signatureName: content.signatureName ?? "The Fillip Team",
+  };
+
   return (
     <section className="relative overflow-hidden border-t border-border bg-surface py-24 pb-32 text-heading">
       
@@ -15,10 +43,10 @@ export default function MissionVision() {
         {/* Afterword Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
-            AFTERWORD
+            {c.eyebrow}
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-heading sm:text-4xl">
-            The Next Chapter
+            {c.heading}
           </h2>
           <div className="mx-auto mt-4 h-0.5 w-16 bg-primary/30" />
         </div>
@@ -40,7 +68,7 @@ export default function MissionVision() {
                 <span className="text-xs font-extrabold uppercase tracking-widest">Our Mission</span>
               </div>
               <p className="text-sm leading-relaxed text-body sm:text-base">
-                To empower modern brands with high-performance custom engineering and search optimization, transforming complex operational workflows and marketing budgets into measurable business growth.
+                {c.missionText}
               </p>
             </div>
             <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section I</span>
@@ -60,7 +88,7 @@ export default function MissionVision() {
                 <span className="text-xs font-extrabold uppercase tracking-widest">Our Vision</span>
               </div>
               <p className="text-sm leading-relaxed text-body sm:text-base">
-                To establish ourselves as a global benchmark for digital execution, proving that client transparency, clean scalable code, and creative engineering can consistently win on the international stage.
+                {c.visionText}
               </p>
             </div>
             <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section II</span>
@@ -80,7 +108,7 @@ export default function MissionVision() {
                 <span className="text-xs font-extrabold uppercase tracking-widest">Our Creed</span>
               </div>
               <p className="text-sm leading-relaxed text-body sm:text-base">
-                We make commitments, not excuses. We work with absolute accountability, refuse code shortcuts, and measure our agency&apos;s reputation directly by the scalability and success of the products we launch.
+                {c.creedText}
               </p>
             </div>
             <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section III</span>
@@ -97,10 +125,10 @@ export default function MissionVision() {
           className="mt-20 flex flex-col items-center justify-center border-t border-border pt-10 text-center"
         >
           <span className="mb-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-            Signed in code and character,
+            {c.signatureLead}
           </span>
           <span className="select-none text-2xl font-semibold tracking-wide text-primary sm:text-3xl">
-            The Fillip Team
+            {c.signatureName}
           </span>
         </motion.div>
 

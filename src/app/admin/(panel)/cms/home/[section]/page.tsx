@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSection, sectionDefaults } from "@/server/content/home-sections";
 import { getContentData } from "@/server/content/queries";
-import SectionEditor from "./SectionEditor";
+import { saveHomeSection } from "@/server/content/actions";
+import SectionEditor from "../../SectionEditor";
 
 export default async function EditHomeSectionPage({
   params,
@@ -31,7 +32,7 @@ export default async function EditHomeSectionPage({
       <p className="mb-6 text-sm text-muted-foreground">{section.description}</p>
 
       <SectionEditor
-        sectionId={section.id}
+        onSave={saveHomeSection.bind(null, section.id)}
         fields={section.fields}
         list={section.list ?? null}
         initial={data}
