@@ -41,7 +41,7 @@ export default function TrustedBrandsSection() {
         </div>
 
         <div
-          className="absolute inset-0 flex min-w-full animate-marquee2 items-center gap-12 whitespace-nowrap"
+          className="absolute left-0 top-0 h-full flex min-w-full animate-marquee2 items-center gap-12 whitespace-nowrap"
           aria-hidden="true"
         >
           {[...brands, ...brands].map((brand, index) => (

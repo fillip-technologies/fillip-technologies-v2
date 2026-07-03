@@ -1,85 +1,33 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import ConsultationForm from "./ConsultationForm";
 
-const budgets = [
-    "Under ₹50K",
-    "₹50K - ₹1L",
-    "₹1L - ₹3L",
-    "₹3L - ₹5L",
-    "₹5L+",
-];
+export default function ConsultationFormSection({
+    showOnlyForm = false,
+}: {
+    showOnlyForm?: boolean;
+}) {
+    if (showOnlyForm) {
+        return (
+            <div className="border border-slate-200/80 bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 shadow-md relative overflow-hidden h-full">
+                {/* Soft gradient backgrounds in form card */}
+                <div className="absolute top-[-80px] right-[-80px] w-64 h-64 rounded-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 blur-3xl pointer-events-none" />
+                
+                <div className="relative z-10">
+                    <div className="border-b border-slate-100 pb-4 mb-6">
+                        <h3 className="text-lg font-black uppercase tracking-wide text-slate-900 flex items-center gap-2">
+                            Send a Message
+                        </h3>
+                        <p className="text-xs text-slate-400 font-light mt-1">
+                            Fill in the details below and we will get back to you with a detailed scope report.
+                        </p>
+                    </div>
 
-export default function ConsultationFormSection() {
-    const [loading, setLoading] = useState(false);
-
-    const [form, setForm] = useState({
-        fullName: "",
-        company: "",
-        email: "",
-        phone: "",
-        budget: "",
-        message: "",
-    });
-
-    const [errors, setErrors] = useState<Record<string, string>>({});
-
-    const validate = () => {
-        const newErrors: Record<string, string> = {};
-
-        if (!form.fullName.trim()) {
-            newErrors.fullName = "Full name is required";
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-            newErrors.email = "Please enter a valid email";
-        }
-
-        if (!/^[0-9]{10,15}$/.test(form.phone)) {
-            newErrors.phone = "Please enter a valid phone number";
-        }
-
-        if (!form.budget) {
-            newErrors.budget = "Select your budget";
-        }
-
-        if (form.message.trim().length < 20) {
-            newErrors.message =
-                "Please provide at least 20 characters";
-        }
-
-        setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
-    };
-
-    const handleSubmit = async (
-        e: React.FormEvent<HTMLFormElement>
-    ) => {
-        e.preventDefault();
-
-        if (!validate()) return;
-
-        try {
-            setLoading(true);
-
-            console.log(form);
-
-            alert("Consultation request submitted.");
-
-            setForm({
-                fullName: "",
-                company: "",
-                email: "",
-                phone: "",
-                budget: "",
-                message: "",
-            });
-        } finally {
-            setLoading(false);
-        }
-    };
+                    <ConsultationForm />
+                </div>
+            </div>
+        );
+    }
 
     return (
         <section className="relative overflow-hidden py-24">
@@ -125,133 +73,7 @@ export default function ConsultationFormSection() {
 
                         {/* Form Column */}
                         <div className="p-8 md:p-10">
-                            <form onSubmit={handleSubmit}>
-                                <div className="grid gap-6 md:grid-cols-2">
-                                    <InputField
-                                        label="Full Name *"
-                                        value={form.fullName}
-                                        error={errors.fullName}
-                                        onChange={(value) =>
-                                            setForm({
-                                                ...form,
-                                                fullName: value,
-                                            })
-                                        }
-                                    />
-
-                                    <InputField
-                                        label="Company Name"
-                                        value={form.company}
-                                        onChange={(value) =>
-                                            setForm({
-                                                ...form,
-                                                company: value,
-                                            })
-                                        }
-                                    />
-
-                                    <InputField
-                                        label="Email Address *"
-                                        value={form.email}
-                                        error={errors.email}
-                                        onChange={(value) =>
-                                            setForm({
-                                                ...form,
-                                                email: value,
-                                            })
-                                        }
-                                    />
-
-                                    <InputField
-                                        label="Phone Number *"
-                                        value={form.phone}
-                                        error={errors.phone}
-                                        onChange={(value) =>
-                                            setForm({
-                                                ...form,
-                                                phone: value,
-                                            })
-                                        }
-                                    />
-                                </div>
-
-                                {/* Budget */}
-                                <div className="mt-8">
-                                    <label className="mb-4 block text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
-                                        Project Budget
-                                    </label>
-
-                                    <div className="grid gap-3 md:grid-cols-5">
-                                        {budgets.map((budget) => (
-                                            <button
-                                                key={budget}
-                                                type="button"
-                                                onClick={() =>
-                                                    setForm({
-                                                        ...form,
-                                                        budget,
-                                                    })
-                                                }
-                                                className={`rounded-2xl border p-4 text-sm transition ${form.budget === budget
-                                                    ? "border-blue-600 bg-blue-50 text-blue-700"
-                                                    : "border-slate-200 hover:border-blue-300"
-                                                    }`}
-                                            >
-                                                {budget}
-                                            </button>
-                                        ))}
-                                    </div>
-
-                                    {errors.budget && (
-                                        <p className="mt-2 text-sm text-red-500">
-                                            {errors.budget}
-                                        </p>
-                                    )}
-                                </div>
-
-                                {/* Message */}
-                                <div className="mt-8">
-                                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                                        Project Requirements *
-                                    </label>
-
-                                    <textarea
-                                        rows={4}
-                                        value={form.message}
-                                        onChange={(e) =>
-                                            setForm({
-                                                ...form,
-                                                message: e.target.value,
-                                            })
-                                        }
-                                        placeholder="Tell us about your project goals, features, timeline and requirements..."
-                                        className="w-full rounded border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
-                                    />
-
-                                    {errors.message && (
-                                        <p className="mt-2 text-sm text-red-500">
-                                            {errors.message}
-                                        </p>
-                                    )}
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    disabled={loading}
-                                    className="mt-8 flex w-full items-center justify-center gap-3 rounded bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white"
-                                >
-                                    {loading
-                                        ? "Submitting..."
-                                        : "Schedule A Consultation"}
-
-                                    <ArrowRight size={18} />
-                                </button>
-
-                                <p className="mt-5 text-center text-sm text-slate-500">
-                                    🔒 We respect your privacy. Your information is secure and
-                                    confidential.
-                                </p>
-                            </form>
+                            <ConsultationForm />
                         </div>
 
                         {/* Video Column */}
@@ -290,38 +112,5 @@ export default function ConsultationFormSection() {
                 </div>
             </div>
         </section>
-    );
-}
-
-function InputField({
-    label,
-    value,
-    error,
-    onChange,
-}: {
-    label: string;
-    value: string;
-    error?: string;
-    onChange: (value: string) => void;
-}) {
-    return (
-        <div>
-            <label className="mb-2 block text-sm font-medium text-slate-700">
-                {label}
-            </label>
-
-            <input
-                type="text"
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
-                className="h-14 w-full rounded border border-slate-200 px-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
-            />
-
-            {error && (
-                <p className="mt-2 text-sm text-red-500">
-                    {error}
-                </p>
-            )}
-        </div>
     );
 }

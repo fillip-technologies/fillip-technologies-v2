@@ -118,7 +118,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
                         className="pointer-events-none absolute -right-[34vw] -top-[clamp(4rem,8vw,6rem)] z-10 w-[clamp(38rem,118vw,62rem)] max-w-none drop-shadow-[0_34px_80px_color-mix(in_srgb,var(--heading)_16%,transparent)] sm:-right-[24vw] md:-right-[20vw] lg:right-[clamp(-34rem,-12vw,-10rem)] lg:top-[clamp(-18rem,-7vw,-5rem)] lg:w-[clamp(54rem,66vw,148rem)]"
                     >
                         <Image
-                            src={c.heroImage}
+                            src="/images/hand.png"
                             alt=""
                             width={1400}
                             height={1400}

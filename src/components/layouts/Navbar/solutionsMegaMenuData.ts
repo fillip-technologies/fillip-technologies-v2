@@ -17,7 +17,7 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
     description: "Digital products, automation, and enterprise software for growth.",
     children: [
       {
-        label: "Ticket Booking Integration",
+        label: "Ticket Booking Solution",
         href: "/ticket-booking",
       },
       {
@@ -36,16 +36,17 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
     description: "Secure infrastructure, devices, and workplace technology systems.",
     children: [
       {
-        label: "CCTV Solutions",
+        label: "Security Surveillance",
+        href: "/security-surveillance",
       },
       {
-        label: "Biometric Systems",
+        label: "Fiber Optic Connectivity",
       },
       {
-        label: "Access Control",
+        label: "Local Area Network",
       },
       {
-        label: "Attendance Systems",
+        label: "Control Room",
       },
       {
         label: "Networking",
@@ -54,19 +55,19 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
         label: "Server Solutions",
       },
       {
-        label: "Firewall & Security",
+        label: "Wide Area Network",
       },
       {
-        label: "Smart Office",
+        label: "System Integration",
       },
       {
         label: "IT Infrastructure",
       },
       {
-        label: "Data Center",
+        label: "",
       },
       {
-        label: "Video Conferencing",
+        label: "GPS Solution",
       },
     ],
   },

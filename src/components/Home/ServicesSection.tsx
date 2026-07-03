@@ -83,7 +83,7 @@ const categories: ServiceCategory[] = [
     "Creative Experience Design",
 ];
 
-const serviceImages: Record<ServiceCategory, string> = {
+const serviceImages: Record<string, string> = {
     "Custom Website Development": "/images/SERVICES/custom-website.jpg",
     "E-Commerce Development": "/images/SERVICES/e-commerce.jpg",
     "WordPress Development": "/images/SERVICES/wordpress.jpg",
