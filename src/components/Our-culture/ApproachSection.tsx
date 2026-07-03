@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Search, Map, Code, Activity, TrendingUp } from "lucide-react";
 
-const steps = [
+const DEFAULT_STEPS = [
   {
     phase: "01",
     title: "Discover",
@@ -51,7 +51,26 @@ const steps = [
   },
 ];
 
-export default function ApproachSection() {
+type ApproachContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  description: string;
+  steps: { phase: string; title: string; description: string }[];
+}>;
+
+export default function ApproachSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as ApproachContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "METHODOLOGY",
+    heading: content.heading ?? "Our Approach: Simple Yet Powerful",
+    description:
+      content.description ??
+      "Being the best lead generation agency, we follow a step-by-step and collaborative process, ensuring every project is designed for success.",
+  };
+  const steps = content.steps?.length
+    ? content.steps.map((s, i) => ({ ...DEFAULT_STEPS[i % DEFAULT_STEPS.length], phase: s.phase, title: s.title, description: s.description }))
+    : DEFAULT_STEPS;
+
   return (
     <section className="relative overflow-hidden bg-white py-24 dark:bg-slate-950">
       {/* Background decorations */}
@@ -68,14 +87,14 @@ export default function ApproachSection() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary dark:text-blue-400">
-              METHODOLOGY
+              {c.eyebrow}
             </span>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-heading dark:text-white sm:text-5xl">
-              Our Approach: Simple Yet Powerful
+              {c.heading}
             </h2>
             <div className="mt-4 mx-auto h-1.5 w-20 rounded-full bg-primary" />
             <p className="mt-6 text-lg leading-relaxed text-body dark:text-slate-400">
-              Being the best lead generation agency, we follow a step-by-step and collaborative process, ensuring every project is designed for success.
+              {c.description}
             </p>
           </motion.div>
         </div>

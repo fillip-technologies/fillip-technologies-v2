@@ -13,17 +13,22 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+function sec(id: string) {
+  return getContentData(`page.our-culture.${id}`, pageSectionDefaults(getPageSection("our-culture", id)!));
+}
+
 export default async function OurCulturePage() {
-  const hero = await getContentData(
-    "page.our-culture.hero",
-    pageSectionDefaults(getPageSection("our-culture", "hero")!)
-  );
+  const [hero, beliefs, approach] = await Promise.all([
+    sec("hero"),
+    sec("beliefs"),
+    sec("approach"),
+  ]);
 
   return (
     <main className="bg-white dark:bg-slate-950 overflow-hidden">
       <CultureHero content={hero} />
-      <BeliefsSection />
-      <ApproachSection />
+      <BeliefsSection content={beliefs} />
+      <ApproachSection content={approach} />
     </main>
   );
 }

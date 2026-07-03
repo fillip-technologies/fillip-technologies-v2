@@ -3,7 +3,7 @@
 import NavDropdownMenu from "./NavDropdownMenu";
 import { useAboutMenu } from "./useAboutMenu";
 
-export default function AboutMegaMenu() {
+export default function  AboutMegaMenu() {
   const items = useAboutMenu();
 
   return (

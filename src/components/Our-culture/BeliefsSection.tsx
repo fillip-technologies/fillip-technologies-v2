@@ -54,7 +54,32 @@ const DEFAULT_BELIEFS = [
   },
 ];
 
-export default function BeliefsSection() {
+type BeliefsContent = Partial<{
+  heading: string;
+  description: string;
+  quoteEyebrow: string;
+  quote: string;
+  quoteCite: string;
+  beliefs: { title: string; description: string }[];
+}>;
+
+export default function BeliefsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as BeliefsContent;
+  const c = {
+    heading: content.heading ?? "We Believe In",
+    description:
+      content.description ??
+      "Our core beliefs are not just slogans on a wall. They guide how we think, how we work, and how we interact with our clients and each other every single day.",
+    quoteEyebrow: content.quoteEyebrow ?? "PEOPLE & PERFORMANCE",
+    quote:
+      content.quote ??
+      "Every one of us at Fillip Technologies works towards creating an environment that respects people as much as performance.",
+    quoteCite: content.quoteCite ?? "As great performance starts with great people.",
+  };
+  const beliefs = content.beliefs?.length
+    ? content.beliefs.map((b, i) => ({ ...DEFAULT_BELIEFS[i % DEFAULT_BELIEFS.length], title: b.title, description: b.description }))
+    : DEFAULT_BELIEFS;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -93,11 +118,11 @@ export default function BeliefsSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl font-bold tracking-tight text-heading dark:text-white sm:text-5xl">
-              We Believe In
+              {c.heading}
             </h2>
             <div className="mt-4 mx-auto h-1.5 w-20 rounded-full bg-primary" />
             <p className="mt-6 text-lg leading-relaxed text-body dark:text-slate-400">
-              Our core beliefs are not just slogans on a wall. They guide how we think, how we work, and how we interact with our clients and each other every single day.
+              {c.description}
             </p>
           </motion.div>
         </div>
@@ -188,17 +213,17 @@ export default function BeliefsSection() {
 
           <div className="relative z-10 flex flex-col justify-center max-w-4xl mx-auto text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent mb-6 sm:mb-8">
-              PEOPLE & PERFORMANCE
+              {c.quoteEyebrow}
             </span>
-            
+
             <blockquote className="text-2xl font-medium sm:text-3xl lg:text-4xl leading-relaxed text-slate-100 tracking-tight">
-              &ldquo;Every one of us at Fillip Technologies works towards creating an environment that respects <span className="highlight-text font-bold bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">people</span> as much as <span className="highlight-text font-bold bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">performance</span>.&rdquo;
+              &ldquo;{c.quote}&rdquo;
             </blockquote>
 
             <div className="mt-8 mx-auto w-12 h-1 rounded-full bg-accent/60" />
 
             <cite className="mt-6 not-italic block text-lg sm:text-xl font-semibold text-slate-300">
-              As great performance starts with great people.
+              {c.quoteCite}
             </cite>
           </div>
         </motion.div>
