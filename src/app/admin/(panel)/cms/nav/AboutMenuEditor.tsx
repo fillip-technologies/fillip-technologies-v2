@@ -2,11 +2,12 @@
 
 import { useState, useTransition } from "react";
 import { ChevronDown, ChevronUp, Trash2, Plus } from "lucide-react";
-import { saveAboutMenu } from "@/server/nav/actions";
+import { saveNavMenu } from "@/server/nav/actions";
 import type { AboutMenuItem } from "@/components/layouts/Navbar/aboutMegaMenuData";
+import type { NavMenuId } from "@/server/nav/menus";
 import type { SaveState } from "@/server/content/types";
 
-export default function AboutMenuEditor({ initial }: { initial: AboutMenuItem[] }) {
+export default function NavMenuEditor({ menuId, initial }: { menuId: NavMenuId; initial: AboutMenuItem[] }) {
   const [items, setItems] = useState<AboutMenuItem[]>(() => initial.map((i) => ({ ...i })));
   const [state, setState] = useState<SaveState | null>(null);
   const [pending, startTransition] = useTransition();
@@ -25,7 +26,7 @@ export default function AboutMenuEditor({ initial }: { initial: AboutMenuItem[] 
     });
 
   const save = () => {
-    startTransition(async () => setState(await saveAboutMenu(items)));
+    startTransition(async () => setState(await saveNavMenu(menuId, items)));
   };
 
   return (

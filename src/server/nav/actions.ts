@@ -5,22 +5,22 @@ import { getSession } from "@/server/auth/session";
 import { upsertContent } from "@/server/content/queries";
 import type { AboutMenuItem } from "@/components/layouts/Navbar/aboutMegaMenuData";
 import type { SaveState } from "@/server/content/types";
-import { ABOUT_MENU_KEY } from "./queries";
+import { NAV_MENUS, isNavMenuId, type NavMenuId } from "./menus";
 
 /**
- * Save the admin-managed "About" nav dropdown items. Auth-checked; whitelists
- * each item to { label, href } and drops blanks.
+ * Save a nav dropdown's items. Auth-checked; whitelists each item to
+ * { label, href } and drops blanks.
  */
-export async function saveAboutMenu(items: AboutMenuItem[]): Promise<SaveState> {
+export async function saveNavMenu(menuId: NavMenuId, items: AboutMenuItem[]): Promise<SaveState> {
   if (!(await getSession())) {
     return { ok: false, message: "Not authorized." };
   }
+  if (!isNavMenuId(menuId)) {
+    return { ok: false, message: "Unknown menu." };
+  }
 
   const clean = (Array.isArray(items) ? items : [])
-    .map((i) => ({
-      label: String(i?.label ?? "").trim(),
-      href: String(i?.href ?? "").trim(),
-    }))
+    .map((i) => ({ label: String(i?.label ?? "").trim(), href: String(i?.href ?? "").trim() }))
     .filter((i) => i.label && i.href);
 
   if (!clean.length) {
@@ -28,11 +28,11 @@ export async function saveAboutMenu(items: AboutMenuItem[]): Promise<SaveState> 
   }
 
   try {
-    await upsertContent(ABOUT_MENU_KEY, { items: clean });
+    await upsertContent(NAV_MENUS[menuId].key, { items: clean });
     revalidatePath("/", "layout"); // refresh the nav across the site
-    return { ok: true, message: "Saved. The About menu is live." };
+    return { ok: true, message: `Saved. The ${NAV_MENUS[menuId].label} menu is live.` };
   } catch (err) {
-    console.error("saveAboutMenu failed:", err);
+    console.error("saveNavMenu failed:", err);
     return { ok: false, message: "Something went wrong while saving." };
   }
 }

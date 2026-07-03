@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { ABOUT_MENU } from "./aboutMegaMenuData";
-import { useAboutMenu } from "./useAboutMenu";
+import { useAboutMenu, useNavMenu } from "./useAboutMenu";
 import { AI_AUTOMATION_MENU } from "./aiAutomationMenuData";
 import { NAV_LINKS } from "./data";
 import { INDUSTRIES_MENU } from "./industriesMegaMenuData";
@@ -70,9 +70,13 @@ function MobileDrawer({
   drawerRef,
   closeDrawer,
 }: MobileDrawerProps) {
-  // About items are CMS-managed; the rest stay static.
+  // About + Industries items are CMS-managed; the rest stay static.
   const aboutItems = useAboutMenu();
-  const mobileMenus = { ...SIMPLE_MOBILE_MENUS, About: aboutItems };
+  const industriesItems = useNavMenu(
+    "industries",
+    INDUSTRIES_MENU.map((i) => ({ label: i.label, href: i.href }))
+  );
+  const mobileMenus = { ...SIMPLE_MOBILE_MENUS, About: aboutItems, Industries: industriesItems };
 
   return (
     <>
