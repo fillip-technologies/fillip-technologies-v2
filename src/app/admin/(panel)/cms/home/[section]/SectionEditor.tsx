@@ -59,7 +59,9 @@ export default function SectionEditor({
             <label htmlFor={field.name} className="mb-1 block text-sm font-medium text-body">
               {field.label}
             </label>
-            {field.type === "textarea" ? (
+            {field.type === "image" ? (
+              <ImageField value={values[field.name]} onChange={(v) => setField(field.name, v)} />
+            ) : field.type === "textarea" ? (
               <textarea
                 id={field.name}
                 value={values[field.name]}
@@ -154,6 +156,75 @@ export default function SectionEditor({
           <p className={`text-sm ${state.ok ? "text-green-600" : "text-red-500"}`}>{state.message}</p>
         ) : null}
       </div>
+    </div>
+  );
+}
+
+function ImageField({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const upload = async (file: File) => {
+    setError(null);
+    setUploading(true);
+    try {
+      const body = new FormData();
+      body.append("file", file);
+      const res = await fetch("/api/admin/upload", { method: "POST", body });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error ?? "Upload failed.");
+      onChange(data.url as string);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Upload failed.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-4">
+        <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-card/40">
+          {value ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={value} alt="preview" className="h-full w-full object-contain" />
+          ) : (
+            <span className="text-xs text-muted-foreground">None</span>
+          )}
+        </div>
+        <div className="space-y-2">
+          <label className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-border px-3 py-2 text-sm text-body transition-colors hover:border-primary hover:text-primary">
+            {uploading ? "Uploading…" : "Upload image"}
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              disabled={uploading}
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) upload(f);
+                e.target.value = "";
+              }}
+            />
+          </label>
+          {value ? (
+            <button
+              type="button"
+              onClick={() => onChange("")}
+              className="ml-2 text-sm text-red-500 hover:underline"
+            >
+              Remove
+            </button>
+          ) : null}
+        </div>
+      </div>
+      <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="/uploads/… or /images/…"
+        className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-heading outline-none focus:border-primary"
+      />
+      {error ? <p className="text-sm text-red-500">{error}</p> : null}
     </div>
   );
 }

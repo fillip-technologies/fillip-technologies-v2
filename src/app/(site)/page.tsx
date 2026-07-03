@@ -29,17 +29,33 @@ function sectionContent(id: string) {
 }
 
 export default async function HomePage() {
-  const [hero, trustedBy, capabilities, humanai, industries, clients, technology, testimonials] =
-    await Promise.all([
-      sectionContent("hero"),
-      sectionContent("trustedby"),
-      sectionContent("capabilities"),
-      sectionContent("humanai"),
-      sectionContent("industries"),
-      sectionContent("clients"),
-      sectionContent("technology"),
-      sectionContent("testimonials"),
-    ]);
+  const [
+    hero,
+    trustedBy,
+    capabilities,
+    humanai,
+    industries,
+    clients,
+    technology,
+    testimonials,
+    needguidance,
+    clientlistcta,
+    whychooseus,
+    casestudies,
+  ] = await Promise.all([
+    sectionContent("hero"),
+    sectionContent("trustedby"),
+    sectionContent("capabilities"),
+    sectionContent("humanai"),
+    sectionContent("industries"),
+    sectionContent("clients"),
+    sectionContent("technology"),
+    sectionContent("testimonials"),
+    sectionContent("needguidance"),
+    sectionContent("clientlistcta"),
+    sectionContent("whychooseus"),
+    sectionContent("casestudies"),
+  ]);
 
   return (
     <>
@@ -47,18 +63,18 @@ export default async function HomePage() {
       <HeroSection content={hero} />
       <TrustBar content={trustedBy} />
       <ServicesSection content={capabilities} />
-      <NeedGuidanceSection />
+      <NeedGuidanceSection content={needguidance} />
 
       <HumanAISection content={humanai} />
       <IndustriesSection content={industries} />
 
 
       <OurClients content={clients} />
-      <ClientListCTA />
+      <ClientListCTA content={clientlistcta} />
       <TestimonialsSection content={testimonials} />
       <TechnologyEcosystem content={technology} />
-      <WhyChooseFillip />
-      <CaseStudies />
+      <WhyChooseFillip content={whychooseus} />
+      <CaseStudies content={casestudies} />
 
       <ConsultationFormSection />
     </>

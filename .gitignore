@@ -42,3 +42,6 @@ dev-server.err.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# CMS-uploaded images
+/public/uploads/

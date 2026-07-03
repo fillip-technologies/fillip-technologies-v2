@@ -45,7 +45,27 @@ const features = [
   },
 ];
 
-export default function WhyChooseUsSection() {
+// CMS-editable content (key: home.whychooseus). Falls back to these defaults.
+type WhyChooseContent = Partial<{
+  eyebrow: string;
+  headingLine1: string;
+  headingLine2: string;
+  description: string;
+  ctaLabel: string;
+}>;
+
+export default function WhyChooseUsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as WhyChooseContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "Why Businesses Choose Fillip",
+    headingLine1: content.headingLine1 ?? "Built For Growth.",
+    headingLine2: content.headingLine2 ?? "Designed For Results.",
+    description:
+      content.description ??
+      "We combine strategy, technology, design, and AI expertise to help businesses build, scale, and grow with confidence in a rapidly evolving digital world.",
+    ctaLabel: content.ctaLabel ?? "Learn More",
+  };
+
   return (
     <section className="relative overflow-hidden py-24 lg:py-28">
       {/* Grid Background */}
@@ -76,24 +96,22 @@ export default function WhyChooseUsSection() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-3xl">
             <span className="inline-flex rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-medium text-[var(--primary)]">
-              Why Businesses Choose Fillip
+              {c.eyebrow}
             </span>
 
             <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
-              Built For Growth.
+              {c.headingLine1}
               <br />
-              Designed For Results.
+              {c.headingLine2}
             </h2>
 
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--body)]">
-              We combine strategy, technology, design, and AI expertise
-              to help businesses build, scale, and grow with confidence
-              in a rapidly evolving digital world.
+              {c.description}
             </p>
           </div>
 
           <button className="group inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-medium text-[var(--heading)] transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg">
-            Learn More
+            {c.ctaLabel}
 
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
           </button>

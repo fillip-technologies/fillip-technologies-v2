@@ -1,18 +1,30 @@
 "use client";
 
-interface MasterCTAProps {
-  title?: string;
-  description?: string;
-  buttonText?: string;
-  image?: string;
-}
+// Shared CTA. Editable via CMS on the home page (key: home.needguidance) by
+// passing `content`, or via explicit props on service landing pages (explicit
+// props win over CMS content, which wins over the defaults below).
+type NeedGuidanceFields = Partial<{
+  eyebrow: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  image: string;
+}>;
 
-export default function NeedGuidanceSection({
-  title = "Not Sure What Solution Fits Your Business?",
-  description = "Every business has different goals. Whether you need a website, mobile app, digital marketing, SEO, automation, or AI solutions, our experts will help you choose the right strategy.",
-  buttonText = "Talk To Our Experts →",
-  image = "/images/ai-assistant.png",
-}: MasterCTAProps) {
+export default function NeedGuidanceSection(
+  props: { content?: Record<string, unknown> } & NeedGuidanceFields
+) {
+  const fromContent = (props.content ?? {}) as NeedGuidanceFields;
+  const eyebrow = props.eyebrow ?? fromContent.eyebrow ?? "Need Expert Advice?";
+  const title =
+    props.title ?? fromContent.title ?? "Not Sure What Solution Fits Your Business?";
+  const description =
+    props.description ??
+    fromContent.description ??
+    "Every business has different goals. Whether you need a website, mobile app, digital marketing, SEO, automation, or AI solutions, our experts will help you choose the right strategy.";
+  const buttonText = props.buttonText ?? fromContent.buttonText ?? "Talk To Our Experts →";
+  const image = props.image || fromContent.image || "/images/ai-assistant.png";
+
   return (
     <section className="py-4">
       <div className="container mx-auto max-w-7xl px-6">
@@ -20,7 +32,7 @@ export default function NeedGuidanceSection({
           
           <div>
             <div className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--primary)]">
-              Need Expert Advice?
+              {eyebrow}
             </div>
 
             <h3 className="mt-2 text-2xl font-semibold text-[var(--heading)]">

@@ -2,7 +2,27 @@
 
 import Image from "next/image";
 
-export default function ClientListCTA() {
+// CMS-editable content (key: home.clientlistcta). Falls back to these defaults.
+type ClientListCTAContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  description: string;
+  buttonText: string;
+  image: string;
+}>;
+
+export default function ClientListCTA({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as ClientListCTAContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "Your Next Step",
+    heading: content.heading ?? "Can We Add Your Business To Our Client List Next?",
+    description:
+      content.description ??
+      "Join startups, growing businesses, and enterprises that trust Fillip Technologies to build, scale, and innovate with confidence. The next business we help grow could be yours.",
+    buttonText: content.buttonText ?? "Let's Build Together →",
+    image: content.image || "/images/ai-assistant.png",
+  };
+
   return (
     <section className="py-12 lg:py-16">
       <div className="container mx-auto max-w-7xl px-6">
@@ -11,17 +31,15 @@ export default function ClientListCTA() {
           {/* Content */}
           <div className="max-w-3xl">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--primary)]">
-              Your Next Step
+              {c.eyebrow}
             </span>
 
             <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)] md:text-3xl">
-              Can We Add Your Business To Our Client List Next?
+              {c.heading}
             </h2>
 
             <p className="mt-3 leading-relaxed text-[var(--body)]">
-              Join startups, growing businesses, and enterprises that trust
-              Fillip Technologies to build, scale, and innovate with confidence.
-              The next business we help grow could be yours.
+              {c.description}
             </p>
           </div>
 
@@ -37,7 +55,7 @@ export default function ClientListCTA() {
               />
 
               <Image
-                src="/images/ai-assistant.png"
+                src={c.image}
                 alt="Talk To Experts"
                 width={110}
                 height={110}
@@ -46,7 +64,7 @@ export default function ClientListCTA() {
             </div>
 
             <span className="mt-2 text-sm font-semibold text-[var(--heading)] transition-colors duration-300 group-hover/cta:text-[var(--primary)]">
-              Let's Build Together →
+              {c.buttonText}
             </span>
           </button>
         </div>

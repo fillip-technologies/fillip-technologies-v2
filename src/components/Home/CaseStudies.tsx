@@ -56,7 +56,27 @@ const caseStudies = [
   },
 ];
 
-export default function CaseStudies() {
+// CMS-editable content (key: home.casestudies). Falls back to these defaults.
+type CaseStudiesContent = Partial<{
+  eyebrow: string;
+  headingLine1: string;
+  headingLine2: string;
+  headingLine3: string;
+  description: string;
+}>;
+
+export default function CaseStudies({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as CaseStudiesContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "CASE STUDIES",
+    headingLine1: content.headingLine1 ?? "Results",
+    headingLine2: content.headingLine2 ?? "That Speak",
+    headingLine3: content.headingLine3 ?? "For Themselves",
+    description:
+      content.description ??
+      "Discover how strategy, technology, and execution helped our clients generate more leads, increase revenue, and scale faster.",
+  };
+
   const sectionRef = useRef(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -122,22 +142,20 @@ export default function CaseStudies() {
           >
             <div>
               <div className="mb-6 text-xs uppercase tracking-[0.35em] text-body">
-                CASE STUDIES
+                {c.eyebrow}
               </div>
 
               <h2 className="text-heading text-5xl font-medium leading-[0.92] lg:text-7xl">
-                Results
+                {c.headingLine1}
                 <br />
-                That Speak
+                {c.headingLine2}
                 <br />
-                For Themselves
+                {c.headingLine3}
                 <span className="ml-3 inline-block">↘</span>
               </h2>
 
               <p className="mt-8 max-w-md text-body leading-relaxed">
-                Discover how strategy, technology, and execution helped our
-                clients generate more leads, increase revenue, and scale
-                faster.
+                {c.description}
               </p>
             </div>
 
