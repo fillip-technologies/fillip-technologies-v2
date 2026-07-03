@@ -2,10 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import {
-  getIndustry,
   getIndustrySectionSpec,
   INDUSTRY_SECTION_IDS,
 } from "@/server/content/industry-sections";
+import { getIndustry } from "@/server/content/industry-registry";
+import StatusBar from "./StatusBar";
 
 export default async function IndustrySectionsList({
   params,
@@ -13,7 +14,7 @@ export default async function IndustrySectionsList({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const industry = getIndustry(slug);
+  const industry = await getIndustry(slug);
   if (!industry) notFound();
 
   return (
@@ -30,6 +31,8 @@ export default async function IndustrySectionsList({
       </nav>
       <h1 className="mb-1 text-lg font-semibold text-heading">{industry.label} — sections</h1>
       <p className="mb-6 text-sm text-muted-foreground">Choose a section to edit.</p>
+
+      <StatusBar slug={slug} published={industry.published} />
 
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
         {INDUSTRY_SECTION_IDS.map((id) => {

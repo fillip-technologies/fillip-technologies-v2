@@ -1,4 +1,5 @@
-import { query } from "@/lib/db";
+import { dbConnect } from "@/lib/db";
+import { LeadModel } from "@/server/db/models";
 import type { ContactInput } from "./schema";
 
 export type Lead = {
@@ -13,28 +14,38 @@ export type Lead = {
   created_at: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function toLead(doc: any): Lead {
+  return {
+    id: String(doc._id),
+    name: doc.name,
+    email: doc.email,
+    phone: doc.phone ?? null,
+    company: doc.company ?? null,
+    message: doc.message,
+    source: doc.source ?? null,
+    status: doc.status,
+    created_at: new Date(doc.created_at).toISOString(),
+  };
+}
+
 /** Insert a new lead and return the created row. */
 export async function insertLead(input: ContactInput): Promise<Lead> {
-  const rows = await query<Lead>(
-    `INSERT INTO leads (name, email, phone, company, message, source)
-     VALUES ($1, $2, $3, $4, $5, $6)
-     RETURNING *`,
-    [
-      input.name,
-      input.email,
-      input.phone || null,
-      input.company || null,
-      input.message,
-      input.source || null,
-    ]
-  );
-  return rows[0];
+  await dbConnect();
+  const doc = await LeadModel.create({
+    name: input.name,
+    email: input.email,
+    phone: input.phone || null,
+    company: input.company || null,
+    message: input.message,
+    source: input.source || null,
+  });
+  return toLead(doc.toObject());
 }
 
 /** List leads, newest first (for the admin dashboard). */
 export async function listLeads(limit = 100): Promise<Lead[]> {
-  return query<Lead>(
-    `SELECT * FROM leads ORDER BY created_at DESC LIMIT $1`,
-    [limit]
-  );
+  await dbConnect();
+  const docs = await LeadModel.find().sort({ created_at: -1 }).limit(limit).lean();
+  return docs.map(toLead);
 }

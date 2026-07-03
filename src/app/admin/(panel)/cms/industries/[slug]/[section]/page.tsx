@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  getIndustry,
   getIndustrySectionSpec,
   industryDefault,
 } from "@/server/content/industry-sections";
+import { getIndustry } from "@/server/content/industry-registry";
 import { getContentData } from "@/server/content/queries";
 import { saveIndustrySection } from "@/server/content/industry-actions";
 import SectionEditor from "../../../SectionEditor";
@@ -15,7 +15,7 @@ export default async function EditIndustrySection({
   params: Promise<{ slug: string; section: string }>;
 }) {
   const { slug, section: sectionId } = await params;
-  const industry = getIndustry(slug);
+  const industry = await getIndustry(slug);
   const spec = getIndustrySectionSpec(sectionId);
   if (!industry || !spec || !spec.section.ready) notFound();
   const section = spec.section;

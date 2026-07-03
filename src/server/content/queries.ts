@@ -1,4 +1,5 @@
-import { query } from "@/lib/db";
+import { dbConnect } from "@/lib/db";
+import { SiteContentModel } from "@/server/db/models";
 
 /**
  * Read a content row's JSON data, merged over the provided defaults so missing
@@ -8,11 +9,9 @@ export async function getContentData<T extends Record<string, unknown>>(
   key: string,
   defaults: T
 ): Promise<T> {
-  const rows = await query<{ data: Record<string, unknown> }>(
-    `SELECT data FROM site_content WHERE key = $1`,
-    [key]
-  );
-  return { ...defaults, ...(rows[0]?.data ?? {}) };
+  await dbConnect();
+  const row = await SiteContentModel.findOne({ key }).lean();
+  return { ...defaults, ...((row?.data as Record<string, unknown>) ?? {}) };
 }
 
 /** Insert or update a content row's JSON payload. */
@@ -20,10 +19,10 @@ export async function upsertContent(
   key: string,
   data: Record<string, unknown>
 ): Promise<void> {
-  await query(
-    `INSERT INTO site_content (key, data, updated_at)
-     VALUES ($1, $2::jsonb, now())
-     ON CONFLICT (key) DO UPDATE SET data = EXCLUDED.data, updated_at = now()`,
-    [key, JSON.stringify(data)]
+  await dbConnect();
+  await SiteContentModel.updateOne(
+    { key },
+    { $set: { data, updated_at: new Date() } },
+    { upsert: true }
   );
 }

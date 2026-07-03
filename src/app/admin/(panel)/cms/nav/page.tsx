@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { getNavMenu } from "@/server/nav/queries";
 import { NAV_MENUS } from "@/server/nav/menus";
 import NavMenuEditor from "./AboutMenuEditor";
 
 export const metadata = { title: "Navigation — CMS" };
+export const dynamic = "force-dynamic";
 
 export default async function NavCmsPage() {
   const [about, industries] = await Promise.all([getNavMenu("about"), getNavMenu("industries")]);
@@ -31,7 +33,31 @@ export default async function NavCmsPage() {
 
       <div>
         <h2 className="mb-3 text-base font-semibold text-heading">{NAV_MENUS.industries.label} menu</h2>
-        <NavMenuEditor menuId="industries" initial={industries} />
+        <div className="rounded-lg border border-border bg-card/40 p-5">
+          <p className="text-sm text-body">
+            The Industries dropdown is generated automatically from your{" "}
+            <strong className="text-heading">published</strong> industry pages. Publish, unpublish or
+            reorder pages to change these links — labels and order come from each page.
+          </p>
+          {industries.length ? (
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {industries.map((i) => (
+                <li
+                  key={i.href}
+                  className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground"
+                >
+                  {i.label}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          <Link
+            href="/admin/cms/industries"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
+            Manage industry pages <ArrowRight size={15} />
+          </Link>
+        </div>
       </div>
     </section>
   );

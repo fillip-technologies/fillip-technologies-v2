@@ -1,4 +1,5 @@
-import { query } from "@/lib/db";
+import { dbConnect } from "@/lib/db";
+import { AdminUserModel } from "@/server/db/models";
 
 export type AdminUser = {
   id: string;
@@ -8,12 +9,21 @@ export type AdminUser = {
   created_at: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function toAdmin(doc: any): AdminUser {
+  return {
+    id: String(doc._id),
+    email: doc.email,
+    password_hash: doc.password_hash,
+    name: doc.name ?? null,
+    created_at: new Date(doc.created_at).toISOString(),
+  };
+}
+
 export async function getAdminByEmail(email: string): Promise<AdminUser | null> {
-  const rows = await query<AdminUser>(
-    `SELECT * FROM admin_users WHERE email = $1`,
-    [email.toLowerCase()]
-  );
-  return rows[0] ?? null;
+  await dbConnect();
+  const doc = await AdminUserModel.findOne({ email: email.toLowerCase() }).lean();
+  return doc ? toAdmin(doc) : null;
 }
 
 export async function createAdmin(
@@ -21,12 +31,11 @@ export async function createAdmin(
   passwordHash: string,
   name?: string
 ): Promise<AdminUser> {
-  const rows = await query<AdminUser>(
-    `INSERT INTO admin_users (email, password_hash, name)
-     VALUES ($1, $2, $3)
-     ON CONFLICT (email) DO UPDATE SET password_hash = EXCLUDED.password_hash
-     RETURNING *`,
-    [email.toLowerCase(), passwordHash, name ?? null]
-  );
-  return rows[0];
+  await dbConnect();
+  const doc = await AdminUserModel.findOneAndUpdate(
+    { email: email.toLowerCase() },
+    { $set: { password_hash: passwordHash }, $setOnInsert: { name: name ?? null } },
+    { upsert: true, new: true, setDefaultsOnInsert: true }
+  ).lean();
+  return toAdmin(doc);
 }

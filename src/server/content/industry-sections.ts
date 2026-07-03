@@ -1,9 +1,13 @@
 /**
- * CMS registry for the /industries/<slug> pages. All 6 industries share one
- * component template driven by `industriesData[slug]`, so one section SCHEMA is
- * reused for every industry — only the default *values* differ (sourced from
- * industriesData). Section data is stored FLAT (`industry.<slug>.<section>`);
+ * CMS SECTION SCHEMA for the /industries/<slug> pages. Every industry shares one
+ * component template, so one section schema is reused for all of them — only the
+ * default *values* differ. Section data is stored FLAT (`industry.<slug>.<section>`);
  * the public page unflattens it back into the nested shape the components take.
+ *
+ * The list of industries themselves (which slugs exist, labels, publish state)
+ * lives in the `industries` DB table — see `industry-registry.ts`. Admin-created
+ * industries start blank; the original 6 fall back to `industriesData` defaults
+ * via the SEED_DATA_KEYS map below.
  */
 
 import type { Section } from "./home-sections";
@@ -12,20 +16,16 @@ import { industriesData } from "@/data/industriesData";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type AnyRec = Record<string, any>;
 
-export type IndustryDef = { slug: string; dataKey: keyof typeof industriesData; label: string };
-
-export const INDUSTRIES: IndustryDef[] = [
-  { slug: "healthcare", dataKey: "healthcare", label: "Healthcare" },
-  { slug: "finance", dataKey: "finance", label: "Finance" },
-  { slug: "retail", dataKey: "retail", label: "Retail" },
-  { slug: "education", dataKey: "education", label: "Education" },
-  { slug: "real-estate", dataKey: "realEstate", label: "Real Estate" },
-  { slug: "logistics", dataKey: "logistics", label: "Logistics" },
-];
-
-export function getIndustry(slug: string): IndustryDef | undefined {
-  return INDUSTRIES.find((i) => i.slug === slug);
-}
+// The original 6 industries ship with hardcoded default content. New industries
+// created from the admin have no seed data and start blank.
+const SEED_DATA_KEYS: Record<string, keyof typeof industriesData> = {
+  healthcare: "healthcare",
+  finance: "finance",
+  retail: "retail",
+  education: "education",
+  "real-estate": "realEstate",
+  logistics: "logistics",
+};
 
 // --- Section schema + flat<->nested codecs, one entry per section id ---
 type SectionSpec = {
@@ -367,9 +367,12 @@ export function getIndustrySectionSpec(sectionId: string): SectionSpec | undefin
   return INDUSTRY_SECTION_SPECS[sectionId];
 }
 
-/** Raw nested default for a section (straight from industriesData). */
+/**
+ * Raw nested default for a section. The original 6 industries pull from
+ * industriesData; admin-created industries have no seed and return `{}` (blank).
+ */
 export function industryDefault(slug: string, sectionId: string): AnyRec {
-  const ind = getIndustry(slug);
-  if (!ind) return {};
-  return (industriesData[ind.dataKey] as AnyRec)?.[sectionId] ?? {};
+  const dataKey = SEED_DATA_KEYS[slug];
+  if (!dataKey) return {};
+  return (industriesData[dataKey] as AnyRec)?.[sectionId] ?? {};
 }
