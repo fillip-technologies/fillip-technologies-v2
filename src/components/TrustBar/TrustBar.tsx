@@ -2,12 +2,39 @@
 
 import { Star, Users, BriefcaseBusiness } from "lucide-react";
 
-export default function TrustBar() {
+// CMS-editable content (key: home.trustedby). Falls back to these defaults.
+type TrustBarContent = Partial<{
+    headingLead: string;
+    headingHighlight: string;
+    description: string;
+    stat1Value: string;
+    stat1Label: string;
+    stat2Value: string;
+    stat2Label: string;
+    stat3Value: string;
+    stat3Label: string;
+    ratingValue: string;
+    ratingLabel: string;
+    trustedLabel: string;
+}>;
+
+export default function TrustBar({ content: raw = {} }: { content?: Record<string, unknown> }) {
+    const content = raw as TrustBarContent;
     const c = {
-        headingLead: "The Future Isn't Human or AI.",
-        headingHighlight: "It's Human + AI.",
+        headingLead: content.headingLead ?? "The Future Isn't Human or AI.",
+        headingHighlight: content.headingHighlight ?? "It's Human + AI.",
         description:
+            content.description ??
             "For 13+ years, we've helped businesses navigate technology change. Now, we're combining deep industry expertise with artificial intelligence to unlock the next generation of growth.",
+        stat1Value: content.stat1Value ?? "3K+",
+        stat1Label: content.stat1Label ?? "Clients Worldwide",
+        stat2Value: content.stat2Value ?? "5K+",
+        stat2Label: content.stat2Label ?? "Customer Satisfaction",
+        stat3Value: content.stat3Value ?? "13+",
+        stat3Label: content.stat3Label ?? "Years Experience",
+        ratingValue: content.ratingValue ?? "4.9/5",
+        ratingLabel: content.ratingLabel ?? "Average Rating",
+        trustedLabel: content.trustedLabel ?? "Trusted By Businesses Across Industries",
     };
 
     return (
@@ -42,10 +69,10 @@ export default function TrustBar() {
 
                         <div>
                             <div className="text-2xl font-bold text-slate-900">
-                                3K+
+                                {c.stat1Value}
                             </div>
                             <div className="text-sm text-slate-500">
-                                Clients Worldwide
+                                {c.stat1Label}
                             </div>
                         </div>
                     </div>
@@ -60,10 +87,10 @@ export default function TrustBar() {
 
                         <div>
                             <div className="text-2xl font-bold text-slate-900">
-                                5K+
+                                {c.stat2Value}
                             </div>
                             <div className="text-sm text-slate-500">
-                                Customer Satisfaction
+                                {c.stat2Label}
                             </div>
                         </div>
                     </div>
@@ -78,10 +105,10 @@ export default function TrustBar() {
 
                         <div>
                             <div className="text-2xl font-bold text-slate-900">
-                                13+
+                                {c.stat3Value}
                             </div>
                             <div className="text-sm text-slate-500">
-                                Years Experience
+                                {c.stat3Label}
                             </div>
                         </div>
                     </div>
@@ -96,10 +123,10 @@ export default function TrustBar() {
 
                         <div>
                             <div className="text-2xl font-bold text-slate-900">
-                                4.9/5
+                                {c.ratingValue}
                             </div>
                             <div className="text-sm text-slate-500">
-                                Average Rating
+                                {c.ratingLabel}
                             </div>
                         </div>
 
@@ -110,7 +137,7 @@ export default function TrustBar() {
                  {/* Small Label */}
                 <div className="mt-14 text-center">
                     <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                        Trusted By Businesses Across Industries
+                        {c.trustedLabel}
                     </p>
                 </div>
             </div>

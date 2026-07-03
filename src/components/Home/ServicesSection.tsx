@@ -318,7 +318,23 @@ const services: Service[] = [
     },
 ];
 
-export default function ServicesSection() {
+// CMS-editable content (key: home.capabilities). Falls back to these defaults.
+type ServicesContent = Partial<{
+    headingLine1: string;
+    headingLine2: string;
+    description: string;
+}>;
+
+export default function ServicesSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+    const content = raw as ServicesContent;
+    const c = {
+        headingLine1: content.headingLine1 ?? "End-to-End Digital Services",
+        headingLine2: content.headingLine2 ?? "for Modern Organizations",
+        description:
+            content.description ??
+            "From websites and apps to enterprise software, performance marketing, and creative design, Fillip Technologies builds digital systems that help businesses launch, automate, and scale.",
+    };
+
     const [activeCategory, setActiveCategory] =
         useState<ServiceCategory>("Web Development");
     const [isExpanded, setIsExpanded] = useState(false);
@@ -382,15 +398,13 @@ export default function ServicesSection() {
                         id="services-heading"
                         className=" text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-heading md:text-[42px] lg:text-[48px]"
                     >
-                        End-to-End Digital Services
+                        {c.headingLine1}
                         <br />
-                        <span className="highlight-text">for Modern Organizations</span>
+                        <span className="highlight-text">{c.headingLine2}</span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-relaxed text-slate-600">
-                        From websites and apps to enterprise software, performance
-                        marketing, and creative design, Fillip Technologies builds digital
-                        systems that help businesses launch, automate, and scale.
+                        {c.description}
                     </p>
                 </div>
 

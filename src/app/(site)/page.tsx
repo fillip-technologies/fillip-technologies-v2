@@ -18,13 +18,18 @@ import HeroSection from "@/components/Home/HeroSection";
 import ServicesSection from "@/components/Home/ServicesSection";
 import IndustriesSection from "@/components/Home/IndustriesSection"
 
+// Always render with the latest CMS content. Without this Next can serve a
+// cached static copy, so edits saved in the admin panel wouldn't appear until a
+// rebuild. `saveHomeSection` also calls revalidatePath("/") as a backstop.
+export const dynamic = "force-dynamic";
+
 // Load a Home section's saved CMS content (falls back to registry defaults).
 function sectionContent(id: string) {
   return getContentData(`home.${id}`, sectionDefaults(getSection(id)!));
 }
 
 export default async function HomePage() {
-  const [hero, trustedBy, humanai, industries, clients, technology, testimonials] =
+  const [hero, trustedBy, capabilities, humanai, industries, clients, technology, testimonials] =
     await Promise.all([
       sectionContent("hero"),
       sectionContent("trustedby"),
@@ -39,18 +44,18 @@ export default async function HomePage() {
   return (
     <>
 
-      <HeroSection />
-      <TrustBar />
-      <ServicesSection />
+      <HeroSection content={hero} />
+      <TrustBar content={trustedBy} />
+      <ServicesSection content={capabilities} />
       <NeedGuidanceSection />
 
       <HumanAISection content={humanai} />
-      <IndustriesSection />
+      <IndustriesSection content={industries} />
 
 
-      <OurClients />
+      <OurClients content={clients} />
       <ClientListCTA />
-      <TestimonialsSection />
+      <TestimonialsSection content={testimonials} />
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip />
       <CaseStudies />

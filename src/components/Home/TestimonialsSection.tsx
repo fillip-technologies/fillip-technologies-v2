@@ -47,7 +47,21 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialsSection() {
+// CMS-editable content (key: home.testimonials). Falls back to these defaults.
+type TestimonialsContent = Partial<{
+  heading: string;
+  rating: string;
+  reviewsLabel: string;
+}>;
+
+export default function TestimonialsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as TestimonialsContent;
+  const c = {
+    heading: content.heading ?? "What our customers are saying",
+    rating: content.rating ?? "4.8/5",
+    reviewsLabel: content.reviewsLabel ?? "Based on 5,210+ reviews",
+  };
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     dragFree: true,
@@ -86,16 +100,12 @@ export default function TestimonialsSection() {
             />
 
             <h2 className="text-[42px] font-semibold leading-[1.28] tracking-[-0.03em] text-slate-950 lg:text-[44px]">
-              What our
-              <br />
-              customers are
-              <br />
-              saying
+              {c.heading}
             </h2>
 
             <div className="mt-10 flex items-center gap-3">
               <span className="text-xl font-medium text-slate-800">
-                4.8/5
+                {c.rating}
               </span>
 
               <div className="flex gap-1">
@@ -110,7 +120,7 @@ export default function TestimonialsSection() {
             </div>
 
             <p className="mt-3 text-base text-slate-500">
-              Based on 5,210+ reviews
+              {c.reviewsLabel}
             </p>
 
             {/* Navigation */}

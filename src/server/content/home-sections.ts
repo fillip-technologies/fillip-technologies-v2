@@ -10,7 +10,7 @@
  * matching component (see Hero/TrustedBy for the pattern).
  */
 
-export type FieldType = "text" | "textarea" | "url";
+export type FieldType = "text" | "textarea" | "url" | "image";
 
 export type Field = {
   name: string;
@@ -65,12 +65,13 @@ export const HOME_SECTIONS: Section[] = [
       { name: "primaryCtaHref", label: "Primary button — link", type: "url", default: "#contact" },
       { name: "secondaryCtaLabel", label: "Secondary button — label", type: "text", default: "Explore Capabilities" },
       { name: "secondaryCtaHref", label: "Secondary button — link", type: "url", default: "#capabilities" },
+      { name: "heroImage", label: "Hero image", type: "image", default: "/images/hand.png" },
     ],
   },
   {
     id: "trustedby",
     label: "Trusted By",
-    description: "Headline + intro paragraph below the hero.",
+    description: "Headline, intro paragraph and the four stat blocks below the hero.",
     ready: true,
     fields: [
       { name: "headingLead", label: "Heading", type: "text", default: "The Future Isn't Human or AI." },
@@ -82,43 +83,33 @@ export const HOME_SECTIONS: Section[] = [
         default:
           "For 13+ years, we've helped businesses navigate technology change. Now, we're combining deep industry expertise with artificial intelligence to unlock the next generation of growth.",
       },
+      { name: "stat1Value", label: "Stat 1 — value", type: "text", default: "3K+" },
+      { name: "stat1Label", label: "Stat 1 — label", type: "text", default: "Clients Worldwide" },
+      { name: "stat2Value", label: "Stat 2 — value", type: "text", default: "5K+" },
+      { name: "stat2Label", label: "Stat 2 — label", type: "text", default: "Customer Satisfaction" },
+      { name: "stat3Value", label: "Stat 3 — value", type: "text", default: "13+" },
+      { name: "stat3Label", label: "Stat 3 — label", type: "text", default: "Years Experience" },
+      { name: "ratingValue", label: "Rating — value", type: "text", default: "4.9/5" },
+      { name: "ratingLabel", label: "Rating — label", type: "text", default: "Average Rating" },
+      { name: "trustedLabel", label: "Bottom label", type: "text", default: "Trusted By Businesses Across Industries" },
     ],
   },
   {
     id: "capabilities",
-    label: "Capabilities",
-    description: "“What we do” heading + the service cards grid.",
+    label: "Services",
+    description: "Heading + intro above the services tabs (the service tabs/cards stay in code).",
     ready: true,
     fields: [
-      { name: "eyebrow", label: "Eyebrow", type: "text", default: "WHAT WE DO" },
       { name: "headingLine1", label: "Heading — line 1", type: "text", default: "End-to-End Digital Services" },
-      { name: "headingLine2", label: "Heading — line 2", type: "text", default: "for Modern Organizations" },
+      { name: "headingLine2", label: "Heading — line 2 (highlighted)", type: "text", default: "for Modern Organizations" },
       {
         name: "description",
         label: "Description",
         type: "textarea",
         default:
-          "From software engineering and mobile applications to marketing, design, automation, and growth solutions, we help organizations build stronger digital foundations and unlock new opportunities.",
+          "From websites and apps to enterprise software, performance marketing, and creative design, Fillip Technologies builds digital systems that help businesses launch, automate, and scale.",
       },
     ],
-    list: {
-      name: "cards",
-      label: "Service cards",
-      itemNoun: "card",
-      itemFields: [
-        { name: "title", label: "Title", type: "text" },
-        { name: "description", label: "Description", type: "textarea" },
-        { name: "image", label: "Image path", type: "text" },
-      ],
-      default: [
-        { title: "Application Engineering", description: "Custom Website Development, E-Commerce Development, WordPress Development, and Enterprise Software Solutions built for scale.", image: "/images/SERVICES/APPLICATION.jpg" },
-        { title: "Mobile App Development", description: "Enterprise Mobile Applications, E-Commerce Mobile Solutions, On-Demand Platforms, and Business Process Automation Apps.", image: "/images/SERVICES/MOBILE.jpg" },
-        { title: "Search Visibility Engineering", description: "Local SEO, On-Page SEO, Off-Page SEO, Technical SEO, and CMS Optimization to improve search performance.", image: "/images/SERVICES/SEO.jpg" },
-        { title: "Digital Growth Marketing", description: "Facebook Marketing, Instagram Marketing, YouTube Marketing, LinkedIn Marketing, and growth-focused campaigns.", image: "/images/SERVICES/SOCIAL.jpg" },
-        { title: "Performance Marketing", description: "Facebook & Instagram Ads, Google Ads, YouTube Advertising, and conversion-focused paid acquisition strategies.", image: "/images/SERVICES/ADS.jpg" },
-        { title: "Creative Experience Design", description: "Graphic Design, Logo Design, UI/UX Design, Video Editing, and brand experiences that drive engagement.", image: "/images/SERVICES/APPLICATION.jpg" },
-      ],
-    },
   },
   {
     id: "humanai",
@@ -158,45 +149,20 @@ export const HOME_SECTIONS: Section[] = [
   },
   {
     id: "industries",
-    label: "Industries Impact",
-    description: "“Proven Impact” heading, CTA, side text, stats and the rotating industry cards.",
+    label: "Industries",
+    description: "Eyebrow, heading and intro above the industries accordion (the industry cards stay in code).",
     ready: true,
     fields: [
-      { name: "headingLead", label: "Heading — line 1", type: "text", default: "Proven Impact" },
-      { name: "headingHighlight", label: "Heading — line 2 (highlighted)", type: "text", default: "Across Industries." },
-      { name: "ctaLabel", label: "Button label", type: "text", default: "Get Started" },
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "Industries" },
+      { name: "heading", label: "Heading", type: "text", default: "Industries We Empower" },
       {
-        name: "sideText",
-        label: "Side paragraph",
+        name: "description",
+        label: "Description",
         type: "textarea",
         default:
-          "We build scalable AI, cloud, automation and enterprise technology solutions that help organizations grow faster.",
+          "We partner with businesses across diverse industries to build scalable digital products, AI-powered platforms and cloud-first solutions.",
       },
-      { name: "stat1Value", label: "Stat 1 — value", type: "text", default: "320M+" },
-      { name: "stat1Label", label: "Stat 1 — label", type: "text", default: "Business Users" },
-      { name: "stat2Value", label: "Stat 2 — value", type: "text", default: "590K+" },
-      { name: "stat2Label", label: "Stat 2 — label", type: "text", default: "Happy Clients" },
-      { name: "stat3Value", label: "Stat 3 — value", type: "text", default: "$438B+" },
-      { name: "stat3Label", label: "Stat 3 — label", type: "text", default: "Revenue Impact" },
     ],
-    list: {
-      name: "items",
-      label: "Industry cards",
-      itemNoun: "industry",
-      itemFields: [
-        { name: "title", label: "Title", type: "text" },
-        { name: "description", label: "Description", type: "textarea" },
-        { name: "stat", label: "Stat", type: "text" },
-        { name: "label", label: "Stat label", type: "text" },
-        { name: "image", label: "Image path", type: "text" },
-      ],
-      default: [
-        { title: "Healthcare Transformation", description: "Modern patient platforms, hospital automation, and AI-powered healthcare operations.", stat: "50+", label: "Healthcare Solutions", image: "/images/impact.jpg" },
-        { title: "Financial Innovation", description: "Enterprise banking, fintech products, secure digital transactions and automation.", stat: "60+", label: "Financial Platforms", image: "/images/finance.jpg" },
-        { title: "Retail Experience", description: "Omnichannel commerce, customer intelligence and scalable digital experiences.", stat: "40+", label: "Retail Solutions", image: "/images/retail.jpg" },
-        { title: "Education Systems", description: "Learning platforms, student portals and large-scale education transformation.", stat: "50+", label: "Education Platforms", image: "/images/education.jpg" },
-      ],
-    },
   },
   {
     id: "clients",
@@ -232,34 +198,88 @@ export const HOME_SECTIONS: Section[] = [
   {
     id: "testimonials",
     label: "Testimonials",
-    description: "“Client testimonials” heading, the rating card and the featured review.",
+    description: "Heading and rating summary beside the testimonials carousel (the reviews stay in code).",
     ready: true,
     fields: [
-      { name: "eyebrow", label: "Eyebrow", type: "text", default: "CLIENT TESTIMONIALS" },
-      { name: "headingLine1", label: "Heading — line 1", type: "text", default: "Real Reviews." },
-      { name: "headingLine2", label: "Heading — line 2 (highlighted)", type: "text", default: "Real Business Outcomes." },
+      { name: "heading", label: "Heading", type: "text", default: "What our customers are saying" },
+      { name: "rating", label: "Rating value", type: "text", default: "4.8/5" },
+      { name: "reviewsLabel", label: "Reviews label", type: "text", default: "Based on 5,210+ reviews" },
+    ],
+  },
+  {
+    id: "needguidance",
+    label: "Need Guidance CTA",
+    description: "The “Not sure what solution fits” consultation prompt (with image).",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "Need Expert Advice?" },
+      { name: "title", label: "Title", type: "text", default: "Not Sure What Solution Fits Your Business?" },
       {
         name: "description",
         label: "Description",
         type: "textarea",
         default:
-          "Trusted by businesses, organizations, and institutions across industries. Every review reflects real-world impact and measurable results.",
+          "Every business has different goals. Whether you need a website, mobile app, digital marketing, SEO, automation, or AI solutions, our experts will help you choose the right strategy.",
       },
-      { name: "rating", label: "Rating value", type: "text", default: "4.8" },
-      { name: "ratingLabel", label: "Rating label", type: "text", default: "Google Rating" },
-      { name: "reviewCount", label: "Review count", type: "text", default: "137+" },
-      { name: "reviewCountLabel", label: "Review count label", type: "text", default: "Verified Reviews" },
-      { name: "badge", label: "Badge", type: "text", default: "Google Business Profile" },
-      { name: "reviewTitle", label: "Featured review — title", type: "text", default: "Highly Recommended!" },
+      { name: "buttonText", label: "Button text", type: "text", default: "Talk To Our Experts →" },
+      { name: "image", label: "Image", type: "image", default: "/images/ai-assistant.png" },
+    ],
+  },
+  {
+    id: "clientlistcta",
+    label: "Client List CTA",
+    description: "The “Can we add your business to our client list” banner (with image).",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "Your Next Step" },
+      { name: "heading", label: "Heading", type: "text", default: "Can We Add Your Business To Our Client List Next?" },
       {
-        name: "reviewQuote",
-        label: "Featured review — quote",
+        name: "description",
+        label: "Description",
         type: "textarea",
         default:
-          "I had an amazing experience with Fillip Technologies. Their approach was professional, transparent, and result-driven. The team helped us establish a stronger digital presence and execute solutions faster than expected.",
+          "Join startups, growing businesses, and enterprises that trust Fillip Technologies to build, scale, and innovate with confidence. The next business we help grow could be yours.",
       },
-      { name: "reviewAuthor", label: "Featured review — author", type: "text", default: "Sameer Verma" },
-      { name: "reviewAuthorLabel", label: "Featured review — author label", type: "text", default: "Google Review" },
+      { name: "buttonText", label: "Button text", type: "text", default: "Let's Build Together →" },
+      { name: "image", label: "Image", type: "image", default: "/images/ai-assistant.png" },
+    ],
+  },
+  {
+    id: "whychooseus",
+    label: "Why Choose Us",
+    description: "Heading + intro above the four feature cards (the cards stay in code).",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "Why Businesses Choose Fillip" },
+      { name: "headingLine1", label: "Heading — line 1", type: "text", default: "Built For Growth." },
+      { name: "headingLine2", label: "Heading — line 2", type: "text", default: "Designed For Results." },
+      {
+        name: "description",
+        label: "Description",
+        type: "textarea",
+        default:
+          "We combine strategy, technology, design, and AI expertise to help businesses build, scale, and grow with confidence in a rapidly evolving digital world.",
+      },
+      { name: "ctaLabel", label: "Button label", type: "text", default: "Learn More" },
+    ],
+  },
+  {
+    id: "casestudies",
+    label: "Case Studies",
+    description: "Eyebrow, heading and intro beside the case-study carousel (the cards stay in code).",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "CASE STUDIES" },
+      { name: "headingLine1", label: "Heading — line 1", type: "text", default: "Results" },
+      { name: "headingLine2", label: "Heading — line 2", type: "text", default: "That Speak" },
+      { name: "headingLine3", label: "Heading — line 3", type: "text", default: "For Themselves" },
+      {
+        name: "description",
+        label: "Description",
+        type: "textarea",
+        default:
+          "Discover how strategy, technology, and execution helped our clients generate more leads, increase revenue, and scale faster.",
+      },
     ],
   },
 ];

@@ -94,7 +94,23 @@ const industries = [
   },
 ];
 
-export default function IndustriesSection() {
+// CMS-editable content (key: home.industries). Falls back to these defaults.
+type IndustriesContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  description: string;
+}>;
+
+export default function IndustriesSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as IndustriesContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "Industries",
+    heading: content.heading ?? "Industries We Empower",
+    description:
+      content.description ??
+      "We partner with businesses across diverse industries to build scalable digital products, AI-powered platforms and cloud-first solutions.",
+  };
+
   const [active, setActive] = useState(0);
 
   return (
@@ -109,17 +125,15 @@ export default function IndustriesSection() {
         <div className="mb-16 text-center">
 
           <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-sm uppercase tracking-[4px] text-cyan-300">
-            Industries
+            {c.eyebrow}
           </span>
 
           <h2 className="mt-8 text-5xl font-bold text-slate-900 lg:text-6xl">
-            Industries We Empower
+            {c.heading}
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-            We partner with businesses across diverse industries to build
-            scalable digital products, AI-powered platforms and cloud-first
-            solutions.
+            {c.description}
           </p>
         </div>
 
