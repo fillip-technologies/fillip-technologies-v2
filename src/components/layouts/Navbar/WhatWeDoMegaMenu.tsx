@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import NavSubmenuLink from "./NavSubmenuLink";
-import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
+import { WHAT_WE_DO_MENU, buildWhatWeDoColumns } from "./whatWeDoMegaMenuData";
 import type { MegaMenuItem } from "./whatWeDoMegaMenuData";
+import { useWhatWeDoCategories } from "./useWhatWeDoCategories";
 
 type WhatWeDoMegaMenuProps = {
   panelTopClass?: string;
@@ -37,7 +39,11 @@ export default function WhatWeDoMegaMenu({
     () => false
   );
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const columns = WHAT_WE_DO_MENU;
+  // Published categories drive the menu; fall back to the static menu until they
+  // load (or if none/failed).
+  const categories = useWhatWeDoCategories();
+  const columns =
+    categories && categories.length ? buildWhatWeDoColumns(categories) : WHAT_WE_DO_MENU;
   const isHeroMenu = variant === "compact";
 
   useEffect(() => {
@@ -85,20 +91,27 @@ export default function WhatWeDoMegaMenu({
       >
         {columns.map((column, columnIndex) => (
           <div key={columnIndex} className={isHeroMenu ? "space-y-5" : "space-y-6"}>
-            {column.map((group) => (
-              <section key={group.title}>
-                <button
-                  type="button"
-                  className={`
-                    block text-left font-medium leading-7 tracking-normal text-heading transition-colors hover:text-body
-                    ${isHeroMenu ? "text-[18px]" : "text-[19px]"}
-                  `}
-                >
-                  {group.title}
-                </button>
-                {group.items ? <BranchItems items={group.items} /> : null}
-              </section>
-            ))}
+            {column.map((group) => {
+              const href = "href" in group ? group.href : undefined;
+              const titleClass = `
+                block text-left font-medium leading-7 tracking-normal text-heading transition-colors hover:text-body
+                ${isHeroMenu ? "text-[18px]" : "text-[19px]"}
+              `;
+              return (
+                <section key={group.title}>
+                  {href ? (
+                    <Link href={href} className={titleClass} onClick={() => setOpen(false)}>
+                      {group.title}
+                    </Link>
+                  ) : (
+                    <button type="button" className={titleClass}>
+                      {group.title}
+                    </button>
+                  )}
+                  {group.items ? <BranchItems items={group.items} /> : null}
+                </section>
+              );
+            })}
           </div>
         ))}
       </div>

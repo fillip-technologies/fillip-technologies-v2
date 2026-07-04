@@ -11,7 +11,8 @@ import NavSubmenuLink from "./NavSubmenuLink";
 import { SOLUTIONS_MENU } from "./solutionsMegaMenuData";
 import type { SolutionMenuItem } from "./solutionsMegaMenuData";
 import type { MegaMenuItem, MobileDrawerProps } from "./types";
-import { WHAT_WE_DO_MENU } from "./whatWeDoMegaMenuData";
+import { WHAT_WE_DO_MENU, WHAT_WE_DO_ITEMS_BY_SLUG } from "./whatWeDoMegaMenuData";
+import { useWhatWeDoCategories } from "./useWhatWeDoCategories";
 
 const SIMPLE_MOBILE_MENUS: Partial<Record<(typeof NAV_LINKS)[number], readonly (string | MegaMenuItem)[]>> = {
   About: ABOUT_MENU,
@@ -77,6 +78,18 @@ function MobileDrawer({
     INDUSTRIES_MENU.map((i) => ({ label: i.label, href: i.href }))
   );
   const mobileMenus = { ...SIMPLE_MOBILE_MENUS, About: aboutItems, Industries: industriesItems };
+
+  // "What We Do" groups come from the published categories (with linked headers),
+  // falling back to the static menu until they load.
+  const whatWeDoCats = useWhatWeDoCategories();
+  const whatWeDoGroups =
+    whatWeDoCats && whatWeDoCats.length
+      ? whatWeDoCats.map((c) => ({
+          title: c.label,
+          href: c.href,
+          items: WHAT_WE_DO_ITEMS_BY_SLUG[c.slug] ?? [],
+        }))
+      : WHAT_WE_DO_MENU.flat().map((g) => ({ title: g.title, href: undefined as string | undefined, items: g.items }));
 
   return (
     <>
@@ -189,15 +202,25 @@ function MobileDrawer({
                 </summary>
 
                 <div className="pb-5">
-                  {WHAT_WE_DO_MENU.flat().map((group) => (
+                  {whatWeDoGroups.map((group) => (
                     <div key={group.title} className="pb-4 last:pb-0">
-                      <button
-                        type="button"
-                        onClick={closeDrawer}
-                        className="block text-left text-sm font-semibold leading-6 text-heading"
-                      >
-                        {group.title}
-                      </button>
+                      {group.href ? (
+                        <Link
+                          href={group.href}
+                          onClick={closeDrawer}
+                          className="block text-left text-sm font-semibold leading-6 text-heading"
+                        >
+                          {group.title}
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={closeDrawer}
+                          className="block text-left text-sm font-semibold leading-6 text-heading"
+                        >
+                          {group.title}
+                        </button>
+                      )}
                       {group.items ? (
                         <div className="mt-2 space-y-2 pl-1">
                           {group.items.map((item) => (

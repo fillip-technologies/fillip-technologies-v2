@@ -8,6 +8,16 @@ export type MegaMenuGroup = {
   items?: MegaMenuItem[];
 };
 
+// A menu group that can link its own title (used for the dynamic, DB-driven
+// category groups whose header points at the /what-we-do/<slug> landing page).
+export type LinkableMegaMenuGroup = {
+  title: string;
+  href?: string;
+  items?: MegaMenuItem[];
+};
+
+export type WhatWeDoCategory = { slug: string; label: string; href: string };
+
 export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
   [
     {
@@ -172,10 +182,48 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       label: "I Have Low Organic Traffic",
     },
    
-    
-    
+
+
   ],
 }
 
   ],
 ];
+
+// Maps each seeded category slug to the curated sub-items shown under its group
+// header in the mega menu. New admin-created categories that aren't listed here
+// simply render as a header-only linked group.
+const TITLE_TO_SLUG: Record<string, string> = {
+  "Web Development": "web-development",
+  "Mobile App Development": "mobile-app-development",
+  "Software & Enterprise": "software-enterprise",
+  "Creative Experience Design": "creative-experience-design",
+  "SEO & Performance Marketing": "seo-performance-marketing",
+  "Challenges We Solve": "challenges-we-solve",
+};
+
+export const WHAT_WE_DO_ITEMS_BY_SLUG: Record<string, MegaMenuItem[]> = Object.fromEntries(
+  WHAT_WE_DO_MENU.flat()
+    .filter((g) => TITLE_TO_SLUG[g.title])
+    .map((g) => [TITLE_TO_SLUG[g.title], g.items ?? []])
+);
+
+/**
+ * Build the mega-menu columns from the published categories (DB-driven). Each
+ * category becomes a group whose header links to its landing page, keeping the
+ * curated sub-items for known slugs. Distributed round-robin across `columnCount`
+ * columns for a balanced layout.
+ */
+export function buildWhatWeDoColumns(
+  categories: WhatWeDoCategory[],
+  columnCount = 3
+): LinkableMegaMenuGroup[][] {
+  const groups: LinkableMegaMenuGroup[] = categories.map((c) => ({
+    title: c.label,
+    href: c.href,
+    items: WHAT_WE_DO_ITEMS_BY_SLUG[c.slug] ?? [],
+  }));
+  const cols: LinkableMegaMenuGroup[][] = Array.from({ length: columnCount }, () => []);
+  groups.forEach((g, i) => cols[i % columnCount].push(g));
+  return cols;
+}

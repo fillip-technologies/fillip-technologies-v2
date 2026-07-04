@@ -97,3 +97,22 @@ industrySchema.index({ sort_order: 1, slug: 1 });
 export type IndustryDoc = InferSchemaType<typeof industrySchema>;
 export const IndustryModel: Model<IndustryDoc> =
   (models.Industry as Model<IndustryDoc>) ?? model<IndustryDoc>("Industry", industrySchema);
+
+/* ------------------------------------------------- what-we-do categories -- */
+const serviceCategorySchema = new Schema(
+  {
+    slug: { type: String, required: true, unique: true },
+    label: { type: String, required: true },
+    published: { type: Boolean, required: true, default: false },
+    sort_order: { type: Number, required: true, default: 0 },
+    created_at: { type: Date, required: true, default: Date.now },
+    updated_at: { type: Date, required: true, default: Date.now },
+  },
+  { collection: "service_categories", versionKey: false }
+);
+serviceCategorySchema.index({ sort_order: 1, slug: 1 });
+
+export type ServiceCategoryDoc = InferSchemaType<typeof serviceCategorySchema>;
+export const ServiceCategoryModel: Model<ServiceCategoryDoc> =
+  (models.ServiceCategory as Model<ServiceCategoryDoc>) ??
+  model<ServiceCategoryDoc>("ServiceCategory", serviceCategorySchema);

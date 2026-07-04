@@ -20,6 +20,15 @@ const SEED_INDUSTRIES = [
   { slug: "logistics", label: "Logistics", sort_order: 6 },
 ];
 
+const SEED_CATEGORIES = [
+  { slug: "web-development", label: "Web Development", sort_order: 1 },
+  { slug: "mobile-app-development", label: "Mobile App Development", sort_order: 2 },
+  { slug: "software-enterprise", label: "Software & Enterprise", sort_order: 3 },
+  { slug: "creative-experience-design", label: "Creative Experience Design", sort_order: 4 },
+  { slug: "seo-performance-marketing", label: "SEO & Performance Marketing", sort_order: 5 },
+  { slug: "challenges-we-solve", label: "Challenges We Solve", sort_order: 6 },
+];
+
 async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
@@ -34,6 +43,8 @@ async function main() {
   await db.collection("admin_users").createIndex({ email: 1 }, { unique: true });
   await db.collection("industries").createIndex({ slug: 1 }, { unique: true });
   await db.collection("industries").createIndex({ sort_order: 1, slug: 1 });
+  await db.collection("service_categories").createIndex({ slug: 1 }, { unique: true });
+  await db.collection("service_categories").createIndex({ sort_order: 1, slug: 1 });
   await db.collection("leads").createIndex({ created_at: -1 });
 
   console.log("Seeding base industries ...");
@@ -47,6 +58,24 @@ async function main() {
           label: ind.label,
           published: true,
           sort_order: ind.sort_order,
+          created_at: now,
+          updated_at: now,
+        },
+      },
+      { upsert: true }
+    );
+  }
+
+  console.log("Seeding What-We-Do categories ...");
+  for (const cat of SEED_CATEGORIES) {
+    await db.collection("service_categories").updateOne(
+      { slug: cat.slug },
+      {
+        $setOnInsert: {
+          slug: cat.slug,
+          label: cat.label,
+          published: true,
+          sort_order: cat.sort_order,
           created_at: now,
           updated_at: now,
         },
