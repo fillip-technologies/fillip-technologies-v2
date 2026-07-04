@@ -2,27 +2,27 @@ import type { MegaMenuItem } from "./types";
 
 export const INDUSTRIES_MENU = [
   {
-    label: "Healthcare",
+    label: "Healthcare Industries",
     href: "/industries/healthcare",
   },
   {
-    label: "Finance",
+    label: "Finance Industries",
     href: "/industries/finance",
   },
   {
-    label: "Retail",
+    label: "Retail Industries",
     href: "/industries/retail",
   },
   {
-    label: "Education",
+    label: "Education Industries",
     href: "/industries/education",
   },
   {
-    label: "Real Estate",
+    label: "Real Estate Industries",
     href: "/industries/real-estate",
   },
   {
-    label: "Logistics",
+    label: "Logistics Industries",
     href: "/industries/logistics",
   },
 ] as const satisfies readonly (string | MegaMenuItem)[];

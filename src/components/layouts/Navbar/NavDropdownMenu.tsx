@@ -49,7 +49,7 @@ export default function NavDropdownMenu({
       onMouseEnter={showMenu}
       onMouseLeave={hideMenu}
       className={`
-        absolute top-full z-[940] ${widthClass} pt-3
+        absolute top-full z-[940] ${widthClass} pt-2
         ${align === "left" ? "left-0" : "left-1/2 -translate-x-1/2"}
         transition-all duration-200
         ${open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}
@@ -57,17 +57,17 @@ export default function NavDropdownMenu({
     >
       <div
         className="
-          rounded-lg border border-card/70 bg-card/95 px-5 py-4
+          max-h-[calc(100vh-96px)] overflow-y-auto rounded-lg border border-card/70 bg-card/95 px-4 py-2.5 sm:px-5
           text-heading shadow-[0_22px_64px_color-mix(in_srgb,var(--heading)_16%,transparent),inset_0_1px_0_color-mix(in_srgb,var(--card)_75%,transparent)]
           backdrop-blur-xl
         "
       >
-        <div className="space-y-1">
+        <div className="grid gap-1">
           {items.map((item) =>
             typeof item === "string" ? (
-              <NavSubmenuLink key={item} label={item} />
+              <NavSubmenuLink key={item} label={item} variant="dropdown" />
             ) : (
-              <NavSubmenuLink key={item.href ?? item.label} item={item} />
+              <NavSubmenuLink key={item.href ?? item.label} item={item} variant="dropdown" />
             ),
           )}
         </div>

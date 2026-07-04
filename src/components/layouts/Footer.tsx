@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 type FooterLink = {
   label: string;
@@ -10,64 +11,59 @@ type FooterColumn = {
   links: FooterLink[];
 };
 
-type Partner = {
-  name: string;
-  mark: string;
-};
-
-const partners: Partner[] = [
-  { name: "Microsoft", mark: "MS" },
-  { name: "AWS", mark: "AWS" },
-  { name: "Google Cloud", mark: "GC" },
-  { name: "Salesforce", mark: "SF" },
-  { name: "Zoho", mark: "ZO" },
-  { name: "Appian", mark: "AP" },
-];
-
 const footerColumns: FooterColumn[] = [
   {
-    title: "Solutions",
+    title: "What We Do",
     links: [
-      { label: "Capabilities", href: "#" },
-      { label: "Products", href: "#" },
-      { label: "Platforms", href: "#" },
-      { label: "AI Lab", href: "/mobile-app-development" },
+      { label: "Custom Website Development", href: "/services/website-development" },
+      { label: "E-Commerce Development", href: "/services/ecommerce-development" },
+      { label: "WordPress Development", href: "/services/wordpress-development" },
+      { label: "Software Development", href: "/services/software-development" },
+      { label: "Enterprise Mobile Applications", href: "/mobile-app-development/enterprise" },
+      { label: "Graphics Designing", href: "/graphic-designing" },
+      { label: "Technical SEO", href: "/technical-seo" },
+      { label: "View All Services", href: "/services" },
     ],
   },
   {
-    title: "Resources",
+    title: "AI & Automation",
     links: [
-      { label: "Insights", href: "#" },
-      { label: "Case Studies", href: "#" },
-      { label: "Partners", href: "#" },
-      { label: "Documentation", href: "#" },
+      { label: "AI Consulting", href: "/ai-consulting" },
+      { label: "AI Chatbots", href: "/aichatbots" },
+      { label: "AI Agent Development", href: "/ai-agent-development" },
+      { label: "AI + GPT Integration", href: "/ai-gpt-integration" },
+      { label: "Workflow Automation", href: "/workflow-automation" },
+      { label: "Business Process Automation", href: "/business-process-automation" },
+    ],
+  },
+  {
+    title: "Solutions",
+    links: [
+      { label: "Ticket Booking Solution", href: "/ticket-booking" },
+      { label: "SMS Communication Solution", href: "/sms-communication" },
+      { label: "WhatsApp Business Solution", href: "/messenger" },
+      { label: "Security Surveillance", href: "/security-surveillance" },
     ],
   },
   {
     title: "Industries",
     links: [
-      { label: "Healthcare", href: "#" },
-      { label: "Finance", href: "#" },
-      { label: "Manufacturing", href: "#" },
-      { label: "Retail", href: "#" },
+      { label: "Healthcare", href: "/industries/healthcare" },
+      { label: "Finance", href: "/industries/finance" },
+      { label: "Retail", href: "/industries/retail" },
+      { label: "Education", href: "/industries/education" },
+      { label: "Real Estate", href: "/industries/real-estate" },
+      { label: "Logistics", href: "/industries/logistics" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "Leadership", href: "#" },
+      { label: "Our Story", href: "/our-story" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Our Culture", href: "/our-culture" },
       { label: "Careers", href: "/others/carrer" },
-      { label: "Contact", href: "#" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms", href: "#" },
-      { label: "Cookies", href: "#" },
-      { label: "Compliance", href: "#" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
 ];
@@ -79,70 +75,19 @@ const legalLinks: FooterLink[] = [
   { label: "Compliance", href: "#" },
 ];
 
-function PartnerLogo({ partner }: { partner: Partner }) {
-  return (
-    <div
-      className="
-        flex min-h-24 items-center justify-center
-        border border-primary-foreground/10 bg-primary-foreground/[0.025] px-5
-        opacity-70
-      "
-    >
-      <svg
-        viewBox="0 0 180 56"
-        role="img"
-        aria-label={partner.name}
-        className="h-12 w-full max-w-[150px] text-primary-foreground"
-      >
-        <rect
-          x="2"
-          y="2"
-          width="52"
-          height="52"
-          rx="12"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          opacity="0.78"
-        />
-        <text
-          x="28"
-          y="34"
-          textAnchor="middle"
-          fill="currentColor"
-          fontSize="16"
-          fontWeight="700"
-          letterSpacing="1"
-        >
-          {partner.mark}
-        </text>
-        <text
-          x="68"
-          y="33"
-          fill="currentColor"
-          fontSize="17"
-          fontWeight="600"
-          letterSpacing="0.4"
-        >
-          {partner.name}
-        </text>
-      </svg>
-    </div>
-  );
-}
-
 function FooterNavLink({ href, label }: FooterLink) {
+  const isViewAll = label.startsWith("View All");
   return (
     <Link
       href={href}
-      className="
-        w-fit text-sm leading-6 text-primary-foreground/58
-        focus-visible:outline-none focus-visible:ring-2
-        focus-visible:ring-accent/70 focus-visible:ring-offset-4
-        focus-visible:ring-offset-navy
-      "
+      className={`
+        text-[13.5px] leading-5 text-primary-foreground/60 hover:text-white
+        transition-all duration-200 ease-in-out hover:translate-x-1 flex items-center gap-1
+        ${isViewAll ? "text-accent font-semibold hover:text-accent/80 mt-1" : ""}
+      `}
     >
-      {label}
+      {isViewAll && <span className="text-[10px]">&rarr;</span>}
+      <span>{label}</span>
     </Link>
   );
 }
@@ -173,36 +118,149 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <section className="border-b border-primary-foreground/10 py-16 sm:py-20">
-          <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        {/* Tier 1: Contact & Office Locations (Top) */}
+        <section className="grid grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-3 border-b border-white/5 py-12 sm:py-16">
+          <div className="lg:col-span-1 flex flex-col justify-between">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.35em] text-accent/80">
-                Partner Ecosystem
+              <h3 className="text-2xl font-bold tracking-tight text-white mb-3">Get in Touch</h3>
+              <p className="text-sm text-primary-foreground/75 leading-relaxed max-w-sm mb-5">
+                Have a project in mind or want to explore partnerships? Reach out to our experts today.
               </p>
-              <h3 className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-primary-foreground md:text-3xl">
-                Enterprise technology partnerships for intelligent growth.
-              </h3>
+
+              {/* Social Media Links */}
+              <div className="flex gap-3 items-center">
+                <a
+                  href="https://facebook.com/FillipTechnologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  aria-label="Facebook"
+                >
+                  <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://instagram.com/filliptechnologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  aria-label="Instagram"
+                >
+                  <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a
+                  href="https://linkedin.com/company/fillip-technologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  aria-label="LinkedIn"
+                >
+                  <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+                <a
+                  href="https://x.com/Fillip_Tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  aria-label="Twitter/X"
+                >
+                  <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://youtube.com/channel/UCR7oww-nQszfqAsf19T2UtQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  aria-label="YouTube"
+                >
+                  <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <p className="max-w-md text-sm leading-6 text-primary-foreground/52">
-              Cloud, platforms, automation, and customer systems aligned for modern enterprise delivery.
-            </p>
+
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="
+                  inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold
+                  text-navy hover:bg-accent/90 transition-all duration-300 shadow-[0_12px_32px_color-mix(in_srgb,var(--accent)_25%,transparent)]
+                "
+              >
+                Talk to Experts &rarr;
+              </Link>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {partners.map((partner) => (
-              <PartnerLogo key={partner.name} partner={partner} />
-            ))}
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-[15px] font-bold text-white tracking-wider uppercase">Head Office (Patna)</h4>
+                <p className="text-[13.5px] text-primary-foreground/75 leading-relaxed mt-1.5">
+                  A3, Ground Floor, Beside Kalyan Jewellers, Near Chandan Hero, Kankarbagh Main Road, Patna, Bihar - 800020
+                </p>
+                <div className="mt-3.5 space-y-1.5 text-[13.5px] text-primary-foreground/70">
+                  <div className="flex flex-col gap-1">
+                    <span className="font-semibold text-primary-foreground/40">Tel:</span>
+                    <a href="tel:+917257930444" className="hover:text-accent transition-colors font-medium">+91 7257930444</a>
+                    <a href="tel:+917545999996" className="hover:text-accent transition-colors font-medium">+91 7545999996</a>
+                    <a href="tel:+917545999995" className="hover:text-accent transition-colors font-medium">+91 7545999995</a>
+                  </div>
+                  <p className="pt-1">
+                    <span className="font-semibold text-primary-foreground/40">Email: </span>
+                    <a href="mailto:info@filliptechnologies.com" className="hover:text-accent transition-colors font-medium">info@filliptechnologies.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-[15px] font-bold text-white tracking-wider uppercase">Branch Office (Ranchi)</h4>
+                <p className="text-[13.5px] text-primary-foreground/75 leading-relaxed mt-1.5">
+                  Ispat Residency, 1st Floor, A-block-104, Kathal More – Argora – Ranchi Rd, Harmu, Ranchi, Jharkhand 834002
+                </p>
+                <div className="mt-3.5 space-y-1.5 text-[13.5px] text-primary-foreground/70">
+                  <div className="flex flex-col gap-1">
+                    <span className="font-semibold text-primary-foreground/40">Tel:</span>
+                    <a href="tel:+917545999996" className="hover:text-accent transition-colors font-medium">+91 7545999996</a>
+                  </div>
+                  <p className="pt-1">
+                    <span className="font-semibold text-primary-foreground/40">Email: </span>
+                    <a href="mailto:ranchi@filliptechnologies.com" className="hover:text-accent transition-colors font-medium">ranchi@filliptechnologies.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="border-b border-primary-foreground/10 py-14 sm:py-16">
+        {/* Tier 2: Link Directory (Middle) */}
+        <section className="py-12 sm:py-16">
           <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-5">
             {footerColumns.map((column) => (
-              <nav key={column.title} aria-label={column.title}>
-                <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.26em] text-primary-foreground/42">
+              <nav key={column.title} aria-label={column.title} className="flex flex-col">
+                <h3 className="text-[13.5px] font-bold uppercase tracking-[0.2em] text-white mb-5 pb-2 border-b border-white/5 relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-6 after:bg-accent">
                   {column.title}
                 </h3>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2.5">
                   {column.links.map((link) => (
                     <FooterNavLink key={link.label} {...link} />
                   ))}
@@ -212,53 +270,32 @@ export default function Footer() {
           </div>
         </section>
 
-        <section className="border-b border-primary-foreground/10 py-14 sm:py-16">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-xs font-medium uppercase tracking-[0.38em] text-primary-foreground/42">
-                Human &times; Intelligence
-              </p>
-              <h3 className="mt-4 text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
-                Ready to transform your business?
-              </h3>
-            </div>
-
-            <Link
-              href="#"
-              className="
-                inline-flex min-h-12 w-fit items-center justify-center rounded-full
-                border border-primary-foreground/18 bg-primary-foreground px-7 py-3 text-sm font-semibold
-                text-navy shadow-[0_18px_50px_color-mix(in_srgb,var(--foreground)_22%,transparent)]
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                focus-visible:ring-offset-4 focus-visible:ring-offset-navy
-              "
-            >
-              Talk to Experts <span aria-hidden="true" className="ml-2">&rarr;</span>
-            </Link>
-          </div>
-        </section>
-
-        <section className="py-8 sm:py-10">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <Link href="/" className="block text-2xl font-semibold tracking-tight text-primary-foreground">
+        {/* Tier 3: Corporate Footer (Bottom) */}
+        <section className="border-t border-white/5 py-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-1">
+              <Link href="/" className="text-xl font-bold tracking-tight text-white hover:text-accent transition-colors">
                 Fillip Technologies
               </Link>
-              <p className="mt-2 text-xs font-medium uppercase tracking-[0.42em] text-primary-foreground/42">
+              <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40">
                 Human &times; Intelligence
               </p>
             </div>
 
-            <nav aria-label="Legal links" className="flex flex-wrap gap-x-6 gap-y-3">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
               {legalLinks.map((link) => (
-                <FooterNavLink key={link.label} {...link} />
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-xs text-primary-foreground/40 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
               ))}
-            </nav>
-          </div>
+            </div>
 
-          <div className="mt-8 border-t border-primary-foreground/10 pt-6">
-            <p className="text-sm text-primary-foreground/42">
-              &copy; 2026 Fillip Technologies. All rights reserved.
+            <p className="text-xs text-primary-foreground/40">
+              &copy; {new Date().getFullYear()} Fillip Technologies. All rights reserved.
             </p>
           </div>
         </section>

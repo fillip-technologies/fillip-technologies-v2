@@ -251,11 +251,10 @@ const clientLogos: Client[] = uniqueClientLogoFiles.map((file) => {
 });
 
 const categoriesConfig = [
-  { id: "priority", label: "Clients" },
   { id: "govt", label: "Govt. Projects" },
   { id: "healthcare", label: "Healthcare" },
   { id: "education", label: "Education" },
-  { id: "corporate", label: "Corporates & Startups" },
+  { id: "all", label: "Corporates & Startups" },
 ];
 
 type ClientsContent = Partial<{
@@ -276,11 +275,34 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
     stat3: content.stat3 ?? "20+ Industries Served",
   };
 
-  const [activeCategory, setActiveCategory] = useState<string>("priority");
+  const [activeCategory, setActiveCategory] = useState<string>("govt");
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   // Filter logos based on activeCategory
   const filteredLogos = useMemo(() => {
+    if (activeCategory === "govt") {
+      const governmentFiles = [
+        "rajgir-zoo.png",
+        "Nature Safari logo copy.png",
+        "logo-large-converted-from-svg.png",
+        "BMC NEW LOGO-011.png",
+        "Patna Park.png",
+        "logo - Copy - Copy.png",
+        "BMC NEW LOGO 222-01.jpg"
+      ];
+      return governmentFiles.map((file) => {
+        const alt = file
+          .replace(/\.[^.]+$/, "")
+          .replace(/[-_]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+        return {
+          src: `/images/goverment/${encodeURIComponent(file)}`,
+          alt,
+          categories: ["govt"],
+        };
+      });
+    }
     return clientLogos.filter((logo) => logo.categories.includes(activeCategory));
   }, [activeCategory]);
 
@@ -418,24 +440,37 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 md:gap-5">
-                {visibleLogos.map((logo, index) => (
-                  <motion.div
-                    key={logo.src + index}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.25, delay: Math.min(index * 0.02, 0.3) }}
-                    className="group relative flex h-24 items-center justify-center rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_20px_rgba(0,0,0,0.01)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-slate-200 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)]"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={160}
-                      height={64}
-                      className="max-h-12 w-auto object-contain opacity-80 transition-all duration-300 group-hover:opacity-100"
-                    />
-                  </motion.div>
-                ))}
+              <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16 md:gap-y-10">
+                {visibleLogos.map((logo, index) => {
+                  const isRajgirZoo = logo.src.toLowerCase().includes("rajgir-zoo") ||
+                    (logo.src.toLowerCase().includes("zoo") && logo.src.toLowerCase().includes("safari"));
+                  const isOtherSafariOrZoo = logo.src.toLowerCase().includes("safari") || logo.src.toLowerCase().includes("zoo");
+
+                  let logoHeightClass = "max-h-14";
+                  if (isRajgirZoo) {
+                    logoHeightClass = "max-h-[105px]";
+                  } else if (isOtherSafariOrZoo) {
+                    logoHeightClass = "max-h-20";
+                  }
+
+                  return (
+                    <motion.div
+                      key={logo.src + index}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.25, delay: Math.min(index * 0.02, 0.3) }}
+                      className="group relative flex h-28 items-center justify-center px-4 transition-all duration-300 ease-out hover:-translate-y-1"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={160}
+                        height={64}
+                        className={`${logoHeightClass} w-auto object-contain opacity-80 transition-all duration-300 group-hover:opacity-100`}
+                      />
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           </AnimatePresence>
