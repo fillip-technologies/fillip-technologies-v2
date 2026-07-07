@@ -1,0 +1,137 @@
+{
+  "slug": "website-redesign",
+  "hero": {
+    "title": "Redesign Your Website for ",
+    "highlightedTitle": "Higher Conversions",
+    "description": "Transform your outdated website into a fast, search-optimized, and customer-focused digital experience that actually drives business outcomes."
+  },
+  "challenges": {
+    "eyebrow": "Redesign Challenges",
+    "title": "A Website Should Be More Than",
+    "highlightedTitle": "An Online Brochure.",
+    "description": "Outdated web designs, slow load times, confusing navigation, and poor mobile responsiveness cause businesses to lose leads and organic rankings.",
+    "secondaryDescription": "At Fillip Technologies, we rebuild websites from the ground up, focusing on speed, search rankings, user experience, and conversion optimization.",
+    "cta": "See How We Redesign Websites",
+    "items": [
+      {
+        "title": "High Bounce Rates",
+        "description": "Slow pages, confusing navigation, and outdated designs frustrate visitors, causing them to leave instantly."
+      },
+      {
+        "title": "Loss of Search Rankings",
+        "description": "Legacy web architectures and lack of mobile optimization degrade your Google search visibility."
+      },
+      {
+        "title": "Outdated Branding",
+        "description": "A website built years ago fails to reflect your current business scope, success, and professional caliber."
+      },
+      {
+        "title": "Rigid Content Editing",
+        "description": "Marketing teams struggle to make routine page updates because the backend is complex and code-heavy."
+      }
+    ]
+  },
+  "whatWeBuild": {
+    "eyebrow": "REDESIGN SERVICES",
+    "title": "Rebuilt and Optimized for",
+    "highlightedTitle": "Peak Performance",
+    "description": "We don't just reskin websites; we rebuild them with modern code, layouts, and conversion triggers.",
+    "cards": [
+      {
+        "eyebrow": "Modern Look",
+        "title": "Brand Identity Makeover",
+        "description": "Complete visual update with modern typography, colors, animations, and clean layouts that reflect your true business stature.",
+        "metric": "Premium Redesigns"
+      },
+      {
+        "eyebrow": "Speed Rebuilds",
+        "title": "Page Performance Overhaul",
+        "description": "Replacing heavy legacy code with next-generation Next.js or React builds to deliver instant page loads.",
+        "metric": "100/100 Core Vitals"
+      },
+      {
+        "title": "Mobile-First UX",
+        "description": "Optimizing every viewport, touch target, and menu for seamless smartphone and tablet usability."
+      },
+      {
+        "title": "SEO-Preserving Migration",
+        "description": "Structuring redirects and metadata mappings correctly so you keep 100% of your existing search engine authority."
+      }
+    ]
+  },
+  "technologyStack": {
+    "eyebrow": "Modern Stack",
+    "title": "Built With Cleaner",
+    "highlightedTitle": "Codebases",
+    "description": "We replace slow, legacy systems with clean, modern, and light structures for maximum performance.",
+    "whyTitle": "Why Rebuild?",
+    "whyDescription": "Upgrading code architectures improves core web vitals, which directly boosts search rankings and lowers user bounce rates.",
+    "stacks": {
+      "frontend": {
+        "title": "Next-Gen Frontend",
+        "description": "Lightning-fast static and dynamic web layouts built with React and Tailwind CSS.",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"]
+      },
+      "backend": {
+        "title": "Backend & API Integration",
+        "description": "Optimized server scripts and clean API endpoints for fast dynamic rendering.",
+        "technologies": ["Node.js", "REST APIs", "GraphQL", "Express"]
+      },
+      "cms": {
+        "title": "Flexible Content Control",
+        "description": "Visual editors or headless content management systems for simple, rapid editing.",
+        "technologies": ["WordPress", "Shopify", "Strapi", "Headless CMS", "Sanity"]
+      },
+      "cloud": {
+        "title": "Global Deployment",
+        "description": "CDN-backed, global edge servers for absolute uptime and zero latency.",
+        "technologies": ["Vercel", "AWS", "Cloudflare CDN", "Netlify"]
+      }
+    }
+  },
+  "process": {
+    "title": "Our Redesign",
+    "highlightedTitle": "Methodology",
+    "description": "We carefully audit your site structure, content, and traffic before writing code, ensuring your search rankings are fully preserved.",
+    "steps": [
+      {
+        "title": "SEO & UX Audit",
+        "items": ["Traffic Evaluation", "Keyword Auditing", "Layout Friction Check", "Feature Inventory"]
+      },
+      {
+        "title": "Wireframing",
+        "items": ["Information Mapping", "User Flow Setup", "Conversion Trigger Design", "Layout Drafts"]
+      },
+      {
+        "title": "Visual Redesign",
+        "items": ["UI Design", "High-Fidelity Mockups", "Responsive Layouts", "Typography Review"]
+      },
+      {
+        "title": "Performance Dev",
+        "items": ["Next.js/React Rebuild", "Code Optimization", "Responsive Coding", "CSS Compression"]
+      },
+      {
+        "title": "SEO Migration",
+        "items": ["301 Redirect Setup", "Metadata Mapping", "Sitemap Verification", "Search Console Hook"]
+      },
+      {
+        "title": "Testing & Launch",
+        "items": ["Cross-Browser Checks", "Core Web Vitals Verification", "DNS Switchover", "Live Validation"]
+      }
+    ]
+  },
+  "outcomes": {
+    "eyebrow": "Outcomes",
+    "title": "Results of a Clean",
+    "highlightedTitle": "Digital Makeover",
+    "description": "Upgrading your website delivers instant performance, trust, and organic search ranking boosts.",
+    "stats": [
+      { "value": "+120%", "label": "Conversion Rate Growth" },
+      { "value": "-65%", "label": "Average Bounce Rate" },
+      { "value": "+55%", "label": "Search Engine Visibility" },
+      { "value": "100/100", "label": "Core Web Vitals Score" }
+    ],
+    "leftPill": "⚡ Page Speed Boost",
+    "rightPill": "📈 Lead Growth"
+  }
+}

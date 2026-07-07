@@ -18,16 +18,16 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
   const content = raw as MissionVisionContent;
   const c = {
     eyebrow: content.eyebrow ?? "AFTERWORD",
-    heading: content.heading ?? "The Next Chapter",
+    heading: content.heading ?? "Pioneering the Agentic Future",
     missionText:
       content.missionText ??
-      "To empower modern brands with high-performance custom engineering and search optimization, transforming complex operational workflows and marketing budgets into measurable business growth.",
+      "To empower modern brands with high-performance custom engineering, future-proof agentic AI systems, and search optimization, transforming complex operational workflows and marketing budgets into measurable business growth.",
     visionText:
       content.visionText ??
-      "To establish ourselves as a global benchmark for digital execution, proving that client transparency, clean scalable code, and creative engineering can consistently win on the international stage.",
+      "To establish ourselves as a global benchmark for digital execution and next-generation agentic AI, proving that client transparency, clean scalable code, and forward-looking automation can consistently win on the international stage.",
     creedText:
       content.creedText ??
-      "We make commitments, not excuses. We work with absolute accountability, refuse code shortcuts, and measure our agency's reputation directly by the scalability and success of the products we launch.",
+      "We make commitments, not excuses. We work with absolute accountability, leverage AI responsibly to amplify human intelligence, refuse code shortcuts, and measure our agency's reputation directly by the scalability and success of the products we launch.",
     signatureLead: content.signatureLead ?? "Signed in code and character,",
     signatureName: content.signatureName ?? "The Fillip Team",
   };

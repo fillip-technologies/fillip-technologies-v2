@@ -1,0 +1,137 @@
+{
+  "slug": "web-application-development",
+  "hero": {
+    "title": "Custom Web Applications Built for ",
+    "highlightedTitle": "Speed and Scale",
+    "description": "High-performance web application development services to automate operations, manage users, and support custom business workflows."
+  },
+  "challenges": {
+    "eyebrow": "Web App Challenges",
+    "title": "Most Off-The-Shelf Software Is Rigid.",
+    "highlightedTitle": "Few Apps Truly Scale.",
+    "description": "Generic software rarely aligns perfectly with unique business processes, leading to inefficient manual workarounds, poor performance, and scale limits.",
+    "secondaryDescription": "At Fillip Technologies, we design and build custom web applications engineered precisely around your workflows, security rules, and growth goals.",
+    "cta": "See Our Custom Web App Approach",
+    "items": [
+      {
+        "title": "Rigid Workflows",
+        "description": "Generic software forces your business to adapt to its limitations rather than supporting your specific processes."
+      },
+      {
+        "title": "Disconnected Systems",
+        "description": "Using multiple isolated platforms leads to duplicate data entry, human error, and manual reconciliations."
+      },
+      {
+        "title": "Poor User Experience",
+        "description": "Confusing layout interfaces increase onboarding times, create friction, and lower employee productivity."
+      },
+      {
+        "title": "Security & Compliance Risks",
+        "description": "Public SaaS platforms may fail to meet your specific data compliance, governance, and hosting requirements."
+      }
+    ]
+  },
+  "whatWeBuild": {
+    "eyebrow": "CUSTOM WEB APPLICATIONS",
+    "title": "Intelligent Platforms Built for",
+    "highlightedTitle": "Modern Teams",
+    "description": "From internal CRM portals to customer dashboards and custom SaaS platforms, we engineer systems that drive efficiency.",
+    "cards": [
+      {
+        "eyebrow": "SaaS Products",
+        "title": "Scalable Multi-Tenant Platforms",
+        "description": "Custom Software-as-a-Service applications with secure subscription billing, roles management, and clean APIs.",
+        "metric": "Future-Proof SaaS"
+      },
+      {
+        "eyebrow": "Internal Portals",
+        "title": "CRM & ERP Automation",
+        "description": "Custom internal management portals to coordinate sales workflows, track inventory, and automate tasks.",
+        "metric": "2.5x Faster Workflows"
+      },
+      {
+        "title": "Customer Dashboards",
+        "description": "Secure customer portal areas where users can access reports, manage settings, and update accounts."
+      },
+      {
+        "title": "Workflow Tools",
+        "description": "Interactive tools to simplify complex business calculations, documents editing, and approvals pipelines."
+      }
+    ]
+  },
+  "technologyStack": {
+    "eyebrow": "Our Tech Stack",
+    "title": "Engineered With Reliable",
+    "highlightedTitle": "Frameworks",
+    "description": "We use modern, vetted tech stacks to build secure, robust, and lightning-fast web applications.",
+    "whyTitle": "Why This Stack?",
+    "whyDescription": "We prioritize security, performance, long-term support, and custom API integrations when selecting backend and frontend technologies.",
+    "stacks": {
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "Modern interfaces engineered for speed, responsiveness, and exceptional user experiences.",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vue.js"]
+      },
+      "backend": {
+        "title": "Backend Development",
+        "description": "Robust server-side architectures built for performance, security, and scalability.",
+        "technologies": ["Node.js", "Laravel", "NestJS", "Go", "Python", "REST APIs"]
+      },
+      "database": {
+        "title": "Database & Caching",
+        "description": "Optimized database layers for fast read-write performance and data persistence.",
+        "technologies": ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Supabase"]
+      },
+      "cloud": {
+        "title": "Cloud & Infrastructure",
+        "description": "Reliable cloud environments, Docker containers, and CI/CD pipelines for safe deployments.",
+        "technologies": ["AWS", "Vercel", "Docker", "CI/CD", "GitHub Actions"]
+      }
+    }
+  },
+  "process": {
+    "title": "Engineering Phase",
+    "highlightedTitle": "and Milestones",
+    "description": "Our software development process ensures transparency, frequent demos, rigorous testing, and flawless deployment.",
+    "steps": [
+      {
+        "title": "Discovery",
+        "items": ["Business Analysis", "Database Design", "User Story Mapping", "Goal Definition"]
+      },
+      {
+        "title": "Architecture",
+        "items": ["System Design", "Security Planning", "API Specification", "Roadmap Layout"]
+      },
+      {
+        "title": "UX & UI Design",
+        "items": ["Wireframing", "Interactive Prototypes", "Component Library", "Design System"]
+      },
+      {
+        "title": "Development",
+        "items": ["Frontend Engineering", "Backend Logic", "DB Optimization", "Third-Party APIs"]
+      },
+      {
+        "title": "QA Testing",
+        "items": ["Unit & Integration Tests", "Load Testing", "Security Audit", "Bug Resolution"]
+      },
+      {
+        "title": "Launch",
+        "items": ["DevOps Pipelines", "Server Provisioning", "SSL & DNS Setup", "Uptime Monitoring"]
+      }
+    ]
+  },
+  "outcomes": {
+    "eyebrow": "Business Results",
+    "title": "Impact That Matters",
+    "highlightedTitle": "To Your Business",
+    "description": "We focus on building software that reduces manual operations, improves team velocity, and scales without friction.",
+    "stats": [
+      { "value": "+85%", "label": "Operational Efficiency" },
+      { "value": "99.99%", "label": "System Reliability" },
+      { "value": "-40%", "label": "Manual Data Entry" },
+      { "value": "2.5x", "label": "Faster Workflows" }
+    ],
+    "leftPill": "🚀 Dynamic Workflows",
+    "rightPill": "🔒 Bank-Grade Security"
+  }
+}

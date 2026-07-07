@@ -1,0 +1,137 @@
+{
+  "slug": "website-maintenance",
+  "hero": {
+    "title": "Keep Your Website Fast, Secure and ",
+    "highlightedTitle": "Always Online",
+    "description": "Professional website maintenance, security updates, and performance optimization services to keep your site running smoothly 24/7."
+  },
+  "challenges": {
+    "eyebrow": "Website Maintenance Challenges",
+    "title": "Websites Are Dynamic Systems.",
+    "highlightedTitle": "They Require Regular Care.",
+    "description": "Neglected websites accumulate plugin clutter, suffer from security gaps, encounter broken links, and gradually slow down, hurting client trust.",
+    "secondaryDescription": "At Fillip Technologies, we provide proactive maintenance, automated backups, constant security monitoring, and speed tune-ups.",
+    "cta": "Explore Maintenance Plans",
+    "items": [
+      {
+        "title": "Security Vulnerabilities",
+        "description": "Outdated software, themes, and plugins are the primary entry points for automated hacks and malware."
+      },
+      {
+        "title": "Layout Compatibility Breakage",
+        "description": "Automatic core system updates can clash with existing plugins, leading to broken buttons, forms, and pages."
+      },
+      {
+        "title": "Slowing Performance",
+        "description": "Uncleaned database tables, unoptimized images, and accumulated code junk slow down pages over time."
+      },
+      {
+        "title": "Data Loss Risks",
+        "description": "Without automatic, off-site backup pipelines, server failures or database corruption can permanently wipe your data."
+      }
+    ]
+  },
+  "whatWeBuild": {
+    "eyebrow": "MAINTENANCE & CARE",
+    "title": "Proactive Services for",
+    "highlightedTitle": "Peace of Mind",
+    "description": "We handle technical updates, monitoring, and backups so you can focus on running your business.",
+    "cards": [
+      {
+        "eyebrow": "24/7 Monitoring",
+        "title": "Security & Uptime Guarding",
+        "description": "Constant firewall checks, malware scans, SSL verification, and instant server down alerts.",
+        "metric": "0 Security Breaches"
+      },
+      {
+        "eyebrow": "Data Protection",
+        "title": "Automated Backup Pipelines",
+        "description": "Daily and weekly off-site s3 backups, database snapshots, and secure one-click restoration systems.",
+        "metric": "Daily S3 Backups"
+      },
+      {
+        "title": "Performance Tune-ups",
+        "description": "Regular database optimization, caching tweaks, image compression, and core web vitals checks."
+      },
+      {
+        "title": "Content Updates Support",
+        "description": "Quick turnarounds for adding new blog posts, modifying text, updating products, and resolving layout bugs."
+      }
+    ]
+  },
+  "technologyStack": {
+    "eyebrow": "Security Stack",
+    "title": "Monitored With Advanced",
+    "highlightedTitle": "Utility Tools",
+    "description": "We employ automated scanners, security layers, and check routines to protect your web server.",
+    "whyTitle": "Why Proactive Maintenance?",
+    "whyDescription": "Preventing a security breach or layout failure costs significantly less than fixing a compromised database or system.",
+    "stacks": {
+      "security": {
+        "title": "Security Shield",
+        "description": "Firewalls and scanner layers to block brute-force attempts and verify file integrity.",
+        "technologies": ["Wordfence", "Sucuri", "SSL Certificates", "Cloudflare WAF"]
+      },
+      "backups": {
+        "title": "Backups & Storage",
+        "description": "Safe, off-site backup storage pipelines separate from the main hosting server.",
+        "technologies": ["AWS S3", "UpdraftPlus", "Custom Cron Scripts", "Secure FTP"]
+      },
+      "monitoring": {
+        "title": "Uptime & SEO Tracking",
+        "description": "Automated tools to monitor server availability and watch out for SEO crawl errors.",
+        "technologies": ["UptimeRobot", "Pingdom", "Google Search Console", "Screaming Frog"]
+      },
+      "caching": {
+        "title": "Caching & Tuning",
+        "description": "Database optimization and speed plugins to prevent page slowdowns.",
+        "technologies": ["WP Rocket", "Redis Caching", "NitroPack", "Cloudflare CDN"]
+      }
+    }
+  },
+  "process": {
+    "title": "Our Proactive",
+    "highlightedTitle": "Maintenance Cycle",
+    "description": "We run automated scripts daily and manual review cycles monthly to keep your website in perfect health.",
+    "steps": [
+      {
+        "title": "Intake Audit",
+        "items": ["Hosting Evaluation", "Security Audit", "Plugin & Theme Checks", "Link Health Review"]
+      },
+      {
+        "title": "Hardening",
+        "items": ["Firewall Configuration", "SSL Checks", "Default Login Updates", "File Permissions Lock"]
+      },
+      {
+        "title": "Backup Setup",
+        "items": ["Off-Site Scheduling", "Database Snapshots", "Restoration Test Run", "Backup Retention Rules"]
+      },
+      {
+        "title": "Weekly Care",
+        "items": ["Safe Plugin Updates", "Layout Verification", "Server Speed Tune-up", "Cache Flashing"]
+      },
+      {
+        "title": "Monthly Audits",
+        "items": ["Database Cleanup", "Broken Links Scan", "SEO Crawl Check", "Core Web Vitals Report"]
+      },
+      {
+        "title": "Incident Support",
+        "items": ["24/7 Down Troubleshooting", "Hack Recovery Plan", "DNS Troubleshooting", "Bug Resolution"]
+      }
+    ]
+  },
+  "outcomes": {
+    "eyebrow": "Outcomes",
+    "title": "Consistent Performance and",
+    "highlightedTitle": "Flawless Security",
+    "description": "Our maintenance plans give your team peace of mind and guarantee a secure, fast visitor experience.",
+    "stats": [
+      { "value": "99.99%", "label": "Website Uptime Average" },
+      { "value": "0", "label": "Security Vulnerabilities" },
+      { "value": "<1hr", "label": "Emergency Response Time" },
+      { "value": "30 Days", "label": "Backups Archive Kept" }
+    ],
+    "leftPill": "🛡️ Proactive Shield",
+    "rightPill": "⏰ 24/7 Peace of Mind"
+  }
+}

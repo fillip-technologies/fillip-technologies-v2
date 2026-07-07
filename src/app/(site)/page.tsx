@@ -17,6 +17,8 @@ import CaseStudies from "@/components/Home/CaseStudies";
 import HeroSection from "@/components/Home/HeroSection";
 import ServicesSection from "@/components/Home/ServicesSection";
 import IndustriesSection from "@/components/Home/IndustriesSection"
+import BlogSection from "@/components/Home/BlogSection";
+
 
 // Always render with the latest CMS content. Without this Next can serve a
 // cached static copy, so edits saved in the admin panel wouldn't appear until a
@@ -75,6 +77,7 @@ export default async function HomePage() {
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip content={whychooseus} />
       <CaseStudies content={casestudies} />
+      <BlogSection />
 
       <ConsultationFormSection />
     </>

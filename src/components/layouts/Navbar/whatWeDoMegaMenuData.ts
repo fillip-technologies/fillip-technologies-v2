@@ -37,12 +37,15 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "Web Application Development",
+          href: "/services/web-application-development",
         },
         {
           label: "Website Redesign",
+          href: "/services/website-redesign",
         },
         {
           label: "Website Maintenance",
+          href: "/services/website-maintenance",
         },
       ],
     },
