@@ -3,40 +3,15 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, ExternalLink, Eye, Plus, Trash2 } from "lucide-react";
-import {
-  createCategory,
-  deleteCategory,
-  setCategoryPublished,
-} from "@/server/content/whatwedo-actions";
+import { ChevronRight, ExternalLink, Eye } from "lucide-react";
+import { setCategoryPublished } from "@/server/content/whatwedo-actions";
 
 type Category = { slug: string; label: string; published: boolean; sortOrder: number };
-
-// Live-preview the slug the same way the server derives it.
-const previewSlug = (s: string) =>
-  s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
 export default function WhatWeDoManager({ initial }: { initial: Category[] }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  const [label, setLabel] = useState("");
-  const [slug, setSlug] = useState("");
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
-
-  const effectiveSlug = previewSlug(slug || label);
-
-  const create = () => {
-    setMsg(null);
-    startTransition(async () => {
-      const res = await createCategory(label, slug);
-      setMsg({ ok: res.ok, text: res.message });
-      if (res.ok && res.slug) {
-        setLabel("");
-        setSlug("");
-        router.push(`/admin/cms/whatwedo/${res.slug}`);
-      }
-    });
-  };
 
   const togglePublish = (s: string, next: boolean) => {
     setMsg(null);
@@ -47,64 +22,11 @@ export default function WhatWeDoManager({ initial }: { initial: Category[] }) {
     });
   };
 
-  const remove = (s: string, name: string) => {
-    if (!window.confirm(`Delete “${name}” and all its content? This cannot be undone.`)) return;
-    setMsg(null);
-    startTransition(async () => {
-      const res = await deleteCategory(s);
-      setMsg({ ok: res.ok, text: res.message });
-      router.refresh();
-    });
-  };
-
   return (
-    <div className="space-y-8">
-      {/* Create form */}
-      <div className="rounded-lg border border-border bg-card/40 p-5">
-        <h2 className="mb-3 text-sm font-semibold text-heading">Add a new category</h2>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div>
-            <label htmlFor="cat-label" className="mb-1 block text-sm text-body">
-              Name
-            </label>
-            <input
-              id="cat-label"
-              value={label}
-              onChange={(e) => setLabel(e.target.value)}
-              placeholder="e.g. Cloud & DevOps"
-              className="w-full rounded-md border border-border bg-background px-3 py-2 text-heading outline-none focus:border-primary"
-            />
-          </div>
-          <div>
-            <label htmlFor="cat-slug" className="mb-1 block text-sm text-body">
-              Slug <span className="text-muted-foreground">(optional)</span>
-            </label>
-            <input
-              id="cat-slug"
-              value={slug}
-              onChange={(e) => setSlug(e.target.value)}
-              placeholder="auto from name"
-              className="w-full rounded-md border border-border bg-background px-3 py-2 text-heading outline-none focus:border-primary"
-            />
-          </div>
-        </div>
-        <p className="mt-2 text-xs text-muted-foreground">
-          URL: <code>/what-we-do/{effectiveSlug || "…"}</code> · starts as an unpublished draft.
-        </p>
-        <div className="mt-4 flex items-center gap-3">
-          <button
-            type="button"
-            onClick={create}
-            disabled={pending || !label.trim()}
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground transition-opacity disabled:opacity-60"
-          >
-            <Plus size={16} /> {pending ? "Creating…" : "Create draft"}
-          </button>
-          {msg ? (
-            <p className={`text-sm ${msg.ok ? "text-green-600" : "text-red-500"}`}>{msg.text}</p>
-          ) : null}
-        </div>
-      </div>
+    <div className="space-y-4">
+      {msg ? (
+        <p className={`text-sm ${msg.ok ? "text-green-600" : "text-red-500"}`}>{msg.text}</p>
+      ) : null}
 
       {/* List */}
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
@@ -149,15 +71,6 @@ export default function WhatWeDoManager({ initial }: { initial: Category[] }) {
                 }`}
               >
                 {cat.published ? "Unpublish" : "Publish"}
-              </button>
-              <button
-                type="button"
-                onClick={() => remove(cat.slug, cat.label)}
-                disabled={pending}
-                title="Delete"
-                className="rounded-md p-2 text-red-500 transition-colors hover:bg-red-500/10 disabled:opacity-50"
-              >
-                <Trash2 size={16} />
               </button>
               <Link
                 href={`/admin/cms/whatwedo/${cat.slug}`}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Home, Menu, FileText, Building2, LayoutGrid } from "lucide-react";
+import { Home, Menu, FileText, Building2, LayoutGrid, Wrench } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
 
@@ -34,6 +34,12 @@ const CMS_AREAS = [
     label: "What We Do",
     description: "Create and edit the “What We Do” category pages — add new ones, edit sections, publish.",
     icon: LayoutGrid,
+  },
+  {
+    href: "/admin/cms/services",
+    label: "Service Pages",
+    description: "The detail pages behind the menu links (e.g. /services/ecommerce-development). Create, edit, publish.",
+    icon: Wrench,
   },
 ];
 

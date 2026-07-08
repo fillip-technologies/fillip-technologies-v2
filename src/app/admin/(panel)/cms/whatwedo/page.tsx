@@ -18,9 +18,9 @@ export default async function WhatWeDoListPage() {
       </nav>
       <h1 className="mb-1 text-lg font-semibold text-heading">What We Do — category pages</h1>
       <p className="mb-6 text-sm text-muted-foreground">
-        Create, edit and publish <code>/what-we-do/&lt;slug&gt;</code> pages. New pages start as
-        drafts — edit their sections and images, preview privately, then publish to go live and appear
-        in the “What We Do” menu.
+        Edit and publish the <code>/what-we-do/&lt;slug&gt;</code> category pages. Open one to edit its
+        sections, images and menu links, preview privately, then publish or unpublish to control
+        whether it appears in the “What We Do” menu.
       </p>
 
       <WhatWeDoManager initial={categories} />

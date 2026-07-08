@@ -2,7 +2,8 @@ import "server-only";
 
 import { dbConnect } from "@/lib/db";
 import { ServiceCategoryModel, SiteContentModel } from "@/server/db/models";
-import { WHATWEDO_SECTION_IDS } from "./whatwedo-sections";
+import { WHAT_WE_DO_ITEMS_BY_SLUG } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
+import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 
 /**
  * Data access for the `service_categories` collection — the source of truth for
@@ -49,12 +50,30 @@ export async function getCategory(slug: string): Promise<Category | null> {
   return doc ? toCategory(doc) : null;
 }
 
-/** Insert a new draft category. Assumes slug/label are already validated. */
-export async function insertCategory(slug: string, label: string): Promise<void> {
+/** site_content key holding a category's mega-menu sub-links. */
+export const menuLinksKey = (slug: string) => `whatwedo.${slug}.menuLinks`;
+
+/**
+ * The mega-menu sub-links shown under a category's header. Admin-saved links win;
+ * otherwise fall back to the curated static defaults for the originally-seeded
+ * slugs (so the 6 seeded categories keep their links until edited). New
+ * admin-created categories with nothing saved return `[]`.
+ */
+export async function getCategoryMenuLinks(slug: string): Promise<MegaMenuItem[]> {
   await dbConnect();
-  const last = await ServiceCategoryModel.findOne().sort({ sort_order: -1 }).lean();
-  const sortOrder = (last?.sort_order ?? 0) + 1;
-  await ServiceCategoryModel.create({ slug, label, published: false, sort_order: sortOrder });
+  const row = await SiteContentModel.findOne({ key: menuLinksKey(slug) }).lean();
+  const saved = (row?.data as { items?: unknown } | undefined)?.items;
+  if (Array.isArray(saved)) {
+    return saved
+      .map((i) => {
+        const it = (i ?? {}) as Record<string, unknown>;
+        const label = String(it.label ?? "").trim();
+        const href = String(it.href ?? "").trim();
+        return href ? { label, href } : { label };
+      })
+      .filter((i) => i.label);
+  }
+  return WHAT_WE_DO_ITEMS_BY_SLUG[slug] ?? [];
 }
 
 /** Toggle publish state. */
@@ -66,11 +85,3 @@ export async function setPublished(slug: string, published: boolean): Promise<vo
   );
 }
 
-/** Delete a category and all of its section content rows. */
-export async function deleteCategory(slug: string): Promise<void> {
-  await dbConnect();
-  await ServiceCategoryModel.deleteOne({ slug });
-  await SiteContentModel.deleteMany({
-    key: { $in: WHATWEDO_SECTION_IDS.map((id) => `whatwedo.${slug}.${id}`) },
-  });
-}

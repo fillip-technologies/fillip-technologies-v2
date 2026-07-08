@@ -9,6 +9,7 @@ export type ServiceBuildCard = {
   description: string;
   metric?: string;
   tags?: string[];
+  image?: string;
 };
 
 export type ServiceTechStack = {
@@ -35,6 +36,7 @@ export type Service = {
     highlightedTitle: string;
     suffixText?: string;
     description: string;
+    image?: { src: string; alt: string };
   };
   challenges: {
     eyebrow: string;

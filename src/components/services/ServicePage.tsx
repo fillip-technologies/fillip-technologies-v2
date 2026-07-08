@@ -1,12 +1,11 @@
 import HeroSection from "@/components/website-development/HeroSection";
 import WhyMostWebsitesUnderperform from "@/components/website-development/WhyMostWebsitesUnderperform";
-import WhatWeBuildSection from "@/components/website-development/WhatWeBuildSection";
-import TechnologyStackSection from "@/components/website-development/TechnologyStackSection";
 import DevelopmentProcessTimeline from "@/components/website-development/DevelopmentProcessTimeline";
 import BusinessOutcomesSection from "@/components/website-development/BusinessOutcomesSection";
+import WhatWeBuildBlock from "@/components/services/blocks/WhatWeBuildBlock";
+import TechnologyStackBlock from "@/components/services/blocks/TechnologyStackBlock";
 import ConsultationFormSection from "../form/ConsultationFormSection";
 import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
-import TrustBar from "../TrustBar/TrustBar";
 import WebsiteAuditCTA from "../Cta/WebsiteAuditCTA";
 import OurClients from "../Home/OurClients";
 
@@ -16,6 +15,9 @@ type ServicePageProps = {
   data: Service;
 };
 
+// All content sections are now per-page (CMS-editable). The remaining sections
+// (TrustedBrands, WebsiteAuditCTA, OurClients, ConsultationForm) are shared,
+// static brand furniture.
 export default function ServicePage({ data }: ServicePageProps) {
   return (
     <>
@@ -30,7 +32,7 @@ export default function ServicePage({ data }: ServicePageProps) {
 
       <WebsiteAuditCTA />
 
-      <WhatWeBuildSection />
+      <WhatWeBuildBlock key={`${data.slug}-build`} data={data.whatWeBuild} />
 
       <OurClients />
 
@@ -39,8 +41,9 @@ export default function ServicePage({ data }: ServicePageProps) {
         data={data.process}
       />
 
+      <TechnologyStackBlock key={`${data.slug}-stack`} data={data.technologyStack} />
 
-      <TechnologyStackSection />
+      <BusinessOutcomesSection key={`${data.slug}-outcomes`} data={data.outcomes} />
 
       <ConsultationFormSection />
     </>

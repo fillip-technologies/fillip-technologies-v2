@@ -5,8 +5,10 @@ import {
   getWhatWeDoSectionSpec,
   WHATWEDO_SECTION_IDS,
 } from "@/server/content/whatwedo-sections";
-import { getCategory } from "@/server/content/whatwedo-registry";
+import { getCategory, getCategoryMenuLinks } from "@/server/content/whatwedo-registry";
+import { saveCategoryMenuLinks } from "@/server/content/whatwedo-actions";
 import StatusBar from "./StatusBar";
+import MenuLinksEditor from "./MenuLinksEditor";
 
 export default async function CategorySectionsList({
   params,
@@ -16,6 +18,8 @@ export default async function CategorySectionsList({
   const { slug } = await params;
   const category = await getCategory(slug);
   if (!category) notFound();
+
+  const menuLinks = await getCategoryMenuLinks(slug);
 
   return (
     <section>
@@ -53,6 +57,19 @@ export default async function CategorySectionsList({
           );
         })}
       </ul>
+
+      <div className="mt-10 max-w-2xl">
+        <h2 className="mb-1 text-base font-semibold text-heading">Menu links</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          The sub-links shown under <strong className="text-heading">{category.label}</strong> in the
+          top-nav “What We Do” dropdown. Add, edit, reorder or remove them — each has a label and an
+          optional URL.
+        </p>
+        <MenuLinksEditor
+          initial={menuLinks}
+          onSave={saveCategoryMenuLinks.bind(null, slug)}
+        />
+      </div>
     </section>
   );
 }

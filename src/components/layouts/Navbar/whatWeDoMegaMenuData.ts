@@ -16,7 +16,14 @@ export type LinkableMegaMenuGroup = {
   items?: MegaMenuItem[];
 };
 
-export type WhatWeDoCategory = { slug: string; label: string; href: string };
+export type WhatWeDoCategory = {
+  slug: string;
+  label: string;
+  href: string;
+  // Sub-links under the category header. Admin-managed (from the API); may be
+  // absent on older payloads, in which case the static defaults are used.
+  items?: MegaMenuItem[];
+};
 
 export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
   [
@@ -229,7 +236,9 @@ export function buildWhatWeDoColumns(
   const groups: LinkableMegaMenuGroup[] = categories.map((c) => ({
     title: c.label,
     href: c.href,
-    items: WHAT_WE_DO_ITEMS_BY_SLUG[c.slug] ?? [],
+    // Admin-managed sub-links win; fall back to the curated static defaults for
+    // the seeded slugs when the API sends none.
+    items: c.items ?? WHAT_WE_DO_ITEMS_BY_SLUG[c.slug] ?? [],
   }));
   const cols: LinkableMegaMenuGroup[][] = Array.from({ length: columnCount }, () => []);
   groups.forEach((g, i) => cols[i % columnCount].push(g));

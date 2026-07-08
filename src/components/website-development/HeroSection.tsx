@@ -26,13 +26,17 @@ const defaultData: Service["hero"] = {
 export default function HeroSection({ data = defaultData }: HeroSectionProps) {
   const [active, setActive] = useState(0);
 
+  // Per-page hero image (CMS) wins; otherwise use the default preview gallery.
+  const gallery = data.image?.src ? [data.image.src] : images;
+  const imageAlt = data.image?.alt || "Website preview";
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setActive((prev) => (prev + 1) % images.length);
+      setActive((prev) => (prev + 1) % gallery.length);
     }, 4000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [gallery.length]);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#edf5ff] via-[#f8fbff] to-white dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950 py-20 lg:py-32">
@@ -150,11 +154,11 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
             {/* 1. Tablet Mockup (Back-Left Layer) */}
             <div className="absolute top-[10px] left-[-20px] w-[210px] aspect-[4/3] rounded-[20px] bg-slate-900 border-[6px] border-slate-800 shadow-2xl overflow-hidden z-0 transition-all duration-700 [transform:rotateX(6deg)_rotateY(-12deg)_rotateZ(2deg)_translateZ(-40px)] hover:[transform:rotateX(2deg)_rotateY(-4deg)_rotateZ(1deg)_translateZ(-20px)] opacity-75 hover:opacity-100 group/tablet">
               <div className="relative h-full w-full overflow-hidden bg-slate-900">
-                {images.map((src, index) => (
+                {gallery.map((src, index) => (
                   <Image
                     key={`tab-${src}-${index}`}
                     src={src}
-                    alt="Tablet Showcase"
+                    alt={imageAlt}
                     fill
                     className={`absolute inset-0 object-cover object-top transition-opacity duration-1000 ease-in-out ${active === index ? "z-10 opacity-100" : "z-0 opacity-0"
                       }`}
@@ -177,11 +181,11 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
 
               {/* Mockup Slides */}
               <div className="relative h-full w-full overflow-hidden bg-slate-50 dark:bg-slate-955">
-                {images.map((src, index) => (
+                {gallery.map((src, index) => (
                   <Image
                     key={`desk-${src}-${index}`}
                     src={src}
-                    alt="Desktop Showcase"
+                    alt={imageAlt}
                     fill
                     priority={index === 0}
                     className={`absolute inset-0 object-cover object-top transition-opacity duration-1000 ease-in-out ${active === index ? "z-10 opacity-100" : "z-0 opacity-0"
@@ -199,11 +203,11 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
                 <div className="w-4 h-0.5 rounded-full bg-slate-700" />
               </div>
               <div className="relative h-full w-full overflow-hidden bg-slate-900">
-                {images.map((src, index) => (
+                {gallery.map((src, index) => (
                   <Image
                     key={`phone-${src}-${index}`}
                     src={src}
-                    alt="Mobile Showcase"
+                    alt={imageAlt}
                     fill
                     className={`absolute inset-0 object-cover object-top transition-opacity duration-1000 ease-in-out ${active === index ? "z-10 opacity-100" : "z-0 opacity-0"
                       }`}
@@ -216,7 +220,7 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
 
             {/* Slider Dots */}
             <div className="absolute -bottom-14 flex gap-2.5 z-20">
-              {images.map((_, index) => (
+              {gallery.map((_, index) => (
                 <button
                   key={index}
                   type="button"

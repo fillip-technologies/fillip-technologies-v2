@@ -87,7 +87,7 @@ function MobileDrawer({
       ? whatWeDoCats.map((c) => ({
           title: c.label,
           href: c.href,
-          items: WHAT_WE_DO_ITEMS_BY_SLUG[c.slug] ?? [],
+          items: c.items ?? WHAT_WE_DO_ITEMS_BY_SLUG[c.slug] ?? [],
         }))
       : WHAT_WE_DO_MENU.flat().map((g) => ({ title: g.title, href: undefined as string | undefined, items: g.items }));
 

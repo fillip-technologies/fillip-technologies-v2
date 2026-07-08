@@ -1,38 +1,22 @@
-/**
- * Single source of truth for the public "Build your quote" calculator.
- *
- * Edit packages, prices, and add-ons here — the calculator UI, the price
- * calculation, and the generated PDF all read from this file.
- *
- * NOTE ON ADD-ONS: the add-on lists below are sensible placeholders so the
- * calculator works end-to-end. Replace the `addOns` arrays in each category
- * with your real upsell items + prices.
- */
+
 
 export type Billing = "one-time" | "monthly";
 
-/** A selectable package within a service category. */
 export type Package = {
   id: string;
   name: string;
-  /** Short positioning line, e.g. "The Starter". */
+ 
   tagline?: string;
   price: number; // INR
   billing: Billing;
-  /** e.g. "3 days", "Per month", "20-25 days". */
+
   timeline?: string;
   bestFor?: string;
-  /** Grouped feature lists shown on the card and in the PDF. */
+ 
   featureGroups: { title: string; items: string[] }[];
 };
 
-/**
- * An optional extra a client can add on top of a package.
- *
- * - A plain add-on is a toggle (quantity is always 1).
- * - If `unit` is set (e.g. "page"), it becomes quantity-based: `price` is the
- *   per-unit price and the client picks how many (1..maxQuantity).
- */
+
 export type AddOn = {
   id: string;
   name: string;

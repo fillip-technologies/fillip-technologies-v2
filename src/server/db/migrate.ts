@@ -29,6 +29,18 @@ const SEED_CATEGORIES = [
   { slug: "challenges-we-solve", label: "Challenges We Solve", sort_order: 6 },
 ];
 
+// The 7 originally-static /services/<slug> pages, now DB-managed (content still
+// falls back to the static `services` data by slug until edited in the CMS).
+const SEED_SERVICE_PAGES = [
+  { slug: "website-development", title: "Custom Website Development", category_slug: "web-development", sort_order: 1 },
+  { slug: "ecommerce-development", title: "E-Commerce Development", category_slug: "web-development", sort_order: 2 },
+  { slug: "wordpress-development", title: "WordPress Development", category_slug: "web-development", sort_order: 3 },
+  { slug: "web-application-development", title: "Web Application Development", category_slug: "web-development", sort_order: 4 },
+  { slug: "website-redesign", title: "Website Redesign", category_slug: "web-development", sort_order: 5 },
+  { slug: "website-maintenance", title: "Website Maintenance", category_slug: "web-development", sort_order: 6 },
+  { slug: "software-development", title: "Software Development", category_slug: "software-enterprise", sort_order: 7 },
+];
+
 async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
@@ -45,6 +57,8 @@ async function main() {
   await db.collection("industries").createIndex({ sort_order: 1, slug: 1 });
   await db.collection("service_categories").createIndex({ slug: 1 }, { unique: true });
   await db.collection("service_categories").createIndex({ sort_order: 1, slug: 1 });
+  await db.collection("service_pages").createIndex({ slug: 1 }, { unique: true });
+  await db.collection("service_pages").createIndex({ sort_order: 1, slug: 1 });
   await db.collection("leads").createIndex({ created_at: -1 });
 
   console.log("Seeding base industries ...");
@@ -76,6 +90,26 @@ async function main() {
           label: cat.label,
           published: true,
           sort_order: cat.sort_order,
+          created_at: now,
+          updated_at: now,
+        },
+      },
+      { upsert: true }
+    );
+  }
+
+  console.log("Seeding service pages ...");
+  for (const p of SEED_SERVICE_PAGES) {
+    await db.collection("service_pages").updateOne(
+      { slug: p.slug },
+      {
+        $setOnInsert: {
+          slug: p.slug,
+          title: p.title,
+          template: "service",
+          category_slug: p.category_slug,
+          published: true,
+          sort_order: p.sort_order,
           created_at: now,
           updated_at: now,
         },

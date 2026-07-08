@@ -5,24 +5,12 @@ import { getSession } from "@/server/auth/session";
 import { getWhatWeDoSectionSpec } from "./whatwedo-sections";
 import {
   getCategory,
-  insertCategory,
   setPublished,
-  deleteCategory as deleteCategoryRow,
+  menuLinksKey,
 } from "./whatwedo-registry";
 import { upsertContent } from "./queries";
 import type { SaveState } from "./types";
-
-// Slugs reserved by non-category routes under /what-we-do or otherwise unusable.
-const RESERVED_SLUGS = new Set(["preview"]);
-
-/** Normalise a free-text label into a URL-safe kebab-case slug. */
-function slugify(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 
 /**
  * Save one category-page section (stored FLAT under `whatwedo.<slug>.<id>`).
@@ -69,40 +57,38 @@ export async function saveWhatWeDoSection(
 }
 
 /**
- * Create a new (unpublished) category page. `label` is required; `slug` is
- * optional and derived from the label when blank.
+ * Save a category's mega-menu sub-links (stored under `whatwedo.<slug>.menuLinks`
+ * as `{ items: [{ label, href? }] }`). Auth-checked; whitelists each item to
+ * label + optional href and drops entries without a label. An href is optional —
+ * a link with none renders as a non-clickable label in the menu.
  */
-export async function createCategory(
-  label: string,
-  slug?: string
-): Promise<SaveState & { slug?: string }> {
+export async function saveCategoryMenuLinks(
+  slug: string,
+  items: MegaMenuItem[]
+): Promise<SaveState> {
   if (!(await getSession())) {
     return { ok: false, message: "Not authorized." };
   }
-
-  const cleanLabel = String(label ?? "").trim();
-  if (!cleanLabel) {
-    return { ok: false, message: "Enter a name for the category." };
+  if (!(await getCategory(slug))) {
+    return { ok: false, message: "Unknown category." };
   }
 
-  const cleanSlug = slugify(slug && slug.trim() ? slug : cleanLabel);
-  if (!cleanSlug) {
-    return { ok: false, message: "Enter a valid slug (letters, numbers, dashes)." };
-  }
-  if (RESERVED_SLUGS.has(cleanSlug)) {
-    return { ok: false, message: `"${cleanSlug}" is reserved. Choose another slug.` };
-  }
-  if (await getCategory(cleanSlug)) {
-    return { ok: false, message: `A category with slug "${cleanSlug}" already exists.` };
-  }
+  const clean = (Array.isArray(items) ? items : [])
+    .map((i) => {
+      const label = String(i?.label ?? "").trim();
+      const href = String(i?.href ?? "").trim();
+      return href ? { label, href } : { label };
+    })
+    .filter((i) => i.label);
 
   try {
-    await insertCategory(cleanSlug, cleanLabel);
-    revalidatePath("/admin/cms/whatwedo");
-    return { ok: true, message: "Category created. Edit its sections, then publish.", slug: cleanSlug };
+    await upsertContent(menuLinksKey(slug), { items: clean });
+    revalidatePath("/", "layout"); // refresh the nav across the site
+    revalidatePath(`/what-we-do/${slug}`);
+    return { ok: true, message: "Saved. The menu links are live." };
   } catch (err) {
-    console.error("createCategory failed:", err);
-    return { ok: false, message: "Something went wrong while creating the category." };
+    console.error("saveCategoryMenuLinks failed:", err);
+    return { ok: false, message: "Something went wrong while saving." };
   }
 }
 
@@ -126,25 +112,5 @@ export async function setCategoryPublished(slug: string, published: boolean): Pr
   } catch (err) {
     console.error("setCategoryPublished failed:", err);
     return { ok: false, message: "Something went wrong." };
-  }
-}
-
-/** Permanently delete a category page and its content. */
-export async function deleteCategory(slug: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
-  if (!(await getCategory(slug))) {
-    return { ok: false, message: "Unknown category." };
-  }
-
-  try {
-    await deleteCategoryRow(slug);
-    revalidatePath("/admin/cms/whatwedo");
-    revalidatePath(`/what-we-do/${slug}`);
-    return { ok: true, message: "Category deleted." };
-  } catch (err) {
-    console.error("deleteCategory failed:", err);
-    return { ok: false, message: "Something went wrong while deleting." };
   }
 }
