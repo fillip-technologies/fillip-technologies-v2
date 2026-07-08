@@ -6,7 +6,7 @@
     "title": "Google Ads Management | Fillip Technologies",
     "description": "Google Ads campaign management focused on qualified leads, conversions, and measurable return on ad spend.",
     "canonical": "/google-ads-management",
-    "openGraph": { "title": "Google Ads Management", "description": "Conversion-focused Google Ads campaign management.", "image": "/images/seo-magnifier.png" },
+    "openGraph": { "title": "Google Ads Management", "description": "Conversion-focused Google Ads campaign management.", "image": "/images/google-ads.png" },
     "robots": { "index": true, "follow": true }
   },
   "content": {
@@ -18,7 +18,7 @@
       "cta": "Plan Your Campaign",
       "metricValue": "ROI",
       "metricLabel": "Campaigns optimized for measurable business growth",
-      "image": { "src": "/images/seo-magnifier.png", "alt": "Google Ads management" }
+      "image": { "src": "/images/google-ads.png", "alt": "Google Ads management" }
     },
     "philosophy": {
       "badge": "OUR GOOGLE ADS PHILOSOPHY", "title": "Capture Existing Demand.", "highlightedTitle": "Convert It Efficiently.", "lead": "More clicks do not automatically create more customers.", "support": "We optimize for qualified actions and profitable growth.", "description": "Successful Google Ads campaigns connect search intent, relevant messaging, landing pages, conversion tracking, and continuous bid optimization.", "caption": "Intent and relevance drive stronger returns", "metrics": [{ "label": "Conversion Rate", "value": "+42%" }, { "label": "Return on Ad Spend", "value": "4.1x" }]

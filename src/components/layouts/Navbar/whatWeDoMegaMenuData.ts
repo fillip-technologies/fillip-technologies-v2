@@ -54,9 +54,11 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Android App Development",
+          href: "/mobile-app-development/android",
         },
         {
           label: "iOS App Development",
+          href: "/mobile-app-development/ios",
         },
         
         {
@@ -74,6 +76,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "App UI/UX Design",
+          href: "/mobile-app-development/app-ui-ux-design",
         },
       ],
     },
@@ -140,9 +143,11 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "Local SEO",
+          href: "/local-seo",
         },
         {
           label: "Enterprise SEO",
+          href: "/enterprise-seo",
         },
 
         {

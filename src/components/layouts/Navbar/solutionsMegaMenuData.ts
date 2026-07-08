@@ -41,33 +41,39 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
       },
       {
         label: "Fiber Optic Connectivity",
+        href: "/hardware-solutions/fiber-optic-connectivity",
       },
       {
         label: "Local Area Network",
+        href: "/hardware-solutions/local-area-network",
       },
       {
         label: "Control Room",
+        href: "/hardware-solutions/control-room",
       },
       {
         label: "Networking",
+        href: "/hardware-solutions/networking",
       },
       {
         label: "Server Solutions",
+        href: "/hardware-solutions/server-solutions",
       },
       {
         label: "Wide Area Network",
+        href: "/hardware-solutions/wide-area-network",
       },
       {
         label: "System Integration",
+        href: "/hardware-solutions/system-integration",
       },
       {
         label: "IT Infrastructure",
-      },
-      {
-        label: "",
+        href: "/hardware-solutions/it-infrastructure",
       },
       {
         label: "GPS Solution",
+        href: "/hardware-solutions/gps-solution",
       },
     ],
   },

@@ -98,7 +98,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
             />
           </div>
 
-          {!data ? <>
+          <>
           {/* Facebook */}
           <div className="absolute left-20 top-[210px] rotate-[-18deg]  ">
             <Image
@@ -138,7 +138,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
               height={52}
             />
           </div>
-          </> : null}
+          </>
 
           {/* Arrow Down */}
           <div className="absolute left-1/2 top-[390px] -translate-x-1/2 text-blue-500">

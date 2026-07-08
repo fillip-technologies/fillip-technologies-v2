@@ -6,7 +6,7 @@
     "title": "YouTube Ads Campaign Management | Fillip Technologies",
     "description": "YouTube advertising campaigns designed to build awareness, reach relevant audiences, and generate conversions.",
     "canonical": "/youtube-ads-campaign",
-    "openGraph": { "title": "YouTube Ads Campaign Management", "description": "Strategic YouTube advertising for awareness and conversions.", "image": "/images/tilt.png" },
+    "openGraph": { "title": "YouTube Ads Campaign Management", "description": "Strategic YouTube advertising for awareness and conversions.", "image": "/images/youtube-ads.png" },
     "robots": { "index": true, "follow": true }
   },
   "content": {
@@ -18,7 +18,7 @@
       "cta": "Launch Your Campaign",
       "metricValue": "Video",
       "metricLabel": "Audience targeting built around your campaign goals",
-      "image": { "src": "/images/tilt.png", "alt": "YouTube advertising campaigns" }
+      "image": { "src": "/images/youtube-ads.png", "alt": "YouTube advertising campaigns" }
     },
     "philosophy": {
       "badge": "OUR YOUTUBE ADS PHILOSOPHY", "title": "Earn Attention.", "highlightedTitle": "Create Action.", "lead": "Video views matter only when they support a clear business goal.", "support": "We connect creative storytelling with measurable campaign outcomes.", "description": "Effective YouTube campaigns combine audience insight, strong opening moments, relevant offers, frequency control, and conversion measurement.", "caption": "Creative attention should lead to action", "metrics": [{ "label": "Video Engagement", "value": "+74%" }, { "label": "View Rate", "value": "38%" }]

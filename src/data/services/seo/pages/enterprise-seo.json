@@ -1,0 +1,57 @@
+{
+  "slug": "enterprise-seo",
+  "enabled": true,
+  "serviceKey": "seo",
+  "seo": {
+    "title": "Enterprise SEO Services | Fillip Technologies",
+    "description": "Enterprise SEO services for large websites, multi-location brands, technical optimization, scalable content strategy, and organic growth.",
+    "canonical": "/enterprise-seo",
+    "openGraph": {
+      "title": "Enterprise SEO Services",
+      "description": "Scalable SEO strategy for large websites and growing brands.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "badge": "ENTERPRISE SEO SERVICES",
+      "title": "Scale Organic Growth with",
+      "highlightedTitle": "Enterprise SEO",
+      "description": "Improve crawlability, content performance, technical foundations, and search visibility across large websites and multi-location digital ecosystems.",
+      "searchText": "Enterprise SEO Agency",
+      "primaryCta": "Get Enterprise SEO Audit",
+      "secondaryCta": "View Case Studies",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Enterprise SEO services"
+      }
+    }
+  },
+  "faq": {
+    "badge": "ENTERPRISE SEO FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about enterprise SEO strategy, technical audits, and scalable organic growth.",
+    "items": [
+      {
+        "question": "What makes enterprise SEO different?",
+        "answer": "Enterprise SEO focuses on large websites, complex technical structures, multiple stakeholders, scalable content systems, and high-volume organic growth."
+      },
+      {
+        "question": "Do you handle technical SEO for large websites?",
+        "answer": "Yes. We audit crawlability, indexing, site architecture, page templates, Core Web Vitals, internal linking, structured data, and technical SEO issues at scale."
+      },
+      {
+        "question": "Can enterprise SEO support multiple locations?",
+        "answer": "Yes. We can build scalable SEO strategies for multi-location businesses, including location pages, local authority, and structured optimization."
+      },
+      {
+        "question": "How do you measure enterprise SEO success?",
+        "answer": "We track organic traffic, keyword visibility, indexed pages, technical health, conversions, ranking improvements, and business-qualified organic leads."
+      }
+    ]
+  }
+}

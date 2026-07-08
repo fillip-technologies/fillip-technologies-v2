@@ -1,0 +1,57 @@
+{
+  "slug": "local-seo",
+  "enabled": true,
+  "serviceKey": "seo",
+  "seo": {
+    "title": "Local SEO Services | Fillip Technologies",
+    "description": "Local SEO services that improve Google Business Profile visibility, local rankings, map presence, and qualified nearby leads.",
+    "canonical": "/local-seo",
+    "openGraph": {
+      "title": "Local SEO Services",
+      "description": "Improve local search visibility and attract nearby customers.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "badge": "LOCAL SEO SERVICES",
+      "title": "Get Found by",
+      "highlightedTitle": "Local Customers",
+      "description": "Improve your visibility in local search results, Google Maps, and nearby customer searches with a focused local SEO strategy.",
+      "searchText": "Best Local SEO Agency Near Me",
+      "primaryCta": "Get Free Local SEO Audit",
+      "secondaryCta": "View Case Studies",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Local SEO services"
+      }
+    }
+  },
+  "faq": {
+    "badge": "LOCAL SEO FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about local SEO, Google Business Profile optimization, and local rankings.",
+    "items": [
+      {
+        "question": "What is local SEO?",
+        "answer": "Local SEO helps your business appear for location-based searches, Google Maps results, and nearby customer queries."
+      },
+      {
+        "question": "Do you optimize Google Business Profile?",
+        "answer": "Yes. We optimize categories, services, descriptions, photos, posts, citations, reviews, and local ranking signals."
+      },
+      {
+        "question": "How long does local SEO take?",
+        "answer": "Most businesses start seeing improvements within 2-4 months, depending on competition, current profile health, and location."
+      },
+      {
+        "question": "Can local SEO generate leads?",
+        "answer": "Yes. Better local visibility can increase calls, direction requests, website visits, and qualified enquiries from nearby customers."
+      }
+    ]
+  }
+}

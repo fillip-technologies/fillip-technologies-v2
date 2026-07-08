@@ -2,157 +2,141 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Home, Shield, Warehouse, Building } from "lucide-react";
+import {
+  ArrowRight,
+  Building,
+  CheckCircle2,
+  Home,
+  PlayCircle,
+  Shield,
+  Warehouse,
+} from "lucide-react";
 
-const cards = [
-  {
-    image: "/images/hardware/card_office.png",
-    icon: Building,
-    label: "For Office",
-  },
-  {
-    image: "/images/hardware/card_house.png",
-    icon: Home,
-    label: "For Houses",
-  },
-  {
-    image: "/images/hardware/card_garage.png",
-    icon: Warehouse,
-    label: "For Garage",
-  },
-  {
-    image: "/images/hardware/card_apartment.png",
-    icon: Shield,
-    label: "For Apartments",
-  },
-];
+
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const statusItems = ["All Systems Secure", "Live Monitoring", "24/7 Protection"];
 
 export default function SecurityHero() {
   return (
     <>
-      {/* White spacer at the top of the page to show the navbar clearly */}
-      <div className="h-24 lg:h-32 bg-white w-full relative z-30" />
-
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[55vh] flex flex-col justify-between pt-16 pb-12">
-
-        {/* CCTV Lens Background Image */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative overflow-hidden bg-[#020817] text-white">
+        <div className="absolute inset-0">
           <Image
-            src="/images/hardware/security_lens_bg.png"
-            alt="CCTV camera infrared lens background"
+            src="/images/new-hero-hard.png"
+            alt="Advanced CCTV surveillance background"
             fill
             priority
-            className="object-cover opacity-80"
+            sizes="100vw"
+            className="object-contain object-[68%_28%] sm:object-[72%_24%] lg:object-[center_20%]"
           />
-          {/* Dark radial overlay for text contrast and depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950 pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,23,0.96)_0%,rgba(2,8,23,0.86)_42%,rgba(2,8,23,0.38)_68%,rgba(2,8,23,0.06)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_30%,rgba(37,99,235,0.32),transparent_34%),radial-gradient(circle_at_86%_22%,rgba(14,165,233,0.12),transparent_30%)]" />
+          <div className="absolute -left-24 top-28 size-72 rounded-full bg-blue-500/15 blur-3xl" />
+          <div className="absolute right-0 top-16 size-96 rounded-full bg-cyan-400/8 blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:44px_44px]" />
+          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#020817] to-transparent" />
         </div>
 
-        {/* Main Hero Slider Content */}
-        <div className="container mx-auto max-w-7xl px-6 relative z-10 my-auto">
-          <div className="relative w-full flex flex-col items-center text-center py-12 px-10">
-
-            {/* Slide Navigation Chevrons */}
-            <button
-              type="button"
-              className="absolute left-0 top-1/2 -translate-y-1/2 size-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center transition-all cursor-pointer hidden md:flex"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="size-6" />
-            </button>
-
-            <button
-              type="button"
-              className="absolute right-0 top-1/2 -translate-y-1/2 size-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center transition-all cursor-pointer hidden md:flex"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="size-6" />
-            </button>
-
-            {/* Orange Shield Logo */}
+        <div className="container relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-32 sm:pb-24 sm:pt-36 lg:pb-32 lg:pt-40">
+          <div className="relative flex min-h-[520px] items-start">
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-6"
+              className="max-w-3xl text-center lg:text-left"
+              initial="hidden"
+              animate="visible"
+              transition={{ staggerChildren: 0.1 }}
             >
-              {/* <svg className="size-16 text-orange-500 drop-shadow-[0_4px_10px_rgba(249,115,22,0.2)]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C12 2 3 5 3 11C3 17 12 22 12 22C12 22 21 17 21 11C21 5 12 2 12 2Z" />
-                <text x="12" y="15" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="bold" fontSize="10.5" textAnchor="middle" fill="white">S</text>
-              </svg> */}
-            </motion.div>
-
-            {/* Slide Text */}
-            <div className="space-y-4 max-w-3xl">
-              <motion.h1
-                className="text-4xl font-extrabold sm:text-5xl md:text-6xl tracking-tight leading-tight text-white"
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.05 }}
+              <motion.div
+                variants={fadeUp}
+                transition={{ duration: 0.65, ease: "easeOut" }}
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-sky-100 shadow-[0_0_30px_rgba(56,189,248,0.16)] backdrop-blur"
               >
-                CCTV Systems <br className="sm:hidden" />
-                & Access Control
+                <span className="size-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.9)]" />
+                AI Powered CCTV Surveillance
+              </motion.div>
+
+              <motion.h1
+                variants={fadeUp}
+                transition={{ duration: 0.75, ease: "easeOut" }}
+                className="text-4xl font-black leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[5.4rem]"
+              >
+                Advanced
+                <br />
+                security for what
+                <br />
+                matters most.
               </motion.h1>
 
               <motion.p
-                className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-xl mx-auto"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 }}
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="mx-auto mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg lg:mx-0"
               >
-                We will select the optimum solution for all your problems. With us you will always feel safe.
+                Smart cameras, AI alerts, and 24/7 monitoring work together to
+                protect your home, office, and business with dependable remote
+                access.
               </motion.p>
-            </div>
 
-            {/* Small Orange Indicator Block */}
-            {/* <motion.div
-              className="mt-6 w-16 h-3 bg-orange-500 rounded-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            /> */}
+              <motion.div
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="mt-9 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start"
+              >
+                <button
+                  type="button"
+                  className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#061329]/85 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,8,23,0.35)] ring-1 ring-white/10 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-sky-500/20 hover:ring-sky-300/40 hover:shadow-[0_24px_60px_rgba(56,189,248,0.22)] sm:w-auto"
+                >
+                  Explore Solutions
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
 
-          </div>
-        </div>
+                <button
+                  type="button"
+                  className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-white/15 bg-white/10 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,8,23,0.22)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/45 hover:bg-white/15 hover:shadow-[0_22px_55px_rgba(14,165,233,0.18)] sm:w-auto"
+                >
+                  Watch Video
+                  <PlayCircle className="size-5 transition-transform duration-300 group-hover:scale-110" />
+                </button>
+              </motion.div>
+            </motion.div>
 
-        {/* Bottom Cards Row */}
-        <div className="relative z-10 w-full mt-auto bg-slate-950/45 backdrop-blur-[2px] pt-8 pb-12 border-t border-white/5">
-          <div className="container mx-auto max-w-6xl px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {cards.map((card, idx) => {
-                const IconComp = card.icon;
-                return (
-                  <div key={idx} className="flex flex-col items-center gap-3 group cursor-pointer">
-                    {/* Card Image Wrapper */}
-                    <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-slate-900">
-                      <Image
-                        src={card.image}
-                        alt={card.label}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {/* Dark gradient overlay */}
-                      <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-colors duration-300" />
+            <motion.div
+              className="absolute bottom-10 right-0 hidden w-[23rem] rounded-[1.75rem] border border-white/15 bg-white/10 p-5 text-left shadow-[0_30px_90px_rgba(2,8,23,0.48)] backdrop-blur-xl lg:block xl:right-8"
+              initial={{ opacity: 0, y: 28, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.75, delay: 0.45, ease: "easeOut" }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-sky-600 shadow-[0_12px_30px_rgba(14,165,233,0.28)]">
+                  <Shield className="size-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-slate-300">
+                    System Status
+                  </p>
+                  <p className="mt-1 text-sm font-bold text-emerald-300">
+                    All Systems Secure
+                  </p>
+                </div>
+              </div>
 
-                      {/* White circle with orange icon */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="size-12 rounded-full bg-white flex items-center justify-center shadow-md transform group-hover:scale-110 transition-transform duration-300">
-                          <IconComp className="size-6 text-orange-500" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Text Label */}
-                    <span className="text-sm font-bold text-slate-300 group-hover:text-white transition-colors duration-300 uppercase tracking-widest">
-                      {card.label}
-                    </span>
+              <div className="mt-5 grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
+                {statusItems.slice(1).map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-xs text-slate-200">
+                    <CheckCircle2 className="size-4 text-cyan-300" />
+                    <span>{item}</span>
                   </div>
-                );
-              })}
-            </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
 
+      
       </section>
     </>
   );
