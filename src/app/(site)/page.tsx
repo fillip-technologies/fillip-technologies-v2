@@ -18,6 +18,7 @@ import HeroSection from "@/components/Home/HeroSection";
 import ServicesSection from "@/components/Home/ServicesSection";
 import IndustriesSection from "@/components/Home/IndustriesSection"
 import BlogSection from "@/components/Home/BlogSection";
+import UnitOfSection from "@/components/Home/UnitOfSection";
 
 
 // Always render with the latest CMS content. Without this Next can serve a
@@ -77,6 +78,7 @@ export default async function HomePage() {
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip content={whychooseus} />
       <CaseStudies content={casestudies} />
+      <UnitOfSection />
       <BlogSection />
 
       <ConsultationFormSection />
