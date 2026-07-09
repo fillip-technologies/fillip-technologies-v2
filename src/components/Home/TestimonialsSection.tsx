@@ -64,7 +64,6 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    dragFree: true,
   });
 
   const scrollPrev = () => emblaApi?.scrollPrev();
@@ -94,16 +93,15 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
           {/* Left Content */}
           <div className="flex flex-col justify-center">
             <Quote
-              size={92}
               strokeWidth={1.35}
-              className="mb-8 text-slate-300"
+              className="mb-6 md:mb-8 text-slate-300 h-16 w-16 md:h-24 md:w-24"
             />
 
-            <h2 className="text-[42px] font-semibold leading-[1.28] tracking-[-0.03em] text-slate-950 lg:text-[44px]">
+            <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.28] tracking-[-0.03em] text-slate-950 lg:text-[44px]">
               {c.heading}
             </h2>
 
-            <div className="mt-10 flex items-center gap-3">
+            <div className="mt-6 md:mt-10 flex items-center gap-3">
               <span className="text-xl font-medium text-slate-800">
                 {c.rating}
               </span>
@@ -124,7 +122,7 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
             </p>
 
             {/* Navigation */}
-            <div className="mt-12 flex items-center gap-4">
+            <div className="mt-8 md:mt-12 flex items-center gap-4">
               <button
                 onClick={scrollPrev}
                 aria-label="Previous testimonial"
@@ -148,16 +146,16 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
           {/* Slider */}
           <div
             ref={emblaRef}
-            className="overflow-hidden cursor-grab active:cursor-grabbing"
+            className="w-full overflow-hidden cursor-grab active:cursor-grabbing"
           >
-            <div className="flex gap-6">
+            <div className="flex -ml-6">
               {testimonials.map((item, index) => (
                 <div
                   key={index}
-                  className="min-w-[min(340px,calc(100vw-48px))] flex-[0_0_auto] md:min-w-[360px] lg:min-w-0 lg:basis-[calc((100%_-_48px)/3)]"
+                  className="w-full flex-[0_0_100%] pl-6 md:min-w-[360px] md:flex-[0_0_auto] lg:min-w-0 lg:basis-1/3"
                 >
-                  <div className="flex h-[418px] flex-col rounded-[24px] border border-card/70 bg-card/78 px-7 py-8 shadow-[0_18px_45px_color-mix(in_srgb,var(--heading)_7%,transparent)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_color-mix(in_srgb,var(--heading)_10%,transparent)]">
-                    <p className="text-[16px] leading-7 text-slate-600">
+                  <div className="flex h-auto min-h-[380px] md:h-[418px] flex-col rounded-[24px] border border-card/70 bg-card/78 px-7 py-8 shadow-[0_18px_45px_color-mix(in_srgb,var(--heading)_7%,transparent)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_color-mix(in_srgb,var(--heading)_10%,transparent)]">
+                    <p className="text-[16px] leading-7 text-slate-600 whitespace-normal break-words">
                       {item.content}
                     </p>
 

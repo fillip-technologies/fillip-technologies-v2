@@ -84,8 +84,8 @@ const categories: ServiceCategory[] = [
 ];
 
 const serviceImages: Record<string, string> = {
-    "Custom Website Development": "/images/SERVICES/custom-website.jpg",
-    "E-Commerce Development": "/images/SERVICES/e-commerce.jpg",
+    "Custom Website Development": "/images/FT-web-1.png",
+    "E-Commerce Development": "/images/FT-web-2.png",
     "WordPress Development": "/images/SERVICES/wordpress.jpg",
     "Android App Development": "/images/SERVICES/app-development.jpg",
     "iOS App Development": "/images/SERVICES/ios-app.jpg",

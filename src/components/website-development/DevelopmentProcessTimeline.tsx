@@ -12,7 +12,7 @@ const processSteps = [
       "Competitor Research",
       "Goal Definition",
     ],
-    offset: "mt-52",
+    offset: "lg:mt-52",
   },
   {
     title: "Planning",
@@ -22,7 +22,7 @@ const processSteps = [
       "Project Roadmap",
       "Technology Selection",
     ],
-    offset: "mt-36",
+    offset: "lg:mt-36",
   },
   {
     title: "UI/UX Design",
@@ -32,7 +32,7 @@ const processSteps = [
       "Visual Design",
       "Interactive Prototypes",
     ],
-    offset: "mt-20",
+    offset: "lg:mt-20",
   },
   {
     title: "Develop",
@@ -42,7 +42,7 @@ const processSteps = [
       "CMS Integration",
       "API Development",
     ],
-    offset: "mt-4",
+    offset: "lg:mt-4",
   },
   {
     title: "Testing",
@@ -52,7 +52,7 @@ const processSteps = [
       "Security Validation",
       "Bug Resolution",
     ],
-    offset: "-mt-12",
+    offset: "lg:-mt-12",
   },
   {
     title: "Launch",
@@ -62,7 +62,7 @@ const processSteps = [
       "Maintenance",
       "Growth Support",
     ],
-    offset: "-mt-28",
+    offset: "lg:-mt-28",
   },
 ];
 

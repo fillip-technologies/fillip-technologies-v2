@@ -318,6 +318,36 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
     setIsExpanded(false);
   };
 
+  // Split logos into two rows for mobile marquee
+  const half = Math.ceil(filteredLogos.length / 2);
+  const row1 = filteredLogos.slice(0, half);
+  const row2 = filteredLogos.slice(half);
+
+  const getLogoHeightClass = (src: string, isDesktop = false) => {
+    const isRajgirZoo = src.toLowerCase().includes("rajgir-zoo") ||
+      (src.toLowerCase().includes("zoo") && src.toLowerCase().includes("safari"));
+    const isOtherSafariOrZoo = src.toLowerCase().includes("safari") || src.toLowerCase().includes("zoo");
+
+    if (isDesktop) {
+      if (isRajgirZoo) return "max-h-[105px]";
+      if (isOtherSafariOrZoo) return "max-h-20";
+      return "max-h-14";
+    } else {
+      if (isRajgirZoo) return "max-h-[60px]";
+      if (isOtherSafariOrZoo) return "max-h-12";
+      return "max-h-10";
+    }
+  };
+
+  const getMarqueeItems = (arr: typeof visibleLogos) => {
+    if (arr.length === 0) return [];
+    let result = [...arr];
+    while (result.length < 8) {
+      result = [...result, ...arr];
+    }
+    return [...result, ...result];
+  };
+
   return (
     <section className="relative overflow-hidden bg-white py-20">
       {/* Background */}
@@ -327,7 +357,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
           className="
             absolute
             left-1/2
-            top-[-250px]
+            top-[ -250px]
             h-[700px]
             w-[700px]
             -translate-x-1/2
@@ -440,44 +470,91 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16 md:gap-y-10">
-                {visibleLogos.map((logo, index) => {
-                  const isRajgirZoo = logo.src.toLowerCase().includes("rajgir-zoo") ||
-                    (logo.src.toLowerCase().includes("zoo") && logo.src.toLowerCase().includes("safari"));
-                  const isOtherSafariOrZoo = logo.src.toLowerCase().includes("safari") || logo.src.toLowerCase().includes("zoo");
+              {/* Mobile View: Two-line auto-scrolling marquee */}
+              <div className="block md:hidden space-y-4 overflow-hidden w-full">
+                {/* Row 1 */}
+                <div className="flex overflow-hidden w-full">
+                  <motion.div
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{
+                      ease: "linear",
+                      duration: 20,
+                      repeat: Infinity,
+                    }}
+                    className="flex gap-x-6 whitespace-nowrap w-max"
+                  >
+                    {getMarqueeItems(row1).map((logo, index) => (
+                      <div
+                        key={logo.src + "-row1-" + index}
+                        className="relative flex h-20 shrink-0 items-center justify-center px-2"
+                      >
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt}
+                          width={160}
+                          height={64}
+                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-80`}
+                        />
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
 
-                  let logoHeightClass = "max-h-14";
-                  if (isRajgirZoo) {
-                    logoHeightClass = "max-h-[105px]";
-                  } else if (isOtherSafariOrZoo) {
-                    logoHeightClass = "max-h-20";
-                  }
+                {/* Row 2 */}
+                <div className="flex overflow-hidden w-full">
+                  <motion.div
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{
+                      ease: "linear",
+                      duration: 20,
+                      repeat: Infinity,
+                    }}
+                    className="flex gap-x-6 whitespace-nowrap w-max"
+                  >
+                    {getMarqueeItems(row2).map((logo, index) => (
+                      <div
+                        key={logo.src + "-row2-" + index}
+                        className="relative flex h-20 shrink-0 items-center justify-center px-2"
+                      >
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt}
+                          width={160}
+                          height={64}
+                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-80`}
+                        />
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
 
-                  return (
-                    <motion.div
-                      key={logo.src + index}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.25, delay: Math.min(index * 0.02, 0.3) }}
-                      className="group relative flex h-28 items-center justify-center px-4 transition-all duration-300 ease-out hover:-translate-y-1"
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={160}
-                        height={64}
-                        className={`${logoHeightClass} w-auto object-contain opacity-80 transition-all duration-300 group-hover:opacity-100`}
-                      />
-                    </motion.div>
-                  );
-                })}
+              {/* Desktop/Tablet View: Standard Grid Layout */}
+              <div className="hidden md:flex flex-wrap items-center justify-center gap-x-16 gap-y-10 w-full">
+                {visibleLogos.map((logo, index) => (
+                  <motion.div
+                    key={logo.src + index}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, delay: Math.min(index * 0.02, 0.3) }}
+                    className="group relative flex h-28 items-center justify-center px-4 transition-all duration-300 ease-out hover:-translate-y-1"
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={160}
+                      height={64}
+                      className={`${getLogoHeightClass(logo.src, true)} w-auto object-contain opacity-80 transition-all duration-300 group-hover:opacity-100`}
+                    />
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </AnimatePresence>
 
           {/* View More / View Less Button */}
           {filteredLogos.length > itemsPerPage && (
-            <div className="mt-12 flex justify-center">
+            <div className="mt-12 hidden md:flex justify-center">
               <motion.button
                 type="button"
                 onClick={() => setIsExpanded((prev) => !prev)}

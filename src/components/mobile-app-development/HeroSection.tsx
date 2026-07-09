@@ -76,12 +76,11 @@ export default function MobileAppHero({ data }: MobileAppHeroProps) {
         {/* Visual Area */}
         <div
           className="
+            hidden
+            lg:block
             relative
             mx-auto
             mt-4
-            h-[250px]
-            sm:h-[320px]
-            md:h-[380px]
             lg:h-[350px]
             xl:h-[420px]
             2xl:h-[460px]

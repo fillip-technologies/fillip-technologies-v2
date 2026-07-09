@@ -69,7 +69,7 @@ export default function MobileAppChallenges({ data }: MobileAppChallengesProps) 
           </div>
 
           {/* Right Visual */}
-          <div className="relative flex justify-center">
+          <div className="hidden lg:flex relative justify-center">
             {/* Floating Card */}
            
 
@@ -85,7 +85,7 @@ export default function MobileAppChallenges({ data }: MobileAppChallengesProps) 
                 alt={data.image.alt}
                 width={1000}
                 height={1000}
-                className="relative z-10 max-w-[560px]"
+                className="relative z-10 w-full max-w-[560px] h-auto object-contain"
               />
 
             

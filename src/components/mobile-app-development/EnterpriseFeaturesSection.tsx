@@ -68,7 +68,7 @@ export default function MobileAppFeatures({ data }: MobileAppFeaturesProps) {
                 {/* Main Layout */}
                 <div className="mt-20 grid items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
                     {/* Left Visual */}
-                    <div className="relative flex justify-center">
+                    <div className="hidden lg:flex relative justify-center">
                         {/* Glow */}
                         <div
                             className="absolute inset-0 rounded-full blur-[120px]"
@@ -90,7 +90,7 @@ export default function MobileAppFeatures({ data }: MobileAppFeaturesProps) {
                                 alt={data.image.alt}
                                 width={650}
                                 height={800}
-                                className="relative z-10 mx-auto max-w-[480px]"
+                                className="relative z-10 mx-auto w-full max-w-[480px] h-auto object-contain"
                             />
 
 

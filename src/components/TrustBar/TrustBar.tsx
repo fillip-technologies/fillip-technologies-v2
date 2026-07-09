@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Users, BriefcaseBusiness } from "lucide-react";
+import { Star, Users, BriefcaseBusiness, Award } from "lucide-react";
 
 // CMS-editable content (key: home.trustedby). Falls back to these defaults.
 type TrustBarContent = Partial<{
@@ -58,12 +58,12 @@ export default function TrustBar({ content: raw = {} }: { content?: Record<strin
 
                
 
-                {/* Stats */}
-                <div className="mt-10 flex flex-col items-center justify-center gap-8 md:flex-row md:gap-12 lg:gap-16">
+                 {/* Stats */}
+                <div className="mt-12 grid grid-cols-2 gap-4 max-w-lg mx-auto md:max-w-none md:flex md:flex-row md:items-center md:justify-center md:gap-12 lg:gap-16">
 
                     {/* Clients */}
-                    <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">
+                    <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50/50 border border-slate-100/80 shadow-[0_4px_20px_rgba(0,0,0,0.015)] md:bg-transparent md:border-none md:p-0 md:shadow-none w-full md:w-auto">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50">
                             <Users className="h-5 w-5 text-[#0F6FFF]" />
                         </div>
 
@@ -80,8 +80,8 @@ export default function TrustBar({ content: raw = {} }: { content?: Record<strin
                     <div className="hidden h-10 w-px bg-slate-200 md:block" />
 
                     {/* Satisfaction */}
-                    <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-50">
+                    <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50/50 border border-slate-100/80 shadow-[0_4px_20px_rgba(0,0,0,0.015)] md:bg-transparent md:border-none md:p-0 md:shadow-none w-full md:w-auto">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-50">
                             <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
                         </div>
 
@@ -98,8 +98,8 @@ export default function TrustBar({ content: raw = {} }: { content?: Record<strin
                     <div className="hidden h-10 w-px bg-slate-200 md:block" />
 
                     {/* Experience */}
-                    <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50">
+                    <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50/50 border border-slate-100/80 shadow-[0_4px_20px_rgba(0,0,0,0.015)] md:bg-transparent md:border-none md:p-0 md:shadow-none w-full md:w-auto">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-50">
                             <BriefcaseBusiness className="h-5 w-5 text-emerald-600" />
                         </div>
 
@@ -116,23 +116,29 @@ export default function TrustBar({ content: raw = {} }: { content?: Record<strin
                     <div className="hidden h-10 w-px bg-slate-200 md:block" />
 
                     {/* Rating */}
-                    <div className="flex items-center gap-3">
-                        <div className="text-lg text-amber-500">
-                            ★★★★★
+                    <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50/50 border border-slate-100/80 shadow-[0_4px_20px_rgba(0,0,0,0.015)] md:bg-transparent md:border-none md:p-0 md:shadow-none w-full md:w-auto">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-violet-50">
+                            <Award className="h-5 w-5 text-violet-600" />
                         </div>
 
                         <div>
-                            <div className="text-2xl font-bold text-slate-900">
-                                {c.ratingValue}
+                            <div className="flex items-center gap-1.5">
+                                <span className="text-2xl font-bold text-slate-900">
+                                    {c.ratingValue}
+                                </span>
+                                <span className="text-xs text-amber-500 hidden sm:inline-block">
+                                    ★★★★★
+                                </span>
                             </div>
-                            <div className="text-sm text-slate-500">
-                                {c.ratingLabel}
+                            <div className="text-sm text-slate-500 flex items-center gap-1">
+                                <span>{c.ratingLabel}</span>
+                                <span className="text-[10px] text-amber-500 sm:hidden block leading-none">
+                                    ★★★★★
+                                </span>
                             </div>
                         </div>
-
-                        
                     </div>
-                    
+
                 </div>
                  {/* Small Label */}
                 <div className="mt-14 text-center">

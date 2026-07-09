@@ -7,29 +7,40 @@ import { Sparkles, Check, ArrowRight } from "lucide-react";
 export default function SmsPricing() {
   const [volume, setVolume] = useState(50000);
 
-  // Price tier logic
-  const getRateAndSavings = (vol: number) => {
-    let rate = 0.15;
+  // Dynamic volume specs tier logic
+  const getVolumeSpecs = (vol: number) => {
     if (vol >= 500000) {
-      rate = 0.10;
+      return {
+        routeType: "Dedicated Trunking",
+        setupTime: "Managed Custom Setup",
+        support: "24/7 Account Manager",
+        badge: "Enterprise SLA"
+      };
     } else if (vol >= 100000) {
-      rate = 0.12;
+      return {
+        routeType: "Priority Carrier Route",
+        setupTime: "Priority DLT Setup",
+        support: "Priority Phone & Chat",
+        badge: "Corporate Plan"
+      };
     } else if (vol >= 25000) {
-      rate = 0.13;
+      return {
+        routeType: "Standard Direct Route",
+        setupTime: "Same-Day DLT Setup",
+        support: "Standard Email & Chat",
+        badge: "Growth Plan"
+      };
+    } else {
+      return {
+        routeType: "Standard Carrier Route",
+        setupTime: "Instant Activation",
+        support: "Standard Email Support",
+        badge: "Starter Plan"
+      };
     }
-
-    const standardCost = vol * 0.15;
-    const actualCost = vol * rate;
-    const savings = standardCost - actualCost;
-
-    return {
-      rate,
-      actualCost,
-      savings
-    };
   };
 
-  const { rate, actualCost, savings } = getRateAndSavings(volume);
+  const specs = getVolumeSpecs(volume);
 
   return (
     <section id="pricing" className="py-24 px-6 md:px-12 bg-[#f8fafc] relative overflow-hidden">
@@ -50,7 +61,7 @@ export default function SmsPricing() {
             </span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base font-light leading-relaxed">
-            Drag the volume slider to calculate your rate and see how much you save with our wholesale carrier connections.
+            Drag the volume slider to see the carrier route specifications, support levels, and features dedicated for each tier.
           </p>
         </div>
 
@@ -94,27 +105,27 @@ export default function SmsPricing() {
               {/* Dynamic Rates Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-slate-100 mb-6">
                 <div>
-                  <span className="text-[10px] font-mono text-slate-450 uppercase tracking-wider block mb-1">
-                    Rate per SMS
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
+                    Route Type
                   </span>
-                  <span className="text-2xl font-black font-mono text-slate-900">
-                    ₹{rate.toFixed(2)}
+                  <span className="text-lg font-bold text-slate-900 block leading-tight">
+                    {specs.routeType}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono text-slate-450 uppercase tracking-wider block mb-1">
-                    Estimated Cost
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
+                    Setup Time
                   </span>
-                  <span className="text-2xl font-black font-mono text-slate-900">
-                    ₹{Math.floor(actualCost).toLocaleString()}
+                  <span className="text-lg font-bold text-slate-900 block leading-tight">
+                    {specs.setupTime}
                   </span>
                 </div>
                 <div className="col-span-2 md:col-span-1">
-                  <span className="text-[10px] font-mono text-slate-455 uppercase tracking-wider block mb-1">
-                    Discount Savings
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
+                    Support Level
                   </span>
-                  <span className="text-lg font-bold font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full px-3.5 py-0.5 inline-block mt-0.5">
-                    -₹{Math.floor(savings).toLocaleString()}
+                  <span className="text-xs font-bold font-mono text-cyan-700 bg-cyan-50 border border-cyan-100 rounded-full px-3 py-0.5 inline-block mt-0.5">
+                    {specs.support}
                   </span>
                 </div>
               </div>
@@ -122,10 +133,10 @@ export default function SmsPricing() {
 
             {/* Volume Tiers Legend */}
             <div className="border-t border-slate-100 pt-6 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex flex-wrap gap-x-6 gap-y-2">
-              <span>● &lt;25k: ₹0.15</span>
-              <span>● 25k-100k: ₹0.13</span>
-              <span>● 100k-500k: ₹0.12</span>
-              <span>● 500k+: ₹0.10</span>
+              <span>● &lt;25k: Starter Plan</span>
+              <span>● 25k-100k: Growth Plan</span>
+              <span>● 100k-500k: Corporate Plan</span>
+              <span>● 500k+: Enterprise SLA</span>
             </div>
 
           </div>
@@ -161,7 +172,7 @@ export default function SmsPricing() {
             </div>
 
             <a
-              href={`/contact?package=sms&volume=${volume}`}
+              href={`/contact?package=sms&plan=${specs.badge}&volume=${volume}`}
               className="w-full inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-3.5 text-xs font-bold uppercase tracking-wider shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center"
             >
               <span>Get Started Now</span>

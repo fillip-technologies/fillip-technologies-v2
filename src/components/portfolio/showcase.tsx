@@ -212,7 +212,7 @@ export default function PortfolioShowcase({ content: raw = {} }: { content?: Rec
           </div>
 
           {/* Filtering Tabs */}
-          <div className="flex flex-wrap gap-1.5 border border-slate-200 bg-white p-1.5 rounded-full relative shadow-sm max-w-2xl">
+          <div className="flex flex-nowrap overflow-x-auto scrollbar-none gap-2 w-full max-w-full md:max-w-2xl md:border md:border-slate-200 md:bg-white md:p-1.5 md:rounded-full md:shadow-sm relative">
             {categories.map((cat) => {
               const isActive = activeTab === cat;
               return (
@@ -220,8 +220,10 @@ export default function PortfolioShowcase({ content: raw = {} }: { content?: Rec
                   key={cat}
                   type="button"
                   onClick={() => setActiveTab(cat)}
-                  className={`relative px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300 z-10 ${
-                    isActive ? "text-white" : "text-slate-500 hover:text-slate-800"
+                  className={`relative px-4 py-2 shrink-0 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300 z-10 border md:border-none ${
+                    isActive
+                      ? "text-white border-slate-900"
+                      : "text-slate-500 border-slate-200/80 bg-white hover:text-slate-800 md:bg-transparent md:border-none"
                   }`}
                 >
                   {isActive && (

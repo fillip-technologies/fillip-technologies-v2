@@ -151,7 +151,7 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
             className="lg:col-span-5 flex items-center justify-center lg:justify-center px-4"
           >
             {/* 3-Column Shape Canvas Container (Shifted further left using lg:-translate-x-28) */}
-            <div className="relative w-full max-w-[568px] h-[470px] origin-center scale-[0.75] sm:scale-[0.85] lg:scale-[0.8] xl:scale-[0.95] lg:-translate-x-28">
+            <div className="relative w-[374px] sm:w-[568px] h-[470px] origin-center scale-[0.72] min-[375px]:scale-[0.8] sm:scale-[0.85] lg:scale-[0.8] xl:scale-[0.95] lg:-translate-x-28">
               
               {/* Background Glow */}
               <div className="absolute inset-16 bg-gradient-to-tr from-primary/10 to-accent/5 blur-2xl rounded-full scale-90 pointer-events-none -z-10" />
@@ -195,7 +195,7 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
 
               {/* === COLUMN 3 (RIGHT) === */}
               {/* Row 1: Research Mockup (Fully Rounded Right, Flat/Small Round Left) */}
-              <div className="absolute top-0 left-[388px] w-[180px] h-[180px] overflow-hidden rounded-tr-[6.5rem] rounded-br-[6.5rem] rounded-tl-2xl rounded-bl-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
+              <div className="hidden sm:block absolute top-0 left-[388px] w-[180px] h-[180px] overflow-hidden rounded-tr-[6.5rem] rounded-br-[6.5rem] rounded-tl-2xl rounded-bl-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
                 <Image 
                   src="/images/research-mockup.png" 
                   alt="Creative strategy" 
@@ -206,7 +206,7 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               </div>
 
               {/* Row 2: Process Image (Flat Top, Fully Rounded Bottom) */}
-              <div className="absolute top-[194px] left-[388px] w-[180px] h-[180px] overflow-hidden rounded-b-full rounded-t-[1.5rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
+              <div className="hidden sm:block absolute top-[194px] left-[388px] w-[180px] h-[180px] overflow-hidden rounded-b-full rounded-t-[1.5rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
                 <Image 
                   src="/images/How-we-work.png" 
                   alt="Collaboration process" 

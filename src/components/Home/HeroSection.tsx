@@ -36,7 +36,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
     };
 
     return (
-        <section className="relative flex min-h-screen w-full overflow-hidden bg-[linear-gradient(135deg,color-mix(in_srgb,var(--surface)_92%,white)_0%,color-mix(in_srgb,var(--card)_96%,#f6fbff)_42%,color-mix(in_srgb,var(--surface)_88%,#fff7fb)_100%)] text-heading sm:min-h-[100svh]">
+        <section className="relative flex min-h-0 lg:min-h-screen w-full overflow-hidden bg-[linear-gradient(135deg,color-mix(in_srgb,var(--surface)_92%,white)_0%,color-mix(in_srgb,var(--card)_96%,#f6fbff)_42%,color-mix(in_srgb,var(--surface)_88%,#fff7fb)_100%)] text-heading lg:sm:min-h-[100svh]">
             <div
                 className="absolute inset-0 opacity-[0.58]"
                 style={{
@@ -55,7 +55,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_18%,color-mix(in_srgb,var(--card)_88%,transparent),color-mix(in_srgb,var(--surface)_38%,transparent)_34%,color-mix(in_srgb,var(--surface)_0%,transparent)_72%)]" />
             <div className="absolute inset-x-[8%] top-[14%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-            <div className="relative z-10 grid min-h-screen w-full grid-cols-1 items-center gap-[clamp(2rem,3.5vw,6rem)] px-[clamp(1.5rem,4.5vw,10rem)] pb-[clamp(1.5rem,2vw,3rem)] pt-[clamp(5rem,6.2vw,10rem)] sm:min-h-[100svh] lg:grid-cols-[55%_45%] lg:pb-[clamp(1rem,1.4vw,2rem)] lg:pt-[clamp(4rem,4.5vw,7.5rem)]">
+            <div className="relative z-10 grid w-full grid-cols-1 items-center gap-[clamp(2rem,3.5vw,6rem)] px-6 py-12 pt-28 pb-16 md:px-[clamp(1.5rem,4.5vw,10rem)] md:pb-[clamp(1.5rem,2vw,3rem)] md:pt-[clamp(5rem,6.2vw,10rem)] lg:grid-cols-[55%_45%] lg:min-h-screen lg:sm:min-h-[100svh] lg:pb-[clamp(1rem,1.4vw,2rem)] lg:pt-[clamp(4rem,4.5vw,7.5rem)]">
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -110,7 +110,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
                     </motion.div>
                 </motion.div>
 
-                <div className="relative min-h-[clamp(27rem,72vw,42rem)] w-full lg:min-h-[100svh]">
+                <div className="hidden lg:block relative w-full lg:min-h-[100svh]">
                     <motion.div
                         initial={{ opacity: 0, x: 60, y: -40, rotate: -7, scale: 0.96 }}
                         animate={{ opacity: 1, x: 0, y: 0, rotate: -7, scale: 1 }}
