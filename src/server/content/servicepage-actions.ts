@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
-import { getServicePageSectionSpec, SERVICE_TEMPLATES } from "./servicepage-sections";
+import { getTemplateSchema } from "./servicepage-schema";
+import { templateUrlPrefix, isTemplateId } from "./servicepage-templates";
 import {
   getServicePage,
   insertServicePage,
@@ -17,10 +18,8 @@ import {
 import { upsertContent } from "./queries";
 import type { SaveState } from "./types";
 
-const TEMPLATE_IDS = new Set<string>(SERVICE_TEMPLATES.map((t) => t.id));
-
-// Slugs under /services that are their own static routes (would shadow the
-// dynamic [slug]), plus reserved words. Keeps admins from creating dead pages.
+// Slugs that are their own static routes (would shadow the dynamic [slug]),
+// plus reserved words. Keeps admins from creating dead pages.
 const RESERVED_SLUGS = new Set(["preview", "saas-product-development"]);
 
 /** Normalise a free-text label into a URL-safe kebab-case slug. */
@@ -46,8 +45,11 @@ export async function saveServicePageSection(
   }
 
   const page = await getServicePage(slug);
-  const spec = getServicePageSectionSpec(sectionId);
-  if (!page || !spec || !spec.section.ready) {
+  if (!page) {
+    return { ok: false, message: "Unknown page." };
+  }
+  const spec = getTemplateSchema(page.template).getSpec(sectionId);
+  if (!spec || !spec.section.ready) {
     return { ok: false, message: "Unknown or unavailable section." };
   }
   const section = spec.section;
@@ -68,7 +70,7 @@ export async function saveServicePageSection(
 
   try {
     await upsertContent(`servicepage.${slug}.${section.id}`, clean);
-    revalidatePath(`/services/${slug}`);
+    revalidatePath(`${page.urlPrefix}/${slug}`);
     return { ok: true, message: "Saved. Changes are live on the page." };
   } catch (err) {
     console.error("saveServicePageSection failed:", err);
@@ -96,7 +98,7 @@ export async function createServicePage(
   if (!cleanTitle) {
     return { ok: false, message: "Enter a name for the page." };
   }
-  if (!TEMPLATE_IDS.has(template)) {
+  if (!isTemplateId(template)) {
     return { ok: false, message: "Unknown template." };
   }
 
@@ -120,7 +122,7 @@ export async function createServicePage(
     await insertServicePage(cleanSlug, cleanTitle, template, categorySlug);
 
     // Append the new page to its category's mega-menu sub-links (dedupe by href).
-    const href = `/services/${cleanSlug}`;
+    const href = `${templateUrlPrefix(template)}/${cleanSlug}`;
     const existing = await getCategoryMenuLinks(categorySlug);
     if (!existing.some((i) => i.href === href)) {
       await upsertContent(menuLinksKey(categorySlug), {
@@ -145,14 +147,16 @@ export async function setServicePagePublishedAction(
   if (!(await getSession())) {
     return { ok: false, message: "Not authorized." };
   }
-  if (!(await getServicePage(slug))) {
+  const page = await getServicePage(slug);
+  if (!page) {
     return { ok: false, message: "Unknown page." };
   }
 
   try {
     await setServicePagePublished(slug, published);
     revalidatePath("/admin/cms/services");
-    revalidatePath(`/services/${slug}`);
+    revalidatePath(`${page.urlPrefix}/${slug}`);
+    revalidatePath("/", "layout");
     return {
       ok: true,
       message: published ? "Published. The page is now live." : "Unpublished. The page is hidden from the public.",
@@ -168,14 +172,16 @@ export async function deleteServicePage(slug: string): Promise<SaveState> {
   if (!(await getSession())) {
     return { ok: false, message: "Not authorized." };
   }
-  if (!(await getServicePage(slug))) {
+  const page = await getServicePage(slug);
+  if (!page) {
     return { ok: false, message: "Unknown page." };
   }
 
   try {
     await deleteServicePageRow(slug);
     revalidatePath("/admin/cms/services");
-    revalidatePath(`/services/${slug}`);
+    revalidatePath(`${page.urlPrefix}/${slug}`);
+    revalidatePath("/", "layout");
     return { ok: true, message: "Page deleted." };
   } catch (err) {
     console.error("deleteServicePage failed:", err);

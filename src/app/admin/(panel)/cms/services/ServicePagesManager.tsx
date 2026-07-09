@@ -17,9 +17,10 @@ type ServicePage = {
   categorySlug: string | null;
   published: boolean;
   sortOrder: number;
+  urlPrefix: string;
 };
 type Category = { slug: string; label: string };
-type Template = { id: string; label: string };
+type Template = { id: string; label: string; urlPrefix: string };
 
 const previewSlug = (s: string) =>
   s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -43,6 +44,7 @@ export default function ServicePagesManager({
 
   const effectiveSlug = previewSlug(slug || title);
   const labelFor = (s: string | null) => categories.find((c) => c.slug === s)?.label ?? "—";
+  const selectedPrefix = templates.find((t) => t.id === template)?.urlPrefix ?? "/services";
 
   const create = () => {
     setMsg(null);
@@ -143,7 +145,7 @@ export default function ServicePagesManager({
           </div>
         </div>
         <p className="mt-2 text-xs text-muted-foreground">
-          URL: <code>/services/{effectiveSlug || "…"}</code> · added to the{" "}
+          URL: <code>{selectedPrefix}/{effectiveSlug || "…"}</code> · added to the{" "}
           <strong className="text-heading">{labelFor(categorySlug)}</strong> menu · starts as an
           unpublished draft.
         </p>
@@ -181,16 +183,16 @@ export default function ServicePagesManager({
                 </span>
               </p>
               <p className="truncate text-sm text-muted-foreground">
-                /services/{p.slug} · {labelFor(p.categorySlug)}
+                {p.urlPrefix}/{p.slug} · {labelFor(p.categorySlug)}
               </p>
             </Link>
 
             <div className="flex items-center gap-1">
-              <IconLink href={`/services/${p.slug}/preview`} title="Preview draft">
+              <IconLink href={`${p.urlPrefix}/${p.slug}/preview`} title="Preview draft">
                 <Eye size={16} />
               </IconLink>
               {p.published ? (
-                <IconLink href={`/services/${p.slug}`} title="View live page">
+                <IconLink href={`${p.urlPrefix}/${p.slug}`} title="View live page">
                   <ExternalLink size={16} />
                 </IconLink>
               ) : null}

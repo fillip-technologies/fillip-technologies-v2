@@ -41,6 +41,17 @@ const SEED_SERVICE_PAGES = [
   { slug: "software-development", title: "Software Development", category_slug: "software-enterprise", sort_order: 7 },
 ];
 
+// The mobile-app pages (were static /mobile-app-development/<slug> routes).
+const SEED_MOBILE_PAGES = [
+  { slug: "android", title: "Android App Development", sort_order: 10 },
+  { slug: "ios", title: "iOS App Development", sort_order: 11 },
+  { slug: "enterprise", title: "Enterprise Mobile Applications", sort_order: 12 },
+  { slug: "ecommerce", title: "E-Commerce Mobile Solutions", sort_order: 13 },
+  { slug: "business-automation", title: "Business Process Automation Apps", sort_order: 14 },
+  { slug: "app-ui-ux-design", title: "App UI/UX Design", sort_order: 15 },
+  { slug: "on-demand", title: "On-Demand App Development", sort_order: 16 },
+];
+
 async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
@@ -108,6 +119,26 @@ async function main() {
           title: p.title,
           template: "service",
           category_slug: p.category_slug,
+          published: true,
+          sort_order: p.sort_order,
+          created_at: now,
+          updated_at: now,
+        },
+      },
+      { upsert: true }
+    );
+  }
+
+  console.log("Seeding mobile-app pages ...");
+  for (const p of SEED_MOBILE_PAGES) {
+    await db.collection("service_pages").updateOne(
+      { slug: p.slug },
+      {
+        $setOnInsert: {
+          slug: p.slug,
+          title: p.title,
+          template: "mobile-app",
+          category_slug: "mobile-app-development",
           published: true,
           sort_order: p.sort_order,
           created_at: now,

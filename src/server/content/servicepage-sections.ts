@@ -25,11 +25,7 @@ const uncsv = (s: unknown): string[] =>
     .map((x) => x.trim())
     .filter(Boolean);
 
-// Templates the CMS can create. Phase 1 ships the "service" template only.
-// (Kept in this plain module — a "use server" file may only export async fns.)
-export const SERVICE_TEMPLATES = [{ id: "service", label: "Service page" }] as const;
-
-type SectionSpec = {
+export type SectionSpec = {
   section: Section;
   flatten: (data: AnyRec) => AnyRec;
   unflatten: (flat: AnyRec) => AnyRec;

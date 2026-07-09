@@ -5,7 +5,15 @@ import { useRouter } from "next/navigation";
 import { ExternalLink, Eye } from "lucide-react";
 import { setServicePagePublishedAction } from "@/server/content/servicepage-actions";
 
-export default function StatusBar({ slug, published }: { slug: string; published: boolean }) {
+export default function StatusBar({
+  slug,
+  published,
+  urlPrefix,
+}: {
+  slug: string;
+  published: boolean;
+  urlPrefix: string;
+}) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -30,7 +38,7 @@ export default function StatusBar({ slug, published }: { slug: string; published
       </span>
 
       <a
-        href={`/services/${slug}/preview`}
+        href={`${urlPrefix}/${slug}/preview`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-1.5 text-sm text-body hover:text-heading"
@@ -40,7 +48,7 @@ export default function StatusBar({ slug, published }: { slug: string; published
 
       {published ? (
         <a
-          href={`/services/${slug}`}
+          href={`${urlPrefix}/${slug}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-sm text-body hover:text-heading"

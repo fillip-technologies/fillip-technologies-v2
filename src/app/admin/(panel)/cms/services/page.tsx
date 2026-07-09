@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { listServicePages } from "@/server/content/servicepage-registry";
 import { listCategories } from "@/server/content/whatwedo-registry";
-import { SERVICE_TEMPLATES } from "@/server/content/servicepage-sections";
+import { SERVICE_TEMPLATES } from "@/server/content/servicepage-templates";
 import ServicePagesManager from "./ServicePagesManager";
 
 export const metadata = { title: "Service Pages — CMS" };
@@ -28,7 +28,7 @@ export default async function ServicePagesCmsPage() {
       <ServicePagesManager
         initial={pages}
         categories={categories.map((c) => ({ slug: c.slug, label: c.label }))}
-        templates={SERVICE_TEMPLATES.map((t) => ({ id: t.id, label: t.label }))}
+        templates={SERVICE_TEMPLATES.map((t) => ({ id: t.id, label: t.label, urlPrefix: t.urlPrefix }))}
       />
     </section>
   );

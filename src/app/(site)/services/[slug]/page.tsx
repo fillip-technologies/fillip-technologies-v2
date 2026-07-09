@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServicePage from "@/components/services/ServicePage";
-import { getServiceBySlug } from "@/data/website-development";
+import { getServiceBySlug, type Service } from "@/data/website-development";
 import {
   getServicePage,
   getServicePageData,
@@ -32,8 +32,9 @@ export default async function ServiceSlugPage({
   // regression for any page not yet migrated); truly-unknown slugs 404.
   const page = await getServicePage(slug);
   if (page) {
+    if (page.template !== "service") notFound(); // lives under another route
     if (!page.published) notFound(); // drafts are visible only via /preview
-    return <ServicePage data={await getServicePageData(slug)} />;
+    return <ServicePage data={(await getServicePageData(slug, "service")) as Service} />;
   }
 
   const staticData = getServiceBySlug(slug);

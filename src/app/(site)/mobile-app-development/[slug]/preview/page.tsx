@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import ServicePage from "@/components/services/ServicePage";
-import type { Service } from "@/data/website-development";
+import MobileAppDevelopmentPage from "@/components/mobile-app-development/MobileAppDevelopmentPage";
+import type { MobileAppDevelopmentContent } from "@/data/mobile-app-development";
 import {
   getServicePage,
   getServicePageData,
@@ -11,11 +11,9 @@ import { getSession } from "@/server/auth/session";
 export const dynamic = "force-dynamic";
 
 /**
- * Draft preview of a service page — renders inside the public site chrome so it
- * looks exactly like the live page, but is gated to logged-in admins and works
- * even while the page is unpublished.
+ * Draft preview of a mobile-app page — session-gated, works while unpublished.
  */
-export default async function ServicePreviewPage({
+export default async function MobileAppPreviewPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -24,7 +22,9 @@ export default async function ServicePreviewPage({
 
   if (!(await getSession())) notFound();
   const page = await getServicePage(slug);
-  if (!page || page.template !== "service") notFound();
+  if (!page || page.template !== "mobile-app") notFound();
+
+  const data = (await getServicePageData(slug, "mobile-app")) as MobileAppDevelopmentContent;
 
   return (
     <>
@@ -36,7 +36,7 @@ export default async function ServicePreviewPage({
           Back to editor
         </Link>
       </div>
-      <ServicePage data={(await getServicePageData(slug, "service")) as Service} />
+      <MobileAppDevelopmentPage data={data} />
     </>
   );
 }

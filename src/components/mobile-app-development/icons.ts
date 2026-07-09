@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import type { MobileAppIconName } from "@/data/mobile-app-development";
 
-export const mobileAppIcons: Record<MobileAppIconName, LucideIcon> = {
+const iconMap: Record<MobileAppIconName, LucideIcon> = {
   BarChart3,
   Boxes,
   BriefcaseBusiness,
@@ -49,3 +49,10 @@ export const mobileAppIcons: Record<MobileAppIconName, LucideIcon> = {
   Wallet,
   Workflow,
 };
+
+// Look up by icon name, falling back to a safe default. CMS-editable icon
+// fields can hold arbitrary text, so `mobileAppIcons[name]` must never be
+// undefined (rendering an undefined component crashes the page).
+export const mobileAppIcons: Record<string, LucideIcon> = new Proxy(iconMap, {
+  get: (target, prop: string) => target[prop as MobileAppIconName] ?? Smartphone,
+});

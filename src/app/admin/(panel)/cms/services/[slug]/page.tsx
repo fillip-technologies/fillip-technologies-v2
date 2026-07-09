@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
-import {
-  getServicePageSectionSpec,
-  SERVICEPAGE_SECTION_IDS,
-} from "@/server/content/servicepage-sections";
+import { getTemplateSchema } from "@/server/content/servicepage-schema";
 import { getServicePage } from "@/server/content/servicepage-registry";
 import StatusBar from "./StatusBar";
 
@@ -16,6 +13,8 @@ export default async function ServicePageSectionsList({
   const { slug } = await params;
   const page = await getServicePage(slug);
   if (!page) notFound();
+
+  const schema = getTemplateSchema(page.template);
 
   return (
     <section>
@@ -32,11 +31,11 @@ export default async function ServicePageSectionsList({
       <h1 className="mb-1 text-lg font-semibold text-heading">{page.title} — sections</h1>
       <p className="mb-6 text-sm text-muted-foreground">Choose a section to edit.</p>
 
-      <StatusBar slug={slug} published={page.published} />
+      <StatusBar slug={slug} published={page.published} urlPrefix={page.urlPrefix} />
 
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
-        {SERVICEPAGE_SECTION_IDS.map((id) => {
-          const section = getServicePageSectionSpec(id)!.section;
+        {schema.sectionIds.map((id) => {
+          const section = schema.getSpec(id)!.section;
           return (
             <li key={id}>
               <Link

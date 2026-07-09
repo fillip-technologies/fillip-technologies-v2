@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  getServicePageSectionSpec,
-  serviceDefault,
-} from "@/server/content/servicepage-sections";
+import { getTemplateSchema } from "@/server/content/servicepage-schema";
 import { getServicePage } from "@/server/content/servicepage-registry";
 import { getContentData } from "@/server/content/queries";
 import { saveServicePageSection } from "@/server/content/servicepage-actions";
@@ -16,15 +13,17 @@ export default async function EditServicePageSection({
 }) {
   const { slug, section: sectionId } = await params;
   const page = await getServicePage(slug);
-  const spec = getServicePageSectionSpec(sectionId);
-  if (!page || !spec || !spec.section.ready) notFound();
+  if (!page) notFound();
+  const schema = getTemplateSchema(page.template);
+  const spec = schema.getSpec(sectionId);
+  if (!spec || !spec.section.ready) notFound();
   const section = spec.section;
 
-  // Editor values start from the static `services` default (flattened), merged
+  // Editor values start from the template's static default (flattened), merged
   // with any saved override.
   const data = await getContentData(
     `servicepage.${slug}.${section.id}`,
-    spec.flatten(serviceDefault(slug, sectionId))
+    spec.flatten(schema.default(slug, sectionId))
   );
 
   return (

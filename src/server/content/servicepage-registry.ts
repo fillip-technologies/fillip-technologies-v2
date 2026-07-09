@@ -3,12 +3,10 @@ import "server-only";
 import { dbConnect } from "@/lib/db";
 import { ServicePageModel, SiteContentModel } from "@/server/db/models";
 import { getContentData } from "./queries";
-import {
-  SERVICEPAGE_SECTION_IDS,
-  getServicePageSectionSpec,
-  serviceDefault,
-} from "./servicepage-sections";
-import type { Service } from "@/data/website-development";
+import { getTemplateSchema } from "./servicepage-schema";
+import { templateUrlPrefix } from "./servicepage-templates";
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
  * Data access for the `service_pages` collection — the source of truth for
@@ -24,9 +22,9 @@ export type ServicePage = {
   categorySlug: string | null;
   published: boolean;
   sortOrder: number;
+  urlPrefix: string; // public URL prefix for the page's template
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const toPage = (d: any): ServicePage => ({
   slug: d.slug,
   title: d.title,
@@ -34,6 +32,7 @@ const toPage = (d: any): ServicePage => ({
   categorySlug: d.category_slug ?? null,
   published: d.published,
   sortOrder: d.sort_order,
+  urlPrefix: templateUrlPrefix(d.template ?? "service"),
 });
 
 /** All service pages (published + drafts), ordered for the admin list. */
@@ -86,30 +85,33 @@ export async function setServicePagePublished(slug: string, published: boolean):
   );
 }
 
-/** Delete a page and all of its section content rows. */
+/** Delete a page and all of its section content rows (any template). */
 export async function deleteServicePage(slug: string): Promise<void> {
   await dbConnect();
   await ServicePageModel.deleteOne({ slug });
-  await SiteContentModel.deleteMany({
-    key: { $in: SERVICEPAGE_SECTION_IDS.map((id) => `servicepage.${slug}.${id}`) },
-  });
+  await SiteContentModel.deleteMany({ key: { $regex: `^servicepage\\.${slug}\\.` } });
 }
 
 /**
- * Assemble the full nested `Service` object for a page: each section's saved
- * content merged over its default (from `services` for seeded slugs, else blank),
- * then unflattened into the shape the components take.
+ * Assemble the full nested content object for a page from its template's
+ * sections: each section's saved content merged over its default, then
+ * unflattened into the shape the renderer takes. Shape depends on `template`
+ * (Service for "service", MobileAppDevelopmentContent for "mobile-app").
  */
-export async function getServicePageData(slug: string): Promise<Service> {
+export async function getServicePageData(
+  slug: string,
+  template: string
+): Promise<Record<string, any>> {
+  const schema = getTemplateSchema(template);
   const entries = await Promise.all(
-    SERVICEPAGE_SECTION_IDS.map(async (id) => {
-      const spec = getServicePageSectionSpec(id)!;
+    schema.sectionIds.map(async (id) => {
+      const spec = schema.getSpec(id)!;
       const flat = await getContentData(
         `servicepage.${slug}.${id}`,
-        spec.flatten(serviceDefault(slug, id))
+        spec.flatten(schema.default(slug, id))
       );
       return [id, spec.unflatten(flat)] as const;
     })
   );
-  return { slug, ...Object.fromEntries(entries) } as Service;
+  return { slug, ...Object.fromEntries(entries) };
 }
