@@ -15,33 +15,28 @@ const features = [
     title: "Strategy- First Thinking",
     description:
       "Every project starts with understanding your business goals, market opportunities, and customer journey before execution begins.",
-    featured: true,
-    image: "/images/4.png",
-    imageClass: "-right-8 -top-8 h-108 w-56",
+    image: "/images/whychoose-strategy.png",
   },
   {
     icon: Rocket,
     title: "End-to-End Delivery",
     description:
       "From websites and mobile applications to AI solutions and digital marketing, everything is delivered under one roof.",
-    image: "/images/12.png",
-    imageClass: "-bottom-10 -right-10 h-108 w-56",
+    image: "/images/whychoose-delivery.png",
   },
   {
     icon: Users,
     title: "Experts Across Disciplines",
     description:
       "Work with experienced designers, developers, marketers, and strategists focused on measurable business outcomes.",
-    image: "/images/ai.png",
-    imageClass: "-left-10 -top-8 h-108 w-56",
+    image: "/images/whychoose-experts-v2.png",
   },
   {
     icon: Brain,
     title: "Human + AI Innovation",
     description:
       "We combine industry expertise with AI-powered workflows to create smarter, faster, and scalable solutions.",
-    image: "/images/3.png",
-    imageClass: "-bottom-12 -left-8 h-108 w-56",
+    image: "/images/whychoose-ai.png",
   },
 ];
 
@@ -125,32 +120,30 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
             return (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-[28px] border border-[var(--border)] p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(15,111,255,0.08)] ${item.featured
-                    ? "bg-[var(--surface)]"
-                    : "bg-white"
-                  }`}
+                className="group relative flex min-h-[380px] flex-col overflow-hidden rounded-[28px] border border-[var(--border)] bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(15,111,255,0.12)]"
               >
+                {/* Full-contrast background image */}
                 <Image
                   src={item.image}
                   alt=""
-                  width={220}
-                  height={280}
-                  className={`pointer-events-none absolute object-cover opacity-35 transition-all duration-300 group-hover:opacity-45 ${item.imageClass}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 320px"
+                  className="pointer-events-none absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border)] bg-white transition-all duration-300">
                   <Icon className="h-5 w-5 text-[var(--primary)]" />
                 </div>
 
-                <h3 className="relative z-10 mt-6 text-2xl font-semibold leading-tight text-[var(--heading)]">
+                <h3 className="relative z-10 mt-6 text-2xl font-bold leading-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.85)]">
                   {item.title}
                 </h3>
 
-                <p className="relative z-10 mt-4 text-[15px] leading-relaxed text-[var(--body)]">
+                <p className="relative z-10 mt-4 text-[15px] font-medium leading-relaxed text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
                   {item.description}
                 </p>
 
-                <button className="group/btn relative z-10 mt-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--primary)]">
+                <button className="group/btn relative z-10 mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
                   Learn More
 
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1" />

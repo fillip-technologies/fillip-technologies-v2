@@ -41,6 +41,15 @@ const SEED_SERVICE_PAGES = [
   { slug: "software-development", title: "Software Development", category_slug: "software-enterprise", sort_order: 7 },
 ];
 
+// The Software & Enterprise pages (dedicated "software-enterprise" template,
+// served at /software-development/<slug>).
+const SEED_SOFTWARE_ENTERPRISE_PAGES = [
+  { slug: "custom-software-development", title: "Custom Software Development", sort_order: 20 },
+  { slug: "crm-development", title: "CRM Development", sort_order: 21 },
+  { slug: "erp-solutions", title: "ERP Solutions", sort_order: 22 },
+  { slug: "api-integration", title: "API Integration", sort_order: 23 },
+];
+
 // The mobile-app pages (were static /mobile-app-development/<slug> routes).
 const SEED_MOBILE_PAGES = [
   { slug: "android", title: "Android App Development", sort_order: 10 },
@@ -119,6 +128,26 @@ async function main() {
           title: p.title,
           template: "service",
           category_slug: p.category_slug,
+          published: true,
+          sort_order: p.sort_order,
+          created_at: now,
+          updated_at: now,
+        },
+      },
+      { upsert: true }
+    );
+  }
+
+  console.log("Seeding Software & Enterprise pages ...");
+  for (const p of SEED_SOFTWARE_ENTERPRISE_PAGES) {
+    await db.collection("service_pages").updateOne(
+      { slug: p.slug },
+      {
+        $setOnInsert: {
+          slug: p.slug,
+          title: p.title,
+          template: "software-enterprise",
+          category_slug: "software-enterprise",
           published: true,
           sort_order: p.sort_order,
           created_at: now,

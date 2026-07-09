@@ -98,12 +98,15 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "Custom Software Development",
+          href: "/software-development/custom-software-development",
         },
         {
           label: "CRM Development",
+          href: "/software-development/crm-development",
         },
         {
           label: "ERP Solutions",
+          href: "/software-development/erp-solutions",
         },
         {
           label: "SaaS Product Development",
@@ -112,6 +115,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
 
         {
           label: "API Integration",
+          href: "/software-development/api-integration",
         },
       ],
     },

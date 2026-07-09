@@ -64,6 +64,7 @@ const footerColumns: FooterColumn[] = [
       { label: "Our Culture", href: "/our-culture" },
       { label: "Careers", href: "/others/carrer" },
       { label: "Contact Us", href: "/contact" },
+      { label: "Get a Quote", href: "/get-a-quote" },
     ],
   },
 ];
@@ -192,7 +193,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="
@@ -201,6 +202,15 @@ export default function Footer() {
                 "
               >
                 Talk to Experts &rarr;
+              </Link>
+              <Link
+                href="/get-a-quote"
+                className="
+                  inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold
+                  text-white hover:border-accent hover:text-accent transition-all duration-300
+                "
+              >
+                Get a Quote &rarr;
               </Link>
             </div>
           </div>

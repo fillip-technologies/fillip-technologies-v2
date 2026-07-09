@@ -11,6 +11,11 @@ import {
   getMobileAppSectionSpec,
   mobileappDefault,
 } from "./mobileapp-sections";
+import {
+  SOFTWAREENTERPRISE_SECTION_IDS,
+  getSoftwareEnterpriseSectionSpec,
+  softwareenterpriseDefault,
+} from "./softwareenterprise-sections";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -35,6 +40,11 @@ const SCHEMAS: Record<string, TemplateSchema> = {
     sectionIds: MOBILEAPP_SECTION_IDS,
     getSpec: getMobileAppSectionSpec,
     default: mobileappDefault,
+  },
+  "software-enterprise": {
+    sectionIds: SOFTWAREENTERPRISE_SECTION_IDS,
+    getSpec: getSoftwareEnterpriseSectionSpec,
+    default: softwareenterpriseDefault,
   },
 };
 

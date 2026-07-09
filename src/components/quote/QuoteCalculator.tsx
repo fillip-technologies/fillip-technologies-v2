@@ -102,12 +102,17 @@ export default function QuoteCalculator() {
     <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
       {/* Left: service selection */}
       <div className="space-y-10">
-        {SERVICE_CATEGORIES.map((category) => {
+        {SERVICE_CATEGORIES.map((category, index) => {
           const picked = selections[category.id];
           return (
-            <section key={category.id}>
-              <h2 className="text-h3 font-semibold text-heading">{category.name}</h2>
-              <p className="mt-1 text-small text-body">{category.description}</p>
+            <section key={category.id} className="scroll-mt-24">
+              <div className="flex items-center gap-3">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                  {index + 1}
+                </span>
+                <h2 className="text-2xl font-bold tracking-tight text-heading">{category.name}</h2>
+              </div>
+              <p className="mt-2 text-sm text-body">{category.description}</p>
 
               <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {category.packages.map((pkg) => {
@@ -118,10 +123,10 @@ export default function QuoteCalculator() {
                       type="button"
                       onClick={() => choosePackage(category.id, pkg.id)}
                       aria-pressed={active}
-                      className={`flex h-full flex-col rounded-xl border p-5 text-left transition-all ${
+                      className={`flex h-full flex-col rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5 ${
                         active
-                          ? "border-primary bg-primary/5 ring-2 ring-primary/30"
-                          : "border-border bg-card hover:border-primary/50"
+                          ? "border-primary bg-primary/5 ring-2 ring-primary/25 shadow-sm"
+                          : "border-border bg-card hover:border-primary/50 hover:shadow-sm"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -247,9 +252,14 @@ export default function QuoteCalculator() {
       <aside className="lg:sticky lg:top-24 lg:self-start">
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+          className="rounded-2xl border border-border bg-card p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
         >
-          <h3 className="text-lg font-semibold text-heading">Your estimate</h3>
+          <div className="flex items-center justify-between border-b border-border pb-4">
+            <h3 className="text-lg font-bold text-heading">Your estimate</h3>
+            <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+              {quote.items.length} selected
+            </span>
+          </div>
 
           {quote.isEmpty ? (
             <p className="mt-3 text-sm text-body">
@@ -338,7 +348,7 @@ export default function QuoteCalculator() {
           <button
             type="submit"
             disabled={status.kind === "submitting" || quote.isEmpty}
-            className="mt-5 w-full rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground transition-opacity disabled:opacity-50"
+            className="mt-5 w-full rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {status.kind === "submitting" ? "Preparing your estimate…" : "Email me the estimate (PDF)"}
           </button>

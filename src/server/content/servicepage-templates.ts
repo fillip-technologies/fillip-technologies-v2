@@ -14,6 +14,7 @@ export type ServiceTemplateMeta = {
 export const SERVICE_TEMPLATES: ServiceTemplateMeta[] = [
   { id: "service", label: "Service page", urlPrefix: "/services" },
   { id: "mobile-app", label: "Mobile app page", urlPrefix: "/mobile-app-development" },
+  { id: "software-enterprise", label: "Software & Enterprise page", urlPrefix: "/software-development" },
 ];
 
 const DEFAULT_TEMPLATE = SERVICE_TEMPLATES[0];
