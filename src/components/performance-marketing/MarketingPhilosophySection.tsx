@@ -19,7 +19,7 @@ export default function PerformancePhilosophySection({ data }: Props) {
         <div className="grid items-center gap-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">{data?.badge ?? "OUR PERFORMANCE PHILOSOPHY"}</span>
-            <h2 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-5xl">
+            <h2 className="mt-8 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
               <span className="whitespace-nowrap">{data?.title ?? "Outperform Competitors."}</span>
               <span className="highlight-text block whitespace-nowrap">{data?.highlightedTitle ?? "Don't Outspend Them."}</span>
             </h2>

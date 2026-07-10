@@ -43,7 +43,7 @@ export default function IndustryChallengesSection({ data }: IndustryChallengesSe
                             {data.badge}
                         </span>
 
-                        <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                        <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-slate-900 md:text-6xl">
                             {data.title}
                         </h2>
                     </div>
@@ -92,7 +92,7 @@ export default function IndustryChallengesSection({ data }: IndustryChallengesSe
                             </h3>
 
                             {/* Description */}
-                            <p className="mt-4 text-sm leading-7 text-slate-600">
+                            <p className="mt-4 leading-relaxed text-slate-600">
                                 {item.description}
                             </p>
 

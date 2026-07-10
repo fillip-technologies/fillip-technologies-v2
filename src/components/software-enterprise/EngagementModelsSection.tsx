@@ -27,7 +27,7 @@ export default function EngagementModelsSection({
             </span>
           ) : null}
 
-          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+          <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
             {data.title} <span className="highlight-text">{data.highlightedTitle}</span>
           </h2>
 
@@ -50,12 +50,12 @@ export default function EngagementModelsSection({
 
               <h3 className="mt-4 text-xl font-bold text-[var(--heading)]">{model.title}</h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-[var(--body)]">{model.description}</p>
+              <p className="mt-3 leading-relaxed text-[var(--body)]">{model.description}</p>
 
               {model.points?.length ? (
                 <ul className="mt-6 space-y-3 border-t border-[var(--border)] pt-6">
                   {model.points.map((point, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-[var(--body)]">
+                    <li key={j} className="flex items-start gap-2.5 text-[var(--body)]">
                       <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
                         <Check size={13} strokeWidth={3} />
                       </span>

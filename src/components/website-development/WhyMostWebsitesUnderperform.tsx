@@ -101,7 +101,7 @@ export default function WhyWebsitesUnderperform({
               {data.eyebrow}
             </div>
 
-            <h2 className="mt-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-[var(--heading)] md:text-4xl">
+            <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
               {data.title}
               <br />
               <span className="highlight-text">

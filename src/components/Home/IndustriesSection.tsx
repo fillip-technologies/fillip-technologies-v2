@@ -1,21 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
-  Brain,
+  Building2,
   HeartPulse,
   GraduationCap,
   ShoppingBag,
   Landmark,
+  Truck,
 } from "lucide-react";
 import IndustriesImpactBackground, { INDUSTRIES_IMPACT_IMAGE } from "./IndustriesImpactBackground";
 
 const industries = [
   {
     title: "Healthcare",
+    href: "/industries/healthcare",
     image: INDUSTRIES_IMPACT_IMAGE,
     icon: HeartPulse,
     description:
@@ -31,6 +34,7 @@ const industries = [
 
   {
     title: "Finance",
+    href: "/industries/finance",
     image: "/images/industries-1.png",
     icon: Landmark,
 
@@ -46,23 +50,8 @@ const industries = [
   },
 
   {
-    title: "Education",
-    image: "/images/industries-2.png",
-    icon: GraduationCap,
-
-    description:
-      "Interactive LMS platforms, student portals, AI learning assistants and digital education ecosystems.",
-
-    services: [
-      "Learning Platform",
-      "Student ERP",
-      "AI Tutor",
-      "Assessment System",
-    ],
-  },
-
-  {
     title: "Retail",
+    href: "/industries/retail",
     image: "/images/industries-3.png",
     icon: ShoppingBag,
 
@@ -78,17 +67,52 @@ const industries = [
   },
 
   {
-    title: "Manufacturing",
-    image: "/images/industries-4.png",
-    icon: Brain,
+    title: "Education",
+    href: "/industries/education",
+    image: "/images/industries-2.png",
+    icon: GraduationCap,
 
     description:
-      "Modern manufacturing powered by IoT, AI automation and cloud connected factory solutions.",
+      "Interactive LMS platforms, student portals, AI learning assistants and digital education ecosystems.",
 
     services: [
-      "ERP",
-      "IoT",
-      "Automation",
+      "Learning Platform",
+      "Student ERP",
+      "AI Tutor",
+      "Assessment System",
+    ],
+  },
+
+  {
+    title: "Real Estate",
+    href: "/industries/real-estate",
+    image: "/images/industries-3.png",
+    icon: Building2,
+
+    description:
+      "Property portals, CRM workflows, lead management and digital experiences for real estate businesses.",
+
+    services: [
+      "Property Portals",
+      "Lead CRM",
+      "Virtual Tours",
+      "Listings",
+    ],
+  },
+
+  {
+    title: "Logistics",
+    href: "/industries/logistics",
+    image: "/images/industries-4.png",
+    icon: Truck,
+
+    description:
+      "Fleet visibility, shipment workflows, route planning and operations dashboards for logistics teams.",
+
+    services: [
+      "Fleet Tracking",
+      "Route Planning",
+      "Shipment Flow",
       "Dashboards",
     ],
   },
@@ -290,19 +314,21 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
 
                         {/* CTA */}
 
-                        <motion.button
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.5 }}
-                          className="group mt-6 md:mt-10 inline-flex items-center gap-2 md:gap-3 rounded-full bg-white px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-semibold text-[#105278] transition-all duration-300 hover:gap-5 hover:bg-cyan-300"
-                        >
-                          Explore Industry
+                        <Link href={industry.href} aria-label={`Explore ${industry.title} industry`}>
+                          <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                            className="group mt-6 md:mt-10 inline-flex items-center gap-2 md:gap-3 rounded-full bg-white px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-semibold text-[#105278] transition-all duration-300 hover:gap-5 hover:bg-cyan-300"
+                          >
+                            Explore Industry
 
-                          <ArrowRight
-                            size={16}
-                            className="transition-transform duration-300 group-hover:translate-x-1"
-                          />
-                        </motion.button>
+                            <ArrowRight
+                              size={16}
+                              className="transition-transform duration-300 group-hover:translate-x-1"
+                            />
+                          </motion.span>
+                        </Link>
                       </div>
                     </motion.div>
                   )}

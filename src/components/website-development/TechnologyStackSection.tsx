@@ -75,7 +75,7 @@ export default function TechnologyStackSection() {
             TOOLS & PLATFORMS
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+          <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
             Technologies We
             <span className="text-[var(--primary)]"> Work With</span>
           </h2>

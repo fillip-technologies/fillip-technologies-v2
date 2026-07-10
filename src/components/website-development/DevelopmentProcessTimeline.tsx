@@ -97,7 +97,7 @@ export default function WebsiteProcessTimeline({
           <div>
 
 
-            <h2 className="mt-10 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-7xl">
+            <h2 className="mt-10 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
               {data.title}
               <br />
               <span className="highlight-text">{data.highlightedTitle}</span>

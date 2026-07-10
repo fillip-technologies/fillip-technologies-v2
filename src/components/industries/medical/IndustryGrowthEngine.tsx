@@ -72,7 +72,7 @@ export default function IndustryGrowthEngine({ data }: IndustryGrowthEngineProps
                         {data.badge}
                     </span>
 
-                    <h2 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
+                    <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-slate-900 md:text-6xl">
                        {data.title}
                     </h2>
 
@@ -101,7 +101,7 @@ export default function IndustryGrowthEngine({ data }: IndustryGrowthEngineProps
                                         {card.title}
                                     </h3>
 
-                                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                                    <p className="mt-3 leading-relaxed text-slate-600">
                                         {card.description}
                                     </p>
                                 </div>
@@ -150,7 +150,7 @@ export default function IndustryGrowthEngine({ data }: IndustryGrowthEngineProps
                                         {card.title}
                                     </h3>
 
-                                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                                    <p className="mt-3 leading-relaxed text-slate-600">
                                         {card.description}
                                     </p>
                                 </div>

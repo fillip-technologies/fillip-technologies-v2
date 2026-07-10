@@ -16,7 +16,7 @@ export default function HowItWorksSection({ data }: { data?: PerformanceWorkflow
     <section className="relative overflow-hidden py-24 lg:py-32">
       <div className="container relative mx-auto max-w-7xl px-6">
         <div className="mb-16 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <div><span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">{data?.badge ?? "HOW IT WORKS"}</span><h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">{data?.title ?? "We Make Campaign"}<br /><span className="highlight-text">{data?.highlightedTitle ?? "Growth Easy."}</span></h2></div>
+          <div><span className="inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">{data?.badge ?? "HOW IT WORKS"}</span><h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">{data?.title ?? "We Make Campaign"}<br /><span className="highlight-text">{data?.highlightedTitle ?? "Growth Easy."}</span></h2></div>
           <p className="max-w-xl text-lg leading-relaxed text-[var(--body)]">{data?.description ?? "From audience research to campaign scaling, our team handles every step needed to generate qualified leads and measurable business growth."}</p>
         </div>
         <div className="grid gap-8 lg:grid-cols-3">

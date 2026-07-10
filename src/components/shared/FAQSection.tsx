@@ -39,7 +39,7 @@ export default function FAQSection({
             {badge}
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+          <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-slate-900 md:text-6xl">
             {title}
           </h2>
 

@@ -22,7 +22,7 @@ export default function WhatWeBuildBlock({ data }: { data: Service["whatWeBuild"
             </span>
           ) : null}
 
-          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+          <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
             {data.title}{" "}
             <span className="highlight-text">{data.highlightedTitle}</span>
           </h2>
@@ -57,7 +57,7 @@ export default function WhatWeBuildBlock({ data }: { data: Service["whatWeBuild"
 
               <h3 className="mt-2 text-xl font-bold text-[var(--heading)]">{card.title}</h3>
 
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--body)]">
+              <p className="mt-3 flex-1 leading-relaxed text-[var(--body)]">
                 {card.description}
               </p>
 

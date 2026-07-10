@@ -98,7 +98,7 @@ export default function WebsiteSolutionsSection() {
             WHAT WE DO
           </span>
 
-          <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+          <h2 className="mt-5 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
             End-to-End Website Solutions
             <br />
             for Modern Businesses
@@ -186,7 +186,7 @@ export default function WebsiteSolutionsSection() {
                   {activeSol.title}
                 </h3>
 
-                <p className="mt-3 text-slate-650 dark:text-slate-400 leading-relaxed text-sm">
+                <p className="mt-3 leading-relaxed text-slate-650 dark:text-slate-400">
                   {activeSol.description}
                 </p>
               </div>
@@ -232,7 +232,7 @@ export default function WebsiteSolutionsSection() {
                 </h3>
 
                 <p className="mt-4 max-w-2xl text-slate-300 leading-relaxed">
-                  Don't see your requirement listed above? We build
+                  Don&apos;t see your requirement listed above? We build
                   tailored website solutions for healthcare, education,
                   real estate, startups, agencies, and many other
                   industries.

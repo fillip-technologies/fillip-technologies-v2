@@ -19,7 +19,7 @@ export default function ServiceFaqSection({ data }: { data: ServiceFaqData }) {
     <section id="faq" className="relative overflow-hidden py-24 lg:py-32">
       <div className="container relative mx-auto max-w-4xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+          <h2 className="text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
             {data.title} <span className="highlight-text">{data.highlightedTitle}</span>
           </h2>
           {data.description ? (
@@ -39,7 +39,7 @@ export default function ServiceFaqSection({ data }: { data: ServiceFaqData }) {
                   <Plus size={16} className="transition-transform duration-300" />
                 </span>
               </summary>
-              <p className="mt-4 text-[15px] leading-relaxed text-[var(--body)]">{item.answer}</p>
+              <p className="mt-4 leading-relaxed text-[var(--body)]">{item.answer}</p>
             </details>
           ))}
         </div>

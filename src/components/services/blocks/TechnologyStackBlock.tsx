@@ -22,7 +22,7 @@ export default function TechnologyStackBlock({ data }: { data: Service["technolo
             </span>
           ) : null}
 
-          <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
+          <h2 className="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--heading)] md:text-6xl">
             {data.title}{" "}
             <span className="highlight-text">{data.highlightedTitle}</span>
           </h2>
@@ -39,7 +39,7 @@ export default function TechnologyStackBlock({ data }: { data: Service["technolo
               className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 shadow-xs"
             >
               <h3 className="text-xl font-bold text-[var(--heading)]">{col.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--body)]">{col.description}</p>
+              <p className="mt-2 leading-relaxed text-[var(--body)]">{col.description}</p>
 
               <div className="mt-5 flex flex-wrap gap-2.5">
                 {(col.technologies ?? []).map((tech) => (

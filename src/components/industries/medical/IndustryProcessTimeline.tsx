@@ -53,7 +53,7 @@ export default function IndustryProcessTimeline({ data }: IndustryProcessTimelin
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-white md:text-6xl">
+          <h2 className="text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-white md:text-6xl">
             <span className="text-cyan-400">{data.headingPrimary}</span>{" "}
             <span className="text-blue-400">{data.headingSecondary}</span>
           </h2>
@@ -155,7 +155,7 @@ export default function IndustryProcessTimeline({ data }: IndustryProcessTimelin
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 text-sm leading-7 text-slate-300">
+                  <p className="mt-4 leading-relaxed text-slate-300">
                     {item.description}
                   </p>
                 </div>
