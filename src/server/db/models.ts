@@ -15,6 +15,7 @@ const leadSchema = new Schema(
     email: { type: String, required: true },
     phone: { type: String, default: null },
     company: { type: String, default: null },
+    budget: { type: String, default: null },
     message: { type: String, required: true },
     source: { type: String, default: null },
     status: { type: String, required: true, default: "new" }, // new | contacted | closed

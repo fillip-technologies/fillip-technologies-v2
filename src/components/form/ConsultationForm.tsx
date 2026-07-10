@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const budgets = [
     "Under ₹50K",
@@ -11,8 +11,16 @@ const budgets = [
     "₹5L+",
 ];
 
-export default function ConsultationForm({ className }: { className?: string }) {
+export default function ConsultationForm({
+    className,
+    source = "Consultation Form",
+}: {
+    className?: string;
+    source?: string;
+}) {
     const [loading, setLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     const [form, setForm] = useState({
         fullName: "",
@@ -61,13 +69,30 @@ export default function ConsultationForm({ className }: { className?: string }) 
 
         if (!validate()) return;
 
+        setSubmitError(null);
+
         try {
             setLoading(true);
 
-            console.log(form);
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: form.fullName,
+                    email: form.email,
+                    phone: form.phone,
+                    company: form.company,
+                    budget: form.budget,
+                    message: form.message,
+                    source,
+                }),
+            });
 
-            alert("Consultation request submitted.");
+            if (!res.ok) {
+                throw new Error(`Request failed with status ${res.status}`);
+            }
 
+            setSubmitted(true);
             setForm({
                 fullName: "",
                 company: "",
@@ -76,10 +101,39 @@ export default function ConsultationForm({ className }: { className?: string }) 
                 budget: "",
                 message: "",
             });
+        } catch (err) {
+            console.error("Consultation form submit failed:", err);
+            setSubmitError(
+                "Something went wrong while submitting. Please try again or email us directly."
+            );
         } finally {
             setLoading(false);
         }
     };
+
+    if (submitted) {
+        return (
+            <div
+                className={`flex flex-col items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-14 text-center ${className ?? ""}`}
+            >
+                <div className="mb-5 flex size-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                    <Check size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">Request received</h3>
+                <p className="mt-2 max-w-sm text-sm text-slate-500">
+                    Thanks for reaching out! Our team will review your details and get back to you
+                    shortly.
+                </p>
+                <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="mt-6 text-sm font-semibold text-blue-600 hover:underline"
+                >
+                    Send another request
+                </button>
+            </div>
+        );
+    }
 
     return (
         <form onSubmit={handleSubmit} className={className}>
@@ -192,10 +246,16 @@ export default function ConsultationForm({ className }: { className?: string }) 
                 )}
             </div>
 
+            {submitError && (
+                <p className="mt-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+                    {submitError}
+                </p>
+            )}
+
             <button
                 type="submit"
                 disabled={loading}
-                className="mt-8 flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white cursor-pointer"
+                className="mt-8 flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white cursor-pointer disabled:opacity-70"
             >
                 {loading
                     ? "Submitting..."

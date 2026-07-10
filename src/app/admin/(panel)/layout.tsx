@@ -21,7 +21,7 @@ export default async function PanelLayout({
   return (
     <div className="flex min-h-screen bg-background text-heading">
       {/* Sidebar */}
-      <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-card/40">
+      <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-gradient-to-b from-primary/[0.06] via-card/40 to-card/40">
         <div className="flex h-16 items-center border-b border-border px-5">
           <Logo width={140} height={38} />
         </div>

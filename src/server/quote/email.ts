@@ -84,7 +84,8 @@ export async function sendQuoteEmail(
 ): Promise<void> {
   const transporter = getTransporter();
   const from = process.env.SMTP_FROM || `${COMPANY.name} <${process.env.SMTP_USER}>`;
-  const bcc = process.env.QUOTE_BCC || undefined;
+  // Copy the single company inbox (src/data/pricing.ts) on every quote.
+  const bcc = COMPANY.email || undefined;
 
   await transporter.sendMail({
     from,

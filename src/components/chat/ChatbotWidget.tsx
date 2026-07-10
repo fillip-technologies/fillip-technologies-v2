@@ -2,11 +2,50 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, Send, Bot, User, Loader2 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
+
+// Renders an assistant message as nicely-formatted markdown (bold, bullet/numbered
+// lists, links, paragraphs). Links open in a new tab; no raw HTML is rendered.
+function AssistantMarkdown({ content }: { content: string }) {
+  return (
+    <div className="space-y-2 [&_a]:break-words [&_ol]:list-decimal [&_ul]:list-disc [&_ol]:pl-4 [&_ul]:pl-4 [&_ol]:space-y-1 [&_ul]:space-y-1">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          p: ({ children }) => <p className="leading-relaxed">{children}</p>,
+          strong: ({ children }) => (
+            <strong className="font-semibold text-slate-900 dark:text-white">{children}</strong>
+          ),
+          li: ({ children }) => <li className="leading-snug">{children}</li>,
+          a: ({ children, href }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[var(--primary)] underline underline-offset-2 hover:opacity-80"
+            >
+              {children}
+            </a>
+          ),
+          h1: ({ children }) => <h4 className="font-bold text-slate-900 dark:text-white">{children}</h4>,
+          h2: ({ children }) => <h4 className="font-bold text-slate-900 dark:text-white">{children}</h4>,
+          h3: ({ children }) => <h5 className="font-semibold text-slate-900 dark:text-white">{children}</h5>,
+          code: ({ children }) => (
+            <code className="rounded bg-slate-100 px-1 py-0.5 text-[12px] dark:bg-slate-800">{children}</code>
+          ),
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
+}
 
 const QUICK_PROMPTS = [
   "What services do you offer?",
@@ -125,12 +164,12 @@ export default function ChatbotWidget() {
                   )}
 
                   <div
-                    className={`max-w-[75%] p-3.5 rounded-2xl text-sm leading-relaxed ${isUser
-                      ? "bg-[var(--primary)] text-white rounded-tr-none"
+                    className={`max-w-[75%] p-3.5 rounded-2xl text-sm leading-relaxed break-words ${isUser
+                      ? "bg-[var(--primary)] text-white rounded-tr-none whitespace-pre-wrap"
                       : "bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none shadow-2xs"
                       }`}
                   >
-                    {msg.content}
+                    {isUser ? msg.content : <AssistantMarkdown content={msg.content} />}
                   </div>
 
                   {isUser && (

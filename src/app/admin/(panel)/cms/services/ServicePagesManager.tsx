@@ -170,8 +170,8 @@ export default function ServicePagesManager({
         </div>
       </div>
 
-      {/* Category filter */}
-      <div className="flex flex-wrap items-center gap-2">
+      {/* Category filter — only useful when the list spans multiple categories. */}
+      <div className={`flex-wrap items-center gap-2 ${categories.length > 1 ? "flex" : "hidden"}`}>
         <FilterChip
           label="All"
           count={initial.length}

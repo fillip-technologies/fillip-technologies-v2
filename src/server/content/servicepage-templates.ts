@@ -22,6 +22,14 @@ export const SERVICE_TEMPLATES: ServiceTemplateMeta[] = [
   { id: "business-solution", label: "Business Solution page", urlPrefix: "/solutions" },
 ];
 
+// Templates that back the Solutions mega menu — managed under the separate
+// "Soln" CMS area, not the general "Service Pages" list.
+export const SOLUTION_TEMPLATE_IDS = ["hardware-solution", "business-solution"] as const;
+
+export function isSolutionTemplate(id: string): boolean {
+  return (SOLUTION_TEMPLATE_IDS as readonly string[]).includes(id);
+}
+
 const DEFAULT_TEMPLATE = SERVICE_TEMPLATES[0];
 
 export function getTemplateMeta(id: string): ServiceTemplateMeta {

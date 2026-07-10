@@ -81,6 +81,7 @@ export default function RequirementForm() {
           email: fields.email,
           phone: fields.phone,
           company: fields.company,
+          budget: fields.budget,
           message,
           source: "get-a-quote-requirement",
         }),

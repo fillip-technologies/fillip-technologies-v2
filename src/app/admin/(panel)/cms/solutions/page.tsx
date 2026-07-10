@@ -2,19 +2,19 @@ import Link from "next/link";
 import { listServicePages } from "@/server/content/servicepage-registry";
 import { listCategories } from "@/server/content/whatwedo-registry";
 import { SERVICE_TEMPLATES, isSolutionTemplate } from "@/server/content/servicepage-templates";
-import ServicePagesManager from "./ServicePagesManager";
+import ServicePagesManager from "../services/ServicePagesManager";
 
-export const metadata = { title: "Service Pages — CMS" };
+export const metadata = { title: "Solutions — CMS" };
 export const dynamic = "force-dynamic";
 
-export default async function ServicePagesCmsPage() {
+export default async function SolutionPagesCmsPage() {
   const [allPages, categories] = await Promise.all([
     listServicePages(),
-    listCategories("whatwedo"),
+    listCategories("solutions"),
   ]);
-  // Solution pages live under the separate "Soln" area.
-  const pages = allPages.filter((p) => !isSolutionTemplate(p.template));
-  const templates = SERVICE_TEMPLATES.filter((t) => !isSolutionTemplate(t.id));
+  // Only the Solutions-menu pages (hardware + business solution templates).
+  const pages = allPages.filter((p) => isSolutionTemplate(p.template));
+  const templates = SERVICE_TEMPLATES.filter((t) => isSolutionTemplate(t.id));
 
   return (
     <section>
@@ -22,12 +22,12 @@ export default async function ServicePagesCmsPage() {
         <Link href="/admin/cms" className="hover:text-heading">
           Content
         </Link>{" "}
-        / Service Pages
+        / Solutions
       </nav>
-      <h1 className="mb-1 text-lg font-semibold text-heading">Service Pages</h1>
+      <h1 className="mb-1 text-lg font-semibold text-heading">Solutions — solution pages</h1>
       <p className="mb-6 text-sm text-muted-foreground">
-        The detail pages behind the “What We Do” menu links (e.g.{" "}
-        <code>/services/ecommerce-development</code>). Create a page under a category, edit its
+        The detail pages behind the “Solutions” menu (e.g. <code>/hardware-solutions/networking</code>,{" "}
+        <code>/solutions/ticket-booking</code>). Create a page under a solution category, edit its
         sections, then publish — its link is added to that category’s menu automatically.
       </p>
 

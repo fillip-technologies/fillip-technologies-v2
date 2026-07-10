@@ -5,8 +5,8 @@ import type { Lead } from "./queries";
 
 /**
  * Team-facing "new lead" notification email. Reuses the same SMTP env as the
- * quote mailer (SMTP_HOST/PORT/USER/PASS, SMTP_FROM). The recipient is
- * LEADS_NOTIFY_TO, falling back to QUOTE_BCC, then SMTP_USER.
+ * quote mailer (SMTP_HOST/PORT/USER/PASS, SMTP_FROM). The recipient is the
+ * single company inbox, COMPANY.email (src/data/pricing.ts).
  *
  * All failures are swallowed by the caller — a lead is already persisted, so a
  * mail hiccup must never break the submission.
@@ -35,6 +35,9 @@ function getTransporter(): Transporter | null {
 // Human labels for known lead sources; anything else is a generic contact lead.
 const SOURCE_LABELS: Record<string, string> = {
   "get-a-quote-requirement": "Quote Requirement",
+  "get-a-quote-calculator": "Quote Estimate",
+  "Consultation Form": "Consultation Request",
+  "Contact Page": "Contact Message",
 };
 
 function labelFor(source: string | null): string {
@@ -61,6 +64,7 @@ function buildHtml(lead: Lead, label: string): string {
     row("Email", `<a href="mailto:${esc(lead.email)}" style="color:#0242a2">${esc(lead.email)}</a>`),
     lead.phone ? row("Phone", esc(lead.phone)) : "",
     lead.company ? row("Company", esc(lead.company)) : "",
+    lead.budget ? row("Budget", esc(lead.budget)) : "",
     row("Source", esc(lead.source ?? "—")),
     row("Received", new Date(lead.created_at).toLocaleString()),
   ].join("");
@@ -89,9 +93,10 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
     return;
   }
 
-  const to = process.env.LEADS_NOTIFY_TO || process.env.QUOTE_BCC || process.env.SMTP_USER;
+  // One inbox for everything — the company email (src/data/pricing.ts).
+  const to = COMPANY.email;
   if (!to) {
-    console.warn("Lead notification skipped: no recipient (set LEADS_NOTIFY_TO).");
+    console.warn("Lead notification skipped: COMPANY.email is empty.");
     return;
   }
 

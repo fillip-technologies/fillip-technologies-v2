@@ -64,7 +64,6 @@ const footerColumns: FooterColumn[] = [
       { label: "Our Culture", href: "/our-culture" },
       { label: "Careers", href: "/others/carrer" },
       { label: "Contact Us", href: "/contact" },
-      { label: "Get a Quote", href: "/get-a-quote" },
     ],
   },
 ];
