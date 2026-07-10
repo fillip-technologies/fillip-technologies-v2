@@ -39,10 +39,10 @@ const footerColumns: FooterColumn[] = [
   {
     title: "Solutions",
     links: [
-      { label: "Ticket Booking Solution", href: "/ticket-booking" },
-      { label: "SMS Communication Solution", href: "/sms-communication" },
-      { label: "WhatsApp Business Solution", href: "/messenger" },
-      { label: "Security Surveillance", href: "/security-surveillance" },
+      { label: "Ticket Booking Solution", href: "/solutions/ticket-booking" },
+      { label: "SMS Communication Solution", href: "/solutions/sms-communication" },
+      { label: "WhatsApp Business Solution", href: "/solutions/whatsapp-business" },
+      { label: "Security Surveillance", href: "/hardware-solutions/security-surveillance" },
     ],
   },
   {
@@ -64,7 +64,6 @@ const footerColumns: FooterColumn[] = [
       { label: "Our Culture", href: "/our-culture" },
       { label: "Careers", href: "/others/carrer" },
       { label: "Contact Us", href: "/contact" },
-      { label: "Get a Quote", href: "/get-a-quote" },
     ],
   },
 ];

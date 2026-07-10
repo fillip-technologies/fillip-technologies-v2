@@ -1,14 +1,20 @@
 import Link from "next/link";
 import { listServicePages } from "@/server/content/servicepage-registry";
 import { listCategories } from "@/server/content/whatwedo-registry";
-import { SERVICE_TEMPLATES } from "@/server/content/servicepage-templates";
+import { SERVICE_TEMPLATES, isSolutionTemplate } from "@/server/content/servicepage-templates";
 import ServicePagesManager from "./ServicePagesManager";
 
 export const metadata = { title: "Service Pages — CMS" };
 export const dynamic = "force-dynamic";
 
 export default async function ServicePagesCmsPage() {
-  const [pages, categories] = await Promise.all([listServicePages(), listCategories()]);
+  const [allPages, categories] = await Promise.all([
+    listServicePages(),
+    listCategories("whatwedo"),
+  ]);
+  // Solution pages live under the separate "Soln" area.
+  const pages = allPages.filter((p) => !isSolutionTemplate(p.template));
+  const templates = SERVICE_TEMPLATES.filter((t) => !isSolutionTemplate(t.id));
 
   return (
     <section>
@@ -28,7 +34,7 @@ export default async function ServicePagesCmsPage() {
       <ServicePagesManager
         initial={pages}
         categories={categories.map((c) => ({ slug: c.slug, label: c.label }))}
-        templates={SERVICE_TEMPLATES.map((t) => ({ id: t.id, label: t.label, urlPrefix: t.urlPrefix }))}
+        templates={templates.map((t) => ({ id: t.id, label: t.label, urlPrefix: t.urlPrefix }))}
       />
     </section>
   );

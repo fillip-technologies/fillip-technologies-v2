@@ -6,7 +6,7 @@ export const metadata = { title: "What We Do — CMS" };
 export const dynamic = "force-dynamic";
 
 export default async function WhatWeDoListPage() {
-  const categories = await listCategories();
+  const categories = await listCategories("whatwedo");
 
   return (
     <section className="max-w-3xl">

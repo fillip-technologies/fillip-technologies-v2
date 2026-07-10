@@ -41,10 +41,16 @@ export default function ServicePagesManager({
   const [template, setTemplate] = useState(templates[0]?.id ?? "service");
   const [categorySlug, setCategorySlug] = useState(categories[0]?.slug ?? "");
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  // "all" shows every page; otherwise filter the list to one category.
+  const [filter, setFilter] = useState<string>("all");
 
   const effectiveSlug = previewSlug(slug || title);
   const labelFor = (s: string | null) => categories.find((c) => c.slug === s)?.label ?? "—";
   const selectedPrefix = templates.find((t) => t.id === template)?.urlPrefix ?? "/services";
+
+  // Only offer filters for categories that actually have pages, plus a count.
+  const countFor = (s: string) => initial.filter((p) => p.categorySlug === s).length;
+  const visiblePages = filter === "all" ? initial : initial.filter((p) => p.categorySlug === filter);
 
   const create = () => {
     setMsg(null);
@@ -164,12 +170,37 @@ export default function ServicePagesManager({
         </div>
       </div>
 
+      {/* Category filter — only useful when the list spans multiple categories. */}
+      <div className={`flex-wrap items-center gap-2 ${categories.length > 1 ? "flex" : "hidden"}`}>
+        <FilterChip
+          label="All"
+          count={initial.length}
+          active={filter === "all"}
+          onClick={() => setFilter("all")}
+        />
+        {categories.map((c) => {
+          const n = countFor(c.slug);
+          if (n === 0) return null;
+          return (
+            <FilterChip
+              key={c.slug}
+              label={c.label}
+              count={n}
+              active={filter === c.slug}
+              onClick={() => setFilter(c.slug)}
+            />
+          );
+        })}
+      </div>
+
       {/* List */}
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
-        {initial.length === 0 ? (
-          <li className="px-5 py-6 text-sm text-muted-foreground">No service pages yet.</li>
+        {visiblePages.length === 0 ? (
+          <li className="px-5 py-6 text-sm text-muted-foreground">
+            {initial.length === 0 ? "No service pages yet." : "No pages in this category."}
+          </li>
         ) : null}
-        {initial.map((p) => (
+        {visiblePages.map((p) => (
           <li key={p.slug} className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
             <Link href={`/admin/cms/services/${p.slug}`} className="min-w-0 flex-1 group">
               <p className="flex items-center gap-2 font-medium text-heading group-hover:text-primary">
@@ -229,6 +260,39 @@ export default function ServicePagesManager({
         ))}
       </ul>
     </div>
+  );
+}
+
+function FilterChip({
+  label,
+  count,
+  active,
+  onClick,
+}: {
+  label: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+        active
+          ? "border-primary bg-primary/10 text-primary"
+          : "border-border text-body hover:bg-card"
+      }`}
+    >
+      {label}
+      <span
+        className={`rounded-full px-1.5 text-xs ${
+          active ? "bg-primary/20 text-primary" : "bg-card text-muted-foreground"
+        }`}
+      >
+        {count}
+      </span>
+    </button>
   );
 }
 

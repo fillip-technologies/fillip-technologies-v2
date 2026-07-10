@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { getTemplateSchema } from "@/server/content/servicepage-schema";
 import { getServicePage } from "@/server/content/servicepage-registry";
+import { servicePageParentCrumb } from "../parentCrumb";
 import StatusBar from "./StatusBar";
 
 export default async function ServicePageSectionsList({
@@ -15,6 +16,7 @@ export default async function ServicePageSectionsList({
   if (!page) notFound();
 
   const schema = getTemplateSchema(page.template);
+  const parent = await servicePageParentCrumb(page);
 
   return (
     <section>
@@ -23,8 +25,8 @@ export default async function ServicePageSectionsList({
           Content
         </Link>{" "}
         /{" "}
-        <Link href="/admin/cms/services" className="hover:text-heading">
-          Service Pages
+        <Link href={parent.href} className="hover:text-heading">
+          {parent.label}
         </Link>{" "}
         / {page.title}
       </nav>

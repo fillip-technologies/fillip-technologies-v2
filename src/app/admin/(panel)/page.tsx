@@ -33,8 +33,11 @@ export default async function LeadsDashboardPage() {
                 <Th>Received</Th>
                 <Th>Name</Th>
                 <Th>Email</Th>
+                <Th>Phone</Th>
                 <Th>Company</Th>
+                <Th>Budget</Th>
                 <Th>Message</Th>
+                <Th>Source</Th>
                 <Th>Status</Th>
               </tr>
             </thead>
@@ -50,8 +53,19 @@ export default async function LeadsDashboardPage() {
                       {lead.email}
                     </a>
                   </Td>
+                  <Td className="whitespace-nowrap">
+                    {lead.phone ? (
+                      <a href={`tel:${lead.phone}`} className="text-primary hover:underline">
+                        {lead.phone}
+                      </a>
+                    ) : (
+                      "—"
+                    )}
+                  </Td>
                   <Td>{lead.company ?? "—"}</Td>
+                  <Td className="whitespace-nowrap">{lead.budget ?? "—"}</Td>
                   <Td className="max-w-md whitespace-pre-wrap">{lead.message}</Td>
+                  <Td className="whitespace-nowrap text-muted-foreground">{lead.source ?? "—"}</Td>
                   <Td>
                     <span className="rounded-full border border-border px-2 py-0.5 text-xs capitalize">
                       {lead.status}

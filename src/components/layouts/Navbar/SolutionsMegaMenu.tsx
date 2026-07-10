@@ -4,8 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { SOLUTIONS_MENU } from "./solutionsMegaMenuData";
+import { SOLUTIONS_MENU, buildSolutionsColumns } from "./solutionsMegaMenuData";
 import type { SolutionMenuItem } from "./solutionsMegaMenuData";
+import { useSolutionsCategories } from "./useSolutionsCategories";
 
 function isInternalRoute(href: string) {
   return href.startsWith("/") && !href.startsWith("//");
@@ -59,6 +60,11 @@ function SolutionMegaMenuItem({ item }: { item: SolutionMenuItem }) {
 export default function SolutionsMegaMenu() {
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Published categories drive the menu; fall back to the static menu until they
+  // load (or if none/failed).
+  const categories = useSolutionsCategories();
+  const columns =
+    categories && categories.length ? buildSolutionsColumns(categories) : SOLUTIONS_MENU;
 
   useEffect(() => {
     const closeOnScroll = () => {
@@ -125,7 +131,7 @@ export default function SolutionsMegaMenu() {
                 md:grid-cols-2
               "
             >
-              {SOLUTIONS_MENU.map((column, columnIndex) => (
+              {columns.map((column, columnIndex) => (
                 <section
                   key={column.title}
                   className={`
@@ -142,7 +148,7 @@ export default function SolutionsMegaMenu() {
                     </p>
                   </div>
 
-                  <div className={`grid gap-1 ${column.title === "Hardware Solutions" ? "sm:grid-cols-2 sm:gap-x-4" : ""}`}>
+                  <div className={`grid gap-1 ${column.children.length > 5 ? "sm:grid-cols-2 sm:gap-x-4" : ""}`}>
                     {column.children.map((item) => (
                       <SolutionMegaMenuItem key={item.label} item={item} />
                     ))}

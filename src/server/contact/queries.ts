@@ -8,6 +8,7 @@ export type Lead = {
   email: string;
   phone: string | null;
   company: string | null;
+  budget: string | null;
   message: string;
   source: string | null;
   status: string;
@@ -22,6 +23,7 @@ function toLead(doc: any): Lead {
     email: doc.email,
     phone: doc.phone ?? null,
     company: doc.company ?? null,
+    budget: doc.budget ?? null,
     message: doc.message,
     source: doc.source ?? null,
     status: doc.status,
@@ -37,6 +39,7 @@ export async function insertLead(input: ContactInput): Promise<Lead> {
     email: input.email,
     phone: input.phone || null,
     company: input.company || null,
+    budget: input.budget || null,
     message: input.message,
     source: input.source || null,
   });

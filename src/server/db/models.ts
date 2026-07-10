@@ -15,6 +15,7 @@ const leadSchema = new Schema(
     email: { type: String, required: true },
     phone: { type: String, default: null },
     company: { type: String, default: null },
+    budget: { type: String, default: null },
     message: { type: String, required: true },
     source: { type: String, default: null },
     status: { type: String, required: true, default: "new" }, // new | contacted | closed
@@ -103,6 +104,11 @@ const serviceCategorySchema = new Schema(
   {
     slug: { type: String, required: true, unique: true },
     label: { type: String, required: true },
+    // Which mega menu this category belongs to. Missing = "whatwedo" (the
+    // original What We Do categories); "solutions" powers the Solutions nav.
+    group: { type: String, required: false, default: "whatwedo" },
+    // Optional blurb shown under the column header (used by the Solutions menu).
+    description: { type: String, required: false, default: "" },
     published: { type: Boolean, required: true, default: false },
     sort_order: { type: Number, required: true, default: 0 },
     created_at: { type: Date, required: true, default: Date.now },

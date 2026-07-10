@@ -124,9 +124,11 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "UI/UX Designing",
+          href: "/design/ui-ux-designing",
         },
         {
           label: "Product Design",
+          href: "/design/product-design",
         },
         {
           label: "Graphics Designing",
@@ -134,12 +136,15 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "Logo Designing",
+          href: "/design/logo-designing",
         },
         {
           label: "Brand Identity",
+          href: "/design/brand-identity",
         },
         {
           label: "Motion & Video Design",
+          href: "/design/motion-video-design",
         },
       ],
     },
@@ -150,37 +155,37 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Technical SEO",
-          href: "/technical-seo",
+          href: "/marketing/technical-seo",
         },
         {
           label: "Local SEO",
-          href: "/local-seo",
+          href: "/marketing/local-seo",
         },
         {
           label: "Enterprise SEO",
-          href: "/enterprise-seo",
+          href: "/marketing/enterprise-seo",
         },
 
         {
           label: "Google Ads Management",
-          href: "/google-ads-management",
+          href: "/marketing/google-ads-management",
         },
         {
           label: "Fb & Ig Ads Management",
-          href: "/performance-marketing",
+          href: "/marketing/meta-ads-management",
         },
 
         {
           label: "Youtube Ads Campaign",
-          href: "/youtube-ads-campaign",
+          href: "/marketing/youtube-ads-campaign",
         },
         {
           label: "WhatsApp Ads Campaign",
-          href: "/whatsapp-ads-campaign",
+          href: "/marketing/whatsapp-ads-campaign",
         },
         {
           label: "Lead Generation Campaigns",
-          href: "/lead-generation-campaigns",
+          href: "/marketing/lead-generation-campaigns",
         },
       ],
     },
@@ -190,19 +195,20 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
   items: [
     {
       label: "My Website Doesn't Generate Leads",
+      href: "/challenges/website-not-generating-leads",
     },
     {
       label: "I Struggle to Generate Quality Leads",
+      href: "/challenges/generate-quality-leads",
     },
     {
       label: "My Business Isn't Ranking on Google",
+      href: "/challenges/not-ranking-on-google",
     },
     {
       label: "I Have Low Organic Traffic",
+      href: "/challenges/low-organic-traffic",
     },
-   
-
-
   ],
 }
 

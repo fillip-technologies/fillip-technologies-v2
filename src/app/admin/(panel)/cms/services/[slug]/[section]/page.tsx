@@ -4,6 +4,7 @@ import { getTemplateSchema } from "@/server/content/servicepage-schema";
 import { getServicePage } from "@/server/content/servicepage-registry";
 import { getContentData } from "@/server/content/queries";
 import { saveServicePageSection } from "@/server/content/servicepage-actions";
+import { servicePageParentCrumb } from "../../parentCrumb";
 import SectionEditor from "../../../SectionEditor";
 
 export default async function EditServicePageSection({
@@ -18,6 +19,7 @@ export default async function EditServicePageSection({
   const spec = schema.getSpec(sectionId);
   if (!spec || !spec.section.ready) notFound();
   const section = spec.section;
+  const parent = await servicePageParentCrumb(page);
 
   // Editor values start from the template's static default (flattened), merged
   // with any saved override.
@@ -33,8 +35,8 @@ export default async function EditServicePageSection({
           Content
         </Link>{" "}
         /{" "}
-        <Link href="/admin/cms/services" className="hover:text-heading">
-          Service Pages
+        <Link href={parent.href} className="hover:text-heading">
+          {parent.label}
         </Link>{" "}
         /{" "}
         <Link href={`/admin/cms/services/${slug}`} className="hover:text-heading">

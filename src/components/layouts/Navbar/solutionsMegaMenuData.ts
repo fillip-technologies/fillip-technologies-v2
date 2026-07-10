@@ -10,6 +10,14 @@ export type SolutionMenuColumn = {
   children: SolutionMenuItem[];
 };
 
+// A published Solutions category from /api/solutions/categories (DB-driven).
+export type SolutionCategory = {
+  slug: string;
+  label: string;
+  description: string;
+  items?: SolutionMenuItem[];
+};
+
 export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
   {
     label: "Business Solutions",
@@ -18,15 +26,15 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
     children: [
       {
         label: "Ticket Booking Solution",
-        href: "/ticket-booking",
+        href: "/solutions/ticket-booking",
       },
       {
         label: "SMS Communication Solution",
-        href: "/sms-communication",
+        href: "/solutions/sms-communication",
       },
       {
         label: "WhatsApp Business Solution",
-        href: "/messenger",
+        href: "/solutions/whatsapp-business",
       },
     ],
   },
@@ -37,7 +45,7 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
     children: [
       {
         label: "Security Surveillance",
-        href: "/security-surveillance",
+        href: "/hardware-solutions/security-surveillance",
       },
       {
         label: "Fiber Optic Connectivity",
@@ -78,3 +86,31 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
     ],
   },
 ];
+
+/**
+ * Build the Solutions mega-menu columns from the published categories
+ * (DB-driven). Falls back to the curated static items for a category when the
+ * API sends none. Mirrors buildWhatWeDoColumns.
+ */
+export function buildSolutionsColumns(
+  categories: SolutionCategory[]
+): SolutionMenuColumn[] {
+  const staticBySlug: Record<string, SolutionMenuColumn> = Object.fromEntries(
+    SOLUTIONS_MENU.map((c) => [slugifyColumn(c.title), c])
+  );
+  return categories.map((c) => ({
+    label: c.label,
+    title: c.label,
+    description: c.description || staticBySlug[c.slug]?.description || "",
+    children: c.items && c.items.length ? c.items : staticBySlug[c.slug]?.children ?? [],
+  }));
+}
+
+/** Kebab-case a column title to match its seeded category slug. */
+function slugifyColumn(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}

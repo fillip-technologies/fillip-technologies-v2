@@ -4,7 +4,7 @@
     "description": "Secure infrastructure, devices, and workplace technology systems.",
     "basePath": "/hardware-solutions",
     "items": [
-      { "label": "Security Surveillance", "slug": "security-surveillance", "href": "/security-surveillance" },
+      { "label": "Security Surveillance", "slug": "security-surveillance", "href": "/hardware-solutions/security-surveillance" },
       { "label": "Fiber Optic Connectivity", "slug": "fiber-optic-connectivity", "href": "/hardware-solutions/fiber-optic-connectivity" },
       { "label": "Local Area Network", "slug": "local-area-network", "href": "/hardware-solutions/local-area-network" },
       { "label": "Control Room", "slug": "control-room", "href": "/hardware-solutions/control-room" },

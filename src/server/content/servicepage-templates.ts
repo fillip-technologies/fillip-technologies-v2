@@ -15,7 +15,20 @@ export const SERVICE_TEMPLATES: ServiceTemplateMeta[] = [
   { id: "service", label: "Service page", urlPrefix: "/services" },
   { id: "mobile-app", label: "Mobile app page", urlPrefix: "/mobile-app-development" },
   { id: "software-enterprise", label: "Software & Enterprise page", urlPrefix: "/software-development" },
+  { id: "creative-design", label: "Creative / Design page", urlPrefix: "/design" },
+  { id: "marketing", label: "SEO / Marketing page", urlPrefix: "/marketing" },
+  { id: "challenges", label: "Challenges We Solve page", urlPrefix: "/challenges" },
+  { id: "hardware-solution", label: "Hardware Solution page", urlPrefix: "/hardware-solutions" },
+  { id: "business-solution", label: "Business Solution page", urlPrefix: "/solutions" },
 ];
+
+// Templates that back the Solutions mega menu — managed under the separate
+// "Soln" CMS area, not the general "Service Pages" list.
+export const SOLUTION_TEMPLATE_IDS = ["hardware-solution", "business-solution"] as const;
+
+export function isSolutionTemplate(id: string): boolean {
+  return (SOLUTION_TEMPLATE_IDS as readonly string[]).includes(id);
+}
 
 const DEFAULT_TEMPLATE = SERVICE_TEMPLATES[0];
 

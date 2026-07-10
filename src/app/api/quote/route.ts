@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { calculateQuote } from "@/lib/quote";
+import { calculateQuote, formatINR } from "@/lib/quote";
 import { quoteRequestSchema } from "@/server/quote/schema";
 import { generateQuotePdf } from "@/server/quote/pdf";
 import { sendQuoteEmail } from "@/server/quote/email";
 import { insertQuote } from "@/server/quote/queries";
+import { insertLead } from "@/server/contact/queries";
 
 // nodemailer + pdf-lib need the Node.js runtime (not edge).
 export const runtime = "nodejs";
@@ -62,6 +63,33 @@ export async function POST(request: Request) {
     await insertQuote(parsed.data, quote, emailed);
   } catch (err) {
     console.error("insertQuote failed:", err);
+  }
+
+  // Also record it as a lead so it shows in the admin Leads section alongside
+  // contact-form submissions. Best-effort — never fails the quote response.
+  try {
+    const summary = [
+      "Get-a-Quote calculator submission.",
+      `One-time: ${formatINR(quote.oneTime.total)} (incl. GST)`,
+      `Monthly: ${formatINR(quote.monthly.total)}/mo (incl. GST)`,
+      "",
+      "Selected items:",
+      ...quote.items.map(
+        (i) => `• ${i.categoryName} — ${i.label}: ${formatINR(i.price)}${i.billing === "monthly" ? "/mo" : ""}`
+      ),
+    ].join("\n");
+
+    await insertLead({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      company: parsed.data.company || "",
+      budget: formatINR(quote.oneTime.total),
+      message: summary,
+      source: "get-a-quote-calculator",
+    });
+  } catch (err) {
+    console.error("insertLead (from quote) failed:", err);
   }
 
   return NextResponse.json({

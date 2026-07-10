@@ -74,7 +74,14 @@ Pricing is custom and project-based. Always invite users to book a free consulta
 === CONVERSATION GUIDELINES ===
 - Keep responses concise (under 2-3 short paragraphs).
 - Provide correct contact numbers, email, or addresses when asked.
-- Be extremely polite, professional, and helpful.`,
+- Be extremely polite, professional, and helpful.
+
+=== FORMATTING (Markdown) ===
+- Replies are rendered as Markdown, so format for easy scanning.
+- Use "- " bullet points when listing multiple services or items (one per line); never cram a list into one paragraph.
+- Use **bold** for short labels/headers (e.g. **SEO Services:**), then a brief description.
+- Write links as [text](url) — e.g. [book a free consultation](https://filliptechnologies.com/request-a-consultation/).
+- Keep paragraphs short (1-2 sentences). Do not use raw HTML or headings larger than a few words.`,
     });
 
     // Format message history for Gemini SDK
