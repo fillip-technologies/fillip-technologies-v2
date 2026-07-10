@@ -1,25 +1,24 @@
 {
-  "slug": "website-design-company-in-pune",
+  "slug": "website-design-company-in-ontario",
   "serviceKey": "website-design",
   "enabled": true,
   "city": {
-    "name": "Pune",
-    "state": "Maharashtra",
-    "country": "India"
+    "name": "Ontario",
+    "country": "Canada"
   },
   "seo": {
-    "title": "Top website design company in Pune | Web Designing Services",
-    "description": "Fillip Technologies is the best website design company in Pune. We offer top-notch, responsive website designing services to meet your needs.",
-    "canonical": "/website-design-company-in-pune",
+    "title": "Website Design Company in Ontario for Stunning Websites",
+    "description": "Choose a website design company in Ontario for stunning websites that resonate with your audience. Elevate your brand with our tailored solutions.",
+    "canonical": "/website-design-company-in-ontario",
     "openGraph": {
-      "title": "Top website design company in Pune | Web Designing Services",
-      "description": "Fillip Technologies is the best website design company in Pune. We offer top-notch, responsive website designing services to meet your needs.",
+      "title": "Website Design Company in Ontario for Stunning Websites",
+      "description": "Choose a website design company in Ontario for stunning websites that resonate with your audience. Elevate your brand with our tailored solutions.",
       "image": "/images/tilt.png"
     },
     "twitter": {
       "card": "summary_large_image",
-      "title": "Top website design company in Pune | Web Designing Services",
-      "description": "Fillip Technologies is the best website design company in Pune. We offer top-notch, responsive website designing services to meet your needs.",
+      "title": "Website Design Company in Ontario for Stunning Websites",
+      "description": "Choose a website design company in Ontario for stunning websites that resonate with your audience. Elevate your brand with our tailored solutions.",
       "image": "/images/tilt.png"
     },
     "robots": {
@@ -30,14 +29,14 @@
   "content": {
     "hero": {
       "title": "Website Design Company in ",
-      "highlightedTitle": "Pune",
-      "description": "Custom website design and development services for Pune businesses that want to attract customers, generate qualified leads, and grow online."
+      "highlightedTitle": "Ontario",
+      "description": "Custom website design and development services for Ontario businesses that want to attract customers, generate qualified leads, and grow online."
     },
     "challenges": {
-      "eyebrow": "Website Challenges for Pune Businesses",
+      "eyebrow": "Website Challenges for Ontario Businesses",
       "title": "Your Website Should Do More Than",
       "highlightedTitle": "Simply Look Good.",
-      "description": "Many businesses in Pune rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
+      "description": "Many businesses in Ontario rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
       "secondaryDescription": "At Fillip Technologies, we build fast, discoverable, scalable websites designed around measurable business outcomes.",
       "cta": "See How We Solve These Challenges",
       "items": [
@@ -61,12 +60,12 @@
     }
   },
   "faq": {
-    "badge": "Website Design Pune FAQs",
+    "badge": "Website Design Ontario FAQs",
     "title": "Frequently Asked Questions",
-    "description": "Common questions about website design and development services for businesses in Pune.",
+    "description": "Common questions about website design and development services for businesses in Ontario.",
     "items": [
       {
-        "question": "How much does website design cost in Pune?",
+        "question": "How much does website design cost in Ontario?",
         "answer": "The cost depends on the number of pages, required features, integrations, content needs, and overall project complexity. We provide a tailored estimate after understanding your requirements."
       },
       {

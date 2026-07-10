@@ -16,6 +16,12 @@
       "description": "Conversion-focused website design and development services for businesses in Hyderabad.",
       "image": "/images/tilt.png"
     },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Website Design Company in Hyderabad | Fillip Technologies",
+      "description": "Professional website design and development services in Hyderabad focused on performance, user experience, lead generation, and scalable business growth.",
+      "image": "/images/tilt.png"
+    },
     "robots": {
       "index": true,
       "follow": true
@@ -88,5 +94,6 @@
         "answer": "We serve businesses across all industries in Hyderabad including IT, pharmaceuticals, education, healthcare, real estate, manufacturing, retail, and professional services. Our experience spans diverse sectors."
       }
     ]
-  }
+  },
+  "status": "published"
 }

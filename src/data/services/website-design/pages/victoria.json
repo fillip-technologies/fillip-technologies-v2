@@ -1,25 +1,24 @@
 {
-  "slug": "website-design-company-in-pune",
+  "slug": "website-design-company-in-victoria",
   "serviceKey": "website-design",
   "enabled": true,
   "city": {
-    "name": "Pune",
-    "state": "Maharashtra",
-    "country": "India"
+    "name": "Victoria",
+    "country": "Australia"
   },
   "seo": {
-    "title": "Top website design company in Pune | Web Designing Services",
-    "description": "Fillip Technologies is the best website design company in Pune. We offer top-notch, responsive website designing services to meet your needs.",
-    "canonical": "/website-design-company-in-pune",
+    "title": "Best Website Design Company in Victoria for Stunning Website",
+    "description": "Get stunning websites with the best website design company in Victoria. Custom, responsive, and SEO-friendly designs to grow your business. Contact us today!",
+    "canonical": "/website-design-company-in-victoria",
     "openGraph": {
-      "title": "Top website design company in Pune | Web Designing Services",
-      "description": "Fillip Technologies is the best website design company in Pune. We offer top-notch, responsive website designing services to meet your needs.",
+      "title": "Best Website Design Company in Victoria for Stunning Website",
+      "description": "Get stunning websites with the best website design company in Victoria. Custom, responsive, and SEO-friendly designs to grow your business. Contact us today!",
       "image": "/images/tilt.png"
     },
     "twitter": {
       "card": "summary_large_image",
-      "title": "Top website design company in Pune | Web Designing Services",
-      "description": "Fillip Technologies is the best website design company in Pune. We offer top-notch, responsive website designing services to meet your needs.",
+      "title": "Best Website Design Company in Victoria for Stunning Website",
+      "description": "Get stunning websites with the best website design company in Victoria. Custom, responsive, and SEO-friendly designs to grow your business. Contact us today!",
       "image": "/images/tilt.png"
     },
     "robots": {
@@ -30,14 +29,14 @@
   "content": {
     "hero": {
       "title": "Website Design Company in ",
-      "highlightedTitle": "Pune",
-      "description": "Custom website design and development services for Pune businesses that want to attract customers, generate qualified leads, and grow online."
+      "highlightedTitle": "Victoria",
+      "description": "Custom website design and development services for Victoria businesses that want to attract customers, generate qualified leads, and grow online."
     },
     "challenges": {
-      "eyebrow": "Website Challenges for Pune Businesses",
+      "eyebrow": "Website Challenges for Victoria Businesses",
       "title": "Your Website Should Do More Than",
       "highlightedTitle": "Simply Look Good.",
-      "description": "Many businesses in Pune rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
+      "description": "Many businesses in Victoria rely on websites that look modern but struggle to generate inquiries, communicate value, or perform well in search.",
       "secondaryDescription": "At Fillip Technologies, we build fast, discoverable, scalable websites designed around measurable business outcomes.",
       "cta": "See How We Solve These Challenges",
       "items": [
@@ -61,12 +60,12 @@
     }
   },
   "faq": {
-    "badge": "Website Design Pune FAQs",
+    "badge": "Website Design Victoria FAQs",
     "title": "Frequently Asked Questions",
-    "description": "Common questions about website design and development services for businesses in Pune.",
+    "description": "Common questions about website design and development services for businesses in Victoria.",
     "items": [
       {
-        "question": "How much does website design cost in Pune?",
+        "question": "How much does website design cost in Victoria?",
         "answer": "The cost depends on the number of pages, required features, integrations, content needs, and overall project complexity. We provide a tailored estimate after understanding your requirements."
       },
       {

@@ -8,12 +8,18 @@
     "country": "India"
   },
   "seo": {
-    "title": "Website Design Company in Bhubaneswar | Fillip Technologies",
-    "description": "Professional website design and development services in Bhubaneswar focused on performance, user experience, lead generation, and scalable business growth.",
+    "title": "Website Design Company in Bhubaneshwar | Fillip Technologies",
+    "description": "Fillip Technologies is the best website design company in Bhubaneswar. We offer top-notch, responsive website designing services to meet your needs.",
     "canonical": "/website-design-company-in-bhubaneswar",
     "openGraph": {
-      "title": "Website Design Company in Bhubaneswar",
-      "description": "Conversion-focused website design and development services for businesses in Bhubaneswar.",
+      "title": "Website Design Company in Bhubaneshwar | Fillip Technologies",
+      "description": "Fillip Technologies is the best website design company in Bhubaneswar. We offer top-notch, responsive website designing services to meet your needs.",
+      "image": "/images/tilt.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Website Design Company in Bhubaneshwar | Fillip Technologies",
+      "description": "Fillip Technologies is the best website design company in Bhubaneswar. We offer top-notch, responsive website designing services to meet your needs.",
       "image": "/images/tilt.png"
     },
     "robots": {
@@ -88,5 +94,6 @@
         "answer": "We serve businesses across all industries in Bhubaneswar including IT, education, healthcare, real estate, tourism, manufacturing, retail, and professional services. Our experience spans diverse sectors."
       }
     ]
-  }
+  },
+  "status": "published"
 }

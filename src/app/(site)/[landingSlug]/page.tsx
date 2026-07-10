@@ -5,6 +5,7 @@ import {
   getServiceLandingPage,
   getServiceLandingPageSlugs,
 } from "@/lib/service-content/repository";
+import { buildLandingPageMetadata } from "@/lib/seo/metadata";
 
 type LandingPageProps = {
   params: Promise<{ landingSlug: string }>;
@@ -23,20 +24,7 @@ export async function generateMetadata({
 
   if (!page) notFound();
 
-  return {
-    title: page.seo.title,
-    description: page.seo.description,
-    alternates: {
-      canonical: page.seo.canonical,
-    },
-    openGraph: {
-      title: page.seo.openGraph.title,
-      description: page.seo.openGraph.description,
-      url: page.seo.canonical,
-      images: [{ url: page.seo.openGraph.image }],
-    },
-    robots: page.seo.robots,
-  };
+  return buildLandingPageMetadata(page);
 }
 
 export default async function ServiceLandingPageRoute({
