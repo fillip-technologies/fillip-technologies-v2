@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const categories = await listPublishedCategories();
+    const categories = await listPublishedCategories("whatwedo");
     const items = await Promise.all(
       categories.map(async (c) => ({
         slug: c.slug,

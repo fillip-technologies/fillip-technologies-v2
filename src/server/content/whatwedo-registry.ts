@@ -15,6 +15,8 @@ import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuD
 export type Category = {
   slug: string;
   label: string;
+  group: string;
+  description: string;
   published: boolean;
   sortOrder: number;
 };
@@ -23,21 +25,35 @@ export type Category = {
 const toCategory = (d: any): Category => ({
   slug: d.slug,
   label: d.label,
+  group: d.group ?? "whatwedo",
+  description: d.description ?? "",
   published: d.published,
   sortOrder: d.sort_order,
 });
 
+/**
+ * Mongo filter for a category group. Missing `group` counts as "whatwedo" so the
+ * originally-seeded categories keep showing without a data migration.
+ */
+function groupFilter(group?: string): Record<string, unknown> {
+  if (!group) return {};
+  if (group === "whatwedo") return { group: { $ne: "solutions" } };
+  return { group };
+}
+
 /** All categories (published + drafts), ordered for the admin list. */
-export async function listCategories(): Promise<Category[]> {
+export async function listCategories(group?: string): Promise<Category[]> {
   await dbConnect();
-  const docs = await ServiceCategoryModel.find().sort({ sort_order: 1, slug: 1 }).lean();
+  const docs = await ServiceCategoryModel.find(groupFilter(group))
+    .sort({ sort_order: 1, slug: 1 })
+    .lean();
   return docs.map(toCategory);
 }
 
 /** Only published categories — for public nav/listing. */
-export async function listPublishedCategories(): Promise<Category[]> {
+export async function listPublishedCategories(group?: string): Promise<Category[]> {
   await dbConnect();
-  const docs = await ServiceCategoryModel.find({ published: true })
+  const docs = await ServiceCategoryModel.find({ published: true, ...groupFilter(group) })
     .sort({ sort_order: 1, slug: 1 })
     .lean();
   return docs.map(toCategory);
