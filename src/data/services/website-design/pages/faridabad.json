@@ -8,12 +8,18 @@
     "country": "India"
   },
   "seo": {
-    "title": "Website Design Company in Faridabad | Fillip Technologies",
-    "description": "Professional website design and development services in Faridabad focused on performance, user experience, lead generation, and scalable business growth.",
+    "title": "Professional Website Design Company in Faridabad",
+    "description": "Achieve your online goals with our professional website design company in Faridabad. Engaging designs tailored to your business needs.",
     "canonical": "/website-design-company-in-faridabad",
     "openGraph": {
-      "title": "Website Design Company in Faridabad",
-      "description": "Conversion-focused website design and development services for businesses in Faridabad.",
+      "title": "Professional Website Design Company in Faridabad",
+      "description": "Achieve your online goals with our professional website design company in Faridabad. Engaging designs tailored to your business needs.",
+      "image": "/images/tilt.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Professional Website Design Company in Faridabad",
+      "description": "Achieve your online goals with our professional website design company in Faridabad. Engaging designs tailored to your business needs.",
       "image": "/images/tilt.png"
     },
     "robots": {
@@ -88,5 +94,6 @@
         "answer": "Simply contact us through our website, call us, or schedule a consultation. We'll discuss your requirements, provide a proposal, and outline the project timeline."
       }
     ]
-  }
+  },
+  "status": "published"
 }

@@ -13,11 +13,18 @@ const seoSchema = z.object({
     (value) => value.startsWith("/") || /^https?:\/\//.test(value),
     "Canonical must be a relative path or an absolute HTTP URL",
   ),
+  keywords: z.array(nonEmptyString).optional(),
   openGraph: z.object({
     title: nonEmptyString,
     description: nonEmptyString,
     image: z.string().startsWith("/"),
   }),
+  twitter: z.object({
+    card: z.enum(["summary", "summary_large_image"]),
+    title: nonEmptyString,
+    description: nonEmptyString,
+    image: z.string().startsWith("/"),
+  }).optional(),
   robots: z.object({
     index: z.boolean(),
     follow: z.boolean(),
@@ -40,6 +47,7 @@ const pageBaseShape = {
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   serviceKey: nonEmptyString,
   enabled: z.boolean(),
+  status: z.enum(["draft", "review", "published", "archived"]).optional(),
   city: z.object({
     name: nonEmptyString,
     state: nonEmptyString.optional(),

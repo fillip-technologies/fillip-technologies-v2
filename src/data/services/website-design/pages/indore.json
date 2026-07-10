@@ -8,12 +8,18 @@
     "country": "India"
   },
   "seo": {
-    "title": "Website Design Company in Indore | Fillip Technologies",
-    "description": "Professional website design and development services in Indore focused on performance, user experience, lead generation, and scalable business growth.",
+    "title": "Best Website Design Company in Indore | Fillip Technologies",
+    "description": "Fillip Technologies is the best website design company in Indore, offering creative, user-friendly, and SEO-friendly websites to grow your business online.",
     "canonical": "/website-design-company-in-indore",
     "openGraph": {
-      "title": "Website Design Company in Indore",
-      "description": "Conversion-focused website design and development services for businesses in Indore.",
+      "title": "Best Website Design Company in Indore | Fillip Technologies",
+      "description": "Fillip Technologies is the best website design company in Indore, offering creative, user-friendly, and SEO-friendly websites to grow your business online.",
+      "image": "/images/tilt.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Best Website Design Company in Indore | Fillip Technologies",
+      "description": "Fillip Technologies is the best website design company in Indore, offering creative, user-friendly, and SEO-friendly websites to grow your business online.",
       "image": "/images/tilt.png"
     },
     "robots": {
@@ -88,5 +94,6 @@
         "answer": "We serve businesses across all industries in Indore including IT, education, healthcare, manufacturing, real estate, retail, food processing, and professional services. Our experience spans diverse sectors."
       }
     ]
-  }
+  },
+  "status": "published"
 }

@@ -244,7 +244,7 @@ export class JsonServiceContentSource implements ServiceContentSource {
         }
 
         const page = pageResult.data;
-        if (!page.enabled) continue;
+        if (page.status ? page.status !== "published" : !page.enabled) continue;
         if (page.serviceKey !== definitionResult.data.serviceKey) {
           throw new Error(`Service key mismatch in ${pagePath}`);
         }

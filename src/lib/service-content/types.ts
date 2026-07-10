@@ -16,11 +16,19 @@ type LandingPageBase = {
     state?: string;
     country: string;
   };
+  status?: "draft" | "review" | "published" | "archived";
   seo: {
     title: string;
     description: string;
     canonical: string;
+    keywords?: string[];
     openGraph: {
+      title: string;
+      description: string;
+      image: string;
+    };
+    twitter?: {
+      card: "summary" | "summary_large_image";
       title: string;
       description: string;
       image: string;
