@@ -11,6 +11,7 @@ function Logo({ width = 160, height = 44 }: LogoProps) {
         width={width}
         height={height}
         priority
+        style={{ height: "auto" }}
       />
     </Link>
   );
