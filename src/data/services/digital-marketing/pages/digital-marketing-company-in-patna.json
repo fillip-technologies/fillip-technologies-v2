@@ -1,0 +1,125 @@
+{
+  "slug": "digital-marketing-company-in-patna",
+  "enabled": true,
+  "status": "published",
+  "serviceKey": "digital-marketing",
+  "city": {
+    "name": "Patna",
+    "state": "Bihar",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Digital Marketing Company in Patna | Fillip Technologies",
+    "description": "Digital marketing services in Patna for SEO, paid ads, social media, lead generation, and measurable business growth.",
+    "canonical": "/digital-marketing-company-in-patna",
+    "openGraph": {
+      "title": "Digital Marketing Company in Patna",
+      "description": "Grow your business in Patna with measurable digital marketing campaigns.",
+      "image": "/images/results-visuals.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Digital Marketing Company in Patna | Fillip Technologies",
+      "description": "Digital marketing services in Patna for SEO, paid ads, social media, lead generation, and measurable business growth.",
+      "image": "/images/results-visuals.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Grow your business with",
+      "highlightedTitle": "Digital Marketing",
+      "suffix": "Company in Patna",
+      "description": "Reach the right audience in Patna with SEO, paid campaigns, social media, content, and conversion-focused digital marketing.",
+      "cta": "Plan Your Growth",
+      "metricValue": "Growth",
+      "metricLabel": "Campaigns optimized for qualified traffic, leads, and conversions",
+      "image": {
+        "src": "/images/results-visuals.png",
+        "alt": "Digital marketing company in Patna"
+      }
+    },
+    "philosophy": {
+      "badge": "OUR DIGITAL MARKETING PHILOSOPHY",
+      "title": "Build Visibility.",
+      "highlightedTitle": "Convert It Into Growth.",
+      "lead": "Good marketing is not only about reach.",
+      "support": "We connect channels, messaging, landing pages, and reporting around real business outcomes.",
+      "description": "Effective digital marketing combines search visibility, paid acquisition, social engagement, lead capture, analytics, and continuous optimization.",
+      "caption": "Strategy and measurement turn campaigns into growth",
+      "metrics": [
+        { "label": "Qualified Leads", "value": "+58%" },
+        { "label": "Conversion Growth", "value": "+42%" }
+      ]
+    },
+    "workflow": {
+      "badge": "HOW DIGITAL MARKETING WORKS",
+      "title": "From Strategy to",
+      "highlightedTitle": "Measurable Results.",
+      "description": "We plan campaigns around audience intent, channel fit, conversion goals, and clear performance tracking.",
+      "steps": [
+        {
+          "title": "Research & Growth Strategy",
+          "description": "We study your audience, competitors, keywords, offers, and existing digital presence in Patna.",
+          "image": "/images/research-mockup.png",
+          "alt": "Digital marketing research in Patna"
+        },
+        {
+          "title": "Campaign Launch",
+          "description": "We set up campaigns, landing experiences, content, tracking, and conversion actions for measurable execution.",
+          "image": "/images/launch-mockup.png",
+          "alt": "Digital marketing campaign launch",
+          "cta": "Launch Campaigns"
+        },
+        {
+          "title": "Optimize & Scale",
+          "description": "We improve channels, budgets, messaging, and landing pages using real performance data.",
+          "image": "/images/scale-mockup.png",
+          "alt": "Digital marketing optimization"
+        }
+      ]
+    },
+    "results": {
+      "badge": "DIGITAL MARKETING RESULTS",
+      "title": "Growth You Can",
+      "highlightedTitle": "Measure Clearly.",
+      "description": "Our campaigns focus on traffic quality, lead generation, conversion efficiency, and long-term digital growth.",
+      "image": {
+        "src": "/images/results-visuals.png",
+        "alt": "Digital marketing results dashboard"
+      },
+      "metrics": [
+        { "label": "Qualified Traffic", "value": "+64%" },
+        { "label": "Lead Growth", "value": "+58%" },
+        { "label": "Conversion Rate", "value": "+42%" },
+        { "label": "Acquisition Cost", "value": "-29%" }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "DIGITAL MARKETING PATNA FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about digital marketing services in Patna.",
+    "items": [
+      {
+        "question": "Which digital marketing services do you provide in Patna?",
+        "answer": "We provide SEO, Google Ads, social media marketing, content planning, lead generation campaigns, landing page strategy, tracking, and reporting."
+      },
+      {
+        "question": "Can digital marketing help generate leads for my Patna business?",
+        "answer": "Yes. We plan campaigns around your target audience, offer, location, and conversion goals so marketing activity can generate measurable enquiries."
+      },
+      {
+        "question": "How soon can campaigns start showing results?",
+        "answer": "Paid campaigns can start generating data quickly, while SEO and organic channels usually need consistent optimization over time."
+      },
+      {
+        "question": "Do you provide campaign reports?",
+        "answer": "Yes. We track important metrics such as traffic, leads, conversions, cost per lead, and channel performance."
+      }
+    ]
+  }
+}

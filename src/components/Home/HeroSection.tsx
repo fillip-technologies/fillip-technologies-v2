@@ -55,7 +55,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_18%,color-mix(in_srgb,var(--card)_88%,transparent),color-mix(in_srgb,var(--surface)_38%,transparent)_34%,color-mix(in_srgb,var(--surface)_0%,transparent)_72%)]" />
             <div className="absolute inset-x-[8%] top-[14%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-            <div className="relative z-10 grid w-full grid-cols-1 items-center gap-[clamp(2rem,3.5vw,6rem)] px-6 py-12 pt-28 pb-16 md:px-[clamp(1.5rem,4.5vw,10rem)] md:pb-[clamp(1.5rem,2vw,3rem)] md:pt-[clamp(5rem,6.2vw,10rem)] lg:grid-cols-[55%_45%] lg:min-h-[calc(100svh-6rem)] lg:pb-[clamp(0.5rem,0.8vw,1.25rem)] lg:pt-[clamp(4rem,4.5vw,7.5rem)]">
+            <div className="relative z-10 grid w-full grid-cols-1 items-center gap-[clamp(2rem,3.5vw,6rem)] px-6 py-12 pt-28 pb-16 md:px-[clamp(1.5rem,4.5vw,10rem)] md:pb-[clamp(1.5rem,2vw,3rem)] md:pt-[clamp(5rem,6.2vw,10rem)] lg:grid-cols-[58%_42%] lg:min-h-[calc(100svh-6rem)] lg:pb-[clamp(0.5rem,0.8vw,1.25rem)] lg:pt-[clamp(4rem,4.5vw,7.5rem)]">
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -73,13 +73,30 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
 
                     <motion.h1
                         variants={fadeUp}
-                        transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-                        className="mt-[clamp(1.1rem,1.2vw,2.15rem)] max-w-none text-[clamp(2.05rem,8.8vw,5.5rem)] font-semibold leading-[0.96] tracking-normal text-transparent bg-clip-text bg-[linear-gradient(115deg,var(--heading)_0%,color-mix(in_srgb,var(--heading)_82%,#5f7cff)_34%,color-mix(in_srgb,var(--primary)_70%,#ff5fb7)_68%,var(--heading)_100%)] lg:text-[clamp(4rem,6.1vw,13rem)]"
+                        transition={{
+                            duration: 0.72,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="
+        mt-[clamp(1.1rem,1.2vw,2.15rem)]
+        max-w-[60rem]
+        bg-[linear-gradient(115deg,var(--heading)_0%,color-mix(in_srgb,var(--heading)_82%,#5f7cff)_34%,color-mix(in_srgb,var(--primary)_70%,#ff5fb7)_68%,var(--heading)_100%)]
+        bg-clip-text
+        text-[clamp(3rem,11vw,4.5rem)]
+        font-semibold
+        leading-[0.98]
+        tracking-[-0.045em]
+        text-transparent
+        lg:text-[clamp(3rem,4.65vw,5.5rem)]
+    "
                     >
-                        <span className="block whitespace-nowrap">
+                        <span className="block lg:whitespace-nowrap">
                             {c.headingLine1}
                         </span>
-                        <span className="block">{c.headingLine2}</span>
+
+                        <span className="block lg:whitespace-nowrap">
+                            {c.headingLine2}
+                        </span>
                     </motion.h1>
 
                     <motion.p

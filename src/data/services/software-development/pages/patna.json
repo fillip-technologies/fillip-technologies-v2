@@ -1,0 +1,111 @@
+{
+  "slug": "software-development-company-in-patna",
+  "enabled": true,
+  "status": "published",
+  "serviceKey": "software-development",
+  "city": {
+    "name": "Patna",
+    "state": "Bihar",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Software Development Company in Patna | Fillip Technologies",
+    "description": "Software development company in Patna building secure, scalable, custom software, web applications, and business automation solutions.",
+    "canonical": "/software-development-company-in-patna",
+    "openGraph": {
+      "title": "Software Development Company in Patna",
+      "description": "Build secure, scalable custom software for your Patna business.",
+      "image": "/images/SERVICES/custom-website.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Software Development Company in Patna | Fillip Technologies",
+      "description": "Software development company in Patna building secure, scalable, custom software, web applications, and business automation solutions.",
+      "image": "/images/SERVICES/custom-website.jpg"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Software Development Company in",
+      "highlightedTitle": "Patna",
+      "description": "We build custom software, web applications, dashboards, portals, and automation systems for growing businesses in Patna."
+    },
+    "challenges": {
+      "eyebrow": "SOFTWARE DEVELOPMENT CHALLENGES",
+      "title": "Software Challenges",
+      "highlightedTitle": "We Solve in Patna",
+      "description": "Many businesses depend on manual processes, disconnected tools, slow systems, or software that cannot scale with operations.",
+      "secondaryDescription": "We plan and build custom software around your workflows, users, integrations, security needs, and long-term business goals.",
+      "cta": "Discuss Your Software",
+      "items": [
+        {
+          "title": "Manual Operations",
+          "description": "We turn repetitive work into structured software workflows that save time and reduce errors."
+        },
+        {
+          "title": "Disconnected Systems",
+          "description": "We connect CRMs, ERPs, payment systems, inventory tools, APIs, and internal platforms."
+        },
+        {
+          "title": "Scalability Issues",
+          "description": "We design applications that can support more users, data, locations, and business processes."
+        }
+      ]
+    },
+    "process": {
+      "title": "Our Software Development",
+      "highlightedTitle": "Process",
+      "description": "We follow a practical development process from requirement discovery to design, build, testing, launch, and support.",
+      "steps": [
+        {
+          "title": "Discovery & Planning",
+          "items": [
+            "Understand workflows, users, business goals, and technical requirements.",
+            "Define features, integrations, roles, data flows, and delivery priorities."
+          ]
+        },
+        {
+          "title": "Design & Development",
+          "items": [
+            "Create user-friendly interfaces and scalable application architecture.",
+            "Build secure modules, APIs, dashboards, and admin workflows."
+          ]
+        },
+        {
+          "title": "Testing & Launch",
+          "items": [
+            "Validate performance, usability, security, integrations, and core workflows.",
+            "Deploy the software and support improvements after launch."
+          ]
+        }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "SOFTWARE DEVELOPMENT PATNA FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about software development services in Patna.",
+    "items": [
+      {
+        "question": "What types of software do you develop?",
+        "answer": "We build custom web applications, dashboards, portals, CRM workflows, automation systems, internal tools, API integrations, and business software."
+      },
+      {
+        "question": "Can you build software for our existing business process?",
+        "answer": "Yes. We study your current workflows and design software that supports your team, customers, data, and operational goals."
+      },
+      {
+        "question": "Do you provide support after launch?",
+        "answer": "Yes. We can provide maintenance, monitoring, bug fixes, performance improvements, security updates, and new feature development."
+      },
+      {
+        "question": "How much does software development cost in Patna?",
+        "answer": "Cost depends on features, complexity, integrations, design needs, user roles, security requirements, and project timeline."
+      }
+    ]
+  }
+}
