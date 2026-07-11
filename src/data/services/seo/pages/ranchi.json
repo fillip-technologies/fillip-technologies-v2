@@ -8,12 +8,18 @@
     "country": "India"
   },
   "seo": {
-    "title": "SEO Company in Ranchi | Fillip Technologies",
-    "description": "Technical SEO services in Ranchi that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "title": "Best SEO Company in Ranchi | Fillip Technologies",
+    "description": "For reliable SEO, Fillip Technologies is the Best SEO Company in Ranchi. Your trusted SEO Company in Ranchi for effective digital marketing.",
     "canonical": "/seo-company-in-ranchi",
     "openGraph": {
-      "title": "SEO Company in Ranchi",
-      "description": "Technical SEO audits and implementation services for businesses in Ranchi.",
+      "title": "Best SEO Company in Ranchi | Fillip Technologies",
+      "description": "For reliable SEO, Fillip Technologies is the Best SEO Company in Ranchi. Your trusted SEO Company in Ranchi for effective digital marketing.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Best SEO Company in Ranchi | Fillip Technologies",
+      "description": "For reliable SEO, Fillip Technologies is the Best SEO Company in Ranchi. Your trusted SEO Company in Ranchi for effective digital marketing.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

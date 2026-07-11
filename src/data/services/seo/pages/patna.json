@@ -8,12 +8,18 @@
     "country": "India"
   },
   "seo": {
-    "title": "SEO Company in Patna | Fillip Technologies",
-    "description": "Technical SEO services in Patna that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "title": "SEO Company In Patna - Fillip Technologies",
+    "description": "SEO Company in Patna offering expert SEO services to boost rankings, drive organic traffic, improve online visibility, and grow your business effectively.",
     "canonical": "/seo-company-in-patna",
     "openGraph": {
-      "title": "SEO Company in Patna",
-      "description": "Technical SEO audits and implementation services for businesses in Patna.",
+      "title": "SEO Company In Patna - Fillip Technologies",
+      "description": "SEO Company in Patna offering expert SEO services to boost rankings, drive organic traffic, improve online visibility, and grow your business effectively.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Company In Patna - Fillip Technologies",
+      "description": "SEO Company in Patna offering expert SEO services to boost rankings, drive organic traffic, improve online visibility, and grow your business effectively.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,5 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }

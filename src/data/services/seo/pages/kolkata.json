@@ -8,12 +8,18 @@
     "country": "India"
   },
   "seo": {
-    "title": "SEO Company in Kolkata | Fillip Technologies",
-    "description": "Technical SEO services in Kolkata that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "title": "SEO Experts in Kolkata | Fillip Technologies",
+    "description": "Fillip Technologies, your trusted SEO Company in Kolkata, is also the Best SEO Company in Kolkata for innovative and top SEO solutions",
     "canonical": "/seo-company-in-kolkata",
     "openGraph": {
-      "title": "SEO Company in Kolkata",
-      "description": "Technical SEO audits and implementation services for businesses in Kolkata.",
+      "title": "SEO Experts in Kolkata | Fillip Technologies",
+      "description": "Fillip Technologies, your trusted SEO Company in Kolkata, is also the Best SEO Company in Kolkata for innovative and top SEO solutions",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Experts in Kolkata | Fillip Technologies",
+      "description": "Fillip Technologies, your trusted SEO Company in Kolkata, is also the Best SEO Company in Kolkata for innovative and top SEO solutions",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

@@ -1,0 +1,64 @@
+{
+  "slug": "technical-seo",
+  "serviceKey": "seo",
+  "enabled": true,
+  "content": {
+    "hero": {
+      "badge": "TECHNICAL SEO SERVICES",
+      "title": "Technical seo",
+      "highlightedTitle": "SEO Services",
+      "description": "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+      "searchText": "Technical SEO Services in Patna | Fillip Technologies",
+      "primaryCta": "Get Free SEO Audit",
+      "secondaryCta": "View Case Studies",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Technical SEO Services in Patna | Fillip Technologies"
+      }
+    }
+  },
+  "status": "published",
+  "seo": {
+    "title": "Technical SEO Services in Patna | Fillip Technologies",
+    "description": "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+    "canonical": "/technical-seo",
+    "openGraph": {
+      "title": "Technical SEO Services in Patna | Fillip Technologies",
+      "description": "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Technical SEO Services in Patna | Fillip Technologies",
+      "description": "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "faq": {
+    "badge": "TECHNICAL SEO FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about SEO audits, optimization, and organic growth services.",
+    "items": [
+      {
+        "question": "What does a technical SEO audit include?",
+        "answer": "A technical SEO audit reviews crawlability, indexing, site architecture, page speed, mobile usability, structured data, canonicalization, redirects, and other factors that affect organic search performance."
+      },
+      {
+        "question": "How long does a technical SEO audit take?",
+        "answer": "Most audits take one to two weeks, depending on the size of the website, its technology, and the complexity of the issues discovered."
+      },
+      {
+        "question": "Do you implement the technical SEO recommendations?",
+        "answer": "Yes. We can work with your development team or implement approved technical fixes directly, depending on your website and project requirements."
+      },
+      {
+        "question": "Can technical SEO improve search visibility?",
+        "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant content, authority building, and ongoing SEO strategy."
+      }
+    ]
+  }
+}

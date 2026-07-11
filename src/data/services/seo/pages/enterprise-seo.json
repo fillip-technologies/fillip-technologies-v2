@@ -1,6 +1,7 @@
 {
   "slug": "enterprise-seo",
   "enabled": true,
+  "status": "published",
   "serviceKey": "seo",
   "seo": {
     "title": "Enterprise SEO Services | Fillip Technologies",
@@ -9,6 +10,12 @@
     "openGraph": {
       "title": "Enterprise SEO Services",
       "description": "Scalable SEO strategy for large websites and growing brands.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Enterprise SEO Services | Fillip Technologies",
+      "description": "Enterprise SEO services for large websites, multi-location brands, technical optimization, scalable content strategy, and organic growth.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {

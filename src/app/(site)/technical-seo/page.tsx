@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import SEOHeroSection from "@/components/Seo/TechnicalSeo/SEOHeroSection";
 import HiddenTechnicalIssuesWeFix from "@/components/Seo/TechnicalSeo/HiddenTechnicalIssuesWeFix";
 import WhyWebsiteIsntRanking from "@/components/Seo/TechnicalSeo/WhyWebsiteIsntRanking";
@@ -9,6 +10,33 @@ import { technicalSeoFaqs } from "@/components/Seo/TechnicalSeo/TechnicalSeoFAQ"
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import { technicalSeoTestimonials } from "@/components/Seo/TechnicalSeo/TechnicalSeoTestimonials";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
+
+export const metadata: Metadata = {
+  title: "Technical SEO Services in Patna | Fillip Technologies",
+  description:
+    "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+  alternates: {
+    canonical: "/technical-seo",
+  },
+  openGraph: {
+    title: "Technical SEO Services in Patna | Fillip Technologies",
+    description:
+      "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+    url: "/technical-seo",
+    images: [{ url: "/images/seo-magnifier.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Technical SEO Services in Patna | Fillip Technologies",
+    description:
+      "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
+    images: ["/images/seo-magnifier.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function TechnicalSeoPage() {
   return (

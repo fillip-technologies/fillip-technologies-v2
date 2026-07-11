@@ -1,6 +1,7 @@
 {
   "slug": "local-seo",
   "enabled": true,
+  "status": "published",
   "serviceKey": "seo",
   "seo": {
     "title": "Local SEO Services | Fillip Technologies",
@@ -9,6 +10,12 @@
     "openGraph": {
       "title": "Local SEO Services",
       "description": "Improve local search visibility and attract nearby customers.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Local SEO Services | Fillip Technologies",
+      "description": "Local SEO services that improve Google Business Profile visibility, local rankings, map presence, and qualified nearby leads.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {

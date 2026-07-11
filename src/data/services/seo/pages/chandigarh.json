@@ -4,16 +4,21 @@
   "serviceKey": "seo",
   "city": {
     "name": "Chandigarh",
-    "state": "Chandigarh",
     "country": "India"
   },
   "seo": {
     "title": "SEO Company in Chandigarh | Fillip Technologies",
-    "description": "Technical SEO services in Chandigarh that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "description": "Partner with our SEO Company in Chandigarh for solutions that enhance visibility and drive business growth. We focus on effective strategies for success.",
     "canonical": "/seo-company-in-chandigarh",
     "openGraph": {
-      "title": "SEO Company in Chandigarh",
-      "description": "Technical SEO audits and implementation services for businesses in Chandigarh.",
+      "title": "SEO Company in Chandigarh | Fillip Technologies",
+      "description": "Partner with our SEO Company in Chandigarh for solutions that enhance visibility and drive business growth. We focus on effective strategies for success.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Company in Chandigarh | Fillip Technologies",
+      "description": "Partner with our SEO Company in Chandigarh for solutions that enhance visibility and drive business growth. We focus on effective strategies for success.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +63,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

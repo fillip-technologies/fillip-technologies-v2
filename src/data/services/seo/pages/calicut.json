@@ -9,11 +9,17 @@
   },
   "seo": {
     "title": "SEO Company in Calicut | Fillip Technologies",
-    "description": "Technical SEO services in Calicut that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "description": "Boost your online presence with our SEO Company in Calicut. Our effective strategies increase traffic, improve rankings, and help your business stand out.",
     "canonical": "/seo-company-in-calicut",
     "openGraph": {
-      "title": "SEO Company in Calicut",
-      "description": "Technical SEO audits and implementation services for businesses in Calicut.",
+      "title": "SEO Company in Calicut | Fillip Technologies",
+      "description": "Boost your online presence with our SEO Company in Calicut. Our effective strategies increase traffic, improve rankings, and help your business stand out.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Company in Calicut | Fillip Technologies",
+      "description": "Boost your online presence with our SEO Company in Calicut. Our effective strategies increase traffic, improve rankings, and help your business stand out.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

@@ -9,11 +9,17 @@
   },
   "seo": {
     "title": "SEO Company in Guwahati | Fillip Technologies",
-    "description": "Technical SEO services in Guwahati that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "description": "Looking for the best SEO company in Guwahati ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
     "canonical": "/seo-company-in-guwahati",
     "openGraph": {
-      "title": "SEO Company in Guwahati",
-      "description": "Technical SEO audits and implementation services for businesses in Guwahati.",
+      "title": "SEO Company in Guwahati | Fillip Technologies",
+      "description": "Looking for the best SEO company in Guwahati ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Company in Guwahati | Fillip Technologies",
+      "description": "Looking for the best SEO company in Guwahati ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

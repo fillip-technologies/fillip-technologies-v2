@@ -1,0 +1,68 @@
+{
+  "slug": "seo-company-in-wales",
+  "serviceKey": "seo",
+  "enabled": true,
+  "content": {
+    "hero": {
+      "badge": "TECHNICAL SEO SERVICES",
+      "title": "SEO Company in",
+      "highlightedTitle": "Wales",
+      "description": "Get high-quality SEO solutions from a top SEO company in Wales. Our expert strategies will increase your website's search engine rankings and visibility.",
+      "searchText": "Best SEO Company in Wales",
+      "primaryCta": "Get Free SEO Audit",
+      "secondaryCta": "View Case Studies",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Technical SEO services in Wales"
+      }
+    }
+  },
+  "status": "published",
+  "city": {
+    "name": "Wales",
+    "country": "United Kingdom"
+  },
+  "seo": {
+    "title": "Top SEO Company in Wales | Fillip Technologies",
+    "description": "Get high-quality SEO solutions from a top SEO company in Wales. Our expert strategies will increase your website's search engine rankings and visibility.",
+    "canonical": "/seo-company-in-wales",
+    "openGraph": {
+      "title": "Top SEO Company in Wales | Fillip Technologies",
+      "description": "Get high-quality SEO solutions from a top SEO company in Wales. Our expert strategies will increase your website's search engine rankings and visibility.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Top SEO Company in Wales | Fillip Technologies",
+      "description": "Get high-quality SEO solutions from a top SEO company in Wales. Our expert strategies will increase your website's search engine rankings and visibility.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "faq": {
+    "badge": "TECHNICAL SEO WALES FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about technical SEO audits and optimization services in Wales.",
+    "items": [
+      {
+        "question": "What does a technical SEO audit include?",
+        "answer": "A technical SEO audit reviews crawlability, indexing, site architecture, page speed, mobile usability, structured data, canonicalization, redirects, and other factors that affect organic search performance."
+      },
+      {
+        "question": "How long does a technical SEO audit take?",
+        "answer": "Most audits take one to two weeks, depending on the size of the website, its technology, and the complexity of the issues discovered."
+      },
+      {
+        "question": "Do you implement the technical SEO recommendations?",
+        "answer": "Yes. We can work with your development team or implement approved technical fixes directly, depending on your website and project requirements."
+      },
+      {
+        "question": "Can technical SEO improve local visibility in Wales?",
+        "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant content, authority building, and ongoing SEO strategy."
+      }
+    ]
+  }
+}

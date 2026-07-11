@@ -1,0 +1,68 @@
+{
+  "slug": "seo-company-in-california",
+  "serviceKey": "seo",
+  "enabled": true,
+  "content": {
+    "hero": {
+      "badge": "TECHNICAL SEO SERVICES",
+      "title": "SEO Company in",
+      "highlightedTitle": "California",
+      "description": "Get expert services at our SEO Company in California to enhance your website's presence. Drive traffic and increase conversions with our tailored SEO solutions",
+      "searchText": "Best SEO Company in California",
+      "primaryCta": "Get Free SEO Audit",
+      "secondaryCta": "View Case Studies",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Technical SEO services in California"
+      }
+    }
+  },
+  "status": "published",
+  "city": {
+    "name": "California",
+    "country": "United States"
+  },
+  "seo": {
+    "title": "Top SEO Company in California | Fillip Technologies",
+    "description": "Get expert services at our SEO Company in California to enhance your website's presence. Drive traffic and increase conversions with our tailored SEO solutions",
+    "canonical": "/seo-company-in-california",
+    "openGraph": {
+      "title": "Top SEO Company in California | Fillip Technologies",
+      "description": "Get expert services at our SEO Company in California to enhance your website's presence. Drive traffic and increase conversions with our tailored SEO solutions",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Top SEO Company in California | Fillip Technologies",
+      "description": "Get expert services at our SEO Company in California to enhance your website's presence. Drive traffic and increase conversions with our tailored SEO solutions",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "faq": {
+    "badge": "TECHNICAL SEO CALIFORNIA FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about technical SEO audits and optimization services in California.",
+    "items": [
+      {
+        "question": "What does a technical SEO audit include?",
+        "answer": "A technical SEO audit reviews crawlability, indexing, site architecture, page speed, mobile usability, structured data, canonicalization, redirects, and other factors that affect organic search performance."
+      },
+      {
+        "question": "How long does a technical SEO audit take?",
+        "answer": "Most audits take one to two weeks, depending on the size of the website, its technology, and the complexity of the issues discovered."
+      },
+      {
+        "question": "Do you implement the technical SEO recommendations?",
+        "answer": "Yes. We can work with your development team or implement approved technical fixes directly, depending on your website and project requirements."
+      },
+      {
+        "question": "Can technical SEO improve local visibility in California?",
+        "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant content, authority building, and ongoing SEO strategy."
+      }
+    ]
+  }
+}

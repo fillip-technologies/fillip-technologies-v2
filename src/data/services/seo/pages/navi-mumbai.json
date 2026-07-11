@@ -9,11 +9,17 @@
   },
   "seo": {
     "title": "SEO Company in Navi Mumbai | Fillip Technologies",
-    "description": "Technical SEO services in Navi Mumbai that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "description": "Looking for the best SEO company in Navi Mumbai ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
     "canonical": "/seo-company-in-navi-mumbai",
     "openGraph": {
-      "title": "SEO Company in Navi Mumbai",
-      "description": "Technical SEO audits and implementation services for businesses in Navi Mumbai.",
+      "title": "SEO Company in Navi Mumbai | Fillip Technologies",
+      "description": "Looking for the best SEO company in Navi Mumbai ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Company in Navi Mumbai | Fillip Technologies",
+      "description": "Looking for the best SEO company in Navi Mumbai ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

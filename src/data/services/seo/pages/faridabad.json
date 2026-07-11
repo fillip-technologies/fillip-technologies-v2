@@ -9,11 +9,17 @@
   },
   "seo": {
     "title": "SEO Company in Faridabad | Fillip Technologies",
-    "description": "Technical SEO services in Faridabad that improve crawlability, search visibility, website performance, and qualified organic traffic.",
+    "description": "Optimize your website with our SEO Company in Faridabad. We provide effective strategies tailored for better rankings and visibility to drive success.",
     "canonical": "/seo-company-in-faridabad",
     "openGraph": {
-      "title": "SEO Company in Faridabad",
-      "description": "Technical SEO audits and implementation services for businesses in Faridabad.",
+      "title": "SEO Company in Faridabad | Fillip Technologies",
+      "description": "Optimize your website with our SEO Company in Faridabad. We provide effective strategies tailored for better rankings and visibility to drive success.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SEO Company in Faridabad | Fillip Technologies",
+      "description": "Optimize your website with our SEO Company in Faridabad. We provide effective strategies tailored for better rankings and visibility to drive success.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -58,6 +64,6 @@
         "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant local content, Google Business Profile optimization, authority building, and ongoing SEO strategy."
       }
     ]
-  }
+  },
+  "status": "published"
 }
-

@@ -1,0 +1,68 @@
+{
+  "slug": "seo-company-in-ireland",
+  "serviceKey": "seo",
+  "enabled": true,
+  "content": {
+    "hero": {
+      "badge": "TECHNICAL SEO SERVICES",
+      "title": "SEO Company in",
+      "highlightedTitle": "Ireland",
+      "description": "Get expert SEO services from a trusted SEO company in Ireland. Increase website traffic, improve search engine rankings, and grow your online presence.",
+      "searchText": "Best SEO Company in Ireland",
+      "primaryCta": "Get Free SEO Audit",
+      "secondaryCta": "View Case Studies",
+      "image": {
+        "src": "/images/seo-magnifier.png",
+        "alt": "Technical SEO services in Ireland"
+      }
+    }
+  },
+  "status": "published",
+  "city": {
+    "name": "Ireland",
+    "country": "Ireland"
+  },
+  "seo": {
+    "title": "Top SEO Company in Ireland | Fillip Technologies",
+    "description": "Get expert SEO services from a trusted SEO company in Ireland. Increase website traffic, improve search engine rankings, and grow your online presence.",
+    "canonical": "/seo-company-in-ireland",
+    "openGraph": {
+      "title": "Top SEO Company in Ireland | Fillip Technologies",
+      "description": "Get expert SEO services from a trusted SEO company in Ireland. Increase website traffic, improve search engine rankings, and grow your online presence.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Top SEO Company in Ireland | Fillip Technologies",
+      "description": "Get expert SEO services from a trusted SEO company in Ireland. Increase website traffic, improve search engine rankings, and grow your online presence.",
+      "image": "/images/seo-magnifier.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "faq": {
+    "badge": "TECHNICAL SEO IRELAND FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about technical SEO audits and optimization services in Ireland.",
+    "items": [
+      {
+        "question": "What does a technical SEO audit include?",
+        "answer": "A technical SEO audit reviews crawlability, indexing, site architecture, page speed, mobile usability, structured data, canonicalization, redirects, and other factors that affect organic search performance."
+      },
+      {
+        "question": "How long does a technical SEO audit take?",
+        "answer": "Most audits take one to two weeks, depending on the size of the website, its technology, and the complexity of the issues discovered."
+      },
+      {
+        "question": "Do you implement the technical SEO recommendations?",
+        "answer": "Yes. We can work with your development team or implement approved technical fixes directly, depending on your website and project requirements."
+      },
+      {
+        "question": "Can technical SEO improve local visibility in Ireland?",
+        "answer": "Technical SEO creates a strong foundation for search visibility. It works best alongside relevant content, authority building, and ongoing SEO strategy."
+      }
+    ]
+  }
+}
