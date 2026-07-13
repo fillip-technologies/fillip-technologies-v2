@@ -135,6 +135,20 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         icon: Boxes,
         accent: "orange",
       },
+      {
+        href: "/admin/cms/pages/whatsapp-business",
+        label: "WhatsApp Business (page)",
+        description: "Edit the bespoke /solutions/whatsapp-business layout — headings, steps, use cases, metrics.",
+        icon: Boxes,
+        accent: "orange",
+      },
+      {
+        href: "/admin/cms/pages/security-surveillance",
+        label: "Security Surveillance (page)",
+        description: "Edit the bespoke /hardware-solutions/security-surveillance layout — hero, cards, benefits, FAQs.",
+        icon: Boxes,
+        accent: "orange",
+      },
     ],
   },
   {

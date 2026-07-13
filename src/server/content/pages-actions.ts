@@ -6,6 +6,21 @@ import { getPageSection } from "./page-sections";
 import { upsertContent } from "./queries";
 import type { SaveState } from "./types";
 
+// Public route(s) that render a given page group's content. Groups whose id
+// matches their slug (our-story, …) fall through to `/<id>`.
+function publicPathsFor(groupId: string): string[] {
+  switch (groupId) {
+    case "careers":
+      return ["/others/carrer"];
+    case "security-surveillance":
+      return ["/hardware-solutions/security-surveillance", "/security-surveillance"];
+    case "whatsapp-business":
+      return ["/solutions/whatsapp-business", "/messenger"];
+    default:
+      return [`/${groupId}`];
+  }
+}
+
 /**
  * Save one About-page section's content. Keyed `page.<groupId>.<sectionId>`.
  * Auth-checked; whitelists to the section's registered fields + optional list.
@@ -40,9 +55,10 @@ export async function savePageSection(
 
   try {
     await upsertContent(`page.${groupId}.${section.id}`, clean);
-    // Most About-page group ids match their route slug (/our-story, …); careers
-    // lives at /others/carrer, so map it explicitly.
-    revalidatePath(groupId === "careers" ? "/others/carrer" : `/${groupId}`);
+    // Most About-page group ids match their route slug (/our-story, …); a few
+    // live elsewhere, so map those explicitly (revalidate both the canonical
+    // slug route and the standalone route where one exists).
+    for (const p of publicPathsFor(groupId)) revalidatePath(p);
     return { ok: true, message: "Saved. Changes are live on the page." };
   } catch (err) {
     console.error("savePageSection failed:", err);

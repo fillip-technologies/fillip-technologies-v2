@@ -2,26 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Building,
-  CheckCircle2,
-  Home,
-  PlayCircle,
-  Shield,
-  Warehouse,
-} from "lucide-react";
-
-
+import { ArrowRight, CheckCircle2, PlayCircle, Shield } from "lucide-react";
+import type { SecurityHeroContent } from "./content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0 },
 };
 
-const statusItems = ["All Systems Secure", "Live Monitoring", "24/7 Protection"];
-
-export default function SecurityHero() {
+export default function SecurityHero({ content }: { content: SecurityHeroContent }) {
+  const statusItems = [content.statusItem1, content.statusItem2];
   return (
     <>
       <section className="relative overflow-hidden bg-[#020817] text-white">
@@ -56,19 +46,15 @@ export default function SecurityHero() {
                 className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-300/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-sky-100 shadow-[0_0_30px_rgba(56,189,248,0.16)] backdrop-blur"
               >
                 <span className="size-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.9)]" />
-                AI Powered CCTV Surveillance
+                {content.badge}
               </motion.div>
 
               <motion.h1
                 variants={fadeUp}
                 transition={{ duration: 0.75, ease: "easeOut" }}
-                className="text-4xl font-black leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[5.4rem]"
+                className="whitespace-pre-line text-4xl font-black leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[5.4rem]"
               >
-                Advanced
-                <br />
-                security for what
-                <br />
-                matters most.
+                {content.heading}
               </motion.h1>
 
               <motion.p
@@ -76,9 +62,7 @@ export default function SecurityHero() {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="mx-auto mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg lg:mx-0"
               >
-                Smart cameras, AI alerts, and 24/7 monitoring work together to
-                protect your home, office, and business with dependable remote
-                access.
+                {content.description}
               </motion.p>
 
               <motion.div
@@ -90,7 +74,7 @@ export default function SecurityHero() {
                   type="button"
                   className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#061329]/85 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,8,23,0.35)] ring-1 ring-white/10 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-sky-500/20 hover:ring-sky-300/40 hover:shadow-[0_24px_60px_rgba(56,189,248,0.22)] sm:w-auto"
                 >
-                  Explore Solutions
+                  {content.primaryCtaLabel}
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
 
@@ -98,7 +82,7 @@ export default function SecurityHero() {
                   type="button"
                   className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-white/15 bg-white/10 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,8,23,0.22)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/45 hover:bg-white/15 hover:shadow-[0_22px_55px_rgba(14,165,233,0.18)] sm:w-auto"
                 >
-                  Watch Video
+                  {content.secondaryCtaLabel}
                   <PlayCircle className="size-5 transition-transform duration-300 group-hover:scale-110" />
                 </button>
               </motion.div>
@@ -116,16 +100,16 @@ export default function SecurityHero() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-slate-300">
-                    System Status
+                    {content.statusLabel}
                   </p>
                   <p className="mt-1 text-sm font-bold text-emerald-300">
-                    All Systems Secure
+                    {content.statusValue}
                   </p>
                 </div>
               </div>
 
               <div className="mt-5 grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
-                {statusItems.slice(1).map((item) => (
+                {statusItems.map((item) => (
                   <div key={item} className="flex items-center gap-2 text-xs text-slate-200">
                     <CheckCircle2 className="size-4 text-cyan-300" />
                     <span>{item}</span>

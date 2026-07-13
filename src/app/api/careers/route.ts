@@ -31,15 +31,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "Expected multipart form data." }, { status: 400 });
   }
 
+  // FormData.get() returns null for absent fields (and File for uploads); coerce
+  // to a string so optional fields validate and required ones get proper "required"
+  // messages instead of a generic type error.
+  const str = (key: string): string => {
+    const value = form.get(key);
+    return typeof value === "string" ? value : "";
+  };
+
   const parsed = careerApplicationSchema.safeParse({
-    fullName: form.get("fullName"),
-    email: form.get("email"),
-    phone: form.get("phone"),
-    role: form.get("role"),
-    experience: form.get("experience"),
-    linkedIn: form.get("linkedIn"),
-    portfolio: form.get("portfolio"),
-    message: form.get("message"),
+    fullName: str("fullName"),
+    email: str("email"),
+    phone: str("phone"),
+    role: str("role"),
+    experience: str("experience"),
+    linkedIn: str("linkedIn"),
+    portfolio: str("portfolio"),
+    message: str("message"),
   });
   if (!parsed.success) {
     return NextResponse.json(
