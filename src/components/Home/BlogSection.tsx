@@ -1,35 +1,25 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+/* eslint-disable @next/next/no-img-element */
 
-const blogPosts = [
-  {
-    image: "/images/blog-ai.png",
-    title: "What are the 7 types of AI? Understand with Examples",
-    date: "June 25, 2026",
-    comments: "No Comments",
-    link: "#",
-    badge: "0.00",
-  },
-  {
-    image: "/images/blog-careers.png",
-    title: "5 High-Paying Careers After Digital Marketing Training in 2026",
-    date: "June 13, 2026",
-    comments: "No Comments",
-    link: "#",
-    badge: "0.00",
-  },
-  {
-    image: "/images/blog-uiux.png",
-    title: "UI UX Design Certification: Your Fast Track to a High-Paying UX Career",
-    date: "June 12, 2026",
-    comments: "No Comments",
-    link: "#",
-    badge: "0.00",
-  },
-];
+import { useRef } from "react";
+import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import blogIndex from "@/data/blogs/index.json";
+import type { BlogListItem } from "@/lib/schema";
+
+const blogPosts = (blogIndex as BlogListItem[])
+  .slice()
+  .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+  .slice(0, 3);
+
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(date));
+}
 
 export default function BlogSection() {
   const sectionRef = useRef(null);
@@ -38,12 +28,13 @@ export default function BlogSection() {
     margin: "-100px",
   });
 
+  if (blogPosts.length === 0) return null;
+
   return (
     <section
       ref={sectionRef}
       className="relative overflow-hidden bg-background py-24 lg:py-28"
     >
-      {/* Background Mesh/Glow matching existing pages */}
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
@@ -64,7 +55,6 @@ export default function BlogSection() {
       />
 
       <div className="relative z-10 container mx-auto max-w-7xl px-6">
-        {/* Header */}
         <div className="mb-16 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary text-center mb-3">
             Our Blog
@@ -75,11 +65,10 @@ export default function BlogSection() {
           </h2>
         </div>
 
-        {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {blogPosts.map((post, index) => (
             <motion.article
-              key={post.title}
+              key={post.slug}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -105,65 +94,70 @@ export default function BlogSection() {
                 hover:shadow-md
               "
             >
-              {/* Blog Image Container */}
-              <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-100">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-700
-                    group-hover:scale-105
-                  "
-                />
+              <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/11] w-full overflow-hidden bg-slate-100">
+                {post.featuredImage ? (
+                  <img
+                    src={post.featuredImage}
+                    alt={post.title}
+                    loading="lazy"
+                    className="
+                      h-full
+                      w-full
+                      object-cover
+                      transition-transform
+                      duration-700
+                      group-hover:scale-105
+                    "
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-slate-100 px-8 text-center text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+                    Fillip Technologies
+                  </div>
+                )}
 
-                {/* Badge Overlay */}
-                <div className="absolute right-6 top-6 rounded-full border border-primary/20 bg-white/90 px-3 py-1 text-[11px] font-bold text-primary backdrop-blur shadow-sm">
-                  {post.badge}
-                </div>
-              </div>
+                {post.category ? (
+                  <div className="absolute right-6 top-6 rounded-full border border-primary/20 bg-white/90 px-3 py-1 text-[11px] font-bold text-primary backdrop-blur shadow-sm">
+                    {post.category}
+                  </div>
+                ) : null}
+              </Link>
 
-              {/* Overlapping Profile Avatar */}
-              <div className="relative z-10 -mt-8 ml-8 flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-slate-200 shadow-sm overflow-hidden">
-                <svg
-                  className="h-8 w-8 text-slate-400"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-
-              {/* Card Body */}
-              <div className="flex flex-1 flex-col justify-between px-8 pb-8 pt-5">
+              <div className="flex flex-1 flex-col justify-between px-8 pb-8 pt-7">
                 <div>
-                  <h3 className="text-xl font-bold leading-snug text-heading group-hover:text-primary transition-colors duration-300 mb-6">
-                    {post.title}
+                  <h3 className="text-xl font-bold leading-snug text-heading group-hover:text-primary transition-colors duration-300 mb-4">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
 
-                  <a
-                    href={post.link}
+                  <p className="mb-6 line-clamp-3 text-sm leading-6 text-body">{post.excerpt}</p>
+
+                  <Link
+                    href={`/blog/${post.slug}`}
                     className="inline-flex items-center text-xs font-bold tracking-wider text-primary hover:underline mb-6"
                   >
-                    READ MORE »
-                  </a>
+                    READ MORE
+                  </Link>
                 </div>
 
-                {/* Card Footer */}
                 <div>
                   <div className="h-[1px] bg-border w-full mb-4" />
                   <div className="flex items-center text-xs text-body font-medium">
-                    <span>{post.date}</span>
-                    <span className="mx-2">•</span>
-                    <span>{post.comments}</span>
+                    <span>{formatDate(post.publishedAt)}</span>
+                    <span className="mx-2">-</span>
+                    <span>{post.readingTime}</span>
                   </div>
                 </div>
               </div>
             </motion.article>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(2,66,162,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(2,66,162,0.24)]"
+          >
+            View All Blogs
+          </Link>
         </div>
       </div>
     </section>
