@@ -1,58 +1,64 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import {
-  Search,
-  BarChart3,
-  Gauge,
-  Bot,
-  FileCode2,
-  Link2,
-  Globe2,
-  Database,
-  ShieldCheck,
-  Activity,
-  Code2,
-  Network,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { resolveIcon } from "./icons";
+import type { MarketingToolsContent } from "@/data/marketing/types";
 
-const logoRows = [
-  [
-    { name: "Google Search Console", icon: Search },
-    { name: "Google Analytics 4", icon: BarChart3 },
-    { name: "PageSpeed Insights", icon: Gauge },
-    { name: "Screaming Frog", icon: Bot },
-    { name: "Schema Markup", icon: FileCode2 },
-    { name: "Ahrefs", icon: Link2 },
+const FALLBACK: MarketingToolsContent = {
+  eyebrow: "TOOLS & TECHNOLOGIES",
+  title: "Technical SEO Tools",
+  highlightedTitle: "We Work With",
+  description:
+    "We use trusted SEO platforms, audit systems and technical frameworks to improve crawling, indexing, performance and search visibility.",
+  items: [
+    { name: "Google Search Console", icon: "search" },
+    { name: "Google Analytics 4", icon: "chart" },
+    { name: "PageSpeed Insights", icon: "gauge" },
+    { name: "Screaming Frog", icon: "bot" },
+    { name: "Schema Markup", icon: "file" },
+    { name: "Ahrefs", icon: "link" },
+    { name: "Semrush", icon: "activity" },
+    { name: "Robots.txt", icon: "shield" },
+    { name: "XML Sitemap", icon: "globe" },
+    { name: "Log File Analysis", icon: "database" },
+    { name: "Lighthouse", icon: "gauge" },
+    { name: "Technical Audit", icon: "network" },
+    { name: "JSON-LD", icon: "code" },
+    { name: "Canonical Tags", icon: "link" },
+    { name: "Core Web Vitals", icon: "activity" },
+    { name: "Crawl Mapping", icon: "bot" },
+    { name: "Index Coverage", icon: "search" },
+    { name: "Site Architecture", icon: "network" },
   ],
-  [
-    { name: "Semrush", icon: Activity },
-    { name: "Robots.txt", icon: ShieldCheck },
-    { name: "XML Sitemap", icon: Globe2 },
-    { name: "Log File Analysis", icon: Database },
-    { name: "Lighthouse", icon: Gauge },
-    { name: "Technical Audit", icon: Network },
-  ],
-  [
-    { name: "JSON-LD", icon: Code2 },
-    { name: "Canonical Tags", icon: Link2 },
-    { name: "Core Web Vitals", icon: Activity },
-    { name: "Crawl Mapping", icon: Bot },
-    { name: "Index Coverage", icon: Search },
-    { name: "Site Architecture", icon: Network },
-  ],
-];
+};
 
-export default function TechnicalSeoToolsSection() {
+// Split the flat tools list into carousel rows of up to 6.
+function chunk<T>(arr: T[], size: number): T[][] {
+  const rows: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) rows.push(arr.slice(i, i + size));
+  return rows;
+}
+
+type TechnicalSeoToolsSectionProps = {
+  data?: MarketingToolsContent;
+};
+
+export default function TechnicalSeoToolsSection({
+  data,
+}: TechnicalSeoToolsSectionProps) {
+  const content = data ?? FALLBACK;
+  const logoRows = chunk(content.items, 6);
+
   const [activeRow, setActiveRow] = useState(0);
 
   useEffect(() => {
+    if (logoRows.length <= 1) return;
     const timer = setInterval(() => {
       setActiveRow((prev) => (prev + 1) % logoRows.length);
     }, 2600);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [logoRows.length]);
 
   return (
     <section className="relative overflow-hidden bg-white px-4 py-24 md:px-8">
@@ -61,17 +67,16 @@ export default function TechnicalSeoToolsSection() {
 
       <div className="relative z-10 mx-auto max-w-[1300px] text-center">
         <p className="mb-4 text-sm font-semibold tracking-[0.28em] text-blue-600">
-          TOOLS & TECHNOLOGIES
+          {content.eyebrow}
         </p>
 
         <h2 className="mx-auto max-w-4xl text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-          Technical SEO Tools
-          <span className="highlight-text block">We Work With</span>
+          {content.title}
+          <span className="highlight-text block">{content.highlightedTitle}</span>
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-          We use trusted SEO platforms, audit systems and technical frameworks
-          to improve crawling, indexing, performance and search visibility.
+          {content.description}
         </p>
 
         <div className="relative mx-auto mt-16 h-[170px] max-w-6xl overflow-hidden">
@@ -88,7 +93,7 @@ export default function TechnicalSeoToolsSection() {
               }`}
             >
               {row.map((tool) => {
-                const Icon = tool.icon;
+                const Icon = resolveIcon(tool.icon);
 
                 return (
                   <div

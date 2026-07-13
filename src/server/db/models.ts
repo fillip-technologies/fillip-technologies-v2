@@ -30,7 +30,7 @@ export type LeadDoc = InferSchemaType<typeof leadSchema>;
 export const LeadModel: Model<LeadDoc> =
   (models.Lead as Model<LeadDoc>) ?? model<LeadDoc>("Lead", leadSchema);
 
-/* ----------------------------------------------------------- admin_users -- */
+
 const adminUserSchema = new Schema(
   {
     email: { type: String, required: true, unique: true, lowercase: true },
@@ -104,8 +104,7 @@ const serviceCategorySchema = new Schema(
   {
     slug: { type: String, required: true, unique: true },
     label: { type: String, required: true },
-    // Which mega menu this category belongs to. Missing = "whatwedo" (the
-    // original What We Do categories); "solutions" powers the Solutions nav.
+   
     group: { type: String, required: false, default: "whatwedo" },
     // Optional blurb shown under the column header (used by the Solutions menu).
     description: { type: String, required: false, default: "" },

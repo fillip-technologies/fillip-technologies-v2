@@ -1,111 +1,212 @@
 import type { MarketingContent } from "./types";
+import { sharedIndustries, sharedTestimonials } from "./_shared";
 
 export const enterpriseSeoContent: MarketingContent = {
   slug: "enterprise-seo",
   hero: {
-    title: "Enterprise SEO That Scales",
-    highlightedTitle: "Organic At Volume",
+    badge: "ENTERPRISE SEO SERVICES",
+    title: "SEO That Scales With",
+    highlightedTitle: "Your Enterprise",
     description:
-      "SEO strategy, automation, and governance for large sites — capturing demand across thousands of pages without breaking what already works.",
+      "Grow organic revenue across thousands of pages with scalable SEO strategy, technical architecture and governance built for large sites.",
+    searchText: "Enterprise SEO Agency",
+    primaryCta: "Get Enterprise Audit",
+    secondaryCta: "View Case Studies",
+    image: { src: "/images/seo-magnifier.png", alt: "Enterprise SEO Illustration" },
   },
-  capabilities: {
-    eyebrow: "WHAT WE OPTIMISE",
-    title: "SEO Built For",
-    highlightedTitle: "Scale & Complexity",
+  challenges: {
+    badge: "ENTERPRISE SEO CHALLENGES",
+    title: "Why Large Sites",
+    highlightedTitle: "Stop Growing",
+    para1:
+      "At scale, small technical and content gaps multiply across thousands of pages — quietly capping the organic growth you should be capturing.",
+    para2:
+      "Enterprise SEO aligns technology, content and teams so search performance scales predictably as your site and business grow.",
+    ctaText: "See How We Scale Organic Growth",
+    items: [
+      {
+        icon: "network",
+        title: "Crawl Budget Waste",
+        description:
+          "Millions of low-value URLs consume crawl budget so important pages are crawled and refreshed less often. Impact: Slower Indexing.",
+      },
+      {
+        icon: "code",
+        title: "Template-Level Errors",
+        description:
+          "A single flawed template propagates SEO issues across every page that uses it. Impact: Site-Wide Ranking Loss.",
+      },
+      {
+        icon: "users",
+        title: "Siloed Teams",
+        description:
+          "SEO, product and engineering working in isolation cause changes that break rankings without warning. Impact: Costly Regressions.",
+      },
+      {
+        icon: "chart",
+        title: "No Scalable Reporting",
+        description:
+          "Without segmented, automated reporting, wins and losses across large sites go unnoticed. Impact: Missed Opportunities.",
+      },
+    ],
+  },
+  services: {
+    eyebrow: "ENTERPRISE SEO SERVICES",
+    title: "Enterprise SEO Solutions",
+    highlightedTitle: "Built To Scale",
     description:
-      "Programmatic templates, workflows, and governance that make SEO repeatable across huge sites.",
-    cards: [
+      "A governance-led SEO programme that scales strategy, technology and content across large, complex websites.",
+    items: [
       {
-        eyebrow: "Scale",
-        title: "Programmatic SEO",
-        description:
-          "Template-driven pages that capture long-tail demand across thousands of queries.",
-        metric: "Long-Tail At Scale",
+        number: "01",
+        title: "Technical SEO At Scale",
+        description: "Crawl, indexation and architecture fixes across large sites.",
+        metric: "Crawl Efficiency",
+        icon: "bot",
       },
       {
-        eyebrow: "Governance",
-        title: "SEO Governance",
-        description:
-          "Standards, QA, and workflows that keep SEO healthy across large, multi-team sites.",
-        metric: "Fewer Regressions",
-      },
-      {
+        number: "02",
         title: "Content Strategy",
-        description:
-          "Topic clusters and editorial systems that build topical authority at volume.",
+        description: "Topic clusters and templates that scale organic coverage.",
+        metric: "Topical Authority",
+        icon: "file",
       },
       {
-        title: "Migrations & Platforms",
-        description:
-          "Risk-managed replatforming and migrations that protect existing rankings.",
-        tags: ["Programmatic", "Governance", "Migrations"],
+        number: "03",
+        title: "Site Architecture",
+        description: "Scalable hierarchy and internal linking for large catalogs.",
+        metric: "URL Structure",
+        icon: "network",
+      },
+      {
+        number: "04",
+        title: "SEO Governance",
+        description: "Standards and workflows that prevent ranking regressions.",
+        metric: "Change Control",
+        icon: "shield",
+      },
+      {
+        number: "05",
+        title: "Migration Management",
+        description: "Protect rankings through replatforming and redesigns.",
+        metric: "Safe Launch",
+        icon: "target",
+      },
+      {
+        number: "06",
+        title: "Enterprise Reporting",
+        description: "Automated, segmented dashboards for stakeholders.",
+        metric: "Visibility",
+        icon: "chart",
       },
     ],
   },
-  process: {
-    title: "Our Enterprise SEO",
-    highlightedTitle: "Process",
+  issues: {
+    badge: "ENTERPRISE SEO AUDIT",
+    title: "Scale Blockers",
+    highlightedTitle: "We Fix",
     description:
-      "A strategic, governance-led approach that scales SEO without introducing risk.",
-    steps: [
-      { title: "Assess", items: ["Site Audit", "Opportunity Sizing", "Stakeholders", "Roadmap"] },
-      { title: "Strategise", items: ["Topic Clusters", "Templates", "Standards", "Prioritisation"] },
-      { title: "Execute", items: ["Programmatic", "Content", "Technical", "Internal Links"] },
-      { title: "Govern", items: ["QA", "Monitoring", "Reporting", "Iteration"] },
-    ],
-  },
-  results: {
-    eyebrow: "ENTERPRISE SEO OUTCOMES",
-    title: "Compounding Organic",
-    highlightedTitle: "Growth At Scale",
-    description:
-      "Systemised SEO turns a large site into a durable, compounding acquisition channel.",
-    stats: [
-      { value: "+150%", label: "Indexed Pages" },
-      { value: "+70%", label: "Organic Revenue" },
-      { value: "+45%", label: "Keyword Coverage" },
-      { value: "-30%", label: "SEO Debt" },
-    ],
-    leftPill: "Scalable",
-    rightPill: "Governed",
-  },
-  whyChooseUs: {
-    eyebrow: "WHY FILLIP",
-    title: "SEO That Scales",
-    highlightedTitle: "Without Chaos",
-    description:
-      "We bring the strategy and governance large organisations need to grow organic safely.",
+      "Enterprise sites lose growth not from a single issue, but from systemic gaps that compound across thousands of pages and multiple teams.",
     items: [
-      { title: "Governance-Led", description: "Standards and QA that keep big sites healthy." },
-      { title: "Programmatic Expertise", description: "We capture long-tail demand at real scale." },
-      { title: "Migration-Safe", description: "Replatforming and migrations without ranking loss." },
-      { title: "Cross-Team Ready", description: "We work with your dev, content, and product teams." },
+      {
+        number: "01",
+        title: "Index Bloat",
+        description:
+          "Thin, duplicate and parameter URLs flood the index and dilute crawl priority.",
+        impact: "Slower Indexing",
+      },
+      {
+        number: "02",
+        title: "Template SEO Debt",
+        description:
+          "Errors baked into shared templates affect every page that uses them.",
+        impact: "Site-Wide Impact",
+      },
+      {
+        number: "03",
+        title: "Internal Link Gaps",
+        description:
+          "Poor internal linking strands important pages and weakens authority flow.",
+        impact: "Lost Ranking Signals",
+      },
+      {
+        number: "04",
+        title: "Content Cannibalization",
+        description:
+          "Overlapping pages compete for the same terms and split ranking potential.",
+        impact: "Reduced Rankings",
+      },
+      {
+        number: "05",
+        title: "Migration Risk",
+        description:
+          "Unmanaged replatforming and redesigns cause avoidable ranking drops.",
+        impact: "Traffic Loss",
+      },
+      {
+        number: "06",
+        title: "No Governance",
+        description:
+          "Without SEO standards, well-meaning changes quietly break rankings.",
+        impact: "Recurring Regressions",
+      },
     ],
   },
+  industries: sharedIndustries,
+  tools: {
+    eyebrow: "TOOLS & PLATFORMS",
+    title: "Enterprise SEO Tools",
+    highlightedTitle: "We Work With",
+    description:
+      "We use enterprise-grade crawlers, analytics and monitoring to manage SEO across large, complex websites.",
+    items: [
+      { name: "Google Search Console", icon: "search" },
+      { name: "Google Analytics 4", icon: "chart" },
+      { name: "Screaming Frog", icon: "bot" },
+      { name: "Botify", icon: "network" },
+      { name: "Ahrefs", icon: "link" },
+      { name: "Semrush", icon: "activity" },
+      { name: "Log File Analysis", icon: "database" },
+      { name: "Schema / JSON-LD", icon: "code" },
+      { name: "XML Sitemaps", icon: "globe" },
+      { name: "BigQuery", icon: "database" },
+      { name: "Rank Monitoring", icon: "gauge" },
+      { name: "SEO Governance", icon: "shield" },
+    ],
+  },
+  testimonials: sharedTestimonials(
+    "See how large organisations scaled organic revenue with governance-led enterprise SEO.",
+  ),
   faq: {
-    title: "Enterprise SEO",
-    highlightedTitle: "Questions",
-    description: "Common questions about enterprise SEO with Fillip Technologies.",
+    badge: "ENTERPRISE SEO FAQS",
+    title: "Frequently Asked Questions",
+    description:
+      "Answers to common questions about enterprise SEO strategy, governance and scaling organic growth.",
     items: [
       {
-        question: "What makes enterprise SEO different?",
+        question: "What is Enterprise SEO?",
         answer:
-          "Scale and complexity. It's about templates, automation, governance, and cross-team workflows — not one-off page tweaks — so SEO stays healthy across thousands of pages.",
+          "Enterprise SEO is SEO strategy, technology and governance designed to scale organic growth across large, complex websites and teams.",
       },
       {
-        question: "Can you handle a site migration?",
+        question: "How is it different from standard SEO?",
         answer:
-          "Yes. We run risk-managed migrations and replatforming with redirect mapping and monitoring to protect existing rankings.",
+          "It emphasises scalability, cross-team workflows, template-level fixes and governance to prevent regressions across thousands of pages.",
       },
       {
-        question: "What is programmatic SEO?",
+        question: "Do you work with our engineering team?",
         answer:
-          "Generating large numbers of high-quality, template-driven pages to capture long-tail search demand — done well, with quality controls to avoid thin content.",
+          "Yes. We deliver prioritised, developer-ready specifications and collaborate directly with product and engineering.",
       },
       {
-        question: "How do you report at enterprise scale?",
+        question: "Can you support a site migration?",
         answer:
-          "We build dashboards segmented by section, template, and team so stakeholders see the metrics that matter to them.",
+          "Yes. We plan and manage migrations end to end to protect rankings through replatforming and redesigns.",
+      },
+      {
+        question: "How do you report at scale?",
+        answer:
+          "We provide automated, segmented dashboards so stakeholders can track organic performance across the whole site.",
       },
     ],
   },

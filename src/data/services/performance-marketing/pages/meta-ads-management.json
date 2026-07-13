@@ -1,0 +1,100 @@
+{
+  "slug": "meta-ads-management",
+  "enabled": true,
+  "serviceKey": "performance-marketing",
+  "seo": {
+    "title": "Facebook & Instagram Ads Management | Fillip Technologies",
+    "description": "Meta (Facebook & Instagram) ads management focused on qualified leads, conversions, and measurable return on ad spend.",
+    "canonical": "/meta-ads-management",
+    "openGraph": {
+      "title": "Facebook & Instagram Ads Management",
+      "description": "Conversion-focused Meta ads campaign management.",
+      "image": "/images/meta.png"
+    },
+    "robots": { "index": true, "follow": true }
+  },
+  "content": {
+    "hero": {
+      "title": "Elevate your brand with",
+      "highlightedTitle": "Meta Ads",
+      "suffix": "Expertise",
+      "description": "Reach the right audiences on Facebook and Instagram and turn attention into qualified leads through strategically managed Meta advertising campaigns.",
+      "cta": "Plan Your Campaign",
+      "metricValue": "2.3M+",
+      "metricLabel": "Trusted by thousands of users across 20+ cities",
+      "image": { "src": "/images/meta.png", "alt": "Meta ads management" }
+    },
+    "philosophy": {
+      "badge": "OUR META ADS PHILOSOPHY",
+      "title": "Outperform Competitors.",
+      "highlightedTitle": "Don't Outspend Them.",
+      "lead": "Most businesses increase advertising budgets when results decline.",
+      "support": "We improve strategy when results matter.",
+      "description": "Successful Meta campaigns are built on audience insights, creative testing, conversion tracking, and continuous optimization, not simply bigger budgets.",
+      "caption": "Smart strategy beats bigger budgets",
+      "metrics": [
+        { "label": "Qualified Leads", "value": "+68%" },
+        { "label": "Average ROAS", "value": "3.8x" }
+      ]
+    },
+    "workflow": {
+      "badge": "HOW META ADS WORK",
+      "title": "From Scroll-Stopping Creative to",
+      "highlightedTitle": "Qualified Conversions.",
+      "description": "We build campaigns around audience insight, thumb-stopping creative, and continuous performance improvement.",
+      "steps": [
+        {
+          "title": "Audience & Creative Strategy",
+          "description": "We identify your best audiences, competitors, offers, and the creative angles most likely to convert.",
+          "image": "/images/research-mockup.png",
+          "alt": "Meta ads audience research"
+        },
+        {
+          "title": "Launch & Optimize",
+          "description": "We launch campaigns, test creative and audiences, and optimize continuously to lower costs and lift conversions.",
+          "image": "/images/launch-mockup.png",
+          "alt": "Meta ads campaign launch",
+          "cta": "Launch Meta Ads"
+        },
+        {
+          "title": "Scale & Grow",
+          "description": "We scale winning creative and audiences strategically to maximize revenue without wasting ad budget.",
+          "image": "/images/scale-mockup.png",
+          "alt": "Meta ads scaling"
+        }
+      ]
+    },
+    "results": {
+      "badge": "META ADS RESULTS",
+      "title": "Growth You Can",
+      "highlightedTitle": "Actually Measure.",
+      "description": "Every campaign decision is optimized around qualified leads, lower acquisition costs, stronger conversion rates, and sustainable growth.",
+      "image": { "src": "/images/results-dashboard.png", "alt": "Meta ads results dashboard" },
+      "metrics": [
+        { "label": "Qualified Leads", "value": "+68%" },
+        { "label": "Average ROAS", "value": "3.8x" },
+        { "label": "Cost Per Lead", "value": "-42%" },
+        { "label": "Revenue Growth", "value": "+127%" }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "META ADS FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about Facebook and Instagram ads management.",
+    "items": [
+      {
+        "question": "Which Meta platforms do you advertise on?",
+        "answer": "We manage ads across Facebook, Instagram, Messenger, and the Meta Audience Network from a single strategy."
+      },
+      {
+        "question": "Do you produce the ad creative?",
+        "answer": "Yes. We produce static and video creative designed to stop the scroll and drive qualified action."
+      },
+      {
+        "question": "How do you improve return on ad spend?",
+        "answer": "Through sharp audience targeting, full-funnel structure, structured creative testing, and clean conversion tracking."
+      }
+    ]
+  }
+}

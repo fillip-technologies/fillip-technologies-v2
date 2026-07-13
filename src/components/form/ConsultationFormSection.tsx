@@ -1,6 +1,9 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import ConsultationForm from "./ConsultationForm";
+
+const emptySubscribe = () => () => {};
 
 export default function ConsultationFormSection({
     showOnlyForm = false,
@@ -9,6 +12,17 @@ export default function ConsultationFormSection({
     showOnlyForm?: boolean;
     className?: string;
 }) {
+    // Render the decorative background video only after hydration. Browser
+    // extensions (e.g. video speed controllers) inject controls into <video>
+    // elements before React hydrates, which otherwise triggers a hydration
+    // mismatch on this subtree. useSyncExternalStore returns false during SSR
+    // and the hydration pass, then true on the client — no effect setState.
+    const mounted = useSyncExternalStore(
+        emptySubscribe,
+        () => true,
+        () => false,
+    );
+
     if (showOnlyForm) {
         return (
             <div className="border border-slate-200/80 bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 shadow-md relative overflow-hidden h-full">
@@ -79,19 +93,22 @@ export default function ConsultationFormSection({
                         </div>
 
                         {/* Video Column */}
-                        <div className="relative min-h-[500px]">
-                            <video
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="absolute inset-0 h-full w-full object-cover"
-                            >
-                                <source
-                                    src="/images/consultation.mp4"
-                                    type="video/mp4"
-                                />
-                            </video>
+                        <div className="relative min-h-[500px]" suppressHydrationWarning>
+                            {mounted && (
+                                <video
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    suppressHydrationWarning
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                >
+                                    <source
+                                        src="/images/consultation.mp4"
+                                        type="video/mp4"
+                                    />
+                                </video>
+                            )}
 
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
 

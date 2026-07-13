@@ -1,6 +1,8 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import {
@@ -59,7 +61,7 @@ export default function TicketingService() {
   return (
     <>
       <Navbar />
-      <main ref={pageRef} className="ticket-page min-h-screen overflow-x-hidden bg-background text-ink">
+      <main className="ticket-page min-h-screen overflow-x-hidden bg-background text-ink">
         <Hero />
         <WhatWeOffer />
         <KeyCapabilities />

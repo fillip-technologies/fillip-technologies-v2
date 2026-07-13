@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import MarketingPage from "@/components/marketing/MarketingPage";
+import ServiceTemplateResolver from "@/components/service-landing/ServiceTemplateResolver";
 import type { MarketingContent } from "@/data/marketing";
 import { getMarketingBySlug } from "@/data/marketing";
+import { getServiceLandingPage } from "@/lib/service-content/repository";
+import { buildLandingPageMetadata } from "@/lib/seo/metadata";
 import {
   getServicePage,
   getServicePageData,
@@ -11,12 +14,27 @@ import {
 // Content is CMS-managed, so render fresh (mirrors the /services pages).
 export const dynamic = "force-dynamic";
 
+// The paid-ads pages under this column reuse the performance-marketing landing
+// layout + content (src/data/services/performance-marketing/*), rather than the
+// rich SEO "marketing" template used by the SEO pages.
+const PERFORMANCE_ADS_SLUGS = new Set([
+  "google-ads-management",
+  "meta-ads-management",
+  "youtube-ads-campaign",
+]);
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+
+  if (PERFORMANCE_ADS_SLUGS.has(slug)) {
+    const landing = await getServiceLandingPage(slug);
+    return landing ? buildLandingPageMetadata(landing) : {};
+  }
+
   const page = await getServicePage(slug);
   if (page) return { title: `${page.title} | Fillip Technologies` };
   return {};
@@ -28,6 +46,13 @@ export default async function MarketingSlugPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  // Paid-ads pages: performance-marketing landing layout + content.
+  if (PERFORMANCE_ADS_SLUGS.has(slug)) {
+    const landing = await getServiceLandingPage(slug);
+    if (!landing) notFound();
+    return <ServiceTemplateResolver page={landing} />;
+  }
 
   // DB-managed page wins; unknown slugs fall back to the static content (zero
   // regression for the seeded pages); truly-unknown slugs 404.

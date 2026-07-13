@@ -29,8 +29,7 @@ const SEED_CATEGORIES = [
   { slug: "challenges-we-solve", label: "Challenges We Solve", sort_order: 6 },
 ];
 
-// The 7 originally-static /services/<slug> pages, now DB-managed (content still
-// falls back to the static `services` data by slug until edited in the CMS).
+
 const SEED_SERVICE_PAGES = [
   { slug: "website-development", title: "Custom Website Development", category_slug: "web-development", sort_order: 1 },
   { slug: "ecommerce-development", title: "E-Commerce Development", category_slug: "web-development", sort_order: 2 },

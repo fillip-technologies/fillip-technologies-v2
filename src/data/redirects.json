@@ -1,2 +1,9 @@
-[]
-
+[
+  {
+    "source": "/technical-seo",
+    "destination": "/marketing/technical-seo",
+    "type": 301,
+    "enabled": true,
+    "note": "Rich SEO layout is now the dynamic /marketing template"
+  }
+]
