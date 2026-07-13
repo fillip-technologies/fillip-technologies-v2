@@ -16,7 +16,7 @@ export default function TrustedBy({ content: raw = {} }: { content?: Record<stri
     headingHighlight: content.headingHighlight ?? "It's Human + AI.",
     description:
       content.description ??
-      "For 13+ years, we've helped businesses navigate technology change. Now, we're combining deep industry expertise with artificial intelligence to unlock the next generation of growth.",
+      "Fillip Technologies empowers everything through innovative approaches. Now, we are integrating technology, creativity, and strategy to help businesses flourish in the digital landscape with quantifiable growth.",
   };
 
   return (

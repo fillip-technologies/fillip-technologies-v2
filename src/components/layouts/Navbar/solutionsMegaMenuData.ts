@@ -56,7 +56,7 @@ export const SOLUTIONS_MENU: SolutionMenuColumn[] = [
         href: "/hardware-solutions/local-area-network",
       },
       {
-        label: "Control Room",
+        label: "Control Room Setup",
         href: "/hardware-solutions/control-room",
       },
       {

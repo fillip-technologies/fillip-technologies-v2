@@ -40,7 +40,8 @@ export default function ContactHero() {
           </h1>
 
           <p className="max-w-2xl mx-auto text-body text-sm md:text-base font-light leading-relaxed">
-            Have a project in mind, need technical advice, or want to discuss a customized solution? Contact our engineering and strategy team below.
+            Your business requires more than an ordinary online presence; it deserves a well-structured strategy, innovation, creativity, and growth. At Fillip Technologies, we are committed to shaping ideas into success stories and helping brands find their true digital potential. 
+
           </p>
         </motion.div>
       </div>

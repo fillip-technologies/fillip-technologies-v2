@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SecuritySurveillance from "@/components/Hardware-solution/SecuritySurveillance";
+import { getSecuritySurveillanceContent } from "@/server/content/solution-page-content";
 
 export const metadata: Metadata = {
   title: "Security & Surveillance Solutions | Fillip Technologies",
@@ -7,10 +8,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/security-surveillance" },
 };
 
-export default function SecuritySurveillancePage() {
+// CMS-managed content — render fresh so edits show without a rebuild.
+export const dynamic = "force-dynamic";
+
+export default async function SecuritySurveillancePage() {
+  const content = await getSecuritySurveillanceContent();
   return (
     <main className="overflow-hidden bg-background text-heading">
-      <SecuritySurveillance />
+      <SecuritySurveillance content={content} />
     </main>
   );
 }

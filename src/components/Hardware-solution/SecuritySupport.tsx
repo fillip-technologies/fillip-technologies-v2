@@ -4,30 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-const solutions = [
-  {
-    image: "/images/hardware/security_hero.png",
-    title: "Smart CCTV Cameras",
-    description:
-      "AI-powered HD & 4K surveillance cameras with motion detection, night vision, remote viewing, and real-time alerts for complete security.",
-    imageAlt: "Outdoor bullet CCTV camera",
-  },
-  {
-    image: "/images/hardware/service_monitoring.png",
-    title: "Video Door Phones",
-    description:
-      "See, speak, and verify visitors from anywhere with smart video door phones featuring two-way communication and mobile app access.",
-    imageAlt: "Smart video door phone system",
-  },
-  {
-    image: "/images/hardware/service_security_system.png",
-    title: "Access Control Systems",
-    description:
-      "Secure entrances with biometric, RFID, and facial recognition access control systems for offices, apartments, schools, and industries.",
-    imageAlt: "Access control and biometric security device",
-  },
-];
+import type { SecuritySupportContent } from "./content";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -51,7 +28,7 @@ const itemVariants: Variants = {
   },
 };
 
-export default function SecuritySupport() {
+export default function SecuritySupport({ content }: { content: SecuritySupportContent }) {
   return (
     <section className="relative overflow-hidden bg-white py-20 text-slate-950 sm:py-20 lg:py-22">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(14,165,233,0.06),transparent_28%),radial-gradient(circle_at_86%_18%,rgba(37,99,235,0.05),transparent_30%)]" />
@@ -66,10 +43,8 @@ export default function SecuritySupport() {
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
           <motion.div variants={itemVariants}>
 
-            <h2 className="mt-6 max-w-2xl text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              CCTV Solutions
-              <br />
-              We Offer
+            <h2 className="mt-6 max-w-2xl whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              {content.heading}
             </h2>
           </motion.div>
 
@@ -77,10 +52,7 @@ export default function SecuritySupport() {
             variants={itemVariants}
             className="max-w-md text-base leading-8 text-slate-500 lg:pt-12"
           >
-            From smart surveillance systems to enterprise-grade security
-            solutions, we provide customized CCTV installations for homes,
-            businesses, industries, and institutions with 24/7 monitoring and
-            remote access.
+            {content.description}
           </motion.p>
         </div>
 
@@ -88,7 +60,7 @@ export default function SecuritySupport() {
           variants={containerVariants}
           className="mt-14 grid gap-7 md:grid-cols-3"
         >
-          {solutions.map((solution) => (
+          {content.solutions.map((solution) => (
             <motion.article
               key={solution.title}
               variants={itemVariants}
@@ -117,7 +89,7 @@ export default function SecuritySupport() {
                   href="/contact"
                   className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition-colors duration-300 hover:text-sky-700"
                 >
-                  Explore Solution
+                  {content.ctaLabel}
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>

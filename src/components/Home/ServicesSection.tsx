@@ -472,7 +472,7 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
                     </motion.div>
                 </AnimatePresence>
 
-                {filteredServices.length > 3 && (
+                {/* {filteredServices.length > 3 && (
                     <div className="mt-6 flex justify-center">
                         <motion.button
                             type="button"
@@ -495,7 +495,7 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
                             )}
                         </motion.button>
                     </div>
-                )}
+                )} */}
             </motion.div>
         </section>
     );

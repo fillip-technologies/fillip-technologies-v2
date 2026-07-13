@@ -14,28 +14,28 @@ const features = [
     icon: Briefcase,
     title: "Strategy- First Thinking",
     description:
-      "Every project starts with understanding your business goals, market opportunities, and customer journey before execution begins.",
+      "We work with you from strategy to execution, knowing your business challenges and goals to develop scalable digital solutions.",
     image: "/images/whychoose-strategy.png",
   },
   {
     icon: Rocket,
     title: "End-to-End Delivery",
     description:
-      "From websites and mobile applications to AI solutions and digital marketing, everything is delivered under one roof.",
+      "Whether it’s consultation, implementation, or ongoing maintenance, we’ve got you covered.",
     image: "/images/whychoose-delivery.png",
   },
   {
     icon: Users,
     title: "Experts Across Disciplines",
     description:
-      "Work with experienced designers, developers, marketers, and strategists focused on measurable business outcomes.",
+      "Working with expert strategists, designers, developers, and marketers specifically for you to generate real and meaningful outcomes.",
     image: "/images/whychoose-experts-v2.png",
   },
   {
     icon: Brain,
     title: "Human + AI Innovation",
     description:
-      "We combine industry expertise with AI-powered workflows to create smarter, faster, and scalable solutions.",
+      "We combine creativity, industry expertise, and AI-powered workflows to provide quicker, smarter, and scalable digital solutions.",
     image: "/images/whychoose-ai.png",
   },
 ];

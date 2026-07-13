@@ -5,36 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const cards = [
-  {
-    image: "/images/hardware/card_house.png",
-    title: "For Homes",
-    description: "Smart security systems designed to keep your family safe and your home protected.",
-  },
-  {
-    image: "/images/hardware/card_office.png",
-    title: "For Offices",
-    description: "Scalable surveillance and access control for teams, visitors, and workplace assets.",
-  },
-  {
-    image: "/images/hardware/card_garage.png",
-    title: "For Warehouses",
-    description: "Wide-area monitoring for inventory, loading zones, operations, and restricted spaces.",
-  },
-  {
-    image: "/images/hardware/card_apartment.png",
-    title: "For Apartments",
-    description: "Connected CCTV and entry security for residents, shared spaces, and property teams.",
-  },
-];
+import type { SecurityPriorityContent } from "./content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 
-export default function SecurityPriority() {
+export default function SecurityPriority({ content }: { content: SecurityPriorityContent }) {
+  const cards = content.cards;
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextIndex = (activeIndex + 1) % cards.length;
@@ -86,19 +65,16 @@ export default function SecurityPriority() {
 
             <motion.h2
               variants={fadeUp}
-              className="text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl"
+              className="whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl"
             >
-              Protecting What
-              <br />
-              Matters Most
+              {content.heading}
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-6 max-w-xs text-sm leading-7 text-slate-500"
             >
-              We deliver intelligent security solutions that adapt to your needs
-              and keep you protected 24/7.
+              {content.description}
             </motion.p>
 
             <motion.div
@@ -109,7 +85,7 @@ export default function SecurityPriority() {
                 href="/contact"
                 className="group inline-flex items-center gap-3 rounded-full bg-[#071126] px-6 py-4 text-sm font-bold text-white shadow-[0_18px_38px_rgba(2,8,23,0.18)] transition-all duration-300 hover:-translate-y-1 hover:bg-sky-700 hover:shadow-[0_24px_48px_rgba(14,165,233,0.22)]"
               >
-                Contact Us
+                {content.ctaLabel}
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
@@ -173,7 +149,7 @@ export default function SecurityPriority() {
                           href="/contact"
                           className="mt-7 flex items-center justify-between text-sm font-bold text-slate-950 transition-colors duration-300 hover:text-sky-700"
                         >
-                          <span>Contact Us</span>
+                          <span>{content.ctaLabel}</span>
                           <span className="flex size-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300">
                             <ArrowRight className="size-4" />
                           </span>
