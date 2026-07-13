@@ -111,7 +111,7 @@ export default function CapabilitiesSection({ content: raw = {} }: { content?: R
         width={1536}
         height={1024}
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[10%] -left-[16%] w-[clamp(380px,78vw,720px)] opacity-85"
+        className="pointer-events-none absolute -bottom-[20%] -left-[16%] w-[clamp(380px,78vw,720px)] opacity-85"
       />
 
 
