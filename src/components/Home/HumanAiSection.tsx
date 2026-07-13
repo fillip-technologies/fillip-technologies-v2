@@ -43,7 +43,7 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
     heading: content.heading ?? "How We Work Today",
     description:
       content.description ??
-      "AI doesn't replace expertise. It removes repetitive work, accelerates execution, and helps teams make better decisions.",
+      "More Than A Company, We Are Your Growth Partner. We support every project with proper research, planning, and business-oriented implementation. By merging human creativity with AI, we accelerate task execution and ultimately drive successful outcomes.",
     beforeLabel: content.beforeLabel ?? "Before",
     afterLabel: content.afterLabel ?? "Today",
     footer: content.footer ?? "The future isn't Human or AI. It's Human × Intelligence.",

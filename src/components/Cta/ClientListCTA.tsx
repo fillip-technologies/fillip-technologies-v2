@@ -15,7 +15,7 @@ export default function ClientListCTA({ content: raw = {} }: { content?: Record<
   const content = raw as ClientListCTAContent;
   const c = {
     eyebrow: content.eyebrow ?? "Your Next Step",
-    heading: content.heading ?? "Can We Add Your Business To Our Client List Next?",
+    heading: content.heading ?? "Don’t Know Which Solution Would Fit Your Business Needs?",
     description:
       content.description ??
       "Join startups, growing businesses, and enterprises that trust Fillip Technologies to build, scale, and innovate with confidence. The next business we help grow could be yours.",
