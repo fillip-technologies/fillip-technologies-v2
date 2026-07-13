@@ -12,6 +12,7 @@ import {
   Palette,
   Search,
   Puzzle,
+  BriefcaseBusiness,
 } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
@@ -146,6 +147,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         description: "Edit each industry page (hero, challenges, timeline, FAQs…).",
         icon: Building2,
         accent: "teal",
+      },
+      {
+        href: "/admin/cms/pages/careers",
+        label: "Careers",
+        description: "Edit the /others/carrer page — hero, culture values and the open roles list.",
+        icon: BriefcaseBusiness,
+        accent: "amber",
       },
       {
         href: "/admin/cms/nav",

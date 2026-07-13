@@ -33,16 +33,20 @@ export default function CareerApplicationForm({ roles }: CareerApplicationFormPr
   const [form, setForm] = useState(initialForm);
   const [resume, setResume] = useState<File | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [feedback, setFeedback] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const update = (field: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: "" }));
-    setSubmitted(false);
+    setStatus("idle");
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (submitting) return;
+    const formEl = event.currentTarget;
     const nextErrors: Record<string, string> = {};
 
     if (!form.fullName.trim()) nextErrors.fullName = "Full name is required.";
@@ -56,11 +60,44 @@ export default function CareerApplicationForm({ roles }: CareerApplicationFormPr
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
 
-    console.log({ ...form, resume: resume?.name });
-    setSubmitted(true);
-    setForm(initialForm);
-    setResume(null);
-    event.currentTarget.reset();
+    const payload = new FormData();
+    Object.entries(form).forEach(([key, value]) => payload.append(key, value));
+    if (resume) payload.append("resume", resume);
+
+    setSubmitting(true);
+    setStatus("idle");
+    try {
+      const res = await fetch("/api/careers", { method: "POST", body: payload });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        message?: string;
+        errors?: Record<string, string[]>;
+      };
+
+      if (!res.ok || !data.ok) {
+        if (data.errors) {
+          setErrors(
+            Object.fromEntries(
+              Object.entries(data.errors).map(([field, msgs]) => [field, msgs?.[0] ?? "Invalid value."])
+            )
+          );
+        }
+        setStatus("error");
+        setFeedback(data.message ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      setFeedback("Thanks! Your application has been received. Our team will be in touch.");
+      setForm(initialForm);
+      setResume(null);
+      formEl.reset();
+    } catch {
+      setStatus("error");
+      setFeedback("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const fieldClass = "mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10";
@@ -88,8 +125,9 @@ export default function CareerApplicationForm({ roles }: CareerApplicationFormPr
             <div className="sm:col-span-2"><Field label="Why would you like to join Fillip Technologies?"><textarea rows={5} value={form.message} onChange={(e) => update("message", e.target.value)} className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Tell us about your interests, strengths and goals." /></Field></div>
             <div className="sm:col-span-2"><label className="block text-sm font-semibold text-slate-700">Resume</label><label className="mt-2 flex cursor-pointer items-center justify-between gap-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-5 py-5 transition hover:border-primary/50 hover:bg-primary/[0.03]"><span className="flex items-center gap-3"><UploadCloud className="size-5 text-primary" /><span className="text-sm text-slate-600">{resume?.name ?? "Choose your resume"}</span></span><span className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-primary shadow-sm">Browse</span><input type="file" accept=".pdf,.doc,.docx" className="sr-only" onChange={(e) => { setResume(e.target.files?.[0] ?? null); setErrors((current) => ({ ...current, resume: "" })); }} /></label>{errors.resume ? <p className="mt-2 text-sm text-red-600">{errors.resume}</p> : null}</div>
           </div>
-          {submitted ? <p className="mt-6 rounded-xl bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800">Application details validated. Connect a careers email, ATS, or upload API before publishing to receive applications and resume files.</p> : null}
-          <button type="submit" className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:-translate-y-0.5">Submit application <ArrowRight className="size-4" /></button>
+          {status === "success" ? <p className="mt-6 rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">{feedback}</p> : null}
+          {status === "error" ? <p className="mt-6 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{feedback}</p> : null}
+          <button type="submit" disabled={submitting} className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60">{submitting ? "Submitting…" : "Submit application"} <ArrowRight className="size-4" /></button>
         </form>
       </div>
     </section>

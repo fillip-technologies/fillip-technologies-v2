@@ -38,6 +38,14 @@ const SOURCE_LABELS: Record<string, string> = {
   "get-a-quote-calculator": "Quote Estimate",
   "Consultation Form": "Consultation Request",
   "Contact Page": "Contact Message",
+  "Careers Application": "Job Application",
+};
+
+/** A file to attach to the notification email (e.g. an applicant's resume). */
+export type MailAttachment = {
+  filename: string;
+  content: Buffer;
+  contentType?: string;
 };
 
 function labelFor(source: string | null): string {
@@ -85,8 +93,15 @@ function buildHtml(lead: Lead, label: string): string {
   </div>`;
 }
 
-/** Notify the team about a newly created lead. No-ops if SMTP isn't configured. */
-export async function sendLeadNotification(lead: Lead): Promise<void> {
+/**
+ * Notify the team about a newly created lead. No-ops if SMTP isn't configured.
+ * Optional `attachments` are passed straight to nodemailer (used to attach an
+ * applicant's resume to careers submissions).
+ */
+export async function sendLeadNotification(
+  lead: Lead,
+  attachments: MailAttachment[] = []
+): Promise<void> {
   const transporter = getTransporter();
   if (!transporter) {
     console.warn("Lead notification skipped: SMTP not configured.");
@@ -109,5 +124,6 @@ export async function sendLeadNotification(lead: Lead): Promise<void> {
     replyTo: lead.email,
     subject: `New ${label}: ${lead.name}`,
     html: buildHtml(lead, label),
+    attachments: attachments.length ? attachments : undefined,
   });
 }

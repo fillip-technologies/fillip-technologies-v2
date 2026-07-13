@@ -40,7 +40,9 @@ export async function savePageSection(
 
   try {
     await upsertContent(`page.${groupId}.${section.id}`, clean);
-    revalidatePath(`/${groupId}`);
+    // Most About-page group ids match their route slug (/our-story, …); careers
+    // lives at /others/carrer, so map it explicitly.
+    revalidatePath(groupId === "careers" ? "/others/carrer" : `/${groupId}`);
     return { ok: true, message: "Saved. Changes are live on the page." };
   } catch (err) {
     console.error("savePageSection failed:", err);
