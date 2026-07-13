@@ -1,0 +1,197 @@
+{
+  "category": {
+    "title": "Business Solutions",
+    "description": "Digital business solutions for booking, messaging, customer communication, and automation.",
+    "basePath": "/solutions",
+    "items": [
+      { "label": "Ticket Booking Solution", "slug": "ticket-booking", "href": "/solutions/ticket-booking" },
+      { "label": "SMS Communication Solution", "slug": "sms-communication", "href": "/solutions/sms-communication" },
+      { "label": "WhatsApp Business Solution", "slug": "whatsapp-business", "href": "/solutions/whatsapp-business" }
+    ]
+  },
+  "pages": [
+    {
+      "slug": "ticket-booking",
+      "label": "Ticket Booking",
+      "seo": {
+        "title": "Ticket Booking Solution | Fillip Technologies",
+        "description": "Custom ticket booking platforms for events, travel, and venues - real-time seat selection, secure payments, and automated confirmations."
+      },
+      "hero": {
+        "badge": "Business Solution",
+        "title": "Ticket Booking Systems",
+        "highlightedTitle": "Built To Sell Out",
+        "description": "Custom booking platforms for events, travel, and venues - real-time availability, secure payments, and instant confirmations that scale on your busiest day.",
+        "image": "/images/case-bg.jpg"
+      },
+      "solutions": [
+        {
+          "title": "Real-Time Seat Selection",
+          "description": "Interactive seat maps with live availability so customers pick exactly where they sit, with no double-booking.",
+          "image": "/images/case-1.jpg"
+        },
+        {
+          "title": "Secure Payments",
+          "description": "Integrated, PCI-compliant payment gateways with support for cards, UPI, and wallets for frictionless checkout.",
+          "image": "/images/case-2.jpg"
+        },
+        {
+          "title": "QR & E-Tickets",
+          "description": "Automated e-tickets with QR codes for fast, contactless entry and easy on-site validation.",
+          "image": "/images/case-3.jpg"
+        },
+        {
+          "title": "Admin & Analytics",
+          "description": "A dashboard to manage events, pricing, and inventory with real-time sales and attendance insights.",
+          "image": "/images/case-4.jpg"
+        }
+      ],
+      "benefits": [
+        "Scales On Peak Sale Days",
+        "Secure, Reliable Payments",
+        "Fewer No-Shows",
+        "Full Sales Visibility"
+      ],
+      "faqs": [
+        {
+          "question": "Can you handle high-traffic on-sale moments?",
+          "answer": "Yes. We build booking systems that scale to handle sudden spikes in demand so your platform stays fast and reliable when tickets go live."
+        },
+        {
+          "question": "Which payment methods are supported?",
+          "answer": "We integrate secure gateways supporting cards, UPI, net banking, and popular wallets, tailored to your market and audience."
+        },
+        {
+          "question": "Can it integrate with our existing systems?",
+          "answer": "Yes. We integrate with your CRM, email/SMS providers, and accounting tools so bookings flow into the systems you already use."
+        },
+        {
+          "question": "Do customers get instant confirmation?",
+          "answer": "Absolutely. Customers receive instant e-tickets with QR codes by email and SMS the moment payment is confirmed."
+        }
+      ]
+    },
+    {
+      "slug": "sms-communication",
+      "label": "SMS Communication",
+      "seo": {
+        "title": "SMS Communication Solution | Fillip Technologies",
+        "description": "Bulk SMS, OTP, and automated messaging platforms - reach customers instantly with reliable delivery, APIs, and campaign analytics."
+      },
+      "hero": {
+        "badge": "Business Solution",
+        "title": "SMS Communication That",
+        "highlightedTitle": "Reaches Everyone",
+        "description": "Bulk SMS, OTP, and automated messaging built on reliable delivery - reach customers instantly with campaigns, alerts, and two-way conversations at scale.",
+        "image": "/images/TECH-BG.png"
+      },
+      "solutions": [
+        {
+          "title": "Bulk SMS Campaigns",
+          "description": "Send promotions, alerts, and updates to thousands of customers in seconds with high deliverability.",
+          "image": "/images/case-2.jpg"
+        },
+        {
+          "title": "OTP & Verification",
+          "description": "Fast, reliable one-time passwords for secure logins, transactions, and account verification.",
+          "image": "/images/case-3.jpg"
+        },
+        {
+          "title": "Automated Alerts",
+          "description": "Trigger transactional messages - order updates, reminders, and notifications - automatically via API.",
+          "image": "/images/case-4.jpg"
+        },
+        {
+          "title": "Reporting & APIs",
+          "description": "Developer-friendly APIs plus delivery reports and campaign analytics to measure every send.",
+          "image": "/images/case-5.jpg"
+        }
+      ],
+      "benefits": [
+        "High Delivery Rates",
+        "Instant OTP Delivery",
+        "Simple API Integration",
+        "Detailed Analytics"
+      ],
+      "faqs": [
+        {
+          "question": "How reliable is message delivery?",
+          "answer": "We use established carrier routes and smart routing to maximise delivery rates and speed, with real-time delivery reports for full visibility."
+        },
+        {
+          "question": "Do you provide an API for developers?",
+          "answer": "Yes. We offer well-documented REST APIs so you can send OTPs, alerts, and campaigns directly from your applications."
+        },
+        {
+          "question": "Can we send transactional and promotional messages?",
+          "answer": "Yes. We support both transactional (OTP, alerts) and promotional messaging, configured to comply with local regulations."
+        },
+        {
+          "question": "Is two-way messaging supported?",
+          "answer": "We can enable two-way SMS so customers reply and interact, with responses routed into your systems or team inbox."
+        }
+      ]
+    },
+    {
+      "slug": "whatsapp-business",
+      "label": "WhatsApp Business",
+      "seo": {
+        "title": "WhatsApp Business Solution | Fillip Technologies",
+        "description": "WhatsApp Business API, chatbots, and broadcast campaigns - engage customers with automated conversations, notifications, and support at scale."
+      },
+      "hero": {
+        "badge": "Business Solution",
+        "title": "WhatsApp Business That",
+        "highlightedTitle": "Talks & Converts",
+        "description": "WhatsApp Business API, chatbots, and broadcasts that meet customers where they already are - automated conversations, notifications, and support at scale.",
+        "image": "/images/background.png"
+      },
+      "solutions": [
+        {
+          "title": "WhatsApp Business API",
+          "description": "Official API setup with verified business profile, so you message customers reliably and at scale.",
+          "image": "/images/case-4.jpg"
+        },
+        {
+          "title": "Chatbots & Automation",
+          "description": "Automated flows that answer FAQs, qualify leads, and route conversations to your team instantly.",
+          "image": "/images/case-5.jpg"
+        },
+        {
+          "title": "Broadcast Campaigns",
+          "description": "Compliant, template-based broadcasts for offers, updates, and re-engagement to opted-in audiences.",
+          "image": "/images/case-7.jpg"
+        },
+        {
+          "title": "CRM Integration",
+          "description": "Connect WhatsApp to your CRM and helpdesk so every conversation is tracked and actioned.",
+          "image": "/images/case-1.jpg"
+        }
+      ],
+      "benefits": [
+        "Higher Open Rates",
+        "24/7 Automated Replies",
+        "Verified Business Profile",
+        "Seamless CRM Handoff"
+      ],
+      "faqs": [
+        {
+          "question": "What is the WhatsApp Business API?",
+          "answer": "It is the official platform for businesses to message customers at scale with automation, verified profiles, and template messaging - beyond what the standard app allows."
+        },
+        {
+          "question": "Can you build a chatbot for us?",
+          "answer": "Yes. We design and build automated conversation flows that handle FAQs, qualify leads, and hand off to a human agent when needed."
+        },
+        {
+          "question": "Are broadcast messages compliant?",
+          "answer": "Yes. We use approved message templates and opted-in audiences to keep campaigns compliant with WhatsApp's policies and protect your number."
+        },
+        {
+          "question": "Does it integrate with our CRM?",
+          "answer": "Absolutely. We integrate WhatsApp with your CRM and helpdesk so conversations and leads flow into your existing workflows."
+        }
+      ]
+    }
+  ]
+}

@@ -1,17 +1,31 @@
 import type { HardwareSolutionPage } from "@/data/hardware-solutions";
 import { hardwareSolutionPages } from "@/data/hardware-solutions";
-import { ticketBookingContent } from "./ticketBooking";
-import { smsCommunicationContent } from "./smsCommunication";
-import { whatsappBusinessContent } from "./whatsappBusiness";
+import businessSolutionsData from "./solutions.json";
 
 export type SolutionPageContent = HardwareSolutionPage;
 
-/** The Business Solutions pages (shared "solution" page shape). */
-export const BUSINESS_SOLUTION_CONTENT: Record<string, SolutionPageContent> = {
-  "ticket-booking": ticketBookingContent,
-  "sms-communication": smsCommunicationContent,
-  "whatsapp-business": whatsappBusinessContent,
+type BusinessSolutionsData = {
+  category: {
+    title: string;
+    description: string;
+    basePath: string;
+    items: {
+      label: string;
+      slug: string;
+      href: string;
+    }[];
+  };
+  pages: SolutionPageContent[];
 };
+
+export const businessSolutions = businessSolutionsData as BusinessSolutionsData;
+export const businessSolutionPages = businessSolutions.pages;
+export const businessSolutionMenuItems = businessSolutions.category.items;
+
+/** The Business Solutions pages (shared "solution" page shape). */
+export const BUSINESS_SOLUTION_CONTENT: Record<string, SolutionPageContent> = Object.fromEntries(
+  businessSolutionPages.map((page) => [page.slug, page])
+);
 
 /**
  * All seeded Solution pages (hardware + business), keyed by slug. Drives the CMS

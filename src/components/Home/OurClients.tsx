@@ -353,6 +353,9 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
       {/* Background */}
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        
+        <div className="absolute inset-0 bg-white/75" />
+
         <div
           className="
             absolute
@@ -422,7 +425,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
           <div
             role="tablist"
             aria-label="Client categories"
-            className="flex flex-wrap justify-center gap-2 rounded-full border border-slate-100 bg-slate-50/50 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md"
+            className="flex flex-wrap justify-center gap-2 rounded-full border border-slate-100 bg-white/80 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-md"
           >
             {categoriesConfig.map((cat) => {
               const isActive = activeCategory === cat.id;
@@ -493,7 +496,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
                           alt={logo.alt}
                           width={160}
                           height={64}
-                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-80`}
+                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-90`}
                         />
                       </div>
                     ))}
@@ -521,7 +524,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
                           alt={logo.alt}
                           width={160}
                           height={64}
-                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-80`}
+                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-90`}
                         />
                       </div>
                     ))}
@@ -544,7 +547,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
                       alt={logo.alt}
                       width={160}
                       height={64}
-                      className={`${getLogoHeightClass(logo.src, true)} w-auto object-contain opacity-80 transition-all duration-300 group-hover:opacity-100`}
+                      className={`${getLogoHeightClass(logo.src, true)} w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100`}
                     />
                   </motion.div>
                 ))}
@@ -560,7 +563,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
                 onClick={() => setIsExpanded((prev) => !prev)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3 text-sm font-semibold text-slate-700 shadow-soft transition-all duration-300 hover:border-primary/30 hover:bg-slate-50 hover:text-primary hover:shadow-[0_12px_30px_rgba(2,66,162,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/85 px-7 py-3 text-sm font-semibold text-slate-700 shadow-soft backdrop-blur-md transition-all duration-300 hover:border-primary/30 hover:bg-white hover:text-primary hover:shadow-[0_12px_30px_rgba(2,66,162,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 aria-expanded={isExpanded}
               >
                 <span>{isExpanded ? "View Less" : `View More (${filteredLogos.length - itemsPerPage} More)`}</span>
