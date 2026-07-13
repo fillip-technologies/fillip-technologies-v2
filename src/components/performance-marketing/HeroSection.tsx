@@ -89,8 +89,8 @@ export default function HeroSection({ data }: HeroSectionProps) {
           {/* Meta Logo */}
           <div className="absolute left-1/2 top-[20px] z-10 -translate-x-1/2">
             <Image
-              src={data?.image.src ?? "/images/meta.png"}
-              alt={data?.image.alt ?? "Meta"}
+              src={data?.image?.src || "/images/meta.png"}
+              alt={data?.image?.alt || "Meta"}
               width={290}
               height={290}
               priority

@@ -6,10 +6,13 @@ import type { PerformancePhilosophyContent } from "@/lib/service-content/types";
 type Props = { data?: PerformancePhilosophyContent };
 
 export default function PerformancePhilosophySection({ data }: Props) {
-  const metrics = data?.metrics ?? [
+  const fallback = [
     { label: "Qualified Leads", value: "+68%" },
     { label: "Average ROAS", value: "3.8x" },
   ];
+  const metrics = data?.metrics?.length ? data.metrics : fallback;
+  const metric0 = metrics[0] ?? { label: "", value: "" };
+  const metric1 = metrics[1] ?? metric0;
 
   return (
     <section className="relative overflow-hidden py-24 lg:py-22">
@@ -31,7 +34,7 @@ export default function PerformancePhilosophySection({ data }: Props) {
           </div>
           <div className="relative flex justify-center">
             <div className="absolute left-0 top-10 z-20 rounded-3xl border border-[var(--border)] bg-white px-5 py-4 shadow-[0_25px_60px_rgba(15,23,42,0.08)]">
-              <div className="text-xs text-[var(--body)]">{metrics[0].label}</div><div className="mt-1 text-3xl font-bold text-[var(--heading)]">{metrics[0].value}</div>
+              <div className="text-xs text-[var(--body)]">{metric0.label}</div><div className="mt-1 text-3xl font-bold text-[var(--heading)]">{metric0.value}</div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 rounded-full blur-[100px]" style={{ background: "var(--glow-primary)" }} />
@@ -39,7 +42,7 @@ export default function PerformancePhilosophySection({ data }: Props) {
               <div className="mx-auto mt-2 w-fit rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-medium text-[var(--heading)] shadow-sm">{data?.caption ?? "Smart strategy beats bigger budgets"}</div>
             </div>
             <div className="absolute bottom-10 right-0 z-20 rounded-3xl border border-[var(--border)] bg-white px-5 py-4 shadow-[0_25px_60px_rgba(15,23,42,0.08)]">
-              <div className="text-xs text-[var(--body)]">{metrics[1].label}</div><div className="mt-1 text-3xl font-bold text-[var(--heading)]">{metrics[1].value}</div>
+              <div className="text-xs text-[var(--body)]">{metric1.label}</div><div className="mt-1 text-3xl font-bold text-[var(--heading)]">{metric1.value}</div>
             </div>
           </div>
         </div>

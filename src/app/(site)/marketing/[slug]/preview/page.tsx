@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import MarketingPage from "@/components/marketing/MarketingPage";
+import PerformanceMarketingCmsPage from "@/components/marketing/PerformanceMarketingCmsPage";
 import ServiceTemplateResolver from "@/components/service-landing/ServiceTemplateResolver";
 import type { MarketingContent } from "@/data/marketing";
+import type { PerformanceMarketingCmsContent } from "@/data/performance-marketing-cms";
 import { getServiceLandingPage } from "@/lib/service-content/repository";
 import {
   getServicePage,
@@ -39,9 +41,25 @@ export default async function MarketingPreviewPage({
   }
 
   const page = await getServicePage(slug);
-  if (!page || page.template !== "marketing") notFound();
+  if (!page || (page.template !== "marketing" && page.template !== "performance-marketing")) {
+    notFound();
+  }
 
-  const data = (await getServicePageData(slug, "marketing")) as MarketingContent;
+  const body =
+    page.template === "performance-marketing" ? (
+      <PerformanceMarketingCmsPage
+        data={
+          (await getServicePageData(
+            slug,
+            "performance-marketing"
+          )) as PerformanceMarketingCmsContent
+        }
+      />
+    ) : (
+      <MarketingPage
+        data={(await getServicePageData(slug, "marketing")) as MarketingContent}
+      />
+    );
 
   return (
     <>
@@ -53,7 +71,7 @@ export default async function MarketingPreviewPage({
           Back to editor
         </Link>
       </div>
-      <MarketingPage data={data} />
+      {body}
     </>
   );
 }

@@ -10,7 +10,7 @@ const defaults = [
 ];
 
 export default function HowItWorksSection({ data }: { data?: PerformanceWorkflowContent }) {
-  const steps = data?.steps ?? defaults;
+  const steps = data?.steps?.length ? data.steps : defaults;
   const styles = ["-rotate-2 border-[var(--border)]", "border-[var(--primary)]", "rotate-2 border-[var(--border)]"];
   return (
     <section className="relative overflow-hidden py-24 lg:py-32">
@@ -20,7 +20,7 @@ export default function HowItWorksSection({ data }: { data?: PerformanceWorkflow
           <p className="max-w-xl text-lg leading-relaxed text-[var(--body)]">{data?.description ?? "From audience research to campaign scaling, our team handles every step needed to generate qualified leads and measurable business growth."}</p>
         </div>
         <div className="grid gap-8 lg:grid-cols-3">
-          {steps.map((step, index) => <div key={step.title} className={`${styles[index]} rounded-[36px] border bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-2 hover:rotate-0`}><div className="overflow-hidden rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-4"><Image src={step.image} alt={step.alt} width={600} height={400} className="h-[260px] w-full rounded-2xl object-cover" /></div><div className="mt-8"><h3 className="text-2xl font-semibold text-[var(--heading)]">{step.title}</h3><p className="mt-4 leading-relaxed text-[var(--body)]">{step.description}</p>{step.cta ? <button className="mt-6 rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-medium text-white">{step.cta}</button> : null}</div></div>)}
+          {steps.map((step, index) => <div key={step.title} className={`${styles[index]} rounded-[36px] border bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-2 hover:rotate-0`}><div className="overflow-hidden rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-4"><Image src={step.image || "/images/research-mockup.png"} alt={step.alt || step.title} width={600} height={400} className="h-[260px] w-full rounded-2xl object-cover" /></div><div className="mt-8"><h3 className="text-2xl font-semibold text-[var(--heading)]">{step.title}</h3><p className="mt-4 leading-relaxed text-[var(--body)]">{step.description}</p>{step.cta ? <button className="mt-6 rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-medium text-white">{step.cta}</button> : null}</div></div>)}
         </div>
       </div>
     </section>

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import MarketingPage from "@/components/marketing/MarketingPage";
+import PerformanceMarketingCmsPage from "@/components/marketing/PerformanceMarketingCmsPage";
 import ServiceTemplateResolver from "@/components/service-landing/ServiceTemplateResolver";
 import type { MarketingContent } from "@/data/marketing";
 import { getMarketingBySlug } from "@/data/marketing";
+import type { PerformanceMarketingCmsContent } from "@/data/performance-marketing-cms";
 import { getServiceLandingPage } from "@/lib/service-content/repository";
 import { buildLandingPageMetadata } from "@/lib/seo/metadata";
 import {
@@ -58,8 +60,19 @@ export default async function MarketingSlugPage({
   // regression for the seeded pages); truly-unknown slugs 404.
   const page = await getServicePage(slug);
   if (page) {
-    if (page.template !== "marketing") notFound(); // lives under another route
+    if (page.template !== "marketing" && page.template !== "performance-marketing") {
+      notFound(); // lives under another route
+    }
     if (!page.published) notFound(); // drafts are visible only via /preview
+
+    if (page.template === "performance-marketing") {
+      const data = (await getServicePageData(
+        slug,
+        "performance-marketing"
+      )) as PerformanceMarketingCmsContent;
+      return <PerformanceMarketingCmsPage data={data} />;
+    }
+
     const data = (await getServicePageData(slug, "marketing")) as MarketingContent;
     return <MarketingPage data={data} />;
   }
