@@ -57,7 +57,7 @@ export default function NavDropdownMenu({
     >
       <div
         className="
-          max-h-[calc(100vh-96px)] overflow-y-auto rounded-lg border border-card/70 bg-card/95 px-4 py-2.5 sm:px-5
+          max-h-[calc(100vh-96px)] overflow-y-auto rounded-lg border border-card/70 bg-card/95 px-3 py-2 sm:px-4
           text-heading shadow-[0_22px_64px_color-mix(in_srgb,var(--heading)_16%,transparent),inset_0_1px_0_color-mix(in_srgb,var(--card)_75%,transparent)]
           backdrop-blur-xl
         "

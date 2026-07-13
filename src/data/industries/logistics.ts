@@ -8,7 +8,7 @@ export const logisticsData = {
     "highlightedTitle": "Move More Business.",
     "description": "We help logistics, transport, warehousing, and supply chain companies improve visibility, communicate reliability, and generate more B2B enquiries.",
     "primaryCta": {
-      "label": "Get Free Growth Audit",
+      "label": "Get Growth Audit",
       "href": "/contact"
     },
     "secondaryCta": {
@@ -29,28 +29,28 @@ export const logisticsData = {
     "badge": "Challenges We Solve",
     "title": "Why Logistics Companies Struggle to Win Leads Online",
     "description": "B2B buyers look for reliability, coverage, and proof. If your services are unclear or hard to find, competitors win the enquiry.",
-    "flowerImage": "",
+    "flowerImage": "/images/flower.png",
     "items": [
       {
         "badge": "Service Clarity",
         "title": "Unclear Logistics Capabilities",
         "description": "When service areas, fleet strengths, warehousing, delivery models, or industry expertise are unclear, buyers hesitate to contact you.",
         "impact": "Fewer B2B Enquiries",
-        "image": ""
+        "image": "/images/healthcare/problem-1.png"
       },
       {
         "badge": "Search Visibility",
         "title": "Low Route & Service Visibility",
         "description": "Companies searching for transport, courier, warehousing, or supply chain partners may not find your business first.",
         "impact": "Missed Contract Opportunities",
-        "image": ""
+        "image": "/images/healthcare/problem-2.png"
       },
       {
         "badge": "Buyer Trust",
         "title": "Weak Proof of Reliability",
         "description": "Without strong case studies, service pages, certifications, and operational proof, buyers may choose more visible competitors.",
         "impact": "Lower Conversion Confidence",
-        "image": ""
+        "image": "/images/healthcare/problem-3.png"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const logisticsData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected logistics growth system to communicate reliability, improve discovery, and generate B2B enquiries.",
     "image": {
-      "src": "",
+      "src": "/images/funel-stack.png",
       "alt": "Logistics Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const logisticsData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "",
+      "src": "/images/hourglass.png",
       "alt": "Logistics Growth"
     },
     "titlePrefix": "Businesses Need Logistics",
@@ -179,25 +179,25 @@ export const logisticsData = {
       {
         "name": "Transport Company Owner",
         "role": "Fleet Services",
-        "image": "",
+        "image": "/images/testimonials/dr-1.jpg",
         "review": "The service pages made our capabilities clearer and helped us receive better enquiries."
       },
       {
         "name": "Warehouse Operator",
         "role": "Storage & Fulfillment",
-        "image": "",
+        "image": "/images/testimonials/dr-2.jpg",
         "review": "Improved search visibility helped more businesses discover our warehousing services."
       },
       {
         "name": "Logistics Manager",
         "role": "Supply Chain Services",
-        "image": "",
+        "image": "/images/testimonials/dr-3.jpg",
         "review": "The content strategy helped us explain reliability and service coverage more clearly."
       },
       {
         "name": "Courier Brand Lead",
         "role": "Delivery Network",
-        "image": "",
+        "image": "/images/testimonials/dr-4.jpg",
         "review": "Campaigns and landing pages gave us a clearer way to generate and track enquiries."
       }
     ]

@@ -8,7 +8,7 @@ export const healthcareData = {
     "highlightedTitle": "Attract More Patients.",
     "description": "We help hospitals, clinics, and healthcare providers increase visibility, build patient trust, and generate more appointment bookings through Website Design, SEO, and Social Media Marketing.",
     "primaryCta": {
-      "label": "Get Free Growth Audit",
+      "label": "Get Growth Audit",
       "href": "/contact"
     },
     "secondaryCta": {

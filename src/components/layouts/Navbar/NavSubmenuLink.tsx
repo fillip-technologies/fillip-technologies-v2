@@ -23,7 +23,7 @@ function NavSubmenuLink({
   const linkLabel = item?.label ?? label;
   const linkHref = item?.href ?? href;
   const sizeClass = variant === "mobile" ? "text-sm leading-6" : "text-[15px] leading-6";
-  const paddingClass = variant === "dropdown" ? "py-2.5" : "py-0.5";
+  const paddingClass = variant === "dropdown" ? "py-2" : "py-0.5";
 
   if (!linkLabel) return null;
 

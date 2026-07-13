@@ -8,7 +8,7 @@ export const realEstateData = {
     "highlightedTitle": "Generate More Leads.",
     "description": "We help real estate developers, brokers, consultants, and property brands improve project visibility, build buyer trust, and generate qualified property enquiries.",
     "primaryCta": {
-      "label": "Get Free Growth Audit",
+      "label": "Get Growth Audit",
       "href": "/contact"
     },
     "secondaryCta": {
@@ -29,28 +29,28 @@ export const realEstateData = {
     "badge": "Challenges We Solve",
     "title": "Why Real Estate Brands Miss Qualified Buyers Online",
     "description": "Property buyers compare options carefully. Weak project presentation, poor visibility, and unclear enquiry journeys reduce buyer confidence.",
-    "flowerImage": "",
+    "flowerImage": "/images/flower.png",
     "items": [
       {
         "badge": "Project Experience",
         "title": "Weak Property Presentation",
         "description": "If project details, location benefits, pricing cues, and enquiry options are unclear, buyers move to competing listings.",
         "impact": "Lower Buyer Interest",
-        "image": ""
+        "image": "/images/healthcare/problem-1.png"
       },
       {
         "badge": "Search Visibility",
         "title": "Low Location Rankings",
         "description": "When buyers search by property type, budget, or location, low visibility means your projects are not considered.",
         "impact": "Missed High-Intent Leads",
-        "image": ""
+        "image": "/images/healthcare/problem-2.png"
       },
       {
         "badge": "Lead Quality",
         "title": "Poor Enquiry Funnels",
         "description": "Generic campaigns and weak landing pages often generate low-quality leads instead of serious buyer enquiries.",
         "impact": "Wasted Sales Effort",
-        "image": ""
+        "image": "/images/healthcare/problem-3.png"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const realEstateData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected real estate growth system to showcase properties, build trust, and generate qualified buyer enquiries.",
     "image": {
-      "src": "",
+      "src": "/images/funel-stack.png",
       "alt": "Real Estate Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const realEstateData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "",
+      "src": "/images/hourglass.png",
       "alt": "Real Estate Growth"
     },
     "titlePrefix": "Property Buyers Are Comparing",
@@ -179,25 +179,25 @@ export const realEstateData = {
       {
         "name": "Real Estate Developer",
         "role": "Residential Projects",
-        "image": "",
+        "image": "/images/testimonials/dr-1.jpg",
         "review": "The project pages became clearer and helped us receive more relevant buyer enquiries."
       },
       {
         "name": "Property Consultant",
         "role": "Sales & Leasing",
-        "image": "",
+        "image": "/images/testimonials/dr-2.jpg",
         "review": "Campaign quality improved after the landing pages were aligned with buyer intent."
       },
       {
         "name": "Brokerage Owner",
         "role": "Real Estate Advisory",
-        "image": "",
+        "image": "/images/testimonials/dr-3.jpg",
         "review": "Search visibility and content helped more people discover our property services."
       },
       {
         "name": "Marketing Manager",
         "role": "Property Brand",
-        "image": "",
+        "image": "/images/testimonials/dr-4.jpg",
         "review": "The digital system made our project communication more professional and easier to track."
       }
     ]

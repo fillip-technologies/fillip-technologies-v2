@@ -8,7 +8,7 @@ export const financeData = {
     "highlightedTitle": "Build More Trust.",
     "description": "We help finance companies, advisors, lenders, and fintech brands improve credibility, generate qualified leads, and turn digital interest into serious enquiries.",
     "primaryCta": {
-      "label": "Get Free Growth Audit",
+      "label": "Get Growth Audit",
       "href": "/contact"
     },
     "secondaryCta": {
@@ -29,28 +29,28 @@ export const financeData = {
     "badge": "Challenges We Solve",
     "title": "Why Finance Brands Struggle to Earn Trust Online",
     "description": "Financial decisions need confidence. Weak digital experiences, unclear messaging, and low search visibility make it harder for prospects to choose your brand.",
-    "flowerImage": "",
+    "flowerImage": "/images/flower.png",
     "items": [
       {
         "badge": "Trust & Credibility",
         "title": "Low Digital Confidence",
         "description": "Outdated websites and unclear service pages make prospects hesitate before sharing details, booking consultations, or applying online.",
         "impact": "Lower Lead Quality",
-        "image": ""
+        "image": "/images/healthcare/problem-1.png"
       },
       {
         "badge": "Search Visibility",
         "title": "Poor Financial Search Rankings",
         "description": "When customers search for loans, advisors, investment help, or financial services, competitors often capture the most valuable traffic first.",
         "impact": "Missed High-Intent Prospects",
-        "image": ""
+        "image": "/images/healthcare/problem-2.png"
       },
       {
         "badge": "Lead Conversion",
         "title": "Weak Enquiry Funnels",
         "description": "Complex forms, unclear CTAs, and missing proof points reduce conversions from visitors who are already interested in your services.",
         "impact": "Fewer Consultation Requests",
-        "image": ""
+        "image": "/images/healthcare/problem-3.png"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const financeData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected finance growth system to build trust, attract high-intent prospects, and generate qualified enquiries.",
     "image": {
-      "src": "",
+      "src": "/images/funel-stack.png",
       "alt": "Finance Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const financeData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "",
+      "src": "/images/hourglass.png",
       "alt": "Finance Growth"
     },
     "titlePrefix": "Finance Customers Compare",
@@ -179,25 +179,25 @@ export const financeData = {
       {
         "name": "Finance Growth Partner",
         "role": "Financial Services",
-        "image": "",
+        "image": "/images/testimonials/dr-1.jpg",
         "review": "The strategy helped us present our services clearly and generate more qualified consultation enquiries."
       },
       {
         "name": "Lending Business Owner",
         "role": "Loans & Advisory",
-        "image": "",
+        "image": "/images/testimonials/dr-2.jpg",
         "review": "Our website became easier to understand, and prospects started taking action with more confidence."
       },
       {
         "name": "Fintech Marketing Lead",
         "role": "Digital Finance",
-        "image": "",
+        "image": "/images/testimonials/dr-3.jpg",
         "review": "SEO and campaign improvements helped us reach customers who were actively searching for our solution."
       },
       {
         "name": "Investment Advisor",
         "role": "Wealth Services",
-        "image": "",
+        "image": "/images/testimonials/dr-4.jpg",
         "review": "The new content approach made our expertise easier for prospects to trust."
       }
     ]

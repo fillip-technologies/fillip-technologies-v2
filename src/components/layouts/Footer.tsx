@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 type FooterLink = {
   label: string;
@@ -69,10 +69,10 @@ const footerColumns: FooterColumn[] = [
 ];
 
 const legalLinks: FooterLink[] = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms", href: "#" },
-  { label: "Cookies", href: "#" },
-  { label: "Compliance", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Cookies", href: "/cookies" },
+  { label: "Compliance", href: "/compliance" },
 ];
 
 function FooterNavLink({ href, label }: FooterLink) {

@@ -8,7 +8,7 @@ export const retailData = {
     "highlightedTitle": "Sell More Online.",
     "description": "We help retail brands, stores, and ecommerce businesses improve product discovery, increase customer trust, and convert more shoppers across digital channels.",
     "primaryCta": {
-      "label": "Get Free Growth Audit",
+      "label": "Get Growth Audit",
       "href": "/contact"
     },
     "secondaryCta": {
@@ -29,28 +29,28 @@ export const retailData = {
     "badge": "Challenges We Solve",
     "title": "Why Retail Brands Lose Customers Online",
     "description": "Retail customers move quickly. Slow websites, weak product presentation, and poor visibility can push shoppers toward competitors in seconds.",
-    "flowerImage": "",
+    "flowerImage": "/images/flower.png",
     "items": [
       {
         "badge": "Shopping Experience",
         "title": "Poor Product Discovery",
         "description": "Confusing navigation, weak category pages, and slow product journeys make it harder for shoppers to find and buy what they need.",
         "impact": "Lower Online Sales",
-        "image": ""
+        "image": "/images/healthcare/problem-1.png"
       },
       {
         "badge": "Search Demand",
         "title": "Low Product Visibility",
         "description": "If your products and categories are not visible in search, customers discover competitor stores first.",
         "impact": "Missed Purchase Intent",
-        "image": ""
+        "image": "/images/healthcare/problem-2.png"
       },
       {
         "badge": "Customer Retention",
         "title": "Weak Brand Engagement",
         "description": "Inconsistent content and campaigns make it harder to bring shoppers back for repeat purchases.",
         "impact": "Lower Repeat Revenue",
-        "image": ""
+        "image": "/images/healthcare/problem-3.png"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const retailData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected retail growth system to attract shoppers, improve discovery, and increase sales.",
     "image": {
-      "src": "",
+      "src": "/images/funel-stack.png",
       "alt": "Retail Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const retailData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "",
+      "src": "/images/hourglass.png",
       "alt": "Retail Growth"
     },
     "titlePrefix": "Retail Customers Are Ready",
@@ -179,25 +179,25 @@ export const retailData = {
       {
         "name": "Retail Store Owner",
         "role": "Lifestyle Retail",
-        "image": "",
+        "image": "/images/testimonials/dr-1.jpg",
         "review": "The new digital journey made our products easier to discover and helped increase customer enquiries."
       },
       {
         "name": "Ecommerce Manager",
         "role": "Online Store",
-        "image": "",
+        "image": "/images/testimonials/dr-2.jpg",
         "review": "Our product categories became clearer, and campaigns started bringing more relevant shoppers."
       },
       {
         "name": "Fashion Brand Lead",
         "role": "Retail Brand",
-        "image": "",
+        "image": "/images/testimonials/dr-3.jpg",
         "review": "Better social content and website structure helped customers understand our collections faster."
       },
       {
         "name": "Local Retailer",
         "role": "Multi-Category Store",
-        "image": "",
+        "image": "/images/testimonials/dr-4.jpg",
         "review": "We started receiving more product-related calls and store visits from online searches."
       }
     ]

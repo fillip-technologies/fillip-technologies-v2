@@ -8,7 +8,7 @@ export const educationData = {
     "highlightedTitle": "Enroll More Students.",
     "description": "We help schools, colleges, coaching institutes, and edtech brands increase visibility, build parent and student trust, and generate more admission enquiries.",
     "primaryCta": {
-      "label": "Get Free Growth Audit",
+      "label": "Get Growth Audit",
       "href": "/contact"
     },
     "secondaryCta": {
@@ -29,28 +29,28 @@ export const educationData = {
     "badge": "Challenges We Solve",
     "title": "Why Education Brands Struggle to Generate Admissions",
     "description": "Parents and students research carefully before enquiring. Weak websites, poor search visibility, and unclear program information reduce admission opportunities.",
-    "flowerImage": "",
+    "flowerImage": "/images/flower.png",
     "items": [
       {
         "badge": "Admission Journey",
         "title": "Confusing Program Information",
         "description": "When courses, fees, outcomes, and enquiry steps are unclear, students and parents delay or choose another institution.",
         "impact": "Fewer Admission Enquiries",
-        "image": ""
+        "image": "/images/healthcare/problem-1.png"
       },
       {
         "badge": "Search Visibility",
         "title": "Low Course Discovery",
         "description": "If your programs do not appear in search results, high-intent students find competitors first.",
         "impact": "Lost Student Interest",
-        "image": ""
+        "image": "/images/healthcare/problem-2.png"
       },
       {
         "badge": "Trust Building",
         "title": "Weak Proof & Engagement",
         "description": "Without strong outcomes, testimonials, content, and social presence, families may not feel confident enough to enquire.",
         "impact": "Lower Conversion Confidence",
-        "image": ""
+        "image": "/images/healthcare/problem-3.png"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const educationData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected education growth system to attract students, build trust, and increase admission enquiries.",
     "image": {
-      "src": "",
+      "src": "/images/funel-stack.png",
       "alt": "Education Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const educationData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "",
+      "src": "/images/hourglass.png",
       "alt": "Education Growth"
     },
     "titlePrefix": "Students Are Searching",
@@ -179,25 +179,25 @@ export const educationData = {
       {
         "name": "School Administrator",
         "role": "K-12 Education",
-        "image": "",
+        "image": "/images/testimonials/dr-1.jpg",
         "review": "The improved website structure made our admission information clearer for parents."
       },
       {
         "name": "Coaching Institute Director",
         "role": "Competitive Exams",
-        "image": "",
+        "image": "/images/testimonials/dr-2.jpg",
         "review": "Our course pages became easier to find, and enquiries became more consistent."
       },
       {
         "name": "College Marketing Lead",
         "role": "Higher Education",
-        "image": "",
+        "image": "/images/testimonials/dr-3.jpg",
         "review": "The digital strategy helped us communicate programs and outcomes more effectively."
       },
       {
         "name": "Edtech Founder",
         "role": "Online Learning",
-        "image": "",
+        "image": "/images/testimonials/dr-4.jpg",
         "review": "Campaigns and content helped us reach learners with stronger intent."
       }
     ]
