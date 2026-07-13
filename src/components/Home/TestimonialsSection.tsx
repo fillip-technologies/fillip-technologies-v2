@@ -11,35 +11,42 @@ import {
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Sameer Verma",
+    role: "Business Owner",
+    image: "/images/background.png",
+    content:
+      "Highly Recommended! I had an amazing experience with Fillip Technologies, the best digital marketing agency I've worked with. I gave them my business number to list on Google My Business, and they made it live within a few days. Their team is professional, responsive, and truly understands how to deliver results. If you're looking for reliable GMB listing services, SEO, or any kind of digital marketing solutions, this is the right place. Thank you so much, Fillip Technologies, for helping my business grow online. I loved working with this team so much. If you are looking for a good website designing company in Patna, then stop what you are doing and look no further. They truly heard us out about our brand and designed an absolutely beautiful, responsive website that we were blown away by. They're also a veteran digital marketing company in Patna and assisted us to reach the correct online audience. Their SEO experts are very professional, our search engine visits were boosting within weeks. Their work as a social media marketing company in Patna provided our brand with a new, lively voice and an expanding community. Generation of leads was never a cakewalk for us, but with them as a lead generation agency in Patna, we started receiving proper, quality leads on a regular basis. They also assisted us in developing a customized application. Fillip Technologies delivers creative digital solutions to establish businesses in Patna online. From website designing, digital marketing, SEO, social media marketing, lead generation, and software development, they assure quality, functionality, and performance. For anyone in Patna seeking a top-notch Website Designing Company, I wholeheartedly recommend Fillip Technologies. Their expertise and dedication are unmatched.",
+  },
+  {
+    name: "Priya Sharma",
     role: "Marketing Director",
     image: "/images/background.png",
     content:
       "Fillip Technologies transformed our digital presence completely. The team delivered a modern website and strategic guidance that improved engagement and lead generation.",
   },
   {
-    name: "Michael Roberts",
+    name: "Rahul Singh",
     role: "Business Owner",
     image: "/images/background.png",
     content:
       "Professional, responsive, and highly skilled. The project was delivered on time and exceeded our expectations.",
   },
   {
-    name: "Emily Carter",
+    name: "Anjali Gupta",
     role: "Operations Head",
     image: "/images/background.png",
     content:
       "Their combination of design expertise and technical execution helped us launch faster and scale with confidence.",
   },
   {
-    name: "James Walker",
+    name: "Amit Kumar",
     role: "Startup Founder",
     image: "/images/background.png",
     content:
       "From strategy to deployment, every stage was handled with clarity and professionalism.",
   },
   {
-    name: "Sophia Brown",
+    name: "Neha Agarwal",
     role: "CEO",
     image: "/images/background.png",
     content:
@@ -155,7 +162,7 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
                   className="w-full flex-[0_0_100%] pl-6 md:min-w-[360px] md:flex-[0_0_auto] lg:min-w-0 lg:basis-1/3"
                 >
                   <div className="flex h-auto min-h-[380px] md:h-[418px] flex-col rounded-[24px] border border-card/70 bg-card/78 px-7 py-8 shadow-[0_18px_45px_color-mix(in_srgb,var(--heading)_7%,transparent)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_color-mix(in_srgb,var(--heading)_10%,transparent)]">
-                    <p className="text-[16px] leading-7 text-slate-600 whitespace-normal break-words">
+                    <p className="max-h-[220px] overflow-y-auto pr-2 text-[16px] leading-7 text-slate-600 whitespace-normal break-words">
                       {item.content}
                     </p>
 
