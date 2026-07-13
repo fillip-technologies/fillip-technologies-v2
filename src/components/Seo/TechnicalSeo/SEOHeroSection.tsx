@@ -122,8 +122,8 @@ export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
 
                         {/* SEO Image */}
                         <Image
-                            src={data?.image.src ?? "/images/seo-magnifier.png"}
-                            alt={data?.image.alt ?? "SEO Illustration"}
+                            src={data?.image?.src ?? "/images/seo-magnifier.png"}
+                            alt={data?.image?.alt ?? "SEO Illustration"}
                             width={650}
                             height={650}
                             className="relative z-10 max-w-[320px]"

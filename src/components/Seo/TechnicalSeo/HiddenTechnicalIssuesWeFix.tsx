@@ -1,53 +1,70 @@
 "use client";
 
 import { CheckCircle2 } from "lucide-react";
+import type { MarketingIssuesContent } from "@/data/marketing/types";
 
-const issues = [
-  {
-    number: "01",
-    title: "Crawlability Problems",
-    description:
-      "Broken internal links, orphan pages, crawl restrictions and poor architecture prevent search engines from discovering important content.",
-    impact: "Poor Search Discovery",
-  },
-  {
-    number: "02",
-    title: "Indexing Errors",
-    description:
-      "Noindex directives, canonical conflicts and duplicate URLs stop valuable pages from appearing in search results.",
-    impact: "Lost Organic Traffic",
-  },
-  {
-    number: "03",
-    title: "Core Web Vitals",
-    description:
-      "Slow loading pages, CLS issues and poor performance metrics impact rankings and user experience.",
-    impact: "Lower Rankings",
-  },
-  {
-    number: "04",
-    title: "Schema & Structured Data",
-    description:
-      "Missing or invalid schema reduces search visibility and rich result opportunities.",
-    impact: "Reduced SERP Visibility",
-  },
-  {
-    number: "05",
-    title: "Redirect Issues",
-    description:
-      "Redirect chains, loops and broken redirects waste crawl budget and hurt performance.",
-    impact: "Crawl Budget Waste",
-  },
-  {
-    number: "06",
-    title: "Duplicate Content",
-    description:
-      "Content duplication and URL conflicts weaken authority and create ranking confusion.",
-    impact: "Reduced Authority",
-  },
-];
+const FALLBACK: MarketingIssuesContent = {
+  badge: "TECHNICAL SEO AUDIT",
+  title: "Hidden Technical",
+  highlightedTitle: "Issues We Fix",
+  description:
+    "Many websites lose rankings not because of content quality, but because technical SEO issues prevent search engines from properly crawling, indexing and evaluating the site.",
+  items: [
+    {
+      number: "01",
+      title: "Crawlability Problems",
+      description:
+        "Broken internal links, orphan pages, crawl restrictions and poor architecture prevent search engines from discovering important content.",
+      impact: "Poor Search Discovery",
+    },
+    {
+      number: "02",
+      title: "Indexing Errors",
+      description:
+        "Noindex directives, canonical conflicts and duplicate URLs stop valuable pages from appearing in search results.",
+      impact: "Lost Organic Traffic",
+    },
+    {
+      number: "03",
+      title: "Core Web Vitals",
+      description:
+        "Slow loading pages, CLS issues and poor performance metrics impact rankings and user experience.",
+      impact: "Lower Rankings",
+    },
+    {
+      number: "04",
+      title: "Schema & Structured Data",
+      description:
+        "Missing or invalid schema reduces search visibility and rich result opportunities.",
+      impact: "Reduced SERP Visibility",
+    },
+    {
+      number: "05",
+      title: "Redirect Issues",
+      description:
+        "Redirect chains, loops and broken redirects waste crawl budget and hurt performance.",
+      impact: "Crawl Budget Waste",
+    },
+    {
+      number: "06",
+      title: "Duplicate Content",
+      description:
+        "Content duplication and URL conflicts weaken authority and create ranking confusion.",
+      impact: "Reduced Authority",
+    },
+  ],
+};
 
-export default function HiddenTechnicalIssuesWeFix() {
+type HiddenTechnicalIssuesWeFixProps = {
+  data?: MarketingIssuesContent;
+};
+
+export default function HiddenTechnicalIssuesWeFix({
+  data,
+}: HiddenTechnicalIssuesWeFixProps) {
+  const content = data ?? FALLBACK;
+  const issues = content.items;
+
   return (
     <section className="relative overflow-hidden py-20 lg:py-24">
       <div
@@ -65,20 +82,18 @@ export default function HiddenTechnicalIssuesWeFix() {
 
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-primary">
-            TECHNICAL SEO AUDIT
+            {content.badge}
           </span>
 
           <h2 className="mt-8 text-h2 font-bold tracking-tight text-heading">
-            Hidden Technical{" "}
+            {content.title}{" "}
             <span className="highlight-text">
-              Issues We Fix
+              {content.highlightedTitle}
             </span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-body text-body">
-            Many websites lose rankings not because of content quality,
-            but because technical SEO issues prevent search engines
-            from properly crawling, indexing and evaluating the site.
+            {content.description}
           </p>
         </div>
 

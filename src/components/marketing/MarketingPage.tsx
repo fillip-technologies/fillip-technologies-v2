@@ -1,12 +1,12 @@
-import HeroSection from "@/components/website-development/HeroSection";
-import DevelopmentProcessTimeline from "@/components/website-development/DevelopmentProcessTimeline";
-import BusinessOutcomesSection from "@/components/website-development/BusinessOutcomesSection";
-import WhatWeBuildBlock from "@/components/services/blocks/WhatWeBuildBlock";
+import SEOHeroSection from "@/components/Seo/TechnicalSeo/SEOHeroSection";
+import WhyWebsiteIsntRanking from "@/components/Seo/TechnicalSeo/WhyWebsiteIsntRanking";
+import TechnicalSeoServicesStack from "@/components/Seo/TechnicalSeo/TechnicalSeoServicesStack";
+import HiddenTechnicalIssuesWeFix from "@/components/Seo/TechnicalSeo/HiddenTechnicalIssuesWeFix";
+import IndustriesWeServeCards from "@/components/Seo/TechnicalSeo/IndustriesWeServeCards";
+import TechnicalSeoToolsSection from "@/components/Seo/TechnicalSeo/TechnicalSeoToolsSection";
+import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import FAQSection from "@/components/shared/FAQSection";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
-import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
-import OurClients from "@/components/Home/OurClients";
-import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
-import ServiceFaqSection from "@/components/shared/ServiceFaqSection";
 
 import type { MarketingContent } from "@/data/marketing";
 
@@ -16,30 +16,42 @@ type MarketingPageProps = {
 
 /**
  * Renderer for the "marketing" Service Pages template (SEO & Performance
- * Marketing). Reuses the proven hero + capabilities (whatWeBuild) + process +
- * results (outcomes) sections plus the shared whyChooseUs + faq sections. All
- * content is per-page and CMS-editable.
+ * Marketing). Composes the rich, purpose-built SEO layout — every section is
+ * per-page and CMS-editable (content assembled in getServicePageData). The
+ * static /technical-seo page used to hardcode these same sections.
  */
 export default function MarketingPage({ data }: MarketingPageProps) {
   return (
-    <>
-      <HeroSection key={`${data.slug}-hero`} data={data.hero} />
+    <main>
+      <SEOHeroSection key={`${data.slug}-hero`} data={data.hero} />
 
-      <TrustedBrandsSection />
+      <WhyWebsiteIsntRanking key={`${data.slug}-challenges`} data={data.challenges} />
 
-      <WhatWeBuildBlock key={`${data.slug}-capabilities`} data={data.capabilities} />
+      <TechnicalSeoServicesStack key={`${data.slug}-services`} data={data.services} />
 
-      <DevelopmentProcessTimeline key={`${data.slug}-process`} data={data.process} />
+      <HiddenTechnicalIssuesWeFix key={`${data.slug}-issues`} data={data.issues} />
 
-      <OurClients />
+      <IndustriesWeServeCards key={`${data.slug}-industries`} data={data.industries} />
 
-      <BusinessOutcomesSection key={`${data.slug}-results`} data={data.results} />
+      <TechnicalSeoToolsSection key={`${data.slug}-tools`} data={data.tools} />
 
-      <WhyChooseUsSection key={`${data.slug}-why`} data={data.whyChooseUs} />
+      <TestimonialsSection
+        key={`${data.slug}-testimonials`}
+        badge={data.testimonials.badge}
+        title={data.testimonials.title}
+        description={data.testimonials.description}
+        testimonials={data.testimonials.items}
+      />
 
-      <ServiceFaqSection key={`${data.slug}-faq`} data={data.faq} />
+      <FAQSection
+        key={`${data.slug}-faq`}
+        badge={data.faq.badge}
+        title={data.faq.title}
+        description={data.faq.description}
+        faqs={data.faq.items}
+      />
 
       <ConsultationFormSection />
-    </>
+    </main>
   );
 }

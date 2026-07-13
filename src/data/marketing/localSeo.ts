@@ -1,111 +1,212 @@
 import type { MarketingContent } from "./types";
+import { sharedIndustries, sharedTestimonials } from "./_shared";
 
 export const localSeoContent: MarketingContent = {
   slug: "local-seo",
   hero: {
-    title: "Local SEO That Puts You On The",
-    highlightedTitle: "Map & In The Pack",
+    badge: "LOCAL SEO SERVICES",
+    title: "Get Found By Customers",
+    highlightedTitle: "Near You",
     description:
-      "Dominate the local results that drive foot traffic and calls — Google Business Profile, local rankings, and reviews that win nearby customers.",
+      "Rank in the local map pack, win more calls and store visits, and turn nearby searches into paying customers.",
+    searchText: "Best SEO Agency Near Me",
+    primaryCta: "Get Free Local Audit",
+    secondaryCta: "View Case Studies",
+    image: { src: "/images/seo-magnifier.png", alt: "Local SEO Illustration" },
   },
-  capabilities: {
-    eyebrow: "WHAT WE OPTIMISE",
-    title: "Everything Local",
-    highlightedTitle: "Customers See",
-    description:
-      "From your Google Business Profile to citations and reviews, we optimise every local ranking signal.",
-    cards: [
+  challenges: {
+    badge: "LOCAL SEO CHALLENGES",
+    title: "Why You're Not Showing",
+    highlightedTitle: "In Local Results",
+    para1:
+      "Customers search for services near them every day — if your business isn't in the map pack, those calls go to competitors.",
+    para2:
+      "Local SEO fixes the signals Google uses to rank nearby businesses: your profile, citations, reviews and location relevance.",
+    ctaText: "See How We Boost Local Rankings",
+    items: [
       {
-        eyebrow: "Profile",
+        icon: "location",
+        title: "Weak Map Pack Presence",
+        description:
+          "An unoptimized Google Business Profile keeps you out of the top 3 local results where most clicks happen. Impact: Lost Local Visibility.",
+      },
+      {
+        icon: "search-x",
+        title: "Inconsistent Citations",
+        description:
+          "Mismatched name, address and phone details across directories confuse Google and erode local trust. Impact: Lower Local Rankings.",
+      },
+      {
+        icon: "users",
+        title: "Too Few Reviews",
+        description:
+          "A thin or outdated review profile reduces trust and click-through from local searchers. Impact: Fewer Calls & Visits.",
+      },
+      {
+        icon: "target",
+        title: "No Location Targeting",
+        description:
+          "Missing location pages and local keywords mean you never surface for the areas you actually serve. Impact: Missed Nearby Demand.",
+      },
+    ],
+  },
+  services: {
+    eyebrow: "LOCAL SEO SERVICES",
+    title: "Local SEO Solutions",
+    highlightedTitle: "That Drive Foot Traffic",
+    description:
+      "A complete local optimisation programme that gets your business into the map pack and in front of nearby buyers.",
+    items: [
+      {
+        number: "01",
         title: "Google Business Profile",
-        description:
-          "Full optimisation of your profile — categories, services, posts, and photos that convert.",
-        metric: "More Map Views",
+        description: "Optimise and manage your profile to win the local map pack.",
+        metric: "Map Pack",
+        icon: "location",
       },
       {
-        eyebrow: "Rankings",
-        title: "Local Pack Rankings",
-        description:
-          "Rank in the 3-pack for the searches your customers actually make near you.",
-        metric: "Top 3 Visibility",
+        number: "02",
+        title: "Local Citations",
+        description: "Consistent NAP across directories to build local trust.",
+        metric: "NAP Consistency",
+        icon: "check",
       },
       {
-        title: "Citations & NAP",
-        description:
-          "Consistent name, address, and phone data across directories that build local trust.",
+        number: "03",
+        title: "Review Management",
+        description: "Generate and respond to reviews that boost credibility.",
+        metric: "Reputation",
+        icon: "users",
       },
       {
-        title: "Reviews & Reputation",
-        description:
-          "Systems that grow genuine reviews and help you respond to build credibility.",
-        tags: ["GBP", "Citations", "Reviews"],
+        number: "04",
+        title: "Location Pages",
+        description: "SEO-optimised pages for each area and service you serve.",
+        metric: "Local Reach",
+        icon: "file",
+      },
+      {
+        number: "05",
+        title: "Local Keywords",
+        description: "Target 'near me' and city-level intent that converts.",
+        metric: "Local Intent",
+        icon: "search",
+      },
+      {
+        number: "06",
+        title: "Local Link Building",
+        description: "Earn local relevance signals from trusted regional sources.",
+        metric: "Local Authority",
+        icon: "link",
       },
     ],
   },
-  process: {
-    title: "Our Local SEO",
-    highlightedTitle: "Process",
+  issues: {
+    badge: "LOCAL SEO AUDIT",
+    title: "Local Ranking Gaps",
+    highlightedTitle: "We Fix",
     description:
-      "A location-focused workflow that builds visibility where your customers are searching.",
-    steps: [
-      { title: "Audit", items: ["Profile Review", "Ranking Check", "Citation Audit", "Competitors"] },
-      { title: "Optimise", items: ["GBP Setup", "Local Pages", "Citations", "Schema"] },
-      { title: "Grow", items: ["Posts", "Reviews", "Content", "Links"] },
-      { title: "Report", items: ["Rank Tracking", "Calls & Directions", "Insights", "Iteration"] },
-    ],
-  },
-  results: {
-    eyebrow: "LOCAL SEO OUTCOMES",
-    title: "More Nearby Customers",
-    highlightedTitle: "Finding You",
-    description:
-      "Local visibility turns into real actions — calls, directions, and store visits.",
-    stats: [
-      { value: "+120%", label: "Map Views" },
-      { value: "+65%", label: "Direction Requests" },
-      { value: "+80%", label: "Profile Calls" },
-      { value: "Top 3", label: "Local Pack" },
-    ],
-    leftPill: "More Calls",
-    rightPill: "More Visits",
-  },
-  whyChooseUs: {
-    eyebrow: "WHY FILLIP",
-    title: "Local SEO That Drives",
-    highlightedTitle: "Real Footfall",
-    description:
-      "We focus on the local signals that turn searches into customers walking through your door.",
+      "Most businesses miss local customers not because of poor service, but because their local signals aren't optimised for how Google ranks nearby results.",
     items: [
-      { title: "Location-Focused", description: "Strategy built around your service areas and intent." },
-      { title: "Review Growth", description: "Ethical systems that build genuine, ranking-boosting reviews." },
-      { title: "Multi-Location Ready", description: "Scales cleanly from one location to many." },
-      { title: "Action-Tracked", description: "We report calls, directions, and visits — not vanity metrics." },
+      {
+        number: "01",
+        title: "Unoptimized Profile",
+        description:
+          "Incomplete categories, services and photos weaken your Google Business Profile ranking.",
+        impact: "Lower Map Pack Position",
+      },
+      {
+        number: "02",
+        title: "NAP Inconsistency",
+        description:
+          "Conflicting business details across the web dilute local trust and confuse search engines.",
+        impact: "Reduced Local Trust",
+      },
+      {
+        number: "03",
+        title: "Review Gaps",
+        description:
+          "Few recent reviews and unanswered feedback lower conversions from local searches.",
+        impact: "Fewer Conversions",
+      },
+      {
+        number: "04",
+        title: "Missing Location Pages",
+        description:
+          "No dedicated pages for the areas you serve means lost visibility for city-level searches.",
+        impact: "Missed Local Demand",
+      },
+      {
+        number: "05",
+        title: "Weak Local Content",
+        description:
+          "Generic content without local relevance fails to rank for 'near me' intent.",
+        impact: "Lost Nearby Traffic",
+      },
+      {
+        number: "06",
+        title: "No Local Backlinks",
+        description:
+          "A lack of regional citations and links limits local authority and rankings.",
+        impact: "Reduced Local Authority",
+      },
     ],
   },
+  industries: sharedIndustries,
+  tools: {
+    eyebrow: "TOOLS & PLATFORMS",
+    title: "Local SEO Tools",
+    highlightedTitle: "We Work With",
+    description:
+      "We use proven local SEO platforms and directories to boost map rankings, reviews and citation consistency.",
+    items: [
+      { name: "Google Business Profile", icon: "location" },
+      { name: "Google Maps", icon: "globe" },
+      { name: "Local Citations", icon: "check" },
+      { name: "Review Platforms", icon: "users" },
+      { name: "BrightLocal", icon: "chart" },
+      { name: "Google Search Console", icon: "search" },
+      { name: "Local Schema", icon: "code" },
+      { name: "Directory Listings", icon: "database" },
+      { name: "GEO Targeting", icon: "target" },
+      { name: "Semrush Local", icon: "activity" },
+      { name: "NAP Audit", icon: "shield" },
+      { name: "Local Rank Tracking", icon: "network" },
+    ],
+  },
+  testimonials: sharedTestimonials(
+    "See how local businesses grew calls, store visits and map pack rankings through our local SEO work.",
+  ),
   faq: {
-    title: "Local SEO",
-    highlightedTitle: "Questions",
-    description: "Common questions about local SEO with Fillip Technologies.",
+    badge: "LOCAL SEO FAQS",
+    title: "Frequently Asked Questions",
+    description:
+      "Answers to common questions about local SEO, Google Business Profile and map pack rankings.",
     items: [
       {
-        question: "What is the local 3-pack?",
+        question: "What is Local SEO?",
         answer:
-          "It's the block of three business listings with a map that appears for local searches. Ranking there dramatically increases calls, directions, and visits.",
+          "Local SEO optimises your online presence so your business ranks for nearby searches and appears in Google's local map pack.",
       },
       {
-        question: "Do you manage our Google Business Profile?",
+        question: "How long until I rank in the map pack?",
         answer:
-          "Yes. We fully optimise and can manage your profile — categories, services, posts, photos, and Q&A — to maximise local visibility.",
+          "Most businesses see local ranking improvements within 1–3 months, depending on competition and profile health.",
       },
       {
-        question: "Can you help with multiple locations?",
+        question: "Do reviews affect local rankings?",
         answer:
-          "Absolutely. We build scalable local SEO across all your locations with consistent citations and location-specific pages.",
+          "Yes. Review quantity, quality and recency are strong local ranking and conversion signals.",
       },
       {
-        question: "How do you grow reviews?",
+        question: "Can you manage multiple locations?",
         answer:
-          "We set up ethical review-generation flows and help you respond consistently, which improves both rankings and conversion.",
+          "Yes. We optimise and manage local SEO for single and multi-location businesses.",
+      },
+      {
+        question: "What is NAP consistency?",
+        answer:
+          "NAP stands for Name, Address and Phone. Keeping it consistent everywhere online builds local trust and rankings.",
       },
     ],
   },

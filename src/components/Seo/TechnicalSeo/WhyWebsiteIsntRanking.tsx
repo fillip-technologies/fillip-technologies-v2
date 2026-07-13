@@ -1,42 +1,55 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Bot,
-  SearchX,
-  Gauge,
-  TriangleAlert,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { resolveIcon } from "./icons";
+import type { MarketingChallengesContent } from "@/data/marketing/types";
 
-const challenges = [
-  {
-    icon: Bot,
-    title: "Crawlability Issues",
-    description:
-      "Search engines cannot efficiently discover important pages because of poor site architecture, broken internal linking, crawl restrictions, and technical barriers. Impact: Reduced Search Visibility.",
-  },
-  {
-    icon: SearchX,
-    title: "Indexing Problems",
-    description:
-      "Critical pages remain absent from search results due to duplicate URLs, noindex errors, incorrect canonicals, and indexing issues. Impact: Missing Search Traffic.",
-  },
-  {
-    icon: Gauge,
-    title: "Slow Site Performance",
-    description:
-      "Poor Core Web Vitals and slow loading experiences negatively impact rankings, engagement, conversions, and overall user satisfaction. Impact: Lower Rankings.",
-  },
-  {
-    icon: TriangleAlert,
-    title: "Technical SEO Errors",
-    description:
-      "Redirect chains, schema issues, broken links, duplicate content, and technical mistakes weaken website authority and search performance. Impact: Lost Organic Growth.",
-  },
-];
+const FALLBACK: MarketingChallengesContent = {
+  badge: "TECHNICAL SEO CHALLENGES",
+  title: "Why Your Website",
+  highlightedTitle: "Isn't Ranking",
+  para1:
+    "Even great content cannot rank if search engines struggle to crawl, index, and understand your website correctly.",
+  para2:
+    "Technical SEO helps remove the barriers that stop important pages from being discovered, indexed, and trusted by search engines.",
+  ctaText: "See How We Solve These Challenges",
+  items: [
+    {
+      icon: "bot",
+      title: "Crawlability Issues",
+      description:
+        "Search engines cannot efficiently discover important pages because of poor site architecture, broken internal linking, crawl restrictions, and technical barriers. Impact: Reduced Search Visibility.",
+    },
+    {
+      icon: "search-x",
+      title: "Indexing Problems",
+      description:
+        "Critical pages remain absent from search results due to duplicate URLs, noindex errors, incorrect canonicals, and indexing issues. Impact: Missing Search Traffic.",
+    },
+    {
+      icon: "gauge",
+      title: "Slow Site Performance",
+      description:
+        "Poor Core Web Vitals and slow loading experiences negatively impact rankings, engagement, conversions, and overall user satisfaction. Impact: Lower Rankings.",
+    },
+    {
+      icon: "triangle-alert",
+      title: "Technical SEO Errors",
+      description:
+        "Redirect chains, schema issues, broken links, duplicate content, and technical mistakes weaken website authority and search performance. Impact: Lost Organic Growth.",
+    },
+  ],
+};
 
-export default function WhyWebsiteIsntRanking() {
+type WhyWebsiteIsntRankingProps = {
+  data?: MarketingChallengesContent;
+};
+
+export default function WhyWebsiteIsntRanking({ data }: WhyWebsiteIsntRankingProps) {
+  const content = data ?? FALLBACK;
+  const challenges = content.items;
+
   return (
     <section className="relative overflow-hidden bg-[var(--background)] py-24 lg:py-10">
       {/* Background Glow */}
@@ -65,27 +78,25 @@ export default function WhyWebsiteIsntRanking() {
           {/* Left Content */}
           <div className="lg:sticky lg:top-28 lg:h-fit">
             <div className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--primary)]">
-              TECHNICAL SEO CHALLENGES
+              {content.badge}
             </div>
 
             <h2 className="mt-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-[var(--heading)] md:text-4xl">
-              Why Your Website
+              {content.title}
               <br />
-              <span className="highlight-text">{"Isn't Ranking"}</span>
+              <span className="highlight-text">{content.highlightedTitle}</span>
             </h2>
 
             <p className="mt-6 text-lg leading-relaxed text-[var(--body)]">
-              Even great content cannot rank if search engines struggle to
-              crawl, index, and understand your website correctly.
+              {content.para1}
             </p>
 
             <p className="mt-4 text-lg leading-relaxed text-[var(--body)]">
-              Technical SEO helps remove the barriers that stop important pages
-              from being discovered, indexed, and trusted by search engines.
+              {content.para2}
             </p>
 
             <button className="group mt-8 inline-flex items-center gap-2 font-semibold text-[var(--primary)] transition-all hover:gap-3">
-              See How We Solve These Challenges
+              {content.ctaText}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -93,7 +104,7 @@ export default function WhyWebsiteIsntRanking() {
           {/* Right Grid */}
           <div className="grid gap-5 sm:grid-cols-2">
             {challenges.map((item, index) => {
-              const Icon = challenges[index]?.icon ?? Bot;
+              const Icon = resolveIcon(item.icon);
 
               return (
                 <div

@@ -8,17 +8,18 @@ import ServicePagesManager from "../../services/ServicePagesManager";
 export const dynamic = "force-dynamic";
 
 /**
- * Which template new pages in each What-We-Do category use by default. Keeps the
- * create form focused on the one template that column actually uses, instead of
- * the full catch-all list.
+ * Which template(s) new pages in each What-We-Do category can use. Keeps the
+ * create form focused on the layouts that column actually uses, instead of the
+ * full catch-all list. Columns with more than one entry let the admin choose a
+ * layout when adding a page (e.g. SEO vs Performance Marketing).
  */
-const CATEGORY_TEMPLATE: Record<string, string> = {
-  "web-development": "service",
-  "mobile-app-development": "mobile-app",
-  "software-enterprise": "software-enterprise",
-  "creative-experience-design": "creative-design",
-  "seo-performance-marketing": "marketing",
-  "challenges-we-solve": "challenges",
+const CATEGORY_TEMPLATES: Record<string, string[]> = {
+  "web-development": ["service"],
+  "mobile-app-development": ["mobile-app"],
+  "software-enterprise": ["software-enterprise"],
+  "creative-experience-design": ["creative-design"],
+  "seo-performance-marketing": ["marketing", "performance-marketing"],
+  "challenges-we-solve": ["challenges"],
 };
 
 export async function generateMetadata({
@@ -44,8 +45,8 @@ export default async function CategoryPagesCmsPage({
   const allPages = await listServicePages();
   const pages = allPages.filter((p) => p.categorySlug === slug);
 
-  const templateId = CATEGORY_TEMPLATE[slug] ?? "service";
-  const templates = SERVICE_TEMPLATES.filter((t) => t.id === templateId);
+  const templateIds = CATEGORY_TEMPLATES[slug] ?? ["service"];
+  const templates = SERVICE_TEMPLATES.filter((t) => templateIds.includes(t.id));
 
   return (
     <section>

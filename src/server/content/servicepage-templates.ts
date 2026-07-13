@@ -17,6 +17,7 @@ export const SERVICE_TEMPLATES: ServiceTemplateMeta[] = [
   { id: "software-enterprise", label: "Software & Enterprise page", urlPrefix: "/software-development" },
   { id: "creative-design", label: "Creative / Design page", urlPrefix: "/design" },
   { id: "marketing", label: "SEO / Marketing page", urlPrefix: "/marketing" },
+  { id: "performance-marketing", label: "Performance Marketing (Ads) page", urlPrefix: "/marketing" },
   { id: "challenges", label: "Challenges We Solve page", urlPrefix: "/challenges" },
   { id: "hardware-solution", label: "Hardware Solution page", urlPrefix: "/hardware-solutions" },
   { id: "business-solution", label: "Business Solution page", urlPrefix: "/solutions" },

@@ -1,71 +1,86 @@
 "use client";
 
 import React from "react";
+import type { MarketingIndustriesContent } from "@/data/marketing/types";
 
-const industries = [
-  {
-    name: "Healthcare",
-    label: "Care",
-    bg: "bg-[#ddd9ff]",
-    points: [
-      "Clinic growth campaigns",
-      "Doctor appointment leads",
-      "Local SEO visibility",
-    ],
-  },
-  {
-    name: "Finance",
-    label: "Trust",
-    bg: "bg-[#ffe2f6]",
-    points: [
-      "Lead generation funnels",
-      "SEO for finance brands",
-      "Conversion landing pages",
-    ],
-  },
-  {
-    name: "Retail",
-    label: "Sales",
-    bg: "bg-[#dff3ff]",
-    points: [
-      "E-commerce growth",
-      "Shopping campaigns",
-      "Store visibility",
-    ],
-  },
-  {
-    name: "Education",
-    label: "Admissions",
-    bg: "bg-[#e7ffe8]",
-    points: [
-      "Admission campaigns",
-      "Institute SEO",
-      "Student enquiries",
-    ],
-  },
-  {
-    name: "Real Estate",
-    label: "Property",
-    bg: "bg-[#fff0d7]",
-    points: [
-      "Buyer lead funnels",
-      "Project promotions",
-      "Local property SEO",
-    ],
-  },
-  {
-    name: "Logistics",
-    label: "B2B",
-    bg: "bg-[#eee7ff]",
-    points: [
-      "Transport SEO",
-      "B2B campaigns",
-      "Lead funnel optimization",
-    ],
-  },
+// Card background palette, applied cyclically by index (not CMS-editable).
+const BG_PALETTE = [
+  "bg-[#ddd9ff]",
+  "bg-[#ffe2f6]",
+  "bg-[#dff3ff]",
+  "bg-[#e7ffe8]",
+  "bg-[#fff0d7]",
+  "bg-[#eee7ff]",
 ];
 
-export default function IndustriesWeServeCards() {
+const FALLBACK: MarketingIndustriesContent = {
+  badge: "INDUSTRIES WE SERVE",
+  title: "Industries We Help",
+  highlightedTitle: "Scale Digitally",
+  items: [
+    {
+      name: "Healthcare",
+      label: "Care",
+      blurb:
+        "Digital growth strategy for Healthcare businesses looking to generate better visibility, quality leads and measurable conversions.",
+      points: [
+        "Clinic growth campaigns",
+        "Doctor appointment leads",
+        "Local SEO visibility",
+      ],
+    },
+    {
+      name: "Finance",
+      label: "Trust",
+      blurb:
+        "Digital growth strategy for Finance businesses looking to generate better visibility, quality leads and measurable conversions.",
+      points: [
+        "Lead generation funnels",
+        "SEO for finance brands",
+        "Conversion landing pages",
+      ],
+    },
+    {
+      name: "Retail",
+      label: "Sales",
+      blurb:
+        "Digital growth strategy for Retail businesses looking to generate better visibility, quality leads and measurable conversions.",
+      points: ["E-commerce growth", "Shopping campaigns", "Store visibility"],
+    },
+    {
+      name: "Education",
+      label: "Admissions",
+      blurb:
+        "Digital growth strategy for Education businesses looking to generate better visibility, quality leads and measurable conversions.",
+      points: ["Admission campaigns", "Institute SEO", "Student enquiries"],
+    },
+    {
+      name: "Real Estate",
+      label: "Property",
+      blurb:
+        "Digital growth strategy for Real Estate businesses looking to generate better visibility, quality leads and measurable conversions.",
+      points: ["Buyer lead funnels", "Project promotions", "Local property SEO"],
+    },
+    {
+      name: "Logistics",
+      label: "B2B",
+      blurb:
+        "Digital growth strategy for Logistics businesses looking to generate better visibility, quality leads and measurable conversions.",
+      points: ["Transport SEO", "B2B campaigns", "Lead funnel optimization"],
+    },
+  ],
+};
+
+type IndustriesWeServeCardsProps = {
+  data?: MarketingIndustriesContent;
+};
+
+export default function IndustriesWeServeCards({
+  data,
+}: IndustriesWeServeCardsProps) {
+  const content = data ?? FALLBACK;
+  const industries = content.items;
+
   return (
     <section className="relative overflow-hidden bg-white px-4 py-20 md:px-8">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e8eef7_1px,transparent_1px),linear-gradient(to_bottom,#e8eef7_1px,transparent_1px)] bg-[size:56px_56px] opacity-40" />
@@ -73,17 +88,17 @@ export default function IndustriesWeServeCards() {
       <div className="relative z-10 mx-auto max-w-[1450px]">
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <p className="mb-4 text-sm font-semibold tracking-[0.28em] text-blue-600">
-            INDUSTRIES WE SERVE
+            {content.badge}
           </p>
 
           <h2 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-            Industries We Help
-            <span className="highlight-text block">Scale Digitally</span>
+            {content.title}
+            <span className="highlight-text block">{content.highlightedTitle}</span>
           </h2>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {industries.map((item) => (
+          {industries.map((item, index) => (
             <article key={item.name} className="relative">
               <div className="absolute right-0 top-0 z-20 rounded-bl-[28px] bg-white p-3">
                 <span className="rounded-full border border-slate-400 bg-white px-5 py-2 text-xl font-medium text-slate-900">
@@ -92,16 +107,14 @@ export default function IndustriesWeServeCards() {
               </div>
 
               <div
-                className={`relative min-h-[360px] overflow-hidden rounded-[32px] ${item.bg} p-7 shadow-sm transition-all duration-300  hover:shadow-xl`}
+                className={`relative min-h-[360px] overflow-hidden rounded-[32px] ${BG_PALETTE[index % BG_PALETTE.length]} p-7 shadow-sm transition-all duration-300  hover:shadow-xl`}
               >
                 <h3 className="max-w-[72%] text-3xl font-medium tracking-tight text-slate-950 xl:text-4xl">
                   {item.name}
                 </h3>
 
                 <p className="mt-8 max-w-sm text-sm leading-6 text-slate-700">
-                  Digital growth strategy for {item.name} businesses looking to
-                  generate better visibility, quality leads and measurable
-                  conversions.
+                  {item.blurb}
                 </p>
 
                 <ul className="mt-6 space-y-4">

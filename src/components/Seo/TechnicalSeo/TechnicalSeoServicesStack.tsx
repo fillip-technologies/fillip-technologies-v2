@@ -1,62 +1,85 @@
 "use client";
 
-import React, { useRef } from "react";
+import type { ComponentType } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { resolveIcon } from "./icons";
+import type { MarketingServicesContent } from "@/data/marketing/types";
 
-type Service = {
-  number: string;
-  title: string;
-  description: string;
-  metric: string;
-  gradient: string;
-};
-
-const services: Service[] = [
-  {
-    number: "01",
-    title: "Technical SEO Audit",
-    description: "Find crawl, indexation, performance and structure issues.",
-    metric: "SEO Health",
-    gradient: "from-blue-600 to-cyan-500",
-  },
-  {
-    number: "02",
-    title: "Core Web Vitals",
-    description: "Improve speed, responsiveness and visual stability.",
-    metric: "LCP • INP • CLS",
-    gradient: "from-indigo-600 to-blue-500",
-  },
-  {
-    number: "03",
-    title: "Crawl & Indexation",
-    description: "Help search engines crawl and index important pages.",
-    metric: "Crawl Flow",
-    gradient: "from-sky-600 to-emerald-500",
-  },
-  {
-    number: "04",
-    title: "Schema Markup",
-    description: "Add structured data for rich result eligibility.",
-    metric: "JSON-LD",
-    gradient: "from-violet-600 to-blue-500",
-  },
-  {
-    number: "05",
-    title: "Site Architecture",
-    description: "Create scalable hierarchy and internal linking.",
-    metric: "URL Structure",
-    gradient: "from-cyan-600 to-blue-500",
-  },
-  {
-    number: "06",
-    title: "SEO Migration Support",
-    description: "Protect rankings during redesigns and migrations.",
-    metric: "Safe Launch",
-    gradient: "from-blue-700 to-indigo-500",
-  },
+// Card accent gradients, applied cyclically by index (not CMS-editable).
+const GRADIENTS = [
+  "from-blue-600 to-cyan-500",
+  "from-indigo-600 to-blue-500",
+  "from-sky-600 to-emerald-500",
+  "from-violet-600 to-blue-500",
+  "from-cyan-600 to-blue-500",
+  "from-blue-700 to-indigo-500",
 ];
 
-export default function TechnicalSeoServicesStack() {
+const FALLBACK: MarketingServicesContent = {
+  eyebrow: "TECHNICAL SEO SERVICES",
+  title: "Technical SEO Solutions",
+  highlightedTitle: "For Sustainable Growth",
+  description:
+    "Premium technical SEO execution built for faster crawling, cleaner indexing, stronger site structure and long-term organic growth.",
+  items: [
+    {
+      number: "01",
+      title: "Technical SEO Audit",
+      description: "Find crawl, indexation, performance and structure issues.",
+      metric: "SEO Health",
+      icon: "search",
+    },
+    {
+      number: "02",
+      title: "Core Web Vitals",
+      description: "Improve speed, responsiveness and visual stability.",
+      metric: "LCP • INP • CLS",
+      icon: "gauge",
+    },
+    {
+      number: "03",
+      title: "Crawl & Indexation",
+      description: "Help search engines crawl and index important pages.",
+      metric: "Crawl Flow",
+      icon: "bot",
+    },
+    {
+      number: "04",
+      title: "Schema Markup",
+      description: "Add structured data for rich result eligibility.",
+      metric: "JSON-LD",
+      icon: "code",
+    },
+    {
+      number: "05",
+      title: "Site Architecture",
+      description: "Create scalable hierarchy and internal linking.",
+      metric: "URL Structure",
+      icon: "network",
+    },
+    {
+      number: "06",
+      title: "SEO Migration Support",
+      description: "Protect rankings during redesigns and migrations.",
+      metric: "Safe Launch",
+      icon: "shield",
+    },
+  ],
+};
+
+type ServiceItem = MarketingServicesContent["items"][number];
+
+type TechnicalSeoServicesStackProps = {
+  data?: MarketingServicesContent;
+};
+
+export default function TechnicalSeoServicesStack({
+  data,
+}: TechnicalSeoServicesStackProps) {
+  const content = data ?? FALLBACK;
+  const services = content.items;
+
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const { scrollYProgress } = useScroll({
@@ -76,34 +99,37 @@ export default function TechnicalSeoServicesStack() {
         <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-[1450px] grid-cols-1 items-center gap-10 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <div className="max-w-2xl">
             <p className="mb-5 text-sm font-semibold tracking-[0.28em] text-blue-600">
-              TECHNICAL SEO SERVICES
+              {content.eyebrow}
             </p>
 
             <h2 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl xl:text-7xl">
-              Technical SEO Solutions
+              {content.title}
               <span className="highlight-text block">
-                For Sustainable Growth
+                {content.highlightedTitle}
               </span>
             </h2>
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-              Premium technical SEO execution built for faster crawling, cleaner
-              indexing, stronger site structure and long-term organic growth.
+              {content.description}
             </p>
 
 
           </div>
 
           <div className="relative h-[500px] w-full overflow-visible">
-            {services.map((service, index) => (
-              <ParallaxCard
-                key={service.title}
-                service={service}
-                index={index}
-                total={services.length}
-                progress={scrollYProgress}
-              />
-            ))}
+            {services.map((service, index) => {
+              const IconComp = resolveIcon(service.icon);
+              return (
+                <ParallaxCard
+                  key={service.title}
+                  service={service}
+                  index={index}
+                  total={services.length}
+                  progress={scrollYProgress}
+                  IconComp={IconComp}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -116,12 +142,16 @@ function ParallaxCard({
   index,
   total,
   progress,
+  IconComp,
 }: {
-  service: Service;
+  service: ServiceItem;
   index: number;
   total: number;
   progress: MotionValue<number>;
+  IconComp: ComponentType<{ className?: string }>;
 }) {
+  const gradient = GRADIENTS[index % GRADIENTS.length];
+
   const start = index / total;
   const active = start + 0.08;
   const end = (index + 1) / total;
@@ -156,7 +186,7 @@ function ParallaxCard({
       className="absolute left-1/2 top-1/2 w-[82%] max-w-[500px] -translate-x-1/2 -translate-y-1/2"
     >
       <div className="overflow-hidden rounded-[28px] border border-blue-100 bg-white shadow-xl">
-        <div className={`h-2.5 bg-gradient-to-r ${service.gradient}`} />
+        <div className={`h-2.5 bg-gradient-to-r ${gradient}`} />
 
         <div className="relative p-6">
           <span className="pointer-events-none absolute -right-2 -top-8 text-[100px] font-bold leading-none text-blue-600/[0.07]">
@@ -164,9 +194,9 @@ function ParallaxCard({
           </span>
 
           <div
-            className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${service.gradient} text-sm font-bold text-white shadow-md`}
+            className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-md`}
           >
-            {service.number}
+            <IconComp className="h-5 w-5" />
           </div>
 
           <h3 className="text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">
@@ -187,7 +217,7 @@ function ParallaxCard({
               </span>
             </div>
 
-            <CardVisual index={index} gradient={service.gradient} />
+            <CardVisual gradient={gradient} />
           </div>
         </div>
       </div>
@@ -195,50 +225,7 @@ function ParallaxCard({
   );
 }
 
-function CardVisual({ index, gradient }: { index: number; gradient: string }) {
-  if (index === 1) {
-    return (
-      <div className="grid grid-cols-3 gap-3">
-        {["LCP", "INP", "CLS"].map((item) => (
-          <div key={item} className="rounded-2xl bg-white p-3 text-center">
-            <div className="text-xs font-semibold text-slate-500">{item}</div>
-            <div className="mt-1 text-base font-bold text-blue-600">Good</div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  if (index === 2) {
-    return (
-      <div className="flex items-center justify-between">
-        {["Bot", "Sitemap", "Pages"].map((item, i) => (
-          <React.Fragment key={item}>
-            <div className="rounded-xl bg-white px-3 py-2 text-xs font-semibold text-slate-700">
-              {item}
-            </div>
-            {i !== 2 && <div className="h-px flex-1 bg-blue-200" />}
-          </React.Fragment>
-        ))}
-      </div>
-    );
-  }
-
-  if (index === 3) {
-    return (
-      <div className="grid grid-cols-2 gap-3">
-        {["Organization", "Service", "FAQ", "Breadcrumb"].map((item) => (
-          <div
-            key={item}
-            className="rounded-xl bg-white px-3 py-2 text-xs font-semibold text-slate-700"
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    );
-  }
-
+function CardVisual({ gradient }: { gradient: string }) {
   return (
     <div className="space-y-3">
       {[90, 76, 84].map((value, i) => (
