@@ -58,6 +58,7 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,23,0.96),rgba(2,8,23,0.76),rgba(2,8,23,0.42))]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_24%,rgba(14,165,233,0.28),transparent_32%)]" />
+          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-white/45 via-white/22 to-transparent" />
         </div>
 
         <div className="container relative z-10 mx-auto max-w-7xl">

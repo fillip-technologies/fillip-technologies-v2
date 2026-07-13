@@ -29,6 +29,7 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
           <div className="absolute -left-24 top-28 size-72 rounded-full bg-blue-500/15 blur-3xl" />
           <div className="absolute right-0 top-16 size-96 rounded-full bg-cyan-400/8 blur-3xl" />
           <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] bg-[size:44px_44px]" />
+          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-white/45 via-white/22 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#020817] to-transparent" />
         </div>
 
