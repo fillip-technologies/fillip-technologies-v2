@@ -24,8 +24,8 @@ export default async function PortfolioPage() {
     <main className="bg-[#f8fafc]">
       <PortfolioHero content={hero} />
       <PortfolioShowcase content={showcase} />
-      <PortfolioIndustries content={industries} />
-      <PortfolioImpact content={impact} stories={impactstories} />
+      {/* <PortfolioIndustries content={industries} />
+      <PortfolioImpact content={impact} stories={impactstories} /> */}
     </main>
   );
 }

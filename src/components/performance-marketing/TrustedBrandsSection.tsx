@@ -67,7 +67,11 @@ export default function TrustedBrandsSection() {
       </div>
 
       <div className="relative flex overflow-hidden py-2">
-        <div className="flex w-max animate-marquee items-center gap-8 whitespace-nowrap [animation-duration:70s]">
+        {/* Scroll speed can be adjusted here: increase duration (e.g. 150s) to slow down, decrease (e.g. 80s) to speed up */}
+        <div 
+          className="flex w-max animate-marquee-3x hover-pause items-center gap-8 whitespace-nowrap"
+          style={{ animationDuration: "120s" }}
+        >
           {marqueeLogos.map((logo, index) => (
             <div
               key={`${logo.alt}-${index}`}

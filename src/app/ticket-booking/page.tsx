@@ -513,9 +513,8 @@ function OnlineVisual() {
               {Array.from({ length: 21 }).map((_, i) => (
                 <div
                   key={i}
-                  className={`grid aspect-square place-items-center rounded text-[9px] ${
-                    i === 12 ? "bg-primary font-medium text-primary-foreground" : "bg-surface text-ink-muted"
-                  }`}
+                  className={`grid aspect-square place-items-center rounded text-[9px] ${i === 12 ? "bg-primary font-medium text-primary-foreground" : "bg-surface text-ink-muted"
+                    }`}
                 >
                   {i + 1}
                 </div>
@@ -586,9 +585,8 @@ function CounterVisual() {
             {["Adult", "Child", "Senior", "Group", "Camera", "Vehicle"].map((t, i) => (
               <button
                 key={t}
-                className={`rounded-lg border py-2.5 text-xs ${
-                  i < 2 ? "border-primary bg-primary" : "border-white/10 bg-white/[0.03]"
-                }`}
+                className={`rounded-lg border py-2.5 text-xs ${i < 2 ? "border-primary bg-primary" : "border-white/10 bg-white/[0.03]"
+                  }`}
               >
                 {t}
               </button>

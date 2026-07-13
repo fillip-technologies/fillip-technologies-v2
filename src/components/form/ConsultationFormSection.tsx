@@ -4,15 +4,17 @@ import ConsultationForm from "./ConsultationForm";
 
 export default function ConsultationFormSection({
     showOnlyForm = false,
+    className = "py-24",
 }: {
     showOnlyForm?: boolean;
+    className?: string;
 }) {
     if (showOnlyForm) {
         return (
             <div className="border border-slate-200/80 bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 shadow-md relative overflow-hidden h-full">
                 {/* Soft gradient backgrounds in form card */}
                 <div className="absolute top-[-80px] right-[-80px] w-64 h-64 rounded-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 blur-3xl pointer-events-none" />
-                
+
                 <div className="relative z-10">
                     <div className="border-b border-slate-100 pb-4 mb-6">
                         <h3 className="text-lg font-black uppercase tracking-wide text-slate-900 flex items-center gap-2">
@@ -30,7 +32,7 @@ export default function ConsultationFormSection({
     }
 
     return (
-        <section className="relative overflow-hidden py-24">
+        <section className={`relative overflow-hidden ${className}`}>
             {/* Grid */}
             <div
                 className="absolute inset-0 opacity-[0.04]"
@@ -49,9 +51,9 @@ export default function ConsultationFormSection({
             <div className="container relative mx-auto max-w-7xl px-6">
                 {/* Heading */}
                 <div className="mx-auto max-w-3xl text-center">
-                    <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
+                    {/* <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
                         Free Consultation
-                    </span>
+                    </span> */}
 
                     <h2 className="mt-6 text-5xl font-bold leading-[1.05] text-slate-900 md:text-6xl">
                         {"Let's Discuss Your"}
