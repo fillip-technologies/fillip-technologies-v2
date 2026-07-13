@@ -1,43 +1,47 @@
 "use client";
+
+import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
+import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
 import {
+  Activity,
   ArrowRight,
   ArrowUpRight,
+  Building2,
+  Calendar,
+  Castle,
+  CheckCircle2,
+  ChevronRight,
+  Clock,
+  CreditCard,
+  Cpu,
+  Globe,
+  Landmark,
+  Layers,
   QrCode,
-  Ticket,
-  BarChart3,
   ScanLine,
   ShieldCheck,
-  Calendar,
-  Building2,
-  Landmark,
-  Trees,
-  Castle,
   Sparkles,
-  Globe,
-  Layers,
-  Cpu,
-  CheckCircle2,
-  Users,
+  Ticket,
   TrendingUp,
-  CreditCard,
-  Activity,
-  Clock,
-  ChevronRight,
+  Trees,
+  Users,
 } from "lucide-react";
+import type {
+  TicketBookingContent,
+  TicketHeroContent,
+  TicketOfferContent,
+  TicketCapabilitiesContent,
+  TicketHowItWorksContent,
+  TicketIndustriesContent,
+  TicketWhyChooseContent,
+  TicketDashboardContent,
+  TicketFaqContent,
+} from "./ticket-content";
 
-const patnaZoo = "/images/patna-zoo-portal.png";
-const rajgirDash = "/images/rajgir-safari-dashboard.jpg";
 const analyticsDash = "/images/analytics-dashboard.jpg";
-
-
-
-/* ------------------------------------------------------------------ */
-/* Animation primitives                                                */
-/* ------------------------------------------------------------------ */
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -53,28 +57,64 @@ const stagger = {
   transition: { staggerChildren: 0.08 },
 };
 
-/* ------------------------------------------------------------------ */
+// Icons / decorative visuals applied to CMS-managed content by position.
+const OFFER_ICONS = [Ticket, Building2, QrCode, Users] as const;
+const INDUSTRY_ICONS = [Trees, Globe, Landmark, Castle, Calendar, Building2, Activity, Sparkles, Layers] as const;
+const PILLAR_ICONS = [Cpu, Layers, ShieldCheck, Activity, Users, Building2] as const;
+const DASHBOARD_ICONS = [Ticket, CreditCard, Users, Activity, ScanLine, TrendingUp] as const;
+const CAPABILITY_POINTS = [
+  ["Mobile-first booking", "Category rules", "Secure checkout", "SMS and email delivery"],
+  ["Counter POS", "Printer support", "Shift reconciliation", "Unified inventory"],
+  ["Signed QR codes", "Duplicate prevention", "Gate scan logs", "Live capacity"],
+];
 
-export default function TicketingService() {
+export default function TicketBookingSolutionPage({ content }: { content: TicketBookingContent }) {
+  const pageRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!pageRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".gsap-soft-reveal",
+        { opacity: 0, y: 18 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.08,
+          delay: 0.15,
+        },
+      );
+
+      gsap.to(".gsap-dashboard-drift", {
+        y: -10,
+        duration: 3.2,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <>
-      <Navbar />
-      <main ref={pageRef} className="ticket-page min-h-screen overflow-x-hidden bg-background text-ink">
-        <Hero />
-        <WhatWeOffer />
-        <KeyCapabilities />
-        <HowItWorks />
-        <Industries />
-        <WhyChoose />
-        <DashboardShowcase />
-        <FAQ />
-      </main>
-      <Footer />
-    </>
+    <main ref={pageRef} className="ticket-page min-h-screen overflow-x-hidden bg-background text-ink">
+      <Hero content={content.hero} />
+      <WhatWeOffer content={content.offer} />
+      <KeyCapabilities content={content.capabilities} />
+      <HowItWorks content={content.howitworks} />
+      <Industries content={content.industries} />
+      <WhyChoose content={content.whychoose} />
+      <DashboardShowcase content={content.dashboard} />
+      <FAQ content={content.faq} />
+    </main>
   );
 }
 
-function Hero() {
+function Hero({ content }: { content: TicketHeroContent }) {
   return (
     <section className="relative overflow-hidden pt-36 pb-24 lg:pt-44 lg:pb-32">
       <div className="absolute inset-0 grid-bg pointer-events-none" />
@@ -84,16 +124,15 @@ function Hero() {
         <div className="lg:col-span-6">
           <div className="gsap-soft-reveal inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-3 py-1.5 text-xs font-medium text-ink-muted">
             <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-            Ticketing Platform Development Services
+            {content.badge}
           </div>
 
           <h1 className="gsap-soft-reveal mt-6 text-[clamp(2.7rem,5.8vw,5rem)] font-bold leading-[0.98] tracking-[-0.04em] text-[var(--heading)]">
-            Ticketing Platform Development Services
+            {content.heading}
           </h1>
 
           <p className="gsap-soft-reveal mt-7 max-w-xl text-lg leading-relaxed text-[var(--body)]">
-            Build secure, scalable and intelligent ticketing solutions for tourism, public attractions,
-            events and organizations.
+            {content.description}
           </p>
 
           <div className="gsap-soft-reveal mt-9 flex flex-wrap items-center gap-3">
@@ -101,23 +140,19 @@ function Hero() {
               href="/get-a-quote"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-elevated transition-all hover:shadow-glow"
             >
-              Discuss Your Platform
+              {content.primaryCtaLabel}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <a
               href="#dashboard"
               className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface-elevated px-6 py-3.5 text-sm font-medium transition-colors hover:bg-surface"
             >
-              View Sample Dashboard
+              {content.secondaryCtaLabel}
             </a>
           </div>
 
           <div className="gsap-soft-reveal mt-12 grid max-w-lg grid-cols-3 gap-6">
-            {[
-              { k: "Online", v: "Booking Flows" },
-              { k: "QR", v: "Entry Validation" },
-              { k: "Live", v: "Admin Reporting" },
-            ].map((s) => (
+            {content.stats.map((s) => (
               <div key={s.v}>
                 <div className="text-3xl font-bold tracking-[-0.03em] text-[var(--heading)]">{s.k}</div>
                 <div className="mt-1 text-xs text-ink-muted">{s.v}</div>
@@ -318,30 +353,7 @@ function SectionHeader({
   );
 }
 
-function WhatWeOffer() {
-  const solutions = [
-    {
-      title: "Online Ticket Booking",
-      body: "Responsive booking journeys with categories, visitor details, add-ons, secure payments and instant digital ticket delivery.",
-      icon: Ticket,
-    },
-    {
-      title: "Counter Ticketing",
-      body: "Fast operator screens for walk-in sales, receipt printing, payment modes, shift reports and synchronized inventory.",
-      icon: Building2,
-    },
-    {
-      title: "QR Based Entry Validation",
-      body: "Signed QR codes, scan logs, duplicate-entry prevention and gate-level visibility for smooth visitor movement.",
-      icon: QrCode,
-    },
-    {
-      title: "Visitor Management",
-      body: "Structured visitor profiles, group bookings, category rules and role-based workflows for operations teams.",
-      icon: Users,
-    },
-  ];
-
+function WhatWeOffer({ content }: { content: TicketOfferContent }) {
   const extended = [
     "Slot Booking",
     "Payment Gateway Integration",
@@ -366,11 +378,7 @@ function WhatWeOffer() {
         }}
       />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="What We Offer"
-          title="Our Ticketing Solutions"
-          description="Fillip Technologies builds complete ticketing platforms around your operations, not a generic template. Every module works together across online booking, counters, gates, finance and administration."
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} description={content.description} />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-12">
           <motion.div {...fadeUp} className="lg:col-span-5">
@@ -380,8 +388,8 @@ function WhatWeOffer() {
                   <Layers className="size-6 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-[var(--heading)]">End-to-end platform</div>
-                  <div className="text-sm text-[var(--body)]">Built for live operational control</div>
+                  <div className="text-sm font-semibold text-[var(--heading)]">{content.panelTitle}</div>
+                  <div className="text-sm text-[var(--body)]">{content.panelSubtitle}</div>
                 </div>
               </div>
               <div className="mt-8 space-y-5">
@@ -398,20 +406,23 @@ function WhatWeOffer() {
           </motion.div>
 
           <motion.div {...stagger} className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
-            {solutions.map(({ title, body, icon: Icon }) => (
-              <motion.div
-                key={title}
-                variants={{ initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.55 }}
-                className="rounded-[28px] border border-border bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
-              >
-                <div className="grid size-11 place-items-center rounded-2xl border border-border bg-surface">
-                  <Icon className="size-5 text-primary" />
-                </div>
-                <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)]">{title}</h3>
-                <p className="mt-3 leading-relaxed text-[var(--body)]">{body}</p>
-              </motion.div>
-            ))}
+            {content.solutions.map(({ title, body }, index) => {
+              const Icon = OFFER_ICONS[index % OFFER_ICONS.length];
+              return (
+                <motion.div
+                  key={title || index}
+                  variants={{ initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.55 }}
+                  className="rounded-[28px] border border-border bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
+                >
+                  <div className="grid size-11 place-items-center rounded-2xl border border-border bg-surface">
+                    <Icon className="size-5 text-primary" />
+                  </div>
+                  <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)]">{title}</h3>
+                  <p className="mt-3 leading-relaxed text-[var(--body)]">{body}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
@@ -419,55 +430,25 @@ function WhatWeOffer() {
   );
 }
 
-function KeyCapabilities() {
-  const blocks = [
-    {
-      n: "01",
-      title: "Booking experiences that reduce friction",
-      lead: "Visitors can choose tickets, dates, slots and payment methods without confusion.",
-      body: "We design booking journeys for clarity, speed and trust, including responsive layouts, dynamic pricing, add-ons, refund logic and automated ticket delivery.",
-      points: ["Mobile-first booking", "Category rules", "Secure checkout", "SMS and email delivery"],
-      visual: <OnlineVisual />,
-    },
-    {
-      n: "02",
-      title: "Unified counter and online operations",
-      lead: "Offline ticket sales stay connected to the same inventory and reporting system.",
-      body: "Counter teams get practical screens for fast sales, payment collection, receipt printing, shift close and supervisor review.",
-      points: ["Counter POS", "Printer support", "Shift reconciliation", "Unified inventory"],
-      visual: <CounterVisual />,
-      reverse: true,
-    },
-    {
-      n: "03",
-      title: "Entry control and capacity intelligence",
-      lead: "Every entry can be validated, tracked and reported in real time.",
-      body: "Gate teams can scan QR tickets, prevent duplicate use, monitor capacity and keep operations moving during high-footfall periods.",
-      points: ["Signed QR codes", "Duplicate prevention", "Gate scan logs", "Live capacity"],
-      visual: <QRVisual />,
-    },
-  ];
+function KeyCapabilities({ content }: { content: TicketCapabilitiesContent }) {
+  const visuals = [<OnlineVisual key="a" />, <CounterVisual key="b" />, <QRVisual key="c" />];
 
   return (
     <section className="relative overflow-hidden py-28 lg:py-36">
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="Key Capabilities"
-          title="A connected platform for booking, operations and reporting."
-          description="We build the full product layer your organization needs: visitor experience, staff operations, gate validation, admin controls and business intelligence."
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} description={content.description} />
 
         <div className="mt-20 space-y-28">
-          {blocks.map((b) => (
+          {content.blocks.map((b, index) => (
             <motion.div
-              key={b.n}
+              key={b.title || index}
               {...fadeUp}
-              className={`grid items-center gap-12 lg:grid-cols-12 lg:gap-16 ${b.reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
+              className={`grid items-center gap-12 lg:grid-cols-12 lg:gap-16 ${index === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
             >
-              <div className="lg:col-span-7">{b.visual}</div>
+              <div className="lg:col-span-7">{visuals[index % visuals.length]}</div>
               <div className="lg:col-span-5">
                 <div className="flex items-center gap-3 text-xs font-mono text-ink-muted">
-                  <span className="text-primary">{b.n}</span>
+                  <span className="text-primary">{String(index + 1).padStart(2, "0")}</span>
                   <span className="h-px w-10 bg-border-strong" />
                   Capability
                 </div>
@@ -477,7 +458,7 @@ function KeyCapabilities() {
                 <p className="mt-4 text-lg leading-relaxed text-ink">{b.lead}</p>
                 <p className="mt-3 leading-relaxed text-ink-muted">{b.body}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {b.points.map((p) => (
+                  {(CAPABILITY_POINTS[index] ?? []).map((p) => (
                     <span
                       key={p}
                       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-xs text-ink-muted"
@@ -639,15 +620,7 @@ function QRVisual() {
   );
 }
 
-function HowItWorks() {
-  const steps = [
-    { t: "Discovery and Workflow Mapping", d: "We understand visitor journeys, ticket categories, permissions, pricing, approval paths and operational constraints." },
-    { t: "UX and Platform Architecture", d: "We define booking screens, counter flows, admin roles, data models, integrations and reporting requirements." },
-    { t: "Development and Integration", d: "We build the booking portal, counter POS, QR validation, dashboards, payment gateway and notification layer." },
-    { t: "Testing and Launch", d: "We validate payments, load behavior, security, scan flows, reports and staff readiness before production rollout." },
-    { t: "Support and Optimization", d: "We provide training, maintenance, monitoring and feature improvements as your operations evolve." },
-  ];
-
+function HowItWorks({ content }: { content: TicketHowItWorksContent }) {
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface/60 py-28 lg:py-36">
       <Image
@@ -663,19 +636,15 @@ function HowItWorks() {
         }}
       />
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="How It Works"
-          title="From operational planning to a reliable live platform."
-          description="Our process is structured for organizations that need dependable technology, clear accountability and smooth handover to internal teams."
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} description={content.description} />
 
         <div className="relative mt-16">
           <div className="absolute bottom-0 left-[31px] top-0 w-px bg-gradient-to-b from-transparent via-border-strong to-transparent lg:left-1/2 lg:-translate-x-1/2" />
 
           <motion.div {...stagger} className="space-y-8">
-            {steps.map((s, i) => (
+            {content.steps.map((s, i) => (
               <motion.div
-                key={s.t}
+                key={s.t || i}
                 variants={{ initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.6 }}
                 className={`relative grid items-center gap-6 lg:grid-cols-2 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}
@@ -703,66 +672,44 @@ function HowItWorks() {
   );
 }
 
-function Industries() {
-  const items = [
-    { t: "Tourism Attractions", i: Trees },
-    { t: "Safari and Nature Parks", i: Globe },
-    { t: "Museums", i: Landmark },
-    { t: "Heritage Sites", i: Castle },
-    { t: "Events and Exhibitions", i: Calendar },
-    { t: "Government Venues", i: Building2 },
-    { t: "Theme Parks", i: Activity },
-    { t: "Cultural Centers", i: Sparkles },
-    { t: "Organizations", i: Layers },
-  ];
-
+function Industries({ content }: { content: TicketIndustriesContent }) {
   return (
     <section id="industries" className="relative overflow-hidden py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="Industries We Serve"
-          title="Ticketing systems for venues, institutions and high-footfall experiences."
-          description="Our platforms support organizations where admission control, capacity, payments and visitor experience need to work together."
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} description={content.description} />
 
         <div className="mt-16 grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
-          {items.map(({ t, i: Icon }, idx) => (
-            <motion.div
-              key={t}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.04 }}
-              className="group relative border-b border-r border-border p-8 transition-colors hover:bg-surface lg:p-10"
-            >
-              <div className="flex items-start justify-between">
-                <Icon className="size-7 text-primary" strokeWidth={1.4} />
-                <span className="flex items-center gap-1 text-xs font-mono text-ink-muted opacity-0 transition-opacity group-hover:opacity-100">
-                  Fit <ArrowUpRight className="size-3" />
-                </span>
-              </div>
-              <div className="mt-12 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)]">{t}</div>
-              <div className="mt-2 text-xs uppercase tracking-wider text-ink-muted">
-                Booking - Validation - Reporting
-              </div>
-            </motion.div>
-          ))}
+          {content.items.map(({ t }, idx) => {
+            const Icon = INDUSTRY_ICONS[idx % INDUSTRY_ICONS.length];
+            return (
+              <motion.div
+                key={t || idx}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.04 }}
+                className="group relative border-b border-r border-border p-8 transition-colors hover:bg-surface lg:p-10"
+              >
+                <div className="flex items-start justify-between">
+                  <Icon className="size-7 text-primary" strokeWidth={1.4} />
+                  <span className="flex items-center gap-1 text-xs font-mono text-ink-muted opacity-0 transition-opacity group-hover:opacity-100">
+                    Fit <ArrowUpRight className="size-3" />
+                  </span>
+                </div>
+                <div className="mt-12 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)]">{t}</div>
+                <div className="mt-2 text-xs uppercase tracking-wider text-ink-muted">
+                  Booking - Validation - Reporting
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-function WhyChoose() {
-  const pillars = [
-    { t: "Technology partner mindset", d: "We help shape the platform around your business goals, staff workflows and visitor expectations.", i: Cpu },
-    { t: "Scalable architecture", d: "Platforms are engineered for traffic spikes, high transaction volume and long-term feature growth.", i: Layers },
-    { t: "Secure implementation", d: "Payment integrations, signed QR tickets, role-based access, audit trails and hardened APIs are planned from the start.", i: ShieldCheck },
-    { t: "Custom workflows", d: "We model your ticket rules, slots, counters, capacity limits, approvals and reporting needs instead of forcing generic behavior.", i: Activity },
-    { t: "Clean user experience", d: "Visitors, counter staff, gate teams and administrators get interfaces designed for speed and confidence.", i: Users },
-    { t: "Long-term support", d: "We stay involved after launch with monitoring, maintenance, training and ongoing platform improvements.", i: Building2 },
-  ];
-
+function WhyChoose({ content }: { content: TicketWhyChooseContent }) {
   return (
     <section className="relative overflow-hidden bg-surface-dark py-28 text-white lg:py-36">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(56,189,248,0.22),transparent_50%)]" />
@@ -789,35 +736,35 @@ function WhyChoose() {
           <motion.div {...fadeUp} className="relative min-h-[640px] lg:col-span-5">
             <div className="relative z-10">
               <div className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
-                Why Choose Fillip Technologies
+                {content.eyebrow}
               </div>
               <h2 className="mt-4 text-4xl font-bold leading-tight tracking-[-0.04em] md:text-5xl">
-                Built for organizations that need reliable ticketing operations.
+                {content.title}
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white/70">
-                We combine product strategy, software engineering, UX design and operational support to deliver
-                ticketing platforms your teams can trust every day.
-              </p>
+              <p className="mt-5 text-lg leading-relaxed text-white/70">{content.description}</p>
             </div>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
-            {pillars.map(({ t, d, i: Icon }, idx) => (
-              <motion.div
-                key={t}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: idx * 0.05 }}
-                className="rounded-[24px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition-colors hover:bg-white/[0.06]"
-              >
-                <div className="grid size-9 place-items-center rounded-lg border border-cyan-200/20 bg-cyan-200/15">
-                  <Icon className="size-4 text-cyan-200" />
-                </div>
-                <div className="mt-5 text-xl font-semibold tracking-[-0.03em]">{t}</div>
-                <p className="mt-2 text-sm leading-relaxed text-white/65">{d}</p>
-              </motion.div>
-            ))}
+            {content.pillars.map(({ t, d }, idx) => {
+              const Icon = PILLAR_ICONS[idx % PILLAR_ICONS.length];
+              return (
+                <motion.div
+                  key={t || idx}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: idx * 0.05 }}
+                  className="rounded-[24px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition-colors hover:bg-white/[0.06]"
+                >
+                  <div className="grid size-9 place-items-center rounded-lg border border-cyan-200/20 bg-cyan-200/15">
+                    <Icon className="size-4 text-cyan-200" />
+                  </div>
+                  <div className="mt-5 text-xl font-semibold tracking-[-0.03em]">{t}</div>
+                  <p className="mt-2 text-sm leading-relaxed text-white/65">{d}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -825,40 +772,30 @@ function WhyChoose() {
   );
 }
 
-function DashboardShowcase() {
+function DashboardShowcase({ content }: { content: TicketDashboardContent }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1.02, 1]);
 
-  const items = [
-    { t: "Ticket Sales", i: Ticket },
-    { t: "Revenue Reports", i: CreditCard },
-    { t: "Visitor Analytics", i: Users },
-    { t: "Capacity Monitoring", i: Activity },
-    { t: "Entry Validation", i: ScanLine },
-    { t: "Peak Visitor Tracking", i: TrendingUp },
-  ];
-
   return (
     <section id="dashboard" ref={ref} className="relative overflow-hidden py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="Dashboard Showcase"
-          title="A sample platform view built by Fillip Technologies."
-          description="This dashboard preview shows the type of operational control surface we can build for ticket sales, revenue, capacity and live entry management."
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} description={content.description} />
 
         <div className="mt-16 grid items-start gap-10 lg:grid-cols-12">
           <div className="space-y-3 lg:col-span-3">
-            {items.map(({ t, i: Icon }) => (
-              <div key={t} className="flex items-center gap-3 rounded-xl border border-border bg-surface-elevated px-4 py-3">
-                <div className="grid size-8 place-items-center rounded-md bg-primary/10">
-                  <Icon className="size-4 text-primary" />
+            {content.items.map(({ t }, idx) => {
+              const Icon = DASHBOARD_ICONS[idx % DASHBOARD_ICONS.length];
+              return (
+                <div key={t || idx} className="flex items-center gap-3 rounded-xl border border-border bg-surface-elevated px-4 py-3">
+                  <div className="grid size-8 place-items-center rounded-md bg-primary/10">
+                    <Icon className="size-4 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium">{t}</span>
+                  <ChevronRight className="ml-auto size-4 text-ink-muted" />
                 </div>
-                <span className="text-sm font-medium">{t}</span>
-                <ChevronRight className="ml-auto size-4 text-ink-muted" />
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <motion.div style={{ scale }} className="relative lg:col-span-9">
@@ -882,41 +819,14 @@ function DashboardShowcase() {
   );
 }
 
-function FAQ() {
-  const faqs = [
-    {
-      q: "Can Fillip Technologies build a custom ticketing platform for our organization?",
-      a: "Yes. We design and develop custom ticketing platforms for organizations that need online booking, counter sales, QR validation, dashboards and operational workflows tailored to their needs.",
-    },
-    {
-      q: "Can the platform support both online and counter ticketing?",
-      a: "Yes. We can build online booking and counter POS as part of one connected system, so inventory, reports and entry validation stay synchronized.",
-    },
-    {
-      q: "Do you integrate payment gateways?",
-      a: "Yes. We integrate suitable payment gateways, configure transaction flows, support reconciliation needs and connect payment status with ticket generation.",
-    },
-    {
-      q: "Can we manage slots, capacity and visitor categories?",
-      a: "Yes. The platform can include slot booking, capacity rules, visitor categories, pricing logic, add-ons and admin controls.",
-    },
-    {
-      q: "Do you provide support after launch?",
-      a: "Yes. We can provide training, monitoring, maintenance, performance improvements and ongoing feature development after launch.",
-    },
-  ];
-
+function FAQ({ content }: { content: TicketFaqContent }) {
   return (
     <section className="border-y border-border bg-surface/60 py-24 lg:py-32">
       <div className="mx-auto max-w-4xl px-6">
-        <SectionHeader
-          eyebrow="FAQ"
-          title="Questions organizations ask before building a ticketing platform."
-          centered
-        />
+        <SectionHeader eyebrow={content.eyebrow} title={content.title} centered />
 
         <div className="mt-12 divide-y divide-border rounded-[28px] border border-border bg-white shadow-soft">
-          {faqs.map((item) => (
+          {content.faqs.map((item) => (
             <motion.details
               key={item.q}
               {...fadeUp}

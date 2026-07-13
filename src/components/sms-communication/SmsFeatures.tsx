@@ -2,53 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Key, Target, Code, Repeat, Sparkles } from "lucide-react";
+import { Key, Target, Code, Repeat } from "lucide-react";
+import type { SmsFeaturesContent } from "@/components/solutions/sms-content";
 
-interface FeatureCard {
-  title: string;
-  desc: string;
-  icon: React.ComponentType<any>;
-  color: string;
-  glow: string;
-  accent: string;
-}
+// Icon + colour theme applied to the CMS-managed feature cards by position.
+const FEATURE_META = [
+  { icon: Key, color: "text-cyan-500", glow: "rgba(6, 182, 212, 0.12)", accent: "bg-cyan-500/10 border-cyan-500/20" },
+  { icon: Target, color: "text-indigo-500", glow: "rgba(99, 102, 241, 0.12)", accent: "bg-indigo-500/10 border-indigo-500/20" },
+  { icon: Code, color: "text-emerald-500", glow: "rgba(16, 185, 129, 0.12)", accent: "bg-emerald-500/10 border-emerald-500/20" },
+  { icon: Repeat, color: "text-pink-500", glow: "rgba(236, 72, 153, 0.12)", accent: "bg-pink-500/10 border-pink-500/20" },
+] as const;
 
-const features: FeatureCard[] = [
-  {
-    title: "Transactional Alerts & OTPs",
-    desc: "Deploy two-factor authentication codes, booking verifications, and invoice receipts in under 3 seconds.",
-    icon: Key,
-    color: "text-cyan-500",
-    glow: "rgba(6, 182, 212, 0.12)",
-    accent: "bg-cyan-500/10 border-cyan-500/20"
-  },
-  {
-    title: "Promotional Broadcasts",
-    desc: "Draft marketing campaigns, schedule bulk product announcements, and distribute coupon codes instantly.",
-    icon: Target,
-    color: "text-indigo-500",
-    glow: "rgba(99, 102, 241, 0.12)",
-    accent: "bg-indigo-500/10 border-indigo-500/20"
-  },
-  {
-    title: "Developer REST APIs",
-    desc: "Robust REST, HTTP, and SMPP endpoints that allow you to integrate SMS triggers into any codebase in 5 lines of code.",
-    icon: Code,
-    color: "text-emerald-500",
-    glow: "rgba(16, 185, 129, 0.12)",
-    accent: "bg-emerald-500/10 border-emerald-500/20"
-  },
-  {
-    title: "Intelligent Fallback Routing",
-    desc: "Our smart system switches operator pipelines dynamically to avoid congestion and maintain 99.9% deliverability.",
-    icon: Repeat,
-    color: "text-pink-500",
-    glow: "rgba(236, 72, 153, 0.12)",
-    accent: "bg-pink-500/10 border-pink-500/20"
-  }
-];
-
-export default function SmsFeatures() {
+export default function SmsFeatures({ content }: { content: SmsFeaturesContent }) {
   return (
     <section id="features" className="py-24 px-6 md:px-12 bg-white relative overflow-hidden">
       {/* Soft Background grid */}
@@ -65,20 +30,21 @@ export default function SmsFeatures() {
             <Sparkles size={10} className="text-indigo-500" /> Advanced Capabilities
           </span> */}
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-6 uppercase">
-            Communication Engineered<br />
+            {content.headingLine1}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-indigo-600">
-              For Perfect Delivery.
+              {content.headingLine2}
             </span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base font-light leading-relaxed">
-            Our gateway is equipped with multiple operator tie-ups and direct router pipes, giving you low latencies and bulletproof delivery analytics.
+            {content.description}
           </p>
         </div>
 
         {/* Feature grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, idx) => {
-            const Icon = feature.icon;
+          {content.items.map((feature, idx) => {
+            const meta = FEATURE_META[idx % FEATURE_META.length];
+            const Icon = meta.icon;
             return (
               <motion.div
                 key={idx}
@@ -92,14 +58,14 @@ export default function SmsFeatures() {
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                   style={{
-                    background: `radial-gradient(circle at 50% 50%, ${feature.glow} 0%, transparent 65%)`
+                    background: `radial-gradient(circle at 50% 50%, ${meta.glow} 0%, transparent 65%)`
                   }}
                 />
 
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div>
-                    <div className={`p-3 rounded-2xl border w-fit mb-6 ${feature.accent}`}>
-                      <Icon className={`size-5 ${feature.color}`} />
+                    <div className={`p-3 rounded-2xl border w-fit mb-6 ${meta.accent}`}>
+                      <Icon className={`size-5 ${meta.color}`} />
                     </div>
 
                     <h3 className="text-base font-bold text-slate-800 mb-3 uppercase tracking-wide">

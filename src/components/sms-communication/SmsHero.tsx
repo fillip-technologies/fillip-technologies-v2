@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Send, CheckCircle, Smartphone, Wifi, Battery, MessageSquare, Zap } from "lucide-react";
+import { Send, CheckCircle, Smartphone, Wifi, Battery, MessageSquare, Zap } from "lucide-react";
+import type { SmsHeroContent } from "@/components/solutions/sms-content";
 
-export default function SmsHero() {
+export default function SmsHero({ content }: { content: SmsHeroContent }) {
   const [senderId, setSenderId] = useState("FILLIP");
   const [message, setMessage] = useState("Your OTP for secure registration is 829104. Valid for 5 minutes. Do not share this code.");
   const [isSending, setIsSending] = useState(false);
@@ -15,8 +16,8 @@ export default function SmsHero() {
   useEffect(() => {
     const updateTime = () => {
       const d = new Date();
-      let hrs = d.getHours();
-      let mins = d.getMinutes();
+      const hrs = d.getHours();
+      const mins = d.getMinutes();
       const hrsStr = hrs < 10 ? `0${hrs}` : hrs;
       const minsStr = mins < 10 ? `0${mins}` : mins;
       setTimeStr(`${hrsStr}:${minsStr}`);
@@ -71,14 +72,14 @@ export default function SmsHero() {
           </span> */}
 
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight uppercase leading-[1.05] mb-6">
-            SMS Gateways<br />
+            {content.headingLine1}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-indigo-600">
-              Built For Speed.
+              {content.headingLine2}
             </span>
           </h1>
 
           <p className="text-slate-500 text-sm sm:text-base font-light leading-relaxed mb-10 max-w-xl">
-            Experience our lightning-fast enterprise delivery engine. Compose a mock message below to test the routing visualizer and see it arrive instantly on the phone.
+            {content.description}
           </p>
 
           {/* SIMULATOR COMPOSER FORM */}

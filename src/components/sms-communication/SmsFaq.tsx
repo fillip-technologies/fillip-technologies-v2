@@ -3,36 +3,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import type { SmsFaqContent } from "@/components/solutions/sms-content";
 
-interface FaqItem {
-  q: string;
-  a: string;
-}
-
-const faqs: FaqItem[] = [
-  {
-    q: "What is DLT registration and is it mandatory?",
-    a: "Yes, in India, Distributed Ledger Technology (DLT) registration is mandatory as per TRAI regulations to combat spam. You must register your business entity, headers (sender IDs), and templates on an operator portal before sending messages. Our team provides complete assistance to get you approved."
-  },
-  {
-    q: "What is the difference between Transactional and Promotional routes?",
-    a: "Transactional SMS is used for critical alerts like OTPs and booking updates. They can be sent 24/7 and are delivered to all numbers (including DND). Promotional SMS is for marketing, discounts, and campaigns. They can only be sent between 9 AM and 9 PM and are not delivered to numbers registered on the DND registry."
-  },
-  {
-    q: "How long does custom Sender ID (Header) approval take?",
-    a: "Once DLT entity registration is complete, header (Sender ID) approvals typically take 24 to 48 hours on the operator DLT portal. Once approved there, it is active instantly on our gateway."
-  },
-  {
-    q: "Do you support API integrations with webhooks?",
-    a: "Absolutely. We offer high-performance REST APIs in multiple programming languages, along with live webhooks to receive real-time delivery status reports (DLR) directly back to your server databases."
-  },
-  {
-    q: "How do I top up my SMS credits and do they expire?",
-    a: "You can purchase SMS credits online via UPI, Credit Card, or Net Banking. Purchased credits do not expire and roll over indefinitely, allowing you to use them at your own pace."
-  }
-];
-
-export default function SmsFaq() {
+export default function SmsFaq({ content }: { content: SmsFaqContent }) {
+  const faqs = content.faqs;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
@@ -52,10 +26,10 @@ export default function SmsFaq() {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-6">
-            <HelpCircle size={10} className="text-primary" /> Common Inquiries
+            <HelpCircle size={10} className="text-primary" /> {content.badge}
           </span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 uppercase">
-            Frequently Asked Questions
+            {content.heading}
           </h2>
         </div>
 
