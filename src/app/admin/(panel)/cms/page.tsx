@@ -149,6 +149,20 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         icon: Boxes,
         accent: "orange",
       },
+      {
+        href: "/admin/cms/pages/ticket-booking",
+        label: "Ticket Booking (page)",
+        description: "Edit the bespoke /solutions/ticket-booking layout — hero, offerings, capabilities, steps, FAQs.",
+        icon: Boxes,
+        accent: "orange",
+      },
+      {
+        href: "/admin/cms/pages/sms-communication",
+        label: "SMS Communication (page)",
+        description: "Edit the bespoke /solutions/sms-communication layout — hero, features, API, pricing, FAQs.",
+        icon: Boxes,
+        accent: "orange",
+      },
     ],
   },
   {

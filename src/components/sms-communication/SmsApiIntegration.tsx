@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, ShieldCheck, Check, Layers, Share2, Smartphone } from "lucide-react";
+import { Sparkles, Check, Layers, Share2, Smartphone } from "lucide-react";
+import type { SmsApiContent } from "@/components/solutions/sms-content";
 
-export default function SmsApiIntegration() {
+export default function SmsApiIntegration({ content }: { content: SmsApiContent }) {
   return (
     <section className="py-24 px-6 md:px-12 bg-slate-950 text-slate-100 relative overflow-hidden">
       {/* Grid Background */}
@@ -27,16 +27,16 @@ export default function SmsApiIntegration() {
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-800 bg-slate-900 text-[10px] font-mono text-cyan-400 uppercase tracking-widest mb-6">
-            <Sparkles size={10} className="text-cyan-400 animate-pulse" /> API Integration Solutions
+            <Sparkles size={10} className="text-cyan-400 animate-pulse" /> {content.badge}
           </span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white mb-6 uppercase">
-            Seamless SMS API<br />
+            {content.headingLine1}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-primary to-indigo-400">
-              For Your Applications.
+              {content.headingLine2}
             </span>
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm font-light leading-relaxed">
-            We provide robust, secure, and developer-backed SMS APIs that plug directly into your web portals, checkouts, and custom databases.
+            {content.description}
           </p>
         </div>
 
@@ -47,28 +47,15 @@ export default function SmsApiIntegration() {
           <div className="lg:col-span-6 flex flex-col justify-center space-y-8">
             <div>
               <h3 className="text-xl md:text-2xl font-black uppercase text-white mb-4">
-                Unified Messaging Gateway
+                {content.leftTitle}
               </h3>
               <p className="text-xs md:text-sm text-slate-400 font-light leading-relaxed">
-                Connect your business logic to our delivery gateway. We offer ready-to-use SMS API endpoints tailored for immediate transaction notifications and customer alerts.
+                {content.leftDescription}
               </p>
             </div>
 
             <div className="space-y-6">
-              {[
-                {
-                  title: "One-Time Password (OTP) Auth",
-                  desc: "Send instant 6-digit verifications for logins, signups, and financial transactions with priority delivery routing."
-                },
-                {
-                  title: "Automated System Alerts",
-                  desc: "Configure automated triggers for ticket bookings, order dispatch notices, billing receipts, and schedule reminders."
-                },
-                {
-                  title: "Real-Time Callback Webhooks",
-                  desc: "Receive instant delivery status reports (DLR), error codes, and latency checks routed directly back to your database."
-                }
-              ].map((item, idx) => (
+              {content.items.map((item, idx) => (
                 <div key={idx} className="flex gap-4 items-start">
                   <div className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-cyan-400 shrink-0 mt-0.5">
                     <Check size={14} />

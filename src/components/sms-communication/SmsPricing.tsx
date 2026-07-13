@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Sparkles, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import type { SmsPricingContent } from "@/components/solutions/sms-content";
 
-export default function SmsPricing() {
+export default function SmsPricing({ content }: { content: SmsPricingContent }) {
   const [volume, setVolume] = useState(50000);
 
   // Dynamic volume specs tier logic
@@ -55,13 +55,13 @@ export default function SmsPricing() {
             <Sparkles size={10} className="text-cyan-500" /> Dynamic Billing Calculator
           </span> */}
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-6 uppercase">
-            Paid Packages Built<br />
+            {content.headingLine1}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-indigo-600">
-              For Scale & Savings.
+              {content.headingLine2}
             </span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base font-light leading-relaxed">
-            Drag the volume slider to see the carrier route specifications, support levels, and features dedicated for each tier.
+            {content.description}
           </p>
         </div>
 
@@ -151,21 +151,14 @@ export default function SmsPricing() {
               </span>
 
               <h3 className="text-xl font-black uppercase tracking-tight text-white mb-6">
-                What is included
+                {content.includedTitle}
               </h3>
 
               <ul className="space-y-4 mb-8">
-                {[
-                  "DLT Header / Sender ID Registration Support",
-                  "Unicode SMS Support (Multiple Languages)",
-                  "Real-Time Live Webhook Delivery Reports",
-                  "Direct Carrier Route with Smart Failover",
-                  "No Setup Fee & Credits Never Expire",
-                  "Standard REST APIs & Developer SDKs"
-                ].map((item, i) => (
+                {content.included.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-xs text-slate-350 font-light leading-relaxed">
                     <Check size={14} className="text-cyan-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <span>{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -175,7 +168,7 @@ export default function SmsPricing() {
               href={`/contact?package=sms&plan=${specs.badge}&volume=${volume}`}
               className="w-full inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-3.5 text-xs font-bold uppercase tracking-wider shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center"
             >
-              <span>Get Started Now</span>
+              <span>{content.ctaLabel}</span>
               <ArrowRight size={13} />
             </a>
 

@@ -16,6 +16,10 @@ function publicPathsFor(groupId: string): string[] {
       return ["/hardware-solutions/security-surveillance", "/security-surveillance"];
     case "whatsapp-business":
       return ["/solutions/whatsapp-business", "/messenger"];
+    case "ticket-booking":
+      return ["/solutions/ticket-booking", "/ticket-booking"];
+    case "sms-communication":
+      return ["/solutions/sms-communication", "/sms-communication"];
     default:
       return [`/${groupId}`];
   }
