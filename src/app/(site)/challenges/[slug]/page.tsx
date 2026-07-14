@@ -8,7 +8,7 @@ import {
   getServicePageData,
 } from "@/server/content/servicepage-registry";
 
-// Content is CMS-managed, so render fresh (mirrors the /services pages).
+
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({

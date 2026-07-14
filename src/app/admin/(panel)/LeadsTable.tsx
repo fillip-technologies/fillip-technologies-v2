@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Lead } from "@/server/contact/queries";
 import {
   categoryForSource,
@@ -76,7 +76,7 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
               {filtered.map((lead) => (
                 <tr key={lead.id} className="border-b border-border/60 align-top">
                   <Td className="whitespace-nowrap text-muted-foreground">
-                    {new Date(lead.created_at).toLocaleString()}
+                    <ReceivedAt iso={lead.created_at} />
                   </Td>
                   <Td className="whitespace-nowrap">
                     <span className="rounded-full border border-border px-2 py-0.5 text-xs">
@@ -146,6 +146,15 @@ function FilterButton({
       </span>
     </button>
   );
+}
+
+// Renders a locale-formatted timestamp on the client only. Server output would
+// use a different locale/timezone than the browser, causing a hydration
+// mismatch, so we hold an empty placeholder until after mount.
+function ReceivedAt({ iso }: { iso: string }) {
+  const [text, setText] = useState("");
+  useEffect(() => setText(new Date(iso).toLocaleString()), [iso]);
+  return <span suppressHydrationWarning>{text || "…"}</span>;
 }
 
 function Th({ children }: { children: React.ReactNode }) {

@@ -3,68 +3,31 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Zap, Lock, Clock, Repeat, HeartHandshake, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import type { GraphicWhyChooseContent, GraphicDeliverablesContent } from "./content";
 
-const reasons = [
-  {
-    icon: CheckCircle2,
-    title: "100% Custom, Zero Templates",
-    desc: "Every pixel is hand-crafted from scratch. We never use pre-made templates or clip art. Your brand stays unique.",
-    color: "#0242a2",
-    bg: "rgba(2, 66, 162, 0.05)",
-    border: "rgba(2, 66, 162, 0.15)",
-  },
-  {
-    icon: Zap,
-    title: "Fast Turnaround",
-    desc: "First drafts within 48–72 hours. Full projects in days, not weeks. We match agile sprint timelines.",
-    color: "#D97706",
-    bg: "rgba(217, 119, 6, 0.05)",
-    border: "rgba(217, 119, 6, 0.15)",
-  },
-  {
-    icon: Repeat,
-    title: "Unlimited Revisions",
-    desc: "We iterate until you're 100% satisfied. No hidden revision costs, no cap on feedback rounds.",
-    color: "#059669",
-    bg: "rgba(5, 150, 105, 0.05)",
-    border: "rgba(5, 150, 105, 0.15)",
-  },
-  {
-    icon: Lock,
-    title: "Full Ownership Rights",
-    desc: "All delivered files belong 100% to you. Commercial-use rights, source files (AI/PSD/Figma), no licensing fees.",
-    color: "#DB2777",
-    bg: "rgba(219, 39, 119, 0.05)",
-    border: "rgba(219, 39, 119, 0.15)",
-  },
-  {
-    icon: Clock,
-    title: "Deadline Guaranteed",
-    desc: "We commit to realistic deadlines and always deliver on time. No excuses, no delays, no last-minute surprises.",
-    color: "#0891B2",
-    bg: "rgba(8, 145, 178, 0.05)",
-    border: "rgba(8, 145, 178, 0.15)",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Dedicated Design Partner",
-    desc: "A senior designer is assigned to every project — not a rotating junior team. Direct communication, always.",
-    color: "#7C3AED",
-    bg: "rgba(124, 58, 237, 0.05)",
-    border: "rgba(124, 58, 237, 0.15)",
-  },
+// Icon + colour styling per reason card, applied by position (content editable).
+const REASON_VISUALS = [
+  { icon: CheckCircle2, color: "#0242a2", bg: "rgba(2, 66, 162, 0.05)", border: "rgba(2, 66, 162, 0.15)" },
+  { icon: Zap, color: "#D97706", bg: "rgba(217, 119, 6, 0.05)", border: "rgba(217, 119, 6, 0.15)" },
+  { icon: Repeat, color: "#059669", bg: "rgba(5, 150, 105, 0.05)", border: "rgba(5, 150, 105, 0.15)" },
+  { icon: Lock, color: "#DB2777", bg: "rgba(219, 39, 119, 0.05)", border: "rgba(219, 39, 119, 0.15)" },
+  { icon: Clock, color: "#0891B2", bg: "rgba(8, 145, 178, 0.05)", border: "rgba(8, 145, 178, 0.15)" },
+  { icon: HeartHandshake, color: "#7C3AED", bg: "rgba(124, 58, 237, 0.05)", border: "rgba(124, 58, 237, 0.15)" },
 ];
 
-const deliverables = [
-  "Source Files (AI, PSD, Figma)",
-  "SVG & PNG Exports",
-  "Brand Guidelines PDF",
-  "Web-Optimized Assets",
-  "Print-Ready Files (300 DPI)",
-  "Unlimited File Formats",
-];
-
-export default function WhyChooseGraphics() {
+export default function WhyChooseGraphics({
+  content,
+  deliverables: deliverablesContent,
+}: {
+  content: GraphicWhyChooseContent;
+  deliverables: GraphicDeliverablesContent;
+}) {
+  const reasons = content.reasons.map((r, i) => ({
+    ...REASON_VISUALS[i % REASON_VISUALS.length],
+    title: r.title,
+    desc: r.desc,
+  }));
+  const deliverables = deliverablesContent.deliverables.map((d) => d.text);
   return (
     <section className="bg-white text-[#0f172a] py-32 px-6 md:px-12 relative overflow-hidden border-t border-slate-100">
       {/* Dot grid */}
@@ -86,7 +49,7 @@ export default function WhyChooseGraphics() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0242a2]/20 bg-[#0242a2]/6 text-[#0242a2] text-xs font-semibold uppercase tracking-[0.2em] mb-5"
           >
-            ✦ Why Choose Us
+            {content.badge}
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -95,7 +58,7 @@ export default function WhyChooseGraphics() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0f172a]"
           >
-            Design You Can{" "}
+            {content.headingLead}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #0242a2 0%, #38bdf8 60%, #7C3AED 100%)",
@@ -104,7 +67,7 @@ export default function WhyChooseGraphics() {
                 backgroundClip: "text",
               }}
             >
-              Trust
+              {content.headingHighlight}
             </span>
           </motion.h2>
           <motion.p
@@ -114,7 +77,7 @@ export default function WhyChooseGraphics() {
             transition={{ delay: 0.2 }}
             className="text-slate-500 text-base max-w-lg mx-auto mt-5 leading-relaxed"
           >
-            We don't just design — we build visual systems that perform, convert, and endure.
+            {content.description}
           </motion.p>
         </div>
 
@@ -166,7 +129,7 @@ export default function WhyChooseGraphics() {
             className="p-8 rounded-2xl border border-slate-200 bg-[#f8fafc]"
           >
             <h3 className="text-xl font-bold text-[#0f172a] mb-6">
-              What You Get With Every Project
+              {deliverablesContent.title}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {deliverables.map((item) => (
@@ -196,19 +159,19 @@ export default function WhyChooseGraphics() {
               style={{ background: "radial-gradient(ellipse at top right, rgba(56,189,248,0.25) 0%, transparent 70%)" }}
             />
             <div className="relative z-10">
-              <div className="text-4xl mb-4">🎨</div>
+              <div className="text-4xl mb-4">{deliverablesContent.ctaEmoji}</div>
               <h3 className="text-2xl font-extrabold text-[#0f172a] mb-3">
-                Ready to Build Your Brand?
+                {deliverablesContent.ctaHeading}
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-7">
-                Get a free consultation and custom quote within 24 hours. No commitment required.
+                {deliverablesContent.ctaDescription}
               </p>
               <Link
-                href="#estimate"
+                href={deliverablesContent.ctaHref}
                 className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
                 style={{ background: "linear-gradient(135deg, #0242a2, #38bdf8)" }}
               >
-                <span>Get Free Quote</span>
+                <span>{deliverablesContent.ctaLabel}</span>
                 <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

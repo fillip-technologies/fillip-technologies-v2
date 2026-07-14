@@ -22,6 +22,11 @@ import {
   creativedesignDefault,
 } from "./creativedesign-sections";
 import {
+  CREATIVEEXPERIENCE_SECTION_IDS,
+  getCreativeExperienceSectionSpec,
+  creativeexperienceDefault,
+} from "./creativeexperience-sections";
+import {
   MARKETING_SECTION_IDS,
   getMarketingSectionSpec,
   marketingDefault,
@@ -75,6 +80,11 @@ const SCHEMAS: Record<string, TemplateSchema> = {
     sectionIds: CREATIVEDESIGN_SECTION_IDS,
     getSpec: getCreativeDesignSectionSpec,
     default: creativedesignDefault,
+  },
+  "creative-experience": {
+    sectionIds: CREATIVEEXPERIENCE_SECTION_IDS,
+    getSpec: getCreativeExperienceSectionSpec,
+    default: creativeexperienceDefault,
   },
   marketing: {
     sectionIds: MARKETING_SECTION_IDS,

@@ -6,6 +6,7 @@ import type { SecuritySurveillanceContent } from "@/components/Hardware-solution
 import type { WhatsAppBusinessContent } from "@/components/solutions/content";
 import type { TicketBookingContent } from "@/components/solutions/ticket-content";
 import type { SmsCommunicationContent } from "@/components/solutions/sms-content";
+import type { GraphicDesigningContent } from "@/components/graphic-desigining/content";
 
 /**
  * Assemble the full, typed content object for a CMS-driven solution page by
@@ -45,4 +46,9 @@ export async function getTicketBookingContent(): Promise<TicketBookingContent> {
 export async function getSmsCommunicationContent(): Promise<SmsCommunicationContent> {
   const content = await buildPageContent("sms-communication");
   return content as unknown as SmsCommunicationContent;
+}
+
+export async function getGraphicDesigningContent(): Promise<GraphicDesigningContent> {
+  const content = await buildPageContent("graphic-designing");
+  return content as unknown as GraphicDesigningContent;
 }

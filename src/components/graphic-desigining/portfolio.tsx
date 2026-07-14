@@ -1,108 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import type { GraphicPortfolioContent } from "./content";
 
 const filters = ["All", "Logo Design", "Brand Identity", "Print", "Packaging", "Social Media", "Illustration", "UI Design"];
 
-interface PortfolioItem {
-  id: string;
-  category: string;
-  title: string;
-  client: string;
-  tag: string;
-  accent: string;
-  image: string;
-  desc: string;
-}
+// Accent hue applied per card by position (content stays editable).
+const ACCENTS = ["#0242a2", "#DB2777", "#0242a2", "#38bdf8", "#059669", "#0242a2", "#7C3AED", "#0242a2"];
 
-const portfolioItems: PortfolioItem[] = [
-  {
-    id: "logo-mark",
-    category: "Logo Design",
-    title: "Logo & Brand Mark",
-    client: "Design Portfolio",
-    tag: "LOGO + MARK",
-    accent: "#0242a2",
-    image: "/images/portfolio/logo-design-v2.png",
-    desc: "Custom geometric brand icon and typography layout.",
-  },
-  {
-    id: "wordmark",
-    category: "Logo Design",
-    title: "Wordmark & Logotype",
-    client: "Design Portfolio",
-    tag: "WORDMARK",
-    accent: "#DB2777",
-    image: "/images/portfolio/wordmark-design-v2.png",
-    desc: "Clean, elegant custom letterforms and wordmark styling.",
-  },
-  {
-    id: "identity-guidelines",
-    category: "Brand Identity",
-    title: "Visual Identity System",
-    client: "Design Portfolio",
-    tag: "FULL BRAND",
-    accent: "#0242a2",
-    image: "/images/portfolio/identity-design-v2.png",
-    desc: "Comprehensive brand identity guidelines, style guide, and colors.",
-  },
-  {
-    id: "poster-exhibition",
-    category: "Print",
-    title: "Exhibition Poster Design",
-    client: "Design Portfolio",
-    tag: "POSTER SERIES",
-    accent: "#38bdf8",
-    image: "/images/portfolio/poster-design-v2.png",
-    desc: "Swiss-style modernist posters designed on a structured typographic grid.",
-  },
-  {
-    id: "packaging-layout",
-    category: "Packaging",
-    title: "Product Packaging Design",
-    client: "Design Portfolio",
-    tag: "PACKAGING",
-    accent: "#059669",
-    image: "/images/portfolio/packaging-design-v2.png",
-    desc: "Custom die-cut packaging layout and premium label design.",
-  },
-  {
-    id: "social-campaign",
-    category: "Social Media",
-    title: "Social Media Campaign Kit",
-    client: "Design Portfolio",
-    tag: "SOCIAL KIT",
-    accent: "#0242a2",
-    image: "/images/portfolio/social-design-v2.png",
-    desc: "Scroll-stopping social media assets and digital marketing graphics.",
-  },
-  {
-    id: "mascot-illustration",
-    category: "Illustration",
-    title: "Custom Mascot Illustration",
-    client: "Design Portfolio",
-    tag: "ILLUSTRATION",
-    accent: "#7C3AED",
-    image: "/images/portfolio/mascot-design-v2.png",
-    desc: "Bespoke digital character illustrations and branding assets.",
-  },
-  {
-    id: "dashboard-ui",
-    category: "UI Design",
-    title: "SaaS Dashboard UI Design",
-    client: "Design Portfolio",
-    tag: "UI/UX DESIGN",
-    accent: "#0242a2",
-    image: "/images/portfolio/dashboard-ui-v2.png",
-    desc: "High-fidelity app dashboard user interface and component library.",
-  },
-];
-
-export default function GraphicPortfolio() {
+export default function GraphicPortfolio({ content }: { content: GraphicPortfolioContent }) {
   const [activeFilter, setActiveFilter] = useState("All");
+
+  const portfolioItems = content.items.map((item, i) => ({
+    ...item,
+    id: `${item.title}-${i}`,
+    accent: ACCENTS[i % ACCENTS.length],
+  }));
 
   const filtered = activeFilter === "All"
     ? portfolioItems
@@ -130,7 +46,7 @@ export default function GraphicPortfolio() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0242a2]/20 bg-[#0242a2]/6 text-[#0242a2] text-xs font-semibold uppercase tracking-[0.2em] mb-5"
             >
-              ✦ Our Work
+              {content.badge}
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -139,7 +55,7 @@ export default function GraphicPortfolio() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0f172a]"
             >
-              Featured{" "}
+              {content.headingLead}{" "}
               <span
                 style={{
                   background: "linear-gradient(135deg, #0242a2 0%, #38bdf8 60%, #7C3AED 100%)",
@@ -148,7 +64,7 @@ export default function GraphicPortfolio() {
                   backgroundClip: "text",
                 }}
               >
-                Portfolio
+                {content.headingHighlight}
               </span>
             </motion.h2>
           </div>

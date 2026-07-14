@@ -4,13 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
-const stats = [
-  { value: "500+", label: "Projects Delivered" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "12+", label: "Design Awards" },
-  { value: "13yrs", label: "Industry Experience" },
-];
+import type { GraphicHeroContent } from "./content";
 
 const categories = [
   { name: "Logo Design", color: "#0242a2", emoji: "⬡" },
@@ -23,7 +17,8 @@ const categories = [
   { name: "Social Media", color: "#7C3AED", emoji: "◆" },
 ];
 
-export default function GraphicHero() {
+export default function GraphicHero({ content }: { content: GraphicHeroContent }) {
+  const stats = content.stats;
   return (
     <section className="relative bg-[#f8fafc] text-[#0f172a] overflow-hidden pt-12 pb-12 lg:pt-16 lg:pb-16">
 
@@ -77,7 +72,7 @@ export default function GraphicHero() {
               <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-[#0242a2]/20 bg-[#0242a2]/6 backdrop-blur-sm">
                 <Sparkles size={14} className="text-[#0242a2]" />
                 <span className="text-[#0242a2] text-xs font-semibold uppercase tracking-[0.2em]">
-                  Premium Design Studio
+                  {content.badge}
                 </span>
                 <Star size={10} className="text-[#0242a2]/50 fill-[#0242a2]/50" />
               </div>
@@ -90,7 +85,7 @@ export default function GraphicHero() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl xl:text-[82px] font-extrabold leading-[0.92] tracking-tight mb-6"
             >
-              <span className="text-[#0f172a]">Graphic</span>
+              <span className="text-[#0f172a]">{content.headingLine1}</span>
               <br />
               <span
                 style={{
@@ -100,7 +95,7 @@ export default function GraphicHero() {
                   backgroundClip: "text",
                 }}
               >
-                Designing
+                {content.headingLine2}
               </span>
             </motion.h1>
 
@@ -111,8 +106,8 @@ export default function GraphicHero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-slate-500 text-base md:text-lg leading-relaxed mb-8 max-w-lg"
             >
-              We craft visual identities, brand systems, and digital assets that make your brand{" "}
-              <span className="text-[#0242a2] font-semibold">impossible to ignore.</span>
+              {content.descriptionLead}{" "}
+              <span className="text-[#0242a2] font-semibold">{content.descriptionHighlight}</span>
             </motion.p>
 
             {/* CTA Buttons */}
@@ -123,18 +118,18 @@ export default function GraphicHero() {
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
               <Link
-                href="#estimate"
+                href={content.primaryCtaHref}
                 className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
                 style={{ background: "linear-gradient(135deg, #0242a2, #38bdf8)" }}
               >
-                <span>Start Your Project</span>
+                <span>{content.primaryCtaLabel}</span>
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <a
-                href="#services"
+                href={content.secondaryCtaHref}
                 className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-[#0242a2]/20 bg-white text-[#0242a2] hover:bg-[#0242a2]/5 transition-all duration-300 text-sm font-semibold shadow-sm"
               >
-                <span>View Our Work</span>
+                <span>{content.secondaryCtaLabel}</span>
               </a>
             </motion.div>
 
@@ -218,8 +213,8 @@ export default function GraphicHero() {
             <div className="relative w-full max-w-[500px] mx-auto">
               <div className="relative">
                 <Image
-                  src="/images/graphic-image-2.png"
-                  alt="Graphic Designing — Premium Creative Work"
+                  src={content.image}
+                  alt={content.imageAlt}
                   width={500}
                   height={480}
                   className="w-full h-auto object-contain"

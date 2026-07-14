@@ -14,114 +14,40 @@ import {
   FileText,
   ArrowUpRight,
 } from "lucide-react";
+import type { GraphicCapabilitiesContent, GraphicProcessContent } from "./content";
 
-const services = [
-  {
-    id: "01",
-    icon: Hexagon,
-    title: "Logo Design",
-    subtitle: "Brand Marks & Identity",
-    desc: "Iconic, scalable logos crafted from scratch — wordmarks, lettermarks, emblem logos, and abstract marks that define your brand's first impression.",
-    features: ["Wordmarks", "Lettermarks", "Emblem Logos", "Icon Marks"],
-    color1: "#0242a2", color2: "#1d4ed8",
-    glow: "rgba(2, 66, 162, 0.12)",
-    tag: "Most Popular",
-    wide: false,
-  },
-  {
-    id: "02",
-    icon: Layers,
-    title: "Brand Identity",
-    subtitle: "Complete Visual Systems",
-    desc: "End-to-end brand identity systems covering color palettes, typography hierarchy, brand voice, guidelines, and full brand books for consistent multi-channel presence.",
-    features: ["Color System", "Typography", "Brand Guidelines", "Style Sheets"],
-    color1: "#7C3AED", color2: "#6D28D9",
-    glow: "rgba(124, 58, 237, 0.1)",
-    tag: "Enterprise",
-    wide: true,
-  },
-  {
-    id: "03",
-    icon: Package,
-    title: "Packaging Design",
-    subtitle: "Product & Retail Packaging",
-    desc: "Premium retail packaging, label designs, box layouts, and product wraps built on golden-ratio grids that make products fly off shelves.",
-    features: ["Product Labels", "Box Design", "Retail Packaging", "Die-cut Layouts"],
-    color1: "#059669", color2: "#047857",
-    glow: "rgba(5, 150, 105, 0.1)",
-    tag: "3D Ready",
-    wide: false,
-  },
-  {
-    id: "04",
-    icon: FileText,
-    title: "Print & Collateral",
-    subtitle: "Brochures, Posters & More",
-    desc: "High-resolution print assets including brochures, flyers, exhibition banners, magazine layouts, business cards, and stationery — press-ready at 300+ DPI.",
-    features: ["Brochures", "Posters", "Business Cards", "Stationery"],
-    color1: "#0891B2", color2: "#0e7490",
-    glow: "rgba(8, 145, 178, 0.1)",
-    tag: "Print Ready",
-    wide: false,
-  },
-  {
-    id: "05",
-    icon: Film,
-    title: "Motion Graphics",
-    subtitle: "Animation & Visual Effects",
-    desc: "Captivating motion design for intros, logo animations, explainer videos, social media reels, and interactive UI micro-animations that bring brands to life.",
-    features: ["Logo Animation", "Explainer Videos", "Reel Covers", "UI Motion"],
-    color1: "#D97706", color2: "#B45309",
-    glow: "rgba(217, 119, 6, 0.1)",
-    tag: "After Effects",
-    wide: true,
-  },
-  {
-    id: "06",
-    icon: Feather,
-    title: "Illustration",
-    subtitle: "Custom Art & Characters",
-    desc: "Bespoke vector illustrations in flat, isometric, hand-drawn, or character art styles — purpose-built for websites, apps, marketing, and editorial content.",
-    features: ["Character Art", "Isometric", "Flat Design", "Editorial"],
-    color1: "#DB2777", color2: "#BE185D",
-    glow: "rgba(219, 39, 119, 0.1)",
-    tag: "Custom",
-    wide: false,
-  },
-  {
-    id: "07",
-    icon: Monitor,
-    title: "UI/UX Design",
-    subtitle: "Interfaces & Digital Products",
-    desc: "Pixel-perfect Figma designs for web apps, dashboards, landing pages, and mobile interfaces with full design systems, component libraries, and dev handoffs.",
-    features: ["Figma Design", "Component Libraries", "Prototyping", "Dev Handoff"],
-    color1: "#0242a2", color2: "#38bdf8",
-    glow: "rgba(2, 66, 162, 0.1)",
-    tag: "Figma",
-    wide: false,
-  },
-  {
-    id: "08",
-    icon: Share2,
-    title: "Social Media Design",
-    subtitle: "Content & Ad Creatives",
-    desc: "Scroll-stopping social media graphics, Instagram templates, Facebook/Google ad creatives, stories, thumbnails, and campaign kits that drive real engagement.",
-    features: ["Ad Creatives", "Story Templates", "Post Series", "Campaign Kits"],
-    color1: "#7C3AED", color2: "#9333EA",
-    glow: "rgba(124, 58, 237, 0.1)",
-    tag: "All Platforms",
-    wide: false,
-  },
+// Visual styling per service card, applied by position (content stays editable).
+const SERVICE_VISUALS = [
+  { icon: Hexagon, color1: "#0242a2", color2: "#1d4ed8", glow: "rgba(2, 66, 162, 0.12)", wide: false },
+  { icon: Layers, color1: "#7C3AED", color2: "#6D28D9", glow: "rgba(124, 58, 237, 0.1)", wide: true },
+  { icon: Package, color1: "#059669", color2: "#047857", glow: "rgba(5, 150, 105, 0.1)", wide: false },
+  { icon: FileText, color1: "#0891B2", color2: "#0e7490", glow: "rgba(8, 145, 178, 0.1)", wide: false },
+  { icon: Film, color1: "#D97706", color2: "#B45309", glow: "rgba(217, 119, 6, 0.1)", wide: true },
+  { icon: Feather, color1: "#DB2777", color2: "#BE185D", glow: "rgba(219, 39, 119, 0.1)", wide: false },
+  { icon: Monitor, color1: "#0242a2", color2: "#38bdf8", glow: "rgba(2, 66, 162, 0.1)", wide: false },
+  { icon: Share2, color1: "#7C3AED", color2: "#9333EA", glow: "rgba(124, 58, 237, 0.1)", wide: false },
 ];
 
-const processSteps = [
-  { num: "01", title: "Discovery Call", desc: "We learn your brand, audience, and design goals in detail." },
-  { num: "02", title: "Concepts & Moodboards", desc: "Visual directions with color systems and typography pairings." },
-  { num: "03", title: "High-Fidelity Design", desc: "Custom vectors, grids, and assets built from scratch." },
-  { num: "04", title: "Revisions & Delivery", desc: "Unlimited revisions until perfect. Clean source files delivered." },
-];
-
-export default function GraphicCapabilities() {
+export default function GraphicCapabilities({
+  services: servicesContent,
+  process,
+}: {
+  services: GraphicCapabilitiesContent;
+  process: GraphicProcessContent;
+}) {
+  const services = servicesContent.services.map((s, i) => {
+    const v = SERVICE_VISUALS[i % SERVICE_VISUALS.length];
+    return {
+      ...v,
+      id: String(i + 1).padStart(2, "0"),
+      subtitle: s.subtitle,
+      title: s.title,
+      desc: s.desc,
+      tag: s.tag,
+      features: s.features.split(",").map((f) => f.trim()).filter(Boolean),
+    };
+  });
+  const processSteps = process.steps;
   return (
     <>
       {/* ============== SERVICES SECTION ============== */}
@@ -152,7 +78,7 @@ export default function GraphicCapabilities() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0242a2]/20 bg-[#0242a2]/6 text-[#0242a2] text-xs font-semibold uppercase tracking-[0.2em] mb-5"
             >
-              ✦ What We Design
+              {servicesContent.badge}
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -161,7 +87,7 @@ export default function GraphicCapabilities() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-extrabold leading-tight text-[#0f172a]"
             >
-              Every Design{" "}
+              {servicesContent.headingLead}{" "}
               <span
                 style={{
                   background: "linear-gradient(135deg, #0242a2 0%, #38bdf8 60%, #7C3AED 100%)",
@@ -170,10 +96,10 @@ export default function GraphicCapabilities() {
                   backgroundClip: "text",
                 }}
               >
-                Category
+                {servicesContent.headingHighlight}
               </span>
               <br />
-              <span className="text-slate-400">Covered.</span>
+              <span className="text-slate-400">{servicesContent.headingTail}</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 15 }}
@@ -182,7 +108,7 @@ export default function GraphicCapabilities() {
               transition={{ delay: 0.2 }}
               className="text-slate-500 text-base md:text-lg max-w-lg mx-auto mt-5 leading-relaxed"
             >
-              From your first logo to a complete brand universe — we design everything your business needs.
+              {servicesContent.description}
             </motion.p>
           </div>
 
@@ -276,8 +202,8 @@ export default function GraphicCapabilities() {
                       className="relative w-full h-[380px] lg:h-full min-h-[360px] group cursor-pointer overflow-hidden rounded-2xl"
                     >
                       <Image
-                        src="/images/graphic-image-2.png"
-                        alt="Creative Design Showcase 2"
+                        src={servicesContent.image1}
+                        alt={servicesContent.image1Alt}
                         fill
                         className="object-contain group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
@@ -296,8 +222,8 @@ export default function GraphicCapabilities() {
                       className="relative w-full h-[380px] lg:h-full min-h-[360px] group cursor-pointer overflow-hidden rounded-2xl"
                     >
                       <Image
-                        src="/images/graphic-image-3.png"
-                        alt="Creative Design Showcase 3"
+                        src={servicesContent.image2}
+                        alt={servicesContent.image2Alt}
                         fill
                         className="object-contain group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
@@ -332,7 +258,7 @@ export default function GraphicCapabilities() {
                 viewport={{ once: true }}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0242a2]/20 bg-[#0242a2]/6 text-[#0242a2] text-xs font-semibold uppercase tracking-[0.2em] mb-5"
               >
-                ✦ Our Process
+                {process.badge}
               </motion.div>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -341,7 +267,7 @@ export default function GraphicCapabilities() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl font-extrabold leading-[1.1] mb-5 text-[#0f172a]"
               >
-                How We Bring{" "}
+                {process.headingLead}{" "}
                 <span
                   style={{
                     background: "linear-gradient(135deg, #0242a2 0%, #38bdf8 100%)",
@@ -350,7 +276,7 @@ export default function GraphicCapabilities() {
                     backgroundClip: "text",
                   }}
                 >
-                  Ideas to Life
+                  {process.headingHighlight}
                 </span>
               </motion.h2>
               <motion.p
@@ -360,7 +286,7 @@ export default function GraphicCapabilities() {
                 transition={{ delay: 0.2 }}
                 className="text-slate-500 text-sm leading-relaxed"
               >
-                A proven 4-step creative process ensures every project is delivered on time, on brand, and beyond expectations.
+                {process.description}
               </motion.p>
             </div>
 

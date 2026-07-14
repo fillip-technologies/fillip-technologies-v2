@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CreativeDesignPage from "@/components/creative-design/CreativeDesignPage";
+import CreativeExperiencePage from "@/components/creative-design/CreativeExperiencePage";
 import type { CreativeDesignContent } from "@/data/creative-design";
 import { getCreativeDesignBySlug } from "@/data/creative-design";
+import type { GraphicDesigningContent } from "@/components/graphic-desigining/content";
 import {
   getServicePage,
   getServicePageData,
@@ -33,8 +35,14 @@ export default async function CreativeDesignSlugPage({
   // regression for the seeded pages); truly-unknown slugs 404.
   const page = await getServicePage(slug);
   if (page) {
-    if (page.template !== "creative-design") notFound(); // lives under another route
+    if (page.template !== "creative-design" && page.template !== "creative-experience") {
+      notFound(); // lives under another route
+    }
     if (!page.published) notFound(); // drafts are visible only via /preview
+    if (page.template === "creative-experience") {
+      const data = (await getServicePageData(slug, "creative-experience")) as unknown as GraphicDesigningContent;
+      return <CreativeExperiencePage data={data} />;
+    }
     const data = (await getServicePageData(slug, "creative-design")) as CreativeDesignContent;
     return <CreativeDesignPage data={data} />;
   }

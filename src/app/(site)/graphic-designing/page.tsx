@@ -5,6 +5,10 @@ import GraphicPortfolio from "@/components/graphic-desigining/portfolio";
 import WhyChooseGraphics from "@/components/graphic-desigining/why-choose";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
+import { getGraphicDesigningContent } from "@/server/content/solution-page-content";
+
+// Content is CMS-managed (page.graphic-designing.*), so render fresh.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Premium Graphic Designing Services | Fillip Technologies",
@@ -15,20 +19,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GraphicDesigningPage() {
+export default async function GraphicDesigningPage() {
+  const content = await getGraphicDesigningContent();
+
   return (
     <main className="bg-[#f8fafc]">
       {/* Hero Section */}
-      <GraphicHero />
+      <GraphicHero content={content.hero} />
 
       {/* Capabilities / Services Section */}
-      <GraphicCapabilities />
+      <GraphicCapabilities services={content.capabilities} process={content.process} />
 
       {/* Portfolio/Gallery Section */}
-      <GraphicPortfolio />
+      <GraphicPortfolio content={content.portfolio} />
 
       {/* Why Choose Us */}
-      <WhyChooseGraphics />
+      <WhyChooseGraphics content={content.whychoose} deliverables={content.deliverables} />
 
       {/* Testimonials */}
       <TestimonialsSection />
