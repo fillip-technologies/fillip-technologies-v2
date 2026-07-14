@@ -1,5 +1,10 @@
 import Link from "next/link";
+<<<<<<< HEAD
 import { MapPin } from "lucide-react";
+=======
+import Image from "next/image";
+import { MapPin, Phone, Mail } from "lucide-react";
+>>>>>>> 0836f50 (Update ticket booking page and footer)
 
 type FooterLink = {
   label: string;
@@ -283,12 +288,15 @@ export default function Footer() {
         <section className="border-t border-white/5 py-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="space-y-1">
-              <Link href="/" className="text-xl font-bold tracking-tight text-white hover:text-accent transition-colors">
-                Fillip Technologies
+              <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
+                <Image
+                  src="/images/Fillip-logo-white.png"
+                  alt="Fillip Technologies Logo"
+                  width={150}
+                  height={40}
+                  className="h-9 w-auto"
+                />
               </Link>
-              <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground/40">
-                Human &times; Intelligence
-              </p>
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2">

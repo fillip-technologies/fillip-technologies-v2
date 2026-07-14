@@ -58,6 +58,7 @@ const stagger = {
 /* ------------------------------------------------------------------ */
 
 export default function TicketingService() {
+  const pageRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <Navbar />
