@@ -2,6 +2,7 @@ import "server-only";
 import nodemailer, { type Transporter } from "nodemailer";
 import { COMPANY } from "@/data/pricing";
 import type { Lead } from "./queries";
+import { labelForSource } from "./lead-sources";
 
 /**
  * Team-facing "new lead" notification email. Reuses the same SMTP env as the
@@ -32,15 +33,6 @@ function getTransporter(): Transporter | null {
   return transporter;
 }
 
-// Human labels for known lead sources; anything else is a generic contact lead.
-const SOURCE_LABELS: Record<string, string> = {
-  "get-a-quote-requirement": "Quote Requirement",
-  "get-a-quote-calculator": "Quote Estimate",
-  "Consultation Form": "Consultation Request",
-  "Contact Page": "Contact Message",
-  "Careers Application": "Job Application",
-};
-
 /** A file to attach to the notification email (e.g. an applicant's resume). */
 export type MailAttachment = {
   filename: string;
@@ -49,7 +41,7 @@ export type MailAttachment = {
 };
 
 function labelFor(source: string | null): string {
-  return (source && SOURCE_LABELS[source]) || "Contact Lead";
+  return labelForSource(source);
 }
 
 function esc(value: string): string {
