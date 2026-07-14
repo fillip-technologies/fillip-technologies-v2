@@ -56,6 +56,19 @@ export async function listPublishedServiceSlugs(): Promise<string[]> {
   return docs.map((d) => d.slug);
 }
 
+/**
+ * Public hrefs (`<urlPrefix>/<slug>`) of every *published* service page. Used to
+ * filter mega-menu sub-links so links to drafts or deleted pages never render in
+ * the public nav (they'd 404 on click).
+ */
+export async function getPublishedServiceHrefs(): Promise<Set<string>> {
+  await dbConnect();
+  const docs = await ServicePageModel.find({ published: true })
+    .select("slug template")
+    .lean();
+  return new Set(docs.map((d) => `${templateUrlPrefix(d.template ?? "service")}/${d.slug}`));
+}
+
 /** Insert a new draft page. Assumes slug/title are already validated. */
 export async function insertServicePage(
   slug: string,

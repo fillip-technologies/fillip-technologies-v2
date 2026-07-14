@@ -14,6 +14,7 @@ import {
   getCategory,
   getCategoryMenuLinks,
   menuLinksKey,
+  removeCategoryMenuLink,
 } from "./whatwedo-registry";
 import { upsertContent } from "./queries";
 import type { SaveState } from "./types";
@@ -179,6 +180,10 @@ export async function deleteServicePage(slug: string): Promise<SaveState> {
 
   try {
     await deleteServicePageRow(slug);
+    // Purge the page's mega-menu sub-link so the nav doesn't keep a dead entry.
+    if (page.categorySlug) {
+      await removeCategoryMenuLink(page.categorySlug, `${page.urlPrefix}/${slug}`);
+    }
     revalidatePath("/admin/cms/services");
     revalidatePath(`${page.urlPrefix}/${slug}`);
     revalidatePath("/", "layout");

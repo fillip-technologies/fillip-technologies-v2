@@ -4,6 +4,17 @@ import { dbConnect } from "@/lib/db";
 import { ServiceCategoryModel, SiteContentModel } from "@/server/db/models";
 import { WHAT_WE_DO_ITEMS_BY_SLUG } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
+import { getPublishedServiceHrefs } from "./servicepage-registry";
+import { SERVICE_TEMPLATES } from "./servicepage-templates";
+
+// URL prefixes owned by the Service Pages CMS. A sub-link under one of these is
+// a "managed" link whose visibility must follow its page's publish state.
+const MANAGED_PREFIXES = [...new Set(SERVICE_TEMPLATES.map((t) => t.urlPrefix))];
+
+/** An href points at a specific CMS-managed service page (prefix + a slug). */
+function isManagedServiceHref(href: string): boolean {
+  return MANAGED_PREFIXES.some((p) => href.startsWith(`${p}/`));
+}
 
 /**
  * Data access for the `service_categories` collection — the source of truth for
@@ -90,6 +101,41 @@ export async function getCategoryMenuLinks(slug: string): Promise<MegaMenuItem[]
       .filter((i) => i.label);
   }
   return WHAT_WE_DO_ITEMS_BY_SLUG[slug] ?? [];
+}
+
+/**
+ * Public mega-menu sub-links for a category: the saved links minus any that
+ * point at a service page that is unpublished or no longer exists. Non-managed
+ * links (category pages, industries, external URLs, label-only headers) always
+ * pass through. Pass `publishedHrefs` (from getPublishedServiceHrefs) so the
+ * caller can compute it once for all categories.
+ */
+export async function getPublicCategoryMenuLinks(
+  slug: string,
+  publishedHrefs: Set<string>
+): Promise<MegaMenuItem[]> {
+  const items = await getCategoryMenuLinks(slug);
+  return items.filter(
+    (i) => !i.href || !isManagedServiceHref(i.href) || publishedHrefs.has(i.href)
+  );
+}
+
+/**
+ * Remove a saved mega-menu sub-link (matched by href) from a category. Called
+ * when the page it points to is permanently deleted, so the nav doesn't keep a
+ * dead link. No-op if the category has no saved links or the href isn't present.
+ */
+export async function removeCategoryMenuLink(categorySlug: string, href: string): Promise<void> {
+  await dbConnect();
+  const row = await SiteContentModel.findOne({ key: menuLinksKey(categorySlug) }).lean();
+  const saved = (row?.data as { items?: unknown } | undefined)?.items;
+  if (!Array.isArray(saved)) return; // nothing saved → still on static defaults
+  const next = saved.filter((i) => (i as { href?: string })?.href !== href);
+  if (next.length === saved.length) return; // href wasn't there
+  await SiteContentModel.updateOne(
+    { key: menuLinksKey(categorySlug) },
+    { $set: { data: { items: next }, updated_at: new Date() } }
+  );
 }
 
 /** Toggle publish state. */

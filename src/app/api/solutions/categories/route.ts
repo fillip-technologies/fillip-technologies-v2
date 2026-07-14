@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import {
   listPublishedCategories,
-  getCategoryMenuLinks,
+  getPublicCategoryMenuLinks,
 } from "@/server/content/whatwedo-registry";
+import { getPublishedServiceHrefs } from "@/server/content/servicepage-registry";
 
 // GET /api/solutions/categories — public. Returns the published Solutions
 // categories (with their mega-menu sub-links + description) for the nav. Always
@@ -11,13 +12,16 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const categories = await listPublishedCategories("solutions");
+    const [categories, publishedHrefs] = await Promise.all([
+      listPublishedCategories("solutions"),
+      getPublishedServiceHrefs(),
+    ]);
     const items = await Promise.all(
       categories.map(async (c) => ({
         slug: c.slug,
         label: c.label,
         description: c.description,
-        items: await getCategoryMenuLinks(c.slug),
+        items: await getPublicCategoryMenuLinks(c.slug, publishedHrefs),
       }))
     );
     return NextResponse.json({ items });
