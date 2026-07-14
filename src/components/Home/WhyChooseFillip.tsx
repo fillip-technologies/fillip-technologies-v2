@@ -143,11 +143,6 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
                   {item.description}
                 </p>
 
-                <button className="group/btn relative z-10 mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
-                  Learn More
-
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1" />
-                </button>
               </div>
             );
           })}

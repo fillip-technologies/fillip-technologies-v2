@@ -1,10 +1,10 @@
 import Link from "next/link";
-<<<<<<< HEAD
-import { MapPin } from "lucide-react";
-=======
+
+
+
 import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
->>>>>>> 0836f50 (Update ticket booking page and footer)
+
 
 type FooterLink = {
   label: string;

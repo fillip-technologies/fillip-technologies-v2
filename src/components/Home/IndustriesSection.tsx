@@ -4,15 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Building2,
-  HeartPulse,
-  GraduationCap,
-  ShoppingBag,
-  Landmark,
-  Truck,
-} from "lucide-react";
 import IndustriesImpactBackground, { INDUSTRIES_IMPACT_IMAGE } from "./IndustriesImpactBackground";
 
 const industries = [
@@ -20,7 +11,6 @@ const industries = [
     title: "Healthcare",
     href: "/industries/healthcare",
     image: INDUSTRIES_IMPACT_IMAGE,
-    icon: HeartPulse,
     description:
       "Empowering hospitals and healthcare providers with AI-driven software, patient portals, hospital ERP, cloud infrastructure and digital transformation.",
 
@@ -36,7 +26,6 @@ const industries = [
     title: "Finance",
     href: "/industries/finance",
     image: "/images/industries-1.png",
-    icon: Landmark,
 
     description:
       "Secure fintech platforms, banking software, analytics dashboards and intelligent automation for modern financial institutions.",
@@ -53,7 +42,6 @@ const industries = [
     title: "Retail",
     href: "/industries/retail",
     image: "/images/industries-3.png",
-    icon: ShoppingBag,
 
     description:
       "Omnichannel commerce solutions, inventory automation and customer engagement platforms.",
@@ -70,7 +58,6 @@ const industries = [
     title: "Education",
     href: "/industries/education",
     image: "/images/industries-2.png",
-    icon: GraduationCap,
 
     description:
       "Interactive LMS platforms, student portals, AI learning assistants and digital education ecosystems.",
@@ -87,7 +74,6 @@ const industries = [
     title: "Real Estate",
     href: "/industries/real-estate",
     image: "/images/industries-3.png",
-    icon: Building2,
 
     description:
       "Property portals, CRM workflows, lead management and digital experiences for real estate businesses.",
@@ -104,7 +90,6 @@ const industries = [
     title: "Logistics",
     href: "/industries/logistics",
     image: "/images/industries-4.png",
-    icon: Truck,
 
     description:
       "Fleet visibility, shipment workflows, route planning and operations dashboards for logistics teams.",
@@ -166,7 +151,6 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
         <div className="flex flex-col md:flex-row md:h-[560px] gap-4">
 
           {industries.map((industry, index) => {
-            const Icon = industry.icon;
             const isActive = active === index;
 
             return (
@@ -213,8 +197,6 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                     className="absolute inset-0 flex flex-row md:flex-col items-center md:items-start justify-between md:justify-end p-5 md:p-6"
                   >
                     <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-0">
-                      <Icon className="text-cyan-300 md:mb-6" size={26} />
-
                       <h3 className="text-xl font-bold tracking-wide text-white md:hidden">
                         {industry.title}
                       </h3>
@@ -229,7 +211,6 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                         {industry.title}
                       </h3>
                     </div>
-                    <ArrowRight className="text-white/50 block md:hidden" size={20} />
                   </motion.div>
                 )}
 
@@ -260,13 +241,6 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                             {String(index + 1).padStart(2, "0")}
                           </span>
                         </motion.div>
-
-                        {/* Icon */}
-
-                        <div className="mb-4 md:mb-6 flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-xl md:rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl">
-                          <Icon size={24} className="text-cyan-300 md:hidden" />
-                          <Icon size={34} className="text-cyan-300 hidden md:block" />
-                        </div>
 
                         {/* Title */}
 
@@ -323,11 +297,6 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                             className="group mt-6 md:mt-10 inline-flex items-center gap-2 md:gap-3 rounded-full bg-white px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-semibold text-[#105278] transition-all duration-300 hover:gap-5 hover:bg-cyan-300"
                           >
                             Explore Industry
-
-                            <ArrowRight
-                              size={16}
-                              className="transition-transform duration-300 group-hover:translate-x-1"
-                            />
                           </motion.span>
                         </Link>
                       </div>
