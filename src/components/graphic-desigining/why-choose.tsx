@@ -1,218 +1,218 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Zap, Layout, Sliders, ArrowRight } from "lucide-react";
-import { Dancing_Script } from "next/font/google";
+import { CheckCircle2, Zap, Lock, Clock, Repeat, HeartHandshake, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const dancingScript = Dancing_Script({
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const steps = [
+const reasons = [
   {
-    num: "01",
-    title: "Creative Discovery",
-    desc: "We research your target audience, analyze competitor visual spaces, and define a core creative concept.",
-    accentColor: "from-pink-500 to-purple-500",
-  },
-  {
-    num: "02",
-    title: "Moodboards & Concepts",
-    desc: "We present visual directions, color systems, and typographical pairings before writing a single path.",
-    accentColor: "from-purple-500 to-indigo-500",
-  },
-  {
-    num: "03",
-    title: "High-Fidelity Creation",
-    desc: "Our artists draw custom vectors, shape meshes, and set grids to build high-contrast visual assets.",
-    accentColor: "from-indigo-500 to-blue-500",
-  },
-  {
-    num: "04",
-    title: "Editable Delivery",
-    desc: "You receive clean, organized source packages in SVG, AI, PSD, and Figma with unlimited web licensing.",
-    accentColor: "from-blue-500 to-cyan-500",
-  },
-];
-
-const values = [
-  {
-    icon: Layout,
-    title: "Pure Art Direction",
-    desc: "We build original assets from scratch. Zero generic templates, zero repetitive layouts. Every pixel is uniquely yours.",
-    accentColor: "from-pink-500 to-rose-500",
-    iconBg: "bg-pink-50 text-pink-600 border-pink-100",
+    icon: CheckCircle2,
+    title: "100% Custom, Zero Templates",
+    desc: "Every pixel is hand-crafted from scratch. We never use pre-made templates or clip art. Your brand stays unique.",
+    color: "#0242a2",
+    bg: "rgba(2, 66, 162, 0.05)",
+    border: "rgba(2, 66, 162, 0.15)",
   },
   {
     icon: Zap,
-    title: "Agile Production Cycles",
-    desc: "We match standard sprint timelines. High-quality visual drafts are delivered within days to support quick product iterations.",
-    accentColor: "from-amber-500 to-orange-500",
-    iconBg: "bg-amber-50 text-amber-600 border-amber-100",
+    title: "Fast Turnaround",
+    desc: "First drafts within 48–72 hours. Full projects in days, not weeks. We match agile sprint timelines.",
+    color: "#D97706",
+    bg: "rgba(217, 119, 6, 0.05)",
+    border: "rgba(217, 119, 6, 0.15)",
   },
   {
-    icon: Sliders,
-    title: "Developer-Friendly Files",
-    desc: "All source files are fully organized, named properly, and optimized (compressed SVG/PNG) for fast page loading.",
-    accentColor: "from-indigo-500 to-purple-500",
-    iconBg: "bg-indigo-50 text-indigo-600 border-indigo-100",
+    icon: Repeat,
+    title: "Unlimited Revisions",
+    desc: "We iterate until you're 100% satisfied. No hidden revision costs, no cap on feedback rounds.",
+    color: "#059669",
+    bg: "rgba(5, 150, 105, 0.05)",
+    border: "rgba(5, 150, 105, 0.15)",
   },
+  {
+    icon: Lock,
+    title: "Full Ownership Rights",
+    desc: "All delivered files belong 100% to you. Commercial-use rights, source files (AI/PSD/Figma), no licensing fees.",
+    color: "#DB2777",
+    bg: "rgba(219, 39, 119, 0.05)",
+    border: "rgba(219, 39, 119, 0.15)",
+  },
+  {
+    icon: Clock,
+    title: "Deadline Guaranteed",
+    desc: "We commit to realistic deadlines and always deliver on time. No excuses, no delays, no last-minute surprises.",
+    color: "#0891B2",
+    bg: "rgba(8, 145, 178, 0.05)",
+    border: "rgba(8, 145, 178, 0.15)",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Dedicated Design Partner",
+    desc: "A senior designer is assigned to every project — not a rotating junior team. Direct communication, always.",
+    color: "#7C3AED",
+    bg: "rgba(124, 58, 237, 0.05)",
+    border: "rgba(124, 58, 237, 0.15)",
+  },
+];
+
+const deliverables = [
+  "Source Files (AI, PSD, Figma)",
+  "SVG & PNG Exports",
+  "Brand Guidelines PDF",
+  "Web-Optimized Assets",
+  "Print-Ready Files (300 DPI)",
+  "Unlimited File Formats",
 ];
 
 export default function WhyChooseGraphics() {
   return (
-    <section className="bg-[#faf9f6] text-[#0f172a] py-32 px-6 md:px-12 border-b border-[#0f172a]/10 relative overflow-hidden">
-      
-      {/* Background dot grid */}
-      <div className="absolute inset-0 pointer-events-none select-none opacity-50 z-0" style={{
-        backgroundImage: "radial-gradient(rgb(15 23 42 / 0.04) 1px, transparent 1px)",
-        backgroundSize: "20px 20px",
-      }} />
-
-      {/* Decorative aurora */}
-      <div className="absolute left-[-120px] bottom-[-120px] w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-indigo-200/30 to-purple-200/20 blur-3xl pointer-events-none z-0" />
+    <section className="bg-white text-[#0f172a] py-32 px-6 md:px-12 relative overflow-hidden border-t border-slate-100">
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.4] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(rgba(2,66,162,0.06) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Step-by-Step Process */}
-        <div className="mb-32">
-          <div className="max-w-xl mb-20">
-            <motion.span 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-100/50 bg-indigo-50/80 text-indigo-600 text-xs font-semibold uppercase tracking-widest mb-6"
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0242a2]/20 bg-[#0242a2]/6 text-[#0242a2] text-xs font-semibold uppercase tracking-[0.2em] mb-5"
+          >
+            ✦ Why Choose Us
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0f172a]"
+          >
+            Design You Can{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #0242a2 0%, #38bdf8 60%, #7C3AED 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
             >
-              ✦ Workflow
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-black tracking-tight"
-            >
-              Our Creative{" "}
-              <span className={`${dancingScript.className} text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600`}>
-                Pipeline
-              </span>
-            </motion.h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, idx) => (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="group relative bg-white/90 backdrop-blur-md border border-white/50 p-8 rounded-3xl shadow-soft hover:bg-white hover:border-slate-200 transition-all duration-300 overflow-hidden"
-              >
-                {/* Top gradient accent */}
-                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${step.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-3xl`} />
-
-                {/* Step connector line (visible on lg) */}
-                {idx < 3 && (
-                  <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-6 h-[1px] bg-slate-200 z-20" />
-                )}
-
-                {/* Outlined Number */}
-                <div className={`text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br ${step.accentColor} opacity-15 group-hover:opacity-40 transition-all duration-300 mb-6`}>
-                  {step.num}
-                </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-slate-900 transition-colors">{step.title}</h3>
-                <p className="text-xs leading-relaxed text-slate-500 font-light">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+              Trust
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-500 text-base max-w-lg mx-auto mt-5 leading-relaxed"
+          >
+            We don't just design — we build visual systems that perform, convert, and endure.
+          </motion.p>
         </div>
 
-        {/* Why Choose Us Values */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-          <div className="lg:col-span-1">
-            <motion.span 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-100/50 bg-indigo-50/80 text-indigo-600 text-xs font-semibold uppercase tracking-widest mb-6"
-            >
-              ✦ Advantages
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-5xl font-black tracking-tight mb-6"
-            >
-              Why Work <br className="hidden lg:block" />
-              <span className={`${dancingScript.className} text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600`}>
-                With Us
-              </span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-slate-500 text-sm md:text-base leading-relaxed font-light mb-8"
-            >
-              We design visuals that make companies look like multi-million dollar brands. Our work is clean, mathematically balanced, and aligned with modern SaaS and Tech design guidelines.
-            </motion.p>
+        {/* Reasons grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+          {reasons.map((reason, idx) => {
+            const Icon = reason.icon;
+            return (
+              <motion.div
+                key={reason.title}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.07 }}
+                whileHover={{ y: -6 }}
+                className="group relative p-7 rounded-2xl border bg-white transition-all duration-300 cursor-default hover:shadow-md"
+                style={{
+                  background: reason.bg,
+                  borderColor: reason.border,
+                }}
+              >
+                {/* Top accent line */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl"
+                  style={{ background: reason.color }}
+                />
 
-            <div className="space-y-4 mb-10">
-              {["100% Custom Visuals", "Figma/SVG Vector Deliveries", "Flexible Iterations"].map((txt, i) => (
-                <motion.div 
-                  key={txt} 
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.08 }}
-                  className="flex items-center gap-3 text-slate-700 text-sm font-medium"
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: `${reason.color}15`, border: `1px solid ${reason.color}25` }}
                 >
-                  <CheckCircle2 size={16} className="text-pink-500" />
-                  <span>{txt}</span>
-                </motion.div>
+                  <Icon size={18} style={{ color: reason.color }} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-base font-bold text-[#0f172a] mb-2">{reason.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{reason.desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Deliverables + CTA row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          {/* Deliverables */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-2xl border border-slate-200 bg-[#f8fafc]"
+          >
+            <h3 className="text-xl font-bold text-[#0f172a] mb-6">
+              What You Get With Every Project
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {deliverables.map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded-full bg-[#0242a2]/10 border border-[#0242a2]/25 flex items-center justify-center shrink-0">
+                    <CheckCircle2 size={10} className="text-[#0242a2]" />
+                  </div>
+                  <span className="text-slate-600 text-sm">{item}</span>
+                </div>
               ))}
             </div>
+          </motion.div>
 
-            <Link
-              href="#estimate"
-              className="group/cta inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#0f172a] text-white hover:bg-slate-800 transition-colors text-sm font-semibold shadow-soft"
-            >
-              <span>Get Started</span>
-              <ArrowRight size={15} className="transition-transform group-hover/cta:translate-x-1" />
-            </Link>
-          </div>
-
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((v, idx) => {
-              const Icon = v.icon;
-              return (
-                <motion.div
-                  key={v.title}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className="group bg-white/90 backdrop-blur-md border border-white/50 p-8 rounded-3xl shadow-soft hover:bg-white hover:border-slate-200 transition-all duration-300 relative overflow-hidden"
-                >
-                  {/* Top gradient accent */}
-                  <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${v.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-3xl`} />
-
-                  <div className={`w-11 h-11 rounded-2xl border ${v.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xs`}>
-                    <Icon size={18} className="stroke-[1.5]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-slate-900 transition-colors">{v.title}</h3>
-                  <p className="text-xs leading-relaxed text-slate-500 font-light">{v.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
+          {/* CTA card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative p-8 rounded-2xl overflow-hidden flex flex-col justify-between border border-[#0242a2]/20"
+            style={{
+              background: "linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%)",
+            }}
+          >
+            {/* Soft glow */}
+            <div
+              className="absolute inset-0 opacity-40 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse at top right, rgba(56,189,248,0.25) 0%, transparent 70%)" }}
+            />
+            <div className="relative z-10">
+              <div className="text-4xl mb-4">🎨</div>
+              <h3 className="text-2xl font-extrabold text-[#0f172a] mb-3">
+                Ready to Build Your Brand?
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-7">
+                Get a free consultation and custom quote within 24 hours. No commitment required.
+              </p>
+              <Link
+                href="#estimate"
+                className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                style={{ background: "linear-gradient(135deg, #0242a2, #38bdf8)" }}
+              >
+                <span>Get Free Quote</span>
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

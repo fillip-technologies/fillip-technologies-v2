@@ -4,6 +4,7 @@ import GraphicCapabilities from "@/components/graphic-desigining/capabilities";
 import GraphicPortfolio from "@/components/graphic-desigining/portfolio";
 import WhyChooseGraphics from "@/components/graphic-desigining/why-choose";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
+import TestimonialsSection from "@/components/Home/TestimonialsSection";
 
 export const metadata: Metadata = {
   title: "Premium Graphic Designing Services | Fillip Technologies",
@@ -16,18 +17,21 @@ export const metadata: Metadata = {
 
 export default function GraphicDesigningPage() {
   return (
-    <main className="bg-[#faf9f6]">
+    <main className="bg-[#f8fafc]">
       {/* Hero Section */}
       <GraphicHero />
 
-      {/* Capabilities Section */}
+      {/* Capabilities / Services Section */}
       <GraphicCapabilities />
 
       {/* Portfolio/Gallery Section */}
       <GraphicPortfolio />
 
-      {/* Workflow & Process Section */}
+      {/* Why Choose Us */}
       <WhyChooseGraphics />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
 
       {/* Consultation Request Form */}
       <div id="estimate">
