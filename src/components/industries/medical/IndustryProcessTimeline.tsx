@@ -63,7 +63,7 @@ export default function IndustryProcessTimeline({ data }: IndustryProcessTimelin
               <span key={`${tag}-${index}`}>{tag}</span>
             )).flatMap((item, index, items) =>
               index < items.length - 1
-                ? [item, <span key={`separator-${index}`}>â€¢</span>]
+                ? [item, <span key={`separator-${index}`}>•</span>]
                 : [item],
             )}
           </div>

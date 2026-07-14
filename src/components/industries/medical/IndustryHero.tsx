@@ -86,7 +86,7 @@ export default function IndustryHero({ data }: IndustryHeroProps) {
             {/* Trust Row */}
             <div className="mt-8 flex flex-wrap gap-6 text-sm font-medium text-slate-700">
               {data.trustItems.map((item) => (
-                <span key={item}>âœ“ {item}</span>
+                <span key={item}>✓ {item}</span>
               ))}
             </div>
           </div>

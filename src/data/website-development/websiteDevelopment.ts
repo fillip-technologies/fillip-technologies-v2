@@ -60,7 +60,7 @@ export const websiteDevelopmentContent: Service = {
           title: "Built For Revenue Growth",
           description:
             "Conversion-focused ecommerce experiences with secure checkout, inventory management, and scalable architecture.",
-          metric: "â‚¹2.4M Revenue",
+          metric: "₹2.4M Revenue",
         },
         {
           title: "Customer Portals",

@@ -1,6 +1,6 @@
 import type { MenuButtonProps } from "./types";
 
-/** Animated hamburger â†’ Ã— icon */
+/** Animated hamburger → × icon */
 function MenuButton({ open, onClick }: MenuButtonProps) {
   return (
     <button
