@@ -1,11 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
     ArrowRight,
-    ArrowLeft,
     BadgeCheck,
     BarChart3,
     Box,
@@ -30,8 +29,10 @@ import {
     TrendingUp,
     Users,
     Wrench,
+    X,
     Zap,
 } from "lucide-react";
+import ConsultationForm from "@/components/form/ConsultationForm";
 
 type ServiceCategory =
     | "Web Development"
@@ -338,6 +339,7 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
     const [activeCategory, setActiveCategory] =
         useState<ServiceCategory>("Web Development");
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
     const filteredServices = useMemo(() => {
         return services.filter((service) => service.category === activeCategory);
@@ -351,6 +353,24 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
         setActiveCategory(category);
         setIsExpanded(false);
     };
+
+    useEffect(() => {
+        if (!isConsultationOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsConsultationOpen(false);
+            }
+        };
+
+        document.body.style.overflow = "hidden";
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.body.style.overflow = "";
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isConsultationOpen]);
 
     return (
         <section
@@ -465,7 +485,11 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
                         >
                             <AnimatePresence initial={false}>
                                 {visibleServices.map((service) => (
-                                    <ServiceCard key={service.title} service={service} />
+                                    <ServiceCard
+                                        key={service.title}
+                                        service={service}
+                                        onGetStarted={() => setIsConsultationOpen(true)}
+                                    />
                                 ))}
                             </AnimatePresence>
                         </motion.div>
@@ -497,11 +521,70 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
                     </div>
                 )} */}
             </motion.div>
+
+            <AnimatePresence>
+                {isConsultationOpen && (
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 px-4 py-6 backdrop-blur-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="services-consultation-title"
+                        onMouseDown={() => setIsConsultationOpen(false)}
+                    >
+                        <motion.div
+                            className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-[28px] bg-white p-6 shadow-[0_30px_90px_rgba(15,23,42,0.28)] md:p-8"
+                            initial={{ opacity: 0, y: 24, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 24, scale: 0.97 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                            onMouseDown={(event) => event.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                aria-label="Close consultation form"
+                                onClick={() => setIsConsultationOpen(false)}
+                                className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                            >
+                                <X className="h-5 w-5" />
+                            </button>
+
+                            <div className="pr-12">
+                                <h2
+                                    id="services-consultation-title"
+                                    className="text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900 md:text-5xl"
+                                >
+                                    {"Let's Discuss Your"}
+                                    <br />
+                                    <span className="highlight-text">Next Project</span>
+                                </h2>
+
+                                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+                                    Tell us about your requirements and our team will get back to you within 24 hours.
+                                </p>
+                            </div>
+
+                            <ConsultationForm
+                                className="mt-8"
+                                source="Services Get Started Modal"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
 
-function ServiceCard({ service }: { service: Service }) {
+function ServiceCard({
+    service,
+    onGetStarted,
+}: {
+    service: Service;
+    onGetStarted: () => void;
+}) {
     const Icon = iconMap[service.icon];
 
     return (
@@ -554,14 +637,15 @@ function ServiceCard({ service }: { service: Service }) {
                 </p>
 
                 <div className="mt-auto pt-7">
-                    <a
-                        href="#contact"
+                    <button
+                        type="button"
+                        onClick={onGetStarted}
                         className="group/link inline-flex items-center text-sm font-semibold text-blue-700 transition-colors duration-300 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        aria-label={`Learn more about ${service.title}`}
+                        aria-label={`Get started with ${service.title}`}
                     >
-                        Learn More
+                        Get Started Today
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                    </a>
+                    </button>
                 </div>
             </div>
         </motion.article>
