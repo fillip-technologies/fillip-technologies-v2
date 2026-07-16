@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { Bell, Cloud, Moon, Play, ShieldCheck } from "lucide-react";
+import { Bell, Cloud, Moon } from "lucide-react";
 import type { SecurityServicesContent } from "./content";
 
 // Icons applied to the feature rows by position (content is CMS-managed).
@@ -69,36 +68,6 @@ export default function SecurityServices({ content }: { content: SecurityService
                   sizes="(max-width: 1024px) 100vw, 34vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/20 to-slate-950/82" />
-              </div>
-
-              <Link
-                href="/contact"
-                aria-label="Watch security video"
-                className="absolute left-1/2 top-1/2 flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-slate-950 shadow-[0_18px_42px_rgba(2,8,23,0.28)] transition-all duration-300 hover:scale-105 hover:bg-sky-50"
-              >
-                <Play className="ml-1 size-8 fill-current" />
-              </Link>
-
-              <div className="absolute inset-x-0 bottom-0 p-8 text-white">
-                <div className="flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-white/10 backdrop-blur">
-                    <ShieldCheck className="size-5 text-cyan-200" />
-                  </div>
-                  <p className="max-w-56 text-base font-bold leading-snug">
-                    {content.videoTitle}
-                  </p>
-                </div>
-
-                <Link
-                  href="/contact"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-200 transition-colors duration-300 hover:text-white"
-                >
-                  {content.watchLabel}
-                  <span className="flex size-7 items-center justify-center rounded-full border border-white/20">
-                    <Play className="ml-0.5 size-3 fill-current" />
-                  </span>
-                </Link>
               </div>
             </div>
           </motion.div>

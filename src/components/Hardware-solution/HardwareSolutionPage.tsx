@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Bell,
   Cloud,
-  Play,
   ShieldCheck,
   Smartphone,
 } from "lucide-react";
@@ -182,24 +181,6 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
                   sizes="(max-width: 1024px) 100vw, 34vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/20 to-slate-950/82" />
-              </div>
-
-              <div className="absolute left-1/2 top-1/2 flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-slate-950 shadow-[0_18px_42px_rgba(2,8,23,0.28)]">
-                <Play className="ml-1 size-8 fill-current" />
-              </div>
-
-              <div className="absolute inset-x-0 bottom-0 p-8 text-white">
-                <p className="max-w-60 text-base font-bold leading-snug">
-                  See how Fillip Technologies keeps your systems protected
-                </p>
-                <Link
-                  href="/contact"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-200 transition hover:text-white"
-                >
-                  Contact Us
-                  <ArrowRight className="size-4" />
-                </Link>
               </div>
             </div>
           </div>
