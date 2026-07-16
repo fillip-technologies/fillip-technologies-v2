@@ -8,6 +8,7 @@ import type { Testimonial } from "@/components/shared/TestimonialsSection";
  */
 
 export type SecurityHeroContent = {
+  backgroundImage: string;
   badge: string;
   heading: string; // may contain \n for line breaks
   description: string;

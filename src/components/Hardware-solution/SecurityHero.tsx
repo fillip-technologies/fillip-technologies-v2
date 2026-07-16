@@ -17,7 +17,7 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
       <section className="relative overflow-hidden bg-[#020817] text-white">
         <div className="absolute inset-0">
           <Image
-            src="/images/new-hero-hard.png"
+            src={content.backgroundImage}
             alt="Advanced CCTV surveillance background"
             fill
             priority

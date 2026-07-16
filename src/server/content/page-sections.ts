@@ -458,6 +458,7 @@ export const ABOUT_PAGES: PageGroup[] = [
         description: "Top banner: badge, heading, intro, buttons and the status card.",
         ready: true,
         fields: [
+          { name: "backgroundImage", label: "Background image", type: "image", default: "/images/new-hero-hard.png" },
           { name: "badge", label: "Badge", type: "text", default: "Tender Grade CCTV Surveillance" },
           { name: "heading", label: "Heading (line breaks allowed)", type: "textarea", default: "Large scale\nsurveillance for\ncritical sites." },
           { name: "description", label: "Description", type: "textarea", default: "We execute CCTV surveillance projects for government tenders, public infrastructure, institutions, industrial sites, campuses, and large commercial premises with professional planning, installation, and support." },
