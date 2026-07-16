@@ -515,3 +515,68 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.anniversary-experience-reveal .anniversary-site-shell {
+  animation: anniversarySiteReveal 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center top;
+}
+
+.anniversary-experience-reveal .anniversary-site-shell section:first-of-type {
+  animation: anniversaryHeroReveal 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anniversary-gold-particle {
+  box-shadow: 0 0 14px rgba(245, 190, 80, 0.55);
+  animation-name: anniversaryGoldFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes anniversaryGoldFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.7);
+  }
+
+  45% {
+    opacity: 0.86;
+    transform: translate3d(8px, -12px, 0) scale(1);
+  }
+
+  70% {
+    opacity: 0.42;
+    transform: translate3d(-5px, -22px, 0) scale(0.86);
+  }
+}
+
+@keyframes anniversarySiteReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes anniversaryHeroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anniversary-experience-reveal .anniversary-site-shell,
+  .anniversary-experience-reveal .anniversary-site-shell section:first-of-type,
+  .anniversary-gold-particle {
+    animation: none;
+  }
+}
