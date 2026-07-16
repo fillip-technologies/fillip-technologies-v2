@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ChallengePage from "@/components/challenges/ChallengePage";
-import type { ChallengeContent } from "@/data/challenges";
-import { getChallengeBySlug } from "@/data/challenges";
+import type { ChallengeContent } from "@/data/challenges/index";
+import { getChallengeBySlug } from "@/data/challenges/index";
 import {
   getServicePage,
   getServicePageData,

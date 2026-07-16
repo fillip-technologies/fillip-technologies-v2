@@ -1,0 +1,406 @@
+{
+  "listing": {
+    "hero": {
+      "eyebrow": "Challenges We Solve",
+      "title": "Growth Roadblocks",
+      "highlightedTitle": "Solved With Strategy",
+      "description": "We diagnose the exact bottleneck holding your business back, then build the website, SEO, and lead-generation systems that turn attention into qualified enquiries.",
+      "primaryCta": "Find My Growth Challenge",
+      "secondaryCta": "Talk To A Strategist"
+    },
+    "process": {
+      "eyebrow": "How We Solve It",
+      "title": "From Symptoms To",
+      "highlightedTitle": "Measurable Growth",
+      "description": "Every challenge follows a practical, evidence-led process so the solution matches the real cause, not just the visible symptom.",
+      "steps": [
+        {
+          "title": "Diagnose The Bottleneck",
+          "description": "We audit your website, traffic, rankings, conversion paths, and lead quality to find where growth is leaking."
+        },
+        {
+          "title": "Prioritise The Highest-ROI Fixes",
+          "description": "We turn the diagnosis into a focused roadmap that tackles the biggest revenue impact first."
+        },
+        {
+          "title": "Build And Optimise",
+          "description": "Our team improves messaging, UX, technical SEO, content, campaigns, and follow-up systems around one measurable goal."
+        },
+        {
+          "title": "Track, Learn, And Compound",
+          "description": "We measure rankings, traffic, conversions, and lead quality, then keep refining the engine as performance grows."
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "eyebrow": "Why Fillip",
+      "title": "We Fix The Business Problem,",
+      "highlightedTitle": "Not Just The Surface",
+      "description": "Our work connects design, performance marketing, SEO, and conversion strategy so every fix is tied to business outcomes.",
+      "items": [
+        {
+          "title": "Diagnosis Before Execution",
+          "description": "We find the real cause before recommending a redesign, campaign, or SEO plan."
+        },
+        {
+          "title": "Full-Funnel Thinking",
+          "description": "Traffic, conversion, qualification, and follow-up are planned as one connected journey."
+        },
+        {
+          "title": "Reusable Growth Systems",
+          "description": "We build foundations that can scale across more pages, campaigns, markets, and filters later."
+        },
+        {
+          "title": "Measured By Outcomes",
+          "description": "Rankings, enquiries, qualified leads, and revenue signals matter more than vanity metrics."
+        }
+      ]
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "heading": "Built For Search, Leads, And Conversion",
+      "description": "We solve growth challenges for service businesses, healthcare, education, real estate, retail, finance, logistics, and teams that need a stronger digital acquisition engine."
+    },
+    "faq": {
+      "title": "Challenges We Solve",
+      "highlightedTitle": "Questions",
+      "description": "Common questions about choosing the right growth challenge and solution path.",
+      "items": [
+        {
+          "question": "What if more than one challenge applies to us?",
+          "answer": "That is common. We start with the challenge closest to revenue leakage, then connect the solution to related issues like traffic, rankings, conversion, and lead quality."
+        },
+        {
+          "question": "Do these pages replace your service pages?",
+          "answer": "No. These pages help diagnose the business problem first. The recommended solution may involve website development, SEO, performance marketing, lead generation, or a combination."
+        },
+        {
+          "question": "Can you work with our existing website or campaigns?",
+          "answer": "Yes. We audit what you already have and keep what is working. The goal is to improve the system with the least waste and the highest impact."
+        },
+        {
+          "question": "How do we know which challenge to start with?",
+          "answer": "Start with the symptom costing you the most right now: no leads, poor-quality leads, low rankings, or weak organic traffic. We can validate the priority during discovery."
+        }
+      ]
+    },
+    "finalCta": {
+      "eyebrow": "Ready To Unblock Growth?",
+      "title": "Let's Find The Challenge",
+      "highlightedTitle": "Holding You Back",
+      "description": "Share where growth feels stuck. We will help you identify the real bottleneck and the most practical path to fix it.",
+      "cta": "Book A Consultation",
+      "href": "/contact"
+    }
+  },
+  "challenges": [
+    {
+      "slug": "website-not-generating-leads",
+      "title": "My Website Doesn't Generate Leads",
+      "menuDescription": "Turn traffic into enquiries with sharper messaging, UX, speed, and conversion paths.",
+      "summary": "A beautiful site that does not convert is just an expensive brochure. We turn your website into a lead-generating asset.",
+      "tags": ["Conversion", "UX", "Website"],
+      "hero": {
+        "title": "Your Website Gets Traffic But",
+        "highlightedTitle": "Generates No Leads",
+        "description": "A beautiful site that doesn't convert is just an expensive brochure. We turn your website into a lead-generating asset that actually drives enquiries."
+      },
+      "problem": {
+        "eyebrow": "The Problem",
+        "title": "Why Your Website Isn't",
+        "highlightedTitle": "Converting Visitors",
+        "description": "Most sites lose leads to unclear messaging, weak calls to action, friction, and slow performance.",
+        "secondaryDescription": "We diagnose exactly where visitors drop off and rebuild the journey so more of them become enquiries.",
+        "cta": "Fix My Website's Conversions",
+        "items": [
+          { "title": "Unclear Messaging", "description": "Visitors can't tell what you do or why to choose you within seconds." },
+          { "title": "Weak Calls To Action", "description": "No clear next step, so interested visitors simply leave." },
+          { "title": "Too Much Friction", "description": "Long forms and confusing navigation kill conversions." },
+          { "title": "Slow Load Times", "description": "Every extra second of load time drops conversion rate." },
+          { "title": "No Trust Signals", "description": "Missing proof, reviews, and guarantees make visitors hesitate." },
+          { "title": "Not Mobile-Optimised", "description": "A poor mobile experience loses most of your traffic." }
+        ]
+      },
+      "approach": {
+        "eyebrow": "HOW WE SOLVE IT",
+        "title": "We Turn Your Site Into A",
+        "highlightedTitle": "Lead Machine",
+        "description": "A conversion-focused overhaul of messaging, layout, speed, and trust, measured end to end.",
+        "cards": [
+          { "eyebrow": "Clarity", "title": "Sharp Messaging", "description": "A clear value proposition and story so visitors instantly get why you're the right choice.", "metric": "Clearer Value" },
+          { "eyebrow": "Conversion", "title": "Optimised Journeys", "description": "Strong CTAs, simplified forms, and frictionless paths from landing to enquiry.", "metric": "Higher Conversion" },
+          { "title": "Speed & UX", "description": "Fast, mobile-first pages that keep visitors engaged and moving forward." },
+          { "title": "Trust & Proof", "description": "Reviews, case studies, and guarantees placed where they overcome hesitation.", "tags": ["Copy", "CTAs", "Speed", "Trust"] }
+        ]
+      },
+      "outcomes": {
+        "eyebrow": "THE OUTCOME",
+        "title": "A Website That Actually",
+        "highlightedTitle": "Drives Enquiries",
+        "description": "Conversion-focused changes turn your existing traffic into a steady flow of leads.",
+        "stats": [
+          { "value": "+65%", "label": "Conversion Rate" },
+          { "value": "+90%", "label": "Form Submissions" },
+          { "value": "-40%", "label": "Bounce Rate" },
+          { "value": "2x", "label": "Qualified Leads" }
+        ],
+        "leftPill": "More Enquiries",
+        "rightPill": "Same Traffic"
+      },
+      "whyChooseUs": {
+        "eyebrow": "WHY FILLIP",
+        "title": "We Fix Conversions,",
+        "highlightedTitle": "Not Just Looks",
+        "description": "We optimise for enquiries and revenue, the outcome you actually care about.",
+        "items": [
+          { "title": "Conversion-Led", "description": "Every change is measured against leads generated." },
+          { "title": "Evidence-Based", "description": "We use analytics and testing to find real drop-off points." },
+          { "title": "Fast Turnaround", "description": "High-impact fixes shipped quickly, not months later." },
+          { "title": "Full-Journey", "description": "From ad click to enquiry, we optimise the whole path." }
+        ]
+      },
+      "faq": {
+        "title": "Website Leads",
+        "highlightedTitle": "Questions",
+        "description": "Common questions about turning your website into a lead generator.",
+        "items": [
+          { "question": "Do you rebuild the whole site or just optimise it?", "answer": "It depends on the diagnosis. Often targeted conversion fixes to messaging, CTAs, speed, and trust deliver most of the gains; sometimes a fuller redesign is the better investment. We'll recommend the highest-ROI path." },
+          { "question": "How do you know what's stopping conversions?", "answer": "We analyse your analytics, heatmaps, and user journeys to pinpoint exactly where visitors drop off, then prioritise the fixes with the biggest impact." },
+          { "question": "How quickly will we see more leads?", "answer": "High-impact fixes can lift conversions within weeks; we then keep testing to compound the results over time." },
+          { "question": "Will this work with our existing traffic?", "answer": "Yes. The goal is to convert more of the visitors you already get so you generate more leads without spending more on traffic." }
+        ]
+      }
+    },
+    {
+      "slug": "generate-quality-leads",
+      "title": "I Struggle to Generate Quality Leads",
+      "menuDescription": "Improve targeting, offers, qualification, and follow-up so sales gets better-fit buyers.",
+      "summary": "Chasing unqualified leads wastes your sales team's time. We fix your targeting, offers, and qualification so you attract buyers who actually convert.",
+      "tags": ["Lead Quality", "Targeting", "Sales"],
+      "hero": {
+        "title": "You Get Leads But They're",
+        "highlightedTitle": "Not The Right Ones",
+        "description": "Chasing unqualified leads wastes your sales team's time. We fix your targeting, offers, and qualification so you attract buyers who actually convert."
+      },
+      "problem": {
+        "eyebrow": "The Problem",
+        "title": "Why Your Leads Aren't",
+        "highlightedTitle": "Sales-Ready",
+        "description": "Poor targeting, generic offers, and no qualification flood your pipeline with people who never buy.",
+        "secondaryDescription": "We re-focus your marketing on your ideal customer and build qualification in from the first touch.",
+        "cta": "Get Better Quality Leads",
+        "items": [
+          { "title": "Broad Targeting", "description": "Reaching everyone means attracting the wrong people." },
+          { "title": "Generic Offers", "description": "Offers that don't speak to a real buyer pull tyre-kickers." },
+          { "title": "No Qualification", "description": "Every lead looks the same, so sales wastes time on dead ends." },
+          { "title": "Wrong Channels", "description": "Spending where your buyers aren't brings low-intent traffic." },
+          { "title": "Price-Only Attraction", "description": "Discount-led messaging attracts bargain hunters, not loyal customers." },
+          { "title": "Weak Follow-Up", "description": "Good leads go cold without fast, relevant follow-up." }
+        ]
+      },
+      "approach": {
+        "eyebrow": "HOW WE SOLVE IT",
+        "title": "We Attract Buyers,",
+        "highlightedTitle": "Not Just Clicks",
+        "description": "Sharper targeting, better offers, and built-in qualification that fill your pipeline with the right people.",
+        "cards": [
+          { "eyebrow": "Targeting", "title": "Ideal-Customer Focus", "description": "We define your best-fit buyer and aim every campaign squarely at them.", "metric": "Better-Fit Leads" },
+          { "eyebrow": "Offers", "title": "Compelling Offers", "description": "Offers designed to attract serious buyers, not freebie seekers.", "metric": "Higher Intent" },
+          { "title": "Built-In Qualification", "description": "Forms and flows that qualify leads before they reach your sales team." },
+          { "title": "Smart Follow-Up", "description": "Nurture and scoring that prioritise the leads most likely to close.", "tags": ["ICP", "Offers", "Qualification", "Nurture"] }
+        ]
+      },
+      "outcomes": {
+        "eyebrow": "THE OUTCOME",
+        "title": "A Pipeline Full Of",
+        "highlightedTitle": "Real Buyers",
+        "description": "Better quality leads mean higher close rates and a sales team that spends time where it counts.",
+        "stats": [
+          { "value": "+55%", "label": "Lead Quality" },
+          { "value": "+40%", "label": "Close Rate" },
+          { "value": "-35%", "label": "Wasted Sales Time" },
+          { "value": "+30%", "label": "Deal Size" }
+        ],
+        "leftPill": "Better Fit",
+        "rightPill": "Higher Close"
+      },
+      "whyChooseUs": {
+        "eyebrow": "WHY FILLIP",
+        "title": "We Optimise For",
+        "highlightedTitle": "Quality, Not Volume",
+        "description": "More leads isn't the goal. More of the right leads is. That's what we build for.",
+        "items": [
+          { "title": "Buyer-Focused", "description": "We target and qualify for your best-fit customers." },
+          { "title": "Offer-Driven", "description": "Offers engineered to attract serious intent." },
+          { "title": "Sales-Aligned", "description": "We define 'qualified' with your sales team, not in a vacuum." },
+          { "title": "Measured On Deals", "description": "We optimise to closed revenue, not form fills." }
+        ]
+      },
+      "faq": {
+        "title": "Lead Quality",
+        "highlightedTitle": "Questions",
+        "description": "Common questions about generating higher-quality leads.",
+        "items": [
+          { "question": "Won't tighter targeting reduce our lead volume?", "answer": "Volume may narrow, but quality rises, and so does your close rate and ROI. The goal is more revenue from better-fit leads, not more low-intent form fills." },
+          { "question": "How do you define a 'quality' lead?", "answer": "We define it with your sales team based on fit, intent, and budget, then build qualification into forms, offers, and scoring so those criteria are met earlier." },
+          { "question": "Can you work with our existing channels?", "answer": "Yes. We audit where your best customers actually come from and shift focus and budget toward the channels and offers that attract them." },
+          { "question": "Do you help with follow-up too?", "answer": "Yes. We set up nurture and lead scoring so your team focuses first on the leads most likely to convert." }
+        ]
+      }
+    },
+    {
+      "slug": "not-ranking-on-google",
+      "title": "My Business Isn't Ranking on Google",
+      "menuDescription": "Fix technical SEO, content gaps, authority, and local signals that keep you off page one.",
+      "summary": "If you're not on page one, your customers are finding competitors instead. We build the rankings that put you in front of active buyers.",
+      "tags": ["SEO", "Rankings", "Visibility"],
+      "hero": {
+        "title": "Your Business Is Invisible",
+        "highlightedTitle": "On Google",
+        "description": "If you're not on page one, your customers are finding competitors instead. We build the rankings that put you in front of buyers actively searching."
+      },
+      "problem": {
+        "eyebrow": "The Problem",
+        "title": "Why You're Not",
+        "highlightedTitle": "Ranking",
+        "description": "Technical issues, thin content, and weak authority keep most businesses buried past page one.",
+        "secondaryDescription": "We diagnose the gaps and build a search strategy that steadily climbs you into visibility.",
+        "cta": "Get My Business Ranking",
+        "items": [
+          { "title": "Technical Barriers", "description": "Crawl and speed issues stop Google indexing you properly." },
+          { "title": "Thin Content", "description": "Pages that don't answer real queries can't rank for them." },
+          { "title": "Low Authority", "description": "Few quality backlinks mean Google doesn't trust your site." },
+          { "title": "Wrong Keywords", "description": "Targeting terms customers don't search wastes effort." },
+          { "title": "No Local Presence", "description": "Missing local signals keep you out of nearby results." },
+          { "title": "Ignored Analytics", "description": "Without tracking, you can't see what's working or fix what isn't." }
+        ]
+      },
+      "approach": {
+        "eyebrow": "HOW WE SOLVE IT",
+        "title": "We Build Rankings That",
+        "highlightedTitle": "Last",
+        "description": "A complete SEO strategy across technical, content, and authority, aimed at the searches that matter.",
+        "cards": [
+          { "eyebrow": "Foundation", "title": "Technical Fixes", "description": "Fix crawlability, speed, and structure so Google can index and rank you.", "metric": "Search-Ready Site" },
+          { "eyebrow": "Content", "title": "Content That Ranks", "description": "Keyword-driven, genuinely useful content mapped to buyer intent.", "metric": "More Coverage" },
+          { "title": "Authority Building", "description": "Quality backlinks and signals that build the trust Google rewards." },
+          { "title": "Tracking & Reporting", "description": "Rank tracking and analytics so growth is measurable and repeatable.", "tags": ["Technical", "Content", "Links", "Local"] }
+        ]
+      },
+      "outcomes": {
+        "eyebrow": "THE OUTCOME",
+        "title": "Front-Page Visibility",
+        "highlightedTitle": "That Drives Traffic",
+        "description": "Higher rankings put you in front of buyers at the exact moment they're searching.",
+        "stats": [
+          { "value": "+120%", "label": "Keyword Rankings" },
+          { "value": "Page 1", "label": "Target Terms" },
+          { "value": "+85%", "label": "Organic Traffic" },
+          { "value": "+45%", "label": "Organic Leads" }
+        ],
+        "leftPill": "Higher Rankings",
+        "rightPill": "More Traffic"
+      },
+      "whyChooseUs": {
+        "eyebrow": "WHY FILLIP",
+        "title": "SEO That Delivers",
+        "highlightedTitle": "Real Rankings",
+        "description": "We combine technical, content, and authority into a strategy that compounds over time.",
+        "items": [
+          { "title": "Full-Stack SEO", "description": "Technical, content, and links handled together." },
+          { "title": "Intent-Focused", "description": "We target the searches your buyers actually make." },
+          { "title": "White-Hat", "description": "Sustainable methods that won't risk penalties." },
+          { "title": "Transparent", "description": "Clear reporting on rankings, traffic, and leads." }
+        ]
+      },
+      "faq": {
+        "title": "Google Rankings",
+        "highlightedTitle": "Questions",
+        "description": "Common questions about ranking your business on Google.",
+        "items": [
+          { "question": "How long does SEO take to work?", "answer": "Early gains can appear within a few months, but meaningful ranking growth typically builds over 4-6 months as technical fixes, content, and authority compound." },
+          { "question": "Can you guarantee page-one rankings?", "answer": "No credible agency guarantees specific positions because Google's algorithm decides. We do commit to a proven strategy and transparent reporting that reliably improves visibility." },
+          { "question": "Do you handle both technical and content SEO?", "answer": "Yes. We cover the full stack: technical foundations, content, authority, and local, because rankings require all of them working together." },
+          { "question": "How do you choose which keywords to target?", "answer": "We research the terms your ideal customers actually search, balancing intent, volume, and difficulty to prioritise the ones that drive real leads." }
+        ]
+      }
+    },
+    {
+      "slug": "low-organic-traffic",
+      "title": "I Have Low Organic Traffic",
+      "menuDescription": "Grow compounding organic visits with content strategy, keyword expansion, refreshes, and links.",
+      "summary": "Relying on paid ads for every visitor is expensive and fragile. We grow organic traffic that compounds without paying per click.",
+      "tags": ["Organic Traffic", "Content", "SEO"],
+      "hero": {
+        "title": "Your Organic Traffic Is",
+        "highlightedTitle": "Stuck & Shrinking",
+        "description": "Relying on paid ads for every visitor is expensive and fragile. We grow the organic traffic that compounds, bringing consistent visitors without paying per click."
+      },
+      "problem": {
+        "eyebrow": "The Problem",
+        "title": "Why Your Traffic",
+        "highlightedTitle": "Isn't Growing",
+        "description": "Limited content, missed keywords, and stagnant pages leave most of your search potential untapped.",
+        "secondaryDescription": "We build a content and SEO engine that steadily grows visits from people already looking for you.",
+        "cta": "Grow My Organic Traffic",
+        "items": [
+          { "title": "Too Little Content", "description": "Few pages means few chances to rank and be found." },
+          { "title": "Missed Keywords", "description": "Whole topics your customers search go uncovered." },
+          { "title": "Stale Pages", "description": "Old content decays and slides down the rankings." },
+          { "title": "Poor Internal Linking", "description": "Weak structure means ranking power doesn't flow." },
+          { "title": "No Content Strategy", "description": "Random posting doesn't build topical authority." },
+          { "title": "Ignored Search Intent", "description": "Content that doesn't match intent won't attract clicks." }
+        ]
+      },
+      "approach": {
+        "eyebrow": "HOW WE SOLVE IT",
+        "title": "We Build A Traffic",
+        "highlightedTitle": "Engine",
+        "description": "A content and SEO system that targets untapped demand and compounds over time.",
+        "cards": [
+          { "eyebrow": "Strategy", "title": "Content Strategy", "description": "Topic clusters and a content plan that build authority in your niche.", "metric": "Topical Authority" },
+          { "eyebrow": "Coverage", "title": "Keyword Expansion", "description": "New pages targeting the searches you're currently missing.", "metric": "More Keywords" },
+          { "title": "Content Refresh", "description": "Updating and improving existing pages to recover and grow rankings." },
+          { "title": "Internal Linking", "description": "Smart structure that spreads authority and lifts your whole site.", "tags": ["Content", "Keywords", "Refresh", "Links"] }
+        ]
+      },
+      "outcomes": {
+        "eyebrow": "THE OUTCOME",
+        "title": "Compounding Traffic",
+        "highlightedTitle": "You Don't Pay Per Click",
+        "description": "Organic growth becomes a durable channel that keeps delivering visitors month after month.",
+        "stats": [
+          { "value": "+140%", "label": "Organic Traffic" },
+          { "value": "+90%", "label": "Ranking Keywords" },
+          { "value": "-50%", "label": "Reliance On Ads" },
+          { "value": "+40%", "label": "Organic Leads" }
+        ],
+        "leftPill": "More Visitors",
+        "rightPill": "Lower Cost"
+      },
+      "whyChooseUs": {
+        "eyebrow": "WHY FILLIP",
+        "title": "Traffic Growth That",
+        "highlightedTitle": "Compounds",
+        "description": "We build an organic engine that keeps paying off, reducing your dependence on paid ads.",
+        "items": [
+          { "title": "Strategy-First", "description": "Topic clusters that build lasting authority, not random posts." },
+          { "title": "Intent-Matched", "description": "Content that matches what searchers actually want." },
+          { "title": "Refresh + New", "description": "We grow new pages and revive existing ones." },
+          { "title": "Compounding ROI", "description": "Organic traffic keeps delivering long after it's published." }
+        ]
+      },
+      "faq": {
+        "title": "Organic Traffic",
+        "highlightedTitle": "Questions",
+        "description": "Common questions about growing your organic traffic.",
+        "items": [
+          { "question": "How is organic traffic better than paid ads?", "answer": "Paid traffic stops the moment you stop paying. Organic traffic compounds because content you publish keeps attracting visitors for months or years, lowering your overall cost per visitor." },
+          { "question": "How much content do we need?", "answer": "It depends on your market and competition. We build a prioritised content plan targeting the highest-value gaps first, so you see returns without publishing endlessly." },
+          { "question": "Can you improve our existing content?", "answer": "Yes. Refreshing and optimising existing pages is often the fastest win, recovering rankings that have decayed and capturing more of their potential." },
+          { "question": "How long until traffic grows?", "answer": "Content refreshes can lift traffic within weeks; new content and authority typically compound over 3-6 months into sustained growth." }
+        ]
+      }
+    }
+  ]
+}

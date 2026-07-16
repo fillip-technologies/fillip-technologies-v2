@@ -8,7 +8,7 @@ import OurClients from "@/components/Home/OurClients";
 import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
 import ServiceFaqSection from "@/components/shared/ServiceFaqSection";
 
-import type { ChallengeContent } from "@/data/challenges";
+import type { ChallengeContent } from "@/data/challenges/index";
 
 type ChallengePageProps = {
   data: ChallengeContent;

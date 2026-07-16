@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ChallengePage from "@/components/challenges/ChallengePage";
-import type { ChallengeContent } from "@/data/challenges";
+import type { ChallengeContent } from "@/data/challenges/index";
 import {
   getServicePage,
   getServicePageData,

@@ -10,10 +10,52 @@ import type { ServiceFaqData } from "@/components/shared/ServiceFaqSection";
  */
 export type ChallengeContent = {
   slug: string;
+  title: string;
+  menuDescription: string;
+  summary: string;
+  tags: string[];
   hero: Service["hero"];
   problem: Service["challenges"];
   approach: Service["whatWeBuild"];
   outcomes: Service["outcomes"];
   whyChooseUs: WhyChooseUsData;
   faq: ServiceFaqData;
+};
+
+export type ChallengeListingContent = {
+  hero: {
+    eyebrow: string;
+    title: string;
+    highlightedTitle: string;
+    description: string;
+    primaryCta: string;
+    secondaryCta: string;
+  };
+  process: {
+    eyebrow: string;
+    title: string;
+    highlightedTitle: string;
+    description: string;
+    steps: { title: string; description: string }[];
+  };
+  whyChooseUs: WhyChooseUsData;
+  industries: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+  };
+  faq: ServiceFaqData;
+  finalCta: {
+    eyebrow: string;
+    title: string;
+    highlightedTitle: string;
+    description: string;
+    cta: string;
+    href: string;
+  };
+};
+
+export type ChallengesCatalog = {
+  listing: ChallengeListingContent;
+  challenges: ChallengeContent[];
 };

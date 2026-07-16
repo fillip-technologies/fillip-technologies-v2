@@ -12,7 +12,7 @@
 import type { SectionSpec } from "./servicepage-sections";
 import { SERVICEPAGE_SECTION_SPECS } from "./servicepage-sections";
 import { whyChooseUsSpec, faqSpec, aliasSpec } from "./shared-section-specs";
-import { CHALLENGES_CONTENT } from "@/data/challenges";
+import { CHALLENGES_CONTENT } from "@/data/challenges/index";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type AnyRec = Record<string, any>;
