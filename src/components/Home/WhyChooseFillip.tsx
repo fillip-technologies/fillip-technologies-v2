@@ -7,38 +7,17 @@ import {
   Briefcase,
   Rocket,
   Users,
+  type LucideIcon,
 } from "lucide-react";
+import { HOME_WHY_CHOOSE, type WhyChooseItem } from "@/data/home/defaults";
 
-const features = [
-  {
-    icon: Briefcase,
-    title: "Strategy- First Thinking",
-    description:
-      "We work with you from strategy to execution, knowing your business challenges and goals to develop scalable digital solutions.",
-    image: "/images/whychoose-strategy.png",
-  },
-  {
-    icon: Rocket,
-    title: "End-to-End Delivery",
-    description:
-      "Whether it’s consultation, implementation, or ongoing maintenance, we’ve got you covered.",
-    image: "/images/whychoose-delivery.png",
-  },
-  {
-    icon: Users,
-    title: "Experts Across Disciplines",
-    description:
-      "Working with expert strategists, designers, developers, and marketers specifically for you to generate real and meaningful outcomes.",
-    image: "/images/whychoose-experts-v2.png",
-  },
-  {
-    icon: Brain,
-    title: "Human + AI Innovation",
-    description:
-      "We combine creativity, industry expertise, and AI-powered workflows to provide quicker, smarter, and scalable digital solutions.",
-    image: "/images/whychoose-ai.png",
-  },
-];
+// Icon keys admins can type in the CMS map to these lucide icons.
+const iconMap: Record<string, LucideIcon> = {
+  Briefcase,
+  Rocket,
+  Users,
+  Brain,
+};
 
 // CMS-editable content (key: home.whychooseus). Falls back to these defaults.
 type WhyChooseContent = Partial<{
@@ -47,6 +26,7 @@ type WhyChooseContent = Partial<{
   headingLine2: string;
   description: string;
   ctaLabel: string;
+  cards: WhyChooseItem[];
 }>;
 
 export default function WhyChooseUsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -60,6 +40,7 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
       "We combine strategy, technology, design, and AI expertise to help businesses build, scale, and grow with confidence in a rapidly evolving digital world.",
     ctaLabel: content.ctaLabel ?? "Learn More",
   };
+  const features = content.cards?.length ? content.cards : HOME_WHY_CHOOSE;
 
   return (
     <section className="relative overflow-hidden py-24 lg:py-28">
@@ -115,7 +96,7 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
         {/* Cards */}
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {features.map((item, index) => {
-            const Icon = item.icon;
+            const Icon = iconMap[item.icon] ?? Briefcase;
 
             return (
               <div

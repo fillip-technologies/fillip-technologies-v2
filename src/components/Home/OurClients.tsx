@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import type { ClientLogoItem } from "@/data/home/defaults";
 
 const logoDirectory = "/images/NEW%20CLIENTS%20LOGO";
 
@@ -265,6 +266,7 @@ type ClientsContent = Partial<{
   stat1: string;
   stat2: string;
   stat3: string;
+  logos: ClientLogoItem[];
 }>;
 
 export default function OurClients({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -280,34 +282,20 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
   const [activeCategory, setActiveCategory] = useState<string>("govt");
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
+  // Prefer CMS-managed logos (always populated via section defaults); fall back
+  // to the code-derived wall if the list is somehow empty.
+  const clientLogosData = content.logos?.length
+    ? content.logos.map((l) => ({
+        src: l.image,
+        alt: l.alt,
+        categories: (l.categories || "").split(",").map((s) => s.trim()).filter(Boolean),
+      }))
+    : clientLogos;
+
   // Filter logos based on activeCategory
   const filteredLogos = useMemo(() => {
-    if (activeCategory === "govt") {
-      const governmentFiles = [
-        "rajgir-zoo.png",
-        "Nature Safari logo copy.png",
-        "venu-van.png",
-        "logo-large-converted-from-svg.png",
-        "BMC NEW LOGO-011.png",
-        "Patna Park.png",
-        "logo - Copy - Copy.png",
-        "BMC NEW LOGO 222-01.jpg"
-      ];
-      return governmentFiles.map((file) => {
-        const alt = file
-          .replace(/\.[^.]+$/, "")
-          .replace(/[-_]+/g, " ")
-          .replace(/\s+/g, " ")
-          .trim();
-        return {
-          src: `/images/goverment/${encodeURIComponent(file)}`,
-          alt,
-          categories: ["govt"],
-        };
-      });
-    }
-    return clientLogos.filter((logo) => logo.categories.includes(activeCategory));
-  }, [activeCategory]);
+    return clientLogosData.filter((logo) => logo.categories.includes(activeCategory));
+  }, [activeCategory, clientLogosData]);
 
   const itemsPerPage = 20;
 

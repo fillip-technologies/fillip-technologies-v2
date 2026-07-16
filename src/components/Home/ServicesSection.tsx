@@ -33,20 +33,9 @@ import {
     Zap,
 } from "lucide-react";
 import ConsultationForm from "@/components/form/ConsultationForm";
+import { HOME_SERVICES, HOME_SERVICE_CATEGORIES, HOME_SERVICES_BG, type ServiceItem } from "@/data/home/defaults";
 
-type ServiceCategory =
-    | "Web Development"
-    | "Mobile App Development"
-    | "Software & Enterprise"
-    | "SEO & Performance Marketing"
-    | "Creative Experience Design";
-
-type Service = {
-    category: ServiceCategory;
-    title: string;
-    description: string;
-    icon: keyof typeof iconMap;
-};
+type Service = ServiceItem;
 
 const iconMap = {
     Globe,
@@ -76,254 +65,13 @@ const iconMap = {
     BarChart3,
 };
 
-const categories: ServiceCategory[] = [
-    "Web Development",
-    "Mobile App Development",
-    "Software & Enterprise",
-    "SEO & Performance Marketing",
-    "Creative Experience Design",
-];
-
-const serviceImages: Record<string, string> = {
-    "Custom Website Development": "/images/FT-web-1.png",
-    "E-Commerce Development": "/images/FT-web-2.png",
-    "WordPress Development": "/images/SERVICES/wordpress.jpg",
-    "Android App Development": "/images/SERVICES/app-development.jpg",
-    "iOS App Development": "/images/SERVICES/ios-app.jpg",
-    "Cross-Platform Apps": "/images/SERVICES/custom-app.jpg",
-    "Custom Software Development": "/images/SERVICES/SOCIAL.jpg",
-    "CRM Development": "/images/SERVICES/crm-development.jpg",
-    "ERP Solutions": "/images/SERVICES/erp.jpg",
-    "Technical SEO": "/images/SERVICES/technical-seo.jpg",
-    "Local SEO": "/images/SERVICES/local-seo.jpg",
-    "Enterprise SEO": "/images/SERVICES/enterprise.jpg",
-    "UI/UX Design": "/images/SERVICES/ui-ux.jpg",
-    "Product Design": "/images/SERVICES/brand.jpg",
-    "Graphic Design": "/images/SERVICES/graphic-design.jpg",
-};
-
-const services: Service[] = [
-    {
-        category: "Web Development",
-        title: "Custom Website Development",
-        description:
-            "Conversion-focused websites built for performance, trust, speed, and long-term growth.",
-        icon: "Globe",
-    },
-    {
-        category: "Web Development",
-        title: "E-Commerce Development",
-        description:
-            "Modern online stores with smooth product journeys, secure checkout, and scalable systems.",
-        icon: "Box",
-    },
-    {
-        category: "Web Development",
-        title: "WordPress Development",
-        description:
-            "Premium WordPress websites with easy content control, SEO structure, and fast performance.",
-        icon: "LayoutPanelTop",
-    },
-    {
-        category: "Web Development",
-        title: "Web Application Development",
-        description:
-            "Custom web apps designed to simplify operations, manage users, and support business workflows.",
-        icon: "Code2",
-    },
-    {
-        category: "Web Development",
-        title: "Website Redesign",
-        description:
-            "Transform outdated websites into cleaner, faster, and more conversion-ready digital experiences.",
-        icon: "RefreshCw",
-    },
-    {
-        category: "Web Development",
-        title: "Website Maintenance",
-        description:
-            "Reliable support for updates, fixes, security, backups, speed, and long-term website stability.",
-        icon: "Wrench",
-    },
-
-    {
-        category: "Mobile App Development",
-        title: "Android App Development",
-        description:
-            "Reliable Android apps with intuitive UI, strong backend systems, and smooth user experience.",
-        icon: "Smartphone",
-    },
-    {
-        category: "Mobile App Development",
-        title: "iOS App Development",
-        description:
-            "Premium iOS applications crafted for performance, security, usability, and modern design.",
-        icon: "BadgeCheck",
-    },
-    {
-        category: "Mobile App Development",
-        title: "Cross-Platform Apps",
-        description:
-            "Cost-efficient apps for Android and iOS with consistent design and shared development logic.",
-        icon: "Layers3",
-    },
-    {
-        category: "Mobile App Development",
-        title: "Enterprise Mobile Applications",
-        description:
-            "Business-grade mobile solutions for teams, workflows, dashboards, and customer operations.",
-        icon: "Building2",
-    },
-    {
-        category: "Mobile App Development",
-        title: "On-Demand Service Apps",
-        description:
-            "Custom platforms for booking, delivery, tracking, service requests, and customer support.",
-        icon: "Zap",
-    },
-    {
-        category: "Mobile App Development",
-        title: "App UI/UX Design",
-        description:
-            "Clean mobile interfaces designed for usability, engagement, retention, and conversions.",
-        icon: "Palette",
-    },
-
-    {
-        category: "Software & Enterprise",
-        title: "Custom Software Development",
-        description:
-            "Tailored business software that automates operations, centralizes data, and improves productivity.",
-        icon: "Database",
-    },
-    {
-        category: "Software & Enterprise",
-        title: "CRM Development",
-        description:
-            "Custom CRM systems to manage leads, clients, follow-ups, sales pipelines, and customer data.",
-        icon: "Users",
-    },
-    {
-        category: "Software & Enterprise",
-        title: "ERP Solutions",
-        description:
-            "Integrated ERP systems for inventory, finance, HR, operations, reporting, and workflows.",
-        icon: "ServerCog",
-    },
-    {
-        category: "Software & Enterprise",
-        title: "SaaS Product Development",
-        description:
-            "End-to-end SaaS product engineering from MVP planning to scalable product launch.",
-        icon: "GitBranch",
-    },
-    {
-        category: "Software & Enterprise",
-        title: "Business Dashboard",
-        description:
-            "Insightful dashboards that convert business data into reports, visibility, and faster decisions.",
-        icon: "BarChart3",
-    },
-    {
-        category: "Software & Enterprise",
-        title: "API Integration",
-        description:
-            "Connect CRMs, payment systems, marketing tools, dashboards, and third-party platforms securely.",
-        icon: "Code2",
-    },
-
-    {
-        category: "SEO & Performance Marketing",
-        title: "Technical SEO",
-        description:
-            "Improve crawlability, indexing, speed, structure, and search visibility with technical precision.",
-        icon: "Search",
-    },
-    {
-        category: "SEO & Performance Marketing",
-        title: "Local SEO",
-        description:
-            "Strengthen Google Business visibility, map rankings, local searches, and location-based leads.",
-        icon: "MapPin",
-    },
-    {
-        category: "SEO & Performance Marketing",
-        title: "Enterprise SEO",
-        description:
-            "Scalable SEO systems for large websites, service pages, content hubs, and organic growth.",
-        icon: "TrendingUp",
-    },
-    {
-        category: "SEO & Performance Marketing",
-        title: "Google Ads Management",
-        description:
-            "Conversion-focused Google Ads campaigns built for calls, leads, WhatsApp, and ROI.",
-        icon: "Megaphone",
-    },
-    {
-        category: "SEO & Performance Marketing",
-        title: "Meta Ads Management",
-        description:
-            "Performance-driven Facebook and Instagram campaigns for leads, retargeting, and awareness.",
-        icon: "Megaphone",
-    },
-    {
-        category: "SEO & Performance Marketing",
-        title: "Lead Generation Campaigns",
-        description:
-            "Full-funnel marketing systems built to attract, qualify, and convert high-intent prospects.",
-        icon: "Target",
-    },
-
-    {
-        category: "Creative Experience Design",
-        title: "UI/UX Design",
-        description:
-            "Clean, intuitive, conversion-focused interfaces for websites, apps, dashboards, and products.",
-        icon: "PenTool",
-    },
-    {
-        category: "Creative Experience Design",
-        title: "Product Design",
-        description:
-            "Strategic product experiences that align user needs, business goals, and usability.",
-        icon: "LayoutPanelTop",
-    },
-    {
-        category: "Creative Experience Design",
-        title: "Graphic Design",
-        description:
-            "Premium visual assets for campaigns, digital creatives, brand communication, and marketing.",
-        icon: "Brush",
-    },
-    {
-        category: "Creative Experience Design",
-        title: "Logo Design",
-        description:
-            "Professional logo concepts built around brand clarity, memorability, and strong identity.",
-        icon: "BadgeCheck",
-    },
-    {
-        category: "Creative Experience Design",
-        title: "Brand Identity",
-        description:
-            "Complete brand systems including colors, typography, visual language, and brand guidelines.",
-        icon: "Palette",
-    },
-    {
-        category: "Creative Experience Design",
-        title: "Motion & Video Design",
-        description:
-            "Modern motion graphics and videos that improve storytelling, engagement, and brand recall.",
-        icon: "Zap",
-    },
-];
-
 // CMS-editable content (key: home.capabilities). Falls back to these defaults.
 type ServicesContent = Partial<{
     headingLine1: string;
     headingLine2: string;
     description: string;
+    backgroundImage: string;
+    services: ServiceItem[];
 }>;
 
 export default function ServicesSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -334,22 +82,28 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
         description:
             content.description ??
             "From websites and apps to enterprise software, performance marketing, and creative design, Fillip Technologies builds digital systems that help businesses launch, automate, and scale.",
+        backgroundImage: content.backgroundImage || HOME_SERVICES_BG,
     };
 
+    const services = content.services?.length ? content.services : HOME_SERVICES;
+    // Tabs follow the fixed category set; any custom categories admins add still
+    // render because filtering is by string match.
+    const categories = HOME_SERVICE_CATEGORIES;
+
     const [activeCategory, setActiveCategory] =
-        useState<ServiceCategory>("Web Development");
+        useState<string>(categories[0]);
     const [isExpanded, setIsExpanded] = useState(false);
     const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
     const filteredServices = useMemo(() => {
         return services.filter((service) => service.category === activeCategory);
-    }, [activeCategory]);
+    }, [activeCategory, services]);
 
     const visibleServices = isExpanded
         ? filteredServices
         : filteredServices.slice(0, 3);
 
-    const handleCategoryChange = (category: ServiceCategory) => {
+    const handleCategoryChange = (category: string) => {
         setActiveCategory(category);
         setIsExpanded(false);
     };
@@ -396,7 +150,7 @@ export default function ServicesSection({ content: raw = {} }: { content?: Recor
             </div>
 
             <Image
-                src="/images/capabilities-background.png"
+                src={c.backgroundImage}
                 alt=""
                 width={1536}
                 height={1024}
@@ -585,7 +339,7 @@ function ServiceCard({
     service: Service;
     onGetStarted: () => void;
 }) {
-    const Icon = iconMap[service.icon];
+    const Icon = iconMap[service.icon as keyof typeof iconMap] ?? iconMap.Globe;
 
     return (
         <motion.article
@@ -609,7 +363,7 @@ function ServiceCard({
                         transition={{ duration: 0.4, ease: "easeOut" }}
                     >
                         <Image
-                            src={serviceImages[service.title]}
+                            src={service.image || HOME_SERVICES_BG}
                             alt={service.title}
                             fill
                             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"

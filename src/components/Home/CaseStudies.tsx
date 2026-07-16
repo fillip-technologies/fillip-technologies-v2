@@ -4,57 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const caseStudies = [
-  {
-    industry: "Healthcare",
-    result: "+250%",
-    title: "Increase in Patient Leads",
-    description:
-      "SEO, website redesign, and performance campaigns generated a 250% increase in qualified patient inquiries.",
-    image: "/images/case-bg.jpg",
-  },
-  {
-    industry: "E-Commerce",
-    result: "3.8X",
-    title: "Revenue Growth",
-    description:
-      "Conversion optimization and paid acquisition strategies delivered 3.8X growth in online revenue.",
-    image: "/images/case-1.jpg",
-  },
-  {
-    industry: "Real Estate",
-    result: "500+",
-    title: "Qualified Leads",
-    description:
-      "Landing pages and lead funnels generated over 500 qualified prospects within months.",
-    image: "/images/case-3.jpg",
-  },
-  {
-    industry: "Education",
-    result: "+180%",
-    title: "Enrollment Growth",
-    description:
-      "Digital marketing campaigns significantly increased admissions and student engagement.",
-    image: "/images/case-4.jpg",
-  },
-  {
-    industry: "FinTech",
-    result: "+70%",
-    title: "Faster Customer Acquisition",
-    description:
-      "Customer journey optimization reduced acquisition time while improving conversion rates.",
-    image: "/images/case-5.jpg",
-  },
-  {
-    industry: "Manufacturing",
-    result: "Global",
-    title: "Market Expansion",
-    description:
-      "A scalable digital platform enabled expansion into new international markets.",
-    image: "/images/case-6..jpg",
-  },
-];
+import { HOME_CASE_STUDIES, HOME_CASESTUDIES_BG, type CaseStudyItem } from "@/data/home/defaults";
 
 // CMS-editable content (key: home.casestudies). Falls back to these defaults.
 type CaseStudiesContent = Partial<{
@@ -63,6 +13,8 @@ type CaseStudiesContent = Partial<{
   headingLine2: string;
   headingLine3: string;
   description: string;
+  backgroundImage: string;
+  items: CaseStudyItem[];
 }>;
 
 export default function CaseStudies({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -75,7 +27,9 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
     description:
       content.description ??
       "Discover how strategy, technology, and execution helped our clients generate more leads, increase revenue, and scale faster.",
+    backgroundImage: content.backgroundImage || HOME_CASESTUDIES_BG,
   };
+  const caseStudies = content.items?.length ? content.items : HOME_CASE_STUDIES;
 
   const sectionRef = useRef(null);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -122,7 +76,7 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
       </div>
 
       <Image
-        src="/images/capabilities-background.png"
+        src={c.backgroundImage}
         alt=""
         width={1536}
         height={1024}

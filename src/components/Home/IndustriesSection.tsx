@@ -4,110 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import IndustriesImpactBackground, { INDUSTRIES_IMPACT_IMAGE } from "./IndustriesImpactBackground";
-
-const industries = [
-  {
-    title: "Healthcare",
-    href: "/industries/healthcare",
-    image: INDUSTRIES_IMPACT_IMAGE,
-    description:
-      "Empowering hospitals and healthcare providers with AI-driven software, patient portals, hospital ERP, cloud infrastructure and digital transformation.",
-
-    services: [
-      "Hospital Management",
-      "Patient Portal",
-      "AI Automation",
-      "Cloud Solutions",
-    ],
-  },
-
-  {
-    title: "Finance",
-    href: "/industries/finance",
-    image: "/images/industries-1.png",
-
-    description:
-      "Secure fintech platforms, banking software, analytics dashboards and intelligent automation for modern financial institutions.",
-
-    services: [
-      "Banking Software",
-      "Fraud Detection",
-      "FinTech Apps",
-      "Data Analytics",
-    ],
-  },
-
-  {
-    title: "Retail",
-    href: "/industries/retail",
-    image: "/images/industries-3.png",
-
-    description:
-      "Omnichannel commerce solutions, inventory automation and customer engagement platforms.",
-
-    services: [
-      "E-Commerce",
-      "POS System",
-      "Inventory",
-      "CRM",
-    ],
-  },
-
-  {
-    title: "Education",
-    href: "/industries/education",
-    image: "/images/industries-2.png",
-
-    description:
-      "Interactive LMS platforms, student portals, AI learning assistants and digital education ecosystems.",
-
-    services: [
-      "Learning Platform",
-      "Student ERP",
-      "AI Tutor",
-      "Assessment System",
-    ],
-  },
-
-  {
-    title: "Real Estate",
-    href: "/industries/real-estate",
-    image: "/images/industries-3.png",
-
-    description:
-      "Property portals, CRM workflows, lead management and digital experiences for real estate businesses.",
-
-    services: [
-      "Property Portals",
-      "Lead CRM",
-      "Virtual Tours",
-      "Listings",
-    ],
-  },
-
-  {
-    title: "Logistics",
-    href: "/industries/logistics",
-    image: "/images/industries-4.png",
-
-    description:
-      "Fleet visibility, shipment workflows, route planning and operations dashboards for logistics teams.",
-
-    services: [
-      "Fleet Tracking",
-      "Route Planning",
-      "Shipment Flow",
-      "Dashboards",
-    ],
-  },
-];
+import IndustriesImpactBackground from "./IndustriesImpactBackground";
+import { HOME_INDUSTRIES, type IndustryItem } from "@/data/home/defaults";
 
 // CMS-editable content (key: home.industries). Falls back to these defaults.
 type IndustriesContent = Partial<{
   eyebrow: string;
   heading: string;
   description: string;
+  cards: IndustryItem[];
 }>;
 
 export default function IndustriesSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -119,6 +24,7 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
       content.description ??
       "We partner with businesses across diverse industries to build scalable digital products, AI-powered platforms and cloud-first solutions.",
   };
+  const industries = content.cards?.length ? content.cards : HOME_INDUSTRIES;
 
   const [active, setActive] = useState(0);
 
@@ -272,7 +178,7 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                           transition={{ delay: 0.4 }}
                           className="mt-6 md:mt-10 grid grid-cols-2 gap-3"
                         >
-                          {industry.services.map((service) => (
+                          {industry.services.split("\n").map((s) => s.trim()).filter(Boolean).map((service) => (
                             <div
                               key={service}
                               className="rounded-xl md:rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 md:px-5 md:py-4 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/15"

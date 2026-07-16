@@ -3,30 +3,32 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { HOME_UNITS, type UnitItem } from "@/data/home/defaults";
 
-export default function UnitOfSection() {
-  const units = [
-    {
-      title: "Engineers Clinic",
-      subtitle: "Technical Mentorship & Internship OS",
-      description: "A practical learning operating system that bridges the gap between academic theory and real-world software engineering through live projects and industry internships.",
-      logo: "/images/Engineers-clinic-logo-black.png",
-      logoSize: "h-12 w-40",
-      link: "https://engineersclinic.com",
-      badge: "Technical Division",
-      plateBg: "bg-gradient-to-br from-purple-100/30 via-indigo-50/20 to-slate-50/40",
-    },
-    {
-      title: "Fillip Skill Academy",
-      subtitle: "IT & Digital Skill Development Hub",
-      description: "A premier academy offering comprehensive courses in Web Development, Digital Marketing, Graphic Design, and Business Administration to build industry-ready professionals.",
-      logo: "/images/FSA_logo_SVG-removebg-preview.png",
-      logoSize: "h-16 w-48",
-      link: "https://fillipskillacademy.com",
-      badge: "Educational Division",
-      plateBg: "bg-gradient-to-br from-cyan-100/30 via-blue-50/20 to-slate-50/40",
-    }
-  ];
+// Per-card styling stays code-side and is applied by position.
+const UNIT_STYLES = [
+  { logoSize: "h-12 w-40", plateBg: "bg-gradient-to-br from-purple-100/30 via-indigo-50/20 to-slate-50/40" },
+  { logoSize: "h-16 w-48", plateBg: "bg-gradient-to-br from-cyan-100/30 via-blue-50/20 to-slate-50/40" },
+];
+
+type UnitOfContent = Partial<{
+  headingLead: string;
+  headingHighlight: string;
+  description: string;
+  items: UnitItem[];
+}>;
+
+export default function UnitOfSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as UnitOfContent;
+  const c = {
+    headingLead: content.headingLead ?? "A Unit",
+    headingHighlight: content.headingHighlight ?? "Of",
+    description:
+      content.description ??
+      "Fillip Technologies operates as a core digital development and execution wing under our group organizations, driving synergy across technical mentorship and advanced professional skill development.",
+  };
+  const items = content.items?.length ? content.items : HOME_UNITS;
+  const units = items.map((u, i) => ({ ...u, ...UNIT_STYLES[i % UNIT_STYLES.length] }));
 
   return (
     <section className="py-24 px-6 md:px-12 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden border-t border-slate-100">
@@ -55,10 +57,10 @@ export default function UnitOfSection() {
             ✦ Group Collaboration
           </span> */}
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 uppercase">
-            A Unit <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0242A2] via-[#0F6FFF] to-[#38BDF8] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">Of</span>
+            {c.headingLead} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0242A2] via-[#0F6FFF] to-[#38BDF8] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">{c.headingHighlight}</span>
           </h2>
           <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed">
-            Fillip Technologies operates as a core digital development and execution wing under our group organizations, driving synergy across technical mentorship and advanced professional skill development.
+            {c.description}
           </p>
         </div>
 

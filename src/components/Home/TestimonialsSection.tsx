@@ -8,57 +8,14 @@ import {
   Quote,
   Star,
 } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Sameer Verma",
-    role: "Business Owner",
-    image: "/images/background.png",
-    content:
-      "Highly Recommended! I had an amazing experience with Fillip Technologies, the best digital marketing agency I've worked with. I gave them my business number to list on Google My Business, and they made it live within a few days. Their team is professional, responsive, and truly understands how to deliver results. If you're looking for reliable GMB listing services, SEO, or any kind of digital marketing solutions, this is the right place. Thank you so much, Fillip Technologies, for helping my business grow online. I loved working with this team so much. If you are looking for a good website designing company in Patna, then stop what you are doing and look no further. They truly heard us out about our brand and designed an absolutely beautiful, responsive website that we were blown away by. They're also a veteran digital marketing company in Patna and assisted us to reach the correct online audience. Their SEO experts are very professional, our search engine visits were boosting within weeks. Their work as a social media marketing company in Patna provided our brand with a new, lively voice and an expanding community. Generation of leads was never a cakewalk for us, but with them as a lead generation agency in Patna, we started receiving proper, quality leads on a regular basis. They also assisted us in developing a customized application. Fillip Technologies delivers creative digital solutions to establish businesses in Patna online. From website designing, digital marketing, SEO, social media marketing, lead generation, and software development, they assure quality, functionality, and performance. For anyone in Patna seeking a top-notch Website Designing Company, I wholeheartedly recommend Fillip Technologies. Their expertise and dedication are unmatched.",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Marketing Director",
-    image: "/images/background.png",
-    content:
-      "Fillip Technologies transformed our digital presence completely. The team delivered a modern website and strategic guidance that improved engagement and lead generation.",
-  },
-  {
-    name: "Rahul Singh",
-    role: "Business Owner",
-    image: "/images/background.png",
-    content:
-      "Professional, responsive, and highly skilled. The project was delivered on time and exceeded our expectations.",
-  },
-  {
-    name: "Anjali Gupta",
-    role: "Operations Head",
-    image: "/images/background.png",
-    content:
-      "Their combination of design expertise and technical execution helped us launch faster and scale with confidence.",
-  },
-  {
-    name: "Amit Kumar",
-    role: "Startup Founder",
-    image: "/images/background.png",
-    content:
-      "From strategy to deployment, every stage was handled with clarity and professionalism.",
-  },
-  {
-    name: "Neha Agarwal",
-    role: "CEO",
-    image: "/images/background.png",
-    content:
-      "One of the most reliable technology partners we've worked with. Great communication and measurable outcomes.",
-  },
-];
+import { HOME_TESTIMONIALS, type TestimonialItem } from "@/data/home/defaults";
 
 // CMS-editable content (key: home.testimonials). Falls back to these defaults.
 type TestimonialsContent = Partial<{
   heading: string;
   rating: string;
   reviewsLabel: string;
+  items: TestimonialItem[];
 }>;
 
 export default function TestimonialsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -68,6 +25,7 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
     rating: content.rating ?? "4.8/5",
     reviewsLabel: content.reviewsLabel ?? "Based on 5,210+ reviews",
   };
+  const testimonials = content.items?.length ? content.items : HOME_TESTIMONIALS;
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",

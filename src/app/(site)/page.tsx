@@ -46,6 +46,7 @@ export default async function HomePage() {
     clientlistcta,
     whychooseus,
     casestudies,
+    unitof,
   ] = await Promise.all([
     sectionContent("hero"),
     sectionContent("trustedby"),
@@ -59,6 +60,7 @@ export default async function HomePage() {
     sectionContent("clientlistcta"),
     sectionContent("whychooseus"),
     sectionContent("casestudies"),
+    sectionContent("unitof"),
   ]);
 
   return (
@@ -79,7 +81,7 @@ export default async function HomePage() {
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip content={whychooseus} />
       <CaseStudies content={casestudies} />
-      <UnitOfSection />
+      <UnitOfSection content={unitof} />
       <BlogSection />
       <Faq />
 

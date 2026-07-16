@@ -10,6 +10,18 @@
  * matching component (see Hero/TrustedBy for the pattern).
  */
 
+import {
+  HOME_SERVICES, HOME_SERVICES_BG,
+  HOME_INDUSTRIES,
+  HOME_HUMANAI_BG1, HOME_HUMANAI_BG2,
+  HOME_CLIENT_LOGOS,
+  HOME_TECHNOLOGY_BG,
+  HOME_TESTIMONIALS,
+  HOME_WHY_CHOOSE,
+  HOME_CASE_STUDIES, HOME_CASESTUDIES_BG,
+  HOME_UNITS,
+} from "@/data/home/defaults";
+
 export type FieldType = "text" | "textarea" | "url" | "image";
 
 export type Field = {
@@ -97,7 +109,7 @@ export const HOME_SECTIONS: Section[] = [
   {
     id: "capabilities",
     label: "Services",
-    description: "Heading + intro above the services tabs (the service tabs/cards stay in code).",
+    description: "Heading, intro, background image and the full service catalog (tabs + cards).",
     ready: true,
     fields: [
       { name: "headingLine1", label: "Heading — line 1", type: "text", default: "End-to-End Digital Services" },
@@ -109,7 +121,21 @@ export const HOME_SECTIONS: Section[] = [
         default:
           "From websites and apps to enterprise software, performance marketing, and creative design, Fillip Technologies builds digital systems that help businesses launch, automate, and scale.",
       },
+      { name: "backgroundImage", label: "Background image", type: "image", default: HOME_SERVICES_BG },
     ],
+    list: {
+      name: "services",
+      label: "Service cards",
+      itemNoun: "service",
+      itemFields: [
+        { name: "category", label: "Category (must match a tab)", type: "text" },
+        { name: "title", label: "Title", type: "text" },
+        { name: "description", label: "Description", type: "textarea" },
+        { name: "icon", label: "Icon key", type: "text" },
+        { name: "image", label: "Image", type: "image" },
+      ],
+      default: HOME_SERVICES as Record<string, string>[],
+    },
   },
   {
     id: "humanai",
@@ -129,6 +155,8 @@ export const HOME_SECTIONS: Section[] = [
       { name: "beforeLabel", label: "Left column label", type: "text", default: "Before" },
       { name: "afterLabel", label: "Right column label", type: "text", default: "Today" },
       { name: "footer", label: "Footer line", type: "text", default: "The future isn't Human or AI. It's Human × Intelligence." },
+      { name: "backgroundImage1", label: "Background image (top-left)", type: "image", default: HOME_HUMANAI_BG1 },
+      { name: "backgroundImage2", label: "Background image (bottom-right)", type: "image", default: HOME_HUMANAI_BG2 },
     ],
     list: {
       name: "rows",
@@ -150,7 +178,7 @@ export const HOME_SECTIONS: Section[] = [
   {
     id: "industries",
     label: "Industries",
-    description: "Eyebrow, heading and intro above the industries accordion (the industry cards stay in code).",
+    description: "Eyebrow, heading, intro and the industry accordion cards.",
     ready: true,
     fields: [
       { name: "eyebrow", label: "Eyebrow", type: "text", default: "Industries" },
@@ -163,11 +191,24 @@ export const HOME_SECTIONS: Section[] = [
           "We partner with businesses across diverse industries to build scalable digital products, AI-powered platforms and cloud-first solutions.",
       },
     ],
+    list: {
+      name: "cards",
+      label: "Industry cards",
+      itemNoun: "industry",
+      itemFields: [
+        { name: "title", label: "Title", type: "text" },
+        { name: "href", label: "Link", type: "text" },
+        { name: "image", label: "Image", type: "image" },
+        { name: "description", label: "Description", type: "textarea" },
+        { name: "services", label: "Services (one per line)", type: "textarea" },
+      ],
+      default: HOME_INDUSTRIES as Record<string, string>[],
+    },
   },
   {
     id: "clients",
     label: "Our Clients",
-    description: "“Trusted by organizations” heading and the three stat chips (logos stay in code).",
+    description: "“Trusted by organizations” heading, the three stat chips and the client logo wall.",
     ready: true,
     fields: [
       { name: "eyebrow", label: "Eyebrow", type: "text", default: "TRUSTED BY ORGANIZATIONS" },
@@ -176,6 +217,17 @@ export const HOME_SECTIONS: Section[] = [
       { name: "stat2", label: "Stat 2", type: "text", default: "1000+ Projects Delivered" },
       { name: "stat3", label: "Stat 3", type: "text", default: "20+ Industries Served" },
     ],
+    list: {
+      name: "logos",
+      label: "Client logos",
+      itemNoun: "logo",
+      itemFields: [
+        { name: "image", label: "Logo", type: "image" },
+        { name: "alt", label: "Name / alt text", type: "text" },
+        { name: "categories", label: "Tags (comma-separated: all, govt, healthcare, education, corporate, priority)", type: "text" },
+      ],
+      default: HOME_CLIENT_LOGOS as Record<string, string>[],
+    },
   },
   {
     id: "technology",
@@ -193,18 +245,31 @@ export const HOME_SECTIONS: Section[] = [
         default:
           "From AI and cloud platforms to modern frameworks and enterprise tools, we leverage proven technologies to build scalable digital experiences.",
       },
+      { name: "backgroundImage", label: "Background image", type: "image", default: HOME_TECHNOLOGY_BG },
     ],
   },
   {
     id: "testimonials",
     label: "Testimonials",
-    description: "Heading and rating summary beside the testimonials carousel (the reviews stay in code).",
+    description: "Heading, rating summary and the testimonial cards.",
     ready: true,
     fields: [
       { name: "heading", label: "Heading", type: "text", default: "What our customers are saying" },
       { name: "rating", label: "Rating value", type: "text", default: "4.8/5" },
       { name: "reviewsLabel", label: "Reviews label", type: "text", default: "Based on 5,210+ reviews" },
     ],
+    list: {
+      name: "items",
+      label: "Testimonials",
+      itemNoun: "testimonial",
+      itemFields: [
+        { name: "name", label: "Name", type: "text" },
+        { name: "role", label: "Role", type: "text" },
+        { name: "image", label: "Photo", type: "image" },
+        { name: "content", label: "Review", type: "textarea" },
+      ],
+      default: HOME_TESTIMONIALS as Record<string, string>[],
+    },
   },
   {
     id: "needguidance",
@@ -262,11 +327,23 @@ export const HOME_SECTIONS: Section[] = [
       },
       { name: "ctaLabel", label: "Button label", type: "text", default: "Learn More" },
     ],
+    list: {
+      name: "cards",
+      label: "Feature cards",
+      itemNoun: "card",
+      itemFields: [
+        { name: "icon", label: "Icon key", type: "text" },
+        { name: "title", label: "Title", type: "text" },
+        { name: "description", label: "Description", type: "textarea" },
+        { name: "image", label: "Background image", type: "image" },
+      ],
+      default: HOME_WHY_CHOOSE as Record<string, string>[],
+    },
   },
   {
     id: "casestudies",
     label: "Case Studies",
-    description: "Eyebrow, heading and intro beside the case-study carousel (the cards stay in code).",
+    description: "Eyebrow, heading, intro, background image and the case-study carousel cards.",
     ready: true,
     fields: [
       { name: "eyebrow", label: "Eyebrow", type: "text", default: "CASE STUDIES" },
@@ -280,7 +357,52 @@ export const HOME_SECTIONS: Section[] = [
         default:
           "Discover how strategy, technology, and execution helped our clients generate more leads, increase revenue, and scale faster.",
       },
+      { name: "backgroundImage", label: "Background image", type: "image", default: HOME_CASESTUDIES_BG },
     ],
+    list: {
+      name: "items",
+      label: "Case study cards",
+      itemNoun: "case study",
+      itemFields: [
+        { name: "industry", label: "Industry", type: "text" },
+        { name: "result", label: "Result badge", type: "text" },
+        { name: "title", label: "Title", type: "text" },
+        { name: "description", label: "Description", type: "textarea" },
+        { name: "image", label: "Image", type: "image" },
+      ],
+      default: HOME_CASE_STUDIES as Record<string, string>[],
+    },
+  },
+  {
+    id: "unitof",
+    label: "A Unit Of",
+    description: "The “A Unit Of” group section: heading, intro and the division cards with logos.",
+    ready: true,
+    fields: [
+      { name: "headingLead", label: "Heading — lead", type: "text", default: "A Unit" },
+      { name: "headingHighlight", label: "Heading — highlighted", type: "text", default: "Of" },
+      {
+        name: "description",
+        label: "Description",
+        type: "textarea",
+        default:
+          "Fillip Technologies operates as a core digital development and execution wing under our group organizations, driving synergy across technical mentorship and advanced professional skill development.",
+      },
+    ],
+    list: {
+      name: "items",
+      label: "Division cards",
+      itemNoun: "division",
+      itemFields: [
+        { name: "title", label: "Title", type: "text" },
+        { name: "subtitle", label: "Subtitle", type: "text" },
+        { name: "description", label: "Description", type: "textarea" },
+        { name: "logo", label: "Logo", type: "image" },
+        { name: "link", label: "Website link", type: "text" },
+        { name: "badge", label: "Badge", type: "text" },
+      ],
+      default: HOME_UNITS as Record<string, string>[],
+    },
   },
 ];
 

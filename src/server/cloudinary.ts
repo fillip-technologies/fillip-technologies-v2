@@ -1,5 +1,5 @@
 import "server-only";
-import { v2 as cloudinary } from "cloudinary";
+import { v2 as cloudinary, type UploadApiOptions } from "cloudinary";
 
 // Central Cloudinary client. Credentials come from the environment
 // (CLOUDINARY_CLOUD_NAME / CLOUDINARY_API_KEY / CLOUDINARY_API_SECRET).
@@ -23,7 +23,7 @@ export const CLOUDINARY_FOLDER = "fillip";
 // Upload a raw file buffer and resolve to the uploaded asset's info.
 export function uploadBuffer(
   buffer: Buffer,
-  options: Parameters<typeof cloudinary.uploader.upload_stream>[0] = {}
+  options: UploadApiOptions = {}
 ): Promise<{ secure_url: string; public_id: string }> {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(

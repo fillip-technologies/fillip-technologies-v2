@@ -111,6 +111,7 @@ type TechnologyContent = Partial<{
     headingLead: string;
     headingHighlight: string;
     description: string;
+    backgroundImage: string;
 }>;
 
 export default function TechnologyEcosystem({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -122,6 +123,7 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
         description:
             content.description ??
             "From AI and cloud platforms to modern frameworks and enterprise tools, we leverage proven technologies to build scalable digital experiences.",
+        backgroundImage: content.backgroundImage || "/images/TECH-BG.png",
     };
 
     return (
@@ -129,7 +131,7 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
             <div
                 className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
                 style={{
-                    backgroundImage: "url('/images/TECH-BG.png')",
+                    backgroundImage: `url('${c.backgroundImage}')`,
                 }}
             />
 

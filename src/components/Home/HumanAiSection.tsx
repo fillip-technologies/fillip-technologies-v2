@@ -34,6 +34,8 @@ type HumanAIContent = Partial<{
   afterLabel: string;
   footer: string;
   rows: { before: string; after: string }[];
+  backgroundImage1: string;
+  backgroundImage2: string;
 }>;
 
 export default function HumanAISection({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -47,13 +49,15 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
     beforeLabel: content.beforeLabel ?? "Before",
     afterLabel: content.afterLabel ?? "Today",
     footer: content.footer ?? "The future isn't Human or AI. It's Human × Intelligence.",
+    backgroundImage1: content.backgroundImage1 || "/images/AI-BACK.png",
+    backgroundImage2: content.backgroundImage2 || "/images/ai.png",
   };
   const rows = content.rows?.length ? content.rows : differences;
 
   return (
     <section className="relative overflow-hidden py-20">
       <Image
-        src="/images/AI-BACK.png"
+        src={c.backgroundImage1}
         alt=""
         width={1024}
         height={1024}
@@ -62,7 +66,7 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
       />
 
       <Image
-        src="/images/ai.png"
+        src={c.backgroundImage2}
         alt=""
         width={1536}
         height={1064}
