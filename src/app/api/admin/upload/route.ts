@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server";
-import { randomBytes } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { getSession } from "@/server/auth/session";
-
-// Where uploaded files land. Served statically by Next from /uploads/<name>.
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
+import { isCloudinaryConfigured, uploadBuffer } from "@/server/cloudinary";
 
 const ALLOWED = new Map<string, string>([
   ["image/png", "png"],
@@ -19,10 +14,17 @@ const ALLOWED = new Map<string, string>([
 const MAX_BYTES = 5 * 1024 * 1024; // 5 MB
 
 // POST /api/admin/upload — protected. Accepts a multipart form with a `file`
-// field, stores it under public/uploads, and returns its public path.
+// field, uploads it to Cloudinary, and returns the hosted (secure) URL.
 export async function POST(request: Request) {
   if (!(await getSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  if (!isCloudinaryConfigured) {
+    return NextResponse.json(
+      { error: "Image hosting is not configured." },
+      { status: 500 }
+    );
   }
 
   let form: FormData;
@@ -50,11 +52,9 @@ export async function POST(request: Request) {
   }
 
   try {
-    await mkdir(UPLOAD_DIR, { recursive: true });
-    const name = `${Date.now()}-${randomBytes(6).toString("hex")}.${ext}`;
     const bytes = Buffer.from(await file.arrayBuffer());
-    await writeFile(path.join(UPLOAD_DIR, name), bytes);
-    return NextResponse.json({ ok: true, url: `/uploads/${name}` });
+    const { secure_url } = await uploadBuffer(bytes, { folder: "fillip/uploads" });
+    return NextResponse.json({ ok: true, url: secure_url });
   } catch (err) {
     console.error("POST /api/admin/upload failed:", err);
     return NextResponse.json({ error: "Upload failed." }, { status: 500 });

@@ -1,17 +1,15 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { randomBytes } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { careerApplicationSchema } from "@/server/careers/schema";
 import { insertLead } from "@/server/contact/queries";
 import { sendLeadNotification, type MailAttachment } from "@/server/contact/notify";
+import { isCloudinaryConfigured, uploadBuffer } from "@/server/cloudinary";
 
-// nodemailer + fs need the Node.js runtime (not edge).
+// nodemailer needs the Node.js runtime (not edge).
 export const runtime = "nodejs";
 
-// Resumes land under public/uploads/resumes and are linked from the lead.
-const RESUME_DIR = path.join(process.cwd(), "public", "uploads", "resumes");
+// Resumes are uploaded to Cloudinary (as raw files) and linked from the lead.
 const MAX_RESUME_BYTES = 5 * 1024 * 1024; // 5 MB
 
 // Accepted resume formats → file extension.
@@ -81,16 +79,23 @@ export async function POST(request: Request) {
 
   const bytes = Buffer.from(await resume.arrayBuffer());
 
-  // Persist the resume so it's linkable from the admin Leads view.
+  // Store the resume on Cloudinary (raw file) so it's linkable from the admin
+  // Leads view. Not fatal — the resume is still attached to the email below.
   let resumeUrl = "";
-  try {
-    await mkdir(RESUME_DIR, { recursive: true });
-    const filename = `${Date.now()}-${randomBytes(6).toString("hex")}.${ext}`;
-    await writeFile(path.join(RESUME_DIR, filename), bytes);
-    resumeUrl = `/uploads/resumes/${filename}`;
-  } catch (err) {
-    console.error("Resume save failed:", err);
-    // Not fatal — the resume is still attached to the notification email below.
+  if (isCloudinaryConfigured) {
+    try {
+      const base = `${Date.now()}-${randomBytes(6).toString("hex")}.${ext}`;
+      const { secure_url } = await uploadBuffer(bytes, {
+        resource_type: "raw",
+        folder: "fillip/resumes",
+        public_id: base,
+        use_filename: false,
+        unique_filename: false,
+      });
+      resumeUrl = secure_url;
+    } catch (err) {
+      console.error("Resume upload failed:", err);
+    }
   }
 
   // Fold the application-specific fields into the lead message so they show in
