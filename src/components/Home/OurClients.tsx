@@ -25,6 +25,7 @@ const priorityClientLogoFiles = [
   "Advance Line Logo Final.png",
   "Domus-logo png.png",
   "Map sketch logo.png",
+  "venu-van.png"
 ];
 
 const clientLogoFiles = [
@@ -155,7 +156,8 @@ const clientLogoFiles = [
   "vedantalogo.png",
   "WEDDINGS72 LOGO.png",
   "WhatsApp Image 2022-03-28 at 11.38.44 AM.jpeg",
-  "Zoo Safari logo copy.jpg"
+  "Zoo Safari logo copy.jpg",
+  "venu-van.png"
 ];
 
 // Clean duplicates
@@ -284,6 +286,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
       const governmentFiles = [
         "rajgir-zoo.png",
         "Nature Safari logo copy.png",
+        "venu-van.png",
         "logo-large-converted-from-svg.png",
         "BMC NEW LOGO-011.png",
         "Patna Park.png",
@@ -327,14 +330,17 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
     const isRajgirZoo = src.toLowerCase().includes("rajgir-zoo") ||
       (src.toLowerCase().includes("zoo") && src.toLowerCase().includes("safari"));
     const isOtherSafariOrZoo = src.toLowerCase().includes("safari") || src.toLowerCase().includes("zoo");
+    const isVenuVan = src.toLowerCase().includes("vanu-van") || src.toLowerCase().includes("venu-van");
 
     if (isDesktop) {
       if (isRajgirZoo) return "max-h-[105px]";
       if (isOtherSafariOrZoo) return "max-h-20";
+      if (isVenuVan) return "max-h-[90px]";
       return "max-h-14";
     } else {
       if (isRajgirZoo) return "max-h-[60px]";
       if (isOtherSafariOrZoo) return "max-h-12";
+      if (isVenuVan) return "max-h-14";
       return "max-h-10";
     }
   };
@@ -353,7 +359,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
       {/* Background */}
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        
+
         <div className="absolute inset-0 bg-white/75" />
 
         <div

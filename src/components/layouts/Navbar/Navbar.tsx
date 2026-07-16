@@ -100,13 +100,13 @@ export default function Navbar() {
       tl.to(heroLeftRef.current, { x: -140, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
         .to(heroCenterRef.current, { y: -50, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
         .to(heroRightRef.current, { x: 140, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
-        /* Sticky enters at 40% through â€” slight overlap removes the empty gap */
+        /* Sticky enters at 40% through — slight overlap removes the empty gap */
         .to(stickyBarRef.current, { yPercent: 0, opacity: 1, ease: "power2.out", duration: 0.6 }, 0.4);
 
       /*
        * Pointer-events: swap at visual midpoint so only
        * the visible navbar receives clicks/taps.
-       * Direct DOM mutation â€” zero React re-render.
+       * Direct DOM mutation — zero React re-render.
        */
       ScrollTrigger.create({
         trigger: document.documentElement,
@@ -117,7 +117,7 @@ export default function Navbar() {
       });
 
       function swapPointerEvents(stickyActive: boolean) {
-        // hero wrapper â€” we climb up from heroLeftRef
+        // hero wrapper — we climb up from heroLeftRef
         const heroWrap = heroLeftRef.current?.closest<HTMLDivElement>("[data-hero-wrap]");
         if (heroWrap) heroWrap.style.pointerEvents = stickyActive ? "none" : "auto";
         if (stickyBarRef.current) stickyBarRef.current.style.pointerEvents = stickyActive ? "auto" : "none";
@@ -131,7 +131,7 @@ export default function Navbar() {
   useEffect(() => {
     if (!drawerRef.current || !overlayRef.current) return;
 
-    /* Build timeline once â€” play / reverse it on toggle */
+    /* Build timeline once — play / reverse it on toggle */
     drawerTl.current = gsap.timeline({ paused: true })
       .to(overlayRef.current, { opacity: 1, pointerEvents: "auto", duration: 0.3, ease: "none" }, 0)
       .fromTo(
@@ -256,7 +256,7 @@ export default function Navbar() {
               shadow-[0_6px_32px_color-mix(in_srgb,var(--foreground)_9%,transparent),inset_0_1px_0_color-mix(in_srgb,var(--card)_70%,transparent)]
             "
           >
-            {/* Logo â€” always left */}
+            {/* Logo — always left */}
             <Logo width={150} height={42} />
 
             {/* Desktop centre links */}

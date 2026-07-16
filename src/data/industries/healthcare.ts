@@ -95,7 +95,7 @@ export const healthcareData = {
       "Google Visibility",
       "More Appointments"
     ],
-    "eyebrow": "HOW IT WORKS â€” PATIENT ACQUISITION FLOW",
+    "eyebrow": "HOW IT WORKS — PATIENT ACQUISITION FLOW",
     "labels": [
       "TRAFFIC",
       "RANKING",
@@ -208,7 +208,7 @@ export const healthcareData = {
     "items": [
       {
         "question": "How long does it take to see results from healthcare SEO?",
-        "answer": "Most healthcare organizations begin seeing improvements in visibility and organic traffic within 3â€“6 months. The timeline depends on competition, website quality, and current search presence."
+        "answer": "Most healthcare organizations begin seeing improvements in visibility and organic traffic within 3-6 months. The timeline depends on competition, website quality, and current search presence."
       },
       {
         "question": "Do you only work with hospitals and clinics?",

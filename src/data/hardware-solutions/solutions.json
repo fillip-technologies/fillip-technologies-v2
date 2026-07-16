@@ -4,16 +4,56 @@
     "description": "Secure infrastructure, devices, and workplace technology systems.",
     "basePath": "/hardware-solutions",
     "items": [
-      { "label": "Security Surveillance", "slug": "security-surveillance", "href": "/hardware-solutions/security-surveillance" },
-      { "label": "Fiber Optic Connectivity", "slug": "fiber-optic-connectivity", "href": "/hardware-solutions/fiber-optic-connectivity" },
-      { "label": "Local Area Network", "slug": "local-area-network", "href": "/hardware-solutions/local-area-network" },
-      { "label": "Control Room", "slug": "control-room", "href": "/hardware-solutions/control-room" },
-      { "label": "Networking", "slug": "networking", "href": "/hardware-solutions/networking" },
-      { "label": "Server Solutions", "slug": "server-solutions", "href": "/hardware-solutions/server-solutions" },
-      { "label": "Wide Area Network", "slug": "wide-area-network", "href": "/hardware-solutions/wide-area-network" },
-      { "label": "System Integration", "slug": "system-integration", "href": "/hardware-solutions/system-integration" },
-      { "label": "IT Infrastructure", "slug": "it-infrastructure", "href": "/hardware-solutions/it-infrastructure" },
-      { "label": "GPS Solution", "slug": "gps-solution", "href": "/hardware-solutions/gps-solution" }
+      {
+        "label": "Security Surveillance",
+        "slug": "security-surveillance",
+        "href": "/hardware-solutions/security-surveillance"
+      },
+      {
+        "label": "Fiber Optic Connectivity",
+        "slug": "fiber-optic-connectivity",
+        "href": "/hardware-solutions/fiber-optic-connectivity"
+      },
+      {
+        "label": "Local Area Network",
+        "slug": "local-area-network",
+        "href": "/hardware-solutions/local-area-network"
+      },
+      {
+        "label": "Control Room",
+        "slug": "control-room",
+        "href": "/hardware-solutions/control-room"
+      },
+      {
+        "label": "Networking",
+        "slug": "networking",
+        "href": "/hardware-solutions/networking"
+      },
+      {
+        "label": "Server Solutions",
+        "slug": "server-solutions",
+        "href": "/hardware-solutions/server-solutions"
+      },
+      {
+        "label": "Wide Area Network",
+        "slug": "wide-area-network",
+        "href": "/hardware-solutions/wide-area-network"
+      },
+      {
+        "label": "System Integration",
+        "slug": "system-integration",
+        "href": "/hardware-solutions/system-integration"
+      },
+      {
+        "label": "IT Infrastructure",
+        "slug": "it-infrastructure",
+        "href": "/hardware-solutions/it-infrastructure"
+      },
+      {
+        "label": "GPS Solution",
+        "slug": "gps-solution",
+        "href": "/hardware-solutions/gps-solution"
+      }
     ]
   },
   "pages": [
@@ -45,13 +85,24 @@
         {
           "title": "Access Control Systems",
           "description": "Secure entrances with biometric, RFID, and facial recognition systems for offices, apartments, schools, and industries.",
-          "image": "/images/hardware/service_security_system.png"
+          "image": "/images/hardware/security-square.png"
         }
       ],
-      "benefits": ["24/7 Monitoring", "Mobile Access", "Night Vision", "AI Detection"],
+      "benefits": [
+        "24/7 Monitoring",
+        "Mobile Access",
+        "Night Vision",
+        "AI Detection"
+      ],
       "faqs": [
-        { "question": "Can I monitor cameras from my phone?", "answer": "Yes. We configure secure mobile access for live viewing, recordings, and alerts." },
-        { "question": "Do you install CCTV for offices and homes?", "answer": "Yes. We design surveillance systems for residential, commercial, institutional, and industrial spaces." }
+        {
+          "question": "Can I monitor cameras from my phone?",
+          "answer": "Yes. We configure secure mobile access for live viewing, recordings, and alerts."
+        },
+        {
+          "question": "Do you install CCTV for offices and homes?",
+          "answer": "Yes. We design surveillance systems for residential, commercial, institutional, and industrial spaces."
+        }
       ]
     },
     {
@@ -69,14 +120,37 @@
         "image": "/images/hardware/security_bg_parallax.png"
       },
       "solutions": [
-        { "title": "Fiber Cabling", "description": "End-to-end OFC cable laying, routing, labeling, and structured installation for reliable data transmission.", "image": "/images/hardware/card_office.png" },
-        { "title": "Splicing & Termination", "description": "Precision fiber splicing, patch panel termination, and connectorization for low-loss connectivity.", "image": "/images/hardware/service_security_system.png" },
-        { "title": "Testing & Certification", "description": "OTDR testing, link verification, and documentation to ensure performance and uptime.", "image": "/images/hardware/service_monitoring.png" }
+        {
+          "title": "Fiber Cabling",
+          "description": "End-to-end OFC cable laying, routing, labeling, and structured installation for reliable data transmission.",
+          "image": "/images/hardware/card_office.png"
+        },
+        {
+          "title": "Splicing & Termination",
+          "description": "Precision fiber splicing, patch panel termination, and connectorization for low-loss connectivity.",
+          "image": "/images/hardware/service_security_system.png"
+        },
+        {
+          "title": "Testing & Certification",
+          "description": "OTDR testing, link verification, and documentation to ensure performance and uptime.",
+          "image": "/images/hardware/service_monitoring.png"
+        }
       ],
-      "benefits": ["High Bandwidth", "Low Latency", "Long-Distance Links", "Reliable Uptime"],
+      "benefits": [
+        "High Bandwidth",
+        "Low Latency",
+        "Long-Distance Links",
+        "Reliable Uptime"
+      ],
       "faqs": [
-        { "question": "Do you handle fiber splicing and testing?", "answer": "Yes. We provide fiber splicing, termination, OTDR testing, and link documentation." },
-        { "question": "Can fiber connect multiple buildings?", "answer": "Yes. Fiber is ideal for campus, factory, warehouse, and multi-building connectivity." }
+        {
+          "question": "Do you handle fiber splicing and testing?",
+          "answer": "Yes. We provide fiber splicing, termination, OTDR testing, and link documentation."
+        },
+        {
+          "question": "Can fiber connect multiple buildings?",
+          "answer": "Yes. Fiber is ideal for campus, factory, warehouse, and multi-building connectivity."
+        }
       ]
     },
     {
@@ -94,14 +168,37 @@
         "image": "/images/hardware/card_office.png"
       },
       "solutions": [
-        { "title": "Structured Cabling", "description": "Neat CAT6/CAT6A cabling, rack dressing, patch panels, and endpoint labeling.", "image": "/images/hardware/card_office.png" },
-        { "title": "Switching & Routing", "description": "Managed switches, VLANs, routing, and network segmentation for reliable performance.", "image": "/images/hardware/service_security_system.png" },
-        { "title": "Wi-Fi Coverage", "description": "Access point planning and deployment for seamless wireless connectivity across your premises.", "image": "/images/hardware/card_apartment.png" }
+        {
+          "title": "Structured Cabling",
+          "description": "Neat CAT6/CAT6A cabling, rack dressing, patch panels, and endpoint labeling.",
+          "image": "/images/hardware/card_office.png"
+        },
+        {
+          "title": "Switching & Routing",
+          "description": "Managed switches, VLANs, routing, and network segmentation for reliable performance.",
+          "image": "/images/hardware/service_security_system.png"
+        },
+        {
+          "title": "Wi-Fi Coverage",
+          "description": "Access point planning and deployment for seamless wireless connectivity across your premises.",
+          "image": "/images/hardware/card_apartment.png"
+        }
       ],
-      "benefits": ["Stable Connectivity", "Secure Access", "Scalable Design", "Clean Cabling"],
+      "benefits": [
+        "Stable Connectivity",
+        "Secure Access",
+        "Scalable Design",
+        "Clean Cabling"
+      ],
       "faqs": [
-        { "question": "Can you upgrade an existing LAN?", "answer": "Yes. We audit current cabling, switches, and Wi-Fi coverage before planning an upgrade." },
-        { "question": "Do you provide Wi-Fi access point setup?", "answer": "Yes. We plan and install wireless coverage for offices, campuses, and commercial spaces." }
+        {
+          "question": "Can you upgrade an existing LAN?",
+          "answer": "Yes. We audit current cabling, switches, and Wi-Fi coverage before planning an upgrade."
+        },
+        {
+          "question": "Do you provide Wi-Fi access point setup?",
+          "answer": "Yes. We plan and install wireless coverage for offices, campuses, and commercial spaces."
+        }
       ]
     },
     {
@@ -119,14 +216,37 @@
         "image": "/images/hardware/service_monitoring.png"
       },
       "solutions": [
-        { "title": "Video Wall Setup", "description": "Multi-display video walls for live camera feeds, dashboards, and operation views.", "image": "/images/hardware/service_monitoring.png" },
-        { "title": "Monitoring Workstations", "description": "Operator desks, display systems, networking, and system access for control teams.", "image": "/images/hardware/card_office.png" },
-        { "title": "Incident Visibility", "description": "Centralized visibility for security, facility operations, alerts, and response workflows.", "image": "/images/hardware/security_lens_bg.png" }
+        {
+          "title": "Video Wall Setup",
+          "description": "Multi-display video walls for live camera feeds, dashboards, and operation views.",
+          "image": "/images/hardware/service_monitoring.png"
+        },
+        {
+          "title": "Monitoring Workstations",
+          "description": "Operator desks, display systems, networking, and system access for control teams.",
+          "image": "/images/hardware/card_office.png"
+        },
+        {
+          "title": "Incident Visibility",
+          "description": "Centralized visibility for security, facility operations, alerts, and response workflows.",
+          "image": "/images/hardware/security_lens_bg.png"
+        }
       ],
-      "benefits": ["Central Monitoring", "Fast Response", "Live Dashboards", "Operational Control"],
+      "benefits": [
+        "Central Monitoring",
+        "Fast Response",
+        "Live Dashboards",
+        "Operational Control"
+      ],
       "faqs": [
-        { "question": "Can CCTV feeds be displayed in a control room?", "answer": "Yes. We set up live camera feeds, recording access, and multi-screen monitoring." },
-        { "question": "Do you design the full control room setup?", "answer": "Yes. We help plan displays, workstations, networking, power, and equipment placement." }
+        {
+          "question": "Can CCTV feeds be displayed in a control room?",
+          "answer": "Yes. We set up live camera feeds, recording access, and multi-screen monitoring."
+        },
+        {
+          "question": "Do you design the full control room setup?",
+          "answer": "Yes. We help plan displays, workstations, networking, power, and equipment placement."
+        }
       ]
     },
     {
@@ -144,14 +264,37 @@
         "image": "/images/hardware/security_bg_parallax.png"
       },
       "solutions": [
-        { "title": "Network Design", "description": "Practical architecture for secure, scalable, and manageable business connectivity.", "image": "/images/hardware/card_office.png" },
-        { "title": "Firewall & Security", "description": "Network access control, firewall setup, segmentation, and secure internet routing.", "image": "/images/hardware/service_security_system.png" },
-        { "title": "Managed Network Setup", "description": "Routers, switches, wireless access points, monitoring, and troubleshooting support.", "image": "/images/hardware/service_monitoring.png" }
+        {
+          "title": "Network Design",
+          "description": "Practical architecture for secure, scalable, and manageable business connectivity.",
+          "image": "/images/hardware/card_office.png"
+        },
+        {
+          "title": "Firewall & Security",
+          "description": "Network access control, firewall setup, segmentation, and secure internet routing.",
+          "image": "/images/hardware/service_security_system.png"
+        },
+        {
+          "title": "Managed Network Setup",
+          "description": "Routers, switches, wireless access points, monitoring, and troubleshooting support.",
+          "image": "/images/hardware/service_monitoring.png"
+        }
       ],
-      "benefits": ["Secure Network", "Better Uptime", "Scalable Setup", "Managed Access"],
+      "benefits": [
+        "Secure Network",
+        "Better Uptime",
+        "Scalable Setup",
+        "Managed Access"
+      ],
       "faqs": [
-        { "question": "Do you configure routers and firewalls?", "answer": "Yes. We configure routers, firewalls, VLANs, Wi-Fi, and access policies." },
-        { "question": "Can you troubleshoot slow networks?", "answer": "Yes. We audit cabling, devices, configuration, bandwidth, and interference issues." }
+        {
+          "question": "Do you configure routers and firewalls?",
+          "answer": "Yes. We configure routers, firewalls, VLANs, Wi-Fi, and access policies."
+        },
+        {
+          "question": "Can you troubleshoot slow networks?",
+          "answer": "Yes. We audit cabling, devices, configuration, bandwidth, and interference issues."
+        }
       ]
     },
     {
@@ -169,14 +312,37 @@
         "image": "/images/hardware/card_garage.png"
       },
       "solutions": [
-        { "title": "Server Setup", "description": "Physical and virtual server deployment for business applications, files, access, and databases.", "image": "/images/hardware/card_garage.png" },
-        { "title": "Backup & Storage", "description": "Centralized storage, backup planning, recovery workflows, and secure data availability.", "image": "/images/hardware/service_security_system.png" },
-        { "title": "Rack & Power Planning", "description": "Rack layout, UPS planning, cabling, ventilation, and infrastructure organization.", "image": "/images/hardware/card_office.png" }
+        {
+          "title": "Server Setup",
+          "description": "Physical and virtual server deployment for business applications, files, access, and databases.",
+          "image": "/images/hardware/card_garage.png"
+        },
+        {
+          "title": "Backup & Storage",
+          "description": "Centralized storage, backup planning, recovery workflows, and secure data availability.",
+          "image": "/images/hardware/service_security_system.png"
+        },
+        {
+          "title": "Rack & Power Planning",
+          "description": "Rack layout, UPS planning, cabling, ventilation, and infrastructure organization.",
+          "image": "/images/hardware/card_office.png"
+        }
       ],
-      "benefits": ["Secure Data", "Central Storage", "Backup Ready", "Scalable Capacity"],
+      "benefits": [
+        "Secure Data",
+        "Central Storage",
+        "Backup Ready",
+        "Scalable Capacity"
+      ],
       "faqs": [
-        { "question": "Do you install on-premise servers?", "answer": "Yes. We plan, install, configure, and support on-premise server infrastructure." },
-        { "question": "Can you set up backups?", "answer": "Yes. We configure backup routines, storage, and recovery planning based on business needs." }
+        {
+          "question": "Do you install on-premise servers?",
+          "answer": "Yes. We plan, install, configure, and support on-premise server infrastructure."
+        },
+        {
+          "question": "Can you set up backups?",
+          "answer": "Yes. We configure backup routines, storage, and recovery planning based on business needs."
+        }
       ]
     },
     {
@@ -194,14 +360,37 @@
         "image": "/images/hardware/security_bg_parallax.png"
       },
       "solutions": [
-        { "title": "Branch Connectivity", "description": "Connect offices, sites, and remote teams with stable inter-location networking.", "image": "/images/hardware/card_office.png" },
-        { "title": "Secure VPN Access", "description": "Protected remote access and site-to-site VPN configuration for distributed teams.", "image": "/images/hardware/service_security_system.png" },
-        { "title": "Centralized Monitoring", "description": "Network visibility, alerts, and performance checks for multiple locations.", "image": "/images/hardware/service_monitoring.png" }
+        {
+          "title": "Branch Connectivity",
+          "description": "Connect offices, sites, and remote teams with stable inter-location networking.",
+          "image": "/images/hardware/card_office.png"
+        },
+        {
+          "title": "Secure VPN Access",
+          "description": "Protected remote access and site-to-site VPN configuration for distributed teams.",
+          "image": "/images/hardware/service_security_system.png"
+        },
+        {
+          "title": "Centralized Monitoring",
+          "description": "Network visibility, alerts, and performance checks for multiple locations.",
+          "image": "/images/hardware/service_monitoring.png"
+        }
       ],
-      "benefits": ["Branch Connectivity", "Secure Routing", "Remote Access", "Central Visibility"],
+      "benefits": [
+        "Branch Connectivity",
+        "Secure Routing",
+        "Remote Access",
+        "Central Visibility"
+      ],
       "faqs": [
-        { "question": "Can you connect multiple branches?", "answer": "Yes. We design WAN and VPN connectivity for multi-location organizations." },
-        { "question": "Is remote access secure?", "answer": "Yes. We configure secure VPN and access control based on user and site needs." }
+        {
+          "question": "Can you connect multiple branches?",
+          "answer": "Yes. We design WAN and VPN connectivity for multi-location organizations."
+        },
+        {
+          "question": "Is remote access secure?",
+          "answer": "Yes. We configure secure VPN and access control based on user and site needs."
+        }
       ]
     },
     {
@@ -219,14 +408,37 @@
         "image": "/images/hardware/security_technician.png"
       },
       "solutions": [
-        { "title": "Hardware Integration", "description": "Connect devices, cameras, access systems, servers, and network hardware into one setup.", "image": "/images/hardware/security_technician.png" },
-        { "title": "Software Connectivity", "description": "Enable data flow between devices, dashboards, alerts, and business applications.", "image": "/images/hardware/service_monitoring.png" },
-        { "title": "End-to-End Deployment", "description": "Plan, install, configure, test, and hand over complete integrated systems.", "image": "/images/hardware/card_office.png" }
+        {
+          "title": "Hardware Integration",
+          "description": "Connect devices, cameras, access systems, servers, and network hardware into one setup.",
+          "image": "/images/hardware/security_technician.png"
+        },
+        {
+          "title": "Software Connectivity",
+          "description": "Enable data flow between devices, dashboards, alerts, and business applications.",
+          "image": "/images/hardware/service_monitoring.png"
+        },
+        {
+          "title": "End-to-End Deployment",
+          "description": "Plan, install, configure, test, and hand over complete integrated systems.",
+          "image": "/images/hardware/card_office.png"
+        }
       ],
-      "benefits": ["Connected Systems", "Cleaner Operations", "Single Partner", "Reliable Handover"],
+      "benefits": [
+        "Connected Systems",
+        "Cleaner Operations",
+        "Single Partner",
+        "Reliable Handover"
+      ],
       "faqs": [
-        { "question": "Can you integrate existing hardware?", "answer": "Yes. We assess current devices and integrate compatible systems where possible." },
-        { "question": "Do you handle complete deployment?", "answer": "Yes. We support planning, installation, configuration, testing, and documentation." }
+        {
+          "question": "Can you integrate existing hardware?",
+          "answer": "Yes. We assess current devices and integrate compatible systems where possible."
+        },
+        {
+          "question": "Do you handle complete deployment?",
+          "answer": "Yes. We support planning, installation, configuration, testing, and documentation."
+        }
       ]
     },
     {
@@ -244,14 +456,37 @@
         "image": "/images/hardware/card_office.png"
       },
       "solutions": [
-        { "title": "Office IT Setup", "description": "Workstations, networking, Wi-Fi, devices, access, and business-ready infrastructure.", "image": "/images/hardware/card_office.png" },
-        { "title": "Infrastructure Planning", "description": "Design scalable infrastructure for new offices, branches, institutions, and facilities.", "image": "/images/hardware/security_technician.png" },
-        { "title": "Ongoing Support", "description": "Maintenance, troubleshooting, upgrades, and documentation for dependable operations.", "image": "/images/hardware/service_monitoring.png" }
+        {
+          "title": "Office IT Setup",
+          "description": "Workstations, networking, Wi-Fi, devices, access, and business-ready infrastructure.",
+          "image": "/images/hardware/card_office.png"
+        },
+        {
+          "title": "Infrastructure Planning",
+          "description": "Design scalable infrastructure for new offices, branches, institutions, and facilities.",
+          "image": "/images/hardware/security_technician.png"
+        },
+        {
+          "title": "Ongoing Support",
+          "description": "Maintenance, troubleshooting, upgrades, and documentation for dependable operations.",
+          "image": "/images/hardware/service_monitoring.png"
+        }
       ],
-      "benefits": ["Business Ready", "Scalable Systems", "Secure Access", "Support Included"],
+      "benefits": [
+        "Business Ready",
+        "Scalable Systems",
+        "Secure Access",
+        "Support Included"
+      ],
       "faqs": [
-        { "question": "Can you set up IT for a new office?", "answer": "Yes. We plan and deploy cabling, networking, devices, servers, security, and support systems." },
-        { "question": "Do you provide maintenance?", "answer": "Yes. We provide support for infrastructure troubleshooting, upgrades, and maintenance." }
+        {
+          "question": "Can you set up IT for a new office?",
+          "answer": "Yes. We plan and deploy cabling, networking, devices, servers, security, and support systems."
+        },
+        {
+          "question": "Do you provide maintenance?",
+          "answer": "Yes. We provide support for infrastructure troubleshooting, upgrades, and maintenance."
+        }
       ]
     },
     {
@@ -269,14 +504,37 @@
         "image": "/images/hardware/security_bg_parallax.png"
       },
       "solutions": [
-        { "title": "Vehicle Tracking", "description": "Real-time location tracking for cars, fleets, delivery vehicles, and field operations.", "image": "/images/hardware/card_garage.png" },
-        { "title": "Route Visibility", "description": "Monitor routes, movement history, stops, and operational activity from a central view.", "image": "/images/hardware/service_monitoring.png" },
-        { "title": "Alerts & Reports", "description": "Get alerts, trip summaries, usage reports, and visibility into daily movement.", "image": "/images/hardware/service_security_system.png" }
+        {
+          "title": "Vehicle Tracking",
+          "description": "Real-time location tracking for cars, fleets, delivery vehicles, and field operations.",
+          "image": "/images/hardware/card_garage.png"
+        },
+        {
+          "title": "Route Visibility",
+          "description": "Monitor routes, movement history, stops, and operational activity from a central view.",
+          "image": "/images/hardware/service_monitoring.png"
+        },
+        {
+          "title": "Alerts & Reports",
+          "description": "Get alerts, trip summaries, usage reports, and visibility into daily movement.",
+          "image": "/images/hardware/service_security_system.png"
+        }
       ],
-      "benefits": ["Live Tracking", "Route History", "Movement Alerts", "Fleet Visibility"],
+      "benefits": [
+        "Live Tracking",
+        "Route History",
+        "Movement Alerts",
+        "Fleet Visibility"
+      ],
       "faqs": [
-        { "question": "Can GPS track vehicles in real time?", "answer": "Yes. GPS systems can show live location, movement history, stops, and route details." },
-        { "question": "Do you support fleet tracking?", "answer": "Yes. We provide GPS solutions for individual vehicles and business fleets." }
+        {
+          "question": "Can GPS track vehicles in real time?",
+          "answer": "Yes. GPS systems can show live location, movement history, stops, and route details."
+        },
+        {
+          "question": "Do you support fleet tracking?",
+          "answer": "Yes. We provide GPS solutions for individual vehicles and business fleets."
+        }
       ]
     }
   ]

@@ -3,7 +3,7 @@ import type { CreativeDesignContent } from "./types";
 export const productDesignContent: CreativeDesignContent = {
   slug: "product-design",
   hero: {
-    title: "Product Design That Turns",
+    title: "",
     highlightedTitle: "Ideas Into Products",
     description:
       "End-to-end product design — from problem discovery to shippable, validated experiences that users adopt and businesses can scale.",
