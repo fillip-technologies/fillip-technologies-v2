@@ -79,16 +79,16 @@ export default function SmsApiIntegration({ content }: { content: SmsApiContent 
             
             <div className="border-b border-slate-900 pb-4 mb-8">
               <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">
-                ✦ SMS Transmission Architecture
+                {content.flowSubtitle}
               </span>
               <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mt-1.5">
-                How our API Works
+                {content.flowTitle}
               </h4>
             </div>
 
             {/* FLOW DIAGRAM STEPS */}
             <div className="space-y-8 relative flex-1 flex flex-col justify-center">
-              
+
               {/* Step 1: Your Application */}
               <div className="flex items-center gap-5 relative group">
                 <div className="size-11 rounded-2xl bg-cyan-950 border border-cyan-800 text-cyan-400 flex items-center justify-center shrink-0 z-10 shadow-lg">
@@ -96,13 +96,13 @@ export default function SmsApiIntegration({ content }: { content: SmsApiContent 
                 </div>
                 <div>
                   <span className="text-[8px] font-mono text-cyan-400 uppercase tracking-widest block font-bold">
-                    STEP 01
+                    {content.stepLabel} 01
                   </span>
                   <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
-                    API Request Triggered
+                    {content.flow1Title}
                   </h5>
                   <p className="text-[10px] text-slate-500 font-light mt-0.5 leading-normal">
-                    Your platform sends an HTTP POST request to the API with recipient & body payload.
+                    {content.flow1Desc}
                   </p>
                 </div>
                 {/* Connecting Line */}
@@ -116,13 +116,13 @@ export default function SmsApiIntegration({ content }: { content: SmsApiContent 
                 </div>
                 <div>
                   <span className="text-[8px] font-mono text-primary uppercase tracking-widest block font-bold">
-                    STEP 02
+                    {content.stepLabel} 02
                   </span>
                   <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
-                    Fillip Routing Engine
+                    {content.flow2Title}
                   </h5>
                   <p className="text-[10px] text-slate-500 font-light mt-0.5 leading-normal">
-                    Processes details, formats template validation, and forwards to carrier networks.
+                    {content.flow2Desc}
                   </p>
                 </div>
                 {/* Connecting Line */}
@@ -136,13 +136,13 @@ export default function SmsApiIntegration({ content }: { content: SmsApiContent 
                 </div>
                 <div>
                   <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest block font-bold">
-                    STEP 03
+                    {content.stepLabel} 03
                   </span>
                   <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
-                    Delivered Instantly
+                    {content.flow3Title}
                   </h5>
                   <p className="text-[10px] text-slate-500 font-light mt-0.5 leading-normal">
-                    The SMS reaches your user in &lt; 2 seconds. A status report is returned via webhook.
+                    {content.flow3Desc}
                   </p>
                 </div>
               </div>
@@ -150,8 +150,8 @@ export default function SmsApiIntegration({ content }: { content: SmsApiContent 
             </div>
 
             <div className="border-t border-slate-900 pt-6 mt-8 flex justify-between items-center text-[9px] font-mono text-slate-500 uppercase tracking-widest">
-              <span>Security: TLS 1.3 / AES-256</span>
-              <span className="text-emerald-500 font-bold">● Active API Endpoint</span>
+              <span>{content.footerLeft}</span>
+              <span className="text-emerald-500 font-bold">{content.footerRight}</span>
             </div>
 
           </div>

@@ -7,35 +7,36 @@ import type { SmsPricingContent } from "@/components/solutions/sms-content";
 export default function SmsPricing({ content }: { content: SmsPricingContent }) {
   const [volume, setVolume] = useState(50000);
 
-  // Dynamic volume specs tier logic
+  // Dynamic volume specs tier logic. Thresholds stay in code; the text shown for
+  // each tier is CMS-managed.
   const getVolumeSpecs = (vol: number) => {
     if (vol >= 500000) {
       return {
-        routeType: "Dedicated Trunking",
-        setupTime: "Managed Custom Setup",
-        support: "24/7 Account Manager",
-        badge: "Enterprise SLA"
+        routeType: content.tier4RouteType,
+        setupTime: content.tier4SetupTime,
+        support: content.tier4Support,
+        badge: content.tier4Badge
       };
     } else if (vol >= 100000) {
       return {
-        routeType: "Priority Carrier Route",
-        setupTime: "Priority DLT Setup",
-        support: "Priority Phone & Chat",
-        badge: "Corporate Plan"
+        routeType: content.tier3RouteType,
+        setupTime: content.tier3SetupTime,
+        support: content.tier3Support,
+        badge: content.tier3Badge
       };
     } else if (vol >= 25000) {
       return {
-        routeType: "Standard Direct Route",
-        setupTime: "Same-Day DLT Setup",
-        support: "Standard Email & Chat",
-        badge: "Growth Plan"
+        routeType: content.tier2RouteType,
+        setupTime: content.tier2SetupTime,
+        support: content.tier2Support,
+        badge: content.tier2Badge
       };
     } else {
       return {
-        routeType: "Standard Carrier Route",
-        setupTime: "Instant Activation",
-        support: "Standard Email Support",
-        badge: "Starter Plan"
+        routeType: content.tier1RouteType,
+        setupTime: content.tier1SetupTime,
+        support: content.tier1Support,
+        badge: content.tier1Badge
       };
     }
   };
@@ -74,10 +75,10 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
             <div>
               <div className="flex justify-between items-baseline mb-6">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Estimated Monthly SMS
+                  {content.estimateLabel}
                 </span>
                 <span className="text-2xl font-black font-mono text-primary">
-                  {volume.toLocaleString()} <span className="text-xs text-slate-400 font-normal">SMS</span>
+                  {volume.toLocaleString()} <span className="text-xs text-slate-400 font-normal">{content.smsUnit}</span>
                 </span>
               </div>
 
@@ -95,10 +96,10 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
 
                 {/* Visual marks */}
                 <div className="flex justify-between text-[9px] font-mono text-slate-400 uppercase tracking-widest mt-3.5">
-                  <span>5k</span>
-                  <span>100k</span>
-                  <span>500k</span>
-                  <span>1M+</span>
+                  <span>{content.mark1}</span>
+                  <span>{content.mark2}</span>
+                  <span>{content.mark3}</span>
+                  <span>{content.mark4}</span>
                 </div>
               </div>
 
@@ -106,7 +107,7 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-slate-100 mb-6">
                 <div>
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
-                    Route Type
+                    {content.routeTypeLabel}
                   </span>
                   <span className="text-lg font-bold text-slate-900 block leading-tight">
                     {specs.routeType}
@@ -114,7 +115,7 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
-                    Setup Time
+                    {content.setupTimeLabel}
                   </span>
                   <span className="text-lg font-bold text-slate-900 block leading-tight">
                     {specs.setupTime}
@@ -122,7 +123,7 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
                 </div>
                 <div className="col-span-2 md:col-span-1">
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
-                    Support Level
+                    {content.supportLabel}
                   </span>
                   <span className="text-xs font-bold font-mono text-cyan-700 bg-cyan-50 border border-cyan-100 rounded-full px-3 py-0.5 inline-block mt-0.5">
                     {specs.support}
@@ -133,10 +134,10 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
 
             {/* Volume Tiers Legend */}
             <div className="border-t border-slate-100 pt-6 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex flex-wrap gap-x-6 gap-y-2">
-              <span>● &lt;25k: Starter Plan</span>
-              <span>● 25k-100k: Growth Plan</span>
-              <span>● 100k-500k: Corporate Plan</span>
-              <span>● 500k+: Enterprise SLA</span>
+              <span>{content.legend1}</span>
+              <span>{content.legend2}</span>
+              <span>{content.legend3}</span>
+              <span>{content.legend4}</span>
             </div>
 
           </div>
@@ -147,7 +148,7 @@ export default function SmsPricing({ content }: { content: SmsPricingContent }) 
 
             <div>
               <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider bg-white/10 text-cyan-300 border border-white/15 mb-6">
-                All-Inclusive Features
+                {content.featuresBadge}
               </span>
 
               <h3 className="text-xl font-black uppercase tracking-tight text-white mb-6">

@@ -45,13 +45,13 @@ const reveal = {
 // Icons applied to the problem steps by position (labels are CMS-managed).
 const PROBLEM_ICONS = [FileText, Clock3, AlertTriangle, ArrowRight, X] as const;
 
-// Icons / accent gradients / sample chat bubbles for the use-case rows, applied
-// by position. The text (number/title/copy) is CMS-managed.
+// Icons / accent gradients for the use-case rows, applied by position. All text
+// (number/title/copy and the sample chat bubbles) is CMS-managed.
 const USECASE_META = [
-  { icon: FileText, accent: "from-emerald-400/20 to-cyan-400/5", messages: ["Thanks for your enquiry, Aisha.", "A specialist will contact you shortly."] },
-  { icon: CalendarCheck, accent: "from-blue-400/20 to-violet-400/5", messages: ["Your appointment is confirmed.", "Reminder: Tomorrow at 11:30 AM"] },
-  { icon: PackageCheck, accent: "from-amber-400/20 to-orange-400/5", messages: ["Order #FT2048 is confirmed.", "Your order is out for delivery."] },
-  { icon: Bell, accent: "from-fuchsia-400/20 to-pink-400/5", messages: ["New enterprise lead received.", "Assigned to Rahul · Sales Team"] },
+  { icon: FileText, accent: "from-emerald-400/20 to-cyan-400/5" },
+  { icon: CalendarCheck, accent: "from-blue-400/20 to-violet-400/5" },
+  { icon: PackageCheck, accent: "from-amber-400/20 to-orange-400/5" },
+  { icon: Bell, accent: "from-fuchsia-400/20 to-pink-400/5" },
 ] as const;
 
 // Icons applied to the industries grid by position (labels are CMS-managed).
@@ -143,7 +143,7 @@ export default function WhatsAppBusinessSolutionsPage({
               </a>
             </div>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.12em] text-body/70">
-              <span>Meta-ready workflows</span><span>CRM integrations</span><span>Built for scale</span>
+              <span>{hero.pill1}</span><span>{hero.pill2}</span><span>{hero.pill3}</span>
             </div>
           </motion.div>
 
@@ -154,34 +154,34 @@ export default function WhatsAppBusinessSolutionsPage({
                 <div className="flex items-center justify-between border-b border-border bg-white/90 px-5 py-4">
                   <div className="flex items-center gap-3">
                     <div className="grid size-10 place-items-center rounded-full bg-emerald-400 text-[#052014]"><MessageCircle className="size-5" /></div>
-                    <div><div className="text-sm font-semibold text-heading">Fillip Automation</div><div className="text-xs text-emerald-600">online · replies instantly</div></div>
+                    <div><div className="text-sm font-semibold text-heading">{hero.chatName}</div><div className="text-xs text-emerald-600">{hero.chatStatus}</div></div>
                   </div>
                   <div className="flex gap-1.5"><span className="size-1 rounded-full bg-heading/25" /><span className="size-1 rounded-full bg-heading/25" /><span className="size-1 rounded-full bg-heading/25" /></div>
                 </div>
                 <div className="space-y-4 p-5 md:p-7">
                   <div className="max-w-[82%] rounded-2xl rounded-tl-sm border border-border bg-white p-4 text-sm text-heading shadow-sm">
-                    Hi! I just submitted the enterprise enquiry form.
-                    <div className="mt-2 text-[10px] text-body/60">10:42 AM</div>
+                    {hero.chatIncoming}
+                    <div className="mt-2 text-[10px] text-body/60">{hero.chatIncomingTime}</div>
                   </div>
                   <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 3, repeat: Infinity }} className="ml-auto max-w-[86%] rounded-2xl rounded-tr-sm bg-emerald-400 p-4 text-sm text-[#062217]">
-                    Thanks, Priya. Your enquiry is confirmed. A solution specialist has been notified and will connect with you shortly.
-                    <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-[#075b3a]"><span>10:42 AM</span><CheckCheck className="size-3.5" /></div>
+                    {hero.chatReply}
+                    <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-[#075b3a]"><span>{hero.chatReplyTime}</span><CheckCheck className="size-3.5" /></div>
                   </motion.div>
                   <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl border border-primary/10 bg-white p-3 shadow-sm">
                     <span className="grid size-8 place-items-center rounded-lg bg-primary/10"><Zap className="size-4 text-primary" /></span>
-                    <div><div className="text-xs font-semibold text-heading">Lead routed to Enterprise Sales</div><div className="mt-0.5 text-[10px] text-body">Website form · High intent</div></div>
-                    <span className="rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-semibold text-emerald-700">LIVE</span>
+                    <div><div className="text-xs font-semibold text-heading">{hero.chatRoutedTitle}</div><div className="mt-0.5 text-[10px] text-body">{hero.chatRoutedSubtitle}</div></div>
+                    <span className="rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-semibold text-emerald-700">{hero.chatRoutedBadge}</span>
                   </div>
-                  <div className="flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs text-body/60 shadow-sm"><span className="flex-1">Type a message</span><Send className="size-4 text-primary" /></div>
+                  <div className="flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs text-body/60 shadow-sm"><span className="flex-1">{hero.chatInputPlaceholder}</span><Send className="size-4 text-primary" /></div>
                 </div>
               </div>
             </div>
 
             {[
-              ["24/7 Automation", "-left-5 top-12"],
-              ["Instant Notifications", "-right-5 top-28"],
-              ["Lead Conversion Boost", "-left-8 bottom-24"],
-              ["Smart Workflows", "right-2 -bottom-6"],
+              [hero.floatLabel1, "-left-5 top-12"],
+              [hero.floatLabel2, "-right-5 top-28"],
+              [hero.floatLabel3, "-left-8 bottom-24"],
+              [hero.floatLabel4, "right-2 -bottom-6"],
             ].map(([label, position], index) => (
               <motion.div key={label} animate={{ y: [0, index % 2 ? 7 : -7, 0] }} transition={{ duration: 4 + index, repeat: Infinity, ease: "easeInOut" }} className={`absolute hidden rounded-full border border-border bg-white/90 px-3 py-2 text-[11px] font-semibold text-heading shadow-xl backdrop-blur md:block ${position}`}>
                 <span className="mr-2 inline-block size-1.5 rounded-full bg-emerald-400" />{label}
@@ -207,7 +207,7 @@ export default function WhatsAppBusinessSolutionsPage({
                     <div className={`group rounded-2xl border p-5 transition duration-300 hover:-translate-y-1 ${index === problem.steps.length - 1 ? "border-red-200 bg-red-50" : "border-border bg-white"}`}>
                       <div className={`grid size-9 place-items-center rounded-xl ${index > 1 ? "bg-red-100 text-red-600" : "bg-primary/10 text-primary"}`}><Icon className="size-4" /></div>
                       <div className="mt-5 text-sm font-semibold leading-5">{label}</div>
-                      <div className="mt-2 text-[11px] text-body">0{index + 1} · {index < 2 ? "Intent waiting" : "Opportunity declining"}</div>
+                      <div className="mt-2 text-[11px] text-body">0{index + 1} · {index < 2 ? problem.statusEarly : problem.statusLate}</div>
                     </div>
                     {index < problem.steps.length - 1 && <ArrowRight className="mx-auto hidden size-4 text-body/40 lg:block" />}
                   </div>
@@ -228,7 +228,7 @@ export default function WhatsAppBusinessSolutionsPage({
             {solution.steps.map(({ label }, index) => (
               <motion.div whileHover={{ y: -6 }} key={label || index} className="relative rounded-2xl border border-border bg-white p-5 shadow-[0_14px_40px_rgba(15,23,42,.05)]">
                 <div className={`relative z-10 grid size-10 place-items-center rounded-full text-xs font-bold ${index === 1 ? "bg-emerald-400 text-[#052014] shadow-[0_0_30px_rgba(52,211,153,.25)]" : "border border-primary/15 bg-primary/5 text-primary"}`}>0{index + 1}</div>
-                <div className="mt-8 text-sm font-semibold">{label}</div><div className="mt-2 text-xs leading-5 text-body">{index === 0 ? "A real business event" : index === solution.steps.length - 1 ? "Measured business outcome" : "Orchestrated automatically"}</div>
+                <div className="mt-8 text-sm font-semibold">{label}</div><div className="mt-2 text-xs leading-5 text-body">{index === 0 ? solution.subFirst : index === solution.steps.length - 1 ? solution.subLast : solution.subMiddle}</div>
               </motion.div>
             ))}
           </div>
@@ -240,20 +240,21 @@ export default function WhatsAppBusinessSolutionsPage({
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal} className="max-w-3xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{usecases.eyebrow}</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.045em] md:text-6xl">{usecases.heading}</h2></motion.div>
           <div className="mt-20 space-y-24 lg:space-y-32">
-            {usecases.items.map(({ number, title, copy }, index) => {
+            {usecases.items.map(({ number, title, copy, msg1, msg2 }, index) => {
               const meta = USECASE_META[index % USECASE_META.length];
               const Icon = meta.icon;
+              const messages = [msg1, msg2];
               return (
                 <div key={title || index} className={`wa-reveal grid items-center gap-12 lg:grid-cols-2 ${index % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   <div className="relative overflow-hidden rounded-[2rem] border border-border bg-[#081d25] p-6 text-white shadow-[0_26px_70px_rgba(8,29,37,.16)] md:p-9">
                     <div className={`absolute inset-0 bg-gradient-to-br ${meta.accent}`} />
-                    <div className="relative flex items-center justify-between"><div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl bg-white/10"><Icon className="size-5" /></span><div><div className="text-xs text-white/40">Automation active</div><div className="text-sm font-semibold">{title}</div></div></div><span className="size-2 rounded-full bg-emerald-400 shadow-[0_0_14px_#34d399]" /></div>
+                    <div className="relative flex items-center justify-between"><div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl bg-white/10"><Icon className="size-5" /></span><div><div className="text-xs text-white/40">{usecases.activeLabel}</div><div className="text-sm font-semibold">{title}</div></div></div><span className="size-2 rounded-full bg-emerald-400 shadow-[0_0_14px_#34d399]" /></div>
                     <div className="relative mt-10 space-y-3">
-                      {meta.messages.map((message, messageIndex) => <motion.div whileHover={{ x: 4 }} key={message} className={`${messageIndex ? "ml-auto bg-emerald-400 text-[#052014]" : "bg-white/10 text-white"} max-w-[84%] rounded-2xl p-4 text-sm shadow-lg`}><div>{message}</div><div className={`mt-2 flex items-center justify-end gap-1 text-[10px] ${messageIndex ? "text-emerald-900/60" : "text-white/35"}`}>Just now <CheckCheck className="size-3" /></div></motion.div>)}
+                      {messages.map((message, messageIndex) => <motion.div whileHover={{ x: 4 }} key={message || messageIndex} className={`${messageIndex ? "ml-auto bg-emerald-400 text-[#052014]" : "bg-white/10 text-white"} max-w-[84%] rounded-2xl p-4 text-sm shadow-lg`}><div>{message}</div><div className={`mt-2 flex items-center justify-end gap-1 text-[10px] ${messageIndex ? "text-emerald-900/60" : "text-white/35"}`}>Just now <CheckCheck className="size-3" /></div></motion.div>)}
                     </div>
-                    <div className="relative mt-8 flex items-center gap-2 text-[11px] text-white/35"><Zap className="size-3.5 text-emerald-300" /> Triggered and delivered automatically</div>
+                    <div className="relative mt-8 flex items-center gap-2 text-[11px] text-white/35"><Zap className="size-3.5 text-emerald-300" /> {usecases.deliveredLabel}</div>
                   </div>
-                  <div className="max-w-xl"><div className="text-sm font-bold text-primary">{number} / REAL USE CASE</div><h3 className="mt-4 text-3xl font-bold tracking-[-0.035em] md:text-5xl">{title}</h3><p className="mt-5 text-lg leading-8 text-body">{copy}</p><div className="mt-7 flex flex-wrap gap-2">{["Instant trigger", "Personalized message", "Team visibility"].map((item) => <span key={item} className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-body">{item}</span>)}</div></div>
+                  <div className="max-w-xl"><div className="text-sm font-bold text-primary">{number} / {usecases.tag}</div><h3 className="mt-4 text-3xl font-bold tracking-[-0.035em] md:text-5xl">{title}</h3><p className="mt-5 text-lg leading-8 text-body">{copy}</p><div className="mt-7 flex flex-wrap gap-2">{[usecases.chip1, usecases.chip2, usecases.chip3].map((item) => <span key={item} className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-body">{item}</span>)}</div></div>
                 </div>
               );
             })}
@@ -266,8 +267,8 @@ export default function WhatsAppBusinessSolutionsPage({
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal} className="text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{difference.eyebrow}</p><h2 className="mx-auto mt-4 max-w-4xl text-4xl font-bold tracking-[-0.045em] md:text-6xl">{difference.heading}</h2><p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-body">{difference.description}</p></motion.div>
           <div className="wa-reveal mx-auto mt-16 grid max-w-5xl overflow-hidden rounded-[2rem] border border-border bg-white shadow-[0_30px_80px_rgba(15,23,42,.08)] lg:grid-cols-2">
-            <div className="p-7 md:p-10"><div className="text-xs font-bold uppercase tracking-[0.16em] text-body">Typical API provider</div><h3 className="mt-3 text-2xl font-bold">You receive the plumbing.</h3><div className="mt-8 space-y-5">{["API access only", "Complex setup", "Limited support", "Generic integrations"].map((item) => <div key={item} className="flex items-center gap-3 text-body"><span className="grid size-7 place-items-center rounded-full bg-red-50 text-red-500"><X className="size-3.5" /></span>{item}</div>)}</div></div>
-            <div className="relative overflow-hidden bg-[#071d25] p-7 text-white md:p-10"><div className="absolute right-0 top-0 size-56 rounded-full bg-emerald-400/15 blur-3xl" /><div className="relative text-xs font-bold uppercase tracking-[0.16em] text-emerald-300">Fillip Technologies</div><h3 className="relative mt-3 text-2xl font-bold">You receive the complete system.</h3><div className="relative mt-8 grid gap-4 sm:grid-cols-2">{["End-to-end setup", "Business workflow design", "Website integration", "CRM integration", "Custom automations", "Dedicated support", "Ongoing optimization"].map((item) => <div key={item} className="flex items-center gap-3 text-sm text-white/75"><span className="grid size-7 shrink-0 place-items-center rounded-full bg-emerald-400 text-[#052014]"><Check className="size-3.5" /></span>{item}</div>)}</div></div>
+            <div className="p-7 md:p-10"><div className="text-xs font-bold uppercase tracking-[0.16em] text-body">{difference.leftTitle}</div><h3 className="mt-3 text-2xl font-bold">{difference.leftHeading}</h3><div className="mt-8 space-y-5">{difference.items.filter((i) => i.side === "left").map(({ label }) => <div key={label} className="flex items-center gap-3 text-body"><span className="grid size-7 place-items-center rounded-full bg-red-50 text-red-500"><X className="size-3.5" /></span>{label}</div>)}</div></div>
+            <div className="relative overflow-hidden bg-[#071d25] p-7 text-white md:p-10"><div className="absolute right-0 top-0 size-56 rounded-full bg-emerald-400/15 blur-3xl" /><div className="relative text-xs font-bold uppercase tracking-[0.16em] text-emerald-300">{difference.rightTitle}</div><h3 className="relative mt-3 text-2xl font-bold">{difference.rightHeading}</h3><div className="relative mt-8 grid gap-4 sm:grid-cols-2">{difference.items.filter((i) => i.side === "right").map(({ label }) => <div key={label} className="flex items-center gap-3 text-sm text-white/75"><span className="grid size-7 shrink-0 place-items-center rounded-full bg-emerald-400 text-[#052014]"><Check className="size-3.5" /></span>{label}</div>)}</div></div>
           </div>
         </div>
       </section>
@@ -277,13 +278,13 @@ export default function WhatsAppBusinessSolutionsPage({
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal} className="mx-auto max-w-3xl text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{showcase.eyebrow}</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.045em] md:text-6xl">{showcase.heading}</h2></motion.div>
           <div className="wa-reveal relative mt-20 grid items-center gap-8 lg:grid-cols-[1fr_1.1fr_1fr]">
-            <div className="space-y-3">{["Website Form", "Contact Form", "Order Placement", "Appointment Booking", "Lead Capture", "CRM Events"].map((item, index) => <motion.div whileHover={{ x: 6 }} key={item} className="flex items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-sm font-medium"><span className="text-xs text-body">0{index + 1}</span><span className="flex-1">{item}</span><ArrowRight className="size-3.5 text-primary" /></motion.div>)}</div>
+            <div className="space-y-3">{showcase.signals.filter((s) => s.side === "input").map(({ label }, index) => <motion.div whileHover={{ x: 6 }} key={label} className="flex items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-sm font-medium"><span className="text-xs text-body">0{index + 1}</span><span className="flex-1">{label}</span><ArrowRight className="size-3.5 text-primary" /></motion.div>)}</div>
             <div className="relative mx-auto grid aspect-square w-full max-w-[430px] place-items-center">
               <div className="wa-orbit absolute inset-4 rounded-full border border-dashed border-primary/20"><span className="absolute left-1/2 top-0 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400 shadow-[0_0_20px_#34d399]" /><span className="absolute bottom-[14%] right-[6%] size-2 rounded-full bg-primary" /></div>
               <div className="absolute inset-14 rounded-full border border-primary/10 bg-primary/[0.03]" />
-              <motion.div whileHover={{ scale: 1.03 }} className="relative z-10 grid size-48 place-items-center rounded-[2rem] bg-[#071d25] p-6 text-center text-white shadow-[0_30px_80px_rgba(7,29,37,.28)]"><div><span className="mx-auto grid size-12 place-items-center rounded-2xl bg-emerald-400 text-[#052014]"><Bot className="size-6" /></span><div className="mt-4 text-lg font-bold">{showcase.engineTitle}</div><div className="mt-2 text-xs text-white/40">Logic · Routing · Personalization</div></div></motion.div>
+              <motion.div whileHover={{ scale: 1.03 }} className="relative z-10 grid size-48 place-items-center rounded-[2rem] bg-[#071d25] p-6 text-center text-white shadow-[0_30px_80px_rgba(7,29,37,.28)]"><div><span className="mx-auto grid size-12 place-items-center rounded-2xl bg-emerald-400 text-[#052014]"><Bot className="size-6" /></span><div className="mt-4 text-lg font-bold">{showcase.engineTitle}</div><div className="mt-2 text-xs text-white/40">{showcase.engineSubtitle}</div></div></motion.div>
             </div>
-            <div className="space-y-3">{["Customer Confirmation", "Admin Notification", "Follow-Up Message", "Reminder Message", "Sales Alert"].map((item) => <motion.div whileHover={{ x: -6 }} key={item} className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium"><Check className="size-3.5 text-emerald-600" /><span className="flex-1">{item}</span><Zap className="size-3.5 text-emerald-600" /></motion.div>)}</div>
+            <div className="space-y-3">{showcase.signals.filter((s) => s.side === "output").map(({ label }) => <motion.div whileHover={{ x: -6 }} key={label} className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium"><Check className="size-3.5 text-emerald-600" /><span className="flex-1">{label}</span><Zap className="size-3.5 text-emerald-600" /></motion.div>)}</div>
           </div>
         </div>
       </section>

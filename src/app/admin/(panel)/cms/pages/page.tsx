@@ -4,7 +4,20 @@ import { ABOUT_PAGES } from "@/server/content/page-sections";
 
 export const metadata = { title: "About Pages — CMS" };
 
+// Some pages live in the ABOUT_PAGES registry only so other CMS areas can
+// deep-link to their generic section editor. They belong to the Solutions menu
+// or a What We Do category, not About, so keep them out of this list.
+const NON_ABOUT_PAGE_IDS = new Set([
+  "security-surveillance",
+  "whatsapp-business",
+  "ticket-booking",
+  "sms-communication",
+  "graphic-designing",
+]);
+
 export default function AboutPagesListPage() {
+  const aboutPages = ABOUT_PAGES.filter((group) => !NON_ABOUT_PAGE_IDS.has(group.id));
+
   return (
     <section>
       <nav className="mb-2 text-sm text-muted-foreground">
@@ -19,7 +32,7 @@ export default function AboutPagesListPage() {
       </p>
 
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
-        {ABOUT_PAGES.map((group) => (
+        {aboutPages.map((group) => (
           <li key={group.id}>
             <Link
               href={`/admin/cms/pages/${group.id}`}

@@ -6,8 +6,8 @@ import { Send, CheckCircle, Smartphone, Wifi, Battery, MessageSquare, Zap } from
 import type { SmsHeroContent } from "@/components/solutions/sms-content";
 
 export default function SmsHero({ content }: { content: SmsHeroContent }) {
-  const [senderId, setSenderId] = useState("FILLIP");
-  const [message, setMessage] = useState("Your OTP for secure registration is 829104. Valid for 5 minutes. Do not share this code.");
+  const [senderId, setSenderId] = useState(content.senderIdDefault);
+  const [message, setMessage] = useState(content.messageDefault);
   const [isSending, setIsSending] = useState(false);
   const [hasSent, setHasSent] = useState(false);
   const [timeStr, setTimeStr] = useState("10:00");
@@ -86,17 +86,17 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
           <form onSubmit={handleSendTest} className="border border-slate-200 bg-white rounded-[2rem] p-6 sm:p-8 shadow-md relative overflow-hidden max-w-xl">
             <div className="flex flex-wrap gap-4 items-center justify-between border-b border-slate-100 pb-4 mb-5">
               <div className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-2">
-                <MessageSquare size={14} className="text-primary" /> Live Test Console
+                <MessageSquare size={14} className="text-primary" /> {content.consoleTitle}
               </div>
               <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
-                No real charge
+                {content.consoleNote}
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
               <div className="sm:col-span-1">
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
-                  Sender ID
+                  {content.senderLabel}
                 </label>
                 <input
                   type="text"
@@ -109,12 +109,12 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
               </div>
               <div className="sm:col-span-2">
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
-                  Simulated Destination Number
+                  {content.destLabel}
                 </label>
                 <input
                   type="text"
                   disabled
-                  value="+91 99999 99999"
+                  value={content.destValue}
                   className="w-full rounded-full border border-slate-200 bg-slate-100 px-4 py-2.5 text-xs text-slate-400 font-mono outline-none cursor-not-allowed"
                 />
               </div>
@@ -122,14 +122,14 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
 
             <div className="mb-6">
               <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
-                SMS Message Body ({message.length} chars)
+                {content.bodyLabel} ({message.length} chars)
               </label>
               <textarea
                 rows={3}
                 maxLength={160}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type your message..."
+                placeholder={content.messagePlaceholder}
                 className="w-full rounded-2xl border border-slate-250 bg-slate-50/50 px-4 py-3 text-xs text-slate-900 outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 placeholder:text-slate-400"
               />
             </div>
@@ -142,11 +142,11 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
               {isSending ? (
                 <>
                   <div className="size-3.5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                  <span>Routing via Gateway...</span>
+                  <span>{content.sendingLabel}</span>
                 </>
               ) : (
                 <>
-                  <span>Send SMS Demo</span>
+                  <span>{content.sendLabel}</span>
                   <Send size={11} />
                 </>
               )}
@@ -186,7 +186,7 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
                   {timeStr}
                 </div>
                 <div className="text-[10px] uppercase tracking-widest font-light text-white/70 mt-1.5">
-                  Wednesday, July 1
+                  {content.phoneDate}
                 </div>
               </div>
 
@@ -208,10 +208,10 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
                             FT
                           </div>
                           <span className="text-[10px] font-extrabold text-slate-800 uppercase tracking-wide">
-                            {senderId || "FLLIP"}
+                            {senderId || content.senderIdDefault}
                           </span>
                         </div>
-                        <span className="text-[8px] text-slate-400 font-mono">now</span>
+                        <span className="text-[8px] text-slate-400 font-mono">{content.notifNow}</span>
                       </div>
 
                       {/* Notification Message content */}
@@ -222,7 +222,7 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
                       {/* Delivery Success Report badge */}
                       <div className="mt-3 flex justify-between items-center text-[8px] font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 rounded px-2 py-0.5 w-fit">
                         <CheckCircle size={8} className="mr-1 fill-emerald-50 text-emerald-600" />
-                        <span>DELIVERED via VIP Route (1.8s)</span>
+                        <span>{content.deliveredNote}</span>
                       </div>
                     </motion.div>
                   )}

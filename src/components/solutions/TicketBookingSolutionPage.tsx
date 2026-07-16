@@ -41,8 +41,6 @@ import type {
   TicketFaqContent,
 } from "./ticket-content";
 
-const analyticsDash = "/images/analytics-dashboard.jpg";
-
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -62,11 +60,6 @@ const OFFER_ICONS = [Ticket, Building2, QrCode, Users] as const;
 const INDUSTRY_ICONS = [Trees, Globe, Landmark, Castle, Calendar, Building2, Activity, Sparkles, Layers] as const;
 const PILLAR_ICONS = [Cpu, Layers, ShieldCheck, Activity, Users, Building2] as const;
 const DASHBOARD_ICONS = [Ticket, CreditCard, Users, Activity, ScanLine, TrendingUp] as const;
-const CAPABILITY_POINTS = [
-  ["Mobile-first booking", "Category rules", "Secure checkout", "SMS and email delivery"],
-  ["Counter POS", "Printer support", "Shift reconciliation", "Unified inventory"],
-  ["Signed QR codes", "Duplicate prevention", "Gate scan logs", "Live capacity"],
-];
 
 export default function TicketBookingSolutionPage({ content }: { content: TicketBookingContent }) {
   const pageRef = useRef<HTMLElement>(null);
@@ -162,14 +155,14 @@ function Hero({ content }: { content: TicketHeroContent }) {
         </div>
 
         <div className="gsap-dashboard-drift relative h-[560px] lg:col-span-6">
-          <HeroDashboard />
+          <HeroDashboard content={content} />
         </div>
       </div>
     </section>
   );
 }
 
-function HeroDashboard() {
+function HeroDashboard({ content }: { content: TicketHeroContent }) {
   return (
     <div className="relative h-full w-full">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(56,189,248,0.24),transparent_60%)]" />
@@ -184,39 +177,37 @@ function HeroDashboard() {
           <div className="size-2.5 rounded-full bg-red-400" />
           <div className="size-2.5 rounded-full bg-amber-400" />
           <div className="size-2.5 rounded-full bg-emerald-400" />
-          <div className="ml-3 text-[11px] font-mono text-ink-muted">ticketing.fillip.dev</div>
+          <div className="ml-3 text-[11px] font-mono text-ink-muted">{content.mockUrl}</div>
         </div>
         <div className="grid grid-cols-5 gap-4 p-5">
           <div className="col-span-3">
-            <div className="text-[11px] uppercase tracking-wider text-ink-muted">Online Booking</div>
-            <div className="mt-1 text-2xl font-semibold tracking-[-0.03em]">Reserve a visit</div>
+            <div className="text-[11px] uppercase tracking-wider text-ink-muted">{content.mockBookingTag}</div>
+            <div className="mt-1 text-2xl font-semibold tracking-[-0.03em]">{content.mockBookingTitle}</div>
             <div className="mt-4 grid grid-cols-2 gap-2">
-              <Field label="Date" value="Sat, 21 Jun" icon={<Calendar className="size-3.5" />} />
-              <Field label="Guests" value="03" />
-              <Field label="Category" value="General" />
-              <Field label="Slot" value="10:30 AM" icon={<Clock className="size-3.5" />} />
+              <Field label={content.mockDateLabel} value={content.mockDateValue} icon={<Calendar className="size-3.5" />} />
+              <Field label={content.mockGuestsLabel} value={content.mockGuestsValue} />
+              <Field label={content.mockCategoryLabel} value={content.mockCategoryValue} />
+              <Field label={content.mockSlotLabel} value={content.mockSlotValue} icon={<Clock className="size-3.5" />} />
             </div>
             <div className="mt-4 flex items-center justify-between rounded-lg border border-primary/10 bg-primary/5 px-3 py-2.5">
-              <span className="text-xs text-ink-muted">Total</span>
-              <span className="font-semibold tabular-nums">Rs 450</span>
+              <span className="text-xs text-ink-muted">{content.mockTotalLabel}</span>
+              <span className="font-semibold tabular-nums">{content.mockTotalValue}</span>
             </div>
             <button className="mt-3 w-full rounded-lg bg-primary py-2.5 text-sm font-medium text-primary-foreground">
-              Pay and Confirm
+              {content.mockPayLabel}
             </button>
           </div>
           <div className="col-span-2 flex flex-col items-center rounded-xl border border-border bg-surface p-3">
-            <div className="text-[10px] uppercase tracking-wider text-ink-muted">Digital Ticket</div>
+            <div className="text-[10px] uppercase tracking-wider text-ink-muted">{content.mockTicketLabel}</div>
             <div className="mt-2 grid size-24 place-items-center rounded-md bg-[conic-gradient(at_top_left,#0242a2,#075d6c,#38bdf8,#0242a2)]">
               <div className="grid size-[88%] place-items-center rounded-sm bg-white">
                 <QrCode className="size-12 text-primary" strokeWidth={1.3} />
               </div>
             </div>
-            <div className="mt-2 text-[10px] font-mono text-ink-muted">FT-39A11C</div>
+            <div className="mt-2 text-[10px] font-mono text-ink-muted">{content.mockTicketCode}</div>
             <div className="mt-3 w-full hairline-divider" />
             <div className="mt-2 text-center text-[10px] leading-tight text-ink-muted">
-              Scan at entry
-              <br />
-              gate to validate
+              {content.mockTicketNote}
             </div>
           </div>
         </div>
@@ -234,22 +225,22 @@ function HeroDashboard() {
               <Ticket className="size-4 text-cyan-400" strokeWidth={2} />
             </div>
             <div>
-              <div className="text-[11px] uppercase tracking-[0.08em] text-white/50">Counter POS</div>
-              <div className="mt-0.5 text-sm font-semibold leading-none">Window 02 Live</div>
+              <div className="text-[11px] uppercase tracking-[0.08em] text-white/50">{content.mockPosTag}</div>
+              <div className="mt-0.5 text-sm font-semibold leading-none">{content.mockPosTitle}</div>
             </div>
           </div>
           <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-medium text-emerald-300">
-            Open
+            {content.mockPosBadge}
           </span>
         </div>
         <div className="mt-5 space-y-2 text-sm">
-          <Row k="Adult x 4" v="Rs 400" />
-          <Row k="Child x 2" v="Rs 100" />
-          <Row k="Add-on x 1" v="Rs 50" />
+          <Row k={content.mockPosRow1Label} v={content.mockPosRow1Value} />
+          <Row k={content.mockPosRow2Label} v={content.mockPosRow2Value} />
+          <Row k={content.mockPosRow3Label} v={content.mockPosRow3Value} />
         </div>
         <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-          <span className="text-xs font-medium text-white/50">Issue Ticket</span>
-          <span className="text-2xl font-semibold tabular-nums">Rs 550</span>
+          <span className="text-xs font-medium text-white/50">{content.mockPosIssueLabel}</span>
+          <span className="text-2xl font-semibold tabular-nums">{content.mockPosIssueValue}</span>
         </div>
       </motion.div>
 
@@ -260,15 +251,15 @@ function HeroDashboard() {
         className="animate-float-slow absolute bottom-2 right-6 w-[44%] rounded-2xl border border-border bg-surface-elevated p-4 shadow-elevated"
       >
         <div className="flex items-center justify-between">
-          <div className="text-[10px] uppercase tracking-wider text-ink-muted">Today Visitors</div>
+          <div className="text-[10px] uppercase tracking-wider text-ink-muted">{content.mockVisitorsLabel}</div>
           <TrendingUp className="size-3.5 text-emerald-500" />
         </div>
         <div className="mt-1 flex items-baseline gap-2">
-          <span className="text-3xl font-bold tabular-nums tracking-[-0.03em]">3,284</span>
-          <span className="text-[11px] font-medium text-emerald-500">+18%</span>
+          <span className="text-3xl font-bold tabular-nums tracking-[-0.03em]">{content.mockVisitorsValue}</span>
+          <span className="text-[11px] font-medium text-emerald-500">{content.mockVisitorsDelta}</span>
         </div>
         <Sparkline />
-        <div className="mt-2 text-[10px] text-ink-muted">Peak 11AM - 524/hr</div>
+        <div className="mt-2 text-[10px] text-ink-muted">{content.mockVisitorsNote}</div>
       </motion.div>
 
       <motion.div
@@ -277,7 +268,7 @@ function HeroDashboard() {
         transition={{ delay: 0.6 }}
         className="surface-glass animate-float absolute -top-3 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium shadow-soft"
       >
-        <ScanLine className="size-3.5 text-primary" /> QR Validated
+        <ScanLine className="size-3.5 text-primary" /> {content.mockBadge1}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -285,7 +276,7 @@ function HeroDashboard() {
         transition={{ delay: 0.75 }}
         className="surface-glass animate-float-slow absolute -right-2 top-32 flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium shadow-soft"
       >
-        <Activity className="size-3.5 text-primary" /> Real-Time Reporting
+        <Activity className="size-3.5 text-primary" /> {content.mockBadge2}
       </motion.div>
     </div>
   );
@@ -355,18 +346,18 @@ function SectionHeader({
 
 function WhatWeOffer({ content }: { content: TicketOfferContent }) {
   const extended = [
-    "Slot Booking",
-    "Payment Gateway Integration",
-    "Reporting and Analytics",
-    "Admin Dashboard",
-    "Capacity Management",
+    content.panelItem1,
+    content.panelItem2,
+    content.panelItem3,
+    content.panelItem4,
+    content.panelItem5,
   ];
 
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface/60 py-24 lg:py-32">
       <div className="absolute right-0 top-0 h-[360px] w-[360px] rounded-full bg-[var(--glow-accent)] blur-[120px]" />
       <Image
-        src="/images/ticket-booking-What.png"
+        src={content.decorImage}
         alt=""
         aria-hidden="true"
         width={500}
@@ -458,7 +449,7 @@ function KeyCapabilities({ content }: { content: TicketCapabilitiesContent }) {
                 <p className="mt-4 text-lg leading-relaxed text-ink">{b.lead}</p>
                 <p className="mt-3 leading-relaxed text-ink-muted">{b.body}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {(CAPABILITY_POINTS[index] ?? []).map((p) => (
+                  {b.points.split(",").map((raw) => raw.trim()).filter(Boolean).map((p) => (
                     <span
                       key={p}
                       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1 text-xs text-ink-muted"
@@ -624,7 +615,7 @@ function HowItWorks({ content }: { content: TicketHowItWorksContent }) {
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface/60 py-28 lg:py-36">
       <Image
-        src="/images/How-we-work.png"
+        src={content.decorImage}
         alt=""
         aria-hidden="true"
         width={500}
@@ -698,7 +689,7 @@ function Industries({ content }: { content: TicketIndustriesContent }) {
                 </div>
                 <div className="mt-12 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)]">{t}</div>
                 <div className="mt-2 text-xs uppercase tracking-wider text-ink-muted">
-                  Booking - Validation - Reporting
+                  {content.itemCaption}
                 </div>
               </motion.div>
             );
@@ -717,7 +708,7 @@ function WhyChoose({ content }: { content: TicketWhyChooseContent }) {
       <div className="pointer-events-none absolute bottom-0 left-0 h-[620px] w-[560px] overflow-visible">
         <div className="absolute bottom-14 left-10 h-80 w-80 rounded-full bg-cyan-200/10 blur-[90px]" />
         <Image
-          src="/images/tckt-why.png"
+          src={content.decorImage}
           alt=""
           aria-hidden="true"
           width={640}
@@ -803,7 +794,7 @@ function DashboardShowcase({ content }: { content: TicketDashboardContent }) {
             <div className="relative rounded-2xl border border-white/10 bg-surface-dark p-3 shadow-glow">
               <div className="overflow-hidden rounded-xl border border-white/5">
                 <Image
-                  src={analyticsDash}
+                  src={content.image}
                   alt="Sample ticketing analytics and operations dashboard"
                   loading="lazy"
                   width={1600}
