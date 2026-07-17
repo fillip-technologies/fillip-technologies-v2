@@ -3,212 +3,156 @@ import type { SoftwareEnterpriseContent } from "./types";
 export const erpSolutionsContent: SoftwareEnterpriseContent = {
   slug: "erp-solutions",
   hero: {
-    title: "ERP Solutions That Connect",
-    highlightedTitle: "Your Whole Business",
+    badge: "ERP Solutions",
+    title: "Run Your Whole Operation On",
+    highlightedTitle: "One Connected System",
     description:
-      "Custom and modular ERP platforms that unify finance, inventory, HR, and operations into one connected system — with the flexibility off-the-shelf ERPs can't offer.",
-  },
-  challenges: {
-    eyebrow: "ERP Challenges",
-    title: "Departments Run On Systems",
-    highlightedTitle: "That Don't Talk.",
-    description:
-      "Finance, inventory, procurement, and HR each keep their own records, so reconciling them is slow, manual, and error-prone.",
-    secondaryDescription:
-      "We build ERP solutions that connect every department on shared data, automate cross-team processes, and give leadership one source of truth.",
-    cta: "See How A Connected ERP Helps",
-    items: [
-      {
-        title: "Fragmented Systems",
-        description:
-          "Each department runs separate software, forcing constant manual reconciliation.",
-      },
-      {
-        title: "Duplicate Data Entry",
-        description:
-          "The same record gets re-keyed across finance, inventory, and operations.",
-      },
-      {
-        title: "Slow Reporting",
-        description:
-          "Month-end consolidation takes days because data lives in disconnected tools.",
-      },
-      {
-        title: "Rigid Legacy ERP",
-        description:
-          "Old ERP systems are expensive to change and don't match modern workflows.",
-      },
-      {
-        title: "Poor Inventory Accuracy",
-        description:
-          "Stock levels drift from reality without real-time, connected tracking.",
-      },
-      {
-        title: "Limited Visibility",
-        description:
-          "Leadership lacks a live, cross-department view of costs and performance.",
-      },
+      "Custom ERP platforms that connect finance, inventory, procurement, HR, and operations — replacing disconnected tools with a single source of truth for the whole business.",
+    bullets: [
+      { icon: "layers", label: "Unified Modules" },
+      { icon: "database", label: "Real-Time Inventory" },
+      { icon: "shield", label: "Audit & Compliance" },
+      { icon: "activity", label: "Live Operational Reporting" },
     ],
+    primaryCta: { label: "Discuss Your ERP", href: "/contact" },
+    secondaryCta: { label: "See Our Work", href: "/portfolio" },
   },
-  whatWeBuild: {
-    eyebrow: "ERP MODULES WE ENGINEER",
-    title: "Modular ERP Built For",
-    highlightedTitle: "Connected Operations",
+  capabilities: {
+    eyebrow: "ERP CAPABILITIES",
+    title: "One Platform To",
+    highlightedTitle: "Run It All",
     description:
-      "Deploy the modules you need today and extend as you grow — all sharing one data layer and one interface.",
+      "We build modular ERP systems tailored to your operations — finance, inventory, procurement, and analytics that talk to each other in real time.",
     cards: [
       {
-        eyebrow: "Finance & Accounting",
-        title: "Unified Financials",
+        title: "Connected Modules",
         description:
-          "Ledgers, invoicing, payables, and reporting connected to every transaction across the business.",
-        metric: "Faster Month-End Close",
+          "Finance, inventory, procurement, sales, and HR modelled as one connected system so data flows without re-entry.",
+        caption: "Module Routing Simulator",
       },
       {
-        eyebrow: "Inventory & Supply",
-        title: "Real-Time Stock Control",
+        title: "Finance & Invoicing",
         description:
-          "Live inventory, procurement, and warehouse tracking synced across locations.",
-        metric: "+45% Inventory Accuracy",
+          "Automated invoicing, tax handling, ledgers, and approvals with full audit trails across every transaction.",
+        caption: "Invoice & Ledger Preview",
       },
       {
-        title: "HR & Payroll",
+        title: "Operational Analytics",
         description:
-          "Employee records, attendance, leave, and payroll in one connected module.",
+          "Real-time dashboards for cash flow, stock levels, and production so leadership sees the whole business at a glance.",
+        caption: "Operational KPI Chart",
       },
       {
-        title: "Procurement & Vendors",
+        title: "Cloud, Roles & Deployment",
         description:
-          "Purchase orders, approvals, and vendor management with full audit trails.",
-      },
-      {
-        title: "Analytics & Reporting",
-        description:
-          "Cross-department dashboards for costs, performance, and forecasting.",
-        tags: ["Finance", "Inventory", "HR", "Procurement", "Reports"],
+          "Granular role-based access, containerised deployment, and secure CI/CD across every branch and warehouse.",
+        caption: "Deployment Runner",
       },
     ],
   },
-  technologyStack: {
-    eyebrow: "ERP Stack",
-    title: "Built With Enterprise",
-    highlightedTitle: "Grade Technologies",
+  scaleTiers: {
+    eyebrow: "BUILT FOR SCALE",
+    title: "ERP That Fits Your Operation",
     description:
-      "Robust, secure technologies designed for high-volume transactions, data integrity, and long-term reliability.",
-    whyTitle: "Why This Stack?",
-    whyDescription:
-      "ERP demands data integrity, auditability, and performance at scale — we choose technologies that deliver all three.",
-    stacks: {
-      frontend: {
-        title: "ERP Frontend",
-        description:
-          "Role-based interfaces for finance, operations, and management teams.",
-        technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      },
-      backend: {
-        title: "ERP Backend",
-        description:
-          "Transactional services for accounting, inventory, and workflow logic.",
-        technologies: ["Node.js", ".NET", "Python", "PostgreSQL", "REST APIs"],
-      },
-      data: {
-        title: "Data & Reporting",
-        description:
-          "A shared data layer with reporting, audit trails, and analytics.",
-        technologies: ["PostgreSQL", "Data Warehouse", "GraphQL", "BI Tools"],
-      },
-      cloud: {
-        title: "Cloud & Security",
-        description:
-          "Scalable, monitored infrastructure with backups and access controls.",
-        technologies: ["AWS", "Azure", "Docker", "CI/CD", "SSO"],
-      },
-    },
-  },
-  process: {
-    title: "ERP Delivery",
-    highlightedTitle: "Phases",
-    description:
-      "From process mapping to phased rollout, every module is delivered against measurable operational goals.",
-    steps: [
-      { title: "Discovery", items: ["Process Mapping", "Module Scope", "Data Audit", "Success Metrics"] },
-      { title: "Architecture", items: ["Data Model", "Module Plan", "Integration Map", "Roadmap"] },
-      { title: "Design", items: ["User Roles", "Workflows", "Dashboards", "Prototype"] },
-      { title: "Build", items: ["Core Modules", "Automations", "Integrations", "Reporting"] },
-      { title: "Migrate", items: ["Data Cleanup", "Import", "Validation", "Reconciliation"] },
-      { title: "Rollout", items: ["Phased Launch", "Training", "Monitoring", "Iteration"] },
-    ],
-  },
-  engagementModels: {
-    eyebrow: "How We Work Together",
-    title: "ERP Engagement",
-    highlightedTitle: "Models",
-    description:
-      "ERP is best delivered in phases — choose the model that matches your rollout appetite.",
-    models: [
+      "From a single site to a multi-branch enterprise, we design ERP architecture that scales with your transaction volume and locations.",
+    tiers: [
       {
-        badge: "Best for a focused rollout",
-        title: "Phased Module Build",
+        id: "single-site",
+        label: "Single Site",
+        title: "Digitise Core Operations",
         description:
-          "Start with your highest-impact module and expand across departments over time.",
-        points: ["One module first", "Prove value early", "Expand in phases", "Controlled risk"],
+          "Bring finance, inventory, and orders into one system for a single location — replacing spreadsheets and manual reconciliation.",
+        metrics: [
+          { label: "Locations", value: "1 Site" },
+          { label: "Users", value: "Up to 25" },
+          { label: "Modules", value: "Core Finance & Stock" },
+          { label: "Support", value: "Email Support" },
+        ],
+        architecture: {
+          title: "Unified Operations Core",
+          desc: "A single database powering finance, inventory, and orders with role-based access.",
+          nodes: [
+            { label: "Staff Clients", icon: "globe" },
+            { label: "ERP App Server", icon: "server" },
+            { label: "Operations Database", icon: "database" },
+          ],
+        },
       },
       {
-        badge: "Best for full transformation",
-        title: "Dedicated Team",
+        id: "multi-branch",
+        label: "Multi-Branch",
+        title: "Connect Every Location",
         description:
-          "A long-term team that delivers and evolves your ERP across the whole business.",
-        points: ["Multi-module roadmap", "Ongoing engagement", "Change management", "Continuous delivery"],
+          "Synchronise stock, procurement, and reporting across multiple branches and warehouses in real time.",
+        metrics: [
+          { label: "Locations", value: "2-25 Sites" },
+          { label: "Users", value: "Up to 500" },
+          { label: "Modules", value: "Full Suite" },
+          { label: "Support", value: "Priority Slack" },
+        ],
+        architecture: {
+          title: "Distributed Branch Cluster",
+          desc: "Adds sync services, a cache layer, and reporting replicas across locations.",
+          nodes: [
+            { label: "Branch Clients", icon: "globe" },
+            { label: "Sync Services", icon: "refresh" },
+            { label: "App Nodes (AutoScale)", icon: "server" },
+            { label: "Cache + DB Replica", icon: "database" },
+          ],
+        },
       },
       {
-        badge: "Best for legacy replacement",
-        title: "Migration & Support",
+        id: "enterprise",
+        label: "Enterprise",
+        title: "Governance & Compliance",
         description:
-          "Move off legacy ERP with careful data migration and ongoing support.",
-        points: ["Legacy migration", "Data reconciliation", "Team training", "Post-launch support"],
+          "Enterprise-grade audit trails, approvals, custom SSO, and high availability across regions and business units.",
+        metrics: [
+          { label: "Locations", value: "Unlimited" },
+          { label: "Users", value: "500+" },
+          { label: "Governance", value: "Audit & SSO" },
+          { label: "Support", value: "24/7 Dedicated SLA" },
+        ],
+        architecture: {
+          title: "Governed Enterprise Mesh",
+          desc: "Segmented modules, audit logging, and SSO with regional failover.",
+          nodes: [
+            { label: "SSO & Access Gateway", icon: "shield" },
+            { label: "Service Mesh", icon: "server" },
+            { label: "Multi-Region Database", icon: "database" },
+          ],
+        },
       },
     ],
-  },
-  outcomes: {
-    eyebrow: "ERP Outcomes",
-    title: "One System That Runs",
-    highlightedTitle: "The Whole Business",
-    description:
-      "Every ERP we build is designed to connect departments, reduce manual reconciliation, and give leadership real-time visibility.",
-    stats: [
-      { value: "+45%", label: "Inventory Accuracy" },
-      { value: "-50%", label: "Reconciliation Time" },
-      { value: "+60%", label: "Reporting Speed" },
-      { value: "99.9%", label: "Data Integrity" },
-    ],
-    leftPill: "Connected Departments",
-    rightPill: "One Source Of Truth",
   },
   faq: {
     title: "ERP Solutions",
     highlightedTitle: "Questions",
-    description:
-      "Common questions about building an ERP with Fillip Technologies.",
+    description: "Common questions about building a custom ERP with Fillip Technologies.",
     items: [
       {
-        question: "Do we have to replace everything at once?",
+        category: "Fit",
+        question: "Why a custom ERP instead of SAP or Odoo?",
         answer:
-          "No. We deliver ERP in phases — starting with your highest-impact module and expanding across departments so risk stays controlled and value comes early.",
+          "Packaged ERPs are heavy, expensive to license, and rarely fit your processes without costly customisation. A custom ERP includes only the modules you need, matches your workflows exactly, and grows with you.",
       },
       {
-        question: "Can it integrate with our existing tools?",
+        category: "Migration",
+        question: "Can you migrate from our existing systems?",
         answer:
-          "Yes. We connect accounting software, e-commerce, logistics, and other systems so the ERP becomes the shared data layer without ripping out what works.",
+          "Yes. We migrate master data, historical transactions, and open balances from your current tools with validation and reconciliation so nothing is lost.",
       },
       {
-        question: "How do you handle data migration?",
+        category: "Integration",
+        question: "Will it integrate with our accounting and hardware?",
         answer:
-          "We clean, map, import, and reconcile your existing data with validation at each step so balances and records match before go-live.",
+          "We integrate with accounting software, payment gateways, barcode/RFID scanners, and POS or warehouse hardware through secure APIs.",
       },
       {
-        question: "Is a custom ERP secure enough for finance data?",
+        category: "Timeline & IP",
+        question: "How is it delivered and do we own it?",
         answer:
-          "We build with encryption, role-based access, audit trails, and monitored cloud infrastructure to keep financial and operational data safe.",
+          "ERP is delivered module by module so you see value early. You own 100% of the source code, data, and infrastructure with no per-seat licensing.",
       },
     ],
   },

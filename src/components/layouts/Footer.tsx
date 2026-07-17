@@ -21,7 +21,7 @@ const footerColumns: FooterColumn[] = [
       { label: "Custom Website Development", href: "/services/website-development" },
       { label: "E-Commerce Development", href: "/services/ecommerce-development" },
       { label: "WordPress Development", href: "/services/wordpress-development" },
-      { label: "Software Development", href: "/services/software-development" },
+      { label: "Software Development", href: "/software-development/software-development" },
       { label: "Enterprise Mobile Applications", href: "/mobile-app-development/enterprise" },
       { label: "Graphics Designing", href: "/graphic-designing" },
       { label: "Technical SEO", href: "/technical-seo" },

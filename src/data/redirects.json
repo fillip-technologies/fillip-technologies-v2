@@ -5,5 +5,19 @@
     "type": 301,
     "enabled": true,
     "note": "Rich SEO layout is now the dynamic /marketing template"
+  },
+  {
+    "source": "/services/saas-product-development",
+    "destination": "/software-development/saas-product-development",
+    "type": 301,
+    "enabled": true,
+    "note": "SaaS page moved into the Software & Enterprise section (CMS-driven SaaS layout)"
+  },
+  {
+    "source": "/services/software-development",
+    "destination": "/software-development/software-development",
+    "type": 301,
+    "enabled": true,
+    "note": "Software Development overview moved into the Software & Enterprise section (SaaS layout)"
   }
 ]

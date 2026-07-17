@@ -37,16 +37,17 @@ const SEED_SERVICE_PAGES = [
   { slug: "web-application-development", title: "Web Application Development", category_slug: "web-development", sort_order: 4 },
   { slug: "website-redesign", title: "Website Redesign", category_slug: "web-development", sort_order: 5 },
   { slug: "website-maintenance", title: "Website Maintenance", category_slug: "web-development", sort_order: 6 },
-  { slug: "software-development", title: "Software Development", category_slug: "software-enterprise", sort_order: 7 },
 ];
 
-// The Software & Enterprise pages (dedicated "software-enterprise" template,
-// served at /software-development/<slug>).
+// The Software & Enterprise pages (dedicated "software-enterprise" template —
+// a shared SaaS-style layout — served at /software-development/<slug>).
 const SEED_SOFTWARE_ENTERPRISE_PAGES = [
+  { slug: "software-development", title: "Software Development", sort_order: 19 },
   { slug: "custom-software-development", title: "Custom Software Development", sort_order: 20 },
   { slug: "crm-development", title: "CRM Development", sort_order: 21 },
   { slug: "erp-solutions", title: "ERP Solutions", sort_order: 22 },
   { slug: "api-integration", title: "API Integration", sort_order: 23 },
+  { slug: "saas-product-development", title: "SaaS Product Development", sort_order: 24 },
 ];
 
 // The Creative Experience Design pages (dedicated "creative-design" template,
@@ -248,6 +249,16 @@ async function main() {
       { upsert: true }
     );
   }
+
+  // The Software Development overview page previously used the "service" template
+  // at /services/software-development. It now uses the SaaS-style
+  // software-enterprise layout at /software-development/software-development, so
+  // force-update any pre-existing row (the $setOnInsert seed above won't touch it).
+  console.log("Migrating Software Development overview to software-enterprise ...");
+  await db.collection("service_pages").updateOne(
+    { slug: "software-development" },
+    { $set: { template: "software-enterprise", category_slug: "software-enterprise", updated_at: now } }
+  );
 
   console.log("Seeding Creative Experience Design pages ...");
   for (const p of SEED_CREATIVE_DESIGN_PAGES) {

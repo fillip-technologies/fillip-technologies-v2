@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Database,
@@ -13,48 +13,38 @@ import {
   CheckCircle2,
   Terminal,
   Activity,
-  ArrowRight,
-  ShieldAlert
 } from "lucide-react";
+import type { SaasCapabilities as SaasCapabilitiesData, SaasCapabilityCard } from "@/data/software-enterprise";
 
-export default function SaaSBentoFeatures() {
-  // Card 1: Custom SaaS Architecture state
+/**
+ * Bento capabilities section. The four cards' titles/descriptions/captions are
+ * CMS-driven (mapped by index); each card hosts a fixed interactive demo widget
+ * (0 = data routing, 1 = billing, 2 = analytics, 3 = deploy pipeline).
+ */
+export default function SaasCapabilities({ data }: { data: SaasCapabilitiesData }) {
+  const card = (i: number): SaasCapabilityCard =>
+    data.cards[i] ?? { title: "", description: "", caption: "" };
+
+  // Card 1: data-routing simulator
   const [activeRoutingTenant, setActiveRoutingTenant] = useState<"A" | "B" | null>(null);
   const [routingLog, setRoutingLog] = useState<string>("Click a tenant above to trace data isolation routing.");
-
   const triggerRouting = (tenant: "A" | "B") => {
     setActiveRoutingTenant(tenant);
     setRoutingLog(`[Gateway] incoming request from client: tenant-${tenant.toLowerCase()}.fillip.app...`);
-    setTimeout(() => {
-      setRoutingLog(`[Router] verifying token & session matching tenant ${tenant}...`);
-    }, 800);
-    setTimeout(() => {
-      setRoutingLog(`[Database] RLS verified: pointing query strictly to DB_Cluster_Tenant_${tenant}.`);
-    }, 1600);
+    setTimeout(() => setRoutingLog(`[Router] verifying token & session matching tenant ${tenant}...`), 800);
+    setTimeout(() => setRoutingLog(`[Database] RLS verified: pointing query strictly to DB_Cluster_Tenant_${tenant}.`), 1600);
   };
 
-  // Card 2: Stripe Billing state
+  // Card 2: billing simulator
   const [billingPlan, setBillingPlan] = useState<"Basic" | "Growth" | "Enterprise">("Growth");
   const [paymentStatus, setPaymentStatus] = useState<"idle" | "loading" | "success">("idle");
-
-  const billingRates = {
-    Basic: 29,
-    Growth: 79,
-    Enterprise: 199,
-  };
-
+  const billingRates = { Basic: 29, Growth: 79, Enterprise: 199 };
   const handleSimulatePayment = () => {
     setPaymentStatus("loading");
-    setTimeout(() => {
-      setPaymentStatus("success");
-    }, 1800);
+    setTimeout(() => setPaymentStatus("success"), 1800);
   };
 
-  const handleResetPayment = () => {
-    setPaymentStatus("idle");
-  };
-
-  // Card 3: Analytics state (hover tooltip)
+  // Card 3: analytics chart
   const [hoveredPoint, setHoveredPoint] = useState<{ x: number; y: number; month: string; value: string } | null>(null);
   const dataPoints = [
     { x: 30, y: 110, month: "Aug", value: "$45,000" },
@@ -64,33 +54,28 @@ export default function SaaSBentoFeatures() {
     { x: 270, y: 25, month: "Dec", value: "$124,500" },
   ];
 
-  // Card 4: DevOps deployment state
+  // Card 4: deploy pipeline
   const [deployState, setDeployState] = useState<"idle" | "running" | "done">("idle");
   const [deployLogs, setDeployLogs] = useState<string[]>([]);
-
   const startDeployment = () => {
     if (deployState === "running") return;
     setDeployState("running");
     setDeployLogs([]);
-
     const logSteps = [
       "> git checkout production... OK",
       "> npm run test:unit --silent... [Pass 12/12]",
-      "> docker build -t saas-engine:v2.1 . --no-cache...",
+      "> docker build -t app-engine:v2.1 . --no-cache...",
       "> packaging layer static assets... [Done]",
-      "> push registry.hub.docker.com/fillip/saas-engine:v2.1",
+      "> push registry.hub.docker.com/fillip/app-engine:v2.1",
       "> updating kubernetes deployment configurations...",
       "> rolling update initiated: 3 replicas containerizing...",
       "> verifying container health: 200 OK [Ready]",
-      "✓ DEPLOYMENT COMPLETELY SUCCESSFUL!"
+      "✓ DEPLOYMENT COMPLETELY SUCCESSFUL!",
     ];
-
     logSteps.forEach((log, index) => {
       setTimeout(() => {
         setDeployLogs((prev) => [...prev, log]);
-        if (index === logSteps.length - 1) {
-          setDeployState("done");
-        }
+        if (index === logSteps.length - 1) setDeployState("done");
       }, (index + 1) * 600);
     });
   };
@@ -100,36 +85,28 @@ export default function SaaSBentoFeatures() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            SAAS CAPABILITIES
-          </span>
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">{data.eyebrow}</span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
-            Everything You Need to <span className="text-primary">Succeed</span>
+            {data.title} <span className="text-primary">{data.highlightedTitle}</span>
           </h2>
-          <p className="mt-4 text-base md:text-lg text-slate-500 leading-relaxed">
-            We design, build, and deploy custom SaaS applications tailored to your business workflows. Try our live capability simulators below.
-          </p>
+          <p className="mt-4 text-base md:text-lg text-slate-500 leading-relaxed">{data.description}</p>
         </div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-12">
-
-          {/* CARD 1: Custom SaaS Architecture (Spans 2 columns) */}
+          {/* CARD 1: data routing (spans 2 cols) */}
           <div className="group lg:col-span-2 flex flex-col justify-between rounded-[28px] border border-slate-100 bg-slate-50/20 p-8 transition-all duration-300 hover:border-slate-200/80 hover:shadow-[0_15px_40px_rgba(2,66,162,0.03)] hover:-translate-y-1">
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-6">
                 <Database className="h-5 w-5" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Custom SaaS Architecture</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-500 max-w-xl">
-                Secure logical tenant isolation using schema-based or database-per-tenant separations. We prevent cross-tenant data leaks and build high-efficiency API routing matrices.
-              </p>
+              <h3 className="text-2xl font-bold text-slate-900">{card(0).title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500 max-w-xl">{card(0).description}</p>
             </div>
 
-            {/* Interactive Tenant Routing Visualizer */}
             <div className="mt-8 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
               <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Tenant Data Isolation Simulator</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{card(0).caption}</span>
                 <div className="flex gap-2">
                   <button
                     onClick={() => triggerRouting("A")}
@@ -154,9 +131,7 @@ export default function SaaSBentoFeatures() {
                 </div>
               </div>
 
-              {/* Diagrams Flow */}
               <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 py-4 px-2 border border-slate-50 bg-slate-50/20 rounded-xl">
-                {/* Gateway Router */}
                 <div className="flex flex-col items-center p-3 border border-slate-100 bg-white rounded-xl shadow-xs z-10 w-40">
                   <div className="h-8 w-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
                     <Activity className="h-4 w-4" />
@@ -165,7 +140,6 @@ export default function SaaSBentoFeatures() {
                   <span className="text-[9px] text-slate-400">auth.fillip.app</span>
                 </div>
 
-                {/* Animated Path lines */}
                 <div className="absolute top-[50%] left-40 right-40 hidden md:block h-0.5 bg-slate-100 pointer-events-none">
                   {activeRoutingTenant && (
                     <motion.div
@@ -179,13 +153,10 @@ export default function SaaSBentoFeatures() {
                   )}
                 </div>
 
-                {/* Database Clusters */}
                 <div className="flex md:flex-col gap-4 z-10">
                   <div
                     className={`flex items-center gap-2.5 border px-4 py-2 rounded-xl transition ${
-                      activeRoutingTenant === "A"
-                        ? "border-blue-200 bg-blue-50/30 scale-105 shadow-xs"
-                        : "border-slate-150 bg-white"
+                      activeRoutingTenant === "A" ? "border-blue-200 bg-blue-50/30 scale-105 shadow-xs" : "border-slate-150 bg-white"
                     }`}
                   >
                     <Database className={`h-4 w-4 ${activeRoutingTenant === "A" ? "text-blue-600" : "text-slate-400"}`} />
@@ -194,12 +165,9 @@ export default function SaaSBentoFeatures() {
                       <span className="block text-[8px] text-slate-400">Isolated Instance</span>
                     </div>
                   </div>
-
                   <div
                     className={`flex items-center gap-2.5 border px-4 py-2 rounded-xl transition ${
-                      activeRoutingTenant === "B"
-                        ? "border-indigo-200 bg-indigo-50/30 scale-105 shadow-xs"
-                        : "border-slate-150 bg-white"
+                      activeRoutingTenant === "B" ? "border-indigo-200 bg-indigo-50/30 scale-105 shadow-xs" : "border-slate-150 bg-white"
                     }`}
                   >
                     <Database className={`h-4 w-4 ${activeRoutingTenant === "B" ? "text-indigo-600" : "text-slate-400"}`} />
@@ -211,7 +179,6 @@ export default function SaaSBentoFeatures() {
                 </div>
               </div>
 
-              {/* Router Log output */}
               <div className="mt-4 p-3 bg-slate-900 rounded-xl text-[11px] font-mono text-slate-350 text-left flex items-start gap-2 shadow-inner min-h-[44px]">
                 <Terminal className="h-3.5 w-3.5 text-blue-400 shrink-0 mt-0.5" />
                 <span className="animate-fade-in">{routingLog}</span>
@@ -219,28 +186,24 @@ export default function SaaSBentoFeatures() {
             </div>
           </div>
 
-          {/* CARD 2: Billing & Invoicing (Spans 1 column) */}
+          {/* CARD 2: billing */}
           <div className="group flex flex-col justify-between rounded-[28px] border border-slate-100 bg-slate-50/20 p-8 transition-all duration-300 hover:border-slate-200 hover:shadow-[0_15px_40px_rgba(2,66,162,0.03)] hover:-translate-y-1">
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-6">
                 <CreditCard className="h-5 w-5" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Billing & Subscriptions</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                Recurring credit-card systems, flexible subscription tiers, coupons, trial periods, and automated tax reporting.
-              </p>
+              <h3 className="text-2xl font-bold text-slate-900">{card(1).title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500">{card(1).description}</p>
             </div>
 
-            {/* Interactive Billing Widget */}
             <div className="mt-8 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
               <div className="flex justify-between items-center border-b border-slate-100 pb-3 mb-4">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Stripe Invoice Preview</span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{card(1).caption}</span>
                 <span className="text-[10px] font-semibold text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full">Test Mode</span>
               </div>
 
               {paymentStatus !== "success" ? (
                 <div>
-                  {/* Selectors */}
                   <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-50 border border-slate-100 rounded-lg mb-4">
                     {(["Basic", "Growth", "Enterprise"] as const).map((plan) => (
                       <button
@@ -249,9 +212,7 @@ export default function SaaSBentoFeatures() {
                           if (paymentStatus === "idle") setBillingPlan(plan);
                         }}
                         className={`py-1.5 text-[10px] font-bold rounded-md transition ${
-                          billingPlan === plan
-                            ? "bg-white text-slate-800 shadow-xs"
-                            : "text-slate-400 hover:text-slate-650"
+                          billingPlan === plan ? "bg-white text-slate-800 shadow-xs" : "text-slate-400 hover:text-slate-650"
                         }`}
                         disabled={paymentStatus !== "idle"}
                       >
@@ -260,7 +221,6 @@ export default function SaaSBentoFeatures() {
                     ))}
                   </div>
 
-                  {/* Calculations */}
                   <div className="space-y-2 text-xs mb-5">
                     <div className="flex justify-between text-slate-500">
                       <span>Subscription ({billingPlan})</span>
@@ -290,7 +250,7 @@ export default function SaaSBentoFeatures() {
                     ) : (
                       <>
                         <CreditCard className="h-3.5 w-3.5" />
-                        <span>Simulate Stripe Checkout</span>
+                        <span>Simulate Checkout</span>
                       </>
                     )}
                   </button>
@@ -305,10 +265,9 @@ export default function SaaSBentoFeatures() {
                     <CheckCircle2 className="h-6 w-6" />
                   </div>
                   <h4 className="text-sm font-bold text-slate-800">Invoice Fully Paid</h4>
-                  <p className="text-[10px] text-slate-400 mt-1">Stripe Token: tok_sandbox_3920</p>
-                  
+                  <p className="text-[10px] text-slate-400 mt-1">Token: tok_sandbox_3920</p>
                   <button
-                    onClick={handleResetPayment}
+                    onClick={() => setPaymentStatus("idle")}
                     className="mt-5 text-[10px] font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
                   >
                     <RotateCcw className="h-3 w-3" />
@@ -319,23 +278,20 @@ export default function SaaSBentoFeatures() {
             </div>
           </div>
 
-          {/* CARD 3: Dashboard Analytics (Spans 1 column) */}
+          {/* CARD 3: analytics */}
           <div className="group flex flex-col justify-between rounded-[28px] border border-slate-100 bg-slate-50/20 p-8 transition-all duration-300 hover:border-slate-200 hover:shadow-[0_15px_40px_rgba(2,66,162,0.03)] hover:-translate-y-1">
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-6">
                 <BarChart3 className="h-5 w-5" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Dashboard Analytics</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                Fully interactive dashboard displays, key customer metrics tracking, event logs, and user reports.
-              </p>
+              <h3 className="text-2xl font-bold text-slate-900">{card(2).title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500">{card(2).description}</p>
             </div>
 
-            {/* Interactive SVG Chart Card with Tooltip */}
             <div className="mt-8 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm relative">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex flex-col">
-                  <span className="text-[9px] uppercase font-bold text-slate-400 tracking-wider">SaaS ARR Chart</span>
+                  <span className="text-[9px] uppercase font-bold text-slate-400 tracking-wider">{card(2).caption}</span>
                   <span className="text-xl font-extrabold text-slate-900 mt-0.5">$124,500</span>
                 </div>
                 <span className="inline-flex items-center gap-0.5 text-[9px] font-semibold text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full">
@@ -344,15 +300,11 @@ export default function SaaSBentoFeatures() {
                 </span>
               </div>
 
-              {/* SVG Spline Plot */}
               <div className="relative h-28 w-full mt-2">
                 <svg className="w-full h-full overflow-visible">
-                  {/* Grid Lines */}
                   <line x1="0" y1="100" x2="300" y2="100" stroke="#f1f5f9" strokeWidth="1" />
                   <line x1="0" y1="60" x2="300" y2="60" stroke="#f1f5f9" strokeWidth="1" />
                   <line x1="0" y1="20" x2="300" y2="20" stroke="#f1f5f9" strokeWidth="1" />
-
-                  {/* Spline Path */}
                   <path
                     d="M 30 110 Q 60 102.5, 90 95 T 150 70 T 210 55 T 270 25"
                     fill="none"
@@ -360,15 +312,11 @@ export default function SaaSBentoFeatures() {
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
-
-                  {/* Shading under Curve */}
                   <path
                     d="M 30 110 Q 60 102.5, 90 95 T 150 70 T 210 55 T 270 25 L 270 120 L 30 120 Z"
                     fill="url(#gradient-chart)"
                     opacity="0.1"
                   />
-
-                  {/* Interactive Points */}
                   {dataPoints.map((pt, idx) => (
                     <circle
                       key={idx}
@@ -378,21 +326,10 @@ export default function SaaSBentoFeatures() {
                       className={`fill-white stroke-2 cursor-pointer transition-all ${
                         hoveredPoint?.month === pt.month ? "stroke-blue-600" : "stroke-blue-500"
                       }`}
-                      onMouseEnter={(e) => {
-                        const bounds = e.currentTarget.parentElement?.getBoundingClientRect();
-                        if (bounds) {
-                          setHoveredPoint({
-                            x: pt.x,
-                            y: pt.y,
-                            month: pt.month,
-                            value: pt.value,
-                          });
-                        }
-                      }}
+                      onMouseEnter={() => setHoveredPoint({ x: pt.x, y: pt.y, month: pt.month, value: pt.value })}
                       onMouseLeave={() => setHoveredPoint(null)}
                     />
                   ))}
-
                   <defs>
                     <linearGradient id="gradient-chart" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#2563eb" />
@@ -401,7 +338,6 @@ export default function SaaSBentoFeatures() {
                   </defs>
                 </svg>
 
-                {/* Custom Tooltip */}
                 <AnimatePresence>
                   {hoveredPoint && (
                     <motion.div
@@ -409,24 +345,15 @@ export default function SaaSBentoFeatures() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.9, y: 5 }}
                       className="absolute bg-slate-900 text-white rounded-lg p-2 text-[10px] pointer-events-none shadow-md z-15"
-                      style={{
-                        left: `${(hoveredPoint.x / 300) * 100}%`,
-                        top: `${hoveredPoint.y - 45}px`,
-                        transform: "translateX(-50%)",
-                      }}
+                      style={{ left: `${(hoveredPoint.x / 300) * 100}%`, top: `${hoveredPoint.y - 45}px`, transform: "translateX(-50%)" }}
                     >
-                      <span className="block font-bold text-slate-400 uppercase tracking-wider text-[8px]">
-                        {hoveredPoint.month} MRR
-                      </span>
-                      <span className="block font-extrabold text-white mt-0.5">
-                        {hoveredPoint.value}
-                      </span>
+                      <span className="block font-bold text-slate-400 uppercase tracking-wider text-[8px]">{hoveredPoint.month} MRR</span>
+                      <span className="block font-extrabold text-white mt-0.5">{hoveredPoint.value}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* Chart Footer info */}
               <div className="flex justify-between text-[9px] text-slate-400 px-1 mt-4">
                 <span>Aug</span>
                 <span>Sep</span>
@@ -437,40 +364,37 @@ export default function SaaSBentoFeatures() {
             </div>
           </div>
 
-          {/* CARD 4: Cloud Scale & DevOps (Spans 2 columns) */}
+          {/* CARD 4: deploy pipeline (spans 2 cols) */}
           <div className="group lg:col-span-2 flex flex-col justify-between rounded-[28px] border border-slate-100 bg-slate-50/20 p-8 transition-all duration-300 hover:border-slate-200 hover:shadow-[0_15px_40px_rgba(2,66,162,0.03)] hover:-translate-y-1">
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-6">
                 <Server className="h-5 w-5" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Cloud Scale & DevOps</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-500 max-w-xl">
-                Applications are bundled in Docker containers, integrated with secure GitHub CI/CD build scripts, and hosted via AWS/Vercel auto-scaling pools.
-              </p>
+              <h3 className="text-2xl font-bold text-slate-900">{card(3).title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500 max-w-xl">{card(3).description}</p>
             </div>
 
-            {/* Interactive Shell Pipeline Terminal */}
             <div className="mt-8 rounded-2xl border border-slate-900 bg-slate-950 p-5 shadow-lg text-left">
               <div className="flex justify-between items-center border-b border-white/5 pb-3 mb-3">
                 <div className="flex items-center gap-1.5">
                   <Terminal className="h-4 w-4 text-emerald-400" />
-                  <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">GitHub CI/CD Deployment Runner</span>
+                  <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">{card(3).caption}</span>
                 </div>
-                
                 <div className="flex items-center gap-2">
-                  <div className={`h-2.5 w-2.5 rounded-full ${
-                    deployState === "idle" ? "bg-slate-700" : deployState === "running" ? "bg-amber-400 animate-pulse" : "bg-emerald-500 shadow-[0_0_8px_#10b981]"
-                  }`} />
+                  <div
+                    className={`h-2.5 w-2.5 rounded-full ${
+                      deployState === "idle" ? "bg-slate-700" : deployState === "running" ? "bg-amber-400 animate-pulse" : "bg-emerald-500 shadow-[0_0_8px_#10b981]"
+                    }`}
+                  />
                   <span className="text-[9px] font-mono text-slate-400 uppercase">
                     {deployState === "idle" ? "Ready" : deployState === "running" ? "Running" : "Success"}
                   </span>
                 </div>
               </div>
 
-              {/* Terminal Logs Output */}
               <div className="h-32 overflow-y-auto font-mono text-[10px] text-slate-300 leading-normal space-y-1 mb-4 select-text">
                 {deployLogs.length === 0 ? (
-                  <span className="text-slate-500">Pipeline idle. Press "Deploy to AWS Cluster" to test logs.</span>
+                  <span className="text-slate-500">Pipeline idle. Press &quot;Deploy to Cluster&quot; to test logs.</span>
                 ) : (
                   deployLogs.map((log, index) => (
                     <div
@@ -489,7 +413,6 @@ export default function SaaSBentoFeatures() {
                 )}
               </div>
 
-              {/* Trigger Button */}
               <div className="flex gap-2">
                 <button
                   onClick={startDeployment}
@@ -497,7 +420,7 @@ export default function SaaSBentoFeatures() {
                   className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold transition disabled:opacity-50 flex items-center gap-1"
                 >
                   <Play className="h-3.5 w-3.5 fill-current" />
-                  <span>Deploy to AWS Cluster</span>
+                  <span>Deploy to Cluster</span>
                 </button>
                 {deployState !== "idle" && (
                   <button
@@ -513,7 +436,6 @@ export default function SaaSBentoFeatures() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

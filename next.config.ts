@@ -2,6 +2,14 @@ import type { NextConfig } from "next";
 import { getNextRedirects } from "./src/lib/redirects/json-source";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Admin Direct Mail attachments are sent through a Server Action, whose body
+    // defaults to a 1MB cap. Raise it above our 15MB total-attachment limit
+    // (plus multipart/base64 overhead). See src/server/mail/actions.ts.
+    serverActions: {
+      bodySizeLimit: "20mb",
+    },
+  },
   outputFileTracingIncludes: {
     "/*": ["src/data/services/**/*.json", "src/data/blogs/**/*.json", "src/data/redirects.json"],
   },

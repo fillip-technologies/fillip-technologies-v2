@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Users, FileText } from "lucide-react";
+import { Users, FileText, Mail } from "lucide-react";
 
 // Admin sidebar navigation. Add new admin features here as they're built.
 // `exact` highlights only on an exact path match (use for index routes like /admin).
 const NAV_ITEMS = [
   { href: "/admin", label: "Leads", icon: Users, exact: true },
+  { href: "/admin/mail", label: "Direct Mail", icon: Mail, exact: false },
   { href: "/admin/cms", label: "Content", icon: FileText, exact: false },
 ];
 

@@ -94,7 +94,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Software Development",
-          href: "/services/software-development",
+          href: "/software-development/software-development",
         },
         {
           label: "Custom Software Development",
@@ -110,7 +110,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
         {
           label: "SaaS Product Development",
-          href: "/services/saas-product-development",
+          href: "/software-development/saas-product-development",
         },
 
         {

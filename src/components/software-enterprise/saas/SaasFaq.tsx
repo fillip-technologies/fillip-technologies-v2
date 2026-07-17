@@ -1,55 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp, Search, Info } from "lucide-react";
+import type { SaasFaq as SaasFaqData } from "@/data/software-enterprise";
 
-const faqData = [
-  {
-    category: "Architecture",
-    question: "How do you handle tenant data isolation in multi-tenant SaaS?",
-    answer:
-      "We implement database isolation strategies tailored to your security requirements. This includes separate databases (logical database isolation per tenant) or a shared database with tenant-specific schemas and row-level security (RLS) policies to ensure absolute data privacy and security.",
-  },
-  {
-    category: "Billing & Security",
-    question: "Which payment gateways do you recommend for SaaS billing?",
-    answer:
-      "We recommend and integrate Stripe, Razorpay, or PayPal Billing. These platforms support complex recurring subscriptions, pricing tiers, coupons, trial management, multi-currency invoicing, and tax handling (e.g., Stripe Tax).",
-  },
-  {
-    category: "Timeline & IP",
-    question: "What is the typical timeline to build a custom SaaS MVP?",
-    answer:
-      "A standard SaaS MVP takes between 8 to 12 weeks to design, develop, test, and launch. This timeline covers the core tenant registration, subscription flow, user dashboard, database structure, and primary feature set.",
-  },
-  {
-    category: "Timeline & IP",
-    question: "Do we own the full source code and intellectual property?",
-    answer:
-      "Yes, 100%. Once development is complete and settled, we hand over full ownership of the source code, databases, design files, and intellectual property. You own your platform entirely with no ongoing licensing fees.",
-  },
-  {
-    category: "Architecture",
-    question: "How do you ensure our SaaS platform is ready for automated scaling?",
-    answer:
-      "We build SaaS applications using microservices or modular architectures (e.g. Next.js, Node.js), containerize the app using Docker, and deploy to AWS, Google Cloud, or Azure with auto-scaling groups, load balancers, and cache layers (like Redis). This ensures the app scales dynamically as user demand surges.",
-  },
-];
+/**
+ * FAQ section with category tabs + search. Heading, categories and items are
+ * CMS-driven; the category tabs are derived from the items' `category` fields.
+ */
+export default function SaasFaq({ data }: { data: SaasFaqData }) {
+  const items = useMemo(() => data.items ?? [], [data.items]);
+  const categories = useMemo(() => {
+    const seen: string[] = [];
+    for (const item of items) {
+      if (item.category && !seen.includes(item.category)) seen.push(item.category);
+    }
+    return ["All", ...seen];
+  }, [items]);
 
-const categories = ["All", "Architecture", "Billing & Security", "Timeline & IP"];
-
-export default function SaaSFaq() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-  const toggleFaq = (index: number) => {
-    setExpandedFaq(expandedFaq === index ? null : index);
-  };
+  const toggleFaq = (index: number) => setExpandedFaq(expandedFaq === index ? null : index);
 
-  // Filter FAQs based on active category & search query
-  const filteredFaqs = faqData.filter((faq) => {
+  const filteredFaqs = items.filter((faq) => {
     const matchesCategory = activeCategory === "All" || faq.category === activeCategory;
     const matchesQuery =
       faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -62,20 +38,15 @@ export default function SaaSFaq() {
       <div className="mx-auto max-w-4xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center mb-12">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            FAQ
-          </span>
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">FAQ</span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            SaaS Development <span className="text-primary">Inquiries</span>
+            {data.title} <span className="text-primary">{data.highlightedTitle}</span>
           </h2>
-          <p className="mt-4 text-sm text-slate-500">
-            Find answers to common questions about architecture, scaling, payment integration, and engineering schedules.
-          </p>
+          <p className="mt-4 text-sm text-slate-500">{data.description}</p>
         </div>
 
-        {/* Search bar & Category filters */}
+        {/* Search + category filters */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          {/* Categories */}
           <div className="flex flex-wrap gap-1.5 p-1 bg-slate-50 border border-slate-100 rounded-xl max-w-max">
             {categories.map((cat) => (
               <button
@@ -85,9 +56,7 @@ export default function SaaSFaq() {
                   setExpandedFaq(null);
                 }}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 ${
-                  activeCategory === cat
-                    ? "bg-white text-slate-800 shadow-xs"
-                    : "text-slate-400 hover:text-slate-600"
+                  activeCategory === cat ? "bg-white text-slate-800 shadow-xs" : "text-slate-400 hover:text-slate-600"
                 }`}
               >
                 {cat}
@@ -95,12 +64,11 @@ export default function SaaSFaq() {
             ))}
           </div>
 
-          {/* Search Input */}
           <div className="relative max-w-md w-full md:w-72">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search SaaS questions..."
+              placeholder="Search questions..."
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -111,13 +79,11 @@ export default function SaaSFaq() {
           </div>
         </div>
 
-        {/* FAQ Accordion List */}
+        {/* Accordion */}
         <div className="space-y-4 min-h-[150px]">
           {filteredFaqs.length > 0 ? (
-            filteredFaqs.map((faq, index) => {
-              const globalIndex = faqData.findIndex(
-                (item) => item.question === faq.question
-              );
+            filteredFaqs.map((faq) => {
+              const globalIndex = items.findIndex((item) => item.question === faq.question);
               const isExpanded = expandedFaq === globalIndex;
               return (
                 <motion.div
@@ -130,19 +96,11 @@ export default function SaaSFaq() {
                     className="flex w-full items-center justify-between text-left focus:outline-none"
                   >
                     <div className="flex flex-col text-left pr-4">
-                      <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wide mb-1">
-                        {faq.category}
-                      </span>
-                      <span className="font-bold text-slate-800 text-sm md:text-base leading-snug">
-                        {faq.question}
-                      </span>
+                      <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wide mb-1">{faq.category}</span>
+                      <span className="font-bold text-slate-800 text-sm md:text-base leading-snug">{faq.question}</span>
                     </div>
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-500 transition-colors duration-300">
-                      {isExpanded ? (
-                        <ChevronUp className="h-4 w-4 text-slate-700" />
-                      ) : (
-                        <ChevronDown className="h-4 w-4 text-slate-400" />
-                      )}
+                      {isExpanded ? <ChevronUp className="h-4 w-4 text-slate-700" /> : <ChevronDown className="h-4 w-4 text-slate-400" />}
                     </span>
                   </button>
 
@@ -155,9 +113,7 @@ export default function SaaSFaq() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="mt-4 text-xs md:text-sm leading-relaxed text-slate-500 pt-3 border-t border-slate-50">
-                          {faq.answer}
-                        </p>
+                        <p className="mt-4 text-xs md:text-sm leading-relaxed text-slate-500 pt-3 border-t border-slate-50">{faq.answer}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>

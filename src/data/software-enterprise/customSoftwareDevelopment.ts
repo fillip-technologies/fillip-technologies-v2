@@ -3,209 +3,152 @@ import type { SoftwareEnterpriseContent } from "./types";
 export const customSoftwareDevelopmentContent: SoftwareEnterpriseContent = {
   slug: "custom-software-development",
   hero: {
+    badge: "Custom Software Engineering",
     title: "Custom Software Built Around",
     highlightedTitle: "Your Exact Workflows",
     description:
       "Bespoke software engineering for businesses that have outgrown off-the-shelf tools — tailored applications, automations, and platforms designed around how your teams actually work.",
-  },
-  challenges: {
-    eyebrow: "Why Off-The-Shelf Falls Short",
-    title: "Generic Tools Force You To",
-    highlightedTitle: "Work Their Way.",
-    description:
-      "Packaged software rarely matches unique processes, so teams bend their workflows around the tool instead of the other way around.",
-    secondaryDescription:
-      "We build custom software that fits your operations precisely — removing workarounds, manual glue work, and licensing you don't use.",
-    cta: "See How Custom Software Fits You",
-    items: [
-      {
-        title: "Rigid Feature Sets",
-        description:
-          "SaaS products lock you into fixed workflows, leaving gaps your team fills with manual effort.",
-      },
-      {
-        title: "Costly Licensing",
-        description:
-          "Per-seat pricing grows with your team while you pay for features you never use.",
-      },
-      {
-        title: "Data Silos",
-        description:
-          "Every new tool adds another disconnected database that reporting has to stitch together.",
-      },
-      {
-        title: "Limited Automation",
-        description:
-          "Closed platforms restrict the automations and integrations you can build on top.",
-      },
-      {
-        title: "Vendor Lock-In",
-        description:
-          "Your business logic lives in someone else's product, and migrating later is painful.",
-      },
-      {
-        title: "Slow To Change",
-        description:
-          "Feature requests sit in a vendor backlog for months instead of shipping when you need them.",
-      },
+    bullets: [
+      { icon: "layers", label: "Workflow-Fit Architecture" },
+      { icon: "shield", label: "Role-Based Access & Security" },
+      { icon: "database", label: "Unified Data Platform" },
+      { icon: "check", label: "Full Source-Code Ownership" },
     ],
+    primaryCta: { label: "Discuss Your Project", href: "/contact" },
+    secondaryCta: { label: "See Our Work", href: "/portfolio" },
   },
-  whatWeBuild: {
-    eyebrow: "CUSTOM SOFTWARE WE ENGINEER",
+  capabilities: {
+    eyebrow: "WHAT WE ENGINEER",
     title: "Applications Built For",
     highlightedTitle: "Your Business Logic",
     description:
-      "From internal tools and customer portals to workflow engines and data platforms, we design software around your real operations.",
+      "From internal tools and customer portals to workflow engines and data platforms, we design software around your real operations. Explore the capabilities below.",
     cards: [
       {
-        eyebrow: "Internal Tools",
+        title: "Workflow & Process Engines",
+        description:
+          "Rules-driven automation for approvals, routing, and multi-step business processes — modelled precisely around how your teams operate.",
+        caption: "Process Routing Simulator",
+      },
+      {
         title: "Operations & Admin Systems",
         description:
-          "Custom back-office applications that centralise workflows, approvals, records, and team activity.",
-        metric: "+40% Faster Operations",
+          "Custom back-office applications that centralise workflows, approvals, records, and team activity in one place.",
+        caption: "Approval Cost Preview",
       },
       {
-        eyebrow: "Customer Portals",
-        title: "Self-Service Platforms",
+        title: "Reporting & Data Platforms",
         description:
-          "Branded portals where customers track orders, tickets, documents, and account activity.",
-        metric: "24/7 Self-Service",
+          "Central data stores with search, dashboards, and role-based reporting that keep operations visible across teams.",
+        caption: "Operations KPI Trend",
       },
       {
-        title: "Workflow Engines",
+        title: "Cloud, CI/CD & Ownership",
         description:
-          "Rules-driven automation for approvals, routing, and multi-step business processes.",
-      },
-      {
-        title: "Data Platforms",
-        description:
-          "Central data stores with search, reporting, and role-based access across teams.",
-      },
-      {
-        title: "Legacy Modernisation",
-        description:
-          "Rebuild ageing systems on a modern, maintainable stack without disrupting operations.",
-        tags: ["Migration", "APIs", "Cloud", "Refactor", "Integrations"],
+          "Applications containerised with Docker, shipped through secure CI/CD pipelines, and deployed on cloud infrastructure you fully own.",
+        caption: "CI/CD Deployment Runner",
       },
     ],
   },
-  technologyStack: {
-    eyebrow: "Engineering Stack",
-    title: "Built With Reliable",
-    highlightedTitle: "Application Technologies",
+  scaleTiers: {
+    eyebrow: "ENGAGEMENT MODELS",
+    title: "A Delivery Model That Fits Your Project",
     description:
-      "Proven frameworks, secure backends, and cloud infrastructure chosen for maintainability and long-term ownership.",
-    whyTitle: "Why This Stack?",
-    whyDescription:
-      "We select technologies around your workflow complexity, data needs, security requirements, and the team that will maintain the system.",
-    stacks: {
-      frontend: {
-        title: "Application Frontend",
-        description:
-          "Fast, accessible interfaces for dashboards, portals, and data-heavy workflows.",
-        technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vue.js"],
-      },
-      backend: {
-        title: "Application Backend",
-        description:
-          "Secure services for business logic, permissions, APIs, and data processing.",
-        technologies: ["Node.js", ".NET", "Python", "Laravel", "PostgreSQL", "REST APIs"],
-      },
-      data: {
-        title: "Data & Admin",
-        description:
-          "Databases, admin panels, and reporting layers that keep operations visible.",
-        technologies: ["PostgreSQL", "MongoDB", "Redis", "GraphQL", "Admin Panels"],
-      },
-      cloud: {
-        title: "Cloud & DevOps",
-        description:
-          "Deployment, monitoring, and CI/CD for reliable, repeatable releases.",
-        technologies: ["AWS", "Azure", "Docker", "CI/CD", "Vercel"],
-      },
-    },
-  },
-  process: {
-    title: "Delivery Phases",
-    highlightedTitle: "and Timeline",
-    description:
-      "From workflow discovery to launch and iteration, every phase is tied to measurable operational outcomes.",
-    steps: [
-      { title: "Discovery", items: ["Workflow Audit", "User Roles", "Data Review", "Success Metrics"] },
-      { title: "Architecture", items: ["System Design", "Feature Scope", "Integration Map", "Roadmap"] },
-      { title: "Design", items: ["User Flows", "Wireframes", "UI Design", "Prototype"] },
-      { title: "Build", items: ["Frontend", "Backend", "APIs", "Database"] },
-      { title: "Testing", items: ["Functional QA", "Security", "Performance", "Bug Fixes"] },
-      { title: "Launch", items: ["Deployment", "Monitoring", "Training", "Iteration"] },
-    ],
-  },
-  engagementModels: {
-    eyebrow: "How We Work Together",
-    title: "Engagement Models That",
-    highlightedTitle: "Fit Your Project",
-    description:
-      "Choose the collaboration model that matches your scope, timeline, and internal capacity.",
-    models: [
+      "Choose the collaboration model that matches your scope, timeline, and internal capacity. Every build ships with clean, documented, fully owned code.",
+    tiers: [
       {
-        badge: "Best for defined scope",
+        id: "fixed-scope",
+        label: "Fixed Scope",
         title: "Fixed Scope & Timeline",
         description:
-          "A clearly specified build delivered to an agreed scope, budget, and schedule.",
-        points: ["Detailed spec upfront", "Fixed budget", "Milestone delivery", "Ideal for MVPs"],
+          "A clearly specified build delivered to an agreed scope, budget, and schedule — ideal for well-defined MVPs and internal tools.",
+        metrics: [
+          { label: "Best For", value: "Defined Scope" },
+          { label: "Commercials", value: "Fixed Budget" },
+          { label: "Delivery", value: "Milestone-Based" },
+          { label: "Typical Timeline", value: "8-12 Weeks" },
+        ],
+        architecture: {
+          title: "Spec-First Delivery",
+          desc: "Detailed specification, fixed milestones, and predictable delivery against an agreed plan.",
+          nodes: [
+            { label: "Discovery & Spec", icon: "globe" },
+            { label: "Milestone Build", icon: "server" },
+            { label: "Handover & Docs", icon: "database" },
+          ],
+        },
       },
       {
-        badge: "Best for evolving needs",
-        title: "Dedicated Team",
+        id: "dedicated-team",
+        label: "Dedicated Team",
+        title: "Dedicated Product Team",
         description:
-          "A cross-functional team that works as an extension of yours on a rolling basis.",
-        points: ["Flexible roadmap", "Monthly engagement", "Direct collaboration", "Scales up or down"],
+          "A cross-functional team that works as an extension of yours on a rolling basis — flexible roadmap, monthly engagement, direct collaboration.",
+        metrics: [
+          { label: "Best For", value: "Evolving Needs" },
+          { label: "Commercials", value: "Monthly Retainer" },
+          { label: "Delivery", value: "Rolling Sprints" },
+          { label: "Scales", value: "Up or Down" },
+        ],
+        architecture: {
+          title: "Embedded Delivery Squad",
+          desc: "Product, engineering, and QA working directly with your stakeholders every sprint.",
+          nodes: [
+            { label: "Product & UX", icon: "globe" },
+            { label: "Engineering Pod", icon: "server" },
+            { label: "QA & Release", icon: "refresh" },
+          ],
+        },
       },
       {
-        badge: "Best for extra capacity",
+        id: "staff-augmentation",
+        label: "Staff Augmentation",
         title: "Staff Augmentation",
         description:
-          "Vetted engineers who plug into your existing team and processes.",
-        points: ["Fill skill gaps", "Your tooling & process", "Fast onboarding", "No hiring overhead"],
+          "Vetted engineers who plug into your existing team, tooling, and processes to fill skill gaps and add capacity fast.",
+        metrics: [
+          { label: "Best For", value: "Extra Capacity" },
+          { label: "Process", value: "Your Tooling" },
+          { label: "Onboarding", value: "Fast Ramp-Up" },
+          { label: "Overhead", value: "No Hiring Cost" },
+        ],
+        architecture: {
+          title: "Integrated Into Your Stack",
+          desc: "Engineers work inside your repos, boards, and standups from day one.",
+          nodes: [
+            { label: "Your Codebase", icon: "globe" },
+            { label: "Augmented Engineers", icon: "server" },
+            { label: "Your CI/CD", icon: "refresh" },
+          ],
+        },
       },
     ],
-  },
-  outcomes: {
-    eyebrow: "Software Outcomes",
-    title: "Systems That Improve",
-    highlightedTitle: "Business Operations",
-    description:
-      "Every build is designed to cut manual work, connect systems, and support scalable, measurable operations.",
-    stats: [
-      { value: "+40%", label: "Operational Speed" },
-      { value: "-35%", label: "Manual Effort" },
-      { value: "+55%", label: "Process Visibility" },
-      { value: "99.9%", label: "System Uptime" },
-    ],
-    leftPill: "Tailored Workflows",
-    rightPill: "Full Ownership",
   },
   faq: {
     title: "Custom Software",
     highlightedTitle: "Questions",
-    description:
-      "Common questions about building bespoke software with Fillip Technologies.",
+    description: "Common questions about building bespoke software with Fillip Technologies.",
     items: [
       {
+        category: "Timeline & IP",
         question: "How long does a custom software project take?",
         answer:
           "A focused MVP typically ships in 8–12 weeks. Larger platforms are delivered in phases so you get working software early and iterate from there.",
       },
       {
+        category: "Timeline & IP",
         question: "Do we own the source code?",
         answer:
           "Yes. You retain full ownership of the code, data, and infrastructure — there's no vendor lock-in or per-seat licensing.",
       },
       {
+        category: "Integration",
         question: "Can you integrate with our existing tools?",
         answer:
           "Absolutely. We build API integrations with CRMs, ERPs, payment systems, and internal databases so your software works with the stack you already use.",
       },
       {
+        category: "Support",
         question: "What happens after launch?",
         answer:
           "We offer ongoing support, monitoring, and iteration so the system keeps pace with your operations as they evolve.",

@@ -21,7 +21,7 @@ import type { SaveState } from "./types";
 
 // Slugs that are their own static routes (would shadow the dynamic [slug]),
 // plus reserved words. Keeps admins from creating dead pages.
-const RESERVED_SLUGS = new Set(["preview", "saas-product-development"]);
+const RESERVED_SLUGS = new Set(["preview"]);
 
 /** Normalise a free-text label into a URL-safe kebab-case slug. */
 function slugify(input: string): string {
