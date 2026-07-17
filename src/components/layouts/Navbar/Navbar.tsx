@@ -73,6 +73,7 @@ export default function Navbar() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    let removeScrollFallback = () => {};
 
     const ctx = gsap.context(() => {
 
@@ -108,7 +109,7 @@ export default function Navbar() {
         .to(heroCenterRef.current, { y: -50, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
         .to(heroRightRef.current, { x: 140, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
         /* Sticky enters at 40% through — slight overlap removes the empty gap */
-        .to(stickyBarRef.current, { yPercent: 0, opacity: 1, ease: "power2.out", duration: 0.6 }, 0.4);
+        .to(stickyBarRef.current, { yPercent: 0, opacity: 1, pointerEvents: "auto", ease: "power2.out", duration: 0.6 }, 0.4);
 
       /*
        * Pointer-events: swap at visual midpoint so only
@@ -127,11 +128,37 @@ export default function Navbar() {
         // hero wrapper — we climb up from heroLeftRef
         const heroWrap = heroLeftRef.current?.closest<HTMLDivElement>("[data-hero-wrap]");
         if (heroWrap) heroWrap.style.pointerEvents = stickyActive ? "none" : "auto";
-        if (stickyBarRef.current) stickyBarRef.current.style.pointerEvents = stickyActive ? "auto" : "none";
+        if (stickyBarRef.current) {
+          stickyBarRef.current.style.opacity = stickyActive ? "1" : "0";
+          stickyBarRef.current.style.pointerEvents = stickyActive ? "auto" : "none";
+        }
       }
+      let fallbackStickyActive = false;
+      const syncStickyFallback = () => {
+        const shouldShowSticky = window.scrollY > 80;
+        if (fallbackStickyActive === shouldShowSticky) return;
+        fallbackStickyActive = shouldShowSticky;
+
+        swapPointerEvents(shouldShowSticky);
+        gsap.to(stickyBarRef.current, {
+          yPercent: shouldShowSticky ? 0 : -120,
+          opacity: shouldShowSticky ? 1 : 0,
+          pointerEvents: shouldShowSticky ? "auto" : "none",
+          ease: shouldShowSticky ? "power2.out" : "power2.inOut",
+          duration: shouldShowSticky ? 0.35 : 0.25,
+          overwrite: "auto",
+        });
+      };
+
+      syncStickyFallback();
+      window.addEventListener("scroll", syncStickyFallback, { passive: true });
+      removeScrollFallback = () => window.removeEventListener("scroll", syncStickyFallback);
     });
 
-    return () => ctx.revert();
+    return () => {
+      removeScrollFallback();
+      ctx.revert();
+    };
   }, []);
 
 

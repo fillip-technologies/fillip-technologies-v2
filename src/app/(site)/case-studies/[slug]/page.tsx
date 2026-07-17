@@ -151,11 +151,25 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
                 <Link
                   key={study.slug}
                   href={study.href}
-                  className="group rounded-[28px] border border-[var(--border)] bg-[var(--surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  className="group overflow-hidden rounded-[28px] border border-[var(--border)] bg-[var(--surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                 >
-                  <div className="text-sm font-bold text-[var(--primary)]">{study.result}</div>
-                  <h3 className="mt-3 text-xl font-bold text-[var(--heading)]">{study.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[var(--body)]">{study.description}</p>
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+                    <div className="absolute bottom-5 left-5 text-sm font-bold text-white">
+                      {study.result}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-[var(--heading)]">{study.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[var(--body)]">{study.description}</p>
+                  </div>
                 </Link>
               ))}
             </div>

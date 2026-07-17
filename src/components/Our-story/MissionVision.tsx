@@ -27,12 +27,12 @@ const ceo = {
 const teamMembers: Array<{ name: string; role: string; image?: string }> = [
   { name: "Risabh Choubey", role: "Account Manager" },
   { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-singh.png" },
-  { name: "Payal Kumari", role: "Digital Marketing Head" },
+  { name: "Payal Kumari", role: "Digital Marketing Head", image: "/images/team/Payal.jpeg" },
   { name: "Shruti Chouhan", role: "Software Development Engineer II", image: "/images/team/shruti-singh.png" },
-  { name: "Abhishek Prajapati", role: "Backend Developer" },
+  { name: "Abhishek Prajapati", role: "Backend Developer", image: "/images/team/ABHISHEK.jpeg" },
   { name: "Prince Raj", role: "Associate Software Developer", image: "/images/team/prince-kumar.png" },
   { name: "Govind Kumar", role: "Associate Software Developer", image: "/images/team/Govind-Kumar.png" },
-  { name: "Aman Kumar", role: "Digital Marketing Executive" },
+  { name: "Aman Sharma", role: "Digital Marketing Executive" },
   { name: "Mukta Trivedy", role: "UI Designer", image: "/images/team/mukta-trivedy.png" },
   { name: "Wagish Karna", role: "Content Writer" },
 ];

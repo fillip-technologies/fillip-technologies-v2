@@ -173,8 +173,8 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               {/* Row 1: Workspace Image (Rounded Square) */}
               <div className="absolute top-0 left-[194px] w-[180px] h-[180px] overflow-hidden rounded-[1.8rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
                 <Image 
-                  src="/images/saas-desk-setup.png" 
-                  alt="Workspace engineering" 
+                  src="/images/our-cult-1.jpg" 
+                  alt="Culture of ideas" 
                   fill 
                   className="object-cover"
                   sizes="180px"
@@ -185,8 +185,8 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               {/* Row 2: Team Member Capsule (Flat Top, Fully Rounded Bottom) */}
               <div className="absolute top-[194px] left-[194px] w-[180px] h-[270px] overflow-hidden rounded-b-full rounded-t-[1.5rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-lg transition-transform duration-500 hover:scale-[1.03] z-10">
                 <Image 
-                  src="/images/team/team1.png" 
-                  alt="Team member" 
+                  src="/images/our-cult-2.jpg" 
+                  alt="Human centered innovation" 
                   fill 
                   className="object-cover object-top"
                   sizes="180px"
@@ -197,8 +197,8 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               {/* Row 1: Research Mockup (Fully Rounded Right, Flat/Small Round Left) */}
               <div className="hidden sm:block absolute top-0 left-[388px] w-[180px] h-[180px] overflow-hidden rounded-tr-[6.5rem] rounded-br-[6.5rem] rounded-tl-2xl rounded-bl-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
                 <Image 
-                  src="/images/research-mockup.png" 
-                  alt="Creative strategy" 
+                  src="/images/our-cult-3.jpg" 
+                  alt="Future focused creativity" 
                   fill 
                   className="object-cover"
                   sizes="180px"

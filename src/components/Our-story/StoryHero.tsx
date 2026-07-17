@@ -35,7 +35,7 @@ export default function StoryHero({ content: raw = {} }: { content?: Record<stri
       />
 
       <Image
-        src="/images/our-story-new.png"
+        src="/images/our-story-neww.png"
         alt=""
         width={1536}
         height={1024}
