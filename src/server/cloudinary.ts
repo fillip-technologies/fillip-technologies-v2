@@ -20,6 +20,10 @@ cloudinary.config({
 // Folder under which all site assets live in the Cloudinary media library.
 export const CLOUDINARY_FOLDER = "fillip";
 
+// Folder under which admin CMS image uploads land (a sub-folder of the root).
+// Only assets here are eligible for automatic cleanup on replace.
+export const CLOUDINARY_UPLOADS_FOLDER = `${CLOUDINARY_FOLDER}/uploads`;
+
 // Upload a raw file buffer and resolve to the uploaded asset's info.
 export function uploadBuffer(
   buffer: Buffer,
@@ -35,6 +39,19 @@ export function uploadBuffer(
     );
     stream.end(buffer);
   });
+}
+
+// Permanently delete one image asset by its public_id. Resolves to true when the
+// asset was removed (or was already gone). Never throws — deletion is a
+// best-effort cleanup and must not break the caller's main flow.
+export async function destroyImage(publicId: string): Promise<boolean> {
+  try {
+    const res = await cloudinary.uploader.destroy(publicId, { resource_type: "image", invalidate: true });
+    return res.result === "ok" || res.result === "not found";
+  } catch (err) {
+    console.error(`Cloudinary destroy failed for ${publicId}:`, err);
+    return false;
+  }
 }
 
 export { cloudinary };

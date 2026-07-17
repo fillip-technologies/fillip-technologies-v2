@@ -1,6 +1,7 @@
 import { dbConnect } from "@/lib/db";
 import { SiteContentModel } from "@/server/db/models";
 import { primeMergeSnapshot, snapshotRead, snapshotReadMany } from "./snapshot-cache";
+import { cleanupReplacedUploads } from "./upload-cleanup";
 
 /** Snapshot cache key for a site_content row. */
 const contentKey = (key: string) => `content:${key}`;
@@ -62,6 +63,9 @@ export async function upsertContent(
   data: Record<string, unknown>
 ): Promise<void> {
   await dbConnect();
+  // Capture the previous payload before overwriting so we can detect image
+  // uploads that this save replaces (and free them from Cloudinary below).
+  const prev = await SiteContentModel.findOne({ key }, { data: 1 }).lean();
   await SiteContentModel.updateOne(
     { key },
     { $set: { data, updated_at: new Date() } },
@@ -70,4 +74,7 @@ export async function upsertContent(
   // Reflect the freshly-saved content in the snapshot right away so a DB outage
   // immediately after a save still serves the newest data.
   primeMergeSnapshot(contentKey(key), data);
+  // Best-effort: delete any CMS upload this save orphaned. Runs after the write
+  // so the reference scan reflects the new state; never throws.
+  await cleanupReplacedUploads(prev?.data);
 }

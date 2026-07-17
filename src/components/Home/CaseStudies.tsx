@@ -94,7 +94,7 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="flex flex-col justify-between"
+            className="flex h-full flex-col justify-between pb-6"
           >
             <div>
               <div className="mb-6 text-xs uppercase tracking-[0.35em] text-body">
