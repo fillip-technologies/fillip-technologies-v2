@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Sparkles, Zap, ShieldCheck } from "lucide-react";
 import type { Service } from "@/data/website-development";
+import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
+import GetQuoteButton from "@/components/shared/GetQuoteButton";
 
 const images = [
   "/images/patna-zoo.png",
@@ -112,21 +112,10 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
             </p>
 
             {/* Actions */}
-            {/* <div className="mt-8 flex flex-wrap gap-4 items-center">
-              <Link
-                href="/contact"
-                className="group/btn relative inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-8 py-4 font-semibold text-white shadow-lg shadow-[var(--primary)]/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-[var(--primary)]/30 active:scale-[0.98]"
-              >
-                Start Your Project
-                <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </Link>
-              <a
-                href="#what-we-build"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-900 px-8 py-4 font-semibold text-slate-700 dark:text-slate-350 border border-slate-200 dark:border-slate-800 shadow-xs transition hover:bg-slate-50 dark:hover:bg-slate-800/80"
-              >
-                Explore Solutions
-              </a>
-            </div> */}
+            <div className="mt-8 flex flex-wrap gap-5 items-center">
+              <DiscussProjectButton />
+              <GetQuoteButton />
+            </div>
 
             {/* Tech Stack List */}
             <div className="mt-12 flex flex-col gap-3.5">

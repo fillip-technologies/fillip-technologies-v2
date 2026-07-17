@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Star } from "lucide-react";
-import Link from "next/link";
+import { Sparkles, Star } from "lucide-react";
 import Image from "next/image";
 import type { GraphicHeroContent } from "./content";
+import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
+import GetQuoteButton from "@/components/shared/GetQuoteButton";
 
 const categories = [
   { name: "Logo Design", color: "#0242a2", emoji: "⬡" },
@@ -117,20 +118,8 @@ export default function GraphicHero({ content }: { content: GraphicHeroContent }
               transition={{ duration: 0.7, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
-              <Link
-                href={content.primaryCtaHref}
-                className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
-                style={{ background: "linear-gradient(135deg, #0242a2, #38bdf8)" }}
-              >
-                <span>{content.primaryCtaLabel}</span>
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <a
-                href={content.secondaryCtaHref}
-                className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-[#0242a2]/20 bg-white text-[#0242a2] hover:bg-[#0242a2]/5 transition-all duration-300 text-sm font-semibold shadow-sm"
-              >
-                <span>{content.secondaryCtaLabel}</span>
-              </a>
+              <DiscussProjectButton href={content.primaryCtaHref} />
+              <GetQuoteButton />
             </motion.div>
 
             {/* Stats row */}

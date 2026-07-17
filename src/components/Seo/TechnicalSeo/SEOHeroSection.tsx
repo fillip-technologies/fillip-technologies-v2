@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Search, ArrowRight } from "lucide-react";
+import { Search } from "lucide-react";
 import type { TechnicalSeoHeroContent } from "@/lib/service-content/types";
+import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
+import GetQuoteButton from "@/components/shared/GetQuoteButton";
 
 type SEOHeroSectionProps = {
     data?: TechnicalSeoHeroContent;
@@ -95,14 +97,8 @@ export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
 
                         {/* CTA */}
                         <div className="mt-10 flex flex-wrap gap-4">
-                            <button className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-4 font-semibold text-white transition hover:bg-blue-700">
-                                {data?.primaryCta ?? "Get Free SEO Audit"}
-                                <ArrowRight className="h-4 w-4" />
-                            </button>
-
-                            <button className="rounded-full border border-slate-200 bg-white px-7 py-4 font-semibold text-slate-900">
-                                {data?.secondaryCta ?? "View Case Studies"}
-                            </button>
+                            <DiscussProjectButton />
+                            <GetQuoteButton />
                         </div>
 
                         

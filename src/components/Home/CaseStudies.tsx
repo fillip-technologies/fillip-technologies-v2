@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { HOME_CASE_STUDIES, HOME_CASESTUDIES_BG, type CaseStudyItem } from "@/data/home/defaults";
+import { enrichCaseStudies } from "@/lib/case-studies";
 
 // CMS-editable content (key: home.casestudies). Falls back to these defaults.
 type CaseStudiesContent = Partial<{
@@ -29,7 +31,7 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
       "Discover how strategy, technology, and execution helped our clients generate more leads, increase revenue, and scale faster.",
     backgroundImage: content.backgroundImage || HOME_CASESTUDIES_BG,
   };
-  const caseStudies = content.items?.length ? content.items : HOME_CASE_STUDIES;
+  const caseStudies = enrichCaseStudies(content.items?.length ? content.items : HOME_CASE_STUDIES);
 
   const sectionRef = useRef(null);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -146,7 +148,7 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
           >
             {caseStudies.map((item, index) => (
               <motion.article
-                key={item.title}
+                key={item.slug}
                 initial={{ opacity: 0, y: 60 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{
@@ -167,98 +169,100 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
                   snap-start
                 "
               >
-                {/* Background Image */}
+                <Link href={item.href} className="absolute inset-0 block" aria-label={`View case study: ${item.title}`}>
+                  {/* Background Image */}
 
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="420px"
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-700
-                    group-hover:scale-105
-                  "
-                />
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="420px"
+                    className="
+                      object-cover
+                      transition-transform
+                      duration-700
+                      group-hover:scale-105
+                    "
+                  />
 
-                {/* Overlay */}
+                  {/* Overlay */}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-                {/* Result Badge */}
+                  {/* Result Badge */}
 
-                <div
-                  className="
-                    absolute
-                    left-8
-                    top-8
-                    rounded-full
-                    bg-white
-                    px-5
-                    py-2
-                    text-sm
-                    font-semibold
-                    text-black
-                  "
-                >
-                  {item.result}
-                </div>
-                {/* Content */}
-
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="mb-3 text-xs uppercase tracking-[0.25em] text-white/70">
-                    {item.industry}
+                  <div
+                    className="
+                      absolute
+                      left-8
+                      top-8
+                      rounded-full
+                      bg-white
+                      px-5
+                      py-2
+                      text-sm
+                      font-semibold
+                      text-black
+                    "
+                  >
+                    {item.result}
                   </div>
+                  {/* Content */}
 
-                  <h3 className="text-4xl font-medium leading-tight">
-                    {item.title}
-                  </h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <div className="mb-3 text-xs uppercase tracking-[0.25em] text-white/70">
+                      {item.industry}
+                    </div>
 
-                  <p className="mt-4 text-white/80 leading-relaxed">
-                    {item.description}
-                  </p>
+                    <h3 className="text-4xl font-medium leading-tight">
+                      {item.title}
+                    </h3>
 
-                  <div className="mt-8 flex items-center justify-between">
-                    <span className="text-sm font-medium">
-                      View Case Study
-                    </span>
+                    <p className="mt-4 text-white/80 leading-relaxed">
+                      {item.description}
+                    </p>
 
-                    <div
-                      className="
-                        flex
-                        h-12
-                        w-12
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-white/30
-                        backdrop-blur
-                        transition-all
-                        duration-300
-                        group-hover:translate-x-1
-                      "
-                    >
-                      <ArrowRight size={18} />
+                    <div className="mt-8 flex items-center justify-between">
+                      <span className="text-sm font-medium">
+                        View Case Study
+                      </span>
+
+                      <div
+                        className="
+                          flex
+                          h-12
+                          w-12
+                          items-center
+                          justify-center
+                          rounded-full
+                          border
+                          border-white/30
+                          backdrop-blur
+                          transition-all
+                          duration-300
+                          group-hover:translate-x-1
+                        "
+                      >
+                        <ArrowRight size={18} />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Hover Ring */}
+                  {/* Hover Ring */}
 
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    rounded-[40px]
-                    ring-1
-                    ring-transparent
-                    transition-all
-                    duration-500
-                    group-hover:ring-white/20
-                  "
-                />
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      rounded-[40px]
+                      ring-1
+                      ring-transparent
+                      transition-all
+                      duration-500
+                      group-hover:ring-white/20
+                    "
+                  />
+                </Link>
               </motion.article>
             ))}
           </div>

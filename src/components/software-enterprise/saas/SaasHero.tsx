@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import type { SaasHero as SaasHeroData } from "@/data/software-enterprise";
 import { saasIcon } from "./icons";
+import { CheckCircle2, ShieldCheck, Database, Layers } from "lucide-react";
+import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
+import GetQuoteButton from "@/components/shared/GetQuoteButton";
 
 /**
  * Hero for the SaaS-style Software & Enterprise layout. Copy, bullets and CTAs
@@ -102,26 +104,8 @@ export default function SaasHero({ data }: { data: SaasHeroData }) {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-10 flex flex-wrap gap-5 w-full sm:w-auto"
             >
-              <Link
-                href={data.primaryCta.href}
-                className="group relative inline-flex items-center gap-2.5 rounded-full bg-blue-600 px-7 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-[0_10px_25px_rgba(37,99,235,0.25)] transition-all duration-300 hover:bg-blue-700 hover:shadow-[0_12px_30px_rgba(37,99,235,0.35)] hover:scale-[1.02] overflow-hidden"
-              >
-                <span className="absolute inset-0 w-[40px] h-full bg-white/20 skew-x-[-20deg] translate-x-[-100px] group-hover:translate-x-[350px] transition-transform duration-[1200ms] ease-out pointer-events-none" />
-                <span>{data.primaryCta.label}</span>
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20">
-                  <ArrowRight className="h-3 w-3 text-white group-hover:translate-x-0.5 transition-transform duration-300" />
-                </span>
-              </Link>
-
-              <Link
-                href={data.secondaryCta.href}
-                className="group inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 transition-colors duration-300 hover:text-blue-600"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-xs transition-all duration-300 group-hover:border-blue-200 group-hover:bg-blue-50/50 group-hover:scale-105">
-                  <Play className="h-3.5 w-3.5 fill-current text-slate-500 group-hover:text-blue-600 ml-0.5 transition-colors" />
-                </span>
-                <span>{data.secondaryCta.label}</span>
-              </Link>
+              <DiscussProjectButton />
+              <GetQuoteButton />
             </motion.div>
           </div>
 
