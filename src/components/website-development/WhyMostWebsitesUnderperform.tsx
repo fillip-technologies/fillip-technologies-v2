@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Rocket,
   Target,
@@ -117,10 +118,13 @@ export default function WhyWebsitesUnderperform({
               {data.secondaryDescription}
             </p>
 
-            <button className="group mt-8 inline-flex items-center gap-2 font-semibold text-[var(--primary)] transition-all hover:gap-3">
+            <Link
+              href="/case-studies"
+              className="group mt-8 inline-flex items-center gap-2 font-semibold text-[var(--primary)] transition-all hover:gap-3"
+            >
               {data.cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </div>
 
           {/* Right Grid */}

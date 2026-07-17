@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, CalendarDays } from "lucide-react";
+import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
+import GetQuoteButton from "@/components/shared/GetQuoteButton";
 
 type IndustryHeroProps = {
   data: {
@@ -66,21 +66,8 @@ export default function IndustryHero({ data }: IndustryHeroProps) {
 
             {/* Buttons */}
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href={data.primaryCta.href}
-                className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700"
-              >
-                {data.primaryCta.label}
-                <ArrowRight size={18} />
-              </Link>
-
-              <Link
-                href={data.secondaryCta.href}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-slate-300"
-              >
-                <CalendarDays size={18} />
-                {data.secondaryCta.label}
-              </Link>
+              <DiscussProjectButton href={data.primaryCta.href} />
+              <GetQuoteButton />
             </div>
 
             {/* Trust Row */}
