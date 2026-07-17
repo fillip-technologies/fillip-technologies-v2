@@ -7,8 +7,8 @@ import { HOME_UNITS, type UnitItem } from "@/data/home/defaults";
 
 // Per-card styling stays code-side and is applied by position.
 const UNIT_STYLES = [
-  { logoSize: "h-12 w-40", plateBg: "bg-gradient-to-br from-purple-100/30 via-indigo-50/20 to-slate-50/40" },
-  { logoSize: "h-16 w-48", plateBg: "bg-gradient-to-br from-cyan-100/30 via-blue-50/20 to-slate-50/40" },
+  { logoSize: "h-12 w-40", plateBg: "bg-gradient-to-br from-purple-100/30 via-indigo-50/20 to-slate-50/40", logoOffset: -50 },
+  { logoSize: "h-16 w-48", plateBg: "bg-gradient-to-br from-cyan-100/30 via-blue-50/20 to-slate-50/40", logoOffset: 0 },
 ];
 
 type UnitOfContent = Partial<{
@@ -31,7 +31,7 @@ export default function UnitOfSection({ content: raw = {} }: { content?: Record<
   const units = items.map((u, i) => ({ ...u, ...UNIT_STYLES[i % UNIT_STYLES.length] }));
 
   return (
-    <section className="py-24 px-6 md:px-12 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden border-t border-slate-100">
+    <section className="pt-0 pb-24 px-6 md:px-12 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden border-t border-slate-100">
       {/* Decorative gradient blobs */}
       <div className="absolute top-[10%] left-[-10%] w-[35rem] h-[35rem] rounded-full bg-gradient-to-tr from-purple-500/10 to-indigo-500/10 blur-3xl pointer-events-none opacity-80" />
       <div className="absolute bottom-[10%] right-[-10%] w-[35rem] h-[35rem] rounded-full bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 blur-3xl pointer-events-none opacity-80" />
@@ -90,7 +90,10 @@ export default function UnitOfSection({ content: raw = {} }: { content?: Record<
                   </div>
 
                   {/* Image */}
-                  <div className={`relative ${unit.logoSize} transition-transform duration-500 group-hover:scale-105`}>
+                  <div
+                    className={`relative ${unit.logoSize} transition-transform duration-500 group-hover:scale-105`}
+                    style={unit.logoOffset ? { top: `${unit.logoOffset}px` } : undefined}
+                  >
                     <Image
                       src={unit.logo}
                       alt={unit.title}
