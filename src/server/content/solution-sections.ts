@@ -13,7 +13,7 @@
  */
 
 import type { SectionSpec } from "./servicepage-sections";
-import { SOLUTION_CONTENT } from "@/data/solutions";
+import { SOLUTION_CONTENT, getSolutionBySlug } from "@/data/solutions";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type AnyRec = Record<string, any>;
@@ -143,15 +143,271 @@ const faqs: SectionSpec = {
     })),
 };
 
+/* -------------------------------------------------------------------------- */
+/* Copy blocks that used to be hardcoded in HardwareSolutionPage. Making them   */
+/* editable is what turns the Solutions templates into FULLY CMS-managed pages. */
+/* Each of these returns a nested object (data.about, data.promise, …) that the */
+/* renderer reads with a built-in fallback.                                     */
+/* -------------------------------------------------------------------------- */
+
+// Built-in defaults — identical to the renderer's original hardcoded copy so an
+// unedited page looks unchanged until an admin touches it.
+const ABOUT_DEFAULT = {
+  heading: "Protecting What\nMatters Most",
+  description:
+    "We deliver intelligent hardware solutions that adapt to your needs and keep your infrastructure dependable every day.",
+  ctaLabel: "Contact Us",
+};
+
+const PROMISE_DEFAULT = {
+  eyebrow: "/ Our Promise",
+  heading: "Smart technology.\nStronger systems.",
+  description:
+    "We combine careful planning, quality hardware, and professional installation to deliver dependable infrastructure for your site.",
+  features: [
+    { title: "Real-time Alerts", description: "Stay informed with timely notifications and updates." },
+    { title: "Mobile Access", description: "Monitor and manage essential systems from anywhere." },
+    { title: "Centralized Access", description: "Keep information, devices, and monitoring easier to manage." },
+  ],
+};
+
+const WHY_DEFAULT = {
+  eyebrow: "/ Why Choose Us",
+  heading: "Security you can trust.\nService you can count on.",
+  benefitDescription:
+    "Practical planning, clean installation, and dependable support for long-term hardware performance.",
+};
+
+const TESTIMONIALS_DESCRIPTION =
+  "Homes, offices, institutions, and businesses rely on Fillip Technologies for dependable hardware planning, installation, and support.";
+
+/** The renderer's original four seeded testimonials (review text keyed to label). */
+function defaultTestimonials(label: string): AnyRec[] {
+  const lower = label.toLowerCase();
+  return [
+    {
+      name: "Amit Kumar",
+      role: "Business Owner",
+      review: `Fillip Technologies planned and installed our ${lower} setup professionally. The system is reliable, clean, and easy for our team to manage.`,
+      image: "",
+    },
+    {
+      name: "Priya Sharma",
+      role: "Operations Manager",
+      review: `Their team understood our site requirements and delivered a practical ${lower} solution with clear handover and support.`,
+      image: "",
+    },
+    {
+      name: "Rahul Verma",
+      role: "Facility Head",
+      review:
+        "The installation quality, documentation, and post-installation support were excellent. We now have much better visibility and control.",
+      image: "",
+    },
+    {
+      name: "Neha Singh",
+      role: "Administrator",
+      review:
+        "The project was completed smoothly and the team explained everything in simple terms. It has made our daily operations easier.",
+      image: "",
+    },
+  ];
+}
+
+const about: SectionSpec = {
+  section: {
+    id: "about",
+    label: "Intro block",
+    description:
+      "The band under the hero: a heading, short paragraph and CTA label (shown beside the first two solution cards).",
+    ready: true,
+    fields: [
+      { name: "heading", label: "Heading", type: "textarea", default: "", help: "Line breaks are preserved." },
+      { name: "description", label: "Description", type: "textarea", default: "" },
+      { name: "ctaLabel", label: "Button label", type: "text", default: "" },
+    ],
+  },
+  flatten: (d) => ({
+    heading: d.heading ?? "",
+    description: d.description ?? "",
+    ctaLabel: d.ctaLabel ?? "",
+  }),
+  unflatten: (f) => ({
+    heading: f.heading ?? "",
+    description: f.description ?? "",
+    ctaLabel: f.ctaLabel ?? "",
+  }),
+};
+
+const promise: SectionSpec = {
+  section: {
+    id: "promise",
+    label: "Our Promise",
+    description: "The “Our Promise” band: eyebrow, heading, intro and the three feature cards.",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "" },
+      { name: "heading", label: "Heading", type: "textarea", default: "", help: "Line breaks are preserved." },
+      { name: "description", label: "Description", type: "textarea", default: "" },
+    ],
+    list: {
+      name: "features",
+      label: "Feature cards",
+      itemNoun: "feature",
+      itemFields: [
+        { name: "title", label: "Title", type: "text" },
+        { name: "description", label: "Description", type: "textarea" },
+      ],
+      default: [],
+    },
+  },
+  flatten: (d) => ({
+    eyebrow: d.eyebrow ?? "",
+    heading: d.heading ?? "",
+    description: d.description ?? "",
+    features: (d.features ?? []).map((c: AnyRec) => ({
+      title: c.title ?? "",
+      description: c.description ?? "",
+    })),
+  }),
+  unflatten: (f) => ({
+    eyebrow: f.eyebrow ?? "",
+    heading: f.heading ?? "",
+    description: f.description ?? "",
+    features: (f.features ?? []).map((c: AnyRec) => ({
+      title: c.title ?? "",
+      description: c.description ?? "",
+    })),
+  }),
+};
+
+const solutionsHeading: SectionSpec = {
+  section: {
+    id: "solutionsHeading",
+    label: "Solutions heading",
+    description: "Eyebrow, heading and intro shown above the full grid of solution cards.",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "" },
+      { name: "heading", label: "Heading", type: "textarea", default: "", help: "Line breaks are preserved." },
+      { name: "description", label: "Description", type: "textarea", default: "" },
+    ],
+  },
+  flatten: (d) => ({
+    eyebrow: d.eyebrow ?? "",
+    heading: d.heading ?? "",
+    description: d.description ?? "",
+  }),
+  unflatten: (f) => ({
+    eyebrow: f.eyebrow ?? "",
+    heading: f.heading ?? "",
+    description: f.description ?? "",
+  }),
+};
+
+const whyChoose: SectionSpec = {
+  section: {
+    id: "whyChoose",
+    label: "Why Choose Us heading",
+    description:
+      "Eyebrow and heading for the benefits band, plus the supporting line shown under each benefit.",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "" },
+      { name: "heading", label: "Heading", type: "textarea", default: "", help: "Line breaks are preserved." },
+      {
+        name: "benefitDescription",
+        label: "Benefit supporting line",
+        type: "textarea",
+        default: "",
+        help: "Shown under every benefit heading.",
+      },
+    ],
+  },
+  flatten: (d) => ({
+    eyebrow: d.eyebrow ?? "",
+    heading: d.heading ?? "",
+    benefitDescription: d.benefitDescription ?? "",
+  }),
+  unflatten: (f) => ({
+    eyebrow: f.eyebrow ?? "",
+    heading: f.heading ?? "",
+    benefitDescription: f.benefitDescription ?? "",
+  }),
+};
+
+const testimonials: SectionSpec = {
+  section: {
+    id: "testimonials",
+    label: "Testimonials",
+    description: "The customer-stories band: badge, title, description and the testimonial cards.",
+    ready: true,
+    fields: [
+      { name: "badge", label: "Badge", type: "text", default: "" },
+      { name: "title", label: "Title", type: "text", default: "" },
+      { name: "description", label: "Description", type: "textarea", default: "" },
+    ],
+    list: {
+      name: "items",
+      label: "Testimonials",
+      itemNoun: "testimonial",
+      itemFields: [
+        { name: "name", label: "Name", type: "text" },
+        { name: "role", label: "Role", type: "text" },
+        { name: "review", label: "Review", type: "textarea" },
+        { name: "image", label: "Photo (optional)", type: "image" },
+      ],
+      default: [],
+    },
+  },
+  flatten: (d) => ({
+    badge: d.badge ?? "",
+    title: d.title ?? "",
+    description: d.description ?? "",
+    items: (d.items ?? []).map((t: AnyRec) => ({
+      name: t.name ?? "",
+      role: t.role ?? "",
+      review: t.review ?? "",
+      image: t.image ?? "",
+    })),
+  }),
+  unflatten: (f) => ({
+    badge: f.badge ?? "",
+    title: f.title ?? "",
+    description: f.description ?? "",
+    items: (f.items ?? []).map((t: AnyRec) => ({
+      name: t.name ?? "",
+      role: t.role ?? "",
+      review: t.review ?? "",
+      image: t.image ?? "",
+    })),
+  }),
+};
+
 export const SOLUTION_SECTION_SPECS: Record<string, SectionSpec> = {
   hero,
+  about,
   solutions,
+  promise,
+  solutionsHeading,
+  whyChoose,
   benefits,
+  testimonials,
   faqs,
 };
 
-// Section order shown on the page + in the admin.
-export const SOLUTION_SECTION_IDS = ["hero", "solutions", "benefits", "faqs"] as const;
+// Section order shown on the page + in the admin (mirrors the page's flow).
+export const SOLUTION_SECTION_IDS = [
+  "hero",
+  "about",
+  "solutions",
+  "promise",
+  "solutionsHeading",
+  "whyChoose",
+  "benefits",
+  "testimonials",
+  "faqs",
+] as const;
 
 export function getSolutionSectionSpec(sectionId: string): SectionSpec | undefined {
   return SOLUTION_SECTION_SPECS[sectionId];
@@ -168,5 +424,31 @@ export function solutionDefault(slug: string, sectionId: string): AnyRec {
   if (sectionId === "solutions") return { solutions: page.solutions ?? [] };
   if (sectionId === "benefits") return { benefits: page.benefits ?? [] };
   if (sectionId === "faqs") return { faqs: page.faqs ?? [] };
+
+  // The copy blocks that used to be hardcoded in the renderer. Seed each with
+  // its built-in default so unedited pages are unchanged; the label-dependent
+  // ones fill in the page's own label.
+  const label = getSolutionBySlug(slug)?.label ?? "";
+  if (sectionId === "about") return { ...ABOUT_DEFAULT };
+  if (sectionId === "promise") {
+    return { ...PROMISE_DEFAULT, features: PROMISE_DEFAULT.features.map((f) => ({ ...f })) };
+  }
+  if (sectionId === "solutionsHeading") {
+    return {
+      eyebrow: "/ Solutions",
+      heading: `${label}\nSolutions We Offer`,
+      description:
+        "Explore practical, scalable hardware solutions designed around your site, users, operations, and security requirements.",
+    };
+  }
+  if (sectionId === "whyChoose") return { ...WHY_DEFAULT };
+  if (sectionId === "testimonials") {
+    return {
+      badge: "Customer Stories",
+      title: `Trusted ${label} Projects`,
+      description: TESTIMONIALS_DESCRIPTION,
+      items: defaultTestimonials(label),
+    };
+  }
   return {};
 }

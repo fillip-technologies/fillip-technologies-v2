@@ -30,6 +30,36 @@ export type HardwareSolutionPage = {
     question: string;
     answer: string;
   }[];
+  // CMS-managed copy blocks for the Solutions renderer. Optional so the seeded
+  // JSON (and any legacy caller) stays valid; the renderer falls back to its
+  // built-in defaults when a block is absent.
+  about?: {
+    heading: string;
+    description: string;
+    ctaLabel: string;
+  };
+  promise?: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    features: { title: string; description: string }[];
+  };
+  solutionsHeading?: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+  };
+  whyChoose?: {
+    eyebrow: string;
+    heading: string;
+    benefitDescription: string;
+  };
+  testimonials?: {
+    badge: string;
+    title: string;
+    description: string;
+    items: { name: string; role: string; review: string; image: string }[];
+  };
 };
 
 export type HardwareSolutionsData = {

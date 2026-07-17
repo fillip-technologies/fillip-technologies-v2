@@ -15,33 +15,79 @@ type HardwareSolutionPageProps = {
   data: HardwareSolutionPageData;
 };
 
+// Position-based icons for the "Our Promise" feature cards (content is CMS-driven,
+// the icon per row is not — extra cards reuse the last icon).
+const PROMISE_ICONS = [Bell, Smartphone, Cloud];
+
 export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps) {
-  const testimonials = [
-    {
-      name: "Amit Kumar",
-      role: "Business Owner",
-      image: "",
-      review: `Fillip Technologies planned and installed our ${data.label.toLowerCase()} setup professionally. The system is reliable, clean, and easy for our team to manage.`,
-    },
-    {
-      name: "Priya Sharma",
-      role: "Operations Manager",
-      image: "",
-      review: `Their team understood our site requirements and delivered a practical ${data.label.toLowerCase()} solution with clear handover and support.`,
-    },
-    {
-      name: "Rahul Verma",
-      role: "Facility Head",
-      image: "",
-      review: "The installation quality, documentation, and post-installation support were excellent. We now have much better visibility and control.",
-    },
-    {
-      name: "Neha Singh",
-      role: "Administrator",
-      image: "",
-      review: "The project was completed smoothly and the team explained everything in simple terms. It has made our daily operations easier.",
-    },
-  ];
+  const label = data.label;
+  const lower = label.toLowerCase();
+
+  // Each copy block falls back to the original hardcoded text so hardware pages
+  // (and any un-migrated seed) render exactly as before.
+  const about = data.about ?? {
+    heading: "Protecting What\nMatters Most",
+    description:
+      "We deliver intelligent hardware solutions that adapt to your needs and keep your infrastructure dependable every day.",
+    ctaLabel: "Contact Us",
+  };
+
+  const promise = data.promise ?? {
+    eyebrow: "/ Our Promise",
+    heading: "Smart technology.\nStronger systems.",
+    description:
+      "We combine careful planning, quality hardware, and professional installation to deliver dependable infrastructure for your site.",
+    features: [
+      { title: "Real-time Alerts", description: "Stay informed with timely notifications and updates." },
+      { title: "Mobile Access", description: "Monitor and manage essential systems from anywhere." },
+      { title: "Centralized Access", description: "Keep information, devices, and monitoring easier to manage." },
+    ],
+  };
+
+  const solutionsHeading = data.solutionsHeading ?? {
+    eyebrow: "/ Solutions",
+    heading: `${label}\nSolutions We Offer`,
+    description:
+      "Explore practical, scalable hardware solutions designed around your site, users, operations, and security requirements.",
+  };
+
+  const whyChoose = data.whyChoose ?? {
+    eyebrow: "/ Why Choose Us",
+    heading: "Security you can trust.\nService you can count on.",
+    benefitDescription:
+      "Practical planning, clean installation, and dependable support for long-term hardware performance.",
+  };
+
+  const testimonialsBlock = data.testimonials;
+  const testimonials =
+    testimonialsBlock?.items && testimonialsBlock.items.length > 0
+      ? testimonialsBlock.items
+      : [
+          {
+            name: "Amit Kumar",
+            role: "Business Owner",
+            image: "",
+            review: `Fillip Technologies planned and installed our ${lower} setup professionally. The system is reliable, clean, and easy for our team to manage.`,
+          },
+          {
+            name: "Priya Sharma",
+            role: "Operations Manager",
+            image: "",
+            review: `Their team understood our site requirements and delivered a practical ${lower} solution with clear handover and support.`,
+          },
+          {
+            name: "Rahul Verma",
+            role: "Facility Head",
+            image: "",
+            review: "The installation quality, documentation, and post-installation support were excellent. We now have much better visibility and control.",
+          },
+          {
+            name: "Neha Singh",
+            role: "Administrator",
+            image: "",
+            review: "The project was completed smoothly and the team explained everything in simple terms. It has made our daily operations easier.",
+          },
+        ];
 
   return (
     <main className="overflow-hidden bg-white text-slate-950">
@@ -95,22 +141,19 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
                 <span className="text-xs font-bold text-slate-300">02 03</span>
               </div>
 
-              <h2 className="text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
-                Protecting What
-                <br />
-                Matters Most
+              <h2 className="whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
+                {about.heading}
               </h2>
 
               <p className="mt-6 max-w-xs text-sm leading-7 text-slate-500">
-                We deliver intelligent hardware solutions that adapt to your
-                needs and keep your infrastructure dependable every day.
+                {about.description}
               </p>
 
               <Link
                 href="/contact"
                 className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#071126] px-6 py-4 text-sm font-bold text-white shadow-[0_18px_38px_rgba(2,8,23,0.18)] transition hover:-translate-y-1 hover:bg-sky-700"
               >
-                Contact Us
+                {about.ctaLabel}
                 <ArrowRight className="size-4" />
               </Link>
             </div>
@@ -159,15 +202,12 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
       <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
         <div className="container mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1fr_1.08fr_1fr] lg:gap-16">
           <div className="max-w-md">
-            <p className="text-sm font-bold text-slate-500">/ Our Promise</p>
-            <h2 className="mt-6 text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
-              Smart technology.
-              <br />
-              Stronger systems.
+            <p className="text-sm font-bold text-slate-500">{promise.eyebrow}</p>
+            <h2 className="mt-6 whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
+              {promise.heading}
             </h2>
             <p className="mt-8 max-w-sm text-sm leading-7 text-slate-500">
-              We combine careful planning, quality hardware, and professional
-              installation to deliver dependable infrastructure for your site.
+              {promise.description}
             </p>
           </div>
 
@@ -186,27 +226,11 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
           </div>
 
           <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-1">
-            {[
-              {
-                icon: Bell,
-                title: "Real-time Alerts",
-                description: "Stay informed with timely notifications and updates.",
-              },
-              {
-                icon: Smartphone,
-                title: "Mobile Access",
-                description: "Monitor and manage essential systems from anywhere.",
-              },
-              {
-                icon: Cloud,
-                title: "Centralized Access",
-                description: "Keep information, devices, and monitoring easier to manage.",
-              },
-            ].map((feature) => {
-              const IconComp = feature.icon;
+            {promise.features.map((feature, index) => {
+              const IconComp = PROMISE_ICONS[index] ?? PROMISE_ICONS[PROMISE_ICONS.length - 1];
 
               return (
-                <div key={feature.title} className="flex gap-5">
+                <div key={`${feature.title}-${index}`} className="flex gap-5">
                   <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-slate-950 ring-1 ring-slate-100">
                     <IconComp className="size-6" />
                   </div>
@@ -227,16 +251,13 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
         <div className="container mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
             <div>
-              <p className="text-sm font-bold text-slate-500">/ Solutions</p>
-              <h2 className="mt-6 max-w-2xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
-                {data.label}
-                <br />
-                Solutions We Offer
+              <p className="text-sm font-bold text-slate-500">{solutionsHeading.eyebrow}</p>
+              <h2 className="mt-6 max-w-2xl whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
+                {solutionsHeading.heading}
               </h2>
             </div>
             <p className="max-w-md text-base leading-8 text-slate-500 lg:pt-12">
-              Explore practical, scalable hardware solutions designed around your
-              site, users, operations, and security requirements.
+              {solutionsHeading.description}
             </p>
           </div>
 
@@ -280,11 +301,9 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
 
       <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
         <div className="container mx-auto max-w-7xl px-6">
-          <p className="text-sm font-bold text-slate-500">/ Why Choose Us</p>
-          <h2 className="mt-6 max-w-2xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
-            Security you can trust.
-            <br />
-            Service you can count on.
+          <p className="text-sm font-bold text-slate-500">{whyChoose.eyebrow}</p>
+          <h2 className="mt-6 max-w-2xl whitespace-pre-line text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
+            {whyChoose.heading}
           </h2>
 
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -295,8 +314,7 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
                 </div>
                 <h3 className="mt-7 text-base font-black">{benefit}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-500">
-                  Practical planning, clean installation, and dependable support
-                  for long-term hardware performance.
+                  {whyChoose.benefitDescription}
                 </p>
               </div>
             ))}
@@ -305,9 +323,12 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
       </section>
 
       <TestimonialsSection
-        badge="Customer Stories"
-        title={`Trusted ${data.label} Projects`}
-        description="Homes, offices, institutions, and businesses rely on Fillip Technologies for dependable hardware planning, installation, and support."
+        badge={testimonialsBlock?.badge || "Customer Stories"}
+        title={testimonialsBlock?.title || `Trusted ${label} Projects`}
+        description={
+          testimonialsBlock?.description ||
+          "Homes, offices, institutions, and businesses rely on Fillip Technologies for dependable hardware planning, installation, and support."
+        }
         testimonials={testimonials}
       />
 
