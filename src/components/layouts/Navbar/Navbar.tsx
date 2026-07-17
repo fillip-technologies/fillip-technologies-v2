@@ -73,7 +73,6 @@ export default function Navbar() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    let removeScrollFallback = () => {};
 
     const ctx = gsap.context(() => {
 
@@ -81,16 +80,9 @@ export default function Navbar() {
         clearProps: "all",
         force3D: true,
       });
-
-      if (window.innerWidth < 1024) {
-        gsap.set(stickyBarRef.current, { clearProps: "transform,opacity,pointerEvents" });
-        return;
-      }
-
       gsap.set(stickyBarRef.current, {
         yPercent: -120,   // starts above viewport (no layout dependency)
         opacity: 0,
-        pointerEvents: "none",
         force3D: true,
       });
 
@@ -108,13 +100,13 @@ export default function Navbar() {
       tl.to(heroLeftRef.current, { x: -140, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
         .to(heroCenterRef.current, { y: -50, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
         .to(heroRightRef.current, { x: 140, opacity: 0, ease: "power2.inOut", duration: 0.55 }, 0)
-        /* Sticky enters at 40% through — slight overlap removes the empty gap */
-        .to(stickyBarRef.current, { yPercent: 0, opacity: 1, pointerEvents: "auto", ease: "power2.out", duration: 0.6 }, 0.4);
+        /* Sticky enters at 40% through â€” slight overlap removes the empty gap */
+        .to(stickyBarRef.current, { yPercent: 0, opacity: 1, ease: "power2.out", duration: 0.6 }, 0.4);
 
       /*
        * Pointer-events: swap at visual midpoint so only
        * the visible navbar receives clicks/taps.
-       * Direct DOM mutation — zero React re-render.
+       * Direct DOM mutation â€” zero React re-render.
        */
       ScrollTrigger.create({
         trigger: document.documentElement,
@@ -125,47 +117,21 @@ export default function Navbar() {
       });
 
       function swapPointerEvents(stickyActive: boolean) {
-        // hero wrapper — we climb up from heroLeftRef
+        // hero wrapper â€” we climb up from heroLeftRef
         const heroWrap = heroLeftRef.current?.closest<HTMLDivElement>("[data-hero-wrap]");
         if (heroWrap) heroWrap.style.pointerEvents = stickyActive ? "none" : "auto";
-        if (stickyBarRef.current) {
-          stickyBarRef.current.style.opacity = stickyActive ? "1" : "0";
-          stickyBarRef.current.style.pointerEvents = stickyActive ? "auto" : "none";
-        }
+        if (stickyBarRef.current) stickyBarRef.current.style.pointerEvents = stickyActive ? "auto" : "none";
       }
-      let fallbackStickyActive = false;
-      const syncStickyFallback = () => {
-        const shouldShowSticky = window.scrollY > 80;
-        if (fallbackStickyActive === shouldShowSticky) return;
-        fallbackStickyActive = shouldShowSticky;
-
-        swapPointerEvents(shouldShowSticky);
-        gsap.to(stickyBarRef.current, {
-          yPercent: shouldShowSticky ? 0 : -120,
-          opacity: shouldShowSticky ? 1 : 0,
-          pointerEvents: shouldShowSticky ? "auto" : "none",
-          ease: shouldShowSticky ? "power2.out" : "power2.inOut",
-          duration: shouldShowSticky ? 0.35 : 0.25,
-          overwrite: "auto",
-        });
-      };
-
-      syncStickyFallback();
-      window.addEventListener("scroll", syncStickyFallback, { passive: true });
-      removeScrollFallback = () => window.removeEventListener("scroll", syncStickyFallback);
     });
 
-    return () => {
-      removeScrollFallback();
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
 
   useEffect(() => {
     if (!drawerRef.current || !overlayRef.current) return;
 
-    /* Build timeline once — play / reverse it on toggle */
+    /* Build timeline once â€” play / reverse it on toggle */
     drawerTl.current = gsap.timeline({ paused: true })
       .to(overlayRef.current, { opacity: 1, pointerEvents: "auto", duration: 0.3, ease: "none" }, 0)
       .fromTo(
@@ -270,14 +236,15 @@ export default function Navbar() {
           className="
             absolute top-0 left-0 w-full
             pt-3 px-4
-            pointer-events-auto
-            translate-y-0 opacity-100
+            pointer-events-none
             will-change-transform
-            desktop-sticky-initial-hidden
+            /* Mobile override: always visible, pointer-events on */
+            lg:[pointer-events:none]
+            [pointer-events:auto]
           "
           style={{
-            /* Desktop initial visibility is guarded by CSS until GSAP takes over.
-               Mobile keeps the compact header visible immediately. */
+            /* On mobile the GSAP yPercent:-120 never fires (desktop-only effect),
+               but we also forcibly reset it via CSS so mobile never inherits it. */
           }}
         >
           <div
@@ -289,7 +256,7 @@ export default function Navbar() {
               shadow-[0_6px_32px_color-mix(in_srgb,var(--foreground)_9%,transparent),inset_0_1px_0_color-mix(in_srgb,var(--card)_70%,transparent)]
             "
           >
-            {/* Logo — always left */}
+            {/* Logo â€” always left */}
             <Logo width={150} height={42} />
 
             {/* Desktop centre links */}
