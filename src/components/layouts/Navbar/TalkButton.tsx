@@ -1,5 +1,5 @@
-import { MessageSquare } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 function TalkButton() {
   return (
@@ -13,28 +13,14 @@ function TalkButton() {
         ✧
       </div>
 
-      {/* Border */}
       <div className="animated-border inline-flex rounded-full p-[1px]">
-        <div className="flex items-center rounded-full bg-card">
-          <button
-            className="flex h-11 w-11 items-center justify-center rounded-l-full text-heading transition-colors"
-            aria-label="Chat"
-          >
-            <MessageSquare size={18} />
-          </button>
-
-          <div className="h-5 w-px bg-border" />
-
-          <a
-            href="https://wa.me/911234567890"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-11 w-11 items-center justify-center rounded-r-full text-accent"
-            aria-label="WhatsApp"
-          >
-            <FaWhatsapp size={18} />
-          </a>
-        </div>
+        <Link
+          href="/get-a-quote/requirement"
+          className="group inline-flex h-11 min-w-[154px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-card px-5 text-sm font-semibold text-heading transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+        >
+          <span>Get Proposal</span>
+          <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </Link>
       </div>
     </div>
   );

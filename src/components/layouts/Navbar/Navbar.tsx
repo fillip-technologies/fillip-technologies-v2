@@ -80,9 +80,16 @@ export default function Navbar() {
         clearProps: "all",
         force3D: true,
       });
+
+      if (window.innerWidth < 1024) {
+        gsap.set(stickyBarRef.current, { clearProps: "transform,opacity,pointerEvents" });
+        return;
+      }
+
       gsap.set(stickyBarRef.current, {
         yPercent: -120,   // starts above viewport (no layout dependency)
         opacity: 0,
+        pointerEvents: "none",
         force3D: true,
       });
 
@@ -236,15 +243,14 @@ export default function Navbar() {
           className="
             absolute top-0 left-0 w-full
             pt-3 px-4
-            pointer-events-none
+            pointer-events-auto
+            translate-y-0 opacity-100
             will-change-transform
-            /* Mobile override: always visible, pointer-events on */
-            lg:[pointer-events:none]
-            [pointer-events:auto]
+            desktop-sticky-initial-hidden
           "
           style={{
-            /* On mobile the GSAP yPercent:-120 never fires (desktop-only effect),
-               but we also forcibly reset it via CSS so mobile never inherits it. */
+            /* Desktop initial visibility is guarded by CSS until GSAP takes over.
+               Mobile keeps the compact header visible immediately. */
           }}
         >
           <div
