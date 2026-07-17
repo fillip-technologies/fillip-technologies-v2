@@ -33,8 +33,18 @@ export async function dbConnect(): Promise<typeof mongoose> {
     if (!uri) {
       throw new Error("MONGODB_URI is not set. Add it to .env.local (see .env.example).");
     }
-    // bufferCommands:false surfaces connection errors instead of silently queueing.
-    cache.promise = mongoose.connect(uri, { bufferCommands: false }).then((m) => m);
+    // bufferCommands:false surfaces connection errors instead of silently
+    // queueing. minPoolSize keeps a few sockets warm so parallel queries don't
+    // each pay a fresh TLS handshake to Atlas (the cluster is a long RTT away);
+    // serverSelectionTimeoutMS fails fast instead of hanging ~30s when it's down.
+    cache.promise = mongoose
+      .connect(uri, {
+        bufferCommands: false,
+        minPoolSize: 2,
+        maxPoolSize: 10,
+        serverSelectionTimeoutMS: 8000,
+      })
+      .then((m) => m);
   }
 
   try {

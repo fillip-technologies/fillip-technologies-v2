@@ -7,7 +7,7 @@ import IndustriesImpactSection from "@/components/Home/IndustriesImpactSection";
 import TechnologyEcosystem from "@/components/Home/TechnologyEcosystem";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
-import { getContentData } from "@/server/content/queries";
+import { getContentDataMany } from "@/server/content/queries";
 import { getSection, sectionDefaults } from "@/server/content/home-sections";
 import TrustBar from "@/components/TrustBar/TrustBar";
 import WhyChooseFillip from "@/components/Home/WhyChooseFillip";
@@ -22,46 +22,39 @@ import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
 
 
-// Always render with the latest CMS content. Without this Next can serve a
-// cached static copy, so edits saved in the admin panel wouldn't appear until a
-// rebuild. `saveHomeSection` also calls revalidatePath("/") as a backstop.
-export const dynamic = "force-dynamic";
+// Serve a cached copy and regenerate at most every 5 minutes, so most requests
+// skip the DB entirely. Admin edits still appear promptly: `saveHomeSection`
+// calls revalidatePath("/") on save, which rebuilds this page on demand.
+export const revalidate = 300;
 
-// Load a Home section's saved CMS content (falls back to registry defaults).
-function sectionContent(id: string) {
-  return getContentData(`home.${id}`, sectionDefaults(getSection(id)!));
-}
+const SECTION_IDS = [
+  "hero", "trustedby", "capabilities", "humanai", "industries", "clients",
+  "technology", "testimonials", "needguidance", "clientlistcta", "whychooseus",
+  "casestudies", "unitof",
+] as const;
 
 export default async function HomePage() {
-  const [
-    hero,
-    trustedBy,
-    capabilities,
-    humanai,
-    industries,
-    clients,
-    technology,
-    testimonials,
-    needguidance,
-    clientlistcta,
-    whychooseus,
-    casestudies,
-    unitof,
-  ] = await Promise.all([
-    sectionContent("hero"),
-    sectionContent("trustedby"),
-    sectionContent("capabilities"),
-    sectionContent("humanai"),
-    sectionContent("industries"),
-    sectionContent("clients"),
-    sectionContent("technology"),
-    sectionContent("testimonials"),
-    sectionContent("needguidance"),
-    sectionContent("clientlistcta"),
-    sectionContent("whychooseus"),
-    sectionContent("casestudies"),
-    sectionContent("unitof"),
-  ]);
+  // One batched round trip for all sections instead of 13 separate queries.
+  const sections = await getContentDataMany(
+    SECTION_IDS.map((id) => ({
+      key: `home.${id}`,
+      defaults: sectionDefaults(getSection(id)!),
+    }))
+  );
+  const s = (id: (typeof SECTION_IDS)[number]) => sections[`home.${id}`];
+  const hero = s("hero");
+  const trustedBy = s("trustedby");
+  const capabilities = s("capabilities");
+  const humanai = s("humanai");
+  const industries = s("industries");
+  const clients = s("clients");
+  const technology = s("technology");
+  const testimonials = s("testimonials");
+  const needguidance = s("needguidance");
+  const clientlistcta = s("clientlistcta");
+  const whychooseus = s("whychooseus");
+  const casestudies = s("casestudies");
+  const unitof = s("unitof");
 
   return (
     <>

@@ -88,6 +88,23 @@ async function readFromDisk(cacheKey: string): Promise<unknown | undefined> {
   }
 }
 
+/**
+ * Read a cached value through the fallback tiers (memory -> runtime disk ->
+ * build seed). Returns `{ hit: false }` when no tier has the key.
+ */
+async function readTiers(cacheKey: string): Promise<{ hit: boolean; raw?: unknown }> {
+  if (store.memory.has(cacheKey)) return { hit: true, raw: store.memory.get(cacheKey) };
+  const fromDisk = await readFromDisk(cacheKey);
+  if (fromDisk !== undefined) {
+    store.memory.set(cacheKey, fromDisk); // warm memory for next time
+    return { hit: true, raw: fromDisk };
+  }
+  if (Object.prototype.hasOwnProperty.call(seed, cacheKey)) {
+    return { hit: true, raw: seed[cacheKey] };
+  }
+  return { hit: false };
+}
+
 /** Log a DB-down fallback at most once per minute per key. */
 function logFallbackOnce(cacheKey: string, err: unknown): void {
   const now = Date.now();
@@ -117,19 +134,45 @@ export async function snapshotRead<T>(
     return value;
   } catch (err) {
     logFallbackOnce(cacheKey, err);
+    const tier = await readTiers(cacheKey);
+    return tier.hit ? deserialize(tier.raw) : fallback;
+  }
+}
 
-    if (store.memory.has(cacheKey)) {
-      return deserialize(store.memory.get(cacheKey));
+/**
+ * Batch variant of {@link snapshotRead}. `loader` runs the DB read for *all*
+ * keys at once (e.g. a single `find({ key: { $in } })`) and returns a Map keyed
+ * by `cacheKey`. Each key is recorded individually so per-key fallback still
+ * works. On a DB failure every key falls back through its own snapshot tiers.
+ *
+ * This collapses a fan-out of N per-item queries into one round trip while
+ * keeping the same resilience as N separate `snapshotRead` calls.
+ */
+export async function snapshotReadMany<T>(
+  entries: Array<{ cacheKey: string; fallback: T }>,
+  loader: () => Promise<Map<string, T>>,
+  opts?: SnapshotOptions<T>
+): Promise<Map<string, T>> {
+  const serialize = opts?.serialize ?? ((v: T) => v as unknown);
+  const deserialize = opts?.deserialize ?? ((r: unknown) => r as T);
+
+  try {
+    const values = await loader();
+    const out = new Map<string, T>();
+    for (const { cacheKey, fallback } of entries) {
+      const value = values.has(cacheKey) ? (values.get(cacheKey) as T) : fallback;
+      record(cacheKey, serialize(value));
+      out.set(cacheKey, value);
     }
-    const fromDisk = await readFromDisk(cacheKey);
-    if (fromDisk !== undefined) {
-      store.memory.set(cacheKey, fromDisk); // warm memory for next time
-      return deserialize(fromDisk);
+    return out;
+  } catch (err) {
+    logFallbackOnce(entries[0]?.cacheKey ?? "batch", err);
+    const out = new Map<string, T>();
+    for (const { cacheKey, fallback } of entries) {
+      const tier = await readTiers(cacheKey);
+      out.set(cacheKey, tier.hit ? deserialize(tier.raw) : fallback);
     }
-    if (Object.prototype.hasOwnProperty.call(seed, cacheKey)) {
-      return deserialize(seed[cacheKey]);
-    }
-    return fallback;
+    return out;
   }
 }
 

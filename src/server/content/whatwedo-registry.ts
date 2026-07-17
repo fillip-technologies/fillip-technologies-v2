@@ -4,7 +4,7 @@ import { dbConnect } from "@/lib/db";
 import { ServiceCategoryModel, SiteContentModel } from "@/server/db/models";
 import { WHAT_WE_DO_ITEMS_BY_SLUG } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
-import { snapshotRead } from "./snapshot-cache";
+import { snapshotRead, snapshotReadMany } from "./snapshot-cache";
 import { SERVICE_TEMPLATES } from "./servicepage-templates";
 
 // URL prefixes owned by the Service Pages CMS. A sub-link under one of these is
@@ -97,6 +97,35 @@ export async function getCategory(slug: string): Promise<Category | null> {
 
 /** site_content key holding a category's mega-menu sub-links. */
 export const menuLinksKey = (slug: string) => `whatwedo.${slug}.menuLinks`;
+/** Snapshot cache key for a category's menu links. */
+const menuLinksCacheKey = (slug: string) => `menulinks:${slug}`;
+
+/** Normalise a saved `items` array from site_content into MegaMenuItems. */
+function parseSavedItems(saved: unknown): MegaMenuItem[] {
+  if (!Array.isArray(saved)) return [];
+  return saved
+    .map((i) => {
+      const it = (i ?? {}) as Record<string, unknown>;
+      const label = String(it.label ?? "").trim();
+      const href = String(it.href ?? "").trim();
+      return href ? { label, href } : { label };
+    })
+    .filter((i) => i.label);
+}
+
+/** Saved links for a slug, or the curated static default when nothing is saved. */
+function menuLinksFromRow(slug: string, rowData: unknown): MegaMenuItem[] {
+  const saved = (rowData as { items?: unknown } | undefined)?.items;
+  if (Array.isArray(saved)) return parseSavedItems(saved);
+  return WHAT_WE_DO_ITEMS_BY_SLUG[slug] ?? [];
+}
+
+/** Drop sub-links pointing at an unpublished/deleted service page. */
+function filterPublicLinks(items: MegaMenuItem[], publishedHrefs: Set<string>): MegaMenuItem[] {
+  return items.filter(
+    (i) => !i.href || !isManagedServiceHref(i.href) || publishedHrefs.has(i.href)
+  );
+}
 
 /**
  * The mega-menu sub-links shown under a category's header. Admin-saved links win;
@@ -107,25 +136,44 @@ export const menuLinksKey = (slug: string) => `whatwedo.${slug}.menuLinks`;
 export async function getCategoryMenuLinks(slug: string): Promise<MegaMenuItem[]> {
   const staticDefault = WHAT_WE_DO_ITEMS_BY_SLUG[slug] ?? [];
   return snapshotRead(
-    `menulinks:${slug}`,
+    menuLinksCacheKey(slug),
     async () => {
       await dbConnect();
       const row = await SiteContentModel.findOne({ key: menuLinksKey(slug) }).lean();
-      const saved = (row?.data as { items?: unknown } | undefined)?.items;
-      if (Array.isArray(saved)) {
-        return saved
-          .map((i) => {
-            const it = (i ?? {}) as Record<string, unknown>;
-            const label = String(it.label ?? "").trim();
-            const href = String(it.href ?? "").trim();
-            return href ? { label, href } : { label };
-          })
-          .filter((i) => i.label);
-      }
-      return staticDefault;
+      return menuLinksFromRow(slug, row?.data);
     },
     staticDefault
   );
+}
+
+/**
+ * Batched form of {@link getCategoryMenuLinks}: fetch the menu links for many
+ * categories in a single `find({ key: { $in } })` instead of one query per
+ * category. Returns a Map keyed by slug. Used by the nav API routes so opening a
+ * mega-menu costs one round trip, not one per column.
+ */
+export async function getCategoryMenuLinksBatch(
+  slugs: string[]
+): Promise<Map<string, MegaMenuItem[]>> {
+  const entries = slugs.map((slug) => ({
+    cacheKey: menuLinksCacheKey(slug),
+    fallback: WHAT_WE_DO_ITEMS_BY_SLUG[slug] ?? [],
+  }));
+
+  const cached = await snapshotReadMany<MegaMenuItem[]>(entries, async () => {
+    await dbConnect();
+    const rows = await SiteContentModel.find({
+      key: { $in: slugs.map(menuLinksKey) },
+    }).lean();
+    const byKey = new Map(rows.map((r) => [r.key, r.data]));
+    const out = new Map<string, MegaMenuItem[]>();
+    for (const slug of slugs) {
+      out.set(menuLinksCacheKey(slug), menuLinksFromRow(slug, byKey.get(menuLinksKey(slug))));
+    }
+    return out;
+  });
+
+  return new Map(slugs.map((slug) => [slug, cached.get(menuLinksCacheKey(slug)) ?? []]));
 }
 
 /**
@@ -139,10 +187,19 @@ export async function getPublicCategoryMenuLinks(
   slug: string,
   publishedHrefs: Set<string>
 ): Promise<MegaMenuItem[]> {
-  const items = await getCategoryMenuLinks(slug);
-  return items.filter(
-    (i) => !i.href || !isManagedServiceHref(i.href) || publishedHrefs.has(i.href)
-  );
+  return filterPublicLinks(await getCategoryMenuLinks(slug), publishedHrefs);
+}
+
+/**
+ * Batched public menu links for several categories at once — one DB round trip
+ * for all of them. Returns a Map keyed by slug.
+ */
+export async function getPublicCategoryMenuLinksBatch(
+  slugs: string[],
+  publishedHrefs: Set<string>
+): Promise<Map<string, MegaMenuItem[]>> {
+  const raw = await getCategoryMenuLinksBatch(slugs);
+  return new Map(slugs.map((slug) => [slug, filterPublicLinks(raw.get(slug) ?? [], publishedHrefs)]));
 }
 
 /**

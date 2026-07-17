@@ -1,6 +1,6 @@
 import { dbConnect } from "@/lib/db";
 import { SiteContentModel } from "@/server/db/models";
-import { primeMergeSnapshot, snapshotRead } from "./snapshot-cache";
+import { primeMergeSnapshot, snapshotRead, snapshotReadMany } from "./snapshot-cache";
 
 /** Snapshot cache key for a site_content row. */
 const contentKey = (key: string) => `content:${key}`;
@@ -26,6 +26,34 @@ export async function getContentData<T extends Record<string, unknown>>(
     },
     defaults
   );
+}
+
+/**
+ * Batched form of {@link getContentData}: fetch many content rows in a single
+ * `find({ key: { $in } })` instead of one round trip per key. Returns a record
+ * keyed by the original `key`, each merged over its defaults. Use this when a
+ * page needs several sections at once (e.g. the Home page's 13 sections) so it
+ * pays one DB round trip instead of N.
+ */
+export async function getContentDataMany(
+  specs: Array<{ key: string; defaults: Record<string, unknown> }>
+): Promise<Record<string, Record<string, unknown>>> {
+  const entries = specs.map((s) => ({ cacheKey: contentKey(s.key), fallback: s.defaults }));
+
+  const map = await snapshotReadMany<Record<string, unknown>>(entries, async () => {
+    await dbConnect();
+    const rows = await SiteContentModel.find({ key: { $in: specs.map((s) => s.key) } }).lean();
+    const byKey = new Map(rows.map((r) => [r.key, (r.data as Record<string, unknown>) ?? {}]));
+    const out = new Map<string, Record<string, unknown>>();
+    for (const { key, defaults } of specs) {
+      out.set(contentKey(key), { ...defaults, ...(byKey.get(key) ?? {}) });
+    }
+    return out;
+  });
+
+  const result: Record<string, Record<string, unknown>> = {};
+  for (const { key } of specs) result[key] = map.get(contentKey(key))!;
+  return result;
 }
 
 /** Insert or update a content row's JSON payload. */
