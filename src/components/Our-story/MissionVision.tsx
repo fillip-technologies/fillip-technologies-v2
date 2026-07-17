@@ -24,17 +24,21 @@ const ceo = {
     "Fillip Technologies was built with a simple belief: technology should make businesses clearer, faster, and more capable. Every solution we deliver carries our promise of discipline, transparency, and meaningful digital impact for the businesses we serve.",
 };
 
-const teamMembers: Array<{ name: string; role: string; image?: string }> = [
+const teamMembers: Array<{ name: string; role: string; image?: string; imagePosition?: string }> = [
   { name: "Risabh Choubey", role: "Account Manager" },
-  { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-singh.png" },
+  { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-sinha.jpeg" },
   { name: "Payal Kumari", role: "Digital Marketing Head", image: "/images/team/Payal.jpeg" },
   { name: "Shruti Chouhan", role: "Software Development Engineer II", image: "/images/team/shruti-singh.png" },
   { name: "Abhishek Prajapati", role: "Backend Developer", image: "/images/team/ABHISHEK.jpeg" },
-  { name: "Prince Raj", role: "Associate Software Developer", image: "/images/team/prince-kumar.png" },
-  { name: "Govind Kumar", role: "Associate Software Developer", image: "/images/team/Govind-Kumar.png" },
+  { name: "Prince Raj", role: "Associate Software Developer", image: "/images/team/prince-kumar.png", imagePosition: "object-[50%_18%]" },
+  { name: "Govind Kumar", role: "Associate Software Developer", image: "/images/team/Govind-Kumar.png", imagePosition: "object-[50%_18%]" },
   { name: "Aman Sharma", role: "Digital Marketing Executive" },
   { name: "Mukta Trivedy", role: "UI Designer", image: "/images/team/mukta-trivedy.png" },
-  { name: "Wagish Karna", role: "Content Writer" },
+  { name: "Wagish Karna", role: "Content Writer", image: "/images/team/wagish-karna.jpeg", imagePosition: "object-[50%_18%]" },
+  { name: "Khushi Bharti", role: "HR Generalist" },
+  { name: "Lincy Bhardwaj", role: "HR Executive" },
+  { name: "Anushka Raj", role: "BDE" },
+  
 ];
 
 export default function MissionVision({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -218,7 +222,7 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
                           alt={member.name}
                           fill
                           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                          className="object-cover transition duration-500 group-hover:scale-105"
+                          className={`object-cover ${member.imagePosition ?? ""}`}
                         />
                         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent" />
                       </>
