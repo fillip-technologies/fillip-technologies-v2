@@ -57,12 +57,12 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
 
   return (
     <section className="relative overflow-hidden border-t border-border bg-surface py-24 pb-32 text-heading">
-      
+
       {/* Decorative Book Page corner folds backgrounds */}
       <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-48 w-48 bg-gradient-to-tl from-primary/10 to-transparent" />
 
       <div className="container mx-auto max-w-5xl px-6 relative z-10">
-        
+
         {/* Afterword Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
@@ -76,7 +76,7 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
 
         {/* 3-Column Ledger Grid */}
         <div className="grid grid-cols-1 items-stretch gap-10 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
-          
+
           {/* Mission Column */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
