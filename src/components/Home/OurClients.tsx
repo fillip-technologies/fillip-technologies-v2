@@ -286,10 +286,10 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
   // to the code-derived wall if the list is somehow empty.
   const clientLogosData = content.logos?.length
     ? content.logos.map((l) => ({
-        src: l.image,
-        alt: l.alt,
-        categories: (l.categories || "").split(",").map((s) => s.trim()).filter(Boolean),
-      }))
+      src: l.image,
+      alt: l.alt,
+      categories: (l.categories || "").split(",").map((s) => s.trim()).filter(Boolean),
+    }))
     : clientLogos;
 
   // Filter logos based on activeCategory
