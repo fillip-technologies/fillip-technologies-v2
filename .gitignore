@@ -45,3 +45,7 @@ next-env.d.ts
 
 # CMS-uploaded images
 /public/uploads/
+
+# runtime "last-known-good" content cache (the committed seed is
+# src/data/content-snapshot.json; this dir is per-host and disposable)
+/.content-snapshot/

@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/snapshot-content.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "snapshot": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/snapshot-content.mjs",
     "db:migrate": "node --env-file-if-exists=.env --env-file-if-exists=.env.local src/server/db/migrate.ts"
   },
   "dependencies": {

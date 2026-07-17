@@ -1,0 +1,3615 @@
+{
+  "content:nav.about": {
+    "items": [
+      {
+        "label": "Our Story",
+        "href": "/our-story"
+      },
+      {
+        "label": "Portfolio",
+        "href": "/portfolio"
+      },
+      {
+        "label": "Our Culture",
+        "href": "/our-culture"
+      }
+    ]
+  },
+  "content:home.testimonials": {
+    "badge": "Google Business Profile",
+    "rating": "4.8",
+    "eyebrow": "CLIENT TESTIMONIALS",
+    "description": "Trusted by businesses, organizations, and institutions across industries. Every review reflects real-world impact and measurable results.",
+    "ratingLabel": "Google Rating",
+    "reviewCount": "137+",
+    "reviewQuote": "I had an amazing experience with Fillip Technologies. Their approach was professional, transparent, and result-driven. The team helped us establish a stronger digital presence and execute solutions faster than expected.",
+    "reviewTitle": "Highly Recommended!",
+    "headingLine1": "Real Reviews",
+    "headingLine2": "Real Business Outcomes",
+    "reviewAuthor": "Sameer Verma",
+    "reviewCountLabel": "Verified Reviews",
+    "reviewAuthorLabel": "Google Review"
+  },
+  "content:home.hero": {
+    "eyebrow": "HUMAN x INTELLIGENCE",
+    "headingLine1": "Powering the Next",
+    "headingLine2": "Generation of Busines",
+    "description": "Being the best digital marketing company, we combine human innovation and artificial intelligence to transform businesses with Smart Digital Experiences",
+    "primaryCtaLabel": "Talk to Experts",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Get Quote",
+    "secondaryCtaHref": "/get-a-quote",
+    "heroImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192751/fillip/uploads/ky89g4qjmqjxt4xj7dgt.png"
+  },
+  "content:home.trustedby": {
+    "headingLead": "The Future Isn't AI",
+    "headingHighlight": "It's Human + AI",
+    "description": "Fillip Technologies, the best digital marketing company, empowers everything through innovative approaches. Now, we are integrating technology, creativity, and strategy to help businesses flourish in the digital landscape with quantifiable growth.",
+    "stat1Value": "3K+",
+    "stat1Label": "Clients Worldwide",
+    "stat2Value": "5K+",
+    "stat2Label": "Customer Satisfaction",
+    "stat3Value": "13+",
+    "stat3Label": "Years Experience",
+    "ratingValue": "4.9/5",
+    "ratingLabel": "Average Rating",
+    "trustedLabel": "Trusted By Businesses Across Industries"
+  },
+  "content:home.humanai": {
+    "eyebrow": "HUMAN x INTELLIGENCE",
+    "heading": "How We Work Today",
+    "description": "More Than A Company, We Are Your Growth Partner. We support every project with proper research, planning, and business-oriented implementation. By merging human creativity with AI, we accelerate task execution and ultimately drive successful outcomes.",
+    "beforeLabel": "Before",
+    "afterLabel": "Today",
+    "footer": "The future isn't Human or AI. It's Human × Intelligence.",
+    "rows": [
+      {
+        "before": "Manual Processes",
+        "after": "Intelligent Automation"
+      },
+      {
+        "before": "Slow Decision Making",
+        "after": "Real-Time Insights"
+      },
+      {
+        "before": "Repetitive Tasks",
+        "after": "Faster Execution"
+      },
+      {
+        "before": "Disconnected Data",
+        "after": "Connected Intelligence"
+      },
+      {
+        "before": "Human Effort",
+        "after": "Human + AI Collaboration"
+      }
+    ]
+  },
+  "content:whatwedo.web-development.menuLinks": {
+    "items": [
+      {
+        "label": "Custom Website Development",
+        "href": "/services/website-development"
+      },
+      {
+        "label": "E-Commerce Development",
+        "href": "/services/ecommerce-development"
+      },
+      {
+        "label": "WordPress Development",
+        "href": "/services/wordpress-development"
+      },
+      {
+        "label": "Web Application Development",
+        "href": "/services/web-application-development"
+      },
+      {
+        "label": "Website Redesign",
+        "href": "/services/website-redesign"
+      },
+      {
+        "label": "Website Maintenance",
+        "href": "/services/website-maintenance"
+      }
+    ]
+  },
+  "content:whatwedo.business-solutions.menuLinks": {
+    "items": [
+      {
+        "label": "Ticket Booking Solution",
+        "href": "/solutions/ticket-booking"
+      },
+      {
+        "label": "SMS Communication Solution",
+        "href": "/solutions/sms-communication"
+      },
+      {
+        "label": "WhatsApp Business Solution",
+        "href": "/solutions/whatsapp-business"
+      }
+    ]
+  },
+  "content:whatwedo.hardware-solutions.menuLinks": {
+    "items": [
+      {
+        "label": "Security Surveillance",
+        "href": "/hardware-solutions/security-surveillance"
+      },
+      {
+        "label": "Fiber Optic Connectivity",
+        "href": "/hardware-solutions/fiber-optic-connectivity"
+      },
+      {
+        "label": "Local Area Network",
+        "href": "/hardware-solutions/local-area-network"
+      },
+      {
+        "label": "Control Room",
+        "href": "/hardware-solutions/control-room"
+      },
+      {
+        "label": "Networking",
+        "href": "/hardware-solutions/networking"
+      },
+      {
+        "label": "Server Solutions",
+        "href": "/hardware-solutions/server-solutions"
+      },
+      {
+        "label": "Wide Area Network",
+        "href": "/hardware-solutions/wide-area-network"
+      },
+      {
+        "label": "System Integration",
+        "href": "/hardware-solutions/system-integration"
+      },
+      {
+        "label": "IT Infrastructure",
+        "href": "/hardware-solutions/it-infrastructure"
+      },
+      {
+        "label": "GPS Solution",
+        "href": "/hardware-solutions/gps-solution"
+      }
+    ]
+  },
+  "content:industry.education.hero": {
+    "eyebrow": "Healthcare Digital Growth System",
+    "titleLine1": "Grow Your",
+    "titleLine2": "Education Brand.",
+    "highlightedTitle": "Enroll More Students.",
+    "description": "We help schools, colleges, coaching institutes, and edtech brands increase visibility, build parent and student trust, and generate more admission enquiries.",
+    "primaryCtaLabel": "Get Free Growth Audit",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Book Strategy Call",
+    "secondaryCtaHref": "/contact",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": "Education Industry",
+    "trustItems": [
+      {
+        "label": "Education Website Design"
+      },
+      {
+        "label": "Admission SEO"
+      },
+      {
+        "label": "Lead Generation"
+      }
+    ]
+  },
+  "content:industry.retail.hero": {
+    "eyebrow": "Healthcare Digital Growth System",
+    "titleLine1": "Grow Your",
+    "titleLine2": "Retail Brand.",
+    "highlightedTitle": "Sell More Online.",
+    "description": "We help retail brands, stores, and ecommerce businesses improve product discovery, increase customer trust, and convert more shoppers across digital channels.",
+    "primaryCtaLabel": "Get Free Growth Audit",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Book Strategy Call",
+    "secondaryCtaHref": "/contact",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200732/fillip/uploads/y6hn3jkstxe93lm8sliu.png",
+    "imageAlt": "Retail Industry",
+    "trustItems": [
+      {
+        "label": "Retail Website Design"
+      },
+      {
+        "label": "Ecommerce SEO"
+      },
+      {
+        "label": "Performance Marketing"
+      }
+    ]
+  },
+  "content:industry.real-estate.hero": {
+    "eyebrow": "Healthcare Digital Growth System",
+    "titleLine1": "Grow Your",
+    "titleLine2": "Real Estate Brand.",
+    "highlightedTitle": "Generate More Leads.",
+    "description": "We help real estate developers, brokers, consultants, and property brands improve project visibility, build buyer trust, and generate qualified property enquiries.",
+    "primaryCtaLabel": "Get Free Growth Audit",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Book Strategy Call",
+    "secondaryCtaHref": "/contact",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": "Real Estate Industry",
+    "trustItems": [
+      {
+        "label": "Real Estate Website Design"
+      },
+      {
+        "label": "Property SEO"
+      },
+      {
+        "label": "Lead Campaigns"
+      }
+    ]
+  },
+  "content:industry.logistics.hero": {
+    "eyebrow": "Healthcare Digital Growth System",
+    "titleLine1": "Grow Your",
+    "titleLine2": "Logistics Brand.",
+    "highlightedTitle": "Move More Business.",
+    "description": "We help logistics, transport, warehousing, and supply chain companies improve visibility, communicate reliability, and generate more B2B enquiries.",
+    "primaryCtaLabel": "Get Free Growth Audit",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Book Strategy Call",
+    "secondaryCtaHref": "/contact",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": "Logistics Industry",
+    "trustItems": [
+      {
+        "label": "Logistics Website Design"
+      },
+      {
+        "label": "B2B SEO"
+      },
+      {
+        "label": "Lead Generation"
+      }
+    ]
+  },
+  "content:home.capabilities": {
+    "headingLine1": "Everything You Need to Build",
+    "headingLine2": "Automate & Scale",
+    "description": "We offer a wide array of digital solutions across the globe, helping businesses receive a one-stop solution under one roof. Count on us for the best digital marketing company as we help businesses launch, automate, and scale.",
+    "backgroundImage": "/images/capabilities-background.png",
+    "services": [
+      {
+        "category": "Web Development",
+        "title": "Custom Website Development",
+        "description": "Conversion-focused websites built for performance, trust, speed, and long-term growth.",
+        "icon": "Globe",
+        "image": "/images/FT-web-1.png"
+      },
+      {
+        "category": "Web Development",
+        "title": "E-Commerce Development",
+        "description": "Modern online stores with smooth product journeys, secure checkout, and scalable systems.",
+        "icon": "Box",
+        "image": "/images/FT-web-2.png"
+      },
+      {
+        "category": "Web Development",
+        "title": "WordPress Development",
+        "description": "Premium WordPress websites with easy content control, SEO structure, and fast performance.",
+        "icon": "LayoutPanelTop",
+        "image": "/images/SERVICES/wordpress.jpg"
+      },
+      {
+        "category": "Web Development",
+        "title": "Web Application Development",
+        "description": "Custom web apps designed to simplify operations, manage users, and support business workflows.",
+        "icon": "Code2",
+        "image": "/images/SERVICES/APPLICATION.jpg"
+      },
+      {
+        "category": "Web Development",
+        "title": "Website Redesign",
+        "description": "Transform outdated websites into cleaner, faster, and more conversion-ready digital experiences.",
+        "icon": "RefreshCw",
+        "image": "/images/SERVICES/custom-website.jpg"
+      },
+      {
+        "category": "Web Development",
+        "title": "Website Maintenance",
+        "description": "Reliable support for updates, fixes, security, backups, speed, and long-term website stability.",
+        "icon": "Wrench",
+        "image": "/images/SERVICES/wordpress.jpg"
+      },
+      {
+        "category": "Mobile App Development",
+        "title": "Android App Development",
+        "description": "Reliable Android apps with intuitive UI, strong backend systems, and smooth user experience.",
+        "icon": "Smartphone",
+        "image": "/images/SERVICES/app-development.jpg"
+      },
+      {
+        "category": "Mobile App Development",
+        "title": "iOS App Development",
+        "description": "Premium iOS applications crafted for performance, security, usability, and modern design.",
+        "icon": "BadgeCheck",
+        "image": "/images/SERVICES/ios-app.jpg"
+      },
+      {
+        "category": "Mobile App Development",
+        "title": "Cross-Platform Apps",
+        "description": "Cost-efficient apps for Android and iOS with consistent design and shared development logic.",
+        "icon": "Layers3",
+        "image": "/images/SERVICES/custom-app.jpg"
+      },
+      {
+        "category": "Mobile App Development",
+        "title": "Enterprise Mobile Applications",
+        "description": "Business-grade mobile solutions for teams, workflows, dashboards, and customer operations.",
+        "icon": "Building2",
+        "image": "/images/SERVICES/MOBILE.jpg"
+      },
+      {
+        "category": "Mobile App Development",
+        "title": "On-Demand Service Apps",
+        "description": "Custom platforms for booking, delivery, tracking, service requests, and customer support.",
+        "icon": "Zap",
+        "image": "/images/SERVICES/app-development.jpg"
+      },
+      {
+        "category": "Mobile App Development",
+        "title": "App UI/UX Design",
+        "description": "Clean mobile interfaces designed for usability, engagement, retention, and conversions.",
+        "icon": "Palette",
+        "image": "/images/SERVICES/ui-ux.jpg"
+      },
+      {
+        "category": "Software & Enterprise",
+        "title": "Custom Software Development",
+        "description": "Tailored business software that automates operations, centralizes data, and improves productivity.",
+        "icon": "Database",
+        "image": "/images/SERVICES/SOCIAL.jpg"
+      },
+      {
+        "category": "Software & Enterprise",
+        "title": "CRM Development",
+        "description": "Custom CRM systems to manage leads, clients, follow-ups, sales pipelines, and customer data.",
+        "icon": "Users",
+        "image": "/images/SERVICES/crm-development.jpg"
+      },
+      {
+        "category": "Software & Enterprise",
+        "title": "ERP Solutions",
+        "description": "Integrated ERP systems for inventory, finance, HR, operations, reporting, and workflows.",
+        "icon": "ServerCog",
+        "image": "/images/SERVICES/erp.jpg"
+      },
+      {
+        "category": "Software & Enterprise",
+        "title": "SaaS Product Development",
+        "description": "End-to-end SaaS product engineering from MVP planning to scalable product launch.",
+        "icon": "GitBranch",
+        "image": "/images/SERVICES/enterprise.jpg"
+      },
+      {
+        "category": "Software & Enterprise",
+        "title": "Business Dashboard",
+        "description": "Insightful dashboards that convert business data into reports, visibility, and faster decisions.",
+        "icon": "BarChart3",
+        "image": "/images/SERVICES/enterprise.jpg"
+      },
+      {
+        "category": "Software & Enterprise",
+        "title": "API Integration",
+        "description": "Connect CRMs, payment systems, marketing tools, dashboards, and third-party platforms securely.",
+        "icon": "Code2",
+        "image": "/images/SERVICES/crm-development.jpg"
+      },
+      {
+        "category": "SEO & Performance Marketing",
+        "title": "Technical SEO",
+        "description": "Improve crawlability, indexing, speed, structure, and search visibility with technical precision.",
+        "icon": "Search",
+        "image": "/images/SERVICES/technical-seo.jpg"
+      },
+      {
+        "category": "SEO & Performance Marketing",
+        "title": "Local SEO",
+        "description": "Strengthen Google Business visibility, map rankings, local searches, and location-based leads.",
+        "icon": "MapPin",
+        "image": "/images/SERVICES/local-seo.jpg"
+      },
+      {
+        "category": "SEO & Performance Marketing",
+        "title": "Enterprise SEO",
+        "description": "Scalable SEO systems for large websites, service pages, content hubs, and organic growth.",
+        "icon": "TrendingUp",
+        "image": "/images/SERVICES/enterprise.jpg"
+      },
+      {
+        "category": "SEO & Performance Marketing",
+        "title": "Google Ads Management",
+        "description": "Conversion-focused Google Ads campaigns built for calls, leads, WhatsApp, and ROI.",
+        "icon": "Megaphone",
+        "image": "/images/SERVICES/ADS.jpg"
+      },
+      {
+        "category": "SEO & Performance Marketing",
+        "title": "Meta Ads Management",
+        "description": "Performance-driven Facebook and Instagram campaigns for leads, retargeting, and awareness.",
+        "icon": "Megaphone",
+        "image": "/images/SERVICES/SOCIAL.jpg"
+      },
+      {
+        "category": "SEO & Performance Marketing",
+        "title": "Lead Generation Campaigns",
+        "description": "Full-funnel marketing systems built to attract, qualify, and convert high-intent prospects.",
+        "icon": "Target",
+        "image": "/images/SERVICES/SEO.jpg"
+      },
+      {
+        "category": "Creative Experience Design",
+        "title": "UI/UX Design",
+        "description": "Clean, intuitive, conversion-focused interfaces for websites, apps, dashboards, and products.",
+        "icon": "PenTool",
+        "image": "/images/SERVICES/ui-ux.jpg"
+      },
+      {
+        "category": "Creative Experience Design",
+        "title": "Product Design",
+        "description": "Strategic product experiences that align user needs, business goals, and usability.",
+        "icon": "LayoutPanelTop",
+        "image": "/images/SERVICES/brand.jpg"
+      },
+      {
+        "category": "Creative Experience Design",
+        "title": "Graphic Design",
+        "description": "Premium visual assets for campaigns, digital creatives, brand communication, and marketing.",
+        "icon": "Brush",
+        "image": "/images/SERVICES/graphic-design.jpg"
+      },
+      {
+        "category": "Creative Experience Design",
+        "title": "Logo Design",
+        "description": "Professional logo concepts built around brand clarity, memorability, and strong identity.",
+        "icon": "BadgeCheck",
+        "image": "/images/SERVICES/brand.jpg"
+      },
+      {
+        "category": "Creative Experience Design",
+        "title": "Brand Identity",
+        "description": "Complete brand systems including colors, typography, visual language, and brand guidelines.",
+        "icon": "Palette",
+        "image": "/images/SERVICES/graphic-design.jpg"
+      },
+      {
+        "category": "Creative Experience Design",
+        "title": "Motion & Video Design",
+        "description": "Modern motion graphics and videos that improve storytelling, engagement, and brand recall.",
+        "icon": "Zap",
+        "image": "/images/SERVICES/graphic-design.jpg"
+      }
+    ]
+  },
+  "content:home.whychooseus": {
+    "eyebrow": "Why Businesses Choose Fillip",
+    "headingLine1": "Helping Businesses Build,",
+    "headingLine2": "Grow & Dominate Digitally .",
+    "description": "At Fillip Technologies, the best digital marketing company, we don’t simply create websites or execute campaigns; we build an entire digital ecosystem for your brand that helps attract customers, increase your exposure, and ultimately grow your business.",
+    "ctaLabel": "Learn More"
+  },
+  "content:home.technology": {
+    "eyebrow": "OUR TECH STACK",
+    "headingLead": "Technologies Behind Every",
+    "headingHighlight": "Intelligent Solution.",
+    "description": "We take advantage of the latest technologies to develop innovative, scalable, and efficient digital solutions. Be it Artificial Intelligence, Cloud Computing, Automation, or the latest technology frameworks, we build every solution keeping innovation and performance in mind."
+  },
+  "content:home.needguidance": {
+    "eyebrow": "Need Expert Advice?",
+    "title": "Don’t Know Which Solution Would Fit Your Business Needs?",
+    "description": "Every business has unique business challenges and objectives. Whether you require a website SEO Audit, web development, digital marketing, social media management, or AI solutions, we will help you choose the right approach.",
+    "buttonText": "Talk To Our Experts →",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190226/fillip/images/ai-assistant.png"
+  },
+  "content:page.our-story.hero": {
+    "badge": "Volume 01: The Journey",
+    "headingLead": "The Story of",
+    "headingHighlight": "Fillip Technologies",
+    "subheadline": "Fillip Technologies, the best IT company, has come a long way since its establishment 13+ years ago, powering Startups, MSMEs, and big enterprises with tailored solutions, which have resulted in fruitful outcomes. This way, we have generated a cultural ecosystem of innovation, excellence, and collaboration."
+  },
+  "content:page.our-story.timeline": {
+    "chapters": [
+      {
+        "year": "2013",
+        "title": "The Seed is Sown",
+        "story": "All great journeys start with one conviction. The journey of Fillip Technologies started with an audacious idea of changing the way businesses use technology to grow.\n\nThree enthusiastic innovators joined hands at a small office with one goal: To connect the world of technology and business strategies. With minimum resources but maximum enthusiasm, they decided to design customized technological solutions that served both technological and business purposes.",
+        "quote": "\"Without having plenty of resources at our disposal, we had plenty of conviction in the power of technology, imagination, and strategic thinking.\"",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190299/fillip/images/saas-desk-setup.jpg",
+        "stat1Label": "Core Team",
+        "stat1Value": "3 Experts",
+        "stat2Label": "Primary Tech",
+        "stat2Value": "HTML5, PHP, CSS",
+        "stat3Label": "Projects",
+        "stat3Value": "12 Completed"
+      },
+      {
+        "year": "2020",
+        "title": "Embracing the Digital Shift",
+        "story": "We at Fillip Technologies helped businesses through this journey with ease. Be it in developing a safe e-commerce portal or installing easy payment gateways, from working out cloud-based processes to creating robust databases, we helped companies adjust, run, and thrive in the digital-first era.\n\nEverything we provided was aimed at ensuring business continuity, strengthening the customer connection, and laying the foundations of success.",
+        "quote": "\"When the world had to reconsider the way it operated, we stood by our clients and turned insecurity into opportunities using digital technologies that would shape the future.\"",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190196/fillip/images/How-we-work.png",
+        "stat1Label": "Core Team",
+        "stat1Value": "15 Experts",
+        "stat2Label": "Primary Tech",
+        "stat2Value": "React, Node, PostgreSQL",
+        "stat3Label": "Projects",
+        "stat3Value": "45 Completed"
+      },
+      {
+        "year": "2022",
+        "title": "Scaling Innovation. Elevating Excellence.",
+        "story": "With each successful collaboration came additional room for innovation, advancement, and higher levels. As more companies entrusted their operations to our capabilities, Fillip Technologies diversified from being purely a web development company to providing customized software development, smart automation, artificial intelligence, and brand transformation.\n\nAs our list of accomplishments increased, so did our workforce, assembling under one roof the top-notch developers, designers, digital strategists, and technology professionals.",
+        "quote": "\"Growth is not judged by the number of people or space you have but by your level of standards, your willingness to innovate, and your ability to make a difference to every client.\"",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190231/fillip/images/capabilities-background.png",
+        "stat1Label": "Core Team",
+        "stat1Value": "40+ Experts",
+        "stat2Label": "Primary Tech",
+        "stat2Value": "Next.js, Tailwind, NestJS",
+        "stat3Label": "Projects",
+        "stat3Value": "95+ Completed"
+      },
+      {
+        "year": "2024",
+        "title": "Expanding Beyond Borders",
+        "story": "With the recognition of our technology solutions worldwide, Fillip Technologies expanded its network to companies around the world, providing scalable digital solutions, enterprise-level services, and technology consultations. Each collaboration outside our geographical boundaries only reinforced our conviction that innovation, quality, and trust have no geographical limitations.",
+        "quote": "\"Great technology has no boundaries. It innovates, excels, and succeeds.\"",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190296/fillip/images/research-mockup.png",
+        "stat1Label": "Core Team",
+        "stat1Value": "50+ Experts",
+        "stat2Label": "Primary Tech",
+        "stat2Value": "AWS, GCP, GraphQL, Python",
+        "stat3Label": "Projects",
+        "stat3Value": "140+ Completed"
+      },
+      {
+        "year": "2026 & Beyond",
+        "title": "Leading the AI Revolution",
+        "story": "As technology moves into a new phase, Fillip Technologies is leading the way in innovations through our use of artificial intelligence, intelligent chatbots, custom SaaS systems, and workflow automation, which will revolutionize business processes. With our human insight paired with artificial intelligence, we’re enabling companies to move faster, smarter, and stay ahead of the game.",
+        "quote": "“Artificial intelligence does not replace vision; it empowers it. We're building tomorrow's intelligent solutions, today.”",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190304/fillip/images/team/team1.png",
+        "stat1Label": "Core Team",
+        "stat1Value": "55+ Experts",
+        "stat2Label": "Primary Tech",
+        "stat2Value": "LangChain, OpenAI API, SaaS",
+        "stat3Label": "Projects",
+        "stat3Value": "150+ Completed"
+      }
+    ]
+  },
+  "content:page.our-story.missionvision": {
+    "eyebrow": "AFTERWORD",
+    "heading": "Pioneering the Agentic Future",
+    "missionText": "As the best IT company, our primary objective is to help enterprises uncover their fullest potential through smart digital solutions. This ranges from software development and AI automation to cloud systems, website design, and digital marketing, providing scalable solutions that boost effectiveness,  bolster growth, and lead to meaningful business outcomes.",
+    "visionText": "We envision a future where industry af all sizes and types can strongly embrace smart technology to attain sustainable growth and success across the globe. Our vision is to become a trustworthy innovation partner, renowned for developing smart digital experiences, providing AI-oriented solutions, and excellence via collaboration, transparency, and continued creativity.",
+    "creedText": "Our work is guided by values that illustrate who we are and how we serve our clients. We primarily believe in our commitment to fulfilling accountability, embracing AI with human innovation responsibly, and developing technology that is secure, scalable, and sustainable. Our biggest achievement is the trust we have earned and our clients' success through lasting collaborations.",
+    "signatureLead": "Signed in code and character,",
+    "signatureName": "The Fillip Team"
+  },
+  "content:servicepage.website-development.hero": {
+    "title": "Websites Designed to Convert",
+    "prefixText": "",
+    "highlightedTitle": "Visitors Into Customers.",
+    "suffixText": "",
+    "description": "In a digital world full of templates and monotonous design solutions, most organizations fail to give themselves a digital voice.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204755/fillip/uploads/t7wm4hpydrmyk6hqtryw.png",
+    "imageAlt": ""
+  },
+  "content:page.security-surveillance.support": {
+    "heading": "Scalable Surveillance \nfor Every Critical Site",
+    "description": "Being the best  CCTV Camera Installation Company, Fillip Technologies provides tailored solution for surveillance, integrating proper planning, efficient monitoring, recording, and deployment to help governmental, industrial, institutional, and business organisations safeguard their property efficiently.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190258/fillip/images/hardware/security_hero.jpg",
+        "imageAlt": "Outdoor bullet CCTV camera",
+        "title": "IP & HD CCTV Camera Networks",
+        "description": "HD, 4K, dome, bullet, PTZ, and outdoor camera networks planned for entrances, perimeters, public areas, corridors, yards, and operational zones."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201638/fillip/uploads/bcijm13mog6xbonaplzq.jpg",
+        "imageAlt": "Central CCTV monitoring room",
+        "title": "Control Room & Recording Setup",
+        "description": "NVR/DVR configuration, storage planning, video walls, monitoring displays, network access, and operator-ready control room deployment."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201647/fillip/uploads/avylajyzkixslzyggl4w.jpg",
+        "imageAlt": "Access control and biometric security device",
+        "title": "Integrated Security Systems",
+        "description": "CCTV integration with access control, attendance, gate security, alarms, and site-level monitoring workflows for large premises."
+      }
+    ]
+  },
+  "content:page.security-surveillance.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Engineered for \nComplete Surveillance.",
+    "description": "With our expertise in site planning, camera placement, secure networking, and professional installation, we create surveillance systems that provide uninterrupted security and reliable service.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190259/fillip/images/hardware/security_lens_bg.jpg",
+    "videoTitle": "See how Fillip Technologies secures large premises",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Site Survey & Planning",
+        "description": "Camera points, coverage zones, cable routes, NVR capacity, and network requirements planned before deployment."
+      },
+      {
+        "title": "Night & Outdoor Coverage",
+        "description": "Weather-ready cameras, low-light visibility, and placement strategy for gates, yards, roads, corridors, and open areas."
+      },
+      {
+        "title": "Central Recording & Monitoring",
+        "description": "NVR/DVR, storage, network access, display, and control-room-ready monitoring for large facilities."
+      }
+    ]
+  },
+  "content:page.security-surveillance.priority": {
+    "heading": "Securing Large\nPublic & Private Sites",
+    "description": "Be it institutions or corporate campuses, our CCTV Camera Installation Company provides intelligent surveillance systems combining maximum coverage and future-proof scalability.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201554/fillip/uploads/ahewzggrarxmgdvdprei.jpg",
+        "title": "Government Projects",
+        "description": "Tender-ready CCTV planning, installation, and documentation for public offices, municipal sites, and civic infrastructure."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190257/fillip/images/hardware/card_office.jpg",
+        "title": "Institutions & Campuses",
+        "description": "Scalable surveillance for schools, colleges, hospitals, parks, transport hubs, and high-footfall premises."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201577/fillip/uploads/i2hb4pk1i3bvtcmccqsc.jpg",
+        "title": "Industrial & Warehouse Sites",
+        "description": "Wide-area monitoring for production zones, yards, stores, loading areas, and restricted operational spaces."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201587/fillip/uploads/m4hcjsagp5rn5n4k8pwq.jpg",
+        "title": "Control Room Projects",
+        "description": "Integrated camera networks, recording systems, displays, and operator-ready monitoring setups for large sites."
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.solutions": {
+    "solutions": [
+      {
+        "title": "Structured Cabling",
+        "description": "Neat CAT6/CAT6A cabling, rack dressing, patch panels, and endpoint labeling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202367/fillip/uploads/zoze53oz2wujmzur37wg.jpg"
+      },
+      {
+        "title": "Switching & Routing",
+        "description": "Managed switches, VLANs, routing, and network segmentation for reliable performance.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202413/fillip/uploads/nhwhxdgjuapsuoijnnyo.jpg"
+      },
+      {
+        "title": "Wi-Fi Coverage",
+        "description": "Access point planning and deployment for seamless wireless connectivity across your premises.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202399/fillip/uploads/jgvnklzco5vxkpvjrxnr.jpg"
+      }
+    ]
+  },
+  "content:servicepage.networking.solutions": {
+    "solutions": [
+      {
+        "title": "Network Design",
+        "description": "Practical architecture for secure, scalable, and manageable business connectivity.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202953/fillip/uploads/owfzaudhgpygscqzy9rz.jpg"
+      },
+      {
+        "title": "Firewall & Security",
+        "description": "Network access control, firewall setup, segmentation, and secure internet routing.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202970/fillip/uploads/kyf6reurtxosak58xjjd.jpg"
+      },
+      {
+        "title": "Managed Network Setup",
+        "description": "Routers, switches, wireless access points, monitoring, and troubleshooting support.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202978/fillip/uploads/mwpswvh4krp2etihvqeh.jpg"
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.solutions": {
+    "solutions": [
+      {
+        "title": "Branch Connectivity",
+        "description": "Connect offices, sites, and remote teams with stable inter-location networking.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203972/fillip/uploads/dj6wkng9y9ezbp37stku.jpg"
+      },
+      {
+        "title": "Secure VPN Access",
+        "description": "Protected remote access and site-to-site VPN configuration for distributed teams.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203984/fillip/uploads/oqk5ktelkdwnn8unf0mh.jpg"
+      },
+      {
+        "title": "Centralized Monitoring",
+        "description": "Network visibility, alerts, and performance checks for multiple locations.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204000/fillip/uploads/eoc2ayu6lukbxruztbci.jpg"
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.solutions": {
+    "solutions": [
+      {
+        "title": "Office IT Setup",
+        "description": "Workstations, networking, Wi-Fi, devices, access, and business-ready infrastructure.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204096/fillip/uploads/mfdroab4iz0smrmtmp88.jpg"
+      },
+      {
+        "title": "Infrastructure Planning",
+        "description": "Design scalable infrastructure for new offices, branches, institutions, and facilities.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190260/fillip/images/hardware/security_technician.jpg"
+      },
+      {
+        "title": "Ongoing Support",
+        "description": "Maintenance, troubleshooting, upgrades, and documentation for dependable operations.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204110/fillip/uploads/qv43uqpn7fn0ecptdwgv.avif"
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.solutions": {
+    "solutions": [
+      {
+        "title": "Fiber Cabling",
+        "description": "End-to-end OFC cable laying, routing, labeling, and structured installation for reliable data transmission.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201935/fillip/uploads/unxugnnlr3uwwpllwsqy.jpg"
+      },
+      {
+        "title": "Splicing & Termination",
+        "description": "Precision fiber splicing, patch panel termination, and connectorization for low-loss connectivity.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201943/fillip/uploads/z4tdvibs5cdl6czgo1pl.jpg"
+      },
+      {
+        "title": "Testing & Certification",
+        "description": "OTDR testing, link verification, and documentation to ensure performance and uptime.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201962/fillip/uploads/ukpw5fvchi7ubsteea9v.jpg"
+      }
+    ]
+  },
+  "content:servicepage.control-room.solutions": {
+    "solutions": [
+      {
+        "title": "Video Wall Setup",
+        "description": "Multi-display video walls for live camera feeds, dashboards, and operation views.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202449/fillip/uploads/e8epkcbozvd6ekwhtyhv.jpg"
+      },
+      {
+        "title": "Monitoring Workstations",
+        "description": "Operator desks, display systems, networking, and system access for control teams.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202486/fillip/uploads/gwky9qmpliue7qse30uk.jpg"
+      },
+      {
+        "title": "Incident Visibility",
+        "description": "Centralized visibility for security, facility operations, alerts, and response workflows.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202535/fillip/uploads/ghybjgdhle72p1gvrtbf.webp"
+      }
+    ]
+  },
+  "content:servicepage.control-room.hero": {
+    "badge": "Hardware Solutions",
+    "title": "Control Room",
+    "highlightedTitle": "Command Centers",
+    "description": "Create centralized monitoring spaces for CCTV surveillance, operations visibility, incident response, and real-time decision-making.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202625/fillip/uploads/u52b0c0b3mj4e5pbmmo1.webp"
+  },
+  "content:servicepage.server-solutions.solutions": {
+    "solutions": [
+      {
+        "title": "Server Setup",
+        "description": "Physical and virtual server deployment for business applications, files, access, and databases.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203052/fillip/uploads/r8tlgufaniyxsi6wkuzt.webp"
+      },
+      {
+        "title": "Backup & Storage",
+        "description": "Centralized storage, backup planning, recovery workflows, and secure data availability.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203065/fillip/uploads/vbibafn735vswddxifwj.jpg"
+      },
+      {
+        "title": "Rack & Power Planning",
+        "description": "Rack layout, UPS planning, cabling, ventilation, and infrastructure organization.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203083/fillip/uploads/nwzezyyadv9rgbfgj8dm.jpg"
+      }
+    ]
+  },
+  "content:servicepage.system-integration.solutions": {
+    "solutions": [
+      {
+        "title": "Hardware Integration",
+        "description": "Connect devices, cameras, access systems, servers, and network hardware into one setup.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204034/fillip/uploads/vtygzou7ki9ymo6ug1jt.jpg"
+      },
+      {
+        "title": "Software Connectivity",
+        "description": "Enable data flow between devices, dashboards, alerts, and business applications.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204048/fillip/uploads/sbjqhh3wnh5vxq8rkaid.jpg"
+      },
+      {
+        "title": "End-to-End Deployment",
+        "description": "Plan, install, configure, test, and hand over complete integrated systems.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204061/fillip/uploads/plbmntp7srl9znevyl4r.webp"
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.solutions": {
+    "solutions": [
+      {
+        "title": "Vehicle Tracking",
+        "description": "Real-time location tracking for cars, fleets, delivery vehicles, and field operations.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204174/fillip/uploads/otwiulbxw1qkdjximozd.jpg"
+      },
+      {
+        "title": "Route Visibility",
+        "description": "Monitor routes, movement history, stops, and operational activity from a central view.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204183/fillip/uploads/prncdqhtgny2lwiwthix.jpg"
+      },
+      {
+        "title": "Alerts & Reports",
+        "description": "Get alerts, trip summaries, usage reports, and visibility into daily movement.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204192/fillip/uploads/jxgn5mtrbusyk4acsjnb.jpg"
+      }
+    ]
+  },
+  "content:servicepage.ui-ux-designing.hero": {
+    "badge": "Premium Design Studio",
+    "headingLine1": "UI/UX",
+    "headingLine2": "Design",
+    "descriptionLead": "We design intuitive, conversion-focused interfaces and product experiences that make your product",
+    "descriptionHighlight": "effortless to use.",
+    "primaryCtaLabel": "Start Your Project",
+    "primaryCtaHref": "#estimate",
+    "secondaryCtaLabel": "View Our Work",
+    "secondaryCtaHref": "#services",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": "Creative Experience Design",
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": "12+",
+        "label": "Design Awards"
+      },
+      {
+        "value": "13yrs",
+        "label": "Industry Experience"
+      }
+    ]
+  },
+  "content:servicepage.ui-ux-designing.portfolio": {
+    "badge": "✦ Our Work",
+    "headingLead": "Featured",
+    "headingHighlight": "Portfolio",
+    "items": [
+      {
+        "category": "Logo Design",
+        "title": "Logo & Brand Mark",
+        "tag": "LOGO + MARK",
+        "desc": "Custom geometric brand icon and typography layout.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784196939/fillip/uploads/ny8magdgsn8nyfnzdkkr.jpg"
+      },
+      {
+        "category": "Logo Design",
+        "title": "Wordmark & Logotype",
+        "tag": "WORDMARK",
+        "desc": "Clean, elegant custom letterforms and wordmark styling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784196959/fillip/uploads/lhgd2kl5jjj1c73ej4nv.jpg"
+      },
+      {
+        "category": "Brand Identity",
+        "title": "Visual Identity System",
+        "tag": "FULL BRAND",
+        "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784196968/fillip/uploads/wonfcuijpnk6ajeq5e7x.jpg"
+      },
+      {
+        "category": "Print",
+        "title": "Exhibition Poster Design",
+        "tag": "POSTER SERIES",
+        "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784196977/fillip/uploads/fnn5x6ntymyru3hu9adn.jpg"
+      },
+      {
+        "category": "Packaging",
+        "title": "Product Packaging Design",
+        "tag": "PACKAGING",
+        "desc": "Custom die-cut packaging layout and premium label design.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784196989/fillip/uploads/il5bi7mcxjbinmhosyxx.jpg"
+      },
+      {
+        "category": "Social Media",
+        "title": "Social Media Campaign Kit",
+        "tag": "SOCIAL KIT",
+        "desc": "Scroll-stopping social media assets and digital marketing graphics.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784196997/fillip/uploads/dy2mktqufipabuqlxwie.jpg"
+      },
+      {
+        "category": "Illustration",
+        "title": "Custom Mascot Illustration",
+        "tag": "ILLUSTRATION",
+        "desc": "Bespoke digital character illustrations and branding assets.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784197007/fillip/uploads/jblfyy22wturatuypyn3.jpg"
+      },
+      {
+        "category": "UI Design",
+        "title": "SaaS Dashboard UI Design",
+        "tag": "UI/UX DESIGN",
+        "desc": "High-fidelity app dashboard user interface and component library.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784197018/fillip/uploads/l0udpi3efrw8jwgrlweo.jpg"
+      }
+    ]
+  },
+  "content:servicepage.product-design.hero": {
+    "badge": "Premium Design Studio",
+    "headingLine1": "Product",
+    "headingLine2": "Design",
+    "descriptionLead": "We shape end-to-end digital products — from research to polished interface — that feel",
+    "descriptionHighlight": "impossible to put down.",
+    "primaryCtaLabel": "Start Your Project",
+    "primaryCtaHref": "#estimate",
+    "secondaryCtaLabel": "View Our Work",
+    "secondaryCtaHref": "#services",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": "Creative Experience Design",
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": "12+",
+        "label": "Design Awards"
+      },
+      {
+        "value": "13yrs",
+        "label": "Industry Experience"
+      }
+    ]
+  },
+  "content:servicepage.product-design.portfolio": {
+    "badge": "✦ Our Work",
+    "headingLead": "Featured",
+    "headingHighlight": "Portfolio",
+    "items": [
+      {
+        "category": "Logo Design",
+        "title": "Logo & Brand Mark",
+        "tag": "LOGO + MARK",
+        "desc": "Custom geometric brand icon and typography layout.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Logo Design",
+        "title": "Wordmark & Logotype",
+        "tag": "WORDMARK",
+        "desc": "Clean, elegant custom letterforms and wordmark styling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Brand Identity",
+        "title": "Visual Identity System",
+        "tag": "FULL BRAND",
+        "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Print",
+        "title": "Exhibition Poster Design",
+        "tag": "POSTER SERIES",
+        "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Packaging",
+        "title": "Product Packaging Design",
+        "tag": "PACKAGING",
+        "desc": "Custom die-cut packaging layout and premium label design.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Social Media",
+        "title": "Social Media Campaign Kit",
+        "tag": "SOCIAL KIT",
+        "desc": "Scroll-stopping social media assets and digital marketing graphics.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Illustration",
+        "title": "Custom Mascot Illustration",
+        "tag": "ILLUSTRATION",
+        "desc": "Bespoke digital character illustrations and branding assets.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "UI Design",
+        "title": "SaaS Dashboard UI Design",
+        "tag": "UI/UX DESIGN",
+        "desc": "High-fidelity app dashboard user interface and component library.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      }
+    ]
+  },
+  "content:servicepage.logo-designing.portfolio": {
+    "badge": "✦ Our Work",
+    "headingLead": "Featured",
+    "headingHighlight": "Portfolio",
+    "items": [
+      {
+        "category": "Logo Design",
+        "title": "Logo & Brand Mark",
+        "tag": "LOGO + MARK",
+        "desc": "Custom geometric brand icon and typography layout.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Logo Design",
+        "title": "Wordmark & Logotype",
+        "tag": "WORDMARK",
+        "desc": "Clean, elegant custom letterforms and wordmark styling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Brand Identity",
+        "title": "Visual Identity System",
+        "tag": "FULL BRAND",
+        "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Print",
+        "title": "Exhibition Poster Design",
+        "tag": "POSTER SERIES",
+        "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Packaging",
+        "title": "Product Packaging Design",
+        "tag": "PACKAGING",
+        "desc": "Custom die-cut packaging layout and premium label design.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Social Media",
+        "title": "Social Media Campaign Kit",
+        "tag": "SOCIAL KIT",
+        "desc": "Scroll-stopping social media assets and digital marketing graphics.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Illustration",
+        "title": "Custom Mascot Illustration",
+        "tag": "ILLUSTRATION",
+        "desc": "Bespoke digital character illustrations and branding assets.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "UI Design",
+        "title": "SaaS Dashboard UI Design",
+        "tag": "UI/UX DESIGN",
+        "desc": "High-fidelity app dashboard user interface and component library.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      }
+    ]
+  },
+  "content:industry.finance.hero": {
+    "eyebrow": "Healthcare Digital Growth System",
+    "titleLine1": "Grow Your",
+    "titleLine2": "Finance Brand.",
+    "highlightedTitle": "Build More Trust.",
+    "description": "We help finance companies, advisors, lenders, and fintech brands improve credibility, generate qualified leads, and turn digital interest into serious enquiries.",
+    "primaryCtaLabel": "Get Growth Audit",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Book Strategy Call",
+    "secondaryCtaHref": "/contact",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200496/fillip/uploads/su8voeo1tpytuj0zoszb.png",
+    "imageAlt": "Finance Industry",
+    "trustItems": [
+      {
+        "label": "Finance Website Design"
+      },
+      {
+        "label": "Finance SEO"
+      },
+      {
+        "label": "Lead Generation"
+      }
+    ]
+  },
+  "content:servicepage.web-application-development.hero": {
+    "title": "Custom Web Applications Built for",
+    "prefixText": "",
+    "highlightedTitle": "Speed and Scale",
+    "suffixText": "",
+    "description": "High-performance web application development services to automate operations, manage users, and support custom business workflows.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784205085/fillip/uploads/b9ocqqlrqg2qwnvhrl7v.jpg",
+    "imageAlt": ""
+  },
+  "content:servicepage.wordpress-development.hero": {
+    "title": "Build Flexible WordPress Sites",
+    "prefixText": "",
+    "highlightedTitle": "Publish With Confidence",
+    "suffixText": "",
+    "description": "WordPress development services for fast, secure, manageable websites that help teams publish content and grow their digital presence.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": ""
+  },
+  "content:servicepage.website-maintenance.hero": {
+    "title": "Keep Your Website Fast, Secure and",
+    "prefixText": "",
+    "highlightedTitle": "Always Online",
+    "suffixText": "",
+    "description": "Professional website maintenance, security updates, and performance optimization services to keep your site running smoothly 24/7.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": ""
+  },
+  "content:servicepage.website-redesign.hero": {
+    "title": "Redesign Your Website for",
+    "prefixText": "",
+    "highlightedTitle": "Higher Conversions",
+    "suffixText": "",
+    "description": "Transform your outdated website into a fast, search-optimized, and customer-focused digital experience that actually drives business outcomes.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": ""
+  },
+  "content:servicepage.ecommerce-development.hero": {
+    "title": "Build Smarter Online Stores",
+    "prefixText": "",
+    "highlightedTitle": "Sell With Less Friction",
+    "suffixText": "",
+    "description": "Ecommerce development services that help businesses launch fast storefronts, simplify checkout, manage products, and grow online revenue.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204834/fillip/uploads/wet1or8oorn91hu9jmri.jpg",
+    "imageAlt": ""
+  },
+  "content:whatwedo.software-enterprise.menuLinks": {
+    "items": [
+      {
+        "label": "Software Development",
+        "href": "/software-development/software-development"
+      },
+      {
+        "label": "Custom Software Development",
+        "href": "/software-development/custom-software-development"
+      },
+      {
+        "label": "CRM Development",
+        "href": "/software-development/crm-development"
+      },
+      {
+        "label": "ERP Solutions",
+        "href": "/software-development/erp-solutions"
+      },
+      {
+        "label": "SaaS Product Development",
+        "href": "/software-development/saas-product-development"
+      },
+      {
+        "label": "API Integration",
+        "href": "/software-development/api-integration"
+      }
+    ]
+  },
+  "content:servicepage.motion-video-design.portfolio": {
+    "badge": "✦ Our Work",
+    "headingLead": "Featured",
+    "headingHighlight": "Portfolio",
+    "items": [
+      {
+        "category": "Logo Design",
+        "title": "Logo & Brand Mark",
+        "tag": "LOGO + MARK",
+        "desc": "Custom geometric brand icon and typography layout.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Logo Design",
+        "title": "Wordmark & Logotype",
+        "tag": "WORDMARK",
+        "desc": "Clean, elegant custom letterforms and wordmark styling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Brand Identity",
+        "title": "Visual Identity System",
+        "tag": "FULL BRAND",
+        "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Print",
+        "title": "Exhibition Poster Design",
+        "tag": "POSTER SERIES",
+        "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Packaging",
+        "title": "Product Packaging Design",
+        "tag": "PACKAGING",
+        "desc": "Custom die-cut packaging layout and premium label design.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Social Media",
+        "title": "Social Media Campaign Kit",
+        "tag": "SOCIAL KIT",
+        "desc": "Scroll-stopping social media assets and digital marketing graphics.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Illustration",
+        "title": "Custom Mascot Illustration",
+        "tag": "ILLUSTRATION",
+        "desc": "Bespoke digital character illustrations and branding assets.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "UI Design",
+        "title": "SaaS Dashboard UI Design",
+        "tag": "UI/UX DESIGN",
+        "desc": "High-fidelity app dashboard user interface and component library.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      }
+    ]
+  },
+  "content:servicepage.brand-identity.portfolio": {
+    "badge": "✦ Our Work",
+    "headingLead": "Featured",
+    "headingHighlight": "Portfolio",
+    "items": [
+      {
+        "category": "Logo Design",
+        "title": "Logo & Brand Mark",
+        "tag": "LOGO + MARK",
+        "desc": "Custom geometric brand icon and typography layout.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Logo Design",
+        "title": "Wordmark & Logotype",
+        "tag": "WORDMARK",
+        "desc": "Clean, elegant custom letterforms and wordmark styling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Brand Identity",
+        "title": "Visual Identity System",
+        "tag": "FULL BRAND",
+        "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Print",
+        "title": "Exhibition Poster Design",
+        "tag": "POSTER SERIES",
+        "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Packaging",
+        "title": "Product Packaging Design",
+        "tag": "PACKAGING",
+        "desc": "Custom die-cut packaging layout and premium label design.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Social Media",
+        "title": "Social Media Campaign Kit",
+        "tag": "SOCIAL KIT",
+        "desc": "Scroll-stopping social media assets and digital marketing graphics.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "Illustration",
+        "title": "Custom Mascot Illustration",
+        "tag": "ILLUSTRATION",
+        "desc": "Bespoke digital character illustrations and branding assets.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      },
+      {
+        "category": "UI Design",
+        "title": "SaaS Dashboard UI Design",
+        "tag": "UI/UX DESIGN",
+        "desc": "High-fidelity app dashboard user interface and component library.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+      }
+    ]
+  },
+  "content:industry.healthcare.testimonials": {
+    "badge": "Testimonials",
+    "title": "Trusted by Healthcare Professionals",
+    "description": "Hospitals, clinics, and healthcare specialists trust Fillip Technologies to improve visibility, strengthen patient trust, and generate more appointment opportunities.",
+    "items": [
+      {
+        "name": "Dr. Anjali Sharma",
+        "role": "Consultant Cardiologist",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198472/fillip/uploads/n7vir9xnhqblhcrtwqk2.jpg",
+        "review": "Our appointment bookings increased significantly within months. The combination of SEO, website improvements, and social media helped us attract more qualified patients."
+      },
+      {
+        "name": "Dr. Rajesh Verma",
+        "role": "Orthopedic Surgeon",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198480/fillip/uploads/nicdrsdurozhy9g7pjz7.jpg",
+        "review": "We now rank for important healthcare searches in our city. Patient enquiries have become more consistent and predictable than ever before."
+      },
+      {
+        "name": "Dr. Priya Mehta",
+        "role": "Dermatology Specialist",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198488/fillip/uploads/qabqjjcvks1aj4juvsje.jpg",
+        "review": "The digital growth strategy transformed our online presence. Patients discover us faster, trust us sooner, and book appointments more frequently."
+      },
+      {
+        "name": "Dr. Vikram Singh",
+        "role": "General Physician",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198495/fillip/uploads/fhuort2xej38ak6bof3d.jpg",
+        "review": "Fillip Technologies helped us create a complete patient acquisition system."
+      }
+    ]
+  },
+  "content:industry.finance.testimonials": {
+    "badge": "Testimonials",
+    "title": "Trusted by Finance Teams",
+    "description": "Financial service brands can use this growth system to improve visibility, explain complex offers, and generate more qualified enquiries.",
+    "items": [
+      {
+        "name": "Finance Growth Partner",
+        "role": "Financial Services",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198552/fillip/uploads/ubpgvdz551xp3oxz5t0r.jpg",
+        "review": "The strategy helped us present our services clearly and generate more qualified consultation enquiries."
+      },
+      {
+        "name": "Lending Business Owner",
+        "role": "Loans & Advisory",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198557/fillip/uploads/ii0wjvlql9zukx5owfeq.jpg",
+        "review": "Our website became easier to understand, and prospects started taking action with more confidence."
+      },
+      {
+        "name": "Fintech Marketing Lead",
+        "role": "Digital Finance",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198565/fillip/uploads/rrwns714vtdpq2rf4fui.jpg",
+        "review": "SEO and campaign improvements helped us reach customers who were actively searching for our solution."
+      },
+      {
+        "name": "Investment Advisor",
+        "role": "Wealth Services",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198570/fillip/uploads/mli0twkcnaa2mvxffvrk.jpg",
+        "review": "The new content approach made our expertise easier for prospects to trust."
+      }
+    ]
+  },
+  "content:industry.retail.testimonials": {
+    "badge": "Testimonials",
+    "title": "Trusted by Retail Brands",
+    "description": "Retail and ecommerce teams can use this growth system to improve product visibility, customer engagement, and sales performance.",
+    "items": [
+      {
+        "name": "Retail Store Owner",
+        "role": "Lifestyle Retail",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198592/fillip/uploads/v6kq59yc4fzefnodtv0v.jpg",
+        "review": "The new digital journey made our products easier to discover and helped increase customer enquiries."
+      },
+      {
+        "name": "Ecommerce Manager",
+        "role": "Online Store",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198597/fillip/uploads/ubqebnutahl8cbj1iy3g.jpg",
+        "review": "Our product categories became clearer, and campaigns started bringing more relevant shoppers."
+      },
+      {
+        "name": "Fashion Brand Lead",
+        "role": "Retail Brand",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198603/fillip/uploads/n6jcinylgpk3zitbuupe.jpg",
+        "review": "Better social content and website structure helped customers understand our collections faster."
+      },
+      {
+        "name": "Local Retailer",
+        "role": "Multi-Category Store",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198609/fillip/uploads/xlonj1f7evczurp5ierg.jpg",
+        "review": "We started receiving more product-related calls and store visits from online searches."
+      }
+    ]
+  },
+  "content:industry.education.testimonials": {
+    "badge": "Testimonials",
+    "title": "Trusted by Education Brands",
+    "description": "Schools, institutes, colleges, and edtech teams can use this growth system to improve visibility and generate more admission enquiries.",
+    "items": [
+      {
+        "name": "School Administrator",
+        "role": "K-12 Education",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198639/fillip/uploads/fh50p6t7sohjm1ztljoi.jpg",
+        "review": "The improved website structure made our admission information clearer for parents."
+      },
+      {
+        "name": "Coaching Institute Director",
+        "role": "Competitive Exams",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198644/fillip/uploads/givl6o2psvyy9ffysjo9.jpg",
+        "review": "Our course pages became easier to find, and enquiries became more consistent."
+      },
+      {
+        "name": "College Marketing Lead",
+        "role": "Higher Education",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198650/fillip/uploads/xbhclcpknvgccrdctyw9.jpg",
+        "review": "The digital strategy helped us communicate programs and outcomes more effectively."
+      },
+      {
+        "name": "Edtech Founder",
+        "role": "Online Learning",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198656/fillip/uploads/uqgjxdqmaaay9cys8akp.jpg",
+        "review": "Campaigns and content helped us reach learners with stronger intent."
+      }
+    ]
+  },
+  "content:industry.real-estate.testimonials": {
+    "badge": "Testimonials",
+    "title": "Trusted by Real Estate Brands",
+    "description": "Developers, consultants, and property teams can use this system to improve visibility and generate more qualified buyer enquiries.",
+    "items": [
+      {
+        "name": "Real Estate Developer",
+        "role": "Residential Projects",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198681/fillip/uploads/noemwpfiw0i4pjcc0ovg.jpg",
+        "review": "The project pages became clearer and helped us receive more relevant buyer enquiries."
+      },
+      {
+        "name": "Property Consultant",
+        "role": "Sales & Leasing",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198686/fillip/uploads/pjgrnlq9pxibfzfi6lpo.jpg",
+        "review": "Campaign quality improved after the landing pages were aligned with buyer intent."
+      },
+      {
+        "name": "Brokerage Owner",
+        "role": "Real Estate Advisory",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198694/fillip/uploads/zcgvazreybqk3infzrlt.jpg",
+        "review": "Search visibility and content helped more people discover our property services."
+      },
+      {
+        "name": "Marketing Manager",
+        "role": "Property Brand",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784198699/fillip/uploads/sgmqujtm0jxfegymjbps.jpg",
+        "review": "The digital system made our project communication more professional and easier to track."
+      }
+    ]
+  },
+  "content:industry.logistics.testimonials": {
+    "badge": "Testimonials",
+    "title": "Trusted by Logistics Teams",
+    "description": "Transport, warehousing, and supply chain companies can use this system to improve visibility and generate more B2B enquiries.",
+    "items": [
+      {
+        "name": "Transport Company Owner",
+        "role": "Fleet Services",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200173/fillip/uploads/dtehtuk8oqmjz8hhzyg3.jpg",
+        "review": "The service pages made our capabilities clearer and helped us receive better enquiries."
+      },
+      {
+        "name": "Warehouse Operator",
+        "role": "Storage & Fulfillment",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200179/fillip/uploads/bqhhdp0nzxtjihijq6tk.jpg",
+        "review": "Improved search visibility helped more businesses discover our warehousing services."
+      },
+      {
+        "name": "Logistics Manager",
+        "role": "Supply Chain Services",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200183/fillip/uploads/laczkcxjpmojoh7fxxub.jpg",
+        "review": "The content strategy helped us explain reliability and service coverage more clearly."
+      },
+      {
+        "name": "Courier Brand Lead",
+        "role": "Delivery Network",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200191/fillip/uploads/sargbtjfjdj7b9ozq0sw.jpg",
+        "review": "Campaigns and landing pages gave us a clearer way to generate and track enquiries."
+      }
+    ]
+  },
+  "content:servicepage.android.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "Android Apps Businesses Trust",
+    "description": "Businesses choose Fillip Technologies for Android apps that are practical, secure, and built around real user needs.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The Android app helped us bring customer bookings and updates into one simple mobile experience."
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Head",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Our field team can now report tasks and access information directly from the Android app."
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Retail Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The ecommerce Android app made ordering easier for our customers and improved repeat sales."
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Product Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The team delivered a clean, fast Android app with the features we needed for launch."
+      }
+    ]
+  },
+  "content:servicepage.ios.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "iOS Apps Built With Care",
+    "description": "Businesses trust Fillip Technologies to build clean, secure, and user-friendly iOS applications.",
+    "testimonials": [
+      {
+        "name": "Rohit Mehra",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The iOS app gave our customers a smoother and more premium booking experience."
+      },
+      {
+        "name": "Anjali Sinha",
+        "role": "Product Lead",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The interface was clean, fast, and exactly aligned with what our users needed."
+      },
+      {
+        "name": "Karan Gupta",
+        "role": "Business Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Fillip Technologies handled design, development, and launch support very professionally."
+      },
+      {
+        "name": "Meera Kapoor",
+        "role": "Operations Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Our internal iOS app simplified reporting and team communication."
+      }
+    ]
+  },
+  "content:servicepage.enterprise.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "Trusted by Leading Indian Enterprises",
+    "description": "From healthcare and finance to logistics and e-commerce, organizations across India trust Fillip Technologies to build secure, scalable, and high-performance mobile applications.",
+    "testimonials": [
+      {
+        "name": "Rajesh Mehta",
+        "role": "Chief Technology Officer, FinTech Company",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The mobile application significantly improved customer engagement and streamlined our digital services. The team's technical expertise and execution were exceptional."
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "VP Digital Transformation, Healthcare Group",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Fillip Technologies delivered a scalable enterprise mobile solution that helped us improve operational efficiency and provide a better experience for our users."
+      },
+      {
+        "name": "Amit Verma",
+        "role": "Director of Product, E-Commerce Brand",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "From strategy to deployment, the process was seamless. The app performance, user experience, and business impact exceeded our expectations."
+      },
+      {
+        "name": "Neha Kapoor",
+        "role": "Chief Operations Officer, Logistics Company",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The mobile platform automated several manual workflows and improved communication across teams. We saw measurable productivity gains within weeks."
+      }
+    ]
+  },
+  "content:servicepage.ecommerce.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "Trusted by Growing Commerce Brands",
+    "description": "Retailers, distributors, and D2C brands use Fillip Technologies to launch mobile shopping experiences that improve conversion and retention.",
+    "testimonials": [
+      {
+        "name": "Anjali Gupta",
+        "role": "Founder, D2C Lifestyle Brand",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The mobile commerce app helped us create a smoother buying experience and increase repeat purchases from loyal customers."
+      },
+      {
+        "name": "Karan Malhotra",
+        "role": "Operations Head, Retail Chain",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Inventory visibility, order updates, and customer communication became much easier after the app launch."
+      },
+      {
+        "name": "Sneha Iyer",
+        "role": "Marketing Director, Fashion Store",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The team understood our customer journey and delivered a polished app that supports campaigns and loyalty programs."
+      },
+      {
+        "name": "Vikram Sethi",
+        "role": "Director, Electronics Marketplace",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Our seller workflows and customer checkout experience improved significantly with the new mobile platform."
+      }
+    ]
+  },
+  "content:servicepage.business-automation.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "Trusted by Operations-Focused Teams",
+    "description": "Organizations use Fillip Technologies to digitize internal workflows, reduce manual effort, and improve visibility across teams.",
+    "testimonials": [
+      {
+        "name": "Saurabh Mishra",
+        "role": "Operations Director, Manufacturing Company",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The workflow app reduced follow-ups and gave managers clear visibility into pending approvals."
+      },
+      {
+        "name": "Pooja Menon",
+        "role": "HR Head, Multi-Branch Organization",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Employee requests, approvals, and updates became easier to manage across departments."
+      },
+      {
+        "name": "Deepak Arora",
+        "role": "Business Head, Distribution Network",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Field reporting moved from scattered messages to a structured mobile process with useful dashboards."
+      },
+      {
+        "name": "Isha Kapoor",
+        "role": "Process Manager, Services Company",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Fillip Technologies helped us automate recurring workflows without making the app difficult for teams to adopt."
+      }
+    ]
+  },
+  "content:servicepage.app-ui-ux-design.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "Mobile Experiences Users Understand",
+    "description": "Brands trust Fillip Technologies to design app interfaces that look modern and work smoothly.",
+    "testimonials": [
+      {
+        "name": "Ayesha Khan",
+        "role": "Startup Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The prototype helped us understand the app flow clearly before development started."
+      },
+      {
+        "name": "Nitin Raj",
+        "role": "Product Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The redesigned screens made the app much cleaner and easier for users to navigate."
+      },
+      {
+        "name": "Sneha Verma",
+        "role": "Marketing Lead",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The design system gave our app a consistent and professional look."
+      },
+      {
+        "name": "Arjun Singh",
+        "role": "Operations Head",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The UX audit helped us fix confusing flows and improve user adoption."
+      }
+    ]
+  },
+  "content:servicepage.on-demand.testimonials": {
+    "badge": "Client Success Stories",
+    "title": "Trusted by Service-Led Businesses",
+    "description": "Service providers and operations teams rely on Fillip Technologies to build mobile platforms for faster booking and better coordination.",
+    "testimonials": [
+      {
+        "name": "Rohit Bansal",
+        "role": "Founder, Home Services Startup",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The app gave our customers a simple booking flow and helped our team assign service requests much faster."
+      },
+      {
+        "name": "Meera Nair",
+        "role": "Operations Manager, Healthcare Services",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Scheduling, service updates, and provider coordination became more predictable after launch."
+      },
+      {
+        "name": "Arjun Rao",
+        "role": "Product Head, Delivery Platform",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Fillip Technologies understood the operational complexity and delivered a smooth customer and provider experience."
+      },
+      {
+        "name": "Nisha Jain",
+        "role": "Director, Local Services Network",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The platform helped us centralize bookings, payments, and service tracking across multiple locations."
+      }
+    ]
+  },
+  "content:servicepage.software-development.hero": {
+    "title": "Build Custom Software",
+    "prefixText": "",
+    "highlightedTitle": "Run Better Operations",
+    "suffixText": "",
+    "description": "Software development services for practical business systems, dashboards, portals, and workflow tools that improve operations at scale.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": ""
+  },
+  "content:servicepage.custom-software-development.hero": {
+    "title": "Custom Software Built Around",
+    "prefixText": "",
+    "highlightedTitle": "Your Exact Workflows",
+    "suffixText": "",
+    "description": "Bespoke software engineering for businesses that have outgrown off-the-shelf tools — tailored applications, automations, and platforms designed around how your teams actually work.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageAlt": ""
+  },
+  "content:servicepage.technical-seo.testimonials": {
+    "badge": "CLIENT SUCCESS STORIES",
+    "title": "What Our Clients Say",
+    "description": "See how businesses improved search visibility, performance, and organic growth through our technical SEO expertise.",
+    "items": [
+      {
+        "name": "Rahul Sharma",
+        "role": "Marketing Director",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The technical SEO audit uncovered critical indexing issues that were limiting our organic growth."
+      },
+      {
+        "name": "Priya Verma",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Their team fixed performance and crawlability problems that previous agencies had missed."
+      },
+      {
+        "name": "Amit Gupta",
+        "role": "Growth Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The audit report was detailed, actionable, and delivered measurable ranking improvements."
+      }
+    ]
+  },
+  "content:servicepage.local-seo.testimonials": {
+    "badge": "CLIENT SUCCESS STORIES",
+    "title": "What Our Clients Say",
+    "description": "See how local businesses grew calls, store visits and map pack rankings through our local SEO work.",
+    "items": [
+      {
+        "name": "Rahul Sharma",
+        "role": "Marketing Director",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The team uncovered issues limiting our growth and delivered a clear, measurable improvement."
+      },
+      {
+        "name": "Priya Verma",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "They fixed problems previous agencies had missed and our results improved within weeks."
+      },
+      {
+        "name": "Amit Gupta",
+        "role": "Growth Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Detailed, actionable reporting that translated directly into stronger performance."
+      }
+    ]
+  },
+  "content:servicepage.enterprise-seo.testimonials": {
+    "badge": "CLIENT SUCCESS STORIES",
+    "title": "What Our Clients Say",
+    "description": "See how large organisations scaled organic revenue with governance-led enterprise SEO.",
+    "items": [
+      {
+        "name": "Rahul Sharma",
+        "role": "Marketing Director",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The team uncovered issues limiting our growth and delivered a clear, measurable improvement."
+      },
+      {
+        "name": "Priya Verma",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "They fixed problems previous agencies had missed and our results improved within weeks."
+      },
+      {
+        "name": "Amit Gupta",
+        "role": "Growth Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Detailed, actionable reporting that translated directly into stronger performance."
+      }
+    ]
+  },
+  "content:servicepage.lead-generation-campaigns.testimonials": {
+    "badge": "CLIENT SUCCESS STORIES",
+    "title": "What Our Clients Say",
+    "description": "See how businesses built predictable pipelines of qualified, sales-ready leads with our campaigns.",
+    "items": [
+      {
+        "name": "Rahul Sharma",
+        "role": "Marketing Director",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The team uncovered issues limiting our growth and delivered a clear, measurable improvement."
+      },
+      {
+        "name": "Priya Verma",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "They fixed problems previous agencies had missed and our results improved within weeks."
+      },
+      {
+        "name": "Amit Gupta",
+        "role": "Growth Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Detailed, actionable reporting that translated directly into stronger performance."
+      }
+    ]
+  },
+  "content:servicepage.whatsapp-ads-campaign.testimonials": {
+    "badge": "CLIENT SUCCESS STORIES",
+    "title": "What Our Clients Say",
+    "description": "See how businesses captured more qualified leads and closed faster with click-to-WhatsApp campaigns.",
+    "items": [
+      {
+        "name": "Rahul Sharma",
+        "role": "Marketing Director",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "The team uncovered issues limiting our growth and delivered a clear, measurable improvement."
+      },
+      {
+        "name": "Priya Verma",
+        "role": "Founder",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "They fixed problems previous agencies had missed and our results improved within weeks."
+      },
+      {
+        "name": "Amit Gupta",
+        "role": "Growth Manager",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+        "review": "Detailed, actionable reporting that translated directly into stronger performance."
+      }
+    ]
+  },
+  "content:servicepage.brand-identity.hero": {
+    "badge": "Premium Design Studio",
+    "headingLine1": "Brand",
+    "headingLine2": "Identity",
+    "descriptionLead": "We build complete visual identity systems — colour, type and guidelines — that make your brand",
+    "descriptionHighlight": "impossible to ignore.",
+    "primaryCtaLabel": "Start Your Project",
+    "primaryCtaHref": "#estimate",
+    "secondaryCtaLabel": "View Our Work",
+    "secondaryCtaHref": "#services",
+    "image": "/images/graphic-image-2.png",
+    "imageAlt": "Creative Experience Design",
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": "12+",
+        "label": "Design Awards"
+      },
+      {
+        "value": "13yrs",
+        "label": "Industry Experience"
+      }
+    ]
+  },
+  "content:page.security-surveillance.hero": {
+    "backgroundImage": "/images/new-hero-hard.png",
+    "badge": "Tender Grade CCTV Surveillance",
+    "heading": "Engineering Safer \nSpaces with\nCCTV Solutions",
+    "description": "As the best CCTV Camera Installation Company, Fillip Technologies provides enterprise-level surveillance systems designed for safety, scale, and round-the-clock surveillance.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Control Room Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.fiber-optic-connectivity.hero": {
+    "badge": "Hardware Solutions",
+    "title": "Fiber Optic Connectivity",
+    "highlightedTitle": "Built For Speed",
+    "description": "Deploy reliable high-bandwidth connectivity with professional fiber cabling, termination, splicing, and testing for offices, campuses, data rooms, and industrial sites.",
+    "image": "/images/hardware/security_bg_parallax.png"
+  },
+  "content:industry.finance.growthEngine": {
+    "badge": "Growth Ecosystem",
+    "title": "One Growth Engine. Four Digital Channels.",
+    "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected finance growth system to build trust, attract high-intent prospects, and generate qualified enquiries.",
+    "imageSrc": "/images/funel-stack.png",
+    "imageAlt": "Finance Funnel",
+    "cards": [
+      {
+        "side": "left",
+        "icon": "Globe",
+        "title": "Finance Website Development",
+        "description": "Build a professional website that explains your services clearly and helps prospects take the next step with confidence."
+      },
+      {
+        "side": "left",
+        "icon": "Search",
+        "title": "Finance SEO",
+        "description": "Rank for high-intent financial searches and increase discovery from customers actively comparing providers."
+      },
+      {
+        "side": "right",
+        "icon": "Share2",
+        "title": "Trust Content",
+        "description": "Educate prospects with useful content that improves credibility and keeps your brand visible."
+      },
+      {
+        "side": "right",
+        "icon": "Megaphone",
+        "title": "Lead Campaigns",
+        "description": "Generate qualified enquiries through targeted Google and Meta campaigns."
+      }
+    ]
+  },
+  "content:servicepage.networking.benefits": {
+    "benefits": [
+      {
+        "text": "Secure Network"
+      },
+      {
+        "text": "Better Uptime"
+      },
+      {
+        "text": "Scalable Setup"
+      },
+      {
+        "text": "Managed Access"
+      }
+    ]
+  },
+  "content:page.security-surveillance.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Large-Scale Surveillance Projects",
+    "description": "Government departments, institutions, industrial sites, and large commercial premises rely on Fillip Technologies for dependable CCTV planning, installation, and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Project Coordinator",
+        "review": "Fillip Technologies handled our CCTV deployment with proper planning, clean installation, and clear documentation. The team understood the scale of the site very well.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201710/fillip/uploads/rjomzvqslyuyhijhxdw4.jpg"
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Institution Administrator",
+        "review": "We needed camera coverage across gates, corridors, and shared public areas. Their team planned the points professionally and delivered a stable monitoring setup.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201717/fillip/uploads/rfghyuw1ho92uqjufudg.jpg"
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Warehouse Operations Head",
+        "review": "Their team planned the right camera points for our warehouse, yard, and loading area. The system is stable, clear, and useful for both security and operations.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201725/fillip/uploads/ep3pr7hjdpkjykiferm1.jpg"
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Facility Manager",
+        "review": "The installation was organized and professional. Our security team now has better visibility across the premises and a more dependable recording setup.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201731/fillip/uploads/gnisyvuysxhmrjvtyd1c.jpg"
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.hero": {
+    "badge": "Hardware Solutions",
+    "title": "Server Solutions",
+    "highlightedTitle": "For Reliable Operations",
+    "description": "Plan and deploy server infrastructure for storage, applications, backup, user access, virtualization, and secure business operations.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203858/fillip/uploads/iujwnq1wmgwu6ouawn6w.jpg"
+  },
+  "content:whatwedo.web-development.challenges": {
+    "badge": "Challenges We Solve",
+    "title": "Why Businesses Struggle to Get Results",
+    "description": "Even great businesses lose opportunities when their digital foundation fails to build visibility, trust and engagement.",
+    "flowerImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204617/fillip/uploads/i0bxhizhbzsewr9guoa9.jpg",
+    "items": [
+      {
+        "badge": "Experience",
+        "title": "Outdated Digital Presence",
+        "description": "Slow, dated or confusing experiences create friction that discourages customers from taking action.",
+        "impact": "Lost Opportunities",
+        "image": ""
+      },
+      {
+        "badge": "Visibility",
+        "title": "Low Online Visibility",
+        "description": "When customers search, competitors appear first. Limited visibility reduces discovery and enquiries.",
+        "impact": "Fewer Leads",
+        "image": ""
+      },
+      {
+        "badge": "Trust",
+        "title": "Weak Brand Trust",
+        "description": "Inconsistent presence makes it harder for customers to trust your expertise and choose you.",
+        "impact": "Lower Confidence",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.hero": {
+    "badge": "Hardware Solutions",
+    "title": "LAN Solutions",
+    "highlightedTitle": "for Business Connectivity",
+    "description": "Establish your local area network solutions quickly and efficiently with the help of a reliable Local Area Network Service Company for offices, schools, hospitals, warehouses, and businesses.",
+    "image": "/images/hardware/card_office.png"
+  },
+  "content:page.ticket-booking.hero": {
+    "badge": "One Intelligent Platform",
+    "heading": "Connected Ticketing Ecosystem.",
+    "description": "From travel to events, from entertainment to museums and attractions, Fillip Technologies is a trustworthy Ticket Booking Development Company, providing secure, scalable, and intelligent ticket booking solutions.",
+    "primaryCtaLabel": "Discuss Your Platform",
+    "secondaryCtaLabel": "View Sample Dashboard",
+    "mockUrl": "ticketing.fillip.dev",
+    "mockBookingTag": "Online Booking",
+    "mockBookingTitle": "Reserve a visit",
+    "mockDateLabel": "Date",
+    "mockDateValue": "Sat, 21 Jun",
+    "mockGuestsLabel": "Guests",
+    "mockGuestsValue": "03",
+    "mockCategoryLabel": "Category",
+    "mockCategoryValue": "General",
+    "mockSlotLabel": "Slot",
+    "mockSlotValue": "10:30 AM",
+    "mockTotalLabel": "Total",
+    "mockTotalValue": "Rs 450",
+    "mockPayLabel": "Pay and Confirm",
+    "mockTicketLabel": "Digital Ticket",
+    "mockTicketCode": "FT-39A11C",
+    "mockTicketNote": "Scan at entry gate to validate",
+    "mockPosTag": "Counter POS",
+    "mockPosTitle": "Window 02 Live",
+    "mockPosBadge": "Open",
+    "mockPosRow1Label": "Adult x 4",
+    "mockPosRow1Value": "Rs 400",
+    "mockPosRow2Label": "Child x 2",
+    "mockPosRow2Value": "Rs 100",
+    "mockPosRow3Label": "Add-on x 1",
+    "mockPosRow3Value": "Rs 50",
+    "mockPosIssueLabel": "Issue Ticket",
+    "mockPosIssueValue": "Rs 550",
+    "mockVisitorsLabel": "Today Visitors",
+    "mockVisitorsValue": "3,284",
+    "mockVisitorsDelta": "+18%",
+    "mockVisitorsNote": "Peak 11AM - 524/hr",
+    "mockBadge1": "QR Validated",
+    "mockBadge2": "Real-Time Reporting",
+    "stats": [
+      {
+        "k": "Online",
+        "v": "Booking Flows"
+      },
+      {
+        "k": "QR",
+        "v": "Entry Validation"
+      },
+      {
+        "k": "Live",
+        "v": "Admin Reporting"
+      }
+    ]
+  },
+  "content:home.industries": {
+    "eyebrow": "Industries",
+    "heading": "Industries We Empower",
+    "description": "As the best digital marketing company, we partner with businesses of all sizes, developing scalable digital platforms, intelligent automation, and hands-on solutions, and creating lasting advantages.",
+    "cards": [
+      {
+        "title": "Healthcare",
+        "href": "/industries/healthcare",
+        "image": "/images/impact.jpg",
+        "description": "Empowering hospitals and healthcare providers with AI-driven software, patient portals, hospital ERP, cloud infrastructure and digital transformation.",
+        "services": "Hospital Management\nPatient Portal\nAI Automation\nCloud Solutions"
+      },
+      {
+        "title": "Finance",
+        "href": "/industries/finance",
+        "image": "/images/industries-1.png",
+        "description": "Secure fintech platforms, banking software, analytics dashboards and intelligent automation for modern financial institutions.",
+        "services": "Banking Software\nFraud Detection\nFinTech Apps\nData Analytics"
+      },
+      {
+        "title": "Retail",
+        "href": "/industries/retail",
+        "image": "/images/industries-3.png",
+        "description": "Omnichannel commerce solutions, inventory automation and customer engagement platforms.",
+        "services": "E-Commerce\nPOS System\nInventory\nCRM"
+      },
+      {
+        "title": "Education",
+        "href": "/industries/education",
+        "image": "/images/industries-2.png",
+        "description": "Interactive LMS platforms, student portals, AI learning assistants and digital education ecosystems.",
+        "services": "Learning Platform\nStudent ERP\nAI Tutor\nAssessment System"
+      },
+      {
+        "title": "Real Estate",
+        "href": "/industries/real-estate",
+        "image": "/images/industries-3.png",
+        "description": "Property portals, CRM workflows, lead management and digital experiences for real estate businesses.",
+        "services": "Property Portals\nLead CRM\nVirtual Tours\nListings"
+      },
+      {
+        "title": "Logistics",
+        "href": "/industries/logistics",
+        "image": "/images/industries-4.png",
+        "description": "Fleet visibility, shipment workflows, route planning and operations dashboards for logistics teams.",
+        "services": "Fleet Tracking\nRoute Planning\nShipment Flow\nDashboards"
+      }
+    ]
+  },
+  "content:page.our-culture.beliefs": {
+    "heading": "We Believe In",
+    "description": "Our principles go beyond words; they become the essence of any solution that we create, any relationship we develop, and any promise we keep. They are an integral part of all our actions and decisions.",
+    "quoteEyebrow": "PEOPLE & PERFORMANCE",
+    "quote": "Every one of us at Fillip Technologies works towards creating an environment that respects people as much as performance.",
+    "quoteCite": "As great performance starts with great people.",
+    "beliefs": [
+      {
+        "title": "Thinking Beyond Boundaries",
+        "description": "We don't limit ourselves to conventional thinking. We push past predefined constraints to discover breakthrough ideas that shape markets."
+      },
+      {
+        "title": "Boundless Learning",
+        "description": "Growth is a lifelong pursuit. We foster a mindset of constant curiosity, continuous upskilling, and sharing knowledge across teams."
+      },
+      {
+        "title": "Purposeful Creativity",
+        "description": "Creativity without strategy is just art. We design and innovate with clear intent, ensuring every solution solves a real-world problem."
+      },
+      {
+        "title": "Respectful Collaboration",
+        "description": "The best ideas are born from collaboration among diverse minds. We communicate openly, respect every voice, and win as a single team."
+      },
+      {
+        "title": "Excellence in Execution",
+        "description": "Strategy is nothing without execution. We maintain high quality standards, work with precision, and deliver measurable business impact."
+      },
+      {
+        "title": "Empowering Partners",
+        "description": "We align our efforts with our clients' long-term business goals, measuring our success by the actual value and growth we help them achieve."
+      }
+    ]
+  },
+  "industries:all": [
+    {
+      "slug": "healthcare",
+      "label": "Healthcare",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "finance",
+      "label": "Finance",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "retail",
+      "label": "Retail",
+      "published": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "education",
+      "label": "Education",
+      "published": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "real-estate",
+      "label": "Real Estate",
+      "published": true,
+      "sortOrder": 5
+    },
+    {
+      "slug": "logistics",
+      "label": "Logistics",
+      "published": true,
+      "sortOrder": 6
+    }
+  ],
+  "industries:published": [
+    {
+      "slug": "healthcare",
+      "label": "Healthcare",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "finance",
+      "label": "Finance",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "retail",
+      "label": "Retail",
+      "published": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "education",
+      "label": "Education",
+      "published": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "real-estate",
+      "label": "Real Estate",
+      "published": true,
+      "sortOrder": 5
+    },
+    {
+      "slug": "logistics",
+      "label": "Logistics",
+      "published": true,
+      "sortOrder": 6
+    }
+  ],
+  "industry:healthcare": {
+    "slug": "healthcare",
+    "label": "Healthcare",
+    "published": true,
+    "sortOrder": 1
+  },
+  "industry:finance": {
+    "slug": "finance",
+    "label": "Finance",
+    "published": true,
+    "sortOrder": 2
+  },
+  "industry:retail": {
+    "slug": "retail",
+    "label": "Retail",
+    "published": true,
+    "sortOrder": 3
+  },
+  "industry:education": {
+    "slug": "education",
+    "label": "Education",
+    "published": true,
+    "sortOrder": 4
+  },
+  "industry:real-estate": {
+    "slug": "real-estate",
+    "label": "Real Estate",
+    "published": true,
+    "sortOrder": 5
+  },
+  "industry:logistics": {
+    "slug": "logistics",
+    "label": "Logistics",
+    "published": true,
+    "sortOrder": 6
+  },
+  "servicepages:all": [
+    {
+      "slug": "ticket-booking",
+      "title": "Ticket Booking",
+      "template": "business-solution",
+      "categorySlug": "business-solutions",
+      "published": true,
+      "sortOrder": 1,
+      "urlPrefix": "/solutions"
+    },
+    {
+      "slug": "website-development",
+      "title": "Custom Website Development",
+      "template": "service",
+      "categorySlug": "web-development",
+      "published": true,
+      "sortOrder": 1,
+      "urlPrefix": "/services"
+    },
+    {
+      "slug": "ecommerce-development",
+      "title": "E-Commerce Development",
+      "template": "service",
+      "categorySlug": "web-development",
+      "published": true,
+      "sortOrder": 2,
+      "urlPrefix": "/services"
+    },
+    {
+      "slug": "sms-communication",
+      "title": "SMS Communication",
+      "template": "business-solution",
+      "categorySlug": "business-solutions",
+      "published": true,
+      "sortOrder": 2,
+      "urlPrefix": "/solutions"
+    },
+    {
+      "slug": "whatsapp-business",
+      "title": "WhatsApp Business",
+      "template": "business-solution",
+      "categorySlug": "business-solutions",
+      "published": true,
+      "sortOrder": 3,
+      "urlPrefix": "/solutions"
+    },
+    {
+      "slug": "wordpress-development",
+      "title": "WordPress Development",
+      "template": "service",
+      "categorySlug": "web-development",
+      "published": true,
+      "sortOrder": 3,
+      "urlPrefix": "/services"
+    },
+    {
+      "slug": "web-application-development",
+      "title": "Web Application Development",
+      "template": "service",
+      "categorySlug": "web-development",
+      "published": true,
+      "sortOrder": 4,
+      "urlPrefix": "/services"
+    },
+    {
+      "slug": "website-redesign",
+      "title": "Website Redesign",
+      "template": "service",
+      "categorySlug": "web-development",
+      "published": true,
+      "sortOrder": 5,
+      "urlPrefix": "/services"
+    },
+    {
+      "slug": "website-maintenance",
+      "title": "Website Maintenance",
+      "template": "service",
+      "categorySlug": "web-development",
+      "published": true,
+      "sortOrder": 6,
+      "urlPrefix": "/services"
+    },
+    {
+      "slug": "software-development",
+      "title": "Software Development",
+      "template": "software-enterprise",
+      "categorySlug": "software-enterprise",
+      "published": true,
+      "sortOrder": 7,
+      "urlPrefix": "/software-development"
+    },
+    {
+      "slug": "android",
+      "title": "Android App Development",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 10,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "ios",
+      "title": "iOS App Development",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 11,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "enterprise",
+      "title": "Enterprise Mobile Applications",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 12,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "ecommerce",
+      "title": "E-Commerce Mobile Solutions",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 13,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "business-automation",
+      "title": "Business Process Automation Apps",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 14,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "app-ui-ux-design",
+      "title": "App UI/UX Design",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 15,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "on-demand",
+      "title": "On-Demand App Development",
+      "template": "mobile-app",
+      "categorySlug": "mobile-app-development",
+      "published": true,
+      "sortOrder": 16,
+      "urlPrefix": "/mobile-app-development"
+    },
+    {
+      "slug": "custom-software-development",
+      "title": "Custom Software Development",
+      "template": "software-enterprise",
+      "categorySlug": "software-enterprise",
+      "published": true,
+      "sortOrder": 20,
+      "urlPrefix": "/software-development"
+    },
+    {
+      "slug": "crm-development",
+      "title": "CRM Development",
+      "template": "software-enterprise",
+      "categorySlug": "software-enterprise",
+      "published": true,
+      "sortOrder": 21,
+      "urlPrefix": "/software-development"
+    },
+    {
+      "slug": "erp-solutions",
+      "title": "ERP Solutions",
+      "template": "software-enterprise",
+      "categorySlug": "software-enterprise",
+      "published": true,
+      "sortOrder": 22,
+      "urlPrefix": "/software-development"
+    },
+    {
+      "slug": "api-integration",
+      "title": "API Integration",
+      "template": "software-enterprise",
+      "categorySlug": "software-enterprise",
+      "published": true,
+      "sortOrder": 23,
+      "urlPrefix": "/software-development"
+    },
+    {
+      "slug": "saas-product-development",
+      "title": "SaaS Product Development",
+      "template": "software-enterprise",
+      "categorySlug": "software-enterprise",
+      "published": true,
+      "sortOrder": 24,
+      "urlPrefix": "/software-development"
+    },
+    {
+      "slug": "ui-ux-designing",
+      "title": "UI/UX Designing",
+      "template": "creative-experience",
+      "categorySlug": "creative-experience-design",
+      "published": true,
+      "sortOrder": 30,
+      "urlPrefix": "/design"
+    },
+    {
+      "slug": "product-design",
+      "title": "Product Design",
+      "template": "creative-experience",
+      "categorySlug": "creative-experience-design",
+      "published": true,
+      "sortOrder": 31,
+      "urlPrefix": "/design"
+    },
+    {
+      "slug": "logo-designing",
+      "title": "Logo Designing",
+      "template": "creative-experience",
+      "categorySlug": "creative-experience-design",
+      "published": true,
+      "sortOrder": 32,
+      "urlPrefix": "/design"
+    },
+    {
+      "slug": "brand-identity",
+      "title": "Brand Identity",
+      "template": "creative-experience",
+      "categorySlug": "creative-experience-design",
+      "published": true,
+      "sortOrder": 33,
+      "urlPrefix": "/design"
+    },
+    {
+      "slug": "motion-video-design",
+      "title": "Motion & Video Design",
+      "template": "creative-experience",
+      "categorySlug": "creative-experience-design",
+      "published": true,
+      "sortOrder": 34,
+      "urlPrefix": "/design"
+    },
+    {
+      "slug": "technical-seo",
+      "title": "Technical SEO",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 40,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "local-seo",
+      "title": "Local SEO",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 41,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "enterprise-seo",
+      "title": "Enterprise SEO",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 42,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "google-ads-management",
+      "title": "Google Ads Management",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 43,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "meta-ads-management",
+      "title": "Facebook & Instagram Ads",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 44,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "youtube-ads-campaign",
+      "title": "YouTube Ads Campaign",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 45,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "whatsapp-ads-campaign",
+      "title": "WhatsApp Ads Campaign",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 46,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "lead-generation-campaigns",
+      "title": "Lead Generation Campaigns",
+      "template": "marketing",
+      "categorySlug": "seo-performance-marketing",
+      "published": true,
+      "sortOrder": 47,
+      "urlPrefix": "/marketing"
+    },
+    {
+      "slug": "website-not-generating-leads",
+      "title": "My Website Doesn't Generate Leads",
+      "template": "challenges",
+      "categorySlug": "challenges-we-solve",
+      "published": true,
+      "sortOrder": 50,
+      "urlPrefix": "/challenges"
+    },
+    {
+      "slug": "generate-quality-leads",
+      "title": "I Struggle to Generate Quality Leads",
+      "template": "challenges",
+      "categorySlug": "challenges-we-solve",
+      "published": true,
+      "sortOrder": 51,
+      "urlPrefix": "/challenges"
+    },
+    {
+      "slug": "not-ranking-on-google",
+      "title": "My Business Isn't Ranking on Google",
+      "template": "challenges",
+      "categorySlug": "challenges-we-solve",
+      "published": true,
+      "sortOrder": 52,
+      "urlPrefix": "/challenges"
+    },
+    {
+      "slug": "low-organic-traffic",
+      "title": "I Have Low Organic Traffic",
+      "template": "challenges",
+      "categorySlug": "challenges-we-solve",
+      "published": true,
+      "sortOrder": 53,
+      "urlPrefix": "/challenges"
+    },
+    {
+      "slug": "security-surveillance",
+      "title": "Security Surveillance",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 60,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "fiber-optic-connectivity",
+      "title": "Fiber Optic Connectivity",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 61,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "local-area-network",
+      "title": "Local Area Network",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 62,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "control-room",
+      "title": "Control Room",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 63,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "networking",
+      "title": "Networking",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 64,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "server-solutions",
+      "title": "Server Solutions",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 65,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "wide-area-network",
+      "title": "Wide Area Network",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 66,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "system-integration",
+      "title": "System Integration",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 67,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "it-infrastructure",
+      "title": "IT Infrastructure",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 68,
+      "urlPrefix": "/hardware-solutions"
+    },
+    {
+      "slug": "gps-solution",
+      "title": "GPS Solution",
+      "template": "hardware-solution",
+      "categorySlug": "hardware-solutions",
+      "published": true,
+      "sortOrder": 69,
+      "urlPrefix": "/hardware-solutions"
+    }
+  ],
+  "servicepages:published-slugs": [
+    "ticket-booking",
+    "website-development",
+    "ecommerce-development",
+    "sms-communication",
+    "whatsapp-business",
+    "wordpress-development",
+    "web-application-development",
+    "website-redesign",
+    "website-maintenance",
+    "software-development",
+    "android",
+    "ios",
+    "enterprise",
+    "ecommerce",
+    "business-automation",
+    "app-ui-ux-design",
+    "on-demand",
+    "custom-software-development",
+    "crm-development",
+    "erp-solutions",
+    "api-integration",
+    "saas-product-development",
+    "ui-ux-designing",
+    "product-design",
+    "logo-designing",
+    "brand-identity",
+    "motion-video-design",
+    "technical-seo",
+    "local-seo",
+    "enterprise-seo",
+    "google-ads-management",
+    "meta-ads-management",
+    "youtube-ads-campaign",
+    "whatsapp-ads-campaign",
+    "lead-generation-campaigns",
+    "website-not-generating-leads",
+    "generate-quality-leads",
+    "not-ranking-on-google",
+    "low-organic-traffic",
+    "security-surveillance",
+    "fiber-optic-connectivity",
+    "local-area-network",
+    "control-room",
+    "networking",
+    "server-solutions",
+    "wide-area-network",
+    "system-integration",
+    "it-infrastructure",
+    "gps-solution"
+  ],
+  "servicepages:published-hrefs": [
+    "/solutions/ticket-booking",
+    "/services/website-development",
+    "/services/ecommerce-development",
+    "/solutions/sms-communication",
+    "/solutions/whatsapp-business",
+    "/services/wordpress-development",
+    "/services/web-application-development",
+    "/services/website-redesign",
+    "/services/website-maintenance",
+    "/software-development/software-development",
+    "/mobile-app-development/android",
+    "/mobile-app-development/ios",
+    "/mobile-app-development/enterprise",
+    "/mobile-app-development/ecommerce",
+    "/mobile-app-development/business-automation",
+    "/mobile-app-development/app-ui-ux-design",
+    "/mobile-app-development/on-demand",
+    "/software-development/custom-software-development",
+    "/software-development/crm-development",
+    "/software-development/erp-solutions",
+    "/software-development/api-integration",
+    "/software-development/saas-product-development",
+    "/design/ui-ux-designing",
+    "/design/product-design",
+    "/design/logo-designing",
+    "/design/brand-identity",
+    "/design/motion-video-design",
+    "/marketing/technical-seo",
+    "/marketing/local-seo",
+    "/marketing/enterprise-seo",
+    "/marketing/google-ads-management",
+    "/marketing/meta-ads-management",
+    "/marketing/youtube-ads-campaign",
+    "/marketing/whatsapp-ads-campaign",
+    "/marketing/lead-generation-campaigns",
+    "/challenges/website-not-generating-leads",
+    "/challenges/generate-quality-leads",
+    "/challenges/not-ranking-on-google",
+    "/challenges/low-organic-traffic",
+    "/hardware-solutions/security-surveillance",
+    "/hardware-solutions/fiber-optic-connectivity",
+    "/hardware-solutions/local-area-network",
+    "/hardware-solutions/control-room",
+    "/hardware-solutions/networking",
+    "/hardware-solutions/server-solutions",
+    "/hardware-solutions/wide-area-network",
+    "/hardware-solutions/system-integration",
+    "/hardware-solutions/it-infrastructure",
+    "/hardware-solutions/gps-solution"
+  ],
+  "servicepage:ticket-booking": {
+    "slug": "ticket-booking",
+    "title": "Ticket Booking",
+    "template": "business-solution",
+    "categorySlug": "business-solutions",
+    "published": true,
+    "sortOrder": 1,
+    "urlPrefix": "/solutions"
+  },
+  "servicepage:website-development": {
+    "slug": "website-development",
+    "title": "Custom Website Development",
+    "template": "service",
+    "categorySlug": "web-development",
+    "published": true,
+    "sortOrder": 1,
+    "urlPrefix": "/services"
+  },
+  "servicepage:ecommerce-development": {
+    "slug": "ecommerce-development",
+    "title": "E-Commerce Development",
+    "template": "service",
+    "categorySlug": "web-development",
+    "published": true,
+    "sortOrder": 2,
+    "urlPrefix": "/services"
+  },
+  "servicepage:sms-communication": {
+    "slug": "sms-communication",
+    "title": "SMS Communication",
+    "template": "business-solution",
+    "categorySlug": "business-solutions",
+    "published": true,
+    "sortOrder": 2,
+    "urlPrefix": "/solutions"
+  },
+  "servicepage:whatsapp-business": {
+    "slug": "whatsapp-business",
+    "title": "WhatsApp Business",
+    "template": "business-solution",
+    "categorySlug": "business-solutions",
+    "published": true,
+    "sortOrder": 3,
+    "urlPrefix": "/solutions"
+  },
+  "servicepage:wordpress-development": {
+    "slug": "wordpress-development",
+    "title": "WordPress Development",
+    "template": "service",
+    "categorySlug": "web-development",
+    "published": true,
+    "sortOrder": 3,
+    "urlPrefix": "/services"
+  },
+  "servicepage:web-application-development": {
+    "slug": "web-application-development",
+    "title": "Web Application Development",
+    "template": "service",
+    "categorySlug": "web-development",
+    "published": true,
+    "sortOrder": 4,
+    "urlPrefix": "/services"
+  },
+  "servicepage:website-redesign": {
+    "slug": "website-redesign",
+    "title": "Website Redesign",
+    "template": "service",
+    "categorySlug": "web-development",
+    "published": true,
+    "sortOrder": 5,
+    "urlPrefix": "/services"
+  },
+  "servicepage:website-maintenance": {
+    "slug": "website-maintenance",
+    "title": "Website Maintenance",
+    "template": "service",
+    "categorySlug": "web-development",
+    "published": true,
+    "sortOrder": 6,
+    "urlPrefix": "/services"
+  },
+  "servicepage:software-development": {
+    "slug": "software-development",
+    "title": "Software Development",
+    "template": "software-enterprise",
+    "categorySlug": "software-enterprise",
+    "published": true,
+    "sortOrder": 7,
+    "urlPrefix": "/software-development"
+  },
+  "servicepage:android": {
+    "slug": "android",
+    "title": "Android App Development",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 10,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:ios": {
+    "slug": "ios",
+    "title": "iOS App Development",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 11,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:enterprise": {
+    "slug": "enterprise",
+    "title": "Enterprise Mobile Applications",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 12,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:ecommerce": {
+    "slug": "ecommerce",
+    "title": "E-Commerce Mobile Solutions",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 13,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:business-automation": {
+    "slug": "business-automation",
+    "title": "Business Process Automation Apps",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 14,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:app-ui-ux-design": {
+    "slug": "app-ui-ux-design",
+    "title": "App UI/UX Design",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 15,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:on-demand": {
+    "slug": "on-demand",
+    "title": "On-Demand App Development",
+    "template": "mobile-app",
+    "categorySlug": "mobile-app-development",
+    "published": true,
+    "sortOrder": 16,
+    "urlPrefix": "/mobile-app-development"
+  },
+  "servicepage:custom-software-development": {
+    "slug": "custom-software-development",
+    "title": "Custom Software Development",
+    "template": "software-enterprise",
+    "categorySlug": "software-enterprise",
+    "published": true,
+    "sortOrder": 20,
+    "urlPrefix": "/software-development"
+  },
+  "servicepage:crm-development": {
+    "slug": "crm-development",
+    "title": "CRM Development",
+    "template": "software-enterprise",
+    "categorySlug": "software-enterprise",
+    "published": true,
+    "sortOrder": 21,
+    "urlPrefix": "/software-development"
+  },
+  "servicepage:erp-solutions": {
+    "slug": "erp-solutions",
+    "title": "ERP Solutions",
+    "template": "software-enterprise",
+    "categorySlug": "software-enterprise",
+    "published": true,
+    "sortOrder": 22,
+    "urlPrefix": "/software-development"
+  },
+  "servicepage:api-integration": {
+    "slug": "api-integration",
+    "title": "API Integration",
+    "template": "software-enterprise",
+    "categorySlug": "software-enterprise",
+    "published": true,
+    "sortOrder": 23,
+    "urlPrefix": "/software-development"
+  },
+  "servicepage:saas-product-development": {
+    "slug": "saas-product-development",
+    "title": "SaaS Product Development",
+    "template": "software-enterprise",
+    "categorySlug": "software-enterprise",
+    "published": true,
+    "sortOrder": 24,
+    "urlPrefix": "/software-development"
+  },
+  "servicepage:ui-ux-designing": {
+    "slug": "ui-ux-designing",
+    "title": "UI/UX Designing",
+    "template": "creative-experience",
+    "categorySlug": "creative-experience-design",
+    "published": true,
+    "sortOrder": 30,
+    "urlPrefix": "/design"
+  },
+  "servicepage:product-design": {
+    "slug": "product-design",
+    "title": "Product Design",
+    "template": "creative-experience",
+    "categorySlug": "creative-experience-design",
+    "published": true,
+    "sortOrder": 31,
+    "urlPrefix": "/design"
+  },
+  "servicepage:logo-designing": {
+    "slug": "logo-designing",
+    "title": "Logo Designing",
+    "template": "creative-experience",
+    "categorySlug": "creative-experience-design",
+    "published": true,
+    "sortOrder": 32,
+    "urlPrefix": "/design"
+  },
+  "servicepage:brand-identity": {
+    "slug": "brand-identity",
+    "title": "Brand Identity",
+    "template": "creative-experience",
+    "categorySlug": "creative-experience-design",
+    "published": true,
+    "sortOrder": 33,
+    "urlPrefix": "/design"
+  },
+  "servicepage:motion-video-design": {
+    "slug": "motion-video-design",
+    "title": "Motion & Video Design",
+    "template": "creative-experience",
+    "categorySlug": "creative-experience-design",
+    "published": true,
+    "sortOrder": 34,
+    "urlPrefix": "/design"
+  },
+  "servicepage:technical-seo": {
+    "slug": "technical-seo",
+    "title": "Technical SEO",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 40,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:local-seo": {
+    "slug": "local-seo",
+    "title": "Local SEO",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 41,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:enterprise-seo": {
+    "slug": "enterprise-seo",
+    "title": "Enterprise SEO",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 42,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:google-ads-management": {
+    "slug": "google-ads-management",
+    "title": "Google Ads Management",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 43,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:meta-ads-management": {
+    "slug": "meta-ads-management",
+    "title": "Facebook & Instagram Ads",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 44,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:youtube-ads-campaign": {
+    "slug": "youtube-ads-campaign",
+    "title": "YouTube Ads Campaign",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 45,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:whatsapp-ads-campaign": {
+    "slug": "whatsapp-ads-campaign",
+    "title": "WhatsApp Ads Campaign",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 46,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:lead-generation-campaigns": {
+    "slug": "lead-generation-campaigns",
+    "title": "Lead Generation Campaigns",
+    "template": "marketing",
+    "categorySlug": "seo-performance-marketing",
+    "published": true,
+    "sortOrder": 47,
+    "urlPrefix": "/marketing"
+  },
+  "servicepage:website-not-generating-leads": {
+    "slug": "website-not-generating-leads",
+    "title": "My Website Doesn't Generate Leads",
+    "template": "challenges",
+    "categorySlug": "challenges-we-solve",
+    "published": true,
+    "sortOrder": 50,
+    "urlPrefix": "/challenges"
+  },
+  "servicepage:generate-quality-leads": {
+    "slug": "generate-quality-leads",
+    "title": "I Struggle to Generate Quality Leads",
+    "template": "challenges",
+    "categorySlug": "challenges-we-solve",
+    "published": true,
+    "sortOrder": 51,
+    "urlPrefix": "/challenges"
+  },
+  "servicepage:not-ranking-on-google": {
+    "slug": "not-ranking-on-google",
+    "title": "My Business Isn't Ranking on Google",
+    "template": "challenges",
+    "categorySlug": "challenges-we-solve",
+    "published": true,
+    "sortOrder": 52,
+    "urlPrefix": "/challenges"
+  },
+  "servicepage:low-organic-traffic": {
+    "slug": "low-organic-traffic",
+    "title": "I Have Low Organic Traffic",
+    "template": "challenges",
+    "categorySlug": "challenges-we-solve",
+    "published": true,
+    "sortOrder": 53,
+    "urlPrefix": "/challenges"
+  },
+  "servicepage:security-surveillance": {
+    "slug": "security-surveillance",
+    "title": "Security Surveillance",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 60,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:fiber-optic-connectivity": {
+    "slug": "fiber-optic-connectivity",
+    "title": "Fiber Optic Connectivity",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 61,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:local-area-network": {
+    "slug": "local-area-network",
+    "title": "Local Area Network",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 62,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:control-room": {
+    "slug": "control-room",
+    "title": "Control Room",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 63,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:networking": {
+    "slug": "networking",
+    "title": "Networking",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 64,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:server-solutions": {
+    "slug": "server-solutions",
+    "title": "Server Solutions",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 65,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:wide-area-network": {
+    "slug": "wide-area-network",
+    "title": "Wide Area Network",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 66,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:system-integration": {
+    "slug": "system-integration",
+    "title": "System Integration",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 67,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:it-infrastructure": {
+    "slug": "it-infrastructure",
+    "title": "IT Infrastructure",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 68,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "servicepage:gps-solution": {
+    "slug": "gps-solution",
+    "title": "GPS Solution",
+    "template": "hardware-solution",
+    "categorySlug": "hardware-solutions",
+    "published": true,
+    "sortOrder": 69,
+    "urlPrefix": "/hardware-solutions"
+  },
+  "categories:all:*": [
+    {
+      "slug": "business-solutions",
+      "label": "Business Solutions",
+      "group": "solutions",
+      "description": "Digital products, automation, and enterprise software for growth.",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "web-development",
+      "label": "Web Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "hardware-solutions",
+      "label": "Hardware Solutions",
+      "group": "solutions",
+      "description": "Secure infrastructure, devices, and workplace technology systems.",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "mobile-app-development",
+      "label": "Mobile App Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "software-enterprise",
+      "label": "Software & Enterprise",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "creative-experience-design",
+      "label": "Creative Experience Design",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "seo-performance-marketing",
+      "label": "SEO & Performance Marketing",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 5
+    },
+    {
+      "slug": "challenges-we-solve",
+      "label": "Challenges We Solve",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 6
+    }
+  ],
+  "categories:published:*": [
+    {
+      "slug": "business-solutions",
+      "label": "Business Solutions",
+      "group": "solutions",
+      "description": "Digital products, automation, and enterprise software for growth.",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "web-development",
+      "label": "Web Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "hardware-solutions",
+      "label": "Hardware Solutions",
+      "group": "solutions",
+      "description": "Secure infrastructure, devices, and workplace technology systems.",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "mobile-app-development",
+      "label": "Mobile App Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "software-enterprise",
+      "label": "Software & Enterprise",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "creative-experience-design",
+      "label": "Creative Experience Design",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "seo-performance-marketing",
+      "label": "SEO & Performance Marketing",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 5
+    },
+    {
+      "slug": "challenges-we-solve",
+      "label": "Challenges We Solve",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 6
+    }
+  ],
+  "categories:all:whatwedo": [
+    {
+      "slug": "web-development",
+      "label": "Web Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "mobile-app-development",
+      "label": "Mobile App Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "software-enterprise",
+      "label": "Software & Enterprise",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "creative-experience-design",
+      "label": "Creative Experience Design",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "seo-performance-marketing",
+      "label": "SEO & Performance Marketing",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 5
+    },
+    {
+      "slug": "challenges-we-solve",
+      "label": "Challenges We Solve",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 6
+    }
+  ],
+  "categories:published:whatwedo": [
+    {
+      "slug": "web-development",
+      "label": "Web Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "mobile-app-development",
+      "label": "Mobile App Development",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "software-enterprise",
+      "label": "Software & Enterprise",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "creative-experience-design",
+      "label": "Creative Experience Design",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "seo-performance-marketing",
+      "label": "SEO & Performance Marketing",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 5
+    },
+    {
+      "slug": "challenges-we-solve",
+      "label": "Challenges We Solve",
+      "group": "whatwedo",
+      "description": "",
+      "published": true,
+      "sortOrder": 6
+    }
+  ],
+  "categories:all:solutions": [
+    {
+      "slug": "business-solutions",
+      "label": "Business Solutions",
+      "group": "solutions",
+      "description": "Digital products, automation, and enterprise software for growth.",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "hardware-solutions",
+      "label": "Hardware Solutions",
+      "group": "solutions",
+      "description": "Secure infrastructure, devices, and workplace technology systems.",
+      "published": true,
+      "sortOrder": 2
+    }
+  ],
+  "categories:published:solutions": [
+    {
+      "slug": "business-solutions",
+      "label": "Business Solutions",
+      "group": "solutions",
+      "description": "Digital products, automation, and enterprise software for growth.",
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "hardware-solutions",
+      "label": "Hardware Solutions",
+      "group": "solutions",
+      "description": "Secure infrastructure, devices, and workplace technology systems.",
+      "published": true,
+      "sortOrder": 2
+    }
+  ],
+  "category:business-solutions": {
+    "slug": "business-solutions",
+    "label": "Business Solutions",
+    "group": "solutions",
+    "description": "Digital products, automation, and enterprise software for growth.",
+    "published": true,
+    "sortOrder": 1
+  },
+  "category:web-development": {
+    "slug": "web-development",
+    "label": "Web Development",
+    "group": "whatwedo",
+    "description": "",
+    "published": true,
+    "sortOrder": 1
+  },
+  "category:hardware-solutions": {
+    "slug": "hardware-solutions",
+    "label": "Hardware Solutions",
+    "group": "solutions",
+    "description": "Secure infrastructure, devices, and workplace technology systems.",
+    "published": true,
+    "sortOrder": 2
+  },
+  "category:mobile-app-development": {
+    "slug": "mobile-app-development",
+    "label": "Mobile App Development",
+    "group": "whatwedo",
+    "description": "",
+    "published": true,
+    "sortOrder": 2
+  },
+  "category:software-enterprise": {
+    "slug": "software-enterprise",
+    "label": "Software & Enterprise",
+    "group": "whatwedo",
+    "description": "",
+    "published": true,
+    "sortOrder": 3
+  },
+  "category:creative-experience-design": {
+    "slug": "creative-experience-design",
+    "label": "Creative Experience Design",
+    "group": "whatwedo",
+    "description": "",
+    "published": true,
+    "sortOrder": 4
+  },
+  "category:seo-performance-marketing": {
+    "slug": "seo-performance-marketing",
+    "label": "SEO & Performance Marketing",
+    "group": "whatwedo",
+    "description": "",
+    "published": true,
+    "sortOrder": 5
+  },
+  "category:challenges-we-solve": {
+    "slug": "challenges-we-solve",
+    "label": "Challenges We Solve",
+    "group": "whatwedo",
+    "description": "",
+    "published": true,
+    "sortOrder": 6
+  }
+}

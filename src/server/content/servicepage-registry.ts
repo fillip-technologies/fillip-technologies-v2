@@ -3,6 +3,7 @@ import "server-only";
 import { dbConnect } from "@/lib/db";
 import { ServicePageModel, SiteContentModel } from "@/server/db/models";
 import { getContentData } from "./queries";
+import { snapshotRead } from "./snapshot-cache";
 import { getTemplateSchema } from "./servicepage-schema";
 import { templateUrlPrefix } from "./servicepage-templates";
 
@@ -37,23 +38,41 @@ const toPage = (d: any): ServicePage => ({
 
 /** All service pages (published + drafts), ordered for the admin list. */
 export async function listServicePages(): Promise<ServicePage[]> {
-  await dbConnect();
-  const docs = await ServicePageModel.find().sort({ sort_order: 1, slug: 1 }).lean();
-  return docs.map(toPage);
+  return snapshotRead(
+    "servicepages:all",
+    async () => {
+      await dbConnect();
+      const docs = await ServicePageModel.find().sort({ sort_order: 1, slug: 1 }).lean();
+      return docs.map(toPage);
+    },
+    []
+  );
 }
 
 /** One service page by slug, or null if it doesn't exist. */
 export async function getServicePage(slug: string): Promise<ServicePage | null> {
-  await dbConnect();
-  const doc = await ServicePageModel.findOne({ slug }).lean();
-  return doc ? toPage(doc) : null;
+  return snapshotRead<ServicePage | null>(
+    `servicepage:${slug}`,
+    async () => {
+      await dbConnect();
+      const doc = await ServicePageModel.findOne({ slug }).lean();
+      return doc ? toPage(doc) : null;
+    },
+    null
+  );
 }
 
 /** Published slugs — for generateStaticParams / listings. */
 export async function listPublishedServiceSlugs(): Promise<string[]> {
-  await dbConnect();
-  const docs = await ServicePageModel.find({ published: true }).select("slug").lean();
-  return docs.map((d) => d.slug);
+  return snapshotRead(
+    "servicepages:published-slugs",
+    async () => {
+      await dbConnect();
+      const docs = await ServicePageModel.find({ published: true }).select("slug").lean();
+      return docs.map((d) => d.slug);
+    },
+    []
+  );
 }
 
 /**
@@ -62,11 +81,24 @@ export async function listPublishedServiceSlugs(): Promise<string[]> {
  * the public nav (they'd 404 on click).
  */
 export async function getPublishedServiceHrefs(): Promise<Set<string>> {
-  await dbConnect();
-  const docs = await ServicePageModel.find({ published: true })
-    .select("slug template")
-    .lean();
-  return new Set(docs.map((d) => `${templateUrlPrefix(d.template ?? "service")}/${d.slug}`));
+  return snapshotRead<Set<string>>(
+    "servicepages:published-hrefs",
+    async () => {
+      await dbConnect();
+      const docs = await ServicePageModel.find({ published: true })
+        .select("slug template")
+        .lean();
+      return new Set(
+        docs.map((d) => `${templateUrlPrefix(d.template ?? "service")}/${d.slug}`)
+      );
+    },
+    new Set<string>(),
+    // A Set isn't JSON-serialisable: cache it as an array, rehydrate on read.
+    {
+      serialize: (set) => [...set],
+      deserialize: (raw) => new Set(Array.isArray(raw) ? (raw as string[]) : []),
+    }
+  );
 }
 
 /** Insert a new draft page. Assumes slug/title are already validated. */

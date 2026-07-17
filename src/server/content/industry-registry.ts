@@ -3,6 +3,7 @@ import "server-only";
 import { dbConnect } from "@/lib/db";
 import { IndustryModel, SiteContentModel } from "@/server/db/models";
 import { INDUSTRY_SECTION_IDS } from "./industry-sections";
+import { snapshotRead } from "./snapshot-cache";
 
 /**
  * Data access for the `industries` collection. This is the source of truth for
@@ -27,25 +28,43 @@ const toIndustry = (d: any): Industry => ({
 
 /** All industries (published + drafts), ordered for the admin list. */
 export async function listIndustries(): Promise<Industry[]> {
-  await dbConnect();
-  const docs = await IndustryModel.find().sort({ sort_order: 1, slug: 1 }).lean();
-  return docs.map(toIndustry);
+  return snapshotRead(
+    "industries:all",
+    async () => {
+      await dbConnect();
+      const docs = await IndustryModel.find().sort({ sort_order: 1, slug: 1 }).lean();
+      return docs.map(toIndustry);
+    },
+    []
+  );
 }
 
 /** Only published industries — for public nav/listing. */
 export async function listPublishedIndustries(): Promise<Industry[]> {
-  await dbConnect();
-  const docs = await IndustryModel.find({ published: true })
-    .sort({ sort_order: 1, slug: 1 })
-    .lean();
-  return docs.map(toIndustry);
+  return snapshotRead(
+    "industries:published",
+    async () => {
+      await dbConnect();
+      const docs = await IndustryModel.find({ published: true })
+        .sort({ sort_order: 1, slug: 1 })
+        .lean();
+      return docs.map(toIndustry);
+    },
+    []
+  );
 }
 
 /** One industry by slug, or null if it doesn't exist. */
 export async function getIndustry(slug: string): Promise<Industry | null> {
-  await dbConnect();
-  const doc = await IndustryModel.findOne({ slug }).lean();
-  return doc ? toIndustry(doc) : null;
+  return snapshotRead<Industry | null>(
+    `industry:${slug}`,
+    async () => {
+      await dbConnect();
+      const doc = await IndustryModel.findOne({ slug }).lean();
+      return doc ? toIndustry(doc) : null;
+    },
+    null
+  );
 }
 
 /** Insert a new draft industry. Assumes slug/label are already validated. */
