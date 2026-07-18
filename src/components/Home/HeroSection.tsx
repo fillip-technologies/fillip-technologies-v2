@@ -19,6 +19,10 @@ type HeroContent = Partial<{
     heroImage: string;
 }>;
 
+function normalizeHeroHref(href: string) {
+    return href.includes("get-a-quote") ? "/contact" : href;
+}
+
 export default function HeroSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
     const content = raw as HeroContent;
     const c = {
@@ -29,9 +33,9 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
             content.description ??
             "We design practical AI, cloud, and software systems for teams that need dependable results.",
         primaryCtaLabel: content.primaryCtaLabel ?? "Talk to Experts",
-        primaryCtaHref: content.primaryCtaHref ?? "#contact",
+        primaryCtaHref: normalizeHeroHref(content.primaryCtaHref ?? "#contact"),
         secondaryCtaLabel: content.secondaryCtaLabel ?? "Explore Capabilities",
-        secondaryCtaHref: content.secondaryCtaHref ?? "#capabilities",
+        secondaryCtaHref: normalizeHeroHref(content.secondaryCtaHref ?? "#capabilities"),
         heroImage: content.heroImage || "/images/hand.png",
     };
 
