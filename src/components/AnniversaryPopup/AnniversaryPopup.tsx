@@ -134,12 +134,12 @@ export default function AnniversaryPopup() {
               reduceMotion
                 ? { duration: 0.2 }
                 : {
-                    type: "spring",
-                    duration: 0.5,
-                    bounce: 0.22,
-                    damping: 22,
-                    stiffness: 210,
-                  }
+                  type: "spring",
+                  duration: 0.5,
+                  bounce: 0.22,
+                  damping: 22,
+                  stiffness: 210,
+                }
             }
           >
             <button
@@ -187,7 +187,7 @@ export default function AnniversaryPopup() {
               </h1>
 
               <div className="mt-2 rotate-[-3deg] rounded-full bg-amber-300 px-6 py-2 text-lg font-black text-slate-950 shadow-[0_8px_0_rgba(255,255,255,0.85)] sm:text-2xl">
-                of Digital Excellence
+                of Fillip Excellence
               </div>
 
               <p className="mx-auto mt-5 max-w-md text-sm leading-6 text-slate-900 sm:text-base">
