@@ -27,7 +27,6 @@ type MissionVisionContent = Partial<{
   signatureName: string;
 }>;
 
-<<<<<<< HEAD
 const ceo = {
   name: "Vikash Kumar",
   role: "Founder & CEO",
@@ -39,11 +38,6 @@ const ceo = {
 
 const teamMembers: Array<{ name: string; role: string; image?: string; imagePosition?: string }> = [
  
-=======
-// Fallbacks used when nothing is saved in the CMS yet.
-const DEFAULT_TEAM: TeamMember[] = [
-  { name: "Risabh Choubey", role: "Account Manager" },
->>>>>>> c124e4903576d07237336896b7259b16b058d17f
   { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-sinha.jpeg" },
   { name: "Payal Kumari", role: "Digital Marketing Head", image: "/images/team/Payal.jpeg" },
   { name: "Shruti Chouhan", role: "Software Development Engineer II", image: "/images/team/shruti-singh.png" },
