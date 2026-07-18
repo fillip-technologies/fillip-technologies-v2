@@ -6,6 +6,8 @@ import { generateQuotePdf } from "@/server/quote/pdf";
 import { sendQuoteEmail } from "@/server/quote/email";
 import { insertQuote } from "@/server/quote/queries";
 import { insertLead } from "@/server/contact/queries";
+import { resolveLeadLocation } from "@/server/contact/geo";
+import { parseClientLocation } from "@/server/contact/schema";
 
 // nodemailer + pdf-lib need the Node.js runtime (not edge).
 export const runtime = "nodejs";
@@ -79,6 +81,15 @@ export async function POST(request: Request) {
       ),
     ].join("\n");
 
+    // Category from the packages chosen: the distinct category names selected.
+    const packageCategory =
+      [...new Set(quote.items.map((i) => i.categoryName))].filter(Boolean).join(", ") || null;
+
+    const location = await resolveLeadLocation(
+      parseClientLocation((body as { location?: unknown })?.location),
+      request
+    );
+
     await insertLead({
       name: parsed.data.name,
       email: parsed.data.email,
@@ -87,6 +98,8 @@ export async function POST(request: Request) {
       budget: formatINR(quote.oneTime.total),
       message: summary,
       source: "get-a-quote-calculator",
+      location,
+      packageCategory,
     });
   } catch (err) {
     console.error("insertLead (from quote) failed:", err);

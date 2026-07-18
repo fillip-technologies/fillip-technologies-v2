@@ -207,7 +207,7 @@
     "primaryCtaHref": "/contact",
     "secondaryCtaLabel": "Book Strategy Call",
     "secondaryCtaHref": "/contact",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784200732/fillip/uploads/y6hn3jkstxe93lm8sliu.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784292756/fillip/uploads/lxsuqj0aewhpcis9xtby.png",
     "imageAlt": "Retail Industry",
     "trustItems": [
       {
@@ -231,7 +231,7 @@
     "primaryCtaHref": "/contact",
     "secondaryCtaLabel": "Book Strategy Call",
     "secondaryCtaHref": "/contact",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784292976/fillip/uploads/wcuiznn4wfp14dkvarsn.png",
     "imageAlt": "Real Estate Industry",
     "trustItems": [
       {
@@ -588,8 +588,96 @@
     "missionText": "As the best IT company, our primary objective is to help enterprises uncover their fullest potential through smart digital solutions. This ranges from software development and AI automation to cloud systems, website design, and digital marketing, providing scalable solutions that boost effectiveness,  bolster growth, and lead to meaningful business outcomes.",
     "visionText": "We envision a future where industry af all sizes and types can strongly embrace smart technology to attain sustainable growth and success across the globe. Our vision is to become a trustworthy innovation partner, renowned for developing smart digital experiences, providing AI-oriented solutions, and excellence via collaboration, transparency, and continued creativity.",
     "creedText": "Our work is guided by values that illustrate who we are and how we serve our clients. We primarily believe in our commitment to fulfilling accountability, embracing AI with human innovation responsibly, and developing technology that is secure, scalable, and sustainable. Our biggest achievement is the trust we have earned and our clients' success through lasting collaborations.",
+    "leadershipEyebrow": "Leadership & Team",
+    "leadershipHeading": "The People Behind The Pages",
+    "leadershipDescription": "One clear leadership voice, supported by a focused team of builders, designers, and growth specialists.",
+    "ceoName": "Vikash Kumar",
+    "ceoRole": "Founder & CEO",
+    "ceoExperience": "13+ Years of Experience",
+    "ceoImage": "/images/team/VIKASH.jpeg",
+    "ceoMessage": "Fillip Technologies was built with a simple belief: technology should make businesses clearer, faster, and more capable. Every solution we deliver carries our promise of discipline, transparency, and meaningful digital impact for the businesses we serve.",
     "signatureLead": "Signed in code and character,",
-    "signatureName": "The Fillip Team"
+    "signatureName": "The Fillip Team",
+    "teamMembers": [
+      {
+        "name": "Risabh Choubey",
+        "role": "Account Manager",
+        "image": "",
+        "imagePosition": ""
+      },
+      {
+        "name": "Shruti Sinha",
+        "role": "IT Team Lead",
+        "image": "/images/team/shruti-sinha.jpeg",
+        "imagePosition": ""
+      },
+      {
+        "name": "Payal Kumari",
+        "role": "Digital Marketing Head",
+        "image": "/images/team/Payal.jpeg",
+        "imagePosition": ""
+      },
+      {
+        "name": "Shruti Chouhan",
+        "role": "Software Development Engineer II",
+        "image": "/images/team/shruti-singh.png",
+        "imagePosition": ""
+      },
+      {
+        "name": "Abhishek Prajapati",
+        "role": "Backend Developer",
+        "image": "/images/team/ABHISHEK.jpeg",
+        "imagePosition": ""
+      },
+      {
+        "name": "Prince Raj",
+        "role": "Associate Software Developer",
+        "image": "/images/team/prince-kumar.png",
+        "imagePosition": "object-[50%_18%]"
+      },
+      {
+        "name": "Govind Kumar",
+        "role": "Associate Software Developer",
+        "image": "/images/team/Govind-Kumar.png",
+        "imagePosition": "object-[50%_18%]"
+      },
+      {
+        "name": "Aman Sharma",
+        "role": "Digital Marketing Executive",
+        "image": "",
+        "imagePosition": ""
+      },
+      {
+        "name": "Mukta Trivedy",
+        "role": "UI Designer",
+        "image": "/images/team/mukta-trivedy.png",
+        "imagePosition": ""
+      },
+      {
+        "name": "Wagish Karna",
+        "role": "Content Writer",
+        "image": "/images/team/wagish-karna.jpeg",
+        "imagePosition": "object-[50%_18%]"
+      },
+      {
+        "name": "Khushi Bharti",
+        "role": "HR Generalist",
+        "image": "",
+        "imagePosition": ""
+      },
+      {
+        "name": "Lincy Bhardwaj",
+        "role": "HR Executive",
+        "image": "",
+        "imagePosition": ""
+      },
+      {
+        "name": "Anushka Raj",
+        "role": "BDE",
+        "image": "",
+        "imagePosition": ""
+      }
+    ]
   },
   "content:servicepage.website-development.hero": {
     "title": "Websites Designed to Convert",
@@ -789,11 +877,16 @@
     ]
   },
   "content:servicepage.control-room.hero": {
+    "backgroundImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202625/fillip/uploads/u52b0c0b3mj4e5pbmmo1.webp",
     "badge": "Hardware Solutions",
-    "title": "Control Room",
-    "highlightedTitle": "Command Centers",
+    "heading": "Control Room\nCommand Centers",
     "description": "Create centralized monitoring spaces for CCTV surveillance, operations visibility, incident response, and real-time decision-making.",
-    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202625/fillip/uploads/u52b0c0b3mj4e5pbmmo1.webp"
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
   },
   "content:servicepage.server-solutions.solutions": {
     "solutions": [
@@ -862,7 +955,7 @@
     "primaryCtaHref": "#estimate",
     "secondaryCtaLabel": "View Our Work",
     "secondaryCtaHref": "#services",
-    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784282184/fillip/uploads/cbfk5ksk8nuag1ecadg3.png",
     "imageAlt": "Creative Experience Design",
     "stats": [
       {
@@ -956,7 +1049,7 @@
     "primaryCtaHref": "#estimate",
     "secondaryCtaLabel": "View Our Work",
     "secondaryCtaHref": "#services",
-    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784286871/fillip/uploads/u6exip1rzn6wablnuvyz.png",
     "imageAlt": "Creative Experience Design",
     "stats": [
       {
@@ -987,56 +1080,56 @@
         "title": "Logo & Brand Mark",
         "tag": "LOGO + MARK",
         "desc": "Custom geometric brand icon and typography layout.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289684/fillip/uploads/zx1340przmx5rc8szatl.png"
       },
       {
         "category": "Logo Design",
         "title": "Wordmark & Logotype",
         "tag": "WORDMARK",
         "desc": "Clean, elegant custom letterforms and wordmark styling.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289698/fillip/uploads/xz6enwcz8hchl9qimvc0.png"
       },
       {
         "category": "Brand Identity",
         "title": "Visual Identity System",
         "tag": "FULL BRAND",
         "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289715/fillip/uploads/ycazilmtperhpsrduw8o.png"
       },
       {
         "category": "Print",
         "title": "Exhibition Poster Design",
         "tag": "POSTER SERIES",
         "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289723/fillip/uploads/tgvlr8ghxcvgkwldypi3.png"
       },
       {
         "category": "Packaging",
         "title": "Product Packaging Design",
         "tag": "PACKAGING",
         "desc": "Custom die-cut packaging layout and premium label design.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289739/fillip/uploads/lmyfhrczxwpaj8uqgrbl.png"
       },
       {
         "category": "Social Media",
         "title": "Social Media Campaign Kit",
         "tag": "SOCIAL KIT",
         "desc": "Scroll-stopping social media assets and digital marketing graphics.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289750/fillip/uploads/c4jnuftblieolst5xwsy.png"
       },
       {
         "category": "Illustration",
         "title": "Custom Mascot Illustration",
         "tag": "ILLUSTRATION",
         "desc": "Bespoke digital character illustrations and branding assets.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289857/fillip/uploads/ucibas2fguamxiwhugyz.png"
       },
       {
         "category": "UI Design",
         "title": "SaaS Dashboard UI Design",
         "tag": "UI/UX DESIGN",
         "desc": "High-fidelity app dashboard user interface and component library.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289773/fillip/uploads/cln2vzp9k0arj7igx9nl.jpg"
       }
     ]
   },
@@ -1050,56 +1143,56 @@
         "title": "Logo & Brand Mark",
         "tag": "LOGO + MARK",
         "desc": "Custom geometric brand icon and typography layout.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290783/fillip/uploads/hcxdejuxsttihaqonc7w.jpg"
       },
       {
         "category": "Logo Design",
         "title": "Wordmark & Logotype",
         "tag": "WORDMARK",
         "desc": "Clean, elegant custom letterforms and wordmark styling.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290788/fillip/uploads/n70omondcez3in6z3jch.jpg"
       },
       {
         "category": "Brand Identity",
         "title": "Visual Identity System",
         "tag": "FULL BRAND",
         "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290796/fillip/uploads/iu9foocrzqvrkwvyo7ej.jpg"
       },
       {
         "category": "Print",
         "title": "Exhibition Poster Design",
         "tag": "POSTER SERIES",
         "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290803/fillip/uploads/icnclklm2xvosioqe8pi.jpg"
       },
       {
         "category": "Packaging",
         "title": "Product Packaging Design",
         "tag": "PACKAGING",
         "desc": "Custom die-cut packaging layout and premium label design.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290812/fillip/uploads/afvqpgduywnufiykznzj.jpg"
       },
       {
         "category": "Social Media",
         "title": "Social Media Campaign Kit",
         "tag": "SOCIAL KIT",
         "desc": "Scroll-stopping social media assets and digital marketing graphics.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290819/fillip/uploads/dekqyhv90qx6al0fuhjh.jpg"
       },
       {
         "category": "Illustration",
         "title": "Custom Mascot Illustration",
         "tag": "ILLUSTRATION",
         "desc": "Bespoke digital character illustrations and branding assets.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290827/fillip/uploads/k3dakwfrkiphrb9ckihu.jpg"
       },
       {
         "category": "UI Design",
         "title": "SaaS Dashboard UI Design",
         "tag": "UI/UX DESIGN",
         "desc": "High-fidelity app dashboard user interface and component library.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290835/fillip/uploads/iyb42bwub5vln1jsf7nz.jpg"
       }
     ]
   },
@@ -1137,12 +1230,12 @@
     "imageAlt": ""
   },
   "content:servicepage.wordpress-development.hero": {
-    "title": "Build Flexible WordPress Sites",
+    "title": "Create a Website That's Easy",
     "prefixText": "",
-    "highlightedTitle": "Publish With Confidence",
+    "highlightedTitle": "to Manage and Built to Perform",
     "suffixText": "",
-    "description": "WordPress development services for fast, secure, manageable websites that help teams publish content and grow their digital presence.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "description": "Be it a start-up, a small company, or a multinational corporation, WordPress has become one of the most popular systems used by modern companies to build their online presence.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289350/fillip/uploads/dlhvj8j6no8vvffpw694.jpg",
     "imageAlt": ""
   },
   "content:servicepage.website-maintenance.hero": {
@@ -1151,7 +1244,7 @@
     "highlightedTitle": "Always Online",
     "suffixText": "",
     "description": "Professional website maintenance, security updates, and performance optimization services to keep your site running smoothly 24/7.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289529/fillip/uploads/r7pkenmvyjodhgmecq4t.jpg",
     "imageAlt": ""
   },
   "content:servicepage.website-redesign.hero": {
@@ -1160,7 +1253,7 @@
     "highlightedTitle": "Higher Conversions",
     "suffixText": "",
     "description": "Transform your outdated website into a fast, search-optimized, and customer-focused digital experience that actually drives business outcomes.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784293243/fillip/uploads/hvzxqlpjaoars4mjslnx.jpg",
     "imageAlt": ""
   },
   "content:servicepage.ecommerce-development.hero": {
@@ -1210,56 +1303,56 @@
         "title": "Logo & Brand Mark",
         "tag": "LOGO + MARK",
         "desc": "Custom geometric brand icon and typography layout.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291032/fillip/uploads/y9yydr1zmrgvhyytwywv.png"
       },
       {
         "category": "Logo Design",
         "title": "Wordmark & Logotype",
         "tag": "WORDMARK",
         "desc": "Clean, elegant custom letterforms and wordmark styling.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291037/fillip/uploads/gse7wwcevlpymtgdylzb.jpg"
       },
       {
         "category": "Brand Identity",
         "title": "Visual Identity System",
         "tag": "FULL BRAND",
         "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291049/fillip/uploads/lf4brgdkaujiiu4tg51c.jpg"
       },
       {
         "category": "Print",
         "title": "Exhibition Poster Design",
         "tag": "POSTER SERIES",
         "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291059/fillip/uploads/dsqqfpcdprfnk99lezt8.jpg"
       },
       {
         "category": "Packaging",
         "title": "Product Packaging Design",
         "tag": "PACKAGING",
         "desc": "Custom die-cut packaging layout and premium label design.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291068/fillip/uploads/ksysu7cze3zeka94a7x2.jpg"
       },
       {
         "category": "Social Media",
         "title": "Social Media Campaign Kit",
         "tag": "SOCIAL KIT",
         "desc": "Scroll-stopping social media assets and digital marketing graphics.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291078/fillip/uploads/h8tpmi5yezljnvyypsg0.jpg"
       },
       {
         "category": "Illustration",
         "title": "Custom Mascot Illustration",
         "tag": "ILLUSTRATION",
         "desc": "Bespoke digital character illustrations and branding assets.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291085/fillip/uploads/esbblwbrgzcfkwfhqp7u.jpg"
       },
       {
         "category": "UI Design",
         "title": "SaaS Dashboard UI Design",
         "tag": "UI/UX DESIGN",
         "desc": "High-fidelity app dashboard user interface and component library.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784291093/fillip/uploads/grjtszv7rcpecyr1agrm.jpg"
       }
     ]
   },
@@ -1273,56 +1366,56 @@
         "title": "Logo & Brand Mark",
         "tag": "LOGO + MARK",
         "desc": "Custom geometric brand icon and typography layout.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290899/fillip/uploads/j8os0s8socyshi7bfsev.jpg"
       },
       {
         "category": "Logo Design",
         "title": "Wordmark & Logotype",
         "tag": "WORDMARK",
         "desc": "Clean, elegant custom letterforms and wordmark styling.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290913/fillip/uploads/augoeeegzc6nn2ci6rbe.jpg"
       },
       {
         "category": "Brand Identity",
         "title": "Visual Identity System",
         "tag": "FULL BRAND",
         "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290921/fillip/uploads/hpgsilxdmzkooemoojws.jpg"
       },
       {
         "category": "Print",
         "title": "Exhibition Poster Design",
         "tag": "POSTER SERIES",
         "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290932/fillip/uploads/u8kxhz69rlcyqaokugs1.jpg"
       },
       {
         "category": "Packaging",
         "title": "Product Packaging Design",
         "tag": "PACKAGING",
         "desc": "Custom die-cut packaging layout and premium label design.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290940/fillip/uploads/tqd2oyxpcsblawucos2l.jpg"
       },
       {
         "category": "Social Media",
         "title": "Social Media Campaign Kit",
         "tag": "SOCIAL KIT",
         "desc": "Scroll-stopping social media assets and digital marketing graphics.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290953/fillip/uploads/szn0dsxmjke6mdfftsup.jpg"
       },
       {
         "category": "Illustration",
         "title": "Custom Mascot Illustration",
         "tag": "ILLUSTRATION",
         "desc": "Bespoke digital character illustrations and branding assets.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290967/fillip/uploads/hgygta1lfkkvd9idjhnu.jpg"
       },
       {
         "category": "UI Design",
         "title": "SaaS Dashboard UI Design",
         "tag": "UI/UX DESIGN",
         "desc": "High-fidelity app dashboard user interface and component library.",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290975/fillip/uploads/fdkk9u7a7lr1luhsjkbj.jpg"
       }
     ]
   },
@@ -1916,11 +2009,16 @@
     "statusItem2": "Multi-Site Coverage"
   },
   "content:servicepage.fiber-optic-connectivity.hero": {
+    "backgroundImage": "/images/hardware/security_bg_parallax.png",
     "badge": "Hardware Solutions",
-    "title": "Fiber Optic Connectivity",
-    "highlightedTitle": "Built For Speed",
+    "heading": "Fiber Optic Connectivity\nBuilt For Speed",
     "description": "Deploy reliable high-bandwidth connectivity with professional fiber cabling, termination, splicing, and testing for offices, campuses, data rooms, and industrial sites.",
-    "image": "/images/hardware/security_bg_parallax.png"
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
   },
   "content:industry.finance.growthEngine": {
     "badge": "Growth Ecosystem",
@@ -1956,18 +2054,24 @@
     ]
   },
   "content:servicepage.networking.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Networks you can trust.\nSecurity you can rely on.",
     "benefits": [
       {
-        "text": "Secure Network"
+        "title": "Secure Network",
+        "description": "Careful design, clean configuration and dependable support for long-term network performance."
       },
       {
-        "text": "Better Uptime"
+        "title": "Better Uptime",
+        "description": "Careful design, clean configuration and dependable support for long-term network performance."
       },
       {
-        "text": "Scalable Setup"
+        "title": "Scalable Setup",
+        "description": "Careful design, clean configuration and dependable support for long-term network performance."
       },
       {
-        "text": "Managed Access"
+        "title": "Managed Access",
+        "description": "Careful design, clean configuration and dependable support for long-term network performance."
       }
     ]
   },
@@ -2003,11 +2107,16 @@
     ]
   },
   "content:servicepage.server-solutions.hero": {
+    "backgroundImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203858/fillip/uploads/iujwnq1wmgwu6ouawn6w.jpg",
     "badge": "Hardware Solutions",
-    "title": "Server Solutions",
-    "highlightedTitle": "For Reliable Operations",
+    "heading": "Server Solutions\nFor Reliable Operations",
     "description": "Plan and deploy server infrastructure for storage, applications, backup, user access, virtualization, and secure business operations.",
-    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203858/fillip/uploads/iujwnq1wmgwu6ouawn6w.jpg"
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
   },
   "content:whatwedo.web-development.challenges": {
     "badge": "Challenges We Solve",
@@ -2039,15 +2148,20 @@
     ]
   },
   "content:servicepage.local-area-network.hero": {
+    "backgroundImage": "/images/hardware/card_office.png",
     "badge": "Hardware Solutions",
-    "title": "LAN Solutions",
-    "highlightedTitle": "for Business Connectivity",
+    "heading": "LAN Solutions\nfor Business Connectivity",
     "description": "Establish your local area network solutions quickly and efficiently with the help of a reliable Local Area Network Service Company for offices, schools, hospitals, warehouses, and businesses.",
-    "image": "/images/hardware/card_office.png"
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
   },
   "content:page.ticket-booking.hero": {
     "badge": "One Intelligent Platform",
-    "heading": "Connected Ticketing Ecosystem.",
+    "heading": "Unified Ticketing Simplified Operations",
     "description": "From travel to events, from entertainment to museums and attractions, Fillip Technologies is a trustworthy Ticket Booking Development Company, providing secure, scalable, and intelligent ticket booking solutions.",
     "primaryCtaLabel": "Discuss Your Platform",
     "secondaryCtaLabel": "View Sample Dashboard",
@@ -2101,7 +2215,7 @@
     ]
   },
   "content:home.industries": {
-    "eyebrow": "Industries",
+    "eyebrow": "",
     "heading": "Industries We Empower",
     "description": "As the best digital marketing company, we partner with businesses of all sizes, developing scalable digital platforms, intelligent automation, and hands-on solutions, and creating lasting advantages.",
     "cards": [
@@ -2179,6 +2293,2588 @@
       {
         "title": "Empowering Partners",
         "description": "We align our efforts with our clients' long-term business goals, measuring our success by the actual value and growth we help them achieve."
+      }
+    ]
+  },
+  "content:home.clients": {
+    "eyebrow": "TRUSTED BY ORGANIZATIONS",
+    "heading": "Organizations That Trust Fillip",
+    "stat1": "13+ Years Experience",
+    "stat2": "1000+ Projects Delivered",
+    "stat3": "20+ Industries Served",
+    "logos": [
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/abhayanand_logo-170x115.png",
+        "alt": "abhayanand logo 170x115",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Advance%20Line%20Logo%20Final.png",
+        "alt": "Advance Line Logo Final",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/ADVANCED%20NEURO%20HOSPITAL.png",
+        "alt": "ADVANCED NEURO HOSPITAL",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Advante%20Logo%20Final%20-%2025-07-2022%20-%20Copy.png",
+        "alt": "Advante Logo Final 25 07 2022 Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Ahl-logo-copy-300x76.png",
+        "alt": "Ahl logo copy 300x76",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/ARCS.png",
+        "alt": "ARCS",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/arvind%20foundation%20logo%20copy.png",
+        "alt": "arvind foundation logo copy",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/bcit_logo.webp",
+        "alt": "bcit logo",
+        "categories": "all,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/BMC%20NEW%20LOGO%20222-01.jpg",
+        "alt": "BMC NEW LOGO 222 01",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/BMC%20NEW%20LOGO-011.png",
+        "alt": "BMC NEW LOGO 011",
+        "categories": "all,priority"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/cropped-Capture_Atithi_prev_ui.png",
+        "alt": "cropped Capture Atithi prev ui",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/cropped-Screenshot-2024-09-10-184114-300x300.png",
+        "alt": "cropped Screenshot 2024 09 10 184114 300x300",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/darsh%20logo%20copy%20(1).png",
+        "alt": "darsh logo copy (1)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/darsh%20news%20logo.png",
+        "alt": "darsh news logo",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/DHPL%20logo%201%20copy.png",
+        "alt": "DHPL logo 1 copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Diagno-lab-PNG.png",
+        "alt": "Diagno lab PNG",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Domus-logo%20png.png",
+        "alt": "Domus logo png",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Edify%20Logo.jpg",
+        "alt": "Edify Logo",
+        "categories": "all,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/gadgethubpatna%20logo%20900.png",
+        "alt": "gadgethubpatna logo 900",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/golden%20apple%20logo.png",
+        "alt": "golden apple logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Green%20and%20Beige%20Groceries%20Business%20Logo.png",
+        "alt": "Green and Beige Groceries Business Logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Hotel%20Sidh%20Vedantha%20logo.webp",
+        "alt": "Hotel Sidh Vedantha logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Inception%20logo.png",
+        "alt": "Inception logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/jamui%20logo.png",
+        "alt": "jamui logo",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Janya-Hospital-Logo-PNG%20copy.png",
+        "alt": "Janya Hospital Logo PNG copy",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/K.P%20Sinha%20Logo.png",
+        "alt": "K.P Sinha Logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/kanika%20spa%20logo.jpg",
+        "alt": "kanika spa logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/kashlaya%20reahb%20logo.png",
+        "alt": "kashlaya reahb logo",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/kiayra-removebg-preview.webp",
+        "alt": "kiayra removebg preview",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Krrish%20Fabricators%20Logo%20-%20Copy.png",
+        "alt": "Krrish Fabricators Logo Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/LANDMARK%20LOGO.png",
+        "alt": "LANDMARK LOGO",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(1)%20-%20Copy.jpg",
+        "alt": "logo (1) Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(1).png",
+        "alt": "logo (1)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(10).png",
+        "alt": "logo (10)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(11).png",
+        "alt": "logo (11)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(13).png",
+        "alt": "logo (13)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(14).png",
+        "alt": "logo (14)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(15).png",
+        "alt": "logo (15)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(16)%20-%20Copy.png",
+        "alt": "logo (16) Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(17).png",
+        "alt": "logo (17)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(18).png",
+        "alt": "logo (18)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(19).png",
+        "alt": "logo (19)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Logo%20(2).png",
+        "alt": "Logo (2)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(20).png",
+        "alt": "logo (20)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(21).png",
+        "alt": "logo (21)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(22).png",
+        "alt": "logo (22)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(23).png",
+        "alt": "logo (23)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(24).png",
+        "alt": "logo (24)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(25)%20-%20Copy.png",
+        "alt": "logo (25) Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(26).png",
+        "alt": "logo (26)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(27).png",
+        "alt": "logo (27)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(28).png",
+        "alt": "logo (28)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(29).png",
+        "alt": "logo (29)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(3)%20-%20Copy.png",
+        "alt": "logo (3) Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(30).png",
+        "alt": "logo (30)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(4)%20-%20Copy.png",
+        "alt": "logo (4) Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(5).png",
+        "alt": "logo (5)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(6).png",
+        "alt": "logo (6)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(7).png",
+        "alt": "logo (7)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(8).png",
+        "alt": "logo (8)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(9).png",
+        "alt": "logo (9)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy%20(2).png",
+        "alt": "logo Copy (2)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy%20-%20Copy.png",
+        "alt": "logo Copy Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy.jpg",
+        "alt": "logo Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Logo%20Black.png",
+        "alt": "Logo Black",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-01-removebg-preview-768x257.png",
+        "alt": "logo 01 removebg preview 768x257",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Logo-1%20-%20Copy.png",
+        "alt": "Logo 1 Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-2%20-%20Copy.png",
+        "alt": "logo 2 Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-fotter-300x69.png",
+        "alt": "logo fotter 300x69",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-green-new.png",
+        "alt": "logo green new",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-lg.png",
+        "alt": "logo lg",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-name.png",
+        "alt": "logo name",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-partyt%20patna%20zone.png",
+        "alt": "logo partyt patna zone",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-removebg-preview%20-%20Copy.png",
+        "alt": "logo removebg preview Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-rng.png",
+        "alt": "logo rng",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo-shubh%20momentz.png",
+        "alt": "logo shubh momentz",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo.jpg",
+        "alt": "logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo.png",
+        "alt": "logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo1%20(2).png",
+        "alt": "logo1 (2)",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo1%20-%20Copy.png",
+        "alt": "logo1 Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo1-1536x359.png",
+        "alt": "logo1 1536x359",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Logo2-01%20-%20Copy.png",
+        "alt": "Logo2 01 Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Logo2-01.png",
+        "alt": "Logo2 01",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo2.png",
+        "alt": "logo2",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo4.png",
+        "alt": "logo4",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logonew2.png",
+        "alt": "logonew2",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo_old%20-%20Copy.png",
+        "alt": "logo old Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo_old.png",
+        "alt": "logo old",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/LVS_logo.webp",
+        "alt": "LVS logo",
+        "categories": "all,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Maa.jpg",
+        "alt": "Maa",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Map%20sketch%20logo.png",
+        "alt": "Map sketch logo",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Medica%20Emergency%20logo.png",
+        "alt": "Medica Emergency logo",
+        "categories": "all,priority,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Medica%20Logo%20for%20Social%20Media.png",
+        "alt": "Medica Logo for Social Media",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/MIA%20logo.png",
+        "alt": "MIA logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/NATURAL%20SPA.png",
+        "alt": "NATURAL SPA",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Nature%20Safari%20logo%20copy.png",
+        "alt": "Nature Safari logo copy",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/New%20era%20high%20school%20LOGO%20copy.png",
+        "alt": "New era high school LOGO copy",
+        "categories": "all,priority,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/NEW%20ERA%20HIGH%20SCHOOL%20LOGO.png",
+        "alt": "NEW ERA HIGH SCHOOL LOGO",
+        "categories": "all,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Nirmal%20Inn%20logo2.png",
+        "alt": "Nirmal Inn logo2",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Parkomiko.png",
+        "alt": "Parkomiko",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Patna%20Dental%20Final%20Logo.png",
+        "alt": "Patna Dental Final Logo",
+        "categories": "all,priority,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Patna%20Park.png",
+        "alt": "Patna Park",
+        "categories": "all,priority"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Rakshit%20Logo.PNG",
+        "alt": "Rakshit Logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/RAMRATAN%20LOGO.png",
+        "alt": "RAMRATAN LOGO",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/rapid_logo.png",
+        "alt": "rapid logo",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/rkch-logo.png",
+        "alt": "rkch logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Ruban%40logo-with-NABH-2-ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm.png",
+        "alt": "Ruban@logo with NABH 2 ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm",
+        "categories": "all,priority,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/SAI%20CARE%20CLININC.png",
+        "alt": "SAI CARE CLININC",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Saicare%20logo.png",
+        "alt": "Saicare logo",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Sanjivani%20medicine%20logo%20copy.png",
+        "alt": "Sanjivani medicine logo copy",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Satyadev%20Urology%20Logo.jpg",
+        "alt": "Satyadev Urology Logo",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Savij%20LOGO-01%20(1)%20-%20Copy.png",
+        "alt": "Savij LOGO 01 (1) Copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/SCORE%20HIGH%20LOGO.jpg",
+        "alt": "SCORE HIGH LOGO",
+        "categories": "all,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/SHEODENI%20SAO%20COLLEGE%20LOGO-01.png",
+        "alt": "SHEODENI SAO COLLEGE LOGO 01",
+        "categories": "all,priority,education"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/SITA-ARCH-LOGO-DKPorKRm.webp",
+        "alt": "SITA ARCH LOGO DKPorKRm",
+        "categories": "all"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Sri%20millets%20logo%20copy.jpg",
+        "alt": "Sri millets logo copy",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Startup%20Logo.png",
+        "alt": "Startup Logo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/tanush%20ent%20fnail%20logo.png",
+        "alt": "tanush ent fnail logo",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Tax%20Protect%20Logo%20-%2009-June-2022.png",
+        "alt": "Tax Protect Logo 09 June 2022",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/technosys-logo%20(1).png",
+        "alt": "technosys logo (1)",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/THAKUR%20GANJ%20NAGAR%20PANCHAYAT.png",
+        "alt": "THAKUR GANJ NAGAR PANCHAYAT",
+        "categories": "all,priority"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/tqpl%20logo%20red%20white.JPG",
+        "alt": "tqpl logo red white",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/TRIVEDI%20DESIGN.webp",
+        "alt": "TRIVEDI DESIGN",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Unicare%20logo.png",
+        "alt": "Unicare logo",
+        "categories": "all,healthcare"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/vedantalogo.png",
+        "alt": "vedantalogo",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/WEDDINGS72%20LOGO.png",
+        "alt": "WEDDINGS72 LOGO",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/WhatsApp%20Image%202022-03-28%20at%2011.38.44%20AM.jpeg",
+        "alt": "WhatsApp Image 2022 03 28 at 11.38.44 AM",
+        "categories": "all,corporate"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/Zoo%20Safari%20logo%20copy.jpg",
+        "alt": "Zoo Safari logo copy",
+        "categories": "all,priority"
+      },
+      {
+        "image": "/images/NEW%20CLIENTS%20LOGO/venu-van.png",
+        "alt": "venu van",
+        "categories": "all,priority,corporate"
+      },
+      {
+        "image": "/images/goverment/rajgir-zoo.png",
+        "alt": "rajgir zoo",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/Nature%20Safari%20logo%20copy.png",
+        "alt": "Nature Safari logo copy",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/venu-van.png",
+        "alt": "venu van",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/logo-large-converted-from-svg.png",
+        "alt": "logo large converted from svg",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/BMC%20NEW%20LOGO-011.png",
+        "alt": "BMC NEW LOGO 011",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/Patna%20Park.png",
+        "alt": "Patna Park",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/logo%20-%20Copy%20-%20Copy.png",
+        "alt": "logo Copy Copy",
+        "categories": "govt"
+      },
+      {
+        "image": "/images/goverment/BMC%20NEW%20LOGO%20222-01.jpg",
+        "alt": "BMC NEW LOGO 222 01",
+        "categories": "govt"
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.hero": {
+    "backgroundImage": "/images/hardware/card_office.png",
+    "badge": "Hardware Solutions",
+    "heading": "IT Infrastructure\nFor Modern Workplaces",
+    "description": "Being an IT Infrastructure Services Company, we ensure that all the IT infrastructures are safe and scalable, comprising of network solutions, servers, cloud computing, security, and infrastructure management solutions.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.it-infrastructure.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Infrastructure you can trust.\nSupport you can rely on.",
+    "benefitDescription": "Careful planning, clean deployment and dependable support for long-term IT performance."
+  },
+  "content:page.graphic-designing.portfolio": {
+    "badge": "✦ Our Work",
+    "headingLead": "Featured",
+    "headingHighlight": "Portfolio",
+    "items": [
+      {
+        "category": "Logo Design",
+        "title": "Logo & Brand Mark",
+        "tag": "LOGO + MARK",
+        "desc": "Custom geometric brand icon and typography layout.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289962/fillip/uploads/apisjnovmugem1ifmzvl.jpg"
+      },
+      {
+        "category": "Logo Design",
+        "title": "Wordmark & Logotype",
+        "tag": "WORDMARK",
+        "desc": "Clean, elegant custom letterforms and wordmark styling.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289971/fillip/uploads/qxlqrkstbd04up6icdwx.jpg"
+      },
+      {
+        "category": "Brand Identity",
+        "title": "Visual Identity System",
+        "tag": "FULL BRAND",
+        "desc": "Comprehensive brand identity guidelines, style guide, and colors.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289984/fillip/uploads/knzqauggmaese9vba48b.jpg"
+      },
+      {
+        "category": "Print",
+        "title": "Exhibition Poster Design",
+        "tag": "POSTER SERIES",
+        "desc": "Swiss-style modernist posters designed on a structured typographic grid.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289998/fillip/uploads/b8tz1cc6kn8nz3idoruo.jpg"
+      },
+      {
+        "category": "Packaging",
+        "title": "Product Packaging Design",
+        "tag": "PACKAGING",
+        "desc": "Custom die-cut packaging layout and premium label design.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290007/fillip/uploads/zsltvp1duwsfaukec6dx.jpg"
+      },
+      {
+        "category": "Social Media",
+        "title": "Social Media Campaign Kit",
+        "tag": "SOCIAL KIT",
+        "desc": "Scroll-stopping social media assets and digital marketing graphics.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290023/fillip/uploads/wvqyaclpsw2yzlpgjupf.jpg"
+      },
+      {
+        "category": "Illustration",
+        "title": "Custom Mascot Illustration",
+        "tag": "ILLUSTRATION",
+        "desc": "Bespoke digital character illustrations and branding assets.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290038/fillip/uploads/bx48kzlrqofkli5qssnq.png"
+      },
+      {
+        "category": "UI Design",
+        "title": "SaaS Dashboard UI Design",
+        "tag": "UI/UX DESIGN",
+        "desc": "High-fidelity app dashboard user interface and component library.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784290056/fillip/uploads/dcgxqifqd14djznecncr.jpg"
+      }
+    ]
+  },
+  "content:servicepage.wordpress-development.challenges": {
+    "eyebrow": "A WordPress Website Should Empower Your Business",
+    "title": "Empower Your Business",
+    "highlightedTitle": "Not Hold It Back.",
+    "description": "WordPress sites tend to get bogged down over time with a plethora of useless plugins, poor performance, security problems, and complicated content management.",
+    "secondaryDescription": "Fillip Technologies, a premier WordPress Website Development Company, creates intelligently engineered WordPress sites that have excellent performance, enterprise-level security, clean design, and content management.",
+    "cta": "See How We Improve WordPress Websites",
+    "items": [
+      {
+        "title": "Plugin Overload",
+        "description": "Too many plugins can slow sites down, increase maintenance risk, and create compatibility issues."
+      },
+      {
+        "title": "Slow Page Speed",
+        "description": "Unoptimized themes, media, and scripts can weaken search visibility and visitor engagement."
+      },
+      {
+        "title": "Difficult Editing",
+        "description": "Poor content structures make routine updates dependent on developers and slow marketing teams down."
+      },
+      {
+        "title": "Security Gaps",
+        "description": "Outdated themes, plugins, and weak setup practices can expose websites to avoidable risk."
+      },
+      {
+        "title": "Weak SEO Setup",
+        "description": "Missing technical foundations make content harder to discover and rank effectively."
+      },
+      {
+        "title": "Limited Scalability",
+        "description": "Generic builds often struggle to support new content types, campaigns, and business workflows."
+      }
+    ]
+  },
+  "content:servicepage.wordpress-development.whatWeBuild": {
+    "eyebrow": "WORDPRESS SOLUTIONS WE ENGINEER",
+    "title": "Smart WordPress Solutions Tailored For",
+    "highlightedTitle": "Performance, Scalability & Future Growth",
+    "description": "Be it a corporate site, a content-driven platform, or a fully functional WooCommerce store, Fillip Technologies, the best WordPress website development company, designs tailor-made WordPress solutions that are a blend of outstanding UX design, an easy-to-use content management system, and robust enterprise-level performance.",
+    "cards": [
+      {
+        "eyebrow": "Custom Themes",
+        "title": "Brand-Led WordPress Experiences",
+        "description": "Custom WordPress themes that match business goals while staying fast, clean, and manageable.",
+        "metric": "Cleaner Publishing",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "WooCommerce Stores",
+        "title": "Commerce On WordPress",
+        "description": "WooCommerce experiences with product management, secure checkout, and conversion-focused pages.",
+        "metric": "Improved Store Flow",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "Content Hubs",
+        "description": "Structured pages, blogs, resources, and landing pages that marketing teams can update confidently.",
+        "metric": "",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "Business Websites",
+        "description": "Professional WordPress websites for service businesses, institutions, and growing brands.",
+        "metric": "",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "Managed WordPress Systems",
+        "description": "WordPress setups designed for speed, security, SEO, content editing, and long-term support.",
+        "metric": "",
+        "tags": "Pages, Blogs, SEO, Forms, Security",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.about": {
+    "heading": "Connectivity You Can\nBuild On",
+    "description": "We design and install dependable local area networks that keep your teams, devices and systems connected across every floor and site.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.local-area-network.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Smart cabling.\nStronger networks.",
+    "description": "We combine careful network planning, quality cabling and professional installation to deliver fast, stable connectivity across your premises.",
+    "features": [
+      {
+        "title": "Stable Uptime",
+        "description": "Reliable wired and wireless connectivity your teams can count on all day."
+      },
+      {
+        "title": "Full Coverage",
+        "description": "Consistent Wi-Fi and LAN reach across every floor, room and work area."
+      },
+      {
+        "title": "Central Management",
+        "description": "Manage switches, access points and users from one simple console."
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "Local Area Network\nSolutions We Offer",
+    "description": "Explore practical, scalable networking solutions designed around your site, users, devices and bandwidth needs."
+  },
+  "content:servicepage.local-area-network.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Connectivity you can trust.\nSupport you can count on.",
+    "benefitDescription": "Careful planning, clean cabling and dependable support for long-term network performance."
+  },
+  "content:servicepage.local-area-network.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Local Area Network Projects",
+    "description": "Offices, schools, hospitals and warehouses rely on Fillip Technologies for dependable network planning, cabling and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies planned and installed our office LAN professionally. Connectivity is fast, stable and easy for our team to manage.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team understood our site layout and delivered clean structured cabling with clear labeling and reliable support.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The switching setup and Wi-Fi coverage were excellent. We now have dependable connectivity across every floor.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "The project was completed smoothly and explained in simple terms. Our daily operations now run without network drops.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Connectivity you can trust.\nSupport you can count on.",
+    "benefits": [
+      {
+        "title": "Stable Connectivity",
+        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+      },
+      {
+        "title": "Secure Access",
+        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+      },
+      {
+        "title": "Scalable Design",
+        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+      },
+      {
+        "title": "Clean Cabling",
+        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.faqs": {
+    "badge": "Local Area Network FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about local area network planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Can you upgrade an existing LAN?",
+        "answer": "Yes. We audit current cabling, switches, and Wi-Fi coverage before planning an upgrade."
+      },
+      {
+        "question": "Do you provide Wi-Fi access point setup?",
+        "answer": "Yes. We plan and install wireless coverage for offices, campuses, and commercial spaces."
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.about": {
+    "heading": "Bandwidth Built\nto Go the Distance",
+    "description": "We deploy professional fiber optic links that carry high-speed data reliably across floors, buildings and campuses.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.fiber-optic-connectivity.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Precise splicing.\nStronger backbones.",
+    "description": "We combine careful route planning, quality fiber and certified termination to deliver fast, low-latency connectivity you can depend on.",
+    "features": [
+      {
+        "title": "High Bandwidth",
+        "description": "Move large volumes of data smoothly across your entire network."
+      },
+      {
+        "title": "Low Latency",
+        "description": "Fast, stable links for real-time applications and heavy workloads."
+      },
+      {
+        "title": "Certified Links",
+        "description": "OTDR-tested, documented fiber runs built to perform long term."
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "Fiber Optic Connectivity\nSolutions We Offer",
+    "description": "Explore professional fiber cabling, splicing and testing designed around your site, distance and bandwidth needs."
+  },
+  "content:servicepage.fiber-optic-connectivity.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Connectivity you can trust.\nLinks you can rely on.",
+    "benefitDescription": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+  },
+  "content:servicepage.fiber-optic-connectivity.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Fiber Optic Connectivity Projects",
+    "description": "Offices, campuses and data centers rely on Fillip Technologies for dependable fiber planning, splicing and testing.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies laid our campus fiber backbone cleanly and tested every link. Speeds are excellent and rock solid.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team planned the fiber routes carefully and delivered certified terminations with clear documentation.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The splicing quality and OTDR testing were spot on. Connectivity between our buildings has never been better.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "The project was completed smoothly and explained simply. Our high-bandwidth links run without a hitch.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Connectivity you can trust.\nLinks you can rely on.",
+    "benefits": [
+      {
+        "title": "High Bandwidth",
+        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+      },
+      {
+        "title": "Low Latency",
+        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+      },
+      {
+        "title": "Long-Distance Links",
+        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+      },
+      {
+        "title": "Reliable Uptime",
+        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.faqs": {
+    "badge": "Fiber Optic Connectivity FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about fiber optic connectivity planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Do you handle fiber splicing and testing?",
+        "answer": "Yes. We provide fiber splicing, termination, OTDR testing, and link documentation."
+      },
+      {
+        "question": "Can fiber connect multiple buildings?",
+        "answer": "Yes. Fiber is ideal for campus, factory, warehouse, and multi-building connectivity."
+      }
+    ]
+  },
+  "content:servicepage.control-room.about": {
+    "heading": "Command Centers\nBuilt for Clarity",
+    "description": "We design centralized control rooms that bring cameras, systems and operations into one clear, real-time view.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.control-room.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Clear visibility.\nFaster decisions.",
+    "description": "We combine thoughtful layout, quality displays and reliable networking to deliver monitoring spaces your team can act on instantly.",
+    "features": [
+      {
+        "title": "Central Monitoring",
+        "description": "Watch every feed and system from one unified operations view."
+      },
+      {
+        "title": "Fast Response",
+        "description": "Spot incidents early and coordinate action without delay."
+      },
+      {
+        "title": "Live Dashboards",
+        "description": "Real-time data and video walls that keep everyone informed."
+      }
+    ]
+  },
+  "content:servicepage.control-room.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "Control Room\nSolutions We Offer",
+    "description": "Explore video walls, monitoring workstations and incident visibility designed around your operations and response needs."
+  },
+  "content:servicepage.control-room.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Control you can trust.\nVisibility you can act on.",
+    "benefitDescription": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+  },
+  "content:servicepage.control-room.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Control Room Projects",
+    "description": "Facilities, campuses and operations teams rely on Fillip Technologies for dependable control-room planning, setup and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies built our control room with a clean video wall and clear workstations. Monitoring is effortless now.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team planned the layout around our workflow and delivered a setup our operators love.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The display and networking setup were excellent. We respond to incidents much faster.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "The project was smooth and well explained. Our team has full visibility from one room.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.control-room.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Control you can trust.\nVisibility you can act on.",
+    "benefits": [
+      {
+        "title": "Central Monitoring",
+        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+      },
+      {
+        "title": "Fast Response",
+        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+      },
+      {
+        "title": "Live Dashboards",
+        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+      },
+      {
+        "title": "Operational Control",
+        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+      }
+    ]
+  },
+  "content:servicepage.control-room.faqs": {
+    "badge": "Control Room FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about control room planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Can CCTV feeds be displayed in a control room?",
+        "answer": "Yes. We set up live camera feeds, recording access, and multi-screen monitoring."
+      },
+      {
+        "question": "Do you design the full control room setup?",
+        "answer": "Yes. We help plan displays, workstations, networking, power, and equipment placement."
+      }
+    ]
+  },
+  "content:servicepage.networking.about": {
+    "heading": "Networks That Keep\nBusiness Moving",
+    "description": "We design and secure business networks that connect your users, devices, servers and cloud systems with confidence.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.networking.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Secure design.\nStronger networks.",
+    "description": "We combine careful network design, quality hardware and solid security to deliver connectivity that stays fast and protected.",
+    "features": [
+      {
+        "title": "Secure by Design",
+        "description": "Firewalls, VLANs and access policies that keep traffic protected."
+      },
+      {
+        "title": "Better Uptime",
+        "description": "Reliable connectivity that keeps your teams and apps online."
+      },
+      {
+        "title": "Managed Access",
+        "description": "Control who and what connects across your whole network."
+      }
+    ]
+  },
+  "content:servicepage.networking.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "Networking\nSolutions We Offer",
+    "description": "Explore network design, firewall security and managed setup built around your users, devices and security needs."
+  },
+  "content:servicepage.networking.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Networks you can trust.\nSecurity you can rely on.",
+    "benefitDescription": "Careful design, clean configuration and dependable support for long-term network performance."
+  },
+  "content:servicepage.networking.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Networking Projects",
+    "description": "Offices, institutions and businesses rely on Fillip Technologies for dependable network design, security and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies redesigned our office network and locked it down properly. It's fast, secure and stable.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team understood our setup and delivered clean firewall and VLAN configuration with clear handover.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The security and uptime improvements were excellent. Our network just works now.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "Smooth project, clearly explained. Managing access across the office is simple.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.networking.faqs": {
+    "badge": "Networking FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about networking planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Do you configure routers and firewalls?",
+        "answer": "Yes. We configure routers, firewalls, VLANs, Wi-Fi, and access policies."
+      },
+      {
+        "question": "Can you troubleshoot slow networks?",
+        "answer": "Yes. We audit cabling, devices, configuration, bandwidth, and interference issues."
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.about": {
+    "heading": "Server Infrastructure\nBuilt to Perform",
+    "description": "We plan and deploy dependable server infrastructure for storage, applications, backups and secure day-to-day operations.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.server-solutions.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Solid setup.\nStronger operations.",
+    "description": "We combine careful capacity planning, quality hardware and proper backups to deliver server infrastructure you can rely on.",
+    "features": [
+      {
+        "title": "Secure Data",
+        "description": "Protected storage and access for your critical business data."
+      },
+      {
+        "title": "Backup Ready",
+        "description": "Automated backups and recovery planning for peace of mind."
+      },
+      {
+        "title": "Scalable Capacity",
+        "description": "Room to grow storage and compute as your business expands."
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "Server Solutions\nSolutions We Offer",
+    "description": "Explore server setup, backup, storage and rack planning designed around your workloads and capacity needs."
+  },
+  "content:servicepage.server-solutions.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Servers you can trust.\nOperations you can rely on.",
+    "benefitDescription": "Careful planning, clean installation and dependable support for long-term server performance."
+  },
+  "content:servicepage.server-solutions.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Server Solutions Projects",
+    "description": "Businesses and institutions rely on Fillip Technologies for dependable server planning, deployment and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies planned and deployed our servers professionally. Storage and backups run reliably every day.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team sized our infrastructure well and delivered a clean, well-documented setup.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The rack, power and backup planning were excellent. Our operations are far more dependable.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "Smooth project, explained simply. Our data is secure and easy to manage.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Servers you can trust.\nOperations you can rely on.",
+    "benefits": [
+      {
+        "title": "Secure Data",
+        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+      },
+      {
+        "title": "Central Storage",
+        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+      },
+      {
+        "title": "Backup Ready",
+        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+      },
+      {
+        "title": "Scalable Capacity",
+        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.faqs": {
+    "badge": "Server Solutions FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about server solutions planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Do you install on-premise servers?",
+        "answer": "Yes. We plan, install, configure, and support on-premise server infrastructure."
+      },
+      {
+        "question": "Can you set up backups?",
+        "answer": "Yes. We configure backup routines, storage, and recovery planning based on business needs."
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.about": {
+    "heading": "Locations Connected\nas One Network",
+    "description": "We connect your branches, remote offices and facilities with secure WAN architecture and centralized visibility.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.wide-area-network.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Secure routing.\nStronger reach.",
+    "description": "We combine careful WAN design, secure VPNs and reliable routing to keep every location connected and protected.",
+    "features": [
+      {
+        "title": "Branch Connectivity",
+        "description": "Link every office and site into one reliable network."
+      },
+      {
+        "title": "Secure VPN Access",
+        "description": "Protected remote access for teams wherever they work."
+      },
+      {
+        "title": "Central Visibility",
+        "description": "Monitor and manage all locations from one place."
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "Wide Area Network\nSolutions We Offer",
+    "description": "Explore branch connectivity, secure VPN access and centralized monitoring designed around your locations and users."
+  },
+  "content:servicepage.wide-area-network.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Connectivity you can trust.\nReach you can rely on.",
+    "benefitDescription": "Careful design, secure routing and dependable support for long-term WAN performance."
+  },
+  "content:servicepage.wide-area-network.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Wide Area Network Projects",
+    "description": "Multi-location organizations rely on Fillip Technologies for dependable WAN planning, VPNs and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies connected all our branches securely. Remote access is smooth and reliable.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team designed our WAN carefully and delivered secure VPN links with clear documentation.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The routing and monitoring setup were excellent. We see every site from one dashboard.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "Smooth rollout, well explained. Our offices work as one connected network.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Connectivity you can trust.\nReach you can rely on.",
+    "benefits": [
+      {
+        "title": "Branch Connectivity",
+        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+      },
+      {
+        "title": "Secure Routing",
+        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+      },
+      {
+        "title": "Remote Access",
+        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+      },
+      {
+        "title": "Central Visibility",
+        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.faqs": {
+    "badge": "Wide Area Network FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about wide area network planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Can you connect multiple branches?",
+        "answer": "Yes. We design WAN and VPN connectivity for multi-location organizations."
+      },
+      {
+        "question": "Is remote access secure?",
+        "answer": "Yes. We configure secure VPN and access control based on user and site needs."
+      }
+    ]
+  },
+  "content:servicepage.system-integration.about": {
+    "heading": "Systems That Work\nTogether as One",
+    "description": "We bring CCTV, access control, networking, servers and business systems into one reliable, connected environment.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.system-integration.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Seamless integration.\nStronger systems.",
+    "description": "We combine careful assessment, clean integration and thorough testing to make your technology work together reliably.",
+    "features": [
+      {
+        "title": "Connected Systems",
+        "description": "Hardware and software that work together smoothly."
+      },
+      {
+        "title": "Single Partner",
+        "description": "One team to plan, deploy and support the whole environment."
+      },
+      {
+        "title": "Reliable Handover",
+        "description": "Tested, documented deployments you can depend on."
+      }
+    ]
+  },
+  "content:servicepage.system-integration.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "System Integration\nSolutions We Offer",
+    "description": "Explore hardware integration, software connectivity and end-to-end deployment designed around your existing systems."
+  },
+  "content:servicepage.system-integration.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Integration you can trust.\nSystems you can rely on.",
+    "benefitDescription": "Careful assessment, clean integration and dependable support for long-term reliability."
+  },
+  "content:servicepage.system-integration.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted System Integration Projects",
+    "description": "Businesses rely on Fillip Technologies to bring their systems together with dependable planning and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies integrated our CCTV, network and access systems seamlessly. Everything works as one now.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team assessed our existing hardware and connected it cleanly with a smooth handover.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The end-to-end deployment and testing were excellent. Our operations are far cleaner.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "Smooth project, clearly explained. Having a single partner made it easy.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.system-integration.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Integration you can trust.\nSystems you can rely on.",
+    "benefits": [
+      {
+        "title": "Connected Systems",
+        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+      },
+      {
+        "title": "Cleaner Operations",
+        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+      },
+      {
+        "title": "Single Partner",
+        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+      },
+      {
+        "title": "Reliable Handover",
+        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+      }
+    ]
+  },
+  "content:servicepage.system-integration.faqs": {
+    "badge": "System Integration FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about system integration planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Can you integrate existing hardware?",
+        "answer": "Yes. We assess current devices and integrate compatible systems where possible."
+      },
+      {
+        "question": "Do you handle complete deployment?",
+        "answer": "Yes. We support planning, installation, configuration, testing, and documentation."
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.about": {
+    "heading": "IT Foundations for\nModern Workplaces",
+    "description": "We plan and deploy safe, scalable IT infrastructure that keeps your workplace connected, secure and ready to grow.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.it-infrastructure.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Solid foundations.\nStronger workplaces.",
+    "description": "We combine careful infrastructure planning, quality hardware and ongoing support to keep your workplace running smoothly.",
+    "features": [
+      {
+        "title": "Business Ready",
+        "description": "Complete IT setup that gets your workplace running fast."
+      },
+      {
+        "title": "Scalable Systems",
+        "description": "Infrastructure that grows with your team and needs."
+      },
+      {
+        "title": "Support Included",
+        "description": "Ongoing help for troubleshooting, upgrades and maintenance."
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "IT Infrastructure\nSolutions We Offer",
+    "description": "Explore office IT setup, infrastructure planning and ongoing support designed around your workplace needs."
+  },
+  "content:servicepage.it-infrastructure.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted IT Infrastructure Projects",
+    "description": "Modern workplaces rely on Fillip Technologies for dependable IT planning, deployment and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies set up our entire office IT professionally. Everything from cabling to servers just works.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team planned our infrastructure well and delivered a clean, scalable setup.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The deployment and ongoing support were excellent. Our workplace runs without IT headaches.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "Smooth project, explained simply. We have reliable IT and support whenever we need it.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Infrastructure you can trust.\nSupport you can rely on.",
+    "benefits": [
+      {
+        "title": "Business Ready",
+        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+      },
+      {
+        "title": "Scalable Systems",
+        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+      },
+      {
+        "title": "Secure Access",
+        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+      },
+      {
+        "title": "Support Included",
+        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.faqs": {
+    "badge": "IT Infrastructure FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about it infrastructure planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Can you set up IT for a new office?",
+        "answer": "Yes. We plan and deploy cabling, networking, devices, servers, security, and support systems."
+      },
+      {
+        "question": "Do you provide maintenance?",
+        "answer": "Yes. We provide support for infrastructure troubleshooting, upgrades, and maintenance."
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.about": {
+    "heading": "Tracking Built for\nReal Visibility",
+    "description": "We deploy GPS monitoring that tracks vehicles, assets and routes to improve visibility, safety and operational control.",
+    "ctaLabel": "Contact Us"
+  },
+  "content:servicepage.gps-solution.promise": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Live tracking.\nSmarter control.",
+    "description": "We combine reliable GPS hardware, clear reporting and easy dashboards to give you full visibility over movement and routes.",
+    "features": [
+      {
+        "title": "Live Tracking",
+        "description": "See real-time location of every vehicle and asset."
+      },
+      {
+        "title": "Route History",
+        "description": "Review past routes, stops and movement in detail."
+      },
+      {
+        "title": "Movement Alerts",
+        "description": "Get notified on key events to stay in control."
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.solutionsHeading": {
+    "eyebrow": "/ Solutions",
+    "heading": "GPS Solution\nSolutions We Offer",
+    "description": "Explore vehicle tracking, route visibility and alerts designed around your fleet and operational needs."
+  },
+  "content:servicepage.gps-solution.whyChoose": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Tracking you can trust.\nControl you can rely on.",
+    "benefitDescription": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+  },
+  "content:servicepage.gps-solution.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted GPS Solution Projects",
+    "description": "Businesses and fleet operators rely on Fillip Technologies for dependable GPS tracking, reporting and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Business Owner",
+        "review": "Fillip Technologies set up GPS tracking across our fleet. We now see every vehicle live with clear reports.",
+        "image": ""
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Operations Manager",
+        "review": "Their team delivered reliable tracking with easy dashboards and helpful alerts.",
+        "image": ""
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Facility Head",
+        "review": "The route history and movement alerts were excellent. Our operational control has improved a lot.",
+        "image": ""
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Administrator",
+        "review": "Smooth setup, clearly explained. Fleet visibility is simple and dependable.",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Tracking you can trust.\nControl you can rely on.",
+    "benefits": [
+      {
+        "title": "Live Tracking",
+        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+      },
+      {
+        "title": "Route History",
+        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+      },
+      {
+        "title": "Movement Alerts",
+        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+      },
+      {
+        "title": "Fleet Visibility",
+        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.faqs": {
+    "badge": "GPS Solution FAQs",
+    "title": "Everything You Need To Know",
+    "description": "Common questions about gps solution planning, installation, and support.",
+    "faqs": [
+      {
+        "question": "Can GPS track vehicles in real time?",
+        "answer": "Yes. GPS systems can show live location, movement history, stops, and route details."
+      },
+      {
+        "question": "Do you support fleet tracking?",
+        "answer": "Yes. We provide GPS solutions for individual vehicles and business fleets."
+      }
+    ]
+  },
+  "content:servicepage.networking.hero": {
+    "backgroundImage": "/images/hardware/security_bg_parallax.png",
+    "badge": "Hardware Solutions",
+    "heading": "Networking\nThat Keeps Business Moving",
+    "description": "Design, deploy, and maintain secure business networks that connect users, devices, applications, servers, and cloud systems.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.networking.priority": {
+    "heading": "Networks That Keep\nBusiness Moving",
+    "description": "We design and secure business networks that connect your users, devices, servers and cloud systems with confidence.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202953/fillip/uploads/owfzaudhgpygscqzy9rz.jpg",
+        "title": "Network Design",
+        "description": "Practical architecture for secure, scalable, and manageable business connectivity."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202970/fillip/uploads/kyf6reurtxosak58xjjd.jpg",
+        "title": "Firewall & Security",
+        "description": "Network access control, firewall setup, segmentation, and secure internet routing."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202978/fillip/uploads/mwpswvh4krp2etihvqeh.jpg",
+        "title": "Managed Network Setup",
+        "description": "Routers, switches, wireless access points, monitoring, and troubleshooting support."
+      }
+    ]
+  },
+  "content:servicepage.networking.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Secure design.\nStronger networks.",
+    "description": "We combine careful network design, quality hardware and solid security to deliver connectivity that stays fast and protected.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202953/fillip/uploads/owfzaudhgpygscqzy9rz.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Secure by Design",
+        "description": "Firewalls, VLANs and access policies that keep traffic protected."
+      },
+      {
+        "title": "Better Uptime",
+        "description": "Reliable connectivity that keeps your teams and apps online."
+      },
+      {
+        "title": "Managed Access",
+        "description": "Control who and what connects across your whole network."
+      }
+    ]
+  },
+  "content:servicepage.networking.support": {
+    "heading": "Networking\nSolutions We Offer",
+    "description": "Explore network design, firewall security and managed setup built around your users, devices and security needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202953/fillip/uploads/owfzaudhgpygscqzy9rz.jpg",
+        "imageAlt": "Network Design",
+        "title": "Network Design",
+        "description": "Practical architecture for secure, scalable, and manageable business connectivity."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202970/fillip/uploads/kyf6reurtxosak58xjjd.jpg",
+        "imageAlt": "Firewall & Security",
+        "title": "Firewall & Security",
+        "description": "Network access control, firewall setup, segmentation, and secure internet routing."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202978/fillip/uploads/mwpswvh4krp2etihvqeh.jpg",
+        "imageAlt": "Managed Network Setup",
+        "title": "Managed Network Setup",
+        "description": "Routers, switches, wireless access points, monitoring, and troubleshooting support."
+      }
+    ]
+  },
+  "content:servicepage.control-room.priority": {
+    "heading": "Command Centers\nBuilt for Clarity",
+    "description": "We design centralized control rooms that bring cameras, systems and operations into one clear, real-time view.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202449/fillip/uploads/e8epkcbozvd6ekwhtyhv.jpg",
+        "title": "Video Wall Setup",
+        "description": "Multi-display video walls for live camera feeds, dashboards, and operation views."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202486/fillip/uploads/gwky9qmpliue7qse30uk.jpg",
+        "title": "Monitoring Workstations",
+        "description": "Operator desks, display systems, networking, and system access for control teams."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202535/fillip/uploads/ghybjgdhle72p1gvrtbf.webp",
+        "title": "Incident Visibility",
+        "description": "Centralized visibility for security, facility operations, alerts, and response workflows."
+      }
+    ]
+  },
+  "content:servicepage.control-room.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Clear visibility.\nFaster decisions.",
+    "description": "We combine thoughtful layout, quality displays and reliable networking to deliver monitoring spaces your team can act on instantly.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202449/fillip/uploads/e8epkcbozvd6ekwhtyhv.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Central Monitoring",
+        "description": "Watch every feed and system from one unified operations view."
+      },
+      {
+        "title": "Fast Response",
+        "description": "Spot incidents early and coordinate action without delay."
+      },
+      {
+        "title": "Live Dashboards",
+        "description": "Real-time data and video walls that keep everyone informed."
+      }
+    ]
+  },
+  "content:servicepage.control-room.support": {
+    "heading": "Control Room\nSolutions We Offer",
+    "description": "Explore video walls, monitoring workstations and incident visibility designed around your operations and response needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202449/fillip/uploads/e8epkcbozvd6ekwhtyhv.jpg",
+        "imageAlt": "Video Wall Setup",
+        "title": "Video Wall Setup",
+        "description": "Multi-display video walls for live camera feeds, dashboards, and operation views."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202486/fillip/uploads/gwky9qmpliue7qse30uk.jpg",
+        "imageAlt": "Monitoring Workstations",
+        "title": "Monitoring Workstations",
+        "description": "Operator desks, display systems, networking, and system access for control teams."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202535/fillip/uploads/ghybjgdhle72p1gvrtbf.webp",
+        "imageAlt": "Incident Visibility",
+        "title": "Incident Visibility",
+        "description": "Centralized visibility for security, facility operations, alerts, and response workflows."
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.priority": {
+    "heading": "Server Infrastructure\nBuilt to Perform",
+    "description": "We plan and deploy dependable server infrastructure for storage, applications, backups and secure day-to-day operations.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203052/fillip/uploads/r8tlgufaniyxsi6wkuzt.webp",
+        "title": "Server Setup",
+        "description": "Physical and virtual server deployment for business applications, files, access, and databases."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203065/fillip/uploads/vbibafn735vswddxifwj.jpg",
+        "title": "Backup & Storage",
+        "description": "Centralized storage, backup planning, recovery workflows, and secure data availability."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203083/fillip/uploads/nwzezyyadv9rgbfgj8dm.jpg",
+        "title": "Rack & Power Planning",
+        "description": "Rack layout, UPS planning, cabling, ventilation, and infrastructure organization."
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Solid setup.\nStronger operations.",
+    "description": "We combine careful capacity planning, quality hardware and proper backups to deliver server infrastructure you can rely on.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203052/fillip/uploads/r8tlgufaniyxsi6wkuzt.webp",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Secure Data",
+        "description": "Protected storage and access for your critical business data."
+      },
+      {
+        "title": "Backup Ready",
+        "description": "Automated backups and recovery planning for peace of mind."
+      },
+      {
+        "title": "Scalable Capacity",
+        "description": "Room to grow storage and compute as your business expands."
+      }
+    ]
+  },
+  "content:servicepage.server-solutions.support": {
+    "heading": "Server Solutions\nSolutions We Offer",
+    "description": "Explore server setup, backup, storage and rack planning designed around your workloads and capacity needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203052/fillip/uploads/r8tlgufaniyxsi6wkuzt.webp",
+        "imageAlt": "Server Setup",
+        "title": "Server Setup",
+        "description": "Physical and virtual server deployment for business applications, files, access, and databases."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203065/fillip/uploads/vbibafn735vswddxifwj.jpg",
+        "imageAlt": "Backup & Storage",
+        "title": "Backup & Storage",
+        "description": "Centralized storage, backup planning, recovery workflows, and secure data availability."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203083/fillip/uploads/nwzezyyadv9rgbfgj8dm.jpg",
+        "imageAlt": "Rack & Power Planning",
+        "title": "Rack & Power Planning",
+        "description": "Rack layout, UPS planning, cabling, ventilation, and infrastructure organization."
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.priority": {
+    "heading": "Bandwidth Built\nto Go the Distance",
+    "description": "We deploy professional fiber optic links that carry high-speed data reliably across floors, buildings and campuses.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201935/fillip/uploads/unxugnnlr3uwwpllwsqy.jpg",
+        "title": "Fiber Cabling",
+        "description": "End-to-end OFC cable laying, routing, labeling, and structured installation for reliable data transmission."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201943/fillip/uploads/z4tdvibs5cdl6czgo1pl.jpg",
+        "title": "Splicing & Termination",
+        "description": "Precision fiber splicing, patch panel termination, and connectorization for low-loss connectivity."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201962/fillip/uploads/ukpw5fvchi7ubsteea9v.jpg",
+        "title": "Testing & Certification",
+        "description": "OTDR testing, link verification, and documentation to ensure performance and uptime."
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Precise splicing.\nStronger backbones.",
+    "description": "We combine careful route planning, quality fiber and certified termination to deliver fast, low-latency connectivity you can depend on.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201935/fillip/uploads/unxugnnlr3uwwpllwsqy.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "High Bandwidth",
+        "description": "Move large volumes of data smoothly across your entire network."
+      },
+      {
+        "title": "Low Latency",
+        "description": "Fast, stable links for real-time applications and heavy workloads."
+      },
+      {
+        "title": "Certified Links",
+        "description": "OTDR-tested, documented fiber runs built to perform long term."
+      }
+    ]
+  },
+  "content:servicepage.fiber-optic-connectivity.support": {
+    "heading": "Fiber Optic Connectivity\nSolutions We Offer",
+    "description": "Explore professional fiber cabling, splicing and testing designed around your site, distance and bandwidth needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201935/fillip/uploads/unxugnnlr3uwwpllwsqy.jpg",
+        "imageAlt": "Fiber Cabling",
+        "title": "Fiber Cabling",
+        "description": "End-to-end OFC cable laying, routing, labeling, and structured installation for reliable data transmission."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201943/fillip/uploads/z4tdvibs5cdl6czgo1pl.jpg",
+        "imageAlt": "Splicing & Termination",
+        "title": "Splicing & Termination",
+        "description": "Precision fiber splicing, patch panel termination, and connectorization for low-loss connectivity."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201962/fillip/uploads/ukpw5fvchi7ubsteea9v.jpg",
+        "imageAlt": "Testing & Certification",
+        "title": "Testing & Certification",
+        "description": "OTDR testing, link verification, and documentation to ensure performance and uptime."
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.priority": {
+    "heading": "Connectivity You Can\nBuild On",
+    "description": "We design and install dependable local area networks that keep your teams, devices and systems connected across every floor and site.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202367/fillip/uploads/zoze53oz2wujmzur37wg.jpg",
+        "title": "Structured Cabling",
+        "description": "Neat CAT6/CAT6A cabling, rack dressing, patch panels, and endpoint labeling."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202413/fillip/uploads/nhwhxdgjuapsuoijnnyo.jpg",
+        "title": "Switching & Routing",
+        "description": "Managed switches, VLANs, routing, and network segmentation for reliable performance."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202399/fillip/uploads/jgvnklzco5vxkpvjrxnr.jpg",
+        "title": "Wi-Fi Coverage",
+        "description": "Access point planning and deployment for seamless wireless connectivity across your premises."
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Smart cabling.\nStronger networks.",
+    "description": "We combine careful network planning, quality cabling and professional installation to deliver fast, stable connectivity across your premises.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202367/fillip/uploads/zoze53oz2wujmzur37wg.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Stable Uptime",
+        "description": "Reliable wired and wireless connectivity your teams can count on all day."
+      },
+      {
+        "title": "Full Coverage",
+        "description": "Consistent Wi-Fi and LAN reach across every floor, room and work area."
+      },
+      {
+        "title": "Central Management",
+        "description": "Manage switches, access points and users from one simple console."
+      }
+    ]
+  },
+  "content:servicepage.local-area-network.support": {
+    "heading": "Local Area Network\nSolutions We Offer",
+    "description": "Explore practical, scalable networking solutions designed around your site, users, devices and bandwidth needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202367/fillip/uploads/zoze53oz2wujmzur37wg.jpg",
+        "imageAlt": "Structured Cabling",
+        "title": "Structured Cabling",
+        "description": "Neat CAT6/CAT6A cabling, rack dressing, patch panels, and endpoint labeling."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202413/fillip/uploads/nhwhxdgjuapsuoijnnyo.jpg",
+        "imageAlt": "Switching & Routing",
+        "title": "Switching & Routing",
+        "description": "Managed switches, VLANs, routing, and network segmentation for reliable performance."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202399/fillip/uploads/jgvnklzco5vxkpvjrxnr.jpg",
+        "imageAlt": "Wi-Fi Coverage",
+        "title": "Wi-Fi Coverage",
+        "description": "Access point planning and deployment for seamless wireless connectivity across your premises."
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.hero": {
+    "backgroundImage": "/images/hardware/security_bg_parallax.png",
+    "badge": "Hardware Solutions",
+    "heading": "Wide Area Network\nAcross Locations",
+    "description": "Connect branches, remote offices, campuses, and facilities with secure WAN architecture, routing, VPNs, and centralized network visibility.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.wide-area-network.priority": {
+    "heading": "Locations Connected\nas One Network",
+    "description": "We connect your branches, remote offices and facilities with secure WAN architecture and centralized visibility.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203972/fillip/uploads/dj6wkng9y9ezbp37stku.jpg",
+        "title": "Branch Connectivity",
+        "description": "Connect offices, sites, and remote teams with stable inter-location networking."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203984/fillip/uploads/oqk5ktelkdwnn8unf0mh.jpg",
+        "title": "Secure VPN Access",
+        "description": "Protected remote access and site-to-site VPN configuration for distributed teams."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204000/fillip/uploads/eoc2ayu6lukbxruztbci.jpg",
+        "title": "Centralized Monitoring",
+        "description": "Network visibility, alerts, and performance checks for multiple locations."
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Secure routing.\nStronger reach.",
+    "description": "We combine careful WAN design, secure VPNs and reliable routing to keep every location connected and protected.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203972/fillip/uploads/dj6wkng9y9ezbp37stku.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Branch Connectivity",
+        "description": "Link every office and site into one reliable network."
+      },
+      {
+        "title": "Secure VPN Access",
+        "description": "Protected remote access for teams wherever they work."
+      },
+      {
+        "title": "Central Visibility",
+        "description": "Monitor and manage all locations from one place."
+      }
+    ]
+  },
+  "content:servicepage.wide-area-network.support": {
+    "heading": "Wide Area Network\nSolutions We Offer",
+    "description": "Explore branch connectivity, secure VPN access and centralized monitoring designed around your locations and users.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203972/fillip/uploads/dj6wkng9y9ezbp37stku.jpg",
+        "imageAlt": "Branch Connectivity",
+        "title": "Branch Connectivity",
+        "description": "Connect offices, sites, and remote teams with stable inter-location networking."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203984/fillip/uploads/oqk5ktelkdwnn8unf0mh.jpg",
+        "imageAlt": "Secure VPN Access",
+        "title": "Secure VPN Access",
+        "description": "Protected remote access and site-to-site VPN configuration for distributed teams."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204000/fillip/uploads/eoc2ayu6lukbxruztbci.jpg",
+        "imageAlt": "Centralized Monitoring",
+        "title": "Centralized Monitoring",
+        "description": "Network visibility, alerts, and performance checks for multiple locations."
+      }
+    ]
+  },
+  "content:servicepage.system-integration.hero": {
+    "backgroundImage": "/images/hardware/security_technician.png",
+    "badge": "Hardware Solutions",
+    "heading": "System Integration\nMade Seamless",
+    "description": "Bring CCTV, access control, networking, servers, connectivity, and business systems together into one reliable technology environment.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.system-integration.priority": {
+    "heading": "Systems That Work\nTogether as One",
+    "description": "We bring CCTV, access control, networking, servers and business systems into one reliable, connected environment.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204034/fillip/uploads/vtygzou7ki9ymo6ug1jt.jpg",
+        "title": "Hardware Integration",
+        "description": "Connect devices, cameras, access systems, servers, and network hardware into one setup."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204048/fillip/uploads/sbjqhh3wnh5vxq8rkaid.jpg",
+        "title": "Software Connectivity",
+        "description": "Enable data flow between devices, dashboards, alerts, and business applications."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204061/fillip/uploads/plbmntp7srl9znevyl4r.webp",
+        "title": "End-to-End Deployment",
+        "description": "Plan, install, configure, test, and hand over complete integrated systems."
+      }
+    ]
+  },
+  "content:servicepage.system-integration.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Seamless integration.\nStronger systems.",
+    "description": "We combine careful assessment, clean integration and thorough testing to make your technology work together reliably.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204034/fillip/uploads/vtygzou7ki9ymo6ug1jt.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Connected Systems",
+        "description": "Hardware and software that work together smoothly."
+      },
+      {
+        "title": "Single Partner",
+        "description": "One team to plan, deploy and support the whole environment."
+      },
+      {
+        "title": "Reliable Handover",
+        "description": "Tested, documented deployments you can depend on."
+      }
+    ]
+  },
+  "content:servicepage.system-integration.support": {
+    "heading": "System Integration\nSolutions We Offer",
+    "description": "Explore hardware integration, software connectivity and end-to-end deployment designed around your existing systems.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204034/fillip/uploads/vtygzou7ki9ymo6ug1jt.jpg",
+        "imageAlt": "Hardware Integration",
+        "title": "Hardware Integration",
+        "description": "Connect devices, cameras, access systems, servers, and network hardware into one setup."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204048/fillip/uploads/sbjqhh3wnh5vxq8rkaid.jpg",
+        "imageAlt": "Software Connectivity",
+        "title": "Software Connectivity",
+        "description": "Enable data flow between devices, dashboards, alerts, and business applications."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204061/fillip/uploads/plbmntp7srl9znevyl4r.webp",
+        "imageAlt": "End-to-End Deployment",
+        "title": "End-to-End Deployment",
+        "description": "Plan, install, configure, test, and hand over complete integrated systems."
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.priority": {
+    "heading": "IT Foundations for\nModern Workplaces",
+    "description": "We plan and deploy safe, scalable IT infrastructure that keeps your workplace connected, secure and ready to grow.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204096/fillip/uploads/mfdroab4iz0smrmtmp88.jpg",
+        "title": "Office IT Setup",
+        "description": "Workstations, networking, Wi-Fi, devices, access, and business-ready infrastructure."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190260/fillip/images/hardware/security_technician.jpg",
+        "title": "Infrastructure Planning",
+        "description": "Design scalable infrastructure for new offices, branches, institutions, and facilities."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204110/fillip/uploads/qv43uqpn7fn0ecptdwgv.avif",
+        "title": "Ongoing Support",
+        "description": "Maintenance, troubleshooting, upgrades, and documentation for dependable operations."
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Solid foundations.\nStronger workplaces.",
+    "description": "We combine careful infrastructure planning, quality hardware and ongoing support to keep your workplace running smoothly.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204096/fillip/uploads/mfdroab4iz0smrmtmp88.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Business Ready",
+        "description": "Complete IT setup that gets your workplace running fast."
+      },
+      {
+        "title": "Scalable Systems",
+        "description": "Infrastructure that grows with your team and needs."
+      },
+      {
+        "title": "Support Included",
+        "description": "Ongoing help for troubleshooting, upgrades and maintenance."
+      }
+    ]
+  },
+  "content:servicepage.it-infrastructure.support": {
+    "heading": "IT Infrastructure\nSolutions We Offer",
+    "description": "Explore office IT setup, infrastructure planning and ongoing support designed around your workplace needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204096/fillip/uploads/mfdroab4iz0smrmtmp88.jpg",
+        "imageAlt": "Office IT Setup",
+        "title": "Office IT Setup",
+        "description": "Workstations, networking, Wi-Fi, devices, access, and business-ready infrastructure."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190260/fillip/images/hardware/security_technician.jpg",
+        "imageAlt": "Infrastructure Planning",
+        "title": "Infrastructure Planning",
+        "description": "Design scalable infrastructure for new offices, branches, institutions, and facilities."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204110/fillip/uploads/qv43uqpn7fn0ecptdwgv.avif",
+        "imageAlt": "Ongoing Support",
+        "title": "Ongoing Support",
+        "description": "Maintenance, troubleshooting, upgrades, and documentation for dependable operations."
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.hero": {
+    "backgroundImage": "/images/hardware/security_bg_parallax.png",
+    "badge": "Hardware Solutions",
+    "heading": "GPS Solution\nFor Smarter Tracking",
+    "description": "Track vehicles, assets, field movement, and routes with GPS monitoring systems that improve visibility, safety, and operational control.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Deployment Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.gps-solution.priority": {
+    "heading": "Tracking Built for\nReal Visibility",
+    "description": "We deploy GPS monitoring that tracks vehicles, assets and routes to improve visibility, safety and operational control.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204174/fillip/uploads/otwiulbxw1qkdjximozd.jpg",
+        "title": "Vehicle Tracking",
+        "description": "Real-time location tracking for cars, fleets, delivery vehicles, and field operations."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204183/fillip/uploads/prncdqhtgny2lwiwthix.jpg",
+        "title": "Route Visibility",
+        "description": "Monitor routes, movement history, stops, and operational activity from a central view."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204192/fillip/uploads/jxgn5mtrbusyk4acsjnb.jpg",
+        "title": "Alerts & Reports",
+        "description": "Get alerts, trip summaries, usage reports, and visibility into daily movement."
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Live tracking.\nSmarter control.",
+    "description": "We combine reliable GPS hardware, clear reporting and easy dashboards to give you full visibility over movement and routes.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204174/fillip/uploads/otwiulbxw1qkdjximozd.jpg",
+    "videoTitle": "",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Live Tracking",
+        "description": "See real-time location of every vehicle and asset."
+      },
+      {
+        "title": "Route History",
+        "description": "Review past routes, stops and movement in detail."
+      },
+      {
+        "title": "Movement Alerts",
+        "description": "Get notified on key events to stay in control."
+      }
+    ]
+  },
+  "content:servicepage.gps-solution.support": {
+    "heading": "GPS Solution\nSolutions We Offer",
+    "description": "Explore vehicle tracking, route visibility and alerts designed around your fleet and operational needs.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204174/fillip/uploads/otwiulbxw1qkdjximozd.jpg",
+        "imageAlt": "Vehicle Tracking",
+        "title": "Vehicle Tracking",
+        "description": "Real-time location tracking for cars, fleets, delivery vehicles, and field operations."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204183/fillip/uploads/prncdqhtgny2lwiwthix.jpg",
+        "imageAlt": "Route Visibility",
+        "title": "Route Visibility",
+        "description": "Monitor routes, movement history, stops, and operational activity from a central view."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204192/fillip/uploads/jxgn5mtrbusyk4acsjnb.jpg",
+        "imageAlt": "Alerts & Reports",
+        "title": "Alerts & Reports",
+        "description": "Get alerts, trip summaries, usage reports, and visibility into daily movement."
+      }
+    ]
+  },
+  "content:servicepage.security-surveillance.hero": {
+    "backgroundImage": "/images/new-hero-hard.png",
+    "badge": "Tender Grade CCTV Surveillance",
+    "heading": "Engineering Safer \nSpaces with\nCCTV Solutions",
+    "description": "As the best CCTV Camera Installation Company, Fillip Technologies provides enterprise-level surveillance systems designed for safety, scale, and round-the-clock surveillance.",
+    "primaryCtaLabel": "Explore Solutions",
+    "secondaryCtaLabel": "Watch Video",
+    "statusLabel": "System Status",
+    "statusValue": "Site Coverage Ready",
+    "statusItem1": "Control Room Ready",
+    "statusItem2": "Multi-Site Coverage"
+  },
+  "content:servicepage.security-surveillance.priority": {
+    "heading": "Securing Large\nPublic & Private Sites",
+    "description": "Be it institutions or corporate campuses, our CCTV Camera Installation Company provides intelligent surveillance systems combining maximum coverage and future-proof scalability.",
+    "ctaLabel": "Contact Us",
+    "cards": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201554/fillip/uploads/ahewzggrarxmgdvdprei.jpg",
+        "title": "Government Projects",
+        "description": "Tender-ready CCTV planning, installation, and documentation for public offices, municipal sites, and civic infrastructure."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190257/fillip/images/hardware/card_office.jpg",
+        "title": "Institutions & Campuses",
+        "description": "Scalable surveillance for schools, colleges, hospitals, parks, transport hubs, and high-footfall premises."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201577/fillip/uploads/i2hb4pk1i3bvtcmccqsc.jpg",
+        "title": "Industrial & Warehouse Sites",
+        "description": "Wide-area monitoring for production zones, yards, stores, loading areas, and restricted operational spaces."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201587/fillip/uploads/m4hcjsagp5rn5n4k8pwq.jpg",
+        "title": "Control Room Projects",
+        "description": "Integrated camera networks, recording systems, displays, and operator-ready monitoring setups for large sites."
+      }
+    ]
+  },
+  "content:servicepage.security-surveillance.services": {
+    "eyebrow": "/ Our Promise",
+    "heading": "Engineered for \nComplete Surveillance.",
+    "description": "With our expertise in site planning, camera placement, secure networking, and professional installation, we create surveillance systems that provide uninterrupted security and reliable service.",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190259/fillip/images/hardware/security_lens_bg.jpg",
+    "videoTitle": "See how Fillip Technologies secures large premises",
+    "watchLabel": "Watch Video",
+    "features": [
+      {
+        "title": "Site Survey & Planning",
+        "description": "Camera points, coverage zones, cable routes, NVR capacity, and network requirements planned before deployment."
+      },
+      {
+        "title": "Night & Outdoor Coverage",
+        "description": "Weather-ready cameras, low-light visibility, and placement strategy for gates, yards, roads, corridors, and open areas."
+      },
+      {
+        "title": "Central Recording & Monitoring",
+        "description": "NVR/DVR, storage, network access, display, and control-room-ready monitoring for large facilities."
+      }
+    ]
+  },
+  "content:servicepage.security-surveillance.support": {
+    "heading": "Scalable Surveillance \nfor Every Critical Site",
+    "description": "Being the best  CCTV Camera Installation Company, Fillip Technologies provides tailored solution for surveillance, integrating proper planning, efficient monitoring, recording, and deployment to help governmental, industrial, institutional, and business organisations safeguard their property efficiently.",
+    "ctaLabel": "Explore Solution",
+    "solutions": [
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190258/fillip/images/hardware/security_hero.jpg",
+        "imageAlt": "Outdoor bullet CCTV camera",
+        "title": "IP & HD CCTV Camera Networks",
+        "description": "HD, 4K, dome, bullet, PTZ, and outdoor camera networks planned for entrances, perimeters, public areas, corridors, yards, and operational zones."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201638/fillip/uploads/bcijm13mog6xbonaplzq.jpg",
+        "imageAlt": "Central CCTV monitoring room",
+        "title": "Control Room & Recording Setup",
+        "description": "NVR/DVR configuration, storage planning, video walls, monitoring displays, network access, and operator-ready control room deployment."
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201647/fillip/uploads/avylajyzkixslzyggl4w.jpg",
+        "imageAlt": "Access control and biometric security device",
+        "title": "Integrated Security Systems",
+        "description": "CCTV integration with access control, attendance, gate security, alarms, and site-level monitoring workflows for large premises."
+      }
+    ]
+  },
+  "content:servicepage.security-surveillance.testimonials": {
+    "badge": "Customer Stories",
+    "title": "Trusted Large-Scale Surveillance Projects",
+    "description": "Government departments, institutions, industrial sites, and large commercial premises rely on Fillip Technologies for dependable CCTV planning, installation, and support.",
+    "testimonials": [
+      {
+        "name": "Amit Kumar",
+        "role": "Project Coordinator",
+        "review": "Fillip Technologies handled our CCTV deployment with proper planning, clean installation, and clear documentation. The team understood the scale of the site very well.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201710/fillip/uploads/rjomzvqslyuyhijhxdw4.jpg"
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Institution Administrator",
+        "review": "We needed camera coverage across gates, corridors, and shared public areas. Their team planned the points professionally and delivered a stable monitoring setup.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201717/fillip/uploads/rfghyuw1ho92uqjufudg.jpg"
+      },
+      {
+        "name": "Rahul Verma",
+        "role": "Warehouse Operations Head",
+        "review": "Their team planned the right camera points for our warehouse, yard, and loading area. The system is stable, clear, and useful for both security and operations.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201725/fillip/uploads/ep3pr7hjdpkjykiferm1.jpg"
+      },
+      {
+        "name": "Neha Singh",
+        "role": "Facility Manager",
+        "review": "The installation was organized and professional. Our security team now has better visibility across the premises and a more dependable recording setup.",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201731/fillip/uploads/gnisyvuysxhmrjvtyd1c.jpg"
+      }
+    ]
+  },
+  "content:servicepage.security-surveillance.benefits": {
+    "eyebrow": "/ Why Choose Us",
+    "heading": "Security you can trust.\nService you can count on.",
+    "benefits": [
+      {
+        "title": "Tender-Ready Execution",
+        "description": "Project documentation, BOQ understanding, technical planning, and professional deployment for government and institutional requirements."
+      },
+      {
+        "title": "Large-Site Installation",
+        "description": "Structured cabling, camera mounting, network setup, storage configuration, and clean handover for big premises."
+      },
+      {
+        "title": "Centralized Monitoring",
+        "description": "Live feeds, recording access, multi-camera viewing, and control room support for security teams and operators."
+      },
+      {
+        "title": "Reliable Support",
+        "description": "Post-installation support, troubleshooting, maintenance, and system health checks for long-term performance."
+      }
+    ]
+  },
+  "content:servicepage.security-surveillance.faqs": {
+    "badge": "Security FAQs",
+    "title": "CCTV Questions, Answered",
+    "description": "Everything you need to know about tender-based CCTV projects, large-site installation, camera planning, control room setup, access control integration, and support.",
+    "faqs": [
+      {
+        "question": "Do you provide CCTV work for government tenders and large projects?",
+        "answer": "Yes. Fillip Technologies executes CCTV surveillance projects for government tenders, public infrastructure, institutions, industrial sites, warehouses, campuses, hospitals, parks, and large commercial premises."
+      },
+      {
+        "question": "Do you help with site survey and camera point planning?",
+        "answer": "Yes. We assess the site layout, entry points, blind spots, cable routes, network requirements, storage needs, and monitoring workflow before finalizing the CCTV plan."
+      },
+      {
+        "question": "Can you set up a control room for CCTV monitoring?",
+        "answer": "Yes. We can configure NVR/DVR systems, storage, monitoring displays, video walls, network access, and operator-ready control room setups for large sites."
+      },
+      {
+        "question": "Can CCTV be integrated with access control and other security systems?",
+        "answer": "Yes. We can integrate CCTV with biometric access control, RFID systems, gate security, attendance systems, alarms, and site-level monitoring workflows."
+      },
+      {
+        "question": "Do you provide maintenance and support after installation?",
+        "answer": "Yes. Our team supports camera health checks, troubleshooting, recording setup, network checks, storage review, and ongoing maintenance for reliable long-term performance."
       }
     ]
   },

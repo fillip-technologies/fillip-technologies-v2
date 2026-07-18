@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import HardwareSolutionPage from "@/components/Hardware-solution/HardwareSolutionPage";
-import type { HardwareSolutionPage as HardwareSolutionPageData } from "@/data/hardware-solutions";
+import SecuritySurveillance from "@/components/Hardware-solution/SecuritySurveillance";
+import type { SecuritySurveillanceContent } from "@/components/Hardware-solution/content";
 import {
   getServicePage,
   getServicePageData,
@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * Draft preview of a hardware-solution page — session-gated, works while
- * unpublished.
+ * unpublished. Renders the shared Security-Surveillance layout.
  */
 export default async function HardwareSolutionPreviewPage({
   params,
@@ -25,7 +25,10 @@ export default async function HardwareSolutionPreviewPage({
   const page = await getServicePage(slug);
   if (!page || page.template !== "hardware-solution") notFound();
 
-  const data = (await getServicePageData(slug, "hardware-solution")) as HardwareSolutionPageData;
+  const content = (await getServicePageData(
+    slug,
+    "hardware-solution"
+  )) as unknown as SecuritySurveillanceContent;
 
   return (
     <>
@@ -37,7 +40,9 @@ export default async function HardwareSolutionPreviewPage({
           Back to editor
         </Link>
       </div>
-      <HardwareSolutionPage data={{ ...data, label: page.title }} />
+      <main className="overflow-hidden bg-background text-heading">
+        <SecuritySurveillance content={content} />
+      </main>
     </>
   );
 }

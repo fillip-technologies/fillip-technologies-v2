@@ -30,6 +30,7 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
     description:
       "We deliver intelligent hardware solutions that adapt to your needs and keep your infrastructure dependable every day.",
     ctaLabel: "Contact Us",
+    cardCtaLabel: "Contact Us",
   };
 
   const promise = data.promise ?? {
@@ -49,6 +50,13 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
     heading: `${label}\nSolutions We Offer`,
     description:
       "Explore practical, scalable hardware solutions designed around your site, users, operations, and security requirements.",
+    cardCtaLabel: "Explore Solution",
+  };
+
+  const faqHeading = data.faqHeading ?? {
+    badge: `${label} FAQs`,
+    title: "Everything You Need To Know",
+    description: `Common questions about ${lower} planning, installation, and support.`,
   };
 
   const whyChoose = data.whyChoose ?? {
@@ -57,6 +65,15 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
     benefitDescription:
       "Practical planning, clean installation, and dependable support for long-term hardware performance.",
   };
+
+  // Benefits may arrive as legacy plain strings (static JSON) or as { text,
+  // description } cards (CMS). Normalise to cards; a card with no description
+  // falls back to the section's shared supporting line.
+  const benefitCards = (data.benefits ?? []).map((b) =>
+    typeof b === "string"
+      ? { text: b, description: "" }
+      : { text: b.text, description: b.description ?? "" }
+  );
 
   const testimonialsBlock = data.testimonials;
   const testimonials =
@@ -123,7 +140,7 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
               href="/contact"
               className="mt-9 inline-flex items-center gap-3 rounded-full bg-sky-500 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_48px_rgba(14,165,233,0.28)] transition hover:-translate-y-1 hover:bg-sky-600"
             >
-              Get Free Consultation
+              {data.hero.ctaLabel || "Get Free Consultation"}
               <ArrowRight className="size-4" />
             </Link>
           </div>
@@ -186,7 +203,7 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
                       href="/contact"
                       className="mt-7 flex items-center justify-between text-sm font-bold transition hover:text-sky-700"
                     >
-                      <span>Contact Us</span>
+                      <span>{about.cardCtaLabel || "Contact Us"}</span>
                       <span className="flex size-9 items-center justify-center rounded-full border border-slate-200 text-slate-500">
                         <ArrowRight className="size-4" />
                       </span>
@@ -289,7 +306,7 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
                     href="/contact"
                     className="mt-7 inline-flex items-center gap-2 text-sm font-bold transition hover:text-sky-700"
                   >
-                    Explore Solution
+                    {solutionsHeading.cardCtaLabel || "Explore Solution"}
                     <ArrowRight className="size-4 transition group-hover:translate-x-1" />
                   </Link>
                 </div>
@@ -307,14 +324,14 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
           </h2>
 
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {data.benefits.map((benefit) => (
-              <div key={benefit} className="max-w-xs">
+            {benefitCards.map((benefit, index) => (
+              <div key={`${benefit.text}-${index}`} className="max-w-xs">
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-slate-50 text-slate-950 ring-1 ring-slate-200">
                   <ShieldCheck className="size-6" />
                 </div>
-                <h3 className="mt-7 text-base font-black">{benefit}</h3>
+                <h3 className="mt-7 text-base font-black">{benefit.text}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-500">
-                  {whyChoose.benefitDescription}
+                  {benefit.description || whyChoose.benefitDescription}
                 </p>
               </div>
             ))}
@@ -333,9 +350,12 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
       />
 
       <FAQSection
-        badge={`${data.label} FAQs`}
-        title="Everything You Need To Know"
-        description={`Common questions about ${data.label.toLowerCase()} planning, installation, and support.`}
+        badge={faqHeading.badge || `${label} FAQs`}
+        title={faqHeading.title || "Everything You Need To Know"}
+        description={
+          faqHeading.description ||
+          `Common questions about ${lower} planning, installation, and support.`
+        }
         faqs={data.faqs}
       />
     </main>

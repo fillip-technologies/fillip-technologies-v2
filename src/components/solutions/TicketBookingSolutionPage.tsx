@@ -120,7 +120,7 @@ function Hero({ content }: { content: TicketHeroContent }) {
             {content.badge}
           </div>
 
-          <h1 className="gsap-soft-reveal mt-6 text-[clamp(2.7rem,5.8vw,5rem)] font-bold leading-[0.98] tracking-[-0.04em] text-[var(--heading)]">
+          <h1 className="gsap-soft-reveal mt-6 text-balance text-[clamp(2.7rem,5.8vw,5rem)] font-bold leading-[0.98] tracking-[-0.04em] text-[var(--heading)] [text-wrap:balance]">
             {content.heading}
           </h1>
 

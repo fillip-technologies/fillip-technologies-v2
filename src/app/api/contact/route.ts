@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { contactSchema } from "@/server/contact/schema";
+import { contactSchema, parseClientLocation } from "@/server/contact/schema";
 import { insertLead } from "@/server/contact/queries";
+import { resolveLeadLocation } from "@/server/contact/geo";
 import { sendLeadNotification } from "@/server/contact/notify";
+
+// IP geolocation needs the Node runtime (outbound fetch + request headers).
+export const runtime = "nodejs";
 
 // POST /api/contact  — public: create a lead from the contact form.
 export async function POST(request: Request) {
@@ -22,7 +26,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    const lead = await insertLead(parsed.data);
+    const location = await resolveLeadLocation(
+      parseClientLocation((body as { location?: unknown })?.location),
+      request
+    );
+    const lead = await insertLead({ ...parsed.data, location });
 
     // Notify the team by email. Best-effort: the lead is already saved, so a
     // mail failure must not fail the request.

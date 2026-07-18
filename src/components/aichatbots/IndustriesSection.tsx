@@ -1,4 +1,78 @@
 "use client";
-import { motion } from "framer-motion";import { BriefcaseBusiness, Database, GraduationCap, HeartPulse, ShoppingBag, Sparkles } from "lucide-react";import type { AIAutomationContent } from "@/lib/service-content/types";import { reveal } from "./animations";
-const icons=[GraduationCap,HeartPulse,BriefcaseBusiness,ShoppingBag,Sparkles,Database];
-export default function IndustriesSection({data}:{data:AIAutomationContent["industries"]}){return <section className="border-y border-border bg-surface py-24 lg:py-32"><div className="mx-auto max-w-7xl px-6"><motion.div {...reveal} className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">{data.badge}</p><h2 className="mt-4 max-w-2xl font-display text-5xl leading-none tracking-tight lg:text-6xl">{data.title}</h2></div><p className="max-w-md text-ink-muted">{data.description}</p></motion.div><motion.div {...reveal} className="mt-14 flex flex-wrap gap-3">{data.items.map((label,i)=>{const Icon=icons[i%icons.length];return <div key={label} className="flex min-w-[190px] flex-1 items-center gap-3 rounded-2xl border border-border bg-white p-4"><span className="grid size-9 place-items-center rounded-xl bg-primary/8"><Icon className="size-4 text-primary"/></span><span className="text-sm font-medium">{label}</span></div>})}</motion.div></div></section>}
+
+import { motion } from "framer-motion";
+import {
+    BriefcaseBusiness,
+    Database,
+    GraduationCap,
+    HeartPulse,
+    ShoppingBag,
+    Sparkles,
+} from "lucide-react";
+
+import type { AIAutomationContent } from "@/lib/service-content/types";
+import { reveal } from "./animations";
+
+const icons = [
+    GraduationCap,
+    HeartPulse,
+    BriefcaseBusiness,
+    ShoppingBag,
+    Sparkles,
+    Database,
+];
+
+export default function IndustriesSection({
+    data,
+}: {
+    data: AIAutomationContent["industries"];
+}) {
+    return (
+        <section className="border-y border-border bg-surface py-24 lg:py-32">
+            <div className="mx-auto max-w-7xl px-6">
+                <motion.div
+                    {...reveal}
+                    className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+                >
+                    <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                            {data.badge}
+                        </p>
+
+                        <h2 className="mt-4 max-w-2xl font-display text-5xl leading-none tracking-tight lg:text-6xl">
+                            {data.title}
+                        </h2>
+                    </div>
+
+                    <p className="max-w-md text-ink-muted">
+                        {data.description}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    {...reveal}
+                    className="mt-14 flex flex-wrap gap-3"
+                >
+                    {data.items.map((label, i) => {
+                        const Icon = icons[i % icons.length];
+
+                        return (
+                            <div
+                                key={label}
+                                className="flex min-w-[190px] flex-1 items-center gap-3 rounded-2xl border border-border bg-white p-4"
+                            >
+                                <span className="grid size-9 place-items-center rounded-xl bg-primary/8">
+                                    <Icon className="size-4 text-primary" />
+                                </span>
+
+                                <span className="text-sm font-medium">
+                                    {label}
+                                </span>
+                            </div>
+                        );
+                    })}
+                </motion.div>
+            </div>
+        </section>
+    );
+}

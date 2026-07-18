@@ -1,5 +1,7 @@
 "use client";
 
+import { captureClientLocation } from "@/lib/capture-location";
+
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Send } from "lucide-react";
@@ -73,6 +75,7 @@ export default function RequirementForm() {
       .join("\n");
 
     try {
+      const location = await captureClientLocation();
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -84,6 +87,7 @@ export default function RequirementForm() {
           budget: fields.budget,
           message,
           source: "get-a-quote-requirement",
+          location,
         }),
       });
       const data = await res.json().catch(() => ({}));

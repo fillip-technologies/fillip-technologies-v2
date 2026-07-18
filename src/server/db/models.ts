@@ -18,6 +18,12 @@ const leadSchema = new Schema(
     budget: { type: String, default: null },
     message: { type: String, required: true },
     source: { type: String, default: null },
+    // Auto-captured visitor location: { source: "gps"|"ip", label, city, region,
+    // country, lat, lng, accuracy, ip, isp }. Null when it couldn't be resolved.
+    location: { type: Schema.Types.Mixed, default: null },
+    // Lead category derived from the package/service the client selected (quote
+    // flow). Falls back to source-based categorisation when absent.
+    package_category: { type: String, default: null },
     status: { type: String, required: true, default: "new" }, // new | contacted | closed
     created_at: { type: Date, required: true, default: Date.now },
   },

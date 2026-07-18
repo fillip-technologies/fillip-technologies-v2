@@ -46,6 +46,11 @@ import {
   getSolutionSectionSpec,
   solutionDefault,
 } from "./solution-sections";
+import {
+  HARDWARESOLUTION_SECTION_IDS,
+  getHardwareSolutionSectionSpec,
+  hardwareSolutionDefault,
+} from "./hardwaresolution-sections";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -102,9 +107,9 @@ const SCHEMAS: Record<string, TemplateSchema> = {
     default: challengesDefault,
   },
   "hardware-solution": {
-    sectionIds: SOLUTION_SECTION_IDS,
-    getSpec: getSolutionSectionSpec,
-    default: solutionDefault,
+    sectionIds: HARDWARESOLUTION_SECTION_IDS,
+    getSpec: getHardwareSolutionSectionSpec,
+    default: hardwareSolutionDefault,
   },
   "business-solution": {
     sectionIds: SOLUTION_SECTION_IDS,
