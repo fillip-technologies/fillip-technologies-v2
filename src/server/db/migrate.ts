@@ -26,7 +26,21 @@ const SEED_CATEGORIES = [
   { slug: "software-enterprise", label: "Software & Enterprise", sort_order: 3 },
   { slug: "creative-experience-design", label: "Creative Experience Design", sort_order: 4 },
   { slug: "seo-performance-marketing", label: "SEO & Performance Marketing", sort_order: 5 },
+  // Kept as a mega-menu category, but its sub-links point to case studies
+  // (seeded below, CMS-editable) rather than dedicated challenge pages.
   { slug: "challenges-we-solve", label: "Challenges We Solve", sort_order: 6 },
+];
+
+// "Challenges We Solve" mega-menu sub-links — case studies from the website
+// (/case-studies/<slug>). Seeded into site_content so they show in the nav AND
+// are editable in the What We Do CMS, exactly like every other category's links.
+// Slugs mirror getCaseStudySlug(): slugify(`${industry}-${title}`).
+const SEED_CHALLENGES_MENU_LINKS = [
+  { label: "Healthcare — Increase in Patient Leads", href: "/case-studies/healthcare-increase-in-patient-leads" },
+  { label: "E-Commerce — Revenue Growth", href: "/case-studies/e-commerce-revenue-growth" },
+  { label: "Real Estate — Qualified Leads", href: "/case-studies/real-estate-qualified-leads" },
+  { label: "Education — Enrollment Growth", href: "/case-studies/education-enrollment-growth" },
+  { label: "FinTech — Faster Customer Acquisition", href: "/case-studies/fintech-faster-customer-acquisition" },
 ];
 
 
@@ -71,15 +85,6 @@ const SEED_MARKETING_PAGES = [
   { slug: "youtube-ads-campaign", title: "YouTube Ads Campaign", sort_order: 45 },
   { slug: "whatsapp-ads-campaign", title: "WhatsApp Ads Campaign", sort_order: 46 },
   { slug: "lead-generation-campaigns", title: "Lead Generation Campaigns", sort_order: 47 },
-];
-
-// The Challenges We Solve pages (dedicated "challenges" template, served at
-// /challenges/<slug>).
-const SEED_CHALLENGES_PAGES = [
-  { slug: "website-not-generating-leads", title: "My Website Doesn't Generate Leads", sort_order: 50 },
-  { slug: "generate-quality-leads", title: "I Struggle to Generate Quality Leads", sort_order: 51 },
-  { slug: "not-ranking-on-google", title: "My Business Isn't Ranking on Google", sort_order: 52 },
-  { slug: "low-organic-traffic", title: "I Have Low Organic Traffic", sort_order: 53 },
 ];
 
 // The Solutions mega-menu categories (group "solutions"), DB-driven like the
@@ -300,25 +305,31 @@ async function main() {
     );
   }
 
-  console.log("Seeding Challenges We Solve pages ...");
-  for (const p of SEED_CHALLENGES_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "challenges",
-          category_slug: "challenges-we-solve",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
+  console.log("Seeding Challenges We Solve menu links (case studies) ...");
+  await db.collection("service_categories").updateOne(
+    { slug: "challenges-we-solve" },
+    {
+      $setOnInsert: {
+        slug: "challenges-we-solve",
+        label: "Challenges We Solve",
+        published: true,
+        sort_order: 6,
+        created_at: now,
+        updated_at: now,
       },
-      { upsert: true }
-    );
-  }
+    },
+    { upsert: true }
+  );
+  await db.collection("site_content").updateOne(
+    { key: "whatwedo.challenges-we-solve.menuLinks" },
+    {
+      $setOnInsert: {
+        key: "whatwedo.challenges-we-solve.menuLinks",
+        data: { items: SEED_CHALLENGES_MENU_LINKS },
+      },
+    },
+    { upsert: true }
+  );
 
   console.log("Seeding Solutions categories ...");
   for (const cat of SEED_SOLUTION_CATEGORIES) {

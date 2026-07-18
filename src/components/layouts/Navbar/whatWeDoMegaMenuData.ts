@@ -189,29 +189,6 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
         },
       ],
     },
-
-    {
-  title: "Challenges We Solve",
-  items: [
-    {
-      label: "My Website Doesn't Generate Leads",
-      href: "/challenges/website-not-generating-leads",
-    },
-    {
-      label: "I Struggle to Generate Quality Leads",
-      href: "/challenges/generate-quality-leads",
-    },
-    {
-      label: "My Business Isn't Ranking on Google",
-      href: "/challenges/not-ranking-on-google",
-    },
-    {
-      label: "I Have Low Organic Traffic",
-      href: "/challenges/low-organic-traffic",
-    },
-  ],
-}
-
   ],
 ];
 
@@ -224,7 +201,6 @@ const TITLE_TO_SLUG: Record<string, string> = {
   "Software & Enterprise": "software-enterprise",
   "Creative Experience Design": "creative-experience-design",
   "SEO & Performance Marketing": "seo-performance-marketing",
-  "Challenges We Solve": "challenges-we-solve",
 };
 
 export const WHAT_WE_DO_ITEMS_BY_SLUG: Record<string, MegaMenuItem[]> = Object.fromEntries(

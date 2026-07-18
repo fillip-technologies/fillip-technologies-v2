@@ -40,7 +40,6 @@ const CATEGORY_TEMPLATES: Record<string, string[]> = {
   "software-enterprise": ["software-enterprise"],
   "creative-experience-design": ["creative-design"],
   "seo-performance-marketing": ["marketing", "performance-marketing"],
-  "challenges-we-solve": ["challenges"],
 };
 
 export async function generateMetadata({

@@ -25,7 +25,9 @@ export async function GET() {
     const items = categories.map((c) => ({
       slug: c.slug,
       label: c.label,
-      href: `/what-we-do/${c.slug}`,
+      // "Challenges We Solve" is presented via case studies — its header links
+      // to the case studies overview, not a dedicated category landing page.
+      href: c.slug === "challenges-we-solve" ? "/case-studies" : `/what-we-do/${c.slug}`,
       items: linksBySlug.get(c.slug) ?? [],
     }));
     return NextResponse.json({ items });

@@ -37,11 +37,6 @@ import {
   performanceMarketingDefault,
 } from "./performancemarketing-sections";
 import {
-  CHALLENGES_SECTION_IDS,
-  getChallengesSectionSpec,
-  challengesDefault,
-} from "./challenges-sections";
-import {
   SOLUTION_SECTION_IDS,
   getSolutionSectionSpec,
   solutionDefault,
@@ -100,11 +95,6 @@ const SCHEMAS: Record<string, TemplateSchema> = {
     sectionIds: PERFORMANCEMARKETING_SECTION_IDS,
     getSpec: getPerformanceMarketingSectionSpec,
     default: performanceMarketingDefault,
-  },
-  challenges: {
-    sectionIds: CHALLENGES_SECTION_IDS,
-    getSpec: getChallengesSectionSpec,
-    default: challengesDefault,
   },
   "hardware-solution": {
     sectionIds: HARDWARESOLUTION_SECTION_IDS,
