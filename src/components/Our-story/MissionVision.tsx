@@ -27,17 +27,8 @@ type MissionVisionContent = Partial<{
   signatureName: string;
 }>;
 
-const ceo = {
-  name: "Vikash Kumar",
-  role: "Founder & CEO",
-  experience: "13+ Years of Experience",
-  image: "/images/team/VIKASH.jpeg",
-  message:
-    "Fillip Technologies was built with a simple belief: technology should make businesses clearer, faster, and more capable. Every solution we deliver carries our promise of discipline, transparency, and meaningful digital impact for the businesses we serve.",
-};
-
-const teamMembers: Array<{ name: string; role: string; image?: string; imagePosition?: string }> = [
- 
+// Fallback team shown until the CMS `teamMembers` list is populated.
+const DEFAULT_TEAM: TeamMember[] = [
   { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-sinha.jpeg" },
   { name: "Payal Kumari", role: "Digital Marketing Head", image: "/images/team/Payal.jpeg" },
   { name: "Shruti Chouhan", role: "Software Development Engineer II", image: "/images/team/shruti-singh.png" },

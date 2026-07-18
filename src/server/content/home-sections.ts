@@ -30,6 +30,9 @@ export type Field = {
   type: FieldType;
   default: string;
   help?: string;
+  // Optional subsection heading. Consecutive fields sharing a `group` are shown
+  // together under this heading in the admin editor, so long forms read clearly.
+  group?: string;
 };
 
 /** A field on each item within a list. */
