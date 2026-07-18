@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { Mail, MapPin, Satellite, Globe, ExternalLink, Package as PackageIcon } from "lucide-react";
 import type { Lead } from "@/server/contact/queries";
-import { categoryForSource, labelForSource } from "@/server/contact/lead-sources";
+import { categoryForSource, labelForSource, LEAD_STATUSES } from "@/server/contact/lead-sources";
+import { updateLeadStatusAction } from "@/server/contact/lead-actions";
 
 /**
  * A lead's category tags. Leads from the quote flow are categorised by the
@@ -149,9 +150,7 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
                     )}
                   </Td>
                   <Td>
-                    <span className="rounded-full border border-border px-2 py-0.5 text-xs capitalize">
-                      {lead.status}
-                    </span>
+                    <StatusSelect lead={lead} />
                   </Td>
                 </tr>
               ))}
@@ -255,7 +254,7 @@ function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose: () => void })
           {lead.packageCategory && <Row label="Package">{lead.packageCategory}</Row>}
           {lead.budget && <Row label="Budget">{lead.budget}</Row>}
           <Row label="Category">{leadCategoryTags(lead).join(", ")}</Row>
-          <Row label="Status"><span className="capitalize">{lead.status}</span></Row>
+          <Row label="Status"><StatusSelect lead={lead} /></Row>
         </dl>
 
         {loc && (
@@ -308,6 +307,55 @@ function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose: () => void })
         </div>
       </div>
     </div>
+  );
+}
+
+// Colour per status for the dropdown pill.
+const STATUS_STYLES: Record<string, string> = {
+  new: "border-sky-300 bg-sky-50 text-sky-700",
+  contacted: "border-amber-300 bg-amber-50 text-amber-700",
+  "in-progress": "border-violet-300 bg-violet-50 text-violet-700",
+  converted: "border-emerald-300 bg-emerald-50 text-emerald-700",
+  disqualified: "border-rose-300 bg-rose-50 text-rose-700",
+};
+
+/** Inline status editor — updates the lead's status via a server action. */
+function StatusSelect({ lead }: { lead: Lead }) {
+  const [status, setStatus] = useState(lead.status);
+  const [pending, startTransition] = useTransition();
+
+  // Re-sync if the server sends a newer value (after revalidation).
+  useEffect(() => setStatus(lead.status), [lead.status]);
+
+  const onChange = (value: string) => {
+    const prev = status;
+    setStatus(value); // optimistic
+    startTransition(async () => {
+      const res = await updateLeadStatusAction(lead.id, value);
+      if (!res.ok) setStatus(prev); // revert on failure
+    });
+  };
+
+  const known = LEAD_STATUSES.some((s) => s.value === status);
+
+  return (
+    <select
+      value={status}
+      disabled={pending}
+      onClick={(e) => e.stopPropagation()}
+      onChange={(e) => onChange(e.target.value)}
+      title="Update status"
+      className={`cursor-pointer rounded-full border px-2 py-1 text-xs font-medium capitalize outline-none transition-colors disabled:opacity-60 ${
+        STATUS_STYLES[status] ?? "border-border bg-card text-heading"
+      }`}
+    >
+      {!known ? <option value={status}>{status}</option> : null}
+      {LEAD_STATUSES.map((s) => (
+        <option key={s.value} value={s.value}>
+          {s.label}
+        </option>
+      ))}
+    </select>
   );
 }
 

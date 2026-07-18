@@ -65,3 +65,10 @@ export async function listLeads(limit = 100): Promise<Lead[]> {
   const docs = await LeadModel.find().sort({ created_at: -1 }).limit(limit).lean();
   return docs.map(toLead);
 }
+
+/** Update a lead's status. Returns false if no lead matched the id. */
+export async function updateLeadStatus(id: string, status: string): Promise<boolean> {
+  await dbConnect();
+  const res = await LeadModel.updateOne({ _id: id }, { $set: { status } });
+  return res.matchedCount > 0;
+}
