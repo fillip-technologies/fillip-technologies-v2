@@ -49,7 +49,7 @@ function AssistantMarkdown({ content }: { content: string }) {
 
 const QUICK_PROMPTS = [
   "What services do you offer?",
-  "Where is Fillip Technologies located?",
+  "Do you build mobile apps?",
 ];
 
 export default function ChatbotWidget() {
@@ -57,7 +57,7 @@ export default function ChatbotWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hello! I am Fillip AI. How can I help you with our IT & Web Development services today?",
+      content: "Hello! I'm **Fillip AI**, your virtual assistant from Fillip Technologies 👋\n\nWe power the next generation of business through **Human × Intelligence** — combining creativity with AI to deliver websites, apps, SEO, digital marketing, hardware solutions, and more.\n\nHow can I help you today?",
     },
   ]);
   const [input, setInput] = useState("");

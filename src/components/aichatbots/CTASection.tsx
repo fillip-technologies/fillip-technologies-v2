@@ -1,3 +1,65 @@
 "use client";
-import { motion } from "framer-motion";import { ArrowRight,ArrowUpRight,MessagesSquare } from "lucide-react";import type { AIAutomationContent } from "@/lib/service-content/types";import { reveal } from "./animations";
-export default function CTASection({data}:{data:AIAutomationContent["cta"]}){const subject=encodeURIComponent(data.emailSubject);return <section id="contact" className="relative overflow-hidden py-24 lg:py-32"><div className="pointer-events-none absolute inset-0 grid-bg"/><div className="relative mx-auto max-w-5xl px-6 text-center"><motion.div {...reveal} className="rounded-[2rem] border border-border bg-surface-elevated px-6 py-16 shadow-elevated sm:px-12 lg:py-20"><div className="mx-auto grid size-12 place-items-center rounded-2xl bg-primary text-white shadow-glow"><MessagesSquare className="size-5"/></div><h2 className="mx-auto mt-7 max-w-3xl font-display text-5xl leading-none tracking-tight lg:text-6xl">{data.title}</h2><p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">{data.description}</p><div className="mt-9 flex flex-wrap justify-center gap-3"><a href={`mailto:info@filliptechnologies.com?subject=${subject}`} className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-white">{data.primaryCta}<ArrowRight className="size-4"/></a><a href="mailto:info@filliptechnologies.com" className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-white px-6 py-3.5 text-sm font-medium">{data.secondaryCta}<ArrowUpRight className="size-4 text-primary"/></a></div></motion.div></div></section>}
+
+import { motion } from "framer-motion";
+import {
+    ArrowRight,
+    ArrowUpRight,
+    MessagesSquare,
+} from "lucide-react";
+
+import type { AIAutomationContent } from "@/lib/service-content/types";
+import { reveal } from "./animations";
+
+export default function CTASection({
+    data,
+}: {
+    data: AIAutomationContent["cta"];
+}) {
+    const subject = encodeURIComponent(data.emailSubject);
+
+    return (
+        <section
+            id="contact"
+            className="relative overflow-hidden py-24 lg:py-32"
+        >
+            <div className="pointer-events-none absolute inset-0 grid-bg" />
+
+            <div className="relative mx-auto max-w-5xl px-6 text-center">
+                <motion.div
+                    {...reveal}
+                    className="rounded-[2rem] border border-border bg-surface-elevated px-6 py-16 shadow-elevated sm:px-12 lg:py-20"
+                >
+                    <div className="mx-auto grid size-12 place-items-center rounded-2xl bg-primary text-white shadow-glow">
+                        <MessagesSquare className="size-5" />
+                    </div>
+
+                    <h2 className="mx-auto mt-7 max-w-3xl font-display text-5xl leading-none tracking-tight lg:text-6xl">
+                        {data.title}
+                    </h2>
+
+                    <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">
+                        {data.description}
+                    </p>
+
+                    <div className="mt-9 flex flex-wrap justify-center gap-3">
+                        <a
+                            href={`mailto:info@filliptechnologies.com?subject=${subject}`}
+                            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-white"
+                        >
+                            {data.primaryCta}
+                            <ArrowRight className="size-4" />
+                        </a>
+
+                        <a
+                            href="mailto:info@filliptechnologies.com"
+                            className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-white px-6 py-3.5 text-sm font-medium"
+                        >
+                            {data.secondaryCta}
+                            <ArrowUpRight className="size-4 text-primary" />
+                        </a>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}

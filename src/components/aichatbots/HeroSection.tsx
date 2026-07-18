@@ -1,10 +1,220 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Bot, Check, CheckCircle2, MessageCircleMore, Send, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Bot,
+  Check,
+  CheckCircle2,
+  MessageCircleMore,
+  Send,
+  Sparkles,
+} from "lucide-react";
+
 import type { AIAutomationContent } from "@/lib/service-content/types";
 import { reveal } from "./animations";
 
-export default function HeroSection({ data }: { data: AIAutomationContent["hero"] }) {
-  return <section className="relative pb-24 pt-36 lg:pb-32 lg:pt-48"><div className="grid-bg pointer-events-none absolute inset-0" /><div className="pointer-events-none absolute left-1/2 top-0 h-[620px] w-[1100px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,oklch(0.62_0.11_220/0.18),transparent_68%)]" /><div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12"><div className="lg:col-span-6"><motion.div {...reveal} className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-3.5 py-2 text-xs font-medium text-ink-muted shadow-soft"><span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-glow opacity-40" /><span className="relative inline-flex size-2 rounded-full bg-primary-glow" /></span>{data.badge}</motion.div><motion.h1 {...reveal} transition={{...reveal.transition,delay:.05}} className="mt-7 font-display text-[clamp(3.2rem,6.2vw,5.6rem)] leading-[0.96] tracking-[-0.045em]">{data.title} <em className="text-gradient not-italic">{data.highlightedTitle}</em></motion.h1><motion.p {...reveal} transition={{...reveal.transition,delay:.12}} className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted">{data.description}</motion.p><motion.div {...reveal} transition={{...reveal.transition,delay:.18}} className="mt-9 flex flex-wrap gap-3"><a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-elevated">{data.primaryCta}<ArrowRight className="size-4" /></a><a href="#showcase" className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface-elevated px-6 py-3.5 text-sm font-medium">{data.secondaryCta}<MessageCircleMore className="size-4 text-primary" /></a></motion.div><motion.div {...reveal} transition={{...reveal.transition,delay:.24}} className="mt-11 flex flex-wrap gap-x-7 gap-y-3 text-xs text-ink-muted">{data.trustItems.map(item=><span key={item} className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" />{item}</span>)}</motion.div></div><motion.div initial={{opacity:0,y:34,scale:.97}} animate={{opacity:1,y:0,scale:1}} transition={{duration:.9,delay:.15}} className="relative lg:col-span-6"><div className="glow-ring relative overflow-hidden rounded-[1.75rem] border border-border bg-surface-elevated shadow-elevated"><div className="flex items-center justify-between border-b border-border bg-surface px-5 py-4"><div className="flex items-center gap-3"><div className="grid size-10 place-items-center rounded-xl bg-primary text-white"><Bot className="size-5" /></div><div><p className="text-sm font-semibold">{data.assistantName}</p><p className="text-[11px] text-ink-muted">Online now</p></div></div><span className="rounded-full border border-border bg-white px-3 py-1 text-[10px] uppercase text-ink-muted">Live demo</span></div><div className="min-h-[390px] space-y-5 p-5 sm:p-7"><div className="flex justify-end"><div className="max-w-[82%] rounded-2xl bg-primary px-4 py-3 text-sm text-white">How can AI improve my business?</div></div><div className="flex gap-3"><div className="grid size-8 place-items-center rounded-lg bg-primary/10"><Sparkles className="size-3.5 text-primary" /></div><div className="max-w-[82%] rounded-2xl border border-border bg-surface px-4 py-3 text-sm">I can analyze your workflow and recommend the right automation opportunities.</div></div><div className="flex justify-end"><div className="max-w-[82%] rounded-2xl bg-primary px-4 py-3 text-sm text-white">Can we discuss it with your team?</div></div><div className="flex gap-3"><div className="grid size-8 place-items-center rounded-lg bg-primary/10"><Sparkles className="size-3.5 text-primary" /></div><div className="max-w-[82%] rounded-2xl border border-border bg-surface px-4 py-3 text-sm">Absolutely. I can arrange a consultation now.</div></div></div><div className="m-4 mt-0 flex items-center gap-3 rounded-full border border-border bg-surface px-4 py-2.5"><span className="flex-1 text-xs text-ink-muted">Type your message...</span><span className="grid size-8 place-items-center rounded-full bg-primary text-white"><Send className="size-3.5" /></span></div></div><div className="surface-glass absolute -bottom-6 -left-5 hidden items-center gap-3 rounded-2xl p-3.5 sm:flex"><Check className="size-4 text-emerald-600" /><div><p className="text-xs font-semibold">Opportunity captured</p><p className="text-[10px] text-ink-muted">Synced to your workflow</p></div></div></motion.div></div></section>;
+export default function HeroSection({
+  data,
+}: {
+  data: AIAutomationContent["hero"];
+}) {
+  return (
+    <section className="relative pb-24 pt-36 lg:pb-32 lg:pt-48">
+      <div className="grid-bg pointer-events-none absolute inset-0" />
+
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[620px] w-[1100px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,oklch(0.62_0.11_220/0.18),transparent_68%)]" />
+
+      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12">
+        {/* Left Content */}
+        <div className="lg:col-span-6">
+          <motion.div
+            {...reveal}
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-3.5 py-2 text-xs font-medium text-ink-muted shadow-soft"
+          >
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-glow opacity-40" />
+              <span className="relative inline-flex size-2 rounded-full bg-primary-glow" />
+            </span>
+
+            {data.badge}
+          </motion.div>
+
+          <motion.h1
+            {...reveal}
+            transition={{
+              ...reveal.transition,
+              delay: 0.05,
+            }}
+            className="mt-7 font-display text-[clamp(3.2rem,6.2vw,5.6rem)] leading-[0.96] tracking-[-0.045em]"
+          >
+            {data.title}{" "}
+            <em className="text-gradient not-italic">
+              {data.highlightedTitle}
+            </em>
+          </motion.h1>
+
+          <motion.p
+            {...reveal}
+            transition={{
+              ...reveal.transition,
+              delay: 0.12,
+            }}
+            className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted"
+          >
+            {data.description}
+          </motion.p>
+
+          <motion.div
+            {...reveal}
+            transition={{
+              ...reveal.transition,
+              delay: 0.18,
+            }}
+            className="mt-9 flex flex-wrap gap-3"
+          >
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-elevated"
+            >
+              {data.primaryCta}
+              <ArrowRight className="size-4" />
+            </a>
+
+            <a
+              href="#showcase"
+              className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface-elevated px-6 py-3.5 text-sm font-medium"
+            >
+              {data.secondaryCta}
+              <MessageCircleMore className="size-4 text-primary" />
+            </a>
+          </motion.div>
+
+          <motion.div
+            {...reveal}
+            transition={{
+              ...reveal.transition,
+              delay: 0.24,
+            }}
+            className="mt-11 flex flex-wrap gap-x-7 gap-y-3 text-xs text-ink-muted"
+          >
+            {data.trustItems.map((item) => (
+              <span
+                key={item}
+                className="flex items-center gap-2"
+              >
+                <CheckCircle2 className="size-4 text-primary" />
+                {item}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Right Chat Card */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 34,
+            scale: 0.97,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.9,
+            delay: 0.15,
+          }}
+          className="relative lg:col-span-6"
+        >
+          <div className="glow-ring relative overflow-hidden rounded-[1.75rem] border border-border bg-surface-elevated shadow-elevated">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-border bg-surface px-5 py-4">
+              <div className="flex items-center gap-3">
+                <div className="grid size-10 place-items-center rounded-xl bg-primary text-white">
+                  <Bot className="size-5" />
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold">
+                    {data.assistantName}
+                  </p>
+                  <p className="text-[11px] text-ink-muted">
+                    Online now
+                  </p>
+                </div>
+              </div>
+
+              <span className="rounded-full border border-border bg-white px-3 py-1 text-[10px] uppercase text-ink-muted">
+                Live demo
+              </span>
+            </div>
+
+            {/* Chat Messages */}
+            <div className="min-h-[390px] space-y-5 p-5 sm:p-7">
+              <div className="flex justify-end">
+                <div className="max-w-[82%] rounded-2xl bg-primary px-4 py-3 text-sm text-white">
+                  How can AI improve my business?
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="grid size-8 place-items-center rounded-lg bg-primary/10">
+                  <Sparkles className="size-3.5 text-primary" />
+                </div>
+
+                <div className="max-w-[82%] rounded-2xl border border-border bg-surface px-4 py-3 text-sm">
+                  I can analyze your workflow and recommend the right
+                  automation opportunities.
+                </div>
+              </div>
+
+              <div className="flex justify-end">
+                <div className="max-w-[82%] rounded-2xl bg-primary px-4 py-3 text-sm text-white">
+                  Can we discuss it with your team?
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="grid size-8 place-items-center rounded-lg bg-primary/10">
+                  <Sparkles className="size-3.5 text-primary" />
+                </div>
+
+                <div className="max-w-[82%] rounded-2xl border border-border bg-surface px-4 py-3 text-sm">
+                  Absolutely. I can arrange a consultation now.
+                </div>
+              </div>
+            </div>
+
+            {/* Input */}
+            <div className="m-4 mt-0 flex items-center gap-3 rounded-full border border-border bg-surface px-4 py-2.5">
+              <span className="flex-1 text-xs text-ink-muted">
+                Type your message...
+              </span>
+
+              <span className="grid size-8 place-items-center rounded-full bg-primary text-white">
+                <Send className="size-3.5" />
+              </span>
+            </div>
+          </div>
+
+          {/* Floating Badge */}
+          <div className="surface-glass absolute -bottom-6 -left-5 hidden items-center gap-3 rounded-2xl p-3.5 sm:flex">
+            <Check className="size-4 text-emerald-600" />
+
+            <div>
+              <p className="text-xs font-semibold">
+                Opportunity captured
+              </p>
+
+              <p className="text-[10px] text-ink-muted">
+                Synced to your workflow
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
