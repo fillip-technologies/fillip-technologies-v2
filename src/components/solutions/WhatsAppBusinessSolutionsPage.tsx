@@ -125,7 +125,7 @@ export default function WhatsAppBusinessSolutionsPage({
               <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_14px_#6ee7b7]" />
               {hero.badge}
             </div>
-            <h1 className="mt-7 max-w-3xl text-[clamp(3.25rem,6.4vw,6.4rem)] font-semibold leading-[0.92] tracking-[-0.06em]">
+            <h1 className="mt-7 max-w-4xl text-balance text-[clamp(3.25rem,6.4vw,6.4rem)] font-semibold leading-[0.92] tracking-[-0.06em] [text-wrap:balance]">
               {hero.headingLead} <span className="bg-gradient-to-r from-primary via-blue-500 to-emerald-500 bg-clip-text text-transparent">{hero.headingHighlight}</span> {hero.headingTail}
             </h1>
             <p className="mt-7 max-w-2xl text-xl font-semibold leading-tight text-heading md:text-2xl">
