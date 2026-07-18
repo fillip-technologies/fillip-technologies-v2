@@ -15,7 +15,7 @@ function TalkButton() {
 
       <div className="animated-border inline-flex rounded-full p-[1px]">
         <Link
-          href="/get-a-quote/requirement"
+          href="/contact"
           className="group inline-flex h-11 min-w-[154px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-card px-5 text-sm font-semibold text-heading transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
         >
           <span>Get Proposal</span>

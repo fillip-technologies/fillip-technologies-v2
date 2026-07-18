@@ -101,7 +101,7 @@ export default async function IndustryQuotePage({
             </ul>
 
             <Link
-              href={`/get-a-quote/requirement?industry=${data.slug}&package=${encodeURIComponent(pkg.name)}`}
+              href="/contact"
               className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all ${
                 pkg.popular
                   ? "bg-primary text-primary-foreground hover:bg-primary/90"
@@ -125,7 +125,7 @@ export default async function IndustryQuotePage({
           </p>
         </div>
         <Link
-          href={`/get-a-quote/requirement?industry=${data.slug}`}
+          href="/contact"
           className="inline-flex flex-none items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
         >
           Share your requirement

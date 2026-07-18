@@ -33,7 +33,7 @@ export default function CustomOverviewPage() {
           return (
             <Link
               key={ind.slug}
-              href={`/get-a-quote/custom/${ind.slug}`}
+              href="/contact"
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
             >
               <span className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">

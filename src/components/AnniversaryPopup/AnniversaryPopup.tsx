@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Calendar, X } from "lucide-react";
+import { X } from "lucide-react";
 import { isAnniversaryActive } from "@/lib/anniversary";
 import Fireworks from "./Fireworks";
 import GoldParticles from "./GoldParticles";
@@ -34,6 +33,13 @@ const confetti = [
   "right-[34%] top-[54%] size-2 rounded-full bg-blue-400",
   "right-[30%] top-[58%] size-1.5 rounded-full bg-sky-300",
 ];
+
+const playfulFont = {
+  fontFamily: '"Comic Sans MS", "Segoe Print", "Trebuchet MS", cursive',
+  WebkitTextStroke: "5px rgba(255,255,255,0.92)",
+  paintOrder: "stroke fill",
+  textShadow: "0 8px 0 rgba(255,255,255,0.85), 0 14px 24px rgba(15,23,42,0.12)",
+} as const;
 
 export default function AnniversaryPopup() {
   const reduceMotion = useReducedMotion();
@@ -176,17 +182,26 @@ export default function AnniversaryPopup() {
                 style={{ height: "auto" }}
               />
 
-              <h1 className="mt-5 text-4xl font-black leading-[0.9] tracking-normal text-slate-950 drop-shadow-[0_5px_0_rgba(255,255,255,0.9)] sm:text-5xl">
+              <h1
+                className="mt-5 text-5xl font-black italic leading-[0.9] tracking-normal text-slate-950 sm:text-6xl"
+                style={playfulFont}
+              >
                 Celebrating
-                <span className="mt-1 block text-[5rem] leading-[0.82] text-blue-600 sm:text-[6.4rem]">
+                <span className="mt-1 block text-[5.6rem] leading-[0.78] text-blue-600 sm:text-[7rem]">
                   13
                 </span>
-                <span className="block text-4xl text-pink-500 sm:text-5xl">
+                <span className="block text-5xl text-pink-500 sm:text-6xl">
                   Years
                 </span>
               </h1>
 
-              <div className="mt-2 rotate-[-3deg] rounded-full bg-amber-300 px-6 py-2 text-lg font-black text-slate-950 shadow-[0_8px_0_rgba(255,255,255,0.85)] sm:text-2xl">
+              <div
+                className="mt-2 rotate-[-3deg] rounded-full bg-amber-300 px-6 py-2 text-lg font-black italic text-slate-950 shadow-[0_8px_0_rgba(255,255,255,0.85)] sm:text-2xl"
+                style={{
+                  fontFamily: playfulFont.fontFamily,
+                  textShadow: "0 2px 0 rgba(255,255,255,0.8)",
+                }}
+              >
                 of Fillip Excellence
               </div>
 
@@ -206,16 +221,6 @@ export default function AnniversaryPopup() {
                 <span className="text-blue-700"> let&apos;s build the future together.</span>
               </p>
 
-              <div className="mt-6 w-full max-w-sm">
-                <Link
-                  href="/contact"
-                  onClick={closeExperience}
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-base font-black text-slate-950 shadow-[0_18px_38px_rgba(15,23,42,0.14)] transition hover:-translate-y-0.5 hover:text-[var(--primary)] sm:text-lg"
-                >
-                  <Calendar className="size-5 text-pink-500" />
-                  Book Free Consultation
-                </Link>
-              </div>
             </div>
           </motion.section>
         </motion.div>

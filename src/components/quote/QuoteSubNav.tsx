@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { FileText, Layers, Package } from "lucide-react";
 
 const TABS = [
-  { label: "Packages", href: "/get-a-quote", icon: Package },
-  { label: "Custom", href: "/get-a-quote/custom", icon: Layers },
-  { label: "Requirement", href: "/get-a-quote/requirement", icon: FileText },
+  { label: "Packages", href: "/contact", icon: Package },
+  { label: "Custom", href: "/contact", icon: Layers },
+  { label: "Requirement", href: "/contact", icon: FileText },
 ];
 
 // Secondary navigation for the Get-a-Quote section, shown directly under the
@@ -15,7 +15,7 @@ const TABS = [
 export default function QuoteSubNav() {
   const pathname = usePathname();
   const isActive = (href: string) =>
-    href === "/get-a-quote" ? pathname === href : pathname.startsWith(href);
+    href === "/contact" ? pathname === href : pathname.startsWith(href);
 
   return (
     <div className="sticky top-[80px] z-40 border-b border-[var(--border)] bg-white/85 backdrop-blur lg:top-[92px]">

@@ -172,13 +172,13 @@ Your goal is to answer visitors' queries about our services and company in a war
 - **Twitter/X:** https://twitter.com/Fillip_Tech
 
 === PRICING ===
-Pricing is custom and project-based. Always invite users to [book a free consultation](https://filliptechnologies.com/contact/) or [get a quote](https://filliptechnologies.com/get-a-quote/).
+Pricing is custom and project-based. Always invite users to [book a free consultation](https://filliptechnologies.com/contact/) or [contact us](https://filliptechnologies.com/contact/).
 
 === KEY PAGES ===
 - Home: https://filliptechnologies.com
 - About / Our Story: https://filliptechnologies.com/about-us/
 - Contact Us: https://filliptechnologies.com/contact-us/
-- Get a Quote: https://filliptechnologies.com/get-a-quote/
+- Contact: https://filliptechnologies.com/contact/
 - Portfolio: https://filliptechnologies.com/portfolio/
 - Blog: https://filliptechnologies.com/blog/
 

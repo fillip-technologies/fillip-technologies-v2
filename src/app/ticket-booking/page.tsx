@@ -101,7 +101,7 @@ function Hero() {
 
           <div className="gsap-soft-reveal mt-9 flex flex-wrap items-center gap-3">
             <Link
-              href="/get-a-quote"
+              href="/contact"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-elevated transition-all hover:shadow-glow"
             >
               Discuss Your Platform

@@ -206,7 +206,7 @@ export default function Footer() {
                 Talk to Experts &rarr;
               </Link>
               <Link
-                href="/get-a-quote"
+                href="/contact"
                 className="
                   inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold
                   text-white hover:border-accent hover:text-accent transition-all duration-300

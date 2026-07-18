@@ -6,7 +6,7 @@ import { LayoutGrid, type LucideIcon } from "lucide-react";
 import { QUOTE_INDUSTRIES } from "@/data/quote/industries";
 import { industryIcon } from "./industryIcons";
 
-const BASE = "/get-a-quote/custom";
+const BASE = "/contact";
 
 // Tertiary navigation for the "Custom" tab — one pill per industry, plus an
 // Overview link. Highlights the active industry from the current path.
