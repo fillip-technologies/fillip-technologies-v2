@@ -33,6 +33,7 @@ function mapsUrl(loc: Lead["location"]): string | null {
 export default function LeadsTable({ leads }: { leads: Lead[] }) {
   const [filter, setFilter] = useState<string>("all");
   const [activeLead, setActiveLead] = useState<Lead | null>(null);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
 
   // Tally leads per category tag (package-aware).
   const counts = useMemo(() => {
