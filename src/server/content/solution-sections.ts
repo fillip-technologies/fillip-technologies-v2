@@ -29,6 +29,7 @@ const hero: SectionSpec = {
       { name: "title", label: "Title", type: "text", default: "" },
       { name: "highlightedTitle", label: "Highlighted title", type: "text", default: "" },
       { name: "description", label: "Description", type: "textarea", default: "" },
+      { name: "ctaLabel", label: "Button label", type: "text", default: "" },
       { name: "image", label: "Background image", type: "image", default: "" },
     ],
   },
@@ -37,6 +38,7 @@ const hero: SectionSpec = {
     title: d.title ?? "",
     highlightedTitle: d.highlightedTitle ?? "",
     description: d.description ?? "",
+    ctaLabel: d.ctaLabel ?? "",
     image: d.image ?? "",
   }),
   unflatten: (f) => ({
@@ -44,6 +46,7 @@ const hero: SectionSpec = {
     title: f.title,
     highlightedTitle: f.highlightedTitle,
     description: f.description,
+    ctaLabel: f.ctaLabel,
     image: f.image,
   }),
 };
@@ -87,28 +90,43 @@ const benefits: SectionSpec = {
   section: {
     id: "benefits",
     label: "Benefits",
-    description: "The “why choose us” benefit headings.",
+    description: "The “why choose us” benefit cards — each with its own heading and description.",
     ready: true,
     fields: [],
     list: {
       name: "benefits",
       label: "Benefits",
       itemNoun: "benefit",
-      itemFields: [{ name: "text", label: "Benefit", type: "text" }],
+      itemFields: [
+        { name: "text", label: "Heading", type: "text" },
+        {
+          name: "description",
+          label: "Description",
+          type: "textarea",
+        },
+      ],
       default: [],
     },
   },
-  // Raw default `benefits` is a string[]; surface it as { text } rows.
+  // Raw default `benefits` may be a string[] (legacy static JSON) or { text,
+  // description } rows; surface both as editable { text, description } rows.
   flatten: (d) => ({
     benefits: (d.benefits ?? []).map((b: unknown) =>
-      typeof b === "string" ? { text: b } : { text: (b as AnyRec)?.text ?? "" }
+      typeof b === "string"
+        ? { text: b, description: "" }
+        : { text: (b as AnyRec)?.text ?? "", description: (b as AnyRec)?.description ?? "" }
     ),
   }),
-  // Returns the bare string[] the renderer maps over.
+  // Returns { text, description } objects for the renderer. Rows without a
+  // heading are dropped; a blank description lets the renderer fall back to the
+  // section's shared supporting line.
   unflatten: (f) =>
     (f.benefits ?? [])
-      .map((b: AnyRec) => String(b?.text ?? "").trim())
-      .filter(Boolean),
+      .map((b: AnyRec) => ({
+        text: String(b?.text ?? "").trim(),
+        description: String(b?.description ?? "").trim(),
+      }))
+      .filter((b: AnyRec) => b.text),
 };
 
 const faqs: SectionSpec = {
@@ -157,6 +175,7 @@ const ABOUT_DEFAULT = {
   description:
     "We deliver intelligent hardware solutions that adapt to your needs and keep your infrastructure dependable every day.",
   ctaLabel: "Contact Us",
+  cardCtaLabel: "Contact Us",
 };
 
 const PROMISE_DEFAULT = {
@@ -225,17 +244,20 @@ const about: SectionSpec = {
       { name: "heading", label: "Heading", type: "textarea", default: "", help: "Line breaks are preserved." },
       { name: "description", label: "Description", type: "textarea", default: "" },
       { name: "ctaLabel", label: "Button label", type: "text", default: "" },
+      { name: "cardCtaLabel", label: "Solution card link label", type: "text", default: "", help: "Shown on the two solution cards beside this block." },
     ],
   },
   flatten: (d) => ({
     heading: d.heading ?? "",
     description: d.description ?? "",
     ctaLabel: d.ctaLabel ?? "",
+    cardCtaLabel: d.cardCtaLabel ?? "",
   }),
   unflatten: (f) => ({
     heading: f.heading ?? "",
     description: f.description ?? "",
     ctaLabel: f.ctaLabel ?? "",
+    cardCtaLabel: f.cardCtaLabel ?? "",
   }),
 };
 
@@ -291,17 +313,20 @@ const solutionsHeading: SectionSpec = {
       { name: "eyebrow", label: "Eyebrow", type: "text", default: "" },
       { name: "heading", label: "Heading", type: "textarea", default: "", help: "Line breaks are preserved." },
       { name: "description", label: "Description", type: "textarea", default: "" },
+      { name: "cardCtaLabel", label: "Solution card link label", type: "text", default: "", help: "Shown on each card in the solutions grid." },
     ],
   },
   flatten: (d) => ({
     eyebrow: d.eyebrow ?? "",
     heading: d.heading ?? "",
     description: d.description ?? "",
+    cardCtaLabel: d.cardCtaLabel ?? "",
   }),
   unflatten: (f) => ({
     eyebrow: f.eyebrow ?? "",
     heading: f.heading ?? "",
     description: f.description ?? "",
+    cardCtaLabel: f.cardCtaLabel ?? "",
   }),
 };
 
@@ -384,6 +409,30 @@ const testimonials: SectionSpec = {
   }),
 };
 
+const faqHeading: SectionSpec = {
+  section: {
+    id: "faqHeading",
+    label: "FAQ heading",
+    description: "Badge, title and intro shown above the FAQ list.",
+    ready: true,
+    fields: [
+      { name: "badge", label: "Badge", type: "text", default: "" },
+      { name: "title", label: "Title", type: "text", default: "" },
+      { name: "description", label: "Description", type: "textarea", default: "" },
+    ],
+  },
+  flatten: (d) => ({
+    badge: d.badge ?? "",
+    title: d.title ?? "",
+    description: d.description ?? "",
+  }),
+  unflatten: (f) => ({
+    badge: f.badge ?? "",
+    title: f.title ?? "",
+    description: f.description ?? "",
+  }),
+};
+
 export const SOLUTION_SECTION_SPECS: Record<string, SectionSpec> = {
   hero,
   about,
@@ -393,6 +442,7 @@ export const SOLUTION_SECTION_SPECS: Record<string, SectionSpec> = {
   whyChoose,
   benefits,
   testimonials,
+  faqHeading,
   faqs,
 };
 
@@ -406,6 +456,7 @@ export const SOLUTION_SECTION_IDS = [
   "whyChoose",
   "benefits",
   "testimonials",
+  "faqHeading",
   "faqs",
 ] as const;
 
@@ -420,7 +471,7 @@ export function getSolutionSectionSpec(sectionId: string): SectionSpec | undefin
 export function solutionDefault(slug: string, sectionId: string): AnyRec {
   const page = SOLUTION_CONTENT[slug] as AnyRec | undefined;
   if (!page) return {};
-  if (sectionId === "hero") return page.hero ?? {};
+  if (sectionId === "hero") return { ...(page.hero ?? {}), ctaLabel: page.hero?.ctaLabel ?? "Get Free Consultation" };
   if (sectionId === "solutions") return { solutions: page.solutions ?? [] };
   if (sectionId === "benefits") return { benefits: page.benefits ?? [] };
   if (sectionId === "faqs") return { faqs: page.faqs ?? [] };
@@ -439,6 +490,7 @@ export function solutionDefault(slug: string, sectionId: string): AnyRec {
       heading: `${label}\nSolutions We Offer`,
       description:
         "Explore practical, scalable hardware solutions designed around your site, users, operations, and security requirements.",
+      cardCtaLabel: "Explore Solution",
     };
   }
   if (sectionId === "whyChoose") return { ...WHY_DEFAULT };
@@ -448,6 +500,13 @@ export function solutionDefault(slug: string, sectionId: string): AnyRec {
       title: `Trusted ${label} Projects`,
       description: TESTIMONIALS_DESCRIPTION,
       items: defaultTestimonials(label),
+    };
+  }
+  if (sectionId === "faqHeading") {
+    return {
+      badge: `${label} FAQs`,
+      title: "Everything You Need To Know",
+      description: `Common questions about ${label.toLowerCase()} planning, installation, and support.`,
     };
   }
   return {};

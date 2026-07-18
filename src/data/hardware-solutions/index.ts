@@ -19,13 +19,16 @@ export type HardwareSolutionPage = {
     highlightedTitle: string;
     description: string;
     image: string;
+    ctaLabel?: string;
   };
   solutions: {
     title: string;
     description: string;
     image: string;
   }[];
-  benefits: string[];
+  // A benefit is either a legacy plain heading (static JSON) or a { text,
+  // description } card. The renderer normalises both.
+  benefits: (string | { text: string; description?: string })[];
   faqs: {
     question: string;
     answer: string;
@@ -37,6 +40,7 @@ export type HardwareSolutionPage = {
     heading: string;
     description: string;
     ctaLabel: string;
+    cardCtaLabel?: string;
   };
   promise?: {
     eyebrow: string;
@@ -48,6 +52,7 @@ export type HardwareSolutionPage = {
     eyebrow: string;
     heading: string;
     description: string;
+    cardCtaLabel?: string;
   };
   whyChoose?: {
     eyebrow: string;
@@ -59,6 +64,11 @@ export type HardwareSolutionPage = {
     title: string;
     description: string;
     items: { name: string; role: string; review: string; image: string }[];
+  };
+  faqHeading?: {
+    badge: string;
+    title: string;
+    description: string;
   };
 };
 

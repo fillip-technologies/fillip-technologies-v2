@@ -4,6 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Target, Eye, Compass, Quote, Users } from "lucide-react";
 
+// A single team member card's content (managed via the CMS `teamMembers` list).
+type TeamMember = { name: string; role: string; image?: string; imagePosition?: string };
+
 // CMS-editable content (key: page.our-story.missionvision). Falls back to defaults.
 type MissionVisionContent = Partial<{
   eyebrow: string;
@@ -11,20 +14,21 @@ type MissionVisionContent = Partial<{
   missionText: string;
   visionText: string;
   creedText: string;
+  leadershipEyebrow: string;
+  leadershipHeading: string;
+  leadershipDescription: string;
+  ceoName: string;
+  ceoRole: string;
+  ceoExperience: string;
+  ceoImage: string;
+  ceoMessage: string;
+  teamMembers: TeamMember[];
   signatureLead: string;
   signatureName: string;
 }>;
 
-const ceo = {
-  name: "Vikash Kumar",
-  role: "Founder & CEO",
-  experience: "13+ Years of Experience",
-  image: "/images/team/VIKASH.jpeg",
-  message:
-    "Fillip Technologies was built with a simple belief: technology should make businesses clearer, faster, and more capable. Every solution we deliver carries our promise of discipline, transparency, and meaningful digital impact for the businesses we serve.",
-};
-
-const teamMembers: Array<{ name: string; role: string; image?: string; imagePosition?: string }> = [
+// Fallbacks used when nothing is saved in the CMS yet.
+const DEFAULT_TEAM: TeamMember[] = [
   { name: "Risabh Choubey", role: "Account Manager" },
   { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-sinha.jpeg" },
   { name: "Payal Kumari", role: "Digital Marketing Head", image: "/images/team/Payal.jpeg" },
@@ -38,7 +42,6 @@ const teamMembers: Array<{ name: string; role: string; image?: string; imagePosi
   { name: "Khushi Bharti", role: "HR Generalist" },
   { name: "Lincy Bhardwaj", role: "HR Executive" },
   { name: "Anushka Raj", role: "BDE" },
-  
 ];
 
 export default function MissionVision({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -55,9 +58,26 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
     creedText:
       content.creedText ??
       "We make commitments, not excuses. We work with absolute accountability, leverage AI responsibly to amplify human intelligence, refuse code shortcuts, and measure our agency's reputation directly by the scalability and success of the products we launch.",
+    leadershipEyebrow: content.leadershipEyebrow ?? "Leadership & Team",
+    leadershipHeading: content.leadershipHeading ?? "The People Behind The Pages",
+    leadershipDescription:
+      content.leadershipDescription ??
+      "One clear leadership voice, supported by a focused team of builders, designers, and growth specialists.",
     signatureLead: content.signatureLead ?? "Signed in code and character,",
     signatureName: content.signatureName ?? "The Fillip Team",
   };
+
+  const ceo = {
+    name: content.ceoName ?? "Vikash Kumar",
+    role: content.ceoRole ?? "Founder & CEO",
+    experience: content.ceoExperience ?? "13+ Years of Experience",
+    image: content.ceoImage || "/images/team/VIKASH.jpeg",
+    message:
+      content.ceoMessage ??
+      "Fillip Technologies was built with a simple belief: technology should make businesses clearer, faster, and more capable. Every solution we deliver carries our promise of discipline, transparency, and meaningful digital impact for the businesses we serve.",
+  };
+
+  const teamMembers = content.teamMembers?.length ? content.teamMembers : DEFAULT_TEAM;
 
   return (
     <section className="relative overflow-hidden border-t border-border bg-surface py-24 pb-32 text-heading">
@@ -158,16 +178,15 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
                 <div className="mb-4 flex items-center justify-center gap-2 text-primary">
                   <Users className="size-4.5" />
                   <span className="text-xs font-extrabold uppercase tracking-[0.25em]">
-                    Leadership & Team
+                    {c.leadershipEyebrow}
                   </span>
                 </div>
                 <h3 className="text-3xl font-extrabold tracking-tight text-heading sm:text-4xl">
-                  The People Behind The Pages
+                  {c.leadershipHeading}
                 </h3>
               </div>
               <p className="max-w-xl text-sm leading-relaxed text-body">
-                One clear leadership voice, supported by a focused team of builders, designers, and
-                growth specialists.
+                {c.leadershipDescription}
               </p>
             </div>
 
