@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import {
-  ArrowUpRight,
   Brain,
   Briefcase,
   Rocket,
@@ -25,7 +24,6 @@ type WhyChooseContent = Partial<{
   headingLine1: string;
   headingLine2: string;
   description: string;
-  ctaLabel: string;
   cards: WhyChooseItem[];
 }>;
 
@@ -38,7 +36,6 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
     description:
       content.description ??
       "We combine strategy, technology, design, and AI expertise to help businesses build, scale, and grow with confidence in a rapidly evolving digital world.",
-    ctaLabel: content.ctaLabel ?? "Learn More",
   };
   const features = content.cards?.length ? content.cards : HOME_WHY_CHOOSE;
 
@@ -86,11 +83,6 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
             </p>
           </div>
 
-          <button className="group inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-medium text-[var(--heading)] transition-all duration-300 hover:border-[var(--primary)] hover:shadow-lg">
-            {c.ctaLabel}
-
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-          </button>
         </div>
 
         {/* Cards */}
