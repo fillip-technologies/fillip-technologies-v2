@@ -2,7 +2,10 @@
 
 import {
     ArrowRight,
+    X,
 } from "lucide-react";
+import { useState } from "react";
+import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import type { MobileAppSolutionsContent } from "@/data/mobile-app-development";
 import { mobileAppIcons } from "./icons";
 
@@ -11,6 +14,8 @@ type MobileAppSolutionsProps = {
 };
 
 export default function MobileAppSolutions({ data }: MobileAppSolutionsProps) {
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
     return (
         <section className="relative overflow-hidden py-20 lg:py-22 pb-8">
             {/* Glow */}
@@ -86,16 +91,45 @@ export default function MobileAppSolutions({ data }: MobileAppSolutionsProps) {
                                         {item.footerLabel}
                                     </span>
 
-                                    <div className="flex items-center gap-2 font-medium text-[var(--primary)]">
-                                        Request Proposal
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsFormOpen(true)}
+                                        className="flex items-center gap-2 font-medium text-[var(--primary)] transition hover:text-[var(--heading)]"
+                                    >
+                                        Discuss Your Project
                                         <ArrowRight className="h-4 w-4" />
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         );
                     })}
                 </div>
             </div>
+
+            {isFormOpen ? (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 px-4 py-6 backdrop-blur-sm"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Discuss your project"
+                    onClick={() => setIsFormOpen(false)}
+                >
+                    <div
+                        className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[2.5rem] bg-white"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <button
+                            type="button"
+                            aria-label="Close form"
+                            onClick={() => setIsFormOpen(false)}
+                            className="absolute right-4 top-4 z-10 flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:text-slate-950"
+                        >
+                            <X className="size-5" />
+                        </button>
+                        <ConsultationFormSection showOnlyForm className="py-0" />
+                    </div>
+                </div>
+            ) : null}
         </section>
     );
 }
