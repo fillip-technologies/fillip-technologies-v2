@@ -18,7 +18,7 @@ type IndustryHeroProps = {
 
 export default function IndustryHero({ data }: IndustryHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-white pt-48 pb-8">
+    <section className="relative overflow-hidden bg-white pt-[clamp(5.75rem,7vw,7rem)] pb-[clamp(2rem,4vw,3.5rem)]">
       {/* Grid Background */}
       <div
         className="absolute inset-0 opacity-[0.04]"
@@ -35,7 +35,7 @@ export default function IndustryHero({ data }: IndustryHeroProps) {
       <div className="absolute left-1/2 top-20 h-[700px] w-[800px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[150px]" />
 
       <div className="container relative mx-auto max-w-7xl px-6">
-        <div className="grid min-h-[78vh] items-center gap-8 lg:grid-cols-2">
+        <div className="grid min-h-[clamp(580px,68vh,720px)] items-center gap-8 lg:grid-cols-2">
 
           {/* LEFT CONTENT */}
           <div className="max-w-[650px]">
@@ -80,7 +80,7 @@ export default function IndustryHero({ data }: IndustryHeroProps) {
 
           {/* RIGHT IMAGE */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[900px]">
+            <div className="relative h-[clamp(340px,52vw,720px)] w-full max-w-[1000px]">
 
               {/* Background Glow Behind Doctor */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-100/40 via-cyan-100/30 to-transparent blur-3xl" />
@@ -90,10 +90,10 @@ export default function IndustryHero({ data }: IndustryHeroProps) {
                 <Image
                   src={data.image.src}
                   alt={data.image.alt}
-                  width={1400}
-                  height={1400}
+                  fill
                   priority
-                  className="relative z-10 h-auto w-[135%] max-w-none object-contain lg:-mt-8"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="relative z-10 object-contain object-center scale-[1.08] lg:scale-[1.2]"
                 />
               ) : null}
             </div>

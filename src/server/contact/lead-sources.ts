@@ -44,3 +44,24 @@ export const LEAD_CATEGORIES: LeadCategory[] = [
   "Careers",
   "Other",
 ];
+
+/**
+ * Lead lifecycle statuses — the admin advances a lead through these as they work
+ * it. `value` is stored on the lead; `label` is shown in the UI.
+ */
+export const LEAD_STATUSES = [
+  { value: "new", label: "New" },
+  { value: "contacted", label: "Contacted" },
+  { value: "in-progress", label: "In Progress" },
+  { value: "converted", label: "Converted" },
+  { value: "disqualified", label: "Disqualified" },
+] as const;
+
+export type LeadStatus = (typeof LEAD_STATUSES)[number]["value"];
+
+/** Valid status values (for server-side validation). */
+export const LEAD_STATUS_VALUES: readonly string[] = LEAD_STATUSES.map((s) => s.value);
+
+export function labelForStatus(status: string): string {
+  return LEAD_STATUSES.find((s) => s.value === status)?.label ?? status;
+}

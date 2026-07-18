@@ -1,49 +1,65 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, MapPin, Satellite, Globe, ExternalLink, Package as PackageIcon } from "lucide-react";
 import type { Lead } from "@/server/contact/queries";
-import {
-  categoryForSource,
-  labelForSource,
-  LEAD_CATEGORIES,
-  type LeadCategory,
-} from "@/server/contact/lead-sources";
+import { categoryForSource, labelForSource, LEAD_STATUSES } from "@/server/contact/lead-sources";
+import { updateLeadStatusAction } from "@/server/contact/lead-actions";
 
-type Filter = "all" | LeadCategory;
+/**
+ * A lead's category tags. Leads from the quote flow are categorised by the
+ * package(s) the client selected; everything else falls back to the broad,
+ * source-based category. A lead can belong to several package categories.
+ */
+function leadCategoryTags(lead: Lead): string[] {
+  if (lead.packageCategory) {
+    const tags = lead.packageCategory.split(",").map((s) => s.trim()).filter(Boolean);
+    if (tags.length) return tags;
+  }
+  return [categoryForSource(lead.source)];
+}
+
+/** A Google Maps link for a lead's location (coords preferred, else the label). */
+function mapsUrl(loc: Lead["location"]): string | null {
+  if (!loc) return null;
+  if (typeof loc.lat === "number" && typeof loc.lng === "number") {
+    return `https://www.google.com/maps?q=${loc.lat},${loc.lng}`;
+  }
+  if (loc.label) return `https://www.google.com/maps/search/${encodeURIComponent(loc.label)}`;
+  return null;
+}
 
 export default function LeadsTable({ leads }: { leads: Lead[] }) {
-  const [filter, setFilter] = useState<Filter>("all");
+  const [filter, setFilter] = useState<string>("all");
   const [activeLead, setActiveLead] = useState<Lead | null>(null);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
 
-  // Count leads per category so we can show tallies and hide empty filters.
+  // Tally leads per category tag (package-aware).
   const counts = useMemo(() => {
-    const map = new Map<LeadCategory, number>();
+    const map = new Map<string, number>();
     for (const lead of leads) {
-      const cat = categoryForSource(lead.source);
-      map.set(cat, (map.get(cat) ?? 0) + 1);
+      for (const tag of leadCategoryTags(lead)) map.set(tag, (map.get(tag) ?? 0) + 1);
     }
     return map;
   }, [leads]);
 
-  const visibleCategories = LEAD_CATEGORIES.filter((cat) => (counts.get(cat) ?? 0) > 0);
+  // Most-common categories first, then alphabetical.
+  const categories = useMemo(
+    () => [...counts.keys()].sort((a, b) => (counts.get(b)! - counts.get(a)!) || a.localeCompare(b)),
+    [counts]
+  );
 
   const filtered = useMemo(
-    () => (filter === "all" ? leads : leads.filter((l) => categoryForSource(l.source) === filter)),
+    () => (filter === "all" ? leads : leads.filter((l) => leadCategoryTags(l).includes(filter))),
     [leads, filter]
   );
 
   return (
     <>
       <div className="mb-4 flex flex-wrap items-center gap-2">
-        <FilterButton
-          label="All"
-          count={leads.length}
-          active={filter === "all"}
-          onClick={() => setFilter("all")}
-        />
-        {visibleCategories.map((cat) => (
+        <FilterButton label="All" count={leads.length} active={filter === "all"} onClick={() => setFilter("all")} />
+        {categories.map((cat) => (
           <FilterButton
             key={cat}
             label={cat}
@@ -65,65 +81,77 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
               <tr className="border-b border-border bg-card text-left text-muted-foreground">
                 <Th>Received</Th>
                 <Th>Category</Th>
-                <Th>Name</Th>
-                <Th>Email</Th>
-                <Th>Phone</Th>
-                <Th>Company</Th>
+                <Th>Contact</Th>
+                <Th>Package</Th>
                 <Th>Budget</Th>
+                <Th>Location</Th>
                 <Th>Message</Th>
-                <Th>Source</Th>
                 <Th>Status</Th>
               </tr>
             </thead>
             <tbody>
               {filtered.map((lead) => (
-                <tr key={lead.id} className="border-b border-border/60 align-top">
+                <tr
+                  key={lead.id}
+                  className="cursor-pointer border-b border-border/60 align-top transition-colors hover:bg-card"
+                  onClick={() => setActiveLead(lead)}
+                >
                   <Td className="whitespace-nowrap text-muted-foreground">
                     <ReceivedAt iso={lead.created_at} />
                   </Td>
                   <Td className="whitespace-nowrap">
-                    <span className="rounded-full border border-border px-2 py-0.5 text-xs">
-                      {categoryForSource(lead.source)}
-                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {leadCategoryTags(lead).map((tag) => (
+                        <span key={tag} className="rounded-full border border-border px-2 py-0.5 text-xs">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground">{labelForSource(lead.source)}</p>
                   </Td>
-                  <Td>{lead.name}</Td>
                   <Td>
-                    <a href={`mailto:${lead.email}`} className="text-primary hover:underline">
+                    <p className="font-medium text-heading">{lead.name}</p>
+                    <a
+                      href={`mailto:${lead.email}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="block text-primary hover:underline"
+                    >
                       {lead.email}
                     </a>
-                  </Td>
-                  <Td className="whitespace-nowrap">
                     {lead.phone ? (
-                      <a href={`tel:${lead.phone}`} className="text-primary hover:underline">
+                      <a
+                        href={`tel:${lead.phone}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="block whitespace-nowrap text-muted-foreground hover:text-primary"
+                      >
                         {lead.phone}
                       </a>
+                    ) : null}
+                    {lead.company ? <p className="text-xs text-muted-foreground">{lead.company}</p> : null}
+                  </Td>
+                  <Td className="max-w-[12rem]">
+                    {lead.packageCategory ? (
+                      <span className="inline-flex items-center gap-1 text-heading">
+                        <PackageIcon size={13} className="shrink-0 text-muted-foreground" />
+                        {lead.packageCategory}
+                      </span>
                     ) : (
                       "—"
                     )}
                   </Td>
-                  <Td>{lead.company ?? "—"}</Td>
                   <Td className="whitespace-nowrap">{lead.budget ?? "—"}</Td>
+                  <Td className="max-w-[13rem]">
+                    <LocationCell location={lead.location} />
+                  </Td>
                   <Td className="max-w-xs">
                     {lead.message ? (
-                      <button
-                        type="button"
-                        onClick={() => setActiveLead(lead)}
-                        title="Click to view full message"
-                        className="line-clamp-2 text-left text-heading hover:text-primary hover:underline"
-                      >
-                        {lead.message}
-                      </button>
+                      <span className="line-clamp-2 text-heading">{lead.message}</span>
                     ) : (
                       "—"
                     )}
                   </Td>
-                  <Td className="whitespace-nowrap text-muted-foreground">
-                    {labelForSource(lead.source)}
-                  </Td>
                   <Td>
-                    <span className="rounded-full border border-border px-2 py-0.5 text-xs capitalize">
-                      {lead.status}
-                    </span>
+                    <StatusSelect lead={lead} />
                   </Td>
                 </tr>
               ))}
@@ -132,14 +160,39 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
         </div>
       )}
 
-      {activeLead && <LeadMessageModal lead={activeLead} onClose={() => setActiveLead(null)} />}
+      {activeLead && <LeadDetailModal lead={activeLead} onClose={() => setActiveLead(null)} />}
     </>
   );
 }
 
-// Modal that shows the full lead message plus key contact details. Closes on
-// backdrop click or Escape.
-function LeadMessageModal({ lead, onClose }: { lead: Lead; onClose: () => void }) {
+/** Compact location display for the table cell. */
+function LocationCell({ location }: { location: Lead["location"] }) {
+  if (!location) return <span className="text-muted-foreground">—</span>;
+  const url = mapsUrl(location);
+  const Icon = location.source === "gps" ? Satellite : Globe;
+  const inner = (
+    <span className="inline-flex items-start gap-1 text-heading">
+      <Icon size={13} className="mt-0.5 shrink-0 text-muted-foreground" />
+      <span>
+        {location.label || "Unknown"}
+        <span className="ml-1 text-[10px] uppercase tracking-wide text-muted-foreground">
+          {location.source}
+        </span>
+      </span>
+    </span>
+  );
+  return url ? (
+    <a href={url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:text-primary hover:underline">
+      {inner}
+    </a>
+  ) : (
+    inner
+  );
+}
+
+// Rich detail modal — shows every field we hold on a lead. Closes on backdrop
+// click or Escape.
+function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -151,6 +204,9 @@ function LeadMessageModal({ lead, onClose }: { lead: Lead; onClose: () => void }
       document.body.style.overflow = "";
     };
   }, [onClose]);
+
+  const loc = lead.location;
+  const url = mapsUrl(loc);
 
   return (
     <div
@@ -166,7 +222,9 @@ function LeadMessageModal({ lead, onClose }: { lead: Lead; onClose: () => void }
         <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4">
           <div>
             <h2 className="text-base font-semibold text-heading">{lead.name}</h2>
-            <p className="text-xs text-muted-foreground">{labelForSource(lead.source)}</p>
+            <p className="text-xs text-muted-foreground">
+              {labelForSource(lead.source)} · <ReceivedAt iso={lead.created_at} />
+            </p>
           </div>
           <button
             type="button"
@@ -181,40 +239,59 @@ function LeadMessageModal({ lead, onClose }: { lead: Lead; onClose: () => void }
         </div>
 
         <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 border-b border-border px-5 py-4 text-sm">
-          <dt className="text-muted-foreground">Email</dt>
-          <dd className="text-heading">
+          <Row label="Email">
             <a href={`mailto:${lead.email}`} className="text-primary hover:underline">
               {lead.email}
             </a>
-          </dd>
+          </Row>
           {lead.phone && (
-            <>
-              <dt className="text-muted-foreground">Phone</dt>
-              <dd className="text-heading">
-                <a href={`tel:${lead.phone}`} className="text-primary hover:underline">
-                  {lead.phone}
-                </a>
-              </dd>
-            </>
+            <Row label="Phone">
+              <a href={`tel:${lead.phone}`} className="text-primary hover:underline">
+                {lead.phone}
+              </a>
+            </Row>
           )}
-          {lead.company && (
-            <>
-              <dt className="text-muted-foreground">Company</dt>
-              <dd className="text-heading">{lead.company}</dd>
-            </>
-          )}
-          {lead.budget && (
-            <>
-              <dt className="text-muted-foreground">Budget</dt>
-              <dd className="text-heading">{lead.budget}</dd>
-            </>
-          )}
+          {lead.company && <Row label="Company">{lead.company}</Row>}
+          {lead.packageCategory && <Row label="Package">{lead.packageCategory}</Row>}
+          {lead.budget && <Row label="Budget">{lead.budget}</Row>}
+          <Row label="Category">{leadCategoryTags(lead).join(", ")}</Row>
+          <Row label="Status"><StatusSelect lead={lead} /></Row>
         </dl>
 
+        {loc && (
+          <div className="border-b border-border px-5 py-4">
+            <p className="mb-2 flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <MapPin size={13} /> Location
+              <span className="rounded-full border border-border px-1.5 py-0.5 text-[10px] normal-case">
+                {loc.source === "gps" ? "Precise (GPS)" : "Approx. (IP)"}
+              </span>
+            </p>
+            <p className="text-sm font-medium text-heading">{loc.label || "Unknown"}</p>
+            <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs text-muted-foreground">
+              {typeof loc.lat === "number" && typeof loc.lng === "number" && (
+                <Row label="Coordinates">
+                  {loc.lat.toFixed(5)}, {loc.lng.toFixed(5)}
+                </Row>
+              )}
+              {typeof loc.accuracy === "number" && <Row label="Accuracy">±{Math.round(loc.accuracy)} m</Row>}
+              {loc.ip && <Row label="IP">{loc.ip}</Row>}
+              {loc.isp && <Row label="ISP">{loc.isp}</Row>}
+            </dl>
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+              >
+                <ExternalLink size={12} /> Open in Google Maps
+              </a>
+            )}
+          </div>
+        )}
+
         <div className="px-5 py-4">
-          <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            Message
-          </p>
+          <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Message</p>
           <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-heading">
             {lead.message || "—"}
           </p>
@@ -231,6 +308,64 @@ function LeadMessageModal({ lead, onClose }: { lead: Lead; onClose: () => void }
         </div>
       </div>
     </div>
+  );
+}
+
+// Colour per status for the dropdown pill.
+const STATUS_STYLES: Record<string, string> = {
+  new: "border-sky-300 bg-sky-50 text-sky-700",
+  contacted: "border-amber-300 bg-amber-50 text-amber-700",
+  "in-progress": "border-violet-300 bg-violet-50 text-violet-700",
+  converted: "border-emerald-300 bg-emerald-50 text-emerald-700",
+  disqualified: "border-rose-300 bg-rose-50 text-rose-700",
+};
+
+/** Inline status editor — updates the lead's status via a server action. */
+function StatusSelect({ lead }: { lead: Lead }) {
+  const [status, setStatus] = useState(lead.status);
+  const [pending, startTransition] = useTransition();
+
+  // Re-sync if the server sends a newer value (after revalidation).
+  useEffect(() => setStatus(lead.status), [lead.status]);
+
+  const onChange = (value: string) => {
+    const prev = status;
+    setStatus(value); // optimistic
+    startTransition(async () => {
+      const res = await updateLeadStatusAction(lead.id, value);
+      if (!res.ok) setStatus(prev); // revert on failure
+    });
+  };
+
+  const known = LEAD_STATUSES.some((s) => s.value === status);
+
+  return (
+    <select
+      value={status}
+      disabled={pending}
+      onClick={(e) => e.stopPropagation()}
+      onChange={(e) => onChange(e.target.value)}
+      title="Update status"
+      className={`cursor-pointer rounded-full border px-2 py-1 text-xs font-medium capitalize outline-none transition-colors disabled:opacity-60 ${
+        STATUS_STYLES[status] ?? "border-border bg-card text-heading"
+      }`}
+    >
+      {!known ? <option value={status}>{status}</option> : null}
+      {LEAD_STATUSES.map((s) => (
+        <option key={s.value} value={s.value}>
+          {s.label}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <>
+      <dt className="text-muted-foreground">{label}</dt>
+      <dd className="break-words text-heading">{children}</dd>
+    </>
   );
 }
 
@@ -256,16 +391,13 @@ function FilterButton({
       }`}
     >
       {label}
-      <span className={`ml-1.5 text-xs ${active ? "opacity-90" : "text-muted-foreground"}`}>
-        {count}
-      </span>
+      <span className={`ml-1.5 text-xs ${active ? "opacity-90" : "text-muted-foreground"}`}>{count}</span>
     </button>
   );
 }
 
-// Renders a locale-formatted timestamp on the client only. Server output would
-// use a different locale/timezone than the browser, causing a hydration
-// mismatch, so we hold an empty placeholder until after mount.
+// Renders a locale-formatted timestamp on the client only (avoids SSR/locale
+// hydration mismatch).
 function ReceivedAt({ iso }: { iso: string }) {
   const [text, setText] = useState("");
   useEffect(() => setText(new Date(iso).toLocaleString()), [iso]);

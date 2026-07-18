@@ -16,3 +16,28 @@ export const contactSchema = z.object({
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
+
+/**
+ * Optional browser-GPS location the client attaches to a submission (already
+ * reverse-geocoded client-side). Coerced leniently — bad/missing values just
+ * fall through to server-side IP geolocation.
+ */
+export const clientLocationSchema = z
+  .object({
+    lat: z.number().finite().optional(),
+    lng: z.number().finite().optional(),
+    accuracy: z.number().finite().nullable().optional(),
+    city: z.string().trim().max(160).optional(),
+    region: z.string().trim().max(160).optional(),
+    country: z.string().trim().max(160).optional(),
+    label: z.string().trim().max(300).optional(),
+  })
+  .optional();
+
+export type ClientLocationInput = z.infer<typeof clientLocationSchema>;
+
+/** Parse an unknown `location` value from a request body, tolerating garbage. */
+export function parseClientLocation(value: unknown): ClientLocationInput {
+  const result = clientLocationSchema.safeParse(value);
+  return result.success ? result.data : undefined;
+}

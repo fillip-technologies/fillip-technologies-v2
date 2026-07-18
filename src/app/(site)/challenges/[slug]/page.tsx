@@ -36,7 +36,19 @@ export default async function ChallengeSlugPage({
     if (page.template !== "challenges") notFound(); // lives under another route
     if (!page.published) notFound(); // drafts are visible only via /preview
     const data = (await getServicePageData(slug, "challenges")) as ChallengeContent;
-    return <ChallengePage data={data} />;
+    // `title`/`tags` live on the ServicePage record + seed data, not in the
+    // section content, so backfill them so the page heading/eyebrow aren't blank.
+    const seed = getChallengeBySlug(slug);
+    return (
+      <ChallengePage
+        data={{
+          ...data,
+          title: data.title || page.title || seed?.title || "",
+          tags: data.tags?.length ? data.tags : seed?.tags ?? [],
+          summary: data.summary || seed?.summary || "",
+        }}
+      />
+    );
   }
 
   const staticData = getChallengeBySlug(slug);

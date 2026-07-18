@@ -93,9 +93,13 @@ type FlatChapter = {
   stat1Label: string; stat1Value: string; stat2Label: string; stat2Value: string; stat3Label: string; stat3Value: string;
 };
 
+function getChapterYearValue(year: string) {
+  return Number(year.match(/\d{4}/)?.[0] ?? 0);
+}
+
 export default function StoryTimeline({ content: raw = {} }: { content?: Record<string, unknown> }) {
   const content = raw as { chapters?: FlatChapter[] };
-  const chapters = content.chapters?.length
+  const chaptersSource = content.chapters?.length
     ? content.chapters.map((ch, i) => {
         const v = DEFAULT_CHAPTERS[i % DEFAULT_CHAPTERS.length];
         return {
@@ -116,6 +120,9 @@ export default function StoryTimeline({ content: raw = {} }: { content?: Record<
         };
       })
     : DEFAULT_CHAPTERS;
+  const chapters = [...chaptersSource].sort(
+    (a, b) => getChapterYearValue(b.year) - getChapterYearValue(a.year)
+  );
 
   const [activeIndex, setActiveIndex] = useState(0);
   const activeChapter = chapters[activeIndex] ?? chapters[0];

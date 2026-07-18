@@ -58,13 +58,25 @@ function row(label: string, value: string): string {
   </tr>`;
 }
 
+function locationHtml(loc: NonNullable<Lead["location"]>): string {
+  const label = esc(loc.label || "Unknown");
+  const src = loc.source === "gps" ? "Precise / GPS" : "Approx / IP";
+  const maps =
+    typeof loc.lat === "number" && typeof loc.lng === "number"
+      ? ` &middot; <a href="https://www.google.com/maps?q=${loc.lat},${loc.lng}" style="color:#0242a2">Map</a>`
+      : "";
+  return `${label} <span style="color:#64748b">(${src})</span>${maps}`;
+}
+
 function buildHtml(lead: Lead, label: string): string {
   const rows = [
     row("Name", esc(lead.name)),
     row("Email", `<a href="mailto:${esc(lead.email)}" style="color:#0242a2">${esc(lead.email)}</a>`),
     lead.phone ? row("Phone", esc(lead.phone)) : "",
     lead.company ? row("Company", esc(lead.company)) : "",
+    lead.packageCategory ? row("Package", esc(lead.packageCategory)) : "",
     lead.budget ? row("Budget", esc(lead.budget)) : "",
+    lead.location ? row("Location", locationHtml(lead.location)) : "",
     row("Source", esc(lead.source ?? "—")),
     row("Received", new Date(lead.created_at).toLocaleString()),
   ].join("");

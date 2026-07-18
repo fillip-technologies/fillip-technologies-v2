@@ -1,5 +1,7 @@
 "use client";
 
+import { captureClientLocation } from "@/lib/capture-location";
+
 import { useMemo, useState } from "react";
 import { SERVICE_CATEGORIES } from "@/data/pricing";
 import { calculateQuote, formatINR, type QuoteSelection } from "@/lib/quote";
@@ -75,10 +77,11 @@ export default function QuoteCalculator() {
     }
     setStatus({ kind: "submitting" });
     try {
+      const location = await captureClientLocation();
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...contact, selections: selectionList }),
+        body: JSON.stringify({ ...contact, selections: selectionList, location }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {

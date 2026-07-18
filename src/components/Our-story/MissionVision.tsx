@@ -27,9 +27,8 @@ type MissionVisionContent = Partial<{
   signatureName: string;
 }>;
 
-// Fallbacks used when nothing is saved in the CMS yet.
+// Fallback team shown until the CMS `teamMembers` list is populated.
 const DEFAULT_TEAM: TeamMember[] = [
-  { name: "Risabh Choubey", role: "Account Manager" },
   { name: "Shruti Sinha", role: "IT Team Lead", image: "/images/team/shruti-sinha.jpeg" },
   { name: "Payal Kumari", role: "Digital Marketing Head", image: "/images/team/Payal.jpeg" },
   { name: "Shruti Chouhan", role: "Software Development Engineer II", image: "/images/team/shruti-singh.png" },
@@ -39,6 +38,7 @@ const DEFAULT_TEAM: TeamMember[] = [
   { name: "Aman Sharma", role: "Digital Marketing Executive", image: "/images/team/aman.jpeg" },
   { name: "Mukta Trivedy", role: "UI Designer", image: "/images/team/mukta-trivedy.png" },
   { name: "Wagish Karna", role: "Content Writer", image: "/images/team/wagish-karna.jpeg", imagePosition: "object-[50%_18%]" },
+<<<<<<< HEAD
   { name: "Khushi Bharti", role: "HR Generalist" },
   { name: "Lincy Bhardwaj", role: "HR Executive" },
 
@@ -48,6 +48,12 @@ const DEFAULT_TEAM: TeamMember[] = [
   { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
 
   { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
+=======
+   { name: "Risabh Choubey", role: "Account Manager" },
+  { name: "Khushi Bharti", role: "HR Generalist", image: "/images/team/khushi.png" },
+  { name: "Lincy Bhardwaj", role: "HR Executive", image: "/images/team/lincy.jpeg" },
+  { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
+>>>>>>> 3c290f08cd932d5c05ab35719a336055a18cb340
 ];
 
 export default function MissionVision({ content: raw = {} }: { content?: Record<string, unknown> }) {

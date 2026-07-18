@@ -51,10 +51,18 @@ export default function SectionEditor({
 
   return (
     <div className="space-y-6">
-      {/* Scalar fields */}
+      {/* Scalar fields, split into labelled subsections when fields declare a group */}
       <div className="space-y-5">
-        {fields.map((field) => (
+        {fields.map((field, idx) => {
+          const prevGroup = idx > 0 ? fields[idx - 1].group : undefined;
+          const showGroupHeading = field.group && field.group !== prevGroup;
+          return (
           <div key={field.name}>
+            {showGroupHeading ? (
+              <h3 className="mb-3 border-b border-border pb-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                {field.group}
+              </h3>
+            ) : null}
             <label htmlFor={field.name} className="mb-1 block text-sm font-medium text-body">
               {field.label}
             </label>
@@ -78,7 +86,8 @@ export default function SectionEditor({
             )}
             {field.help ? <p className="mt-1 text-xs text-muted-foreground">{field.help}</p> : null}
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* List repeater */}

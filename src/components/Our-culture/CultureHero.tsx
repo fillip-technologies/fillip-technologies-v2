@@ -52,8 +52,47 @@ type CultureHeroContent = Partial<{
   badge: string;
   headingLead: string;
   headingHighlight: string;
+  intro: string;
+  introHighlights: string;
+  cardLabel: string;
+  image1: string;
+  image2: string;
+  image3: string;
+  image4: string;
   pillars: { title: string; description: string }[];
 }>;
+
+const BRAND = "Fillip Technologies";
+const DEFAULT_INTRO =
+  "Culture at Fillip Technologies revolves around the concepts of curiosity, creativity, ownership, and innovation. We think that ideas come out of collaboration among brilliant people who are willing to question the status quo.";
+
+// Renders the intro paragraph, re-applying the original styling: the brand name
+// gets the underline treatment and any highlight word turns blue — so the text
+// stays fully CMS-editable without losing the design.
+function renderIntro(text: string, highlights: string[]) {
+  const phrases = [BRAND, ...highlights].filter(Boolean);
+  if (!phrases.length) return text;
+  const escaped = phrases.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const re = new RegExp(`(${escaped.join("|")})`, "gi");
+  return text.split(re).map((part, i) => {
+    if (!part) return null;
+    if (part.toLowerCase() === BRAND.toLowerCase()) {
+      return (
+        <span key={i} className="font-semibold text-heading dark:text-white border-b border-primary/30 pb-0.5">
+          {part}
+        </span>
+      );
+    }
+    if (highlights.some((h) => h.toLowerCase() === part.toLowerCase())) {
+      return (
+        <span key={i} className="text-primary dark:text-blue-400 font-semibold">
+          {part}
+        </span>
+      );
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
 
 export default function CultureHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
   const content = raw as CultureHeroContent;
@@ -61,7 +100,17 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
     badge: content.badge ?? "Our Culture",
     headingLead: content.headingLead ?? "Shaping ideas through",
     headingHighlight: content.headingHighlight ?? "collaborative minds.",
+    intro: content.intro ?? DEFAULT_INTRO,
+    cardLabel: content.cardLabel ?? "Think Big",
+    image1: content.image1 || "/images/our-cult-1.jpg",
+    image2: content.image2 || "/images/our-cult-2.jpg",
+    image3: content.image3 || "/images/our-cult-3.jpg",
+    image4: content.image4 || "/images/How-we-work.png",
   };
+  const introHighlights = (content.introHighlights ?? "curiosity, creativity, ownership, innovation")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
   const pillars = content.pillars?.length
     ? content.pillars.map((p, i) => ({ ...DEFAULT_PILLARS[i % DEFAULT_PILLARS.length], title: p.title, description: p.description }))
     : DEFAULT_PILLARS;
@@ -137,9 +186,9 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               </span>
             </h1>
 
-            {/* Highlighted text paragraph */}
+            {/* Highlighted text paragraph (text is CMS-editable; styling auto-applied) */}
             <p className="mt-6 text-lg sm:text-xl leading-relaxed text-body dark:text-slate-400 max-w-xl">
-              Culture at <span className="font-semibold text-heading dark:text-white border-b border-primary/30 pb-0.5">Fillip Technologies</span> revolves around the concepts of <span className="text-primary dark:text-blue-400 font-semibold">curiosity</span>, <span className="text-primary dark:text-blue-400 font-semibold">creativity</span>, <span className="text-primary dark:text-blue-400 font-semibold">ownership</span>, and <span className="text-primary dark:text-blue-400 font-semibold">innovation</span>. We think that ideas come out of collaboration among brilliant people who are willing to question the status quo.
+              {renderIntro(c.intro, introHighlights)}
             </p>
           </motion.div>
 
@@ -165,16 +214,16 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
                   <Lightbulb className="size-7.5 text-yellow-300 animate-pulse" />
                 </div>
                 <p className="mt-2 text-xs font-bold tracking-wider text-white/90 uppercase">
-                  Think Big
+                  {c.cardLabel}
                 </p>
               </div>
 
               {/* === COLUMN 2 (MIDDLE) === */}
               {/* Row 1: Workspace Image (Rounded Square) */}
               <div className="absolute top-0 left-[194px] w-[180px] h-[180px] overflow-hidden rounded-[1.8rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
-                <Image 
-                  src="/images/our-cult-1.jpg" 
-                  alt="Culture of ideas" 
+                <Image
+                  src={c.image1}
+                  alt="Culture of ideas"
                   fill 
                   className="object-cover"
                   sizes="180px"
@@ -184,9 +233,9 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               
               {/* Row 2: Team Member Capsule (Flat Top, Fully Rounded Bottom) */}
               <div className="absolute top-[194px] left-[194px] w-[180px] h-[270px] overflow-hidden rounded-b-full rounded-t-[1.5rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-lg transition-transform duration-500 hover:scale-[1.03] z-10">
-                <Image 
-                  src="/images/our-cult-2.jpg" 
-                  alt="Human centered innovation" 
+                <Image
+                  src={c.image2}
+                  alt="Human centered innovation"
                   fill 
                   className="object-cover object-top"
                   sizes="180px"
@@ -196,9 +245,9 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
               {/* === COLUMN 3 (RIGHT) === */}
               {/* Row 1: Research Mockup (Fully Rounded Right, Flat/Small Round Left) */}
               <div className="hidden sm:block absolute top-0 left-[388px] w-[180px] h-[180px] overflow-hidden rounded-tr-[6.5rem] rounded-br-[6.5rem] rounded-tl-2xl rounded-bl-2xl border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
-                <Image 
-                  src="/images/our-cult-3.jpg" 
-                  alt="Future focused creativity" 
+                <Image
+                  src={c.image3}
+                  alt="Future focused creativity"
                   fill 
                   className="object-cover"
                   sizes="180px"
@@ -207,9 +256,9 @@ export default function CultureHero({ content: raw = {} }: { content?: Record<st
 
               {/* Row 2: Process Image (Flat Top, Fully Rounded Bottom) */}
               <div className="hidden sm:block absolute top-[194px] left-[388px] w-[180px] h-[180px] overflow-hidden rounded-b-full rounded-t-[1.5rem] border border-slate-200/50 bg-slate-50 dark:border-slate-800 dark:bg-slate-900 shadow-md transition-transform duration-500 hover:scale-[1.03]">
-                <Image 
-                  src="/images/How-we-work.png" 
-                  alt="Collaboration process" 
+                <Image
+                  src={c.image4}
+                  alt="Collaboration process"
                   fill 
                   className="object-cover"
                   sizes="180px"

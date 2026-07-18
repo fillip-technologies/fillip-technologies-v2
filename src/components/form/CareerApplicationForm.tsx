@@ -1,5 +1,7 @@
 "use client";
 
+import { captureClientLocation } from "@/lib/capture-location";
+
 import { useState } from "react";
 import { ArrowRight, FileText, UploadCloud } from "lucide-react";
 
@@ -67,6 +69,8 @@ export default function CareerApplicationForm({ roles }: CareerApplicationFormPr
     setSubmitting(true);
     setStatus("idle");
     try {
+      const location = await captureClientLocation();
+      payload.append("location", JSON.stringify(location));
       const res = await fetch("/api/careers", { method: "POST", body: payload });
       const data = (await res.json().catch(() => ({}))) as {
         ok?: boolean;
