@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, PlayCircle, Shield } from "lucide-react";
+import { ArrowRight, PlayCircle } from "lucide-react";
 import type { SecurityHeroContent } from "./content";
 
 const fadeUp = {
@@ -11,7 +11,6 @@ const fadeUp = {
 };
 
 export default function SecurityHero({ content }: { content: SecurityHeroContent }) {
-  const statusItems = [content.statusItem1, content.statusItem2];
   return (
     <>
       <section className="relative overflow-hidden bg-[#020817] text-white">
@@ -22,7 +21,7 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
             fill
             priority
             sizes="100vw"
-            className="object-contain object-[68%_28%] sm:object-[72%_24%] lg:object-[center_20%]"
+            className="object-cover object-[68%_28%] sm:object-[72%_24%] lg:object-[center_20%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,23,0.96)_0%,rgba(2,8,23,0.86)_42%,rgba(2,8,23,0.38)_68%,rgba(2,8,23,0.06)_100%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_30%,rgba(37,99,235,0.32),transparent_34%),radial-gradient(circle_at_86%_22%,rgba(14,165,233,0.12),transparent_30%)]" />
@@ -36,7 +35,7 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
         <div className="container relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-32 sm:pb-24 sm:pt-36 lg:pb-32 lg:pt-40">
           <div className="relative flex min-h-[520px] items-start">
             <motion.div
-              className="max-w-3xl text-center lg:text-left"
+              className="max-w-3xl text-center lg:max-w-5xl xl:max-w-7xl lg:text-left"
               initial="hidden"
               animate="visible"
               transition={{ staggerChildren: 0.1 }}
@@ -53,7 +52,7 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
               <motion.h1
                 variants={fadeUp}
                 transition={{ duration: 0.75, ease: "easeOut" }}
-                className="whitespace-pre-line text-4xl font-black leading-[1.03] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[5.4rem]"
+                className="text-balance text-4xl font-black leading-[1.03] tracking-tight text-white [text-wrap:balance] sm:text-5xl lg:text-6xl xl:text-[4.75rem]"
               >
                 {content.heading}
               </motion.h1>
@@ -87,36 +86,6 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
                   <PlayCircle className="size-5 transition-transform duration-300 group-hover:scale-110" />
                 </button>
               </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-10 right-0 hidden w-[23rem] rounded-[1.75rem] border border-white/15 bg-white/10 p-5 text-left shadow-[0_30px_90px_rgba(2,8,23,0.48)] backdrop-blur-xl lg:block xl:right-8"
-              initial={{ opacity: 0, y: 28, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.75, delay: 0.45, ease: "easeOut" }}
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-sky-600 shadow-[0_12px_30px_rgba(14,165,233,0.28)]">
-                  <Shield className="size-6" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-slate-300">
-                    {content.statusLabel}
-                  </p>
-                  <p className="mt-1 text-sm font-bold text-emerald-300">
-                    {content.statusValue}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-5 grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
-                {statusItems.map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs text-slate-200">
-                    <CheckCircle2 className="size-4 text-cyan-300" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </div>
