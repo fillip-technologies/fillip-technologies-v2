@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 // Shared CTA. Editable via CMS on the home page (key: home.needguidance) by
 // passing `content`, or via explicit props on service landing pages (explicit
 // props win over CMS content, which wins over the defaults below).
@@ -44,7 +46,7 @@ export default function NeedGuidanceSection(
             </p>
           </div>
 
-          <button className="group flex flex-col items-center">
+          <Link href="/contact" className="group flex flex-col items-center">
             <img
               src={image}
               alt="Expert Consultation"
@@ -54,7 +56,7 @@ export default function NeedGuidanceSection(
             <span className="mt-2 text-sm font-semibold text-[var(--heading)] transition-colors group-hover:text-[var(--primary)]">
               {buttonText}
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>
