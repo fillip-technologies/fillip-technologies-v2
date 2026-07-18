@@ -36,12 +36,17 @@ const DEFAULT_TEAM: TeamMember[] = [
   { name: "Abhishek Prajapati", role: "Backend Developer", image: "/images/team/ABHISHEK.jpeg" },
   { name: "Prince Raj", role: "Associate Software Developer", image: "/images/team/prince-kumar.png", imagePosition: "object-[50%_18%]" },
   { name: "Govind Kumar", role: "Associate Software Developer", image: "/images/team/Govind-Kumar.png", imagePosition: "object-[50%_18%]" },
-  { name: "Aman Sharma", role: "Digital Marketing Executive" },
+  { name: "Aman Sharma", role: "Digital Marketing Executive", image: "/images/team/aman.jpeg" },
   { name: "Mukta Trivedy", role: "UI Designer", image: "/images/team/mukta-trivedy.png" },
   { name: "Wagish Karna", role: "Content Writer", image: "/images/team/wagish-karna.jpeg", imagePosition: "object-[50%_18%]" },
   { name: "Khushi Bharti", role: "HR Generalist" },
   { name: "Lincy Bhardwaj", role: "HR Executive" },
+<<<<<<< HEAD
   { name: "Anushka Raj", role: "BDE" },
+=======
+  { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
+  
+>>>>>>> 5fd96c133f6a39104c68ffe67aa16b7402198ff9
 ];
 
 export default function MissionVision({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -267,22 +272,6 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
               ))}
             </div>
           </div>
-        </motion.div>
-
-        {/* Closing Handwritten Signature */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mt-20 flex flex-col items-center justify-center border-t border-border pt-10 text-center"
-        >
-          <span className="mb-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-            {c.signatureLead}
-          </span>
-          <span className="select-none text-2xl font-semibold tracking-wide text-primary sm:text-3xl">
-            {c.signatureName}
-          </span>
         </motion.div>
 
       </div>
