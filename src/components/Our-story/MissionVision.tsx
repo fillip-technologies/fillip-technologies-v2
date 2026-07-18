@@ -41,15 +41,7 @@ const DEFAULT_TEAM: TeamMember[] = [
   { name: "Wagish Karna", role: "Content Writer", image: "/images/team/wagish-karna.jpeg", imagePosition: "object-[50%_18%]" },
   { name: "Khushi Bharti", role: "HR Generalist" },
   { name: "Lincy Bhardwaj", role: "HR Executive" },
-<<<<<<< HEAD
-
-  { name: "Anushka Raj", role: "BDE" },
-
   { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
-
-=======
-  { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
->>>>>>> 7b143477956256402379f84cc61f91402779ee35
 ];
 
 export default function MissionVision({ content: raw = {} }: { content?: Record<string, unknown> }) {

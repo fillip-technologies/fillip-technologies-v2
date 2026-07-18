@@ -3,6 +3,8 @@ import { z } from "zod";
 import { randomBytes } from "node:crypto";
 import { careerApplicationSchema } from "@/server/careers/schema";
 import { insertLead } from "@/server/contact/queries";
+import { parseClientLocation } from "@/server/contact/schema";
+import { resolveLeadLocation } from "@/server/contact/geo";
 import { sendLeadNotification, type MailAttachment } from "@/server/contact/notify";
 import { isCloudinaryConfigured, uploadBuffer } from "@/server/cloudinary";
 
@@ -112,6 +114,15 @@ export async function POST(request: Request) {
     .filter((line) => line !== "")
     .join("\n");
 
+  // Location field arrives as a JSON string in the multipart form.
+  let clientLocation: unknown;
+  try {
+    clientLocation = JSON.parse(str("location") || "null");
+  } catch {
+    clientLocation = null;
+  }
+  const location = await resolveLeadLocation(parseClientLocation(clientLocation), request);
+
   try {
     const lead = await insertLead({
       name: data.fullName,
@@ -121,6 +132,8 @@ export async function POST(request: Request) {
       budget: "",
       message: summary,
       source: "Careers Application",
+      location,
+      packageCategory: "Careers",
     });
 
     // Notify the team with the resume attached. Best-effort: the lead is saved,

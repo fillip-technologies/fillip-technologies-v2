@@ -1,5 +1,7 @@
 "use client";
 
+import { captureClientLocation } from "@/lib/capture-location";
+
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
@@ -74,6 +76,9 @@ export default function ConsultationForm({
         try {
             setLoading(true);
 
+            // Best-effort precise location (GPS); server falls back to IP.
+            const location = await captureClientLocation();
+
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -85,6 +90,7 @@ export default function ConsultationForm({
                     budget: form.budget,
                     message: form.message,
                     source,
+                    location,
                 }),
             });
 
