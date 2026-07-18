@@ -11,6 +11,11 @@ const geist = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
+  icons: {
+    icon: [{ url: "/images/fav-icon.png", type: "image/png" }],
+    shortcut: [{ url: "/images/fav-icon.png", type: "image/png" }],
+    apple: [{ url: "/images/fav-icon.png", type: "image/png" }],
+  },
   openGraph: {
     siteName: siteConfig.name,
   },

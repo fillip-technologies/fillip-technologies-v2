@@ -1,9 +1,6 @@
-import Hero from "@/components/Home/HeroSection";
-import TrustedBy from "@/components/Home/TrustedBy";
-import CapabilitiesSection from "@/components/Home/Capabilities";
-import HumanAISection from "@/components/Home/HumanAiSection";
+import type { Metadata } from "next";
 import OurClients from "@/components/Home/OurClients";
-import IndustriesImpactSection from "@/components/Home/IndustriesImpactSection";
+import HumanAISection from "@/components/Home/HumanAiSection";
 import TechnologyEcosystem from "@/components/Home/TechnologyEcosystem";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
@@ -20,12 +17,60 @@ import IndustriesSection from "@/components/Home/IndustriesSection"
 import BlogSection from "@/components/Home/BlogSection";
 import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
+import { siteConfig } from "@/config/site";
 
 
 // Serve a cached copy and regenerate at most every 5 minutes, so most requests
 // skip the DB entirely. Admin edits still appear promptly: `saveHomeSection`
 // calls revalidatePath("/") on save, which rebuilds this page on demand.
 export const revalidate = 300;
+
+const homepageTitle =
+  "Best Digital Marketing Company in Patna | Fillip Technologies";
+const homepageDescription =
+  "Fillip Technologies is a digital marketing company in Patna helping businesses grow with SEO, performance marketing, website development, social media, and AI-driven solutions.";
+
+export const metadata: Metadata = {
+  title: homepageTitle,
+  description: homepageDescription,
+  keywords: [
+    "best digital marketing company",
+    "best digital marketing company in Patna",
+    "digital marketing company in Patna",
+    "digital marketing agency in Patna",
+    "SEO company in Patna",
+    "performance marketing agency",
+    "website development company in Patna",
+    "Fillip Technologies",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: homepageTitle,
+    description: homepageDescription,
+    url: "/",
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.defaultOpenGraphImage,
+        alt: "Fillip Technologies digital marketing and technology services",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homepageTitle,
+    description: homepageDescription,
+    images: [siteConfig.defaultOpenGraphImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const SECTION_IDS = [
   "hero", "trustedby", "capabilities", "humanai", "industries", "clients",
