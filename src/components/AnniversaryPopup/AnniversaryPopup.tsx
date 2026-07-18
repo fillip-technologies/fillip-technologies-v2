@@ -167,16 +167,14 @@ export default function AnniversaryPopup() {
             <GoldParticles />
 
             <div className="relative z-10 flex flex-col items-center">
-              <div className="rounded-[1.75rem] border border-white/80 bg-white/90 px-6 py-3 shadow-[0_18px_42px_rgba(15,23,42,0.10)]">
-                <Image
-                  src="/images/logo/fillip-technologies.png"
-                  alt="Fillip Technologies"
-                  width={280}
-                  height={60}
-                  priority
-                  style={{ height: "auto" }}
-                />
-              </div>
+              <Image
+                src="/images/logo/fillip-technologies.png"
+                alt="Fillip Technologies"
+                width={280}
+                height={60}
+                priority
+                style={{ height: "auto" }}
+              />
 
               <h1 className="mt-5 text-4xl font-black leading-[0.9] tracking-normal text-slate-950 drop-shadow-[0_5px_0_rgba(255,255,255,0.9)] sm:text-5xl">
                 Celebrating
