@@ -5,14 +5,14 @@ export type Billing = "one-time" | "monthly";
 export type Package = {
   id: string;
   name: string;
- 
+
   tagline?: string;
   price: number; // INR
   billing: Billing;
 
   timeline?: string;
   bestFor?: string;
- 
+
   featureGroups: { title: string; items: string[] }[];
 };
 
@@ -39,7 +39,7 @@ export type ServiceCategory = {
 export const COMPANY = {
   name: "Fillip Technologies Pvt Ltd",
   tagline: "Human × Intelligence",
-  email: "myselfgovind116@gmail.com",
+  email: "support@filliptechnologies.com",
   phone: "",
   website: "fillip-technologies",
   /** Shown in the PDF footer. */
