@@ -21,7 +21,22 @@ function formatDate(date: string) {
   }).format(new Date(date));
 }
 
-export default function BlogSection() {
+// CMS-editable content (key: home.blog). Posts still auto-load from published
+// blogs; only the heading/eyebrow/button label are editable.
+type BlogContent = Partial<{
+  eyebrow: string;
+  heading: string;
+  ctaLabel: string;
+}>;
+
+export default function BlogSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as BlogContent;
+  const c = {
+    eyebrow: content.eyebrow ?? "Our Blog",
+    heading: content.heading ?? "Latest Blog",
+    ctaLabel: content.ctaLabel ?? "View All Blogs",
+  };
+
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, {
     once: true,
@@ -57,11 +72,11 @@ export default function BlogSection() {
       <div className="relative z-10 container mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary text-center mb-3">
-            Our Blog
+            {c.eyebrow}
           </p>
 
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-heading text-center">
-            Latest Blog
+            {c.heading}
           </h2>
         </div>
 
@@ -156,7 +171,7 @@ export default function BlogSection() {
             href="/blog"
             className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(2,66,162,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(2,66,162,0.24)]"
           >
-            View All Blogs
+            {c.ctaLabel}
           </Link>
         </div>
       </div>

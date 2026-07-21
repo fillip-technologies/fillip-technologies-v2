@@ -4,7 +4,7 @@ import MarketingPhilosophySection from "@/components/performance-marketing/Marke
 import HowItWorksSection from "@/components/performance-marketing/HowItWorksSection";
 import ResultsSection from "@/components/performance-marketing/ResultsSection";
 import GrowthStoriesSection from "@/components/performance-marketing/GrowthStoriesSection";
-import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import FAQSection from "@/components/shared/FAQSection";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 
@@ -39,12 +39,11 @@ export default function PerformanceMarketingCmsPage({
 
         <GrowthStoriesSection />
 
-        <TestimonialsSection
+        <GlobalTestimonials
           key={`${data.slug}-testimonials`}
           badge={data.testimonials.badge}
           title={data.testimonials.title}
           description={data.testimonials.description}
-          testimonials={data.testimonials.items}
         />
 
         <FAQSection

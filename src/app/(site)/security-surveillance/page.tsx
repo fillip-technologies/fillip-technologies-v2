@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SecuritySurveillance from "@/components/Hardware-solution/SecuritySurveillance";
 import { getSecuritySurveillanceContent } from "@/server/content/solution-page-content";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 export const metadata: Metadata = {
   title: "Security & Surveillance Solutions | Fillip Technologies",
@@ -12,10 +13,13 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function SecuritySurveillancePage() {
-  const content = await getSecuritySurveillanceContent();
+  const [content, testimonialItems] = await Promise.all([
+    getSecuritySurveillanceContent(),
+    getGlobalTestimonials(),
+  ]);
   return (
     <main className="overflow-hidden bg-background text-heading">
-      <SecuritySurveillance content={content} />
+      <SecuritySurveillance content={content} testimonialItems={testimonialItems} />
     </main>
   );
 }

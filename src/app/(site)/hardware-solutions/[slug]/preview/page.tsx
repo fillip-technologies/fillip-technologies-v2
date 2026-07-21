@@ -7,6 +7,7 @@ import {
   getServicePageData,
 } from "@/server/content/servicepage-registry";
 import { getSession } from "@/server/auth/session";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +30,7 @@ export default async function HardwareSolutionPreviewPage({
     slug,
     "hardware-solution"
   )) as unknown as SecuritySurveillanceContent;
+  const testimonialItems = await getGlobalTestimonials();
 
   return (
     <>
@@ -41,7 +43,7 @@ export default async function HardwareSolutionPreviewPage({
         </Link>
       </div>
       <main className="overflow-hidden bg-background text-heading">
-        <SecuritySurveillance content={content} />
+        <SecuritySurveillance content={content} testimonialItems={testimonialItems} />
       </main>
     </>
   );

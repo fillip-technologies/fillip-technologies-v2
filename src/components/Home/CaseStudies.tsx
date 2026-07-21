@@ -172,6 +172,7 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
                 <Link href={item.href} className="absolute inset-0 block" aria-label={`View case study: ${item.title}`}>
                   {/* Background Image */}
 
+                  {item.image && (
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -184,6 +185,7 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
                       group-hover:scale-105
                     "
                   />
+                  )}
 
                   {/* Overlay */}
 

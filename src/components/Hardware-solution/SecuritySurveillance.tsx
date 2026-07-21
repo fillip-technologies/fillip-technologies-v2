@@ -8,11 +8,16 @@ import SecuritySupport from "./SecuritySupport";
 import FAQSection from "@/components/shared/FAQSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import type { SecuritySurveillanceContent } from "./content";
+import type { GlobalTestimonial } from "@/data/testimonials";
 
 export default function SecuritySurveillance({
   content,
+  testimonialItems,
 }: {
   content: SecuritySurveillanceContent;
+  // Site-wide testimonials list, injected by the server page. Falls back to this
+  // page's own CMS list if not provided.
+  testimonialItems?: GlobalTestimonial[];
 }) {
   return (
     <div className="relative w-full bg-slate-50/50">
@@ -36,7 +41,7 @@ export default function SecuritySurveillance({
         badge={content.testimonials.badge}
         title={content.testimonials.title}
         description={content.testimonials.description}
-        testimonials={content.testimonials.testimonials}
+        testimonials={testimonialItems?.length ? testimonialItems : content.testimonials.testimonials}
       />
 
       {/* 7. Frequently asked questions */}

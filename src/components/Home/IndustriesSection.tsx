@@ -77,14 +77,16 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
               >
                 {/* Background Image */}
 
-                <Image
-                  src={industry.image}
-                  alt={industry.title}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
+                {industry.image && (
+                  <Image
+                    src={industry.image}
+                    alt={industry.title}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                  />
+                )}
 
                 {/* Overlay */}
 

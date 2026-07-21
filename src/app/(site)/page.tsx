@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import { getContentDataMany } from "@/server/content/queries";
 import { getSection, sectionDefaults } from "@/server/content/home-sections";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 import TrustBar from "@/components/TrustBar/TrustBar";
 import WhyChooseFillip from "@/components/Home/WhyChooseFillip";
 import NeedGuidanceSection from "@/components/Cta/NeedGuidanceSection";
@@ -75,17 +76,20 @@ export const metadata: Metadata = {
 const SECTION_IDS = [
   "hero", "trustedby", "capabilities", "humanai", "industries", "clients",
   "technology", "testimonials", "needguidance", "clientlistcta", "whychooseus",
-  "casestudies", "unitof",
+  "casestudies", "unitof", "blog", "consultation", "faq",
 ] as const;
 
 export default async function HomePage() {
-  // One batched round trip for all sections instead of 13 separate queries.
-  const sections = await getContentDataMany(
-    SECTION_IDS.map((id) => ({
-      key: `home.${id}`,
-      defaults: sectionDefaults(getSection(id)!),
-    }))
-  );
+  // One batched round trip for all sections, plus the site-wide testimonials list.
+  const [sections, globalTestimonials] = await Promise.all([
+    getContentDataMany(
+      SECTION_IDS.map((id) => ({
+        key: `home.${id}`,
+        defaults: sectionDefaults(getSection(id)!),
+      }))
+    ),
+    getGlobalTestimonials(),
+  ]);
   const s = (id: (typeof SECTION_IDS)[number]) => sections[`home.${id}`];
   const hero = s("hero");
   const trustedBy = s("trustedby");
@@ -100,6 +104,9 @@ export default async function HomePage() {
   const whychooseus = s("whychooseus");
   const casestudies = s("casestudies");
   const unitof = s("unitof");
+  const blog = s("blog");
+  const consultation = s("consultation");
+  const faq = s("faq");
 
   return (
     <>
@@ -115,15 +122,20 @@ export default async function HomePage() {
 
       <OurClients content={clients} />
       <ClientListCTA content={clientlistcta} />
-      <TestimonialsSection content={testimonials} />
+      <TestimonialsSection content={testimonials} items={globalTestimonials} />
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip content={whychooseus} />
       <CaseStudies content={casestudies} />
       <UnitOfSection content={unitof} />
-      <BlogSection />
-      <Faq />
+      <BlogSection content={blog} />
+      <Faq content={faq} />
 
-      <ConsultationFormSection className="pt-8 pb-24" />
+      <ConsultationFormSection
+        className="pt-8 pb-24"
+        titleLine1={consultation.titleLine1 as string}
+        titleLine2={consultation.titleLine2 as string}
+        description={consultation.description as string}
+      />
     </>
   );
 }

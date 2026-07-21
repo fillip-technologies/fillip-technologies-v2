@@ -2,56 +2,25 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { HOME_FAQS, type FaqItem } from "@/data/home/defaults";
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
+// CMS-editable content (key: home.faq). Falls back to these defaults.
+type FaqContent = Partial<{
+  heading: string;
+  description: string;
+  items: FaqItem[];
+}>;
 
-const FAQS: FaqItem[] = [
-  {
-    question: "What solutions does Fillip Technologies offer?",
-    answer: "Fillip Technologies delivers a wide array of digital services such as Website Designing services, Web Development, Custom Software Development, SEO, Digital Marketing, Social Media Marketing, Branding, UI/UX Design, and Performance Marketing. We ensure that our digital services will assist your business in building its online presence through continuous growth."
-  },
-  {
-    question: "How can a professional website help my business grow?",
-    answer: "An effective website will serve as the virtual shop front of your business and will assist you in increasing your level of credibility and attracting prospects that could become business opportunities."
-  },
-  {
-    question: "Do you develop custom websites or use ready-made templates?",
-    answer: "We believe in the fact that every organization has different needs. Therefore, we ensure to provide customized web development services based on our clients' business goals, brand image, and their target audience."
-  },
-  {
-    question: "How does SEO benefit modern companies?",
-    answer: "Through SEO, you can make your company visible to potential customers when they search for goods or services on the internet. This is beneficial since it raises visibility and enhances performance, which ultimately boosts traffic and creates room for growth."
-  },
-  {
-    question: "Can Fillip Technologies be able to get us leads and sales through the internet?",
-    answer: "Yes. Being the best lead generation agency, our marketing techniques ensure that our clients are well placed in such a way that they are capable of generating leads and sales from their prospective clients. This is done through various marketing methods, including SEO and PPC marketing."
-  },
-  {
-    question: "Do you offer services to startups, small firms, and large corporations?",
-    answer: "Yes, we have services that cater to organizations regardless of their size or stage of development, whether a startup wanting a digital footprint or an existing organization in need of advanced digital solutions."
-  },
-  {
-    question: "What distinguishes Fillip Technologies from other digital marketing firms?",
-    answer: "We blend the elements of creativity, technology, AI innovation and strategy. Instead of presenting off-the-shelf solutions, we concentrate on knowing your business, your audience, and what you hope to achieve through digital marketing."
-  },
-  {
-    question: "Could you assist in enhancing my current website and digital presence?",
-    answer: "Absolutely. If you require assistance in updating your website, enhancing your search engine optimization, optimizing the performance of your site, improving branding, or anything else relating to your digital presence, we will be happy to do so."
-  },
-  {
-    question: "Does Fillip Technologies offer Local SEO Services?",
-    answer: "Yes, our local SEO services are designed to help businesses rank higher in local searches, enhancing visibility and bolstering targeted traffic."
-  },
-  {
-    question: "How can I start working with Fillip Technologies?",
-    answer: "All you have to do to start is tell us about your business goals or the problems you are facing, or your project requirements. We will analyze your needs and come up with a solution that suits your business."
-  }
-];
+export default function Faq({ content: raw = {} }: { content?: Record<string, unknown> }) {
+  const content = raw as FaqContent;
+  const c = {
+    heading: content.heading ?? "Frequently Asked Questions",
+    description:
+      content.description ??
+      "Have questions about our digital services? We've got answers. Explore our FAQs or get in touch for custom requirements.",
+  };
+  const faqs = content.items?.length ? content.items : HOME_FAQS;
 
-export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -82,17 +51,17 @@ export default function Faq() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl uppercase">
-            Frequently Asked Questions
+            {c.heading}
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[var(--body)]">
-            Have questions about our digital services? We've got answers. Explore our FAQs or get in touch for custom requirements.
+            {c.description}
           </p>
         </div>
 
         {/* FAQ Items */}
         <div className="space-y-4">
-          {FAQS.map((faq, index) => (
+          {faqs.map((faq, index) => (
             <div
               key={index}
               className="overflow-hidden rounded-[24px] border border-[var(--border)] bg-white/70 backdrop-blur-md transition-all duration-300 hover:border-slate-300 hover:shadow-lg"

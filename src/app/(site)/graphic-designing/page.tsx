@@ -6,6 +6,7 @@ import WhyChooseGraphics from "@/components/graphic-desigining/why-choose";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import { getGraphicDesigningContent } from "@/server/content/solution-page-content";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 // Content is CMS-managed (page.graphic-designing.*), so render fresh.
 export const dynamic = "force-dynamic";
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
 };
 
 export default async function GraphicDesigningPage() {
-  const content = await getGraphicDesigningContent();
+  const [content, testimonialItems] = await Promise.all([
+    getGraphicDesigningContent(),
+    getGlobalTestimonials(),
+  ]);
 
   return (
     <main className="bg-[#f8fafc]">
@@ -37,7 +41,7 @@ export default async function GraphicDesigningPage() {
       <WhyChooseGraphics content={content.whychoose} deliverables={content.deliverables} />
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      <TestimonialsSection items={testimonialItems} />
 
       {/* Consultation Request Form */}
       <div id="estimate">

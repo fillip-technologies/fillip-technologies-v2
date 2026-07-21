@@ -94,13 +94,15 @@ export default function UnitOfSection({ content: raw = {} }: { content?: Record<
                     className={`relative ${unit.logoSize} transition-transform duration-500 group-hover:scale-105`}
                     style={unit.logoOffset ? { top: `${unit.logoOffset}px` } : undefined}
                   >
-                    <Image
-                      src={unit.logo}
-                      alt={unit.title}
-                      fill
-                      sizes="224px"
-                      className="object-contain"
-                    />
+                    {unit.logo && (
+                      <Image
+                        src={unit.logo}
+                        alt={unit.title}
+                        fill
+                        sizes="224px"
+                        className="object-contain"
+                      />
+                    )}
                   </div>
                 </div>
 

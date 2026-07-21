@@ -8,9 +8,15 @@ const emptySubscribe = () => () => {};
 export default function ConsultationFormSection({
     showOnlyForm = false,
     className = "py-24",
+    titleLine1 = "Let's Discuss Your",
+    titleLine2 = "Next Project",
+    description = "Tell us about your requirements and our team will get back to you within 24 hours.",
 }: {
     showOnlyForm?: boolean;
     className?: string;
+    titleLine1?: string;
+    titleLine2?: string;
+    description?: string;
 }) {
     // Render the decorative background video only after hydration. Browser
     // extensions (e.g. video speed controllers) inject controls into <video>
@@ -70,16 +76,15 @@ export default function ConsultationFormSection({
                     </span> */}
 
                     <h2 className="mt-6 text-5xl font-bold leading-[1.05] text-slate-900 md:text-6xl">
-                        {"Let's Discuss Your"}
+                        {titleLine1}
                         <br />
                         <span className="highlight-text">
-                            Next Project
+                            {titleLine2}
                         </span>
                     </h2>
 
                     <p className="mt-5 text-lg text-slate-600">
-                        Tell us about your requirements and our team
-                        will get back to you within 24 hours.
+                        {description}
                     </p>
                 </div>
 

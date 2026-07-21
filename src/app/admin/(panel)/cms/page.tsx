@@ -13,6 +13,7 @@ import {
   Search,
   Puzzle,
   BriefcaseBusiness,
+  MessageSquareQuote,
 } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
@@ -161,6 +162,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         description: "Manage the top-nav “About” dropdown — add, edit or reorder pages with their URLs.",
         icon: Menu,
         accent: "rose",
+      },
+      {
+        href: "/admin/cms/testimonials",
+        label: "Testimonials",
+        description: "The single testimonials list shown site-wide (home carousel + every service/industry page). Edit once, updates everywhere.",
+        icon: MessageSquareQuote,
+        accent: "cyan",
       },
     ],
   },

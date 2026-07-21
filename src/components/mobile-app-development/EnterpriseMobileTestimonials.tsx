@@ -1,4 +1,4 @@
-import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import type { MobileAppTestimonialsContent } from "@/data/mobile-app-development";
 
 type MobileAppTestimonialsProps = {
@@ -7,11 +7,10 @@ type MobileAppTestimonialsProps = {
 
 export default function MobileAppTestimonials({ data }: MobileAppTestimonialsProps) {
     return (
-        <TestimonialsSection
+        <GlobalTestimonials
             badge={data.badge}
             title={data.title}
             description={data.description}
-            testimonials={data.testimonials}
         />
     );
 }

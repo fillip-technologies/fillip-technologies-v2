@@ -16,10 +16,10 @@ import {
   HOME_HUMANAI_BG1, HOME_HUMANAI_BG2,
   HOME_CLIENT_LOGOS,
   HOME_TECHNOLOGY_BG,
-  HOME_TESTIMONIALS,
   HOME_WHY_CHOOSE,
   HOME_CASE_STUDIES, HOME_CASESTUDIES_BG,
   HOME_UNITS,
+  HOME_FAQS,
 } from "@/data/home/defaults";
 
 export type FieldType = "text" | "textarea" | "url" | "image";
@@ -254,25 +254,14 @@ export const HOME_SECTIONS: Section[] = [
   {
     id: "testimonials",
     label: "Testimonials",
-    description: "Heading, rating summary and the testimonial cards.",
+    description:
+      "Heading and rating summary for the home carousel. The testimonial cards themselves come from the site-wide Testimonials list (edit under Content → Testimonials).",
     ready: true,
     fields: [
       { name: "heading", label: "Heading", type: "text", default: "What our customers are saying" },
       { name: "rating", label: "Rating value", type: "text", default: "4.8/5" },
       { name: "reviewsLabel", label: "Reviews label", type: "text", default: "Based on 5,210+ reviews" },
     ],
-    list: {
-      name: "items",
-      label: "Testimonials",
-      itemNoun: "testimonial",
-      itemFields: [
-        { name: "name", label: "Name", type: "text" },
-        { name: "role", label: "Role", type: "text" },
-        { name: "image", label: "Photo", type: "image" },
-        { name: "content", label: "Review", type: "textarea" },
-      ],
-      default: HOME_TESTIMONIALS as Record<string, string>[],
-    },
   },
   {
     id: "needguidance",
@@ -405,6 +394,60 @@ export const HOME_SECTIONS: Section[] = [
         { name: "badge", label: "Badge", type: "text" },
       ],
       default: HOME_UNITS as Record<string, string>[],
+    },
+  },
+  {
+    id: "blog",
+    label: "Blog",
+    description: "The heading above the “Latest Blog” cards (posts auto-load from published blogs).",
+    ready: true,
+    fields: [
+      { name: "eyebrow", label: "Eyebrow", type: "text", default: "Our Blog" },
+      { name: "heading", label: "Heading", type: "text", default: "Latest Blog" },
+      { name: "ctaLabel", label: "Button label", type: "text", default: "View All Blogs" },
+    ],
+  },
+  {
+    id: "consultation",
+    label: "Consultation Form",
+    description: "Heading and intro above the bottom consultation form on the home page.",
+    ready: true,
+    fields: [
+      { name: "titleLine1", label: "Title — line 1", type: "text", default: "Let's Discuss Your" },
+      { name: "titleLine2", label: "Title — line 2 (highlighted)", type: "text", default: "Next Project" },
+      {
+        name: "description",
+        label: "Description",
+        type: "textarea",
+        default:
+          "Tell us about your requirements and our team will get back to you within 24 hours.",
+      },
+    ],
+  },
+  {
+    id: "faq",
+    label: "FAQ",
+    description: "Frequently Asked Questions heading, intro and the question/answer list.",
+    ready: true,
+    fields: [
+      { name: "heading", label: "Heading", type: "text", default: "Frequently Asked Questions" },
+      {
+        name: "description",
+        label: "Description",
+        type: "textarea",
+        default:
+          "Have questions about our digital services? We've got answers. Explore our FAQs or get in touch for custom requirements.",
+      },
+    ],
+    list: {
+      name: "items",
+      label: "Questions",
+      itemNoun: "question",
+      itemFields: [
+        { name: "question", label: "Question", type: "text" },
+        { name: "answer", label: "Answer", type: "textarea" },
+      ],
+      default: HOME_FAQS as Record<string, string>[],
     },
   },
 ];

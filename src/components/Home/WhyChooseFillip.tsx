@@ -96,13 +96,15 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
                 className="group relative flex min-h-[380px] flex-col overflow-hidden rounded-[28px] border border-[var(--border)] bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(15,111,255,0.12)]"
               >
                 {/* Full-contrast background image */}
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 320px"
-                  className="pointer-events-none absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {item.image && (
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 320px"
+                    className="pointer-events-none absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
 
                 <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border)] bg-white transition-all duration-300">
                   <Icon className="h-5 w-5 text-[var(--primary)]" />

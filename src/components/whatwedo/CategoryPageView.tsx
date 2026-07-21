@@ -8,6 +8,7 @@ import IndustryTestimonials from "@/components/industries/medical/IndustryTestim
 import IndustryFAQ from "@/components/industries/medical/IndustryFAQ";
 import { getContentData } from "@/server/content/queries";
 import { getWhatWeDoSectionSpec, whatwedoDefault } from "@/server/content/whatwedo-sections";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 // Read one category section's CMS content (stored flat under
 // `whatwedo.<slug>.<id>`), merged over the generic default, then unflattened
@@ -25,7 +26,7 @@ async function sectionData(slug: string, id: string): Promise<any> {
  * defaultCategoryData). Reuses the industry section components.
  */
 export default async function CategoryPageView({ slug }: { slug: string }) {
-  const [hero, challenges, growthEngine, timeline, whyChooseUs, testimonials, faqs] = await Promise.all([
+  const [hero, challenges, growthEngine, timeline, whyChooseUs, testimonials, faqs, globalTestimonials] = await Promise.all([
     sectionData(slug, "hero"),
     sectionData(slug, "challenges"),
     sectionData(slug, "growthEngine"),
@@ -33,7 +34,10 @@ export default async function CategoryPageView({ slug }: { slug: string }) {
     sectionData(slug, "whyChooseUs"),
     sectionData(slug, "testimonials"),
     sectionData(slug, "faqs"),
+    getGlobalTestimonials(),
   ]);
+  // Use the single site-wide testimonials list; keep this page's own heading.
+  testimonials.items = globalTestimonials;
 
   return (
     <main>

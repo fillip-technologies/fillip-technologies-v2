@@ -5,6 +5,7 @@ import WhyChooseGraphics from "@/components/graphic-desigining/why-choose";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import type { GraphicDesigningContent } from "@/components/graphic-desigining/content";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 /**
  * Renderer for the "creative-experience" Service Pages template — the same rich
@@ -12,14 +13,15 @@ import type { GraphicDesigningContent } from "@/components/graphic-desigining/co
  * content (servicepage.<slug>.<id>). Reuses the graphic-designing section
  * components directly so the two stay visually identical.
  */
-export default function CreativeExperiencePage({ data }: { data: GraphicDesigningContent }) {
+export default async function CreativeExperiencePage({ data }: { data: GraphicDesigningContent }) {
+  const testimonialItems = await getGlobalTestimonials();
   return (
     <main className="bg-[#f8fafc]">
       <GraphicHero content={data.hero} />
       <GraphicCapabilities services={data.capabilities} process={data.process} />
       <GraphicPortfolio content={data.portfolio} />
       <WhyChooseGraphics content={data.whychoose} deliverables={data.deliverables} />
-      <TestimonialsSection />
+      <TestimonialsSection items={testimonialItems} />
       <div id="estimate">
         <ConsultationFormSection />
       </div>

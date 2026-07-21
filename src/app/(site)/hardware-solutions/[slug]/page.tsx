@@ -6,6 +6,7 @@ import {
   getServicePage,
   getServicePageData,
 } from "@/server/content/servicepage-registry";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 // Content is CMS-managed, so render fresh (mirrors the other CMS pages).
 export const dynamic = "force-dynamic";
@@ -47,10 +48,11 @@ export default async function HardwareSolutionSlugPage({
     slug,
     "hardware-solution"
   )) as unknown as SecuritySurveillanceContent;
+  const testimonialItems = await getGlobalTestimonials();
 
   return (
     <main className="overflow-hidden bg-background text-heading">
-      <SecuritySurveillance content={content} />
+      <SecuritySurveillance content={content} testimonialItems={testimonialItems} />
     </main>
   );
 }

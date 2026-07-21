@@ -4,7 +4,7 @@ import TechnicalSeoServicesStack from "@/components/Seo/TechnicalSeo/TechnicalSe
 import HiddenTechnicalIssuesWeFix from "@/components/Seo/TechnicalSeo/HiddenTechnicalIssuesWeFix";
 import IndustriesWeServeCards from "@/components/Seo/TechnicalSeo/IndustriesWeServeCards";
 import TechnicalSeoToolsSection from "@/components/Seo/TechnicalSeo/TechnicalSeoToolsSection";
-import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import FAQSection from "@/components/shared/FAQSection";
 import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 
@@ -35,12 +35,11 @@ export default function MarketingPage({ data }: MarketingPageProps) {
 
       <TechnicalSeoToolsSection key={`${data.slug}-tools`} data={data.tools} />
 
-      <TestimonialsSection
+      <GlobalTestimonials
         key={`${data.slug}-testimonials`}
         badge={data.testimonials.badge}
         title={data.testimonials.title}
         description={data.testimonials.description}
-        testimonials={data.testimonials.items}
       />
 
       <FAQSection

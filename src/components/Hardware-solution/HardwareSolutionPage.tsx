@@ -8,7 +8,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import FAQSection from "@/components/shared/FAQSection";
-import TestimonialsSection from "@/components/shared/TestimonialsSection";
+import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import type { HardwareSolutionPage as HardwareSolutionPageData } from "@/data/hardware-solutions";
 
 type HardwareSolutionPageProps = {
@@ -76,35 +76,6 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
   );
 
   const testimonialsBlock = data.testimonials;
-  const testimonials =
-    testimonialsBlock?.items && testimonialsBlock.items.length > 0
-      ? testimonialsBlock.items
-      : [
-          {
-            name: "Amit Kumar",
-            role: "Business Owner",
-            image: "",
-            review: `Fillip Technologies planned and installed our ${lower} setup professionally. The system is reliable, clean, and easy for our team to manage.`,
-          },
-          {
-            name: "Priya Sharma",
-            role: "Operations Manager",
-            image: "",
-            review: `Their team understood our site requirements and delivered a practical ${lower} solution with clear handover and support.`,
-          },
-          {
-            name: "Rahul Verma",
-            role: "Facility Head",
-            image: "",
-            review: "The installation quality, documentation, and post-installation support were excellent. We now have much better visibility and control.",
-          },
-          {
-            name: "Neha Singh",
-            role: "Administrator",
-            image: "",
-            review: "The project was completed smoothly and the team explained everything in simple terms. It has made our daily operations easier.",
-          },
-        ];
 
   return (
     <main className="overflow-hidden bg-white text-slate-950">
@@ -339,14 +310,13 @@ export default function HardwareSolutionPage({ data }: HardwareSolutionPageProps
         </div>
       </section>
 
-      <TestimonialsSection
+      <GlobalTestimonials
         badge={testimonialsBlock?.badge || "Customer Stories"}
         title={testimonialsBlock?.title || `Trusted ${label} Projects`}
         description={
           testimonialsBlock?.description ||
           "Homes, offices, institutions, and businesses rely on Fillip Technologies for dependable hardware planning, installation, and support."
         }
-        testimonials={testimonials}
       />
 
       <FAQSection

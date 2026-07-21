@@ -8,24 +8,30 @@ import {
   Quote,
   Star,
 } from "lucide-react";
-import { HOME_TESTIMONIALS, type TestimonialItem } from "@/data/home/defaults";
+import { GLOBAL_TESTIMONIALS, type GlobalTestimonial } from "@/data/testimonials";
 
-// CMS-editable content (key: home.testimonials). Falls back to these defaults.
+// Heading/rating are CMS-editable (key: home.testimonials). The testimonial
+// LIST comes from the single site-wide source (`items`), passed in by the page.
 type TestimonialsContent = Partial<{
   heading: string;
   rating: string;
   reviewsLabel: string;
-  items: TestimonialItem[];
 }>;
 
-export default function TestimonialsSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+export default function TestimonialsSection({
+  content: raw = {},
+  items,
+}: {
+  content?: Record<string, unknown>;
+  items?: GlobalTestimonial[];
+}) {
   const content = raw as TestimonialsContent;
   const c = {
     heading: content.heading ?? "What our customers are saying",
     rating: content.rating ?? "4.8/5",
     reviewsLabel: content.reviewsLabel ?? "Based on 5,210+ reviews",
   };
-  const testimonials = content.items?.length ? content.items : HOME_TESTIMONIALS;
+  const testimonials = items?.length ? items : GLOBAL_TESTIMONIALS;
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -121,7 +127,7 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
                 >
                   <div className="flex h-auto min-h-[380px] md:h-[418px] flex-col rounded-[24px] border border-card/70 bg-card/78 px-7 py-8 shadow-[0_18px_45px_color-mix(in_srgb,var(--heading)_7%,transparent)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_color-mix(in_srgb,var(--heading)_10%,transparent)]">
                     <p className="max-h-[220px] overflow-y-auto pr-2 text-[16px] leading-7 text-slate-600 whitespace-normal break-words">
-                      {item.content}
+                      {item.review}
                     </p>
 
                     <div className="mt-auto flex gap-1.5">
@@ -135,13 +141,19 @@ export default function TestimonialsSection({ content: raw = {} }: { content?: R
                     </div>
 
                     <div className="mt-7 flex items-center gap-4 border-t border-slate-100 pt-8">
-                      <div className="relative h-14 w-14 overflow-hidden rounded-full bg-slate-100">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                        />
+                      <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-slate-100">
+                        {item.image ? (
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <span className="text-lg font-semibold text-slate-500">
+                            {item.name?.trim()?.charAt(0)?.toUpperCase() || "?"}
+                          </span>
+                        )}
                       </div>
 
                       <div>
