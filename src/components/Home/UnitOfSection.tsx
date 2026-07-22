@@ -7,7 +7,7 @@ import { HOME_UNITS, type UnitItem } from "@/data/home/defaults";
 
 // Per-card styling stays code-side and is applied by position.
 const UNIT_STYLES = [
-  { logoSize: "h-12 w-40", plateBg: "bg-gradient-to-br from-purple-100/30 via-indigo-50/20 to-slate-50/40", logoOffset: -50 },
+  { logoSize: "h-12 w-40", plateBg: "bg-gradient-to-br from-purple-100/30 via-indigo-50/20 to-slate-50/40", logoOffset: 0 },
   { logoSize: "h-16 w-48", plateBg: "bg-gradient-to-br from-cyan-100/30 via-blue-50/20 to-slate-50/40", logoOffset: 0 },
 ];
 
