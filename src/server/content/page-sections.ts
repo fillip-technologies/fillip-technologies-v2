@@ -1362,7 +1362,7 @@ export const ABOUT_PAGES: PageGroup[] = [
           { name: "tier1Support", label: "Tier 1 (<25k) — support", type: "text", default: "Standard Email Support" },
           { name: "tier1Badge", label: "Tier 1 (<25k) — badge", type: "text", default: "Starter Plan" },
           { name: "tier2RouteType", label: "Tier 2 (25k+) — route type", type: "text", default: "Standard Direct Route" },
-          { name: "tier2SetupTime", label: "Tier 2 (25k+) — setup time", type: "text", default: "Same-Day DLT Setup" },
+          { name: "tier2SetupTime", label: "Tier 2 (25k+) — setup time", type: "text", default: "DLT Setup" },
           { name: "tier2Support", label: "Tier 2 (25k+) — support", type: "text", default: "Standard Email & Chat" },
           { name: "tier2Badge", label: "Tier 2 (25k+) — badge", type: "text", default: "Growth Plan" },
           { name: "tier3RouteType", label: "Tier 3 (100k+) — route type", type: "text", default: "Priority Carrier Route" },

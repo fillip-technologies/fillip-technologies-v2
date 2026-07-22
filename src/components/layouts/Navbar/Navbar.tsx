@@ -166,6 +166,16 @@ export default function Navbar() {
 
   return (
     <>
+      <style>{`
+        @media (max-width: 1023px) {
+          [data-mobile-sticky-header] {
+            transform: translate3d(0, 0, 0) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+          }
+        }
+      `}</style>
 
       <header className="fixed top-0 left-0 w-full z-[900] pointer-events-none">
 
@@ -233,6 +243,7 @@ export default function Navbar() {
 
         <div
           ref={stickyBarRef}
+          data-mobile-sticky-header
           className="
             absolute top-0 left-0 w-full
             pt-3 px-4

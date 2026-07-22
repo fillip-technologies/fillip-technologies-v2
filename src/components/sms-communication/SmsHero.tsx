@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle, Smartphone, Wifi, Battery, MessageSquare, Zap } from "lucide-react";
+import { Send, CheckCircle, Smartphone, Wifi, Battery, MessageSquare, Zap, ArrowRight } from "lucide-react";
 import type { SmsHeroContent } from "@/components/solutions/sms-content";
 
 export default function SmsHero({ content }: { content: SmsHeroContent }) {
@@ -63,6 +63,15 @@ export default function SmsHero({ content }: { content: SmsHeroContent }) {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-gradient-to-tr from-cyan-200/30 via-indigo-100/20 to-transparent blur-3xl pointer-events-none z-0 opacity-75" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        <div className="pointer-events-none absolute left-[61%] top-[64%] z-30 hidden -translate-x-1/2 items-center gap-2 text-primary lg:flex">
+          <span className="rounded-full border border-primary/15 bg-white/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] shadow-sm backdrop-blur">
+            Preview updates
+          </span>
+          <span className="h-px w-20 bg-gradient-to-r from-primary/35 to-primary" />
+          <span className="grid size-9 place-items-center rounded-full border border-primary/25 bg-white text-primary shadow-md backdrop-blur">
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </span>
+        </div>
 
         {/* LEFT COLUMN - TEXT COPY & COMPOSER */}
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
