@@ -85,7 +85,7 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
   const teamMembers = content.teamMembers?.length ? content.teamMembers : DEFAULT_TEAM;
 
   return (
-    <section className="relative overflow-hidden border-t border-border bg-surface py-24 pb-32 text-heading">
+    <section className="relative overflow-hidden border-t border-border bg-surface pt-24 text-heading">
 
       {/* Decorative Book Page corner folds backgrounds */}
       <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-48 w-48 bg-gradient-to-tl from-primary/10 to-transparent" />
