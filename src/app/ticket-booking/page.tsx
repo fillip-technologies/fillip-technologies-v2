@@ -31,8 +31,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-const patnaZoo = "/images/patna-zoo-portal.png";
-const rajgirDash = "/images/rajgir-safari-dashboard.jpg";
+const patnaZoo = "/images/web-img.png";
+const rajgirDash = "/images/web-img.png";
 const analyticsDash = "/images/analytics-dashboard.jpg";
 
 

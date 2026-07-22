@@ -209,7 +209,7 @@ export default function ConsultationForm({
                                     budget,
                                 })
                             }
-                            className={`rounded-2xl border p-4 text-xs sm:text-sm transition ${form.budget === budget
+                            className={`rounded border p-4 text-xs sm:text-sm transition ${form.budget === budget
                                 ? "border-blue-600 bg-blue-50 text-blue-700"
                                 : "border-slate-200 hover:border-blue-300"
                                 }`}
@@ -242,7 +242,7 @@ export default function ConsultationForm({
                         })
                     }
                     placeholder="Tell us about your project goals, features, timeline and requirements..."
-                    className="w-full rounded-2xl border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100 bg-white/50 text-sm text-slate-900"
+                    className="w-full rounded border border-slate-200 p-4 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100 bg-white/50 text-sm text-slate-900"
                 />
 
                 {errors.message && (

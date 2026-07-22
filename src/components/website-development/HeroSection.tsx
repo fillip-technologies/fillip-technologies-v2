@@ -7,9 +7,9 @@ import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
 import GetQuoteButton from "@/components/shared/GetQuoteButton";
 
 const images = [
-  "/images/patna-zoo.png",
-  "/images/rajgir-safari.png",
-  "/images/patna-zoo.png",
+  "/images/web-img.png",
+  "/images/web-img.png",
+  "/images/web-img.png",
 ];
 
 type HeroSectionProps = {

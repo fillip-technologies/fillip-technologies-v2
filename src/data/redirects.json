@@ -1,5 +1,12 @@
 [
   {
+    "source": "/others/carrer",
+    "destination": "/carrer",
+    "type": 301,
+    "enabled": true,
+    "note": "Public careers URL moved to top-level /carrer while preserving existing page implementation"
+  },
+  {
     "source": "/technical-seo",
     "destination": "/marketing/technical-seo",
     "type": 301,

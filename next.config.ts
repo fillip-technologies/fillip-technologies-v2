@@ -26,6 +26,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/carrer",
+        destination: "/others/carrer",
+      },
+    ];
+  },
   async redirects() {
     return getNextRedirects();
   },

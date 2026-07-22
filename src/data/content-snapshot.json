@@ -16,29 +16,57 @@
     ]
   },
   "content:home.testimonials": {
-    "badge": "Google Business Profile",
+    "heading": "What our customers are saying",
     "rating": "4.8",
-    "eyebrow": "CLIENT TESTIMONIALS",
-    "description": "Trusted by businesses, organizations, and institutions across industries. Every review reflects real-world impact and measurable results.",
-    "ratingLabel": "Google Rating",
-    "reviewCount": "137+",
-    "reviewQuote": "I had an amazing experience with Fillip Technologies. Their approach was professional, transparent, and result-driven. The team helped us establish a stronger digital presence and execute solutions faster than expected.",
-    "reviewTitle": "Highly Recommended!",
-    "headingLine1": "Real Reviews",
-    "headingLine2": "Real Business Outcomes",
-    "reviewAuthor": "Sameer Verma",
-    "reviewCountLabel": "Verified Reviews",
-    "reviewAuthorLabel": "Google Review"
+    "reviewsLabel": "Based on 5,210+ reviews",
+    "items": [
+      {
+        "name": "Ishani Aprajita",
+        "role": "Business Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784528691/fillip/uploads/kevnqtrgacxeqxkrgqku.png",
+        "content": "I can't say enough good things about Fillip Technologies, the premier Website Designing Company in Patna! Their work is not just visually appealing but also highly functional, showcasing their deep understanding of user experience. From the moment I engaged with their team, I felt confident in their ability to bring my web design vision to life.\n\nWhat sets them apart is their unwavering commitment to delivering excellence. They paid close attention to my business requirements, ensuring that the final website exceeded my expectations. The result? A website that not only reflects my brand but also engages visitors effectively.\n\nFor anyone in Patna seeking a top-notch Website Designing Company, I wholeheartedly recommend Fillip Technologies. Their expertise and dedication are unmatched, making them the go-to choice for web design solutions in the region. Kudos to the Fillip Technologies team for their outstanding work!"
+      },
+      {
+        "name": "Abhishek Ojha",
+        "role": "Business Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784528779/fillip/uploads/d8ukmdl5qnrek8w2ypfd.png",
+        "content": "I am extremely pleased with the exceptional services provided by Fillip Technologies. As a business owner in Patna, I was searching for a reliable Website Designing Company in Patna, and Fillip Technologies exceeded my expectations. Their expertise in web design is truly commendable. They created a dynamic and user-friendly website for my business that perfectly aligns with my brand identity.\n\nWhat sets Fillip Technologies apart is their dedication to delivering high-quality results. Their team worked closely with me to understand my unique requirements and vision, resulting in a website that not only looks fantastic but also functions flawlessly. I appreciate their attention to detail and commitment to providing an excellent user experience.\n\nFillip Technologies has transformed my online presence, and I've already seen an increase in user engagement and conversions. I highly recommend their services to anyone in Patna seeking top-tier Website Designing Company in Patna. They are, without a doubt, the go-to choice for Website Designing Company in Patna."
+      },
+      {
+        "name": "Pappu",
+        "role": "Business Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784529143/fillip/uploads/rl9o10m1vwopejrswsu9.png",
+        "content": "Fillip Technologies provides the best digital marketing services in Patna. Their SEO and PPC campaigns have helped my business grow fast."
+      },
+      {
+        "name": "Shubham singh",
+        "role": "Business Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784529220/fillip/uploads/eeoowinfmawlisjuzoek.png",
+        "content": "I am very much satisfied with the services provided by Filip Technologies. It has a very good web designing team. They are very friendly and supportive, they had designed my website and followed my each and every instructions for me, I think fillip technologies is one of the best web designing and they have one of the best seo service in patna ."
+      },
+      {
+        "name": "ABHIJEET BHUSHAN",
+        "role": "Business Owner",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784529300/fillip/uploads/t389slusjbyfpbw8s1sg.png",
+        "content": "Their dedication for the work and the quality is top notch. Everytime they come with the solution and most important about ETA. Also, as a client when you need some technical solution to make your website better then the Filip team is always there. It is a nice working with them and I'll definitely continue with them for a long term.\n\nGood Work Team."
+      },
+      {
+        "name": "Sameer Verma",
+        "role": "Business Owner",
+        "image": "",
+        "content": "Highly Recommended!\nI had an amazing experience with Fillip Technologies, the best digital marketing agency I’ve worked with! I gave them my business number to list on Google My Business, and they made it live within a few days. Their team is professional, responsive, and truly understands how to deliver results. If you're looking for reliable GMB listing services, SEO, or any kind of digital marketing solutions, this is the right place.\nThank you so much, Fillip Technologies, for helping my business grow online!"
+      }
+    ]
   },
   "content:home.hero": {
     "eyebrow": "HUMAN x INTELLIGENCE",
     "headingLine1": "Powering the Next",
-    "headingLine2": "Generation of Busines",
-    "description": "Being the best digital marketing company, we combine human innovation and artificial intelligence to transform businesses with Smart Digital Experiences",
+    "headingLine2": "Generation of Business",
+    "description": "Being the best digital marketing company, we combine human innovation and artificial intelligence to transform businesses with Smart Digital Experiences.",
     "primaryCtaLabel": "Talk to Experts",
     "primaryCtaHref": "/contact",
     "secondaryCtaLabel": "Get Quote",
-    "secondaryCtaHref": "/contact",
+    "secondaryCtaHref": "/get-a-quote",
     "heroImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192751/fillip/uploads/ky89g4qjmqjxt4xj7dgt.png"
   },
   "content:home.trustedby": {
@@ -183,7 +211,7 @@
     "primaryCtaHref": "/contact",
     "secondaryCtaLabel": "Book Strategy Call",
     "secondaryCtaHref": "/contact",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784354061/fillip/uploads/rhfbg8zn3x6cfglnm1ug.png",
     "imageAlt": "Education Industry",
     "trustItems": [
       {
@@ -223,15 +251,15 @@
   },
   "content:industry.real-estate.hero": {
     "eyebrow": "Healthcare Digital Growth System",
-    "titleLine1": "Grow Your",
-    "titleLine2": "Real Estate Brand.",
-    "highlightedTitle": "Generate More Leads.",
+    "titleLine1": "Grow Your Brand.",
+    "titleLine2": "Generate",
+    "highlightedTitle": "More Leads.",
     "description": "We help real estate developers, brokers, consultants, and property brands improve project visibility, build buyer trust, and generate qualified property enquiries.",
     "primaryCtaLabel": "Get Free Growth Audit",
     "primaryCtaHref": "/contact",
     "secondaryCtaLabel": "Book Strategy Call",
     "secondaryCtaHref": "/contact",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784292976/fillip/uploads/wcuiznn4wfp14dkvarsn.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784390824/fillip/uploads/jeczzevijm3hhpcn9zxz.png",
     "imageAlt": "Real Estate Industry",
     "trustItems": [
       {
@@ -255,7 +283,7 @@
     "primaryCtaHref": "/contact",
     "secondaryCtaLabel": "Book Strategy Call",
     "secondaryCtaHref": "/contact",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784192167/fillip/system/placeholder.png",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784352124/fillip/uploads/uxax5qevtosiufrhsods.png",
     "imageAlt": "Logistics Industry",
     "trustItems": [
       {
@@ -520,7 +548,7 @@
         "title": "The Seed is Sown",
         "story": "All great journeys start with one conviction. The journey of Fillip Technologies started with an audacious idea of changing the way businesses use technology to grow.\n\nThree enthusiastic innovators joined hands at a small office with one goal: To connect the world of technology and business strategies. With minimum resources but maximum enthusiasm, they decided to design customized technological solutions that served both technological and business purposes.",
         "quote": "\"Without having plenty of resources at our disposal, we had plenty of conviction in the power of technology, imagination, and strategic thinking.\"",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190299/fillip/images/saas-desk-setup.jpg",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358689/fillip/uploads/emkkkkt6sg4vsyfdn02c.jpg",
         "stat1Label": "Core Team",
         "stat1Value": "3 Experts",
         "stat2Label": "Primary Tech",
@@ -533,7 +561,7 @@
         "title": "Embracing the Digital Shift",
         "story": "We at Fillip Technologies helped businesses through this journey with ease. Be it in developing a safe e-commerce portal or installing easy payment gateways, from working out cloud-based processes to creating robust databases, we helped companies adjust, run, and thrive in the digital-first era.\n\nEverything we provided was aimed at ensuring business continuity, strengthening the customer connection, and laying the foundations of success.",
         "quote": "\"When the world had to reconsider the way it operated, we stood by our clients and turned insecurity into opportunities using digital technologies that would shape the future.\"",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190196/fillip/images/How-we-work.png",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358837/fillip/uploads/oxmtiunsw1wjqzdnwfxf.jpg",
         "stat1Label": "Core Team",
         "stat1Value": "15 Experts",
         "stat2Label": "Primary Tech",
@@ -546,7 +574,7 @@
         "title": "Scaling Innovation. Elevating Excellence.",
         "story": "With each successful collaboration came additional room for innovation, advancement, and higher levels. As more companies entrusted their operations to our capabilities, Fillip Technologies diversified from being purely a web development company to providing customized software development, smart automation, artificial intelligence, and brand transformation.\n\nAs our list of accomplishments increased, so did our workforce, assembling under one roof the top-notch developers, designers, digital strategists, and technology professionals.",
         "quote": "\"Growth is not judged by the number of people or space you have but by your level of standards, your willingness to innovate, and your ability to make a difference to every client.\"",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190231/fillip/images/capabilities-background.png",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358854/fillip/uploads/hx2wx8bwdehz9hvy7obe.png",
         "stat1Label": "Core Team",
         "stat1Value": "40+ Experts",
         "stat2Label": "Primary Tech",
@@ -559,7 +587,7 @@
         "title": "Expanding Beyond Borders",
         "story": "With the recognition of our technology solutions worldwide, Fillip Technologies expanded its network to companies around the world, providing scalable digital solutions, enterprise-level services, and technology consultations. Each collaboration outside our geographical boundaries only reinforced our conviction that innovation, quality, and trust have no geographical limitations.",
         "quote": "\"Great technology has no boundaries. It innovates, excels, and succeeds.\"",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190296/fillip/images/research-mockup.png",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358716/fillip/uploads/glmtpjzgmjiocqt4lcch.jpg",
         "stat1Label": "Core Team",
         "stat1Value": "50+ Experts",
         "stat2Label": "Primary Tech",
@@ -572,7 +600,7 @@
         "title": "Leading the AI Revolution",
         "story": "As technology moves into a new phase, Fillip Technologies is leading the way in innovations through our use of artificial intelligence, intelligent chatbots, custom SaaS systems, and workflow automation, which will revolutionize business processes. With our human insight paired with artificial intelligence, we’re enabling companies to move faster, smarter, and stay ahead of the game.",
         "quote": "“Artificial intelligence does not replace vision; it empowers it. We're building tomorrow's intelligent solutions, today.”",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784190304/fillip/images/team/team1.png",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358728/fillip/uploads/o96xohqbfoovntm1ntos.jpg",
         "stat1Label": "Core Team",
         "stat1Value": "55+ Experts",
         "stat2Label": "Primary Tech",
@@ -592,19 +620,13 @@
     "leadershipHeading": "The People Behind The Pages",
     "leadershipDescription": "One clear leadership voice, supported by a focused team of builders, designers, and growth specialists.",
     "ceoName": "Vikash Kumar",
-    "ceoRole": "Founder & CEO",
+    "ceoRole": "Founder & Director",
     "ceoExperience": "13+ Years of Experience",
     "ceoImage": "/images/team/VIKASH.jpeg",
     "ceoMessage": "Fillip Technologies was built with a simple belief: technology should make businesses clearer, faster, and more capable. Every solution we deliver carries our promise of discipline, transparency, and meaningful digital impact for the businesses we serve.",
     "signatureLead": "Signed in code and character,",
     "signatureName": "The Fillip Team",
     "teamMembers": [
-      {
-        "name": "Risabh Choubey",
-        "role": "Account Manager",
-        "image": "",
-        "imagePosition": ""
-      },
       {
         "name": "Shruti Sinha",
         "role": "IT Team Lead",
@@ -631,20 +653,20 @@
       },
       {
         "name": "Prince Raj",
-        "role": "Associate Software Developer",
+        "role": "Associate Software Engineer",
         "image": "/images/team/prince-kumar.png",
         "imagePosition": "object-[50%_18%]"
       },
       {
         "name": "Govind Kumar",
-        "role": "Associate Software Developer",
+        "role": "Full-Stack Developer",
         "image": "/images/team/Govind-Kumar.png",
         "imagePosition": "object-[50%_18%]"
       },
       {
         "name": "Aman Sharma",
         "role": "Digital Marketing Executive",
-        "image": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358543/fillip/uploads/zqawftzqp6dasibld5zp.jpg",
         "imagePosition": ""
       },
       {
@@ -662,19 +684,37 @@
       {
         "name": "Khushi Bharti",
         "role": "HR Generalist",
-        "image": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784375213/fillip/uploads/gh4h53uwc5o67qbvlst8.jpg",
         "imagePosition": ""
       },
       {
         "name": "Lincy Bhardwaj",
         "role": "HR Executive",
-        "image": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358566/fillip/uploads/e8eodjo604dnmz0s2svr.jpg",
         "imagePosition": ""
       },
       {
         "name": "Anushka Raj",
         "role": "BDE",
-        "image": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358614/fillip/uploads/gpzepzmb4jf0nyxc6nos.png",
+        "imagePosition": ""
+      },
+      {
+        "name": "Rishab Choubey",
+        "role": "IT Team Lead",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784375261/fillip/uploads/sghvkka67vgbnfhlnkok.png",
+        "imagePosition": ""
+      },
+      {
+        "name": "Amit kumar",
+        "role": "Senior Technician",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784615490/fillip/uploads/aecjjgd1ultwu1t9iwpy.jpg",
+        "imagePosition": ""
+      },
+      {
+        "name": "Jay Kishore",
+        "role": "Senior Technician",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784615502/fillip/uploads/srjgni0qlkrvr5noa0ae.jpg",
         "imagePosition": ""
       }
     ]
@@ -684,7 +724,7 @@
     "prefixText": "",
     "highlightedTitle": "Visitors Into Customers.",
     "suffixText": "",
-    "description": "In a digital world full of templates and monotonous design solutions, most organizations fail to give themselves a digital voice.",
+    "description": "Fillip Technologies provides you with custom web development that is carefully tailored to meet your business goals and ensure the success and measurable growth of your business.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204755/fillip/uploads/t7wm4hpydrmyk6hqtryw.png",
     "imageAlt": ""
   },
@@ -879,7 +919,7 @@
   "content:servicepage.control-room.hero": {
     "backgroundImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202625/fillip/uploads/u52b0c0b3mj4e5pbmmo1.webp",
     "badge": "Hardware Solutions",
-    "heading": "Control Room\nCommand Centers",
+    "heading": "Control Room Setup\nCommand Centers",
     "description": "Create centralized monitoring spaces for CCTV surveillance, operations visibility, incident response, and real-time decision-making.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
@@ -955,7 +995,7 @@
     "primaryCtaHref": "#estimate",
     "secondaryCtaLabel": "View Our Work",
     "secondaryCtaHref": "#services",
-    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784282184/fillip/uploads/cbfk5ksk8nuag1ecadg3.png",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784370636/fillip/uploads/bwckvbklck1rasyxye9c.png",
     "imageAlt": "Creative Experience Design",
     "stats": [
       {
@@ -1049,7 +1089,7 @@
     "primaryCtaHref": "#estimate",
     "secondaryCtaLabel": "View Our Work",
     "secondaryCtaHref": "#services",
-    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784286871/fillip/uploads/u6exip1rzn6wablnuvyz.png",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784370801/fillip/uploads/qqjjehqbolafmtnnbf8m.png",
     "imageAlt": "Creative Experience Design",
     "stats": [
       {
@@ -1226,7 +1266,7 @@
     "highlightedTitle": "Speed and Scale",
     "suffixText": "",
     "description": "High-performance web application development services to automate operations, manage users, and support custom business workflows.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784205085/fillip/uploads/b9ocqqlrqg2qwnvhrl7v.jpg",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359293/fillip/uploads/cmyllthr6vnntcbj6grm.png",
     "imageAlt": ""
   },
   "content:servicepage.wordpress-development.hero": {
@@ -1235,7 +1275,7 @@
     "highlightedTitle": "to Manage and Built to Perform",
     "suffixText": "",
     "description": "Be it a start-up, a small company, or a multinational corporation, WordPress has become one of the most popular systems used by modern companies to build their online presence.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289350/fillip/uploads/dlhvj8j6no8vvffpw694.jpg",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359258/fillip/uploads/uqcgpcjhari8ro3iuaio.png",
     "imageAlt": ""
   },
   "content:servicepage.website-maintenance.hero": {
@@ -1244,7 +1284,7 @@
     "highlightedTitle": "Always Online",
     "suffixText": "",
     "description": "Professional website maintenance, security updates, and performance optimization services to keep your site running smoothly 24/7.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784289529/fillip/uploads/r7pkenmvyjodhgmecq4t.jpg",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784362627/fillip/uploads/o16zvgvk6qnxcmukkunq.png",
     "imageAlt": ""
   },
   "content:servicepage.website-redesign.hero": {
@@ -1253,7 +1293,7 @@
     "highlightedTitle": "Higher Conversions",
     "suffixText": "",
     "description": "Transform your outdated website into a fast, search-optimized, and customer-focused digital experience that actually drives business outcomes.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784293243/fillip/uploads/hvzxqlpjaoars4mjslnx.jpg",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359841/fillip/uploads/n6jxwtqlqr82kyfs6o0s.png",
     "imageAlt": ""
   },
   "content:servicepage.ecommerce-development.hero": {
@@ -1261,8 +1301,8 @@
     "prefixText": "",
     "highlightedTitle": "Sell With Less Friction",
     "suffixText": "",
-    "description": "Ecommerce development services that help businesses launch fast storefronts, simplify checkout, manage products, and grow online revenue.",
-    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204834/fillip/uploads/wet1or8oorn91hu9jmri.jpg",
+    "description": "Being the best e-commerce website development company, we provide strategic, innovative, user-friendly, and seamless e-commerce solutions that will give your brand a competitive advantage over others.",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359198/fillip/uploads/srdzqzfczfidmcmfwql2.png",
     "imageAlt": ""
   },
   "content:whatwedo.software-enterprise.menuLinks": {
@@ -1975,7 +2015,7 @@
     "primaryCtaHref": "#estimate",
     "secondaryCtaLabel": "View Our Work",
     "secondaryCtaHref": "#services",
-    "image": "/images/graphic-image-2.png",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784373929/fillip/uploads/j3jvqon65ygvbgfmd9km.png",
     "imageAlt": "Creative Experience Design",
     "stats": [
       {
@@ -2012,7 +2052,7 @@
     "backgroundImage": "/images/hardware/security_bg_parallax.png",
     "badge": "Hardware Solutions",
     "heading": "Fiber Optic Connectivity\nBuilt For Speed",
-    "description": "Deploy reliable high-bandwidth connectivity with professional fiber cabling, termination, splicing, and testing for offices, campuses, data rooms, and industrial sites.",
+    "description": "As a renowned Fiber Optic Network Company, we provide reliable and high-bandwidth fiber network infrastructure services that offer top speeds and connectivity in contemporary business settings.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
     "statusLabel": "System Status",
@@ -2055,23 +2095,23 @@
   },
   "content:servicepage.networking.benefits": {
     "eyebrow": "/ Why Choose Us",
-    "heading": "Networks you can trust.\nSecurity you can rely on.",
+    "heading": "Trusted  Infrastructure. \nProven Expertise.",
     "benefits": [
       {
         "title": "Secure Network",
-        "description": "Careful design, clean configuration and dependable support for long-term network performance."
+        "description": "Advanced security for your networks to protect your users, devices, and sensitive business data."
       },
       {
         "title": "Better Uptime",
-        "description": "Careful design, clean configuration and dependable support for long-term network performance."
+        "description": "Robust IT Infrastructure that provides minimal downtime and smooth functioning of your business processes."
       },
       {
         "title": "Scalable Setup",
-        "description": "Careful design, clean configuration and dependable support for long-term network performance."
+        "description": "Easily scalable networking solutions to grow your team and expand your business."
       },
       {
         "title": "Managed Access",
-        "description": "Careful design, clean configuration and dependable support for long-term network performance."
+        "description": "Provisioning of secure and controlled access to your networks across your organisation."
       }
     ]
   },
@@ -2110,7 +2150,7 @@
     "backgroundImage": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203858/fillip/uploads/iujwnq1wmgwu6ouawn6w.jpg",
     "badge": "Hardware Solutions",
     "heading": "Server Solutions\nFor Reliable Operations",
-    "description": "Plan and deploy server infrastructure for storage, applications, backup, user access, virtualization, and secure business operations.",
+    "description": "At Fillip Technologies, being the top Server Management Service company, we deliver safe server infrastructure for applications, virtualization, data storage, backup, and non-stop business operations management.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
     "statusLabel": "System Status",
@@ -2150,7 +2190,7 @@
   "content:servicepage.local-area-network.hero": {
     "backgroundImage": "/images/hardware/card_office.png",
     "badge": "Hardware Solutions",
-    "heading": "LAN Solutions\nfor Business Connectivity",
+    "heading": "Local Area Network For Connected Teams",
     "description": "Establish your local area network solutions quickly and efficiently with the help of a reliable Local Area Network Service Company for offices, schools, hospitals, warehouses, and businesses.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
@@ -2222,7 +2262,7 @@
       {
         "title": "Healthcare",
         "href": "/industries/healthcare",
-        "image": "/images/impact.jpg",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784374201/fillip/uploads/ea63fg5dwqkhhymbsrtc.png",
         "description": "Empowering hospitals and healthcare providers with AI-driven software, patient portals, hospital ERP, cloud infrastructure and digital transformation.",
         "services": "Hospital Management\nPatient Portal\nAI Automation\nCloud Solutions"
       },
@@ -3223,19 +3263,19 @@
     "benefits": [
       {
         "title": "Stable Connectivity",
-        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+        "description": "We provide LAN infrastructure that guarantees fast, stable, and reliable connectivity throughout the company."
       },
       {
         "title": "Secure Access",
-        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+        "description": "Our network structure provides protection to the users, devices, and business information while ensuring seamless communication."
       },
       {
         "title": "Scalable Design",
-        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+        "description": "Scalable LAN solutions designed to accommodate a growing team, devices, and operations."
       },
       {
         "title": "Clean Cabling",
-        "description": "Careful planning, clean cabling and dependable support for long-term network performance."
+        "description": "Structured cabling systems to ensure best performance and easy maintenance of your network infrastructure."
       }
     ]
   },
@@ -3321,23 +3361,23 @@
   },
   "content:servicepage.fiber-optic-connectivity.benefits": {
     "eyebrow": "/ Why Choose Us",
-    "heading": "Connectivity you can trust.\nLinks you can rely on.",
+    "heading": "Built for Speed. Proven for Reliability.",
     "benefits": [
       {
         "title": "High Bandwidth",
-        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+        "description": "Experience ultra-fast data transmission and connectivity for bandwidth-heavy business processes."
       },
       {
         "title": "Low Latency",
-        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+        "description": "Fiber optic technology designed to minimize latency and increase speed of communication within the network."
       },
       {
         "title": "Long-Distance Links",
-        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+        "description": "Connect different branches of your company using stable and high-speed fiber optics."
       },
       {
         "title": "Reliable Uptime",
-        "description": "Careful route planning, certified splicing and dependable support for long-term fiber performance."
+        "description": "Strong fiber optic system designed to ensure maximum uptime for your business."
       }
     ]
   },
@@ -3423,23 +3463,23 @@
   },
   "content:servicepage.control-room.benefits": {
     "eyebrow": "/ Why Choose Us",
-    "heading": "Control you can trust.\nVisibility you can act on.",
+    "heading": "Your Trusted Control Room Partner",
     "benefits": [
       {
         "title": "Central Monitoring",
-        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+        "description": "Conduct centralized monitoring of various systems, locations, and operations from one command center."
       },
       {
         "title": "Fast Response",
-        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+        "description": "Ensure fast detection and response capabilities via intelligent monitoring solutions."
       },
       {
         "title": "Live Dashboards",
-        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+        "description": "Access interactive dashboards featuring live data for better decision-making."
       },
       {
         "title": "Operational Control",
-        "description": "Careful planning, clean installation and dependable support for round-the-clock monitoring."
+        "description": "Achieve reliable control over surveillance, communications, and other critical processes"
       }
     ]
   },
@@ -3609,19 +3649,19 @@
     "benefits": [
       {
         "title": "Secure Data",
-        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+        "description": "Robust security measures protect your business-critical data from any kind of threat and breaches."
       },
       {
         "title": "Central Storage",
-        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+        "description": "The server infrastructure provided by us offers you centralized data storage, faster access, and easy data management."
       },
       {
         "title": "Backup Ready",
-        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+        "description": "Our automated backup solutions help you protect your data and make your operations more resilient."
       },
       {
         "title": "Scalable Capacity",
-        "description": "Careful planning, clean installation and dependable support for long-term server performance."
+        "description": "Scale your server capacity easily to handle more workload and users."
       }
     ]
   },
@@ -3711,19 +3751,19 @@
     "benefits": [
       {
         "title": "Branch Connectivity",
-        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+        "description": "Connect branches, campuses, and remote offices through a secure and highly efficient WAN environment."
       },
       {
         "title": "Secure Routing",
-        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+        "description": "Securing, optimizing, and managing communications through smart and efficient routing."
       },
       {
         "title": "Remote Access",
-        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+        "description": "Providing secure access to business applications and resources from remote locations."
       },
       {
         "title": "Central Visibility",
-        "description": "Careful design, secure routing and dependable support for long-term WAN performance."
+        "description": "Monitor and manage your complete WAN environment through a centralized management solution."
       }
     ]
   },
@@ -3813,19 +3853,19 @@
     "benefits": [
       {
         "title": "Connected Systems",
-        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+        "description": "Integrate all of your IT, security, and business systems into a single and optimized ecosystem."
       },
       {
         "title": "Cleaner Operations",
-        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+        "description": "Optimize operations through intelligent integrations that increase efficiency and productivity."
       },
       {
         "title": "Single Partner",
-        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+        "description": "With us handling your entire technology life cycle from planning to implementation to support."
       },
       {
         "title": "Reliable Handover",
-        "description": "Careful assessment, clean integration and dependable support for long-term reliability."
+        "description": "Thoroughly documented implementation and knowledge transfer for long term operational peace of mind."
       }
     ]
   },
@@ -3910,19 +3950,19 @@
     "benefits": [
       {
         "title": "Business Ready",
-        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+        "description": "An IT infrastructure built to help your business operate seamlessly and productively."
       },
       {
         "title": "Scalable Systems",
-        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+        "description": "A flexible IT infrastructure that can grow to accommodate your growing team, workload and future business needs."
       },
       {
         "title": "Secure Access",
-        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+        "description": "High-level security measures in place to protect your users, IT systems and sensitive business data."
       },
       {
         "title": "Support Included",
-        "description": "Careful planning, clean deployment and dependable support for long-term IT performance."
+        "description": "Proactive monitoring and support to make sure your IT infrastructure keeps working smoothly."
       }
     ]
   },
@@ -4012,19 +4052,19 @@
     "benefits": [
       {
         "title": "Live Tracking",
-        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+        "description": "Track the movement of your vehicles and other assets in real time through live location tracking."
       },
       {
         "title": "Route History",
-        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+        "description": "Find out all you need about your routes through our route history feature."
       },
       {
         "title": "Movement Alerts",
-        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+        "description": "Get notifications immediately there is any unauthorized movement, speeding or other issues."
       },
       {
         "title": "Fleet Visibility",
-        "description": "Reliable hardware, clear reporting and dependable support for long-term tracking."
+        "description": "Find out what’s happening in your fleet in one central place."
       }
     ]
   },
@@ -4046,8 +4086,8 @@
   "content:servicepage.networking.hero": {
     "backgroundImage": "/images/hardware/security_bg_parallax.png",
     "badge": "Hardware Solutions",
-    "heading": "Networking\nThat Keeps Business Moving",
-    "description": "Design, deploy, and maintain secure business networks that connect users, devices, applications, servers, and cloud systems.",
+    "heading": "Businesses With Robust Networking",
+    "description": "From network design to enterprise hardware installation, our Hardware and Networking company provides a robust, safe, and scalable IT infrastructure, keeping your business connected and performing effectively.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
     "statusLabel": "System Status",
@@ -4079,8 +4119,8 @@
   },
   "content:servicepage.networking.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Secure design.\nStronger networks.",
-    "description": "We combine careful network design, quality hardware and solid security to deliver connectivity that stays fast and protected.",
+    "heading": "Smarter Networks\nStronger Businesses",
+    "description": "As the premier Hardware and Networking Company, we design dependable IT infrastructure using quality Hardware, smart networking technology, and smooth installation, keeping your business safely connected.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202953/fillip/uploads/owfzaudhgpygscqzy9rz.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4170,7 +4210,7 @@
   },
   "content:servicepage.control-room.support": {
     "heading": "Control Room\nSolutions We Offer",
-    "description": "Explore video walls, monitoring workstations and incident visibility designed around your operations and response needs.",
+    "description": "As a renowned Control Room Installation Service provider, Fillip Technologies provides smart control room solutions that enable central monitoring, effortless communication, and effective operational control.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4194,8 +4234,8 @@
     ]
   },
   "content:servicepage.server-solutions.priority": {
-    "heading": "Server Infrastructure\nBuilt to Perform",
-    "description": "We plan and deploy dependable server infrastructure for storage, applications, backups and secure day-to-day operations.",
+    "heading": "Reliable Servers.\n Resilient Business.",
+    "description": "Being the most dependable Server Management Service Company, Fillip Technologies provides you with highly reliable, efficient server services to ensure your business runs without any downtime.",
     "ctaLabel": "Contact Us",
     "cards": [
       {
@@ -4217,8 +4257,8 @@
   },
   "content:servicepage.server-solutions.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Solid setup.\nStronger operations.",
-    "description": "We combine careful capacity planning, quality hardware and proper backups to deliver server infrastructure you can rely on.",
+    "heading": "Smarter Servers. Stronger Performance.",
+    "description": "At Fillip Technologies, as an established Server Management Service Company, we blend planning, enterprise-level servers, and professional deployment to offer you a high-performing and secure infrastructure.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203052/fillip/uploads/r8tlgufaniyxsi6wkuzt.webp",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4239,7 +4279,7 @@
   },
   "content:servicepage.server-solutions.support": {
     "heading": "Server Solutions\nSolutions We Offer",
-    "description": "Explore server setup, backup, storage and rack planning designed around your workloads and capacity needs.",
+    "description": "With Fillip Technologies, a reputable Server Management Service Company, we offer you server solutions that help improve performance and efficiency and increase business reliability.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4263,8 +4303,8 @@
     ]
   },
   "content:servicepage.fiber-optic-connectivity.priority": {
-    "heading": "Bandwidth Built\nto Go the Distance",
-    "description": "We deploy professional fiber optic links that carry high-speed data reliably across floors, buildings and campuses.",
+    "heading": "Connectivity Without Compromise",
+    "description": "At our Fiber Optic Network Company, we develop reliable fiber systems which guarantee optimal performance and seamless connectivity.",
     "ctaLabel": "Contact Us",
     "cards": [
       {
@@ -4286,8 +4326,8 @@
   },
   "content:servicepage.fiber-optic-connectivity.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Precise splicing.\nStronger backbones.",
-    "description": "We combine careful route planning, quality fiber and certified termination to deliver fast, low-latency connectivity you can depend on.",
+    "heading": "Smarter Fiber\nStronger Connectivity",
+    "description": "Our Fiber Optic Network Company provides advanced fiber optics network infrastructure solutions through proper planning and deployment, that keeps your business connected.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784201935/fillip/uploads/unxugnnlr3uwwpllwsqy.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4308,7 +4348,7 @@
   },
   "content:servicepage.fiber-optic-connectivity.support": {
     "heading": "Fiber Optic Connectivity\nSolutions We Offer",
-    "description": "Explore professional fiber cabling, splicing and testing designed around your site, distance and bandwidth needs.",
+    "description": "Our Optical Fiber Network Company designs fiber network solutions that are fast, reliable, and scalable to support your business needs.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4332,8 +4372,8 @@
     ]
   },
   "content:servicepage.local-area-network.priority": {
-    "heading": "Connectivity You Can\nBuild On",
-    "description": "We design and install dependable local area networks that keep your teams, devices and systems connected across every floor and site.",
+    "heading": "Protecting What\nMatters Most",
+    "description": "As a leading Local Area Network Service Company, we design LAN architectures that help your business collaborate and grow.",
     "ctaLabel": "Contact Us",
     "cards": [
       {
@@ -4355,8 +4395,8 @@
   },
   "content:servicepage.local-area-network.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Smart cabling.\nStronger networks.",
-    "description": "We combine careful network planning, quality cabling and professional installation to deliver fast, stable connectivity across your premises.",
+    "heading": "Reliable Networks. \nLasting Performance.",
+    "description": "The Local Area Network Service Company, Fillip Technologies, utilizes technology knowledge, excellent network hardware, and professional installation in developing effective and secure LAN solutions that ensure success.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784202367/fillip/uploads/zoze53oz2wujmzur37wg.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4377,7 +4417,7 @@
   },
   "content:servicepage.local-area-network.support": {
     "heading": "Local Area Network\nSolutions We Offer",
-    "description": "Explore practical, scalable networking solutions designed around your site, users, devices and bandwidth needs.",
+    "description": "From structured cabling to total network installation, our Local Area Network Service Company designs reliable LAN systems that will connect, enhance productivity, and secure your team.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4404,7 +4444,7 @@
     "backgroundImage": "/images/hardware/security_bg_parallax.png",
     "badge": "Hardware Solutions",
     "heading": "Wide Area Network\nAcross Locations",
-    "description": "Connect branches, remote offices, campuses, and facilities with secure WAN architecture, routing, VPNs, and centralized network visibility.",
+    "description": "As an experienced Wide Area Network service Company, we provide enterprise WAN architectures that connect branches, remote locations, and operations using secure and high-speed networking solutions.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
     "statusLabel": "System Status",
@@ -4436,8 +4476,8 @@
   },
   "content:servicepage.wide-area-network.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Secure routing.\nStronger reach.",
-    "description": "We combine careful WAN design, secure VPNs and reliable routing to keep every location connected and protected.",
+    "heading": "Reliable Connectivity\nFuture-Proof Networks",
+    "description": "Being the premier Wide Area Network Service Company, we design WAN networks that help you stay connected with resilience and performance.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784203972/fillip/uploads/dj6wkng9y9ezbp37stku.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4458,7 +4498,7 @@
   },
   "content:servicepage.wide-area-network.support": {
     "heading": "Wide Area Network\nSolutions We Offer",
-    "description": "Explore branch connectivity, secure VPN access and centralized monitoring designed around your locations and users.",
+    "description": "Our Wide Area Network Service Company offers secure, scalable WAN infrastructure solutions to simplify your network connectivity and enable future business growth.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4485,7 +4525,7 @@
     "backgroundImage": "/images/hardware/security_technician.png",
     "badge": "Hardware Solutions",
     "heading": "System Integration\nMade Seamless",
-    "description": "Bring CCTV, access control, networking, servers, connectivity, and business systems together into one reliable technology environment.",
+    "description": "Fillip Technologies, the reputable System Integration Services Company, provides integrated hardware solutions that increase security, streamline processes, and boost efficiency within your organization.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
     "statusLabel": "System Status",
@@ -4494,8 +4534,8 @@
     "statusItem2": "Multi-Site Coverage"
   },
   "content:servicepage.system-integration.priority": {
-    "heading": "Systems That Work\nTogether as One",
-    "description": "We bring CCTV, access control, networking, servers and business systems into one reliable, connected environment.",
+    "heading": "Connecting Systems. \nDriving Growth.",
+    "description": "As a renowned System Integration Services Company, we provide you with integrated enterprise systems that make up an efficient and scalable system.",
     "ctaLabel": "Contact Us",
     "cards": [
       {
@@ -4517,8 +4557,8 @@
   },
   "content:servicepage.system-integration.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Seamless integration.\nStronger systems.",
-    "description": "We combine careful assessment, clean integration and thorough testing to make your technology work together reliably.",
+    "heading": "Seamless Integration. \nGreater Control.",
+    "description": "Fillip Technologies, a reliable System Integration Services provider, connects your technology into one smart system that drives efficiency, scalability, and innovation.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204034/fillip/uploads/vtygzou7ki9ymo6ug1jt.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4539,7 +4579,7 @@
   },
   "content:servicepage.system-integration.support": {
     "heading": "System Integration\nSolutions We Offer",
-    "description": "Explore hardware integration, software connectivity and end-to-end deployment designed around your existing systems.",
+    "description": "Our System integration Services Firm provides smart integration solutions that bring together your infrastructure, increase efficiency and improve business performance.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4563,8 +4603,8 @@
     ]
   },
   "content:servicepage.it-infrastructure.priority": {
-    "heading": "IT Foundations for\nModern Workplaces",
-    "description": "We plan and deploy safe, scalable IT infrastructure that keeps your workplace connected, secure and ready to grow.",
+    "heading": "Infrastructure You Can Trust",
+    "description": "Secure, scalable infrastructure designed to support today's operations and tomorrow's growth.",
     "ctaLabel": "Contact Us",
     "cards": [
       {
@@ -4586,8 +4626,8 @@
   },
   "content:servicepage.it-infrastructure.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Solid foundations.\nStronger workplaces.",
-    "description": "We combine careful infrastructure planning, quality hardware and ongoing support to keep your workplace running smoothly.",
+    "heading": "Smarter Infrastructure\nStronger Business",
+    "description": "Our IT Infrastructure Service Company offers resilient IT systems with smart planning, strong infrastructure and perfect implementation, thereby guaranteeing sustainable performance.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204096/fillip/uploads/mfdroab4iz0smrmtmp88.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4608,7 +4648,7 @@
   },
   "content:servicepage.it-infrastructure.support": {
     "heading": "IT Infrastructure\nSolutions We Offer",
-    "description": "Explore office IT setup, infrastructure planning and ongoing support designed around your workplace needs.",
+    "description": "Our IT Infrastructure Services Company creates smart IT infrastructures integrating networking, servers, security, and support for seamless business operations.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4635,7 +4675,7 @@
     "backgroundImage": "/images/hardware/security_bg_parallax.png",
     "badge": "Hardware Solutions",
     "heading": "GPS Solution\nFor Smarter Tracking",
-    "description": "Track vehicles, assets, field movement, and routes with GPS monitoring systems that improve visibility, safety, and operational control.",
+    "description": "Being the Best GPS Service Provider Company, Fillip Technologies offers highly intelligent GPS tracking solutions that offer visibility, enhance performance of your fleet, safeguard your assets and allow smarter decision making.",
     "primaryCtaLabel": "Explore Solutions",
     "secondaryCtaLabel": "Watch Video",
     "statusLabel": "System Status",
@@ -4644,8 +4684,8 @@
     "statusItem2": "Multi-Site Coverage"
   },
   "content:servicepage.gps-solution.priority": {
-    "heading": "Tracking Built for\nReal Visibility",
-    "description": "We deploy GPS monitoring that tracks vehicles, assets and routes to improve visibility, safety and operational control.",
+    "heading": "Track Smarter. Operate Better.",
+    "description": "As a reputable GPS Service Provider Company, we assist organizations in tracking their vehicles, assets and operations in an accurate, reliable and efficient manner.",
     "ctaLabel": "Contact Us",
     "cards": [
       {
@@ -4667,8 +4707,8 @@
   },
   "content:servicepage.gps-solution.services": {
     "eyebrow": "/ Our Promise",
-    "heading": "Live tracking.\nSmarter control.",
-    "description": "We combine reliable GPS hardware, clear reporting and easy dashboards to give you full visibility over movement and routes.",
+    "heading": "Precision That Powers Performance.",
+    "description": "Being the premier GPS Service Provider Company, we use cutting-edge GPS technology, coupled with professional installation and reliable services, to offer our clients safe and scalable tracking solutions.",
     "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204174/fillip/uploads/otwiulbxw1qkdjximozd.jpg",
     "videoTitle": "",
     "watchLabel": "Watch Video",
@@ -4689,7 +4729,7 @@
   },
   "content:servicepage.gps-solution.support": {
     "heading": "GPS Solution\nSolutions We Offer",
-    "description": "Explore vehicle tracking, route visibility and alerts designed around your fleet and operational needs.",
+    "description": "As a reliable GPS Service Provider Company, we develop advanced GPS ecosystems to enable efficient tracking, enhanced security, and better management.",
     "ctaLabel": "Explore Solution",
     "solutions": [
       {
@@ -4877,6 +4917,563 @@
         "answer": "Yes. Our team supports camera health checks, troubleshooting, recording setup, network checks, storage review, and ongoing maintenance for reliable long-term performance."
       }
     ]
+  },
+  "content:industry.healthcare.hero": {
+    "eyebrow": "Healthcare Digital Growth System",
+    "titleLine1": "Grow Your",
+    "titleLine2": "Healthcare Brand.",
+    "highlightedTitle": "Build More Trust.",
+    "description": "We help hospitals, clinics, and healthcare providers increase visibility, build patient trust, and generate more appointment bookings through Website Design, SEO, and Social Media Marketing.",
+    "primaryCtaLabel": "Get Growth Audit",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Book Strategy Call",
+    "secondaryCtaHref": "/contact",
+    "imageSrc": "/images/doctor.png",
+    "imageAlt": "Healthcare Professional",
+    "trustItems": [
+      {
+        "label": "Healthcare Website Design"
+      },
+      {
+        "label": "Healthcare SEO"
+      },
+      {
+        "label": "Social Media Marketing"
+      }
+    ]
+  },
+  "content:servicepage.ios.hero": {
+    "title": "iOS App Development",
+    "highlightedTitle": "For Premium Experiences",
+    "description": "We design and build polished iOS applications for iPhone and iPad users with secure architecture, smooth performance, and elegant user experiences.",
+    "leftCardTitle": "Apple-Ready UX",
+    "leftCardDescription": "Clean, intuitive interfaces aligned with iOS user expectations.",
+    "rightCardValue": "iOS",
+    "rightCardLabel": "App Experiences",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784365634/fillip/uploads/b4f68flit9i2nav07fqi.png",
+    "imageAlt": "iOS app development"
+  },
+  "content:servicepage.ecommerce.hero": {
+    "title": "Launch Shopping Apps",
+    "highlightedTitle": "Customers Return To",
+    "description": "We build mobile commerce applications that simplify discovery, checkout, payments, loyalty, and repeat purchases for growing retail brands.",
+    "leftCardTitle": "Faster Checkout",
+    "leftCardDescription": "Reduce friction with smooth carts, saved addresses, and secure mobile payments.",
+    "rightCardValue": "24/7",
+    "rightCardLabel": "Storefront Access",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784364399/fillip/uploads/mjrv7sa5in2wyw4ud7su.png",
+    "imageAlt": "E-Commerce Mobile App"
+  },
+  "content:servicepage.business-automation.hero": {
+    "title": "Automate Business Apps",
+    "highlightedTitle": "Teams Rely On",
+    "description": "We build mobile automation applications that reduce manual work, connect teams, streamline approvals, and make operations easier to manage.",
+    "leftCardTitle": "Workflow Alerts",
+    "leftCardDescription": "Move requests, approvals, and updates across teams without manual follow-up.",
+    "rightCardValue": "Less",
+    "rightCardLabel": "Manual Work",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784364462/fillip/uploads/s1pqveiqzisyfk7kiva6.png",
+    "imageAlt": "Business Automation Mobile App"
+  },
+  "content:servicepage.website-development.challenges": {
+    "eyebrow": "Business Website Challenges",
+    "title": "Most Websites Look Good.",
+    "highlightedTitle": "Few Generate Real Results.",
+    "description": "Every business has its objectives, workflows, target customers, services, and customer expectations. However, many modern brands fail to go beyond a general website structure that can provide greater flexibility and performance.",
+    "secondaryDescription": "At Fillip Technologies, the premier company for custom web development, we build all custom websites around creativity, strategy, technology, and user experience, ensuring that your digital presence is as powerful as it is adaptable.",
+    "cta": "See How We Solve These Challenges",
+    "items": [
+      {
+        "title": "Slow Loading Speed",
+        "description": "Slow web pages annoy users and create missed opportunities for your business. We ensure ultra-fast loading speed by optimizing every single detail."
+      },
+      {
+        "title": "Poor User Experience",
+        "description": "Complicated navigation and messy layouts make users leave a website. We develop easy-to-use and user-centric interfaces that allow users to interact."
+      },
+      {
+        "title": "Low Lead & Conversion Rates",
+        "description": "Having traffic on your website does not guarantee its success. We develop websites that will be able to convert leads into customers."
+      },
+      {
+        "title": "Limited Scalability",
+        "description": "If your business is growing, your website has to grow as well. We help your website to become flexible enough to evolve with time."
+      }
+    ]
+  },
+  "content:servicepage.website-development.whatWeBuild": {
+    "eyebrow": "SOLUTIONS WE ENGINEER",
+    "title": "Digital Products Built For",
+    "highlightedTitle": "Growth & Scale",
+    "description": "Whether it is a highly effective company website, an eCommerce portal, or any kind of enterprise software and vertical solutions, Fillip Technologies, the best company for custom web development, can build an optimal digital experience for your business.",
+    "cards": [
+      {
+        "eyebrow": "Corporate Websites",
+        "title": "Build Trust. Generate Leads",
+        "description": "Create professional websites that help you build your company's image and communicate your value proposition to turn your website visitors into your clients.",
+        "metric": "+42% Lead Growth",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "E-Commerce Platforms",
+        "title": "Built to Sell. Optimized to Scale.",
+        "description": "Create successful online stores with an easy-to-use shopping experience, secure payment gateway, inventory automation, and architecture focused on driving sales.",
+        "metric": "₹2.4M Revenue",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "Customer Portals",
+        "title": "More Self-Service Opportunities",
+        "description": "Provide your clients, partners, and vendors with secure, intuitive portals for effective communication and information accessibility.",
+        "metric": "",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "Healthcare & Medical Applications",
+        "title": "Revolutionize Your Field With Intelligent Technology",
+        "description": "Develop secure healthcare digital solutions with custom web development that will optimize patient management, automate clinical workflow, enhance communication, and increase the efficiency of healthcare organizations.",
+        "metric": "",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "Educational Websites & Portals",
+        "title": "Educational Platforms",
+        "description": "Create intelligent digital platforms to help your educational institution market its programs, simplify admissions, engage with students, and create an outstanding learning experience.",
+        "metric": "",
+        "tags": "Admissions, Courses, Faculty, Student Portal, Results",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.website-development.technologyStack": {
+    "eyebrow": "Our Stack",
+    "title": "Built With Modern",
+    "highlightedTitle": "Technologies",
+    "description": "At Fillip Technologies, the best custom web development company, we leverage cutting-edge frameworks, enterprise-level platforms, and cloud-based architectures to build secure, scalable, and powerful web applications for your growing business needs.",
+    "whyTitle": "Why This Stack?",
+    "whyDescription": "We carefully choose technologies based on performance, maintainability, scalability, security, and long-term business requirements rather than following trends.",
+    "stacks": [
+      {
+        "key": "frontend",
+        "title": "Frontend Development",
+        "description": "Modern interfaces engineered for speed, responsiveness, and exceptional user experiences.",
+        "technologies": "Next.js, React, TypeScript, Tailwind CSS, Vue.js, Angular"
+      },
+      {
+        "key": "backend",
+        "title": "Backend Development",
+        "description": "Robust server-side architectures built for performance, security, and scalability.",
+        "technologies": "Node.js, Laravel, .NET, Python, Java, REST APIs"
+      },
+      {
+        "key": "cms",
+        "title": "CMS & Ecommerce",
+        "description": "Flexible content and commerce platforms tailored for business growth.",
+        "technologies": "WordPress, Shopify, WooCommerce, Strapi, Headless CMS, Contentful"
+      },
+      {
+        "key": "cloud",
+        "title": "Cloud & Deployment",
+        "description": "Reliable cloud infrastructure and DevOps practices for continuous delivery.",
+        "technologies": "AWS, Azure, Google Cloud, Docker, CI/CD, Vercel"
+      }
+    ]
+  },
+  "content:servicepage.website-development.outcomes": {
+    "eyebrow": "Business Outcomes",
+    "title": "Results That Drive",
+    "highlightedTitle": "Real Business Growth",
+    "description": "As the best custom web development company, we build websites with one objective in mind: to drive business value. Using scalability, unique user experience, and performance-driven development, we turn digital platforms into engines for success.",
+    "leftPill": "ðŸš€ Faster Performance",
+    "rightPill": "ðŸ“ˆ Higher Conversions",
+    "stats": [
+      {
+        "value": "+90%",
+        "label": "Page Speed Score"
+      },
+      {
+        "value": "+42%",
+        "label": "Lead Generation Growth"
+      },
+      {
+        "value": "+68%",
+        "label": "Organic Traffic Increase"
+      },
+      {
+        "value": "99.9%",
+        "label": "Website Uptime"
+      }
+    ]
+  },
+  "content:servicepage.ecommerce-development.challenges": {
+    "eyebrow": "Ecommerce Growth Challenges",
+    "title": "Most Stores Get Traffic.",
+    "highlightedTitle": "Few Turn It Into Revenue.",
+    "description": "Driving traffic is just part of the story. Sustained success in eCommerce requires creating a frictionless shopping experience that earns trust, makes purchasing easy, and capitalizes on every opportunity for sales.",
+    "secondaryDescription": "At Fillip Technologies,  the best e-commerce website development company, we provide high-performance eCommerce websites that are fast, intelligent, safe, and scalable, ensuring our clients convert more, earn more, and move forward with peace of mind.",
+    "cta": "See How We Improve Store Performance",
+    "items": [
+      {
+        "title": "Slow Storefronts",
+        "description": "Heavy pages and delayed product browsing reduce customer confidence and increase cart abandonment."
+      },
+      {
+        "title": "Checkout Friction",
+        "description": "Long or confusing checkout flows interrupt purchases and lower completed order rates."
+      },
+      {
+        "title": "Weak Product Discovery",
+        "description": "Poor filters, search, and category structures make it harder for customers to find what they need."
+      },
+      {
+        "title": "Inventory Complexity",
+        "description": "Disconnected product, stock, and order workflows create manual work as stores scale."
+      },
+      {
+        "title": "Low Conversion Signals",
+        "description": "Missing trust cues, unclear offers, and weak product pages reduce buying intent."
+      },
+      {
+        "title": "Limited Integrations",
+        "description": "Payment, shipping, CRM, and analytics gaps prevent teams from running commerce efficiently."
+      }
+    ]
+  },
+  "content:servicepage.ecommerce-development.whatWeBuild": {
+    "eyebrow": "COMMERCE SYSTEMS WE ENGINEER",
+    "title": "Online Stores Built For",
+    "highlightedTitle": "Sales & Scale",
+    "description": "Fillip Technologies, the best e-commerce website development company, specializes in building e-commerce platforms that will help you generate conversions, improve operations, and sustainably grow revenue.",
+    "cards": [
+      {
+        "eyebrow": "Custom Storefronts",
+        "title": "Made to Engage. Optimized to Convert.",
+        "description": "Deliver an outstanding shopping experience by creating modern, fast-loading storefronts that look amazing, build trust, and convert shoppers into buyers.",
+        "metric": "+38% Conversion Lift",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "Checkouts and Payments",
+        "title": "Friction-Free Checkouts. Higher Conversions.",
+        "description": "Optimize checkouts and ensure secure, smooth payments to increase the number of purchases and reduce cart abandonment.",
+        "metric": "Lower Cart Drop-Off",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "Smart Product Catalogs",
+        "title": "Make Every Product Easy to Find",
+        "description": "With smart catalogs, powerful search features, filtering, and intelligent categorization, customers find exactly what they want faster and easier.",
+        "metric": "",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "Management of Order & Fulfillment",
+        "title": "Linked Operations that Drive Business Efficiency",
+        "description": "Streamline and automate every aspect of commerce operations, from order management, payment monitoring, stock updating, shipping, to customer notification.",
+        "metric": "",
+        "tags": "",
+        "image": ""
+      },
+      {
+        "eyebrow": "eCommerce Management System",
+        "title": "Full Control Over Online Business",
+        "description": "Manage products, inventory, prices, promotions, customer information, analytics, and daily operations from a single system tailored to your business needs.",
+        "metric": "",
+        "tags": "Products, Payments, Shipping, Offers, Analytics",
+        "image": ""
+      }
+    ]
+  },
+  "content:servicepage.ecommerce-development.technologyStack": {
+    "eyebrow": "Commerce Stack",
+    "title": "Built With Scalable",
+    "highlightedTitle": "E-Commerce Technologies",
+    "description": "We use reliable commerce platforms, frameworks, and integrations to deliver secure online stores that can grow with demand.",
+    "whyTitle": "Why This Commerce Stack?",
+    "whyDescription": "We choose commerce technology around catalog size, checkout needs, integrations, performance, and the long-term operating model.",
+    "stacks": [
+      {
+        "key": "frontend",
+        "title": "Storefront Development",
+        "description": "Fast, responsive shopping interfaces built for product browsing and conversion.",
+        "technologies": "Next.js, React, TypeScript, Tailwind CSS, Liquid, Vue.js"
+      },
+      {
+        "key": "backend",
+        "title": "Commerce Backend",
+        "description": "Stable backend systems for orders, carts, customer accounts, and business logic.",
+        "technologies": "Node.js, Laravel, REST APIs, GraphQL, Webhooks, MySQL"
+      },
+      {
+        "key": "cms",
+        "title": "Platforms & CMS",
+        "description": "Flexible ecommerce and content platforms for managing stores and campaigns.",
+        "technologies": "Shopify, WooCommerce, WordPress, Headless CMS, Strapi, Contentful"
+      },
+      {
+        "key": "cloud",
+        "title": "Payments & Deployment",
+        "description": "Secure payment, hosting, and release workflows for dependable commerce operations.",
+        "technologies": "Razorpay, Stripe, AWS, Vercel, Docker, CI/CD"
+      }
+    ]
+  },
+  "content:servicepage.app-ui-ux-design.hero": {
+    "title": "App UI/UX Design",
+    "highlightedTitle": "Users Love",
+    "description": "We design clear, modern, and conversion-focused mobile app interfaces that make user journeys simple, engaging, and easy to adopt.",
+    "leftCardTitle": "User-First Flows",
+    "leftCardDescription": "Interfaces planned around real user actions and business goals.",
+    "rightCardValue": "UX",
+    "rightCardLabel": "Driven Design",
+    "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784366569/fillip/uploads/mpn3r4ootnvak3fttohm.png",
+    "imageAlt": "App UI UX design"
+  },
+  "content:page.ticket-booking.offer": {
+    "eyebrow": "What We Offer",
+    "title": "Our Ticketing Solutions",
+    "description": "Fillip Technologies is a leading Ticket Booking Development Company offering smart, secure, and customized ticketing solutions for seamless booking and efficient business management.",
+    "panelTitle": "End-to-end platform",
+    "panelSubtitle": "Built for live operational control",
+    "decorImage": "/images/ticket-booking-What.png",
+    "panelItem1": "Slot Booking",
+    "panelItem2": "Payment Gateway Integration",
+    "panelItem3": "Reporting and Analytics",
+    "panelItem4": "Admin Dashboard",
+    "panelItem5": "Capacity Management",
+    "solutions": [
+      {
+        "title": "Online Ticket Booking",
+        "body": "Responsive booking journeys with categories, visitor details, add-ons, secure payments and instant digital ticket delivery."
+      },
+      {
+        "title": "Counter Ticketing",
+        "body": "Fast operator screens for walk-in sales, receipt printing, payment modes, shift reports and synchronized inventory."
+      },
+      {
+        "title": "QR Based Entry Validation",
+        "body": "Signed QR codes, scan logs, duplicate-entry prevention and gate-level visibility for smooth visitor movement."
+      },
+      {
+        "title": "Visitor Management",
+        "body": "Structured visitor profiles, group bookings, category rules and role-based workflows for operations teams."
+      }
+    ]
+  },
+  "content:page.ticket-booking.capabilities": {
+    "eyebrow": "Key Capabilities",
+    "title": "A connected platform for booking, operations and reporting.",
+    "description": "Our ticket booking solution integrates reservations, payments, verification, analytics, and administration into one smart platform for seamless, efficient operations.",
+    "blocks": [
+      {
+        "title": "Booking experiences that reduce friction",
+        "lead": "Visitors can choose tickets, dates, slots and payment methods without confusion.",
+        "body": "We design booking journeys for clarity, speed and trust, including responsive layouts, dynamic pricing, add-ons, refund logic and automated ticket delivery.",
+        "points": "Mobile-first booking, Category rules, Secure checkout, SMS and email delivery"
+      },
+      {
+        "title": "Unified counter and online operations",
+        "lead": "Offline ticket sales stay connected to the same inventory and reporting system.",
+        "body": "Counter teams get practical screens for fast sales, payment collection, receipt printing, shift close and supervisor review.",
+        "points": "Counter POS, Printer support, Shift reconciliation, Unified inventory"
+      },
+      {
+        "title": "Entry control and capacity intelligence",
+        "lead": "Every entry can be validated, tracked and reported in real time.",
+        "body": "Gate teams can scan QR tickets, prevent duplicate use, monitor capacity and keep operations moving during high-footfall periods.",
+        "points": "Signed QR codes, Duplicate prevention, Gate scan logs, Live capacity"
+      }
+    ]
+  },
+  "content:page.ticket-booking.howitworks": {
+    "eyebrow": "How It Works",
+    "title": "From operational planning to a reliable live platform.",
+    "description": "With extensive experience as a ticket booking development company, Fillip Technologies turns your idea into a highly scalable and efficient ticket booking system through a well-organized process of development.",
+    "decorImage": "/images/How-we-work.png",
+    "steps": [
+      {
+        "t": "Discovery and Workflow Mapping",
+        "d": "We understand visitor journeys, ticket categories, permissions, pricing, approval paths and operational constraints."
+      },
+      {
+        "t": "UX and Platform Architecture",
+        "d": "We define booking screens, counter flows, admin roles, data models, integrations and reporting requirements."
+      },
+      {
+        "t": "Development and Integration",
+        "d": "We build the booking portal, counter POS, QR validation, dashboards, payment gateway and notification layer."
+      },
+      {
+        "t": "Testing and Launch",
+        "d": "We validate payments, load behavior, security, scan flows, reports and staff readiness before production rollout."
+      },
+      {
+        "t": "Support and Optimization",
+        "d": "We provide training, maintenance, monitoring and feature improvements as your operations evolve."
+      }
+    ]
+  },
+  "content:page.ticket-booking.industries": {
+    "eyebrow": "Industries We Serve",
+    "title": "Ticketing systems for venues, institutions and high-footfall experiences.",
+    "description": "Fillip Technologies develops scalable ticket booking systems for events, travel, education, museums, parks, and attractions with seamless booking, payments, and operations.",
+    "itemCaption": "Booking - Validation - Reporting",
+    "items": [
+      {
+        "t": "Tourism Attractions"
+      },
+      {
+        "t": "Safari and Nature Parks"
+      },
+      {
+        "t": "Museums"
+      },
+      {
+        "t": "Heritage Sites"
+      },
+      {
+        "t": "Events and Exhibitions"
+      },
+      {
+        "t": "Government Venues"
+      },
+      {
+        "t": "Theme Parks"
+      },
+      {
+        "t": "Cultural Centers"
+      },
+      {
+        "t": "Organizations"
+      }
+    ]
+  },
+  "content:page.ticket-booking.whychoose": {
+    "eyebrow": "Why Choose Fillip Technologies",
+    "title": "Built for organizations that need reliable ticketing operations.",
+    "description": "As the best Ticket Booking Development Company, we build customized, scalable, and user-friendly ticket booking solutions that simplify operations, enhance customer experience, and support business growth.",
+    "decorImage": "/images/tckt-why.png",
+    "pillars": [
+      {
+        "t": "Technology partner mindset",
+        "d": "We help shape the platform around your business goals, staff workflows and visitor expectations."
+      },
+      {
+        "t": "Scalable architecture",
+        "d": "Platforms are engineered for traffic spikes, high transaction volume and long-term feature growth."
+      },
+      {
+        "t": "Secure implementation",
+        "d": "Payment integrations, signed QR tickets, role-based access, audit trails and hardened APIs are planned from the start."
+      },
+      {
+        "t": "Custom workflows",
+        "d": "We model your ticket rules, slots, counters, capacity limits, approvals and reporting needs instead of forcing generic behavior."
+      },
+      {
+        "t": "Clean user experience",
+        "d": "Visitors, counter staff, gate teams and administrators get interfaces designed for speed and confidence."
+      },
+      {
+        "t": "Long-term support",
+        "d": "We stay involved after launch with monitoring, maintenance, training and ongoing platform improvements."
+      }
+    ]
+  },
+  "content:page.ticket-booking.dashboard": {
+    "eyebrow": "Dashboard Showcase",
+    "title": "A sample platform view built by Fillip Technologies.",
+    "description": "Our smart dashboards provide real-time insights into Ticket Sales, Revenue Reports, Visitor Analytics, Capacity Monitoring, Entry Validation, and Peak Visitor Tracking for efficient business management.",
+    "image": "/images/analytics-dashboard.jpg",
+    "items": [
+      {
+        "t": "Ticket Sales"
+      },
+      {
+        "t": "Revenue Reports"
+      },
+      {
+        "t": "Visitor Analytics"
+      },
+      {
+        "t": "Capacity Monitoring"
+      },
+      {
+        "t": "Entry Validation"
+      },
+      {
+        "t": "Peak Visitor Tracking"
+      }
+    ]
+  },
+  "content:servicepage.logo-designing.hero": {
+    "badge": "Premium Design Studio",
+    "headingLine1": "Logo",
+    "headingLine2": "Designing",
+    "descriptionLead": "We craft distinctive, scalable logos and brand marks that make your business",
+    "descriptionHighlight": "instantly recognisable.",
+    "primaryCtaLabel": "Start Your Project",
+    "primaryCtaHref": "#estimate",
+    "secondaryCtaLabel": "View Our Work",
+    "secondaryCtaHref": "#services",
+    "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784371519/fillip/uploads/xwq43xx3l3znleemgmyg.png",
+    "imageAlt": "Creative Experience Design",
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": "12+",
+        "label": "Design Awards"
+      },
+      {
+        "value": "13yrs",
+        "label": "Industry Experience"
+      }
+    ]
+  },
+  "content:whatwedo.challenges-we-solve.menuLinks": {
+    "items": [
+      {
+        "label": "Healthcare — Increase in Patient Leads",
+        "href": "/case-studies/healthcare-increase-in-patient-leads"
+      },
+      {
+        "label": "E-Commerce — Revenue Growth",
+        "href": "/case-studies/e-commerce-revenue-growth"
+      },
+      {
+        "label": "Real Estate — Qualified Leads",
+        "href": "/case-studies/real-estate-qualified-leads"
+      },
+      {
+        "label": "Education — Enrollment Growth",
+        "href": "/case-studies/education-enrollment-growth"
+      },
+      {
+        "label": "FinTech — Faster Customer Acquisition",
+        "href": "/case-studies/fintech-faster-customer-acquisition"
+      }
+    ]
+  },
+  "content:page.careers.roles": {
+    "eyebrow": "Open positions",
+    "heading": "Find your next role.",
+    "description": "We look for curious people who care about craft, communication and meaningful outcomes.",
+    "note": "Do not see the perfect role? Select General application below and tell us how you can contribute.",
+    "roles": []
   },
   "industries:all": [
     {
@@ -5307,42 +5904,6 @@
       "urlPrefix": "/marketing"
     },
     {
-      "slug": "website-not-generating-leads",
-      "title": "My Website Doesn't Generate Leads",
-      "template": "challenges",
-      "categorySlug": "challenges-we-solve",
-      "published": true,
-      "sortOrder": 50,
-      "urlPrefix": "/challenges"
-    },
-    {
-      "slug": "generate-quality-leads",
-      "title": "I Struggle to Generate Quality Leads",
-      "template": "challenges",
-      "categorySlug": "challenges-we-solve",
-      "published": true,
-      "sortOrder": 51,
-      "urlPrefix": "/challenges"
-    },
-    {
-      "slug": "not-ranking-on-google",
-      "title": "My Business Isn't Ranking on Google",
-      "template": "challenges",
-      "categorySlug": "challenges-we-solve",
-      "published": true,
-      "sortOrder": 52,
-      "urlPrefix": "/challenges"
-    },
-    {
-      "slug": "low-organic-traffic",
-      "title": "I Have Low Organic Traffic",
-      "template": "challenges",
-      "categorySlug": "challenges-we-solve",
-      "published": true,
-      "sortOrder": 53,
-      "urlPrefix": "/challenges"
-    },
-    {
       "slug": "security-surveillance",
       "title": "Security Surveillance",
       "template": "hardware-solution",
@@ -5469,10 +6030,6 @@
     "youtube-ads-campaign",
     "whatsapp-ads-campaign",
     "lead-generation-campaigns",
-    "website-not-generating-leads",
-    "generate-quality-leads",
-    "not-ranking-on-google",
-    "low-organic-traffic",
     "security-surveillance",
     "fiber-optic-connectivity",
     "local-area-network",
@@ -5520,10 +6077,6 @@
     "/marketing/youtube-ads-campaign",
     "/marketing/whatsapp-ads-campaign",
     "/marketing/lead-generation-campaigns",
-    "/challenges/website-not-generating-leads",
-    "/challenges/generate-quality-leads",
-    "/challenges/not-ranking-on-google",
-    "/challenges/low-organic-traffic",
     "/hardware-solutions/security-surveillance",
     "/hardware-solutions/fiber-optic-connectivity",
     "/hardware-solutions/local-area-network",
@@ -5849,42 +6402,6 @@
     "published": true,
     "sortOrder": 47,
     "urlPrefix": "/marketing"
-  },
-  "servicepage:website-not-generating-leads": {
-    "slug": "website-not-generating-leads",
-    "title": "My Website Doesn't Generate Leads",
-    "template": "challenges",
-    "categorySlug": "challenges-we-solve",
-    "published": true,
-    "sortOrder": 50,
-    "urlPrefix": "/challenges"
-  },
-  "servicepage:generate-quality-leads": {
-    "slug": "generate-quality-leads",
-    "title": "I Struggle to Generate Quality Leads",
-    "template": "challenges",
-    "categorySlug": "challenges-we-solve",
-    "published": true,
-    "sortOrder": 51,
-    "urlPrefix": "/challenges"
-  },
-  "servicepage:not-ranking-on-google": {
-    "slug": "not-ranking-on-google",
-    "title": "My Business Isn't Ranking on Google",
-    "template": "challenges",
-    "categorySlug": "challenges-we-solve",
-    "published": true,
-    "sortOrder": 52,
-    "urlPrefix": "/challenges"
-  },
-  "servicepage:low-organic-traffic": {
-    "slug": "low-organic-traffic",
-    "title": "I Have Low Organic Traffic",
-    "template": "challenges",
-    "categorySlug": "challenges-we-solve",
-    "published": true,
-    "sortOrder": 53,
-    "urlPrefix": "/challenges"
   },
   "servicepage:security-surveillance": {
     "slug": "security-surveillance",

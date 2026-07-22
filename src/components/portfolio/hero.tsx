@@ -50,7 +50,7 @@ const projects = [
     category: "It Industry"
   },
   {
-    src: "/images/patna-zoo-portal.png",
+    src: "/images/web-img.png",
     alt: "Patna Zoo",
     title: "Patna Zoo",
     category: "Government Industry"
