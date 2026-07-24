@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import HardwareQuoteModalButton from "./HardwareQuoteModalButton";
 import type { SecurityPriorityContent } from "./content";
 
 const fadeUp = {
@@ -81,13 +81,11 @@ export default function SecurityPriority({ content }: { content: SecurityPriorit
               variants={fadeUp}
               className="mt-8 flex items-center gap-3"
             >
-              <Link
-                href="/contact"
+              <HardwareQuoteModalButton
+                label="Get Quote"
                 className="group inline-flex items-center gap-3 rounded-full bg-[#071126] px-6 py-4 text-sm font-bold text-white shadow-[0_18px_38px_rgba(2,8,23,0.18)] transition-all duration-300 hover:-translate-y-1 hover:bg-sky-700 hover:shadow-[0_24px_48px_rgba(14,165,233,0.22)]"
-              >
-                {content.ctaLabel}
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+                iconClassName="size-4 transition-transform duration-300 group-hover:translate-x-1"
+              />
 
               <div className="flex items-center gap-2">
                 <button
@@ -145,15 +143,11 @@ export default function SecurityPriority({ content }: { content: SecurityPriorit
                           {card.description}
                         </p>
 
-                        <Link
-                          href="/contact"
+                        <HardwareQuoteModalButton
+                          label="Get Quote"
                           className="mt-7 flex items-center justify-between text-sm font-bold text-slate-950 transition-colors duration-300 hover:text-sky-700"
-                        >
-                          <span>{content.ctaLabel}</span>
-                          <span className="flex size-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300">
-                            <ArrowRight className="size-4" />
-                          </span>
-                        </Link>
+                          iconClassName="size-4"
+                        />
                       </div>
                     </article>
                   );

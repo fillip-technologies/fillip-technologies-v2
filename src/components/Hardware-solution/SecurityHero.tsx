@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import HardwareQuoteModalButton from "./HardwareQuoteModalButton";
 import type { SecurityHeroContent } from "./content";
 
 const fadeUp = {
@@ -70,21 +71,19 @@ export default function SecurityHero({ content }: { content: SecurityHeroContent
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="mt-9 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start"
               >
-                <button
-                  type="button"
+                <a
+                  href="tel:+917257930444"
                   className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#061329]/85 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,8,23,0.35)] ring-1 ring-white/10 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-sky-500/20 hover:ring-sky-300/40 hover:shadow-[0_24px_60px_rgba(56,189,248,0.22)] sm:w-auto"
                 >
-                  {content.primaryCtaLabel}
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                  <span>Call Now +91 7257930444</span>
+                  <Phone className="size-4 transition-transform duration-300 group-hover:scale-110" />
+                </a>
 
-                <button
-                  type="button"
+                <HardwareQuoteModalButton
+                  label="Get Quote"
                   className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-white/15 bg-white/10 px-7 py-4 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,8,23,0.22)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/45 hover:bg-white/15 hover:shadow-[0_22px_55px_rgba(14,165,233,0.18)] sm:w-auto"
-                >
-                  {content.secondaryCtaLabel}
-                  <PlayCircle className="size-5 transition-transform duration-300 group-hover:scale-110" />
-                </button>
+                  iconClassName="size-5 transition-transform duration-300 group-hover:scale-110"
+                />
               </motion.div>
             </motion.div>
           </div>

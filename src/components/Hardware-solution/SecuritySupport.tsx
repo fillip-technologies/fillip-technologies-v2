@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import HardwareQuoteModalButton from "./HardwareQuoteModalButton";
 import type { SecuritySupportContent } from "./content";
 
 const containerVariants: Variants = {
@@ -85,13 +84,11 @@ export default function SecuritySupport({ content }: { content: SecuritySupportC
                   {solution.description}
                 </p>
 
-                <Link
-                  href="/contact"
+                <HardwareQuoteModalButton
+                  label="Get Quote"
                   className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition-colors duration-300 hover:text-sky-700"
-                >
-                  {content.ctaLabel}
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                  iconClassName="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                />
               </div>
             </motion.article>
           ))}
