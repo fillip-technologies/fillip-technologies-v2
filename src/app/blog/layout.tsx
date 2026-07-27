@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import ChatbotWidget from "@/components/chat/ChatbotWidget";
+import { JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
 
 export default function BlogLayout({
   children,
@@ -9,6 +10,7 @@ export default function BlogLayout({
 }) {
   return (
     <>
+      <JsonLdScript data={siteJsonLd()} />
       <Navbar />
       {children}
       <Footer />

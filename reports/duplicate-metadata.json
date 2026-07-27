@@ -1,0 +1,64 @@
+{
+  "titles": [
+    {
+      "key": "lead generation service in guwahati | fillip technologies",
+      "count": 2,
+      "records": [
+        {
+          "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
+          "source": "src/data/services/lead-generation/pages/Bhubaneswar.json"
+        },
+        {
+          "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
+          "source": "src/data/services/lead-generation/pages/Guwahati.json"
+        }
+      ]
+    },
+    {
+      "key": "website design company in hyderabad | fillip technologies",
+      "count": 2,
+      "records": [
+        {
+          "path": "/website-design-company-in-hyderabad",
+          "source": "src/data/services/website-design/pages/hyderabad.json"
+        },
+        {
+          "path": "/website-design-company-in-hydreabad",
+          "source": "src/data/services/website-design/pages/hydreabad.json"
+        }
+      ]
+    }
+  ],
+  "descriptions": [
+    {
+      "key": "lead generation services in guwahati designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
+      "count": 2,
+      "records": [
+        {
+          "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
+          "source": "src/data/services/lead-generation/pages/Bhubaneswar.json"
+        },
+        {
+          "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
+          "source": "src/data/services/lead-generation/pages/Guwahati.json"
+        }
+      ]
+    }
+  ],
+  "canonicals": [
+    {
+      "key": "https://filliptechnologies.com/lead-generation-service-in-guwahati",
+      "count": 2,
+      "records": [
+        {
+          "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
+          "source": "src/data/services/lead-generation/pages/Bhubaneswar.json"
+        },
+        {
+          "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
+          "source": "src/data/services/lead-generation/pages/Guwahati.json"
+        }
+      ]
+    }
+  ]
+}

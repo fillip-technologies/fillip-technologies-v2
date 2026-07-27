@@ -1,0 +1,42 @@
+[
+  {
+    "file": "src/app/ticket-booking/page.tsx",
+    "src": "/images/ticket-booking-What.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/app/ticket-booking/page.tsx",
+    "src": "/images/How-we-work.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/app/ticket-booking/page.tsx",
+    "src": "/images/tckt-why.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/Our-story/StoryHero.tsx",
+    "src": "/images/our-story-neww.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/Seo/TechnicalSeo/WhyWebsiteIsntRanking.tsx",
+    "src": "/images/background.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/website-development/DevelopmentProcessTimeline.tsx",
+    "src": "/images/4.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/website-development/DevelopmentProcessTimeline.tsx",
+    "src": "/images/process.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/website-development/WhyMostWebsitesUnderperform.tsx",
+    "src": "/images/background.png",
+    "message": "Missing or empty alt text"
+  }
+]

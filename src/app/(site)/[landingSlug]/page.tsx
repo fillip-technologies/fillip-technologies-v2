@@ -5,7 +5,8 @@ import {
   getServiceLandingPage,
   getServiceLandingPageSlugs,
 } from "@/lib/service-content/repository";
-import { buildLandingPageMetadata } from "@/lib/seo/metadata";
+import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/metadata";
+import { buildJsonLdForPage, JsonLdScript } from "@/lib/seo/schema";
 
 type LandingPageProps = {
   params: Promise<{ landingSlug: string }>;
@@ -35,5 +36,10 @@ export default async function ServiceLandingPageRoute({
 
   if (!page) notFound();
 
-  return <ServiceTemplateResolver page={page} />;
+  return (
+    <>
+      <JsonLdScript data={buildJsonLdForPage(serviceLandingToSeoRecord(page))} />
+      <ServiceTemplateResolver page={page} />
+    </>
+  );
 }

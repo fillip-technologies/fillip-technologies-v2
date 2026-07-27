@@ -1,0 +1,9 @@
+[
+  {
+    "severity": "WARNING",
+    "code": "MISSING_BREADCRUMB_SCHEMA",
+    "message": "Missing Breadcrumb schema",
+    "path": "/",
+    "source": "src/app/(site)/page.tsx"
+  }
+]

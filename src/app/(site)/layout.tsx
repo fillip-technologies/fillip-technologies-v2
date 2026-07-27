@@ -3,6 +3,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import ChatbotWidget from "@/components/chat/ChatbotWidget";
 import AnniversaryPopup from "@/components/AnniversaryPopup/AnniversaryPopup";
+import { JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
 
 // Layout for the public marketing site. The admin area and API routes live
 // outside this group, so they don't get the navbar/footer.
@@ -13,6 +14,7 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <JsonLdScript data={siteJsonLd()} />
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-PLLBQ2B299"
         strategy="afterInteractive"

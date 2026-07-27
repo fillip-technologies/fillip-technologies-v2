@@ -2,24 +2,13 @@ import "./globals.css";
 
 import { Geist } from "next/font/google";
 import type { Metadata } from "next";
-import { siteConfig } from "@/config/site";
+import { baseMetadata } from "@/lib/seo/metadata";
 
 const geist = Geist({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  applicationName: siteConfig.name,
-  icons: {
-    icon: [{ url: "/images/fav-icon.png", type: "image/png" }],
-    shortcut: [{ url: "/images/fav-icon.png", type: "image/png" }],
-    apple: [{ url: "/images/fav-icon.png", type: "image/png" }],
-  },
-  openGraph: {
-    siteName: siteConfig.name,
-  },
-};
+export const metadata: Metadata = baseMetadata();
 
 export default function RootLayout({
   children,

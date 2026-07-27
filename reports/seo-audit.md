@@ -1,0 +1,183 @@
+# SEO Audit
+
+Generated: 2026-07-27T07:23:28.373Z
+
+## Summary
+
+- Pages analyzed: 229
+- Errors: 0
+- Warnings: 61
+- Info: 285
+- Broken links: 0
+- Missing alt text: 8
+
+## Errors
+
+- None
+
+## Warnings
+
+- MISSING_OG_IMAGE: /case-studies - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /case-studies - Missing Twitter image
+- MISSING_OG_IMAGE: /compliance - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /compliance - Missing Twitter image
+- MISSING_OG_IMAGE: /contact - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /contact - Missing Twitter image
+- MISSING_OG_IMAGE: /cookies - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /cookies - Missing Twitter image
+- MISSING_OG_IMAGE: /ecommerce-development - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /ecommerce-development - Missing Twitter image
+- MISSING_OG_IMAGE: /get-a-quote/custom - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /get-a-quote/custom - Missing Twitter image
+- MISSING_OG_IMAGE: /get-a-quote - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /get-a-quote - Missing Twitter image
+- MISSING_OG_IMAGE: /get-a-quote/requirement - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /get-a-quote/requirement - Missing Twitter image
+- MISSING_OG_IMAGE: /graphic-designing - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /graphic-designing - Missing Twitter image
+- MISSING_OG_IMAGE: /industries/healthcare-web-design - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /industries/healthcare-web-design - Missing Twitter image
+- MISSING_OG_IMAGE: /messenger - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /messenger - Missing Twitter image
+- MISSING_OG_IMAGE: /mobile-app-development - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /mobile-app-development - Missing Twitter image
+- MISSING_OG_IMAGE: /others/carrer - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /others/carrer - Missing Twitter image
+- MISSING_OG_IMAGE: /our-culture - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /our-culture - Missing Twitter image
+- MISSING_OG_IMAGE: /our-story - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /our-story - Missing Twitter image
+- MISSING_BREADCRUMB_SCHEMA: / - Missing Breadcrumb schema
+- MISSING_OG_IMAGE: /performance-marketing - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /performance-marketing - Missing Twitter image
+- MISSING_OG_IMAGE: /portfolio - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /portfolio - Missing Twitter image
+- MISSING_OG_IMAGE: /privacy-policy - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /privacy-policy - Missing Twitter image
+- MISSING_OG_IMAGE: /security-surveillance - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /security-surveillance - Missing Twitter image
+- MISSING_OG_IMAGE: /services - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /services - Missing Twitter image
+- MISSING_OG_IMAGE: /social-media-marketing - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /social-media-marketing - Missing Twitter image
+- MISSING_OG_IMAGE: /software-development - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /software-development - Missing Twitter image
+- MISSING_OG_IMAGE: /terms - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /terms - Missing Twitter image
+- MISSING_OG_IMAGE: /website-development - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /website-development - Missing Twitter image
+- MISSING_OG_IMAGE: /wordpress-development - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /wordpress-development - Missing Twitter image
+- MISSING_OG_IMAGE: /blog - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /blog - Missing Twitter image
+- MISSING_OG_IMAGE: /sms-communication - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /sms-communication - Missing Twitter image
+- MISSING_OG_IMAGE: /ticket-booking - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /ticket-booking - Missing Twitter image
+- MISSING_OG_IMAGE: /blog/top-leading-logo-designing-company-in-patna - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: /blog/top-leading-logo-designing-company-in-patna - Missing Twitter image
+- DUPLICATE_TITLE: /website-design-company-in-hyderabad - Duplicate meta title: website design company in hyderabad | fillip technologies
+- DUPLICATE_TITLE: /website-design-company-in-hydreabad - Duplicate meta title: website design company in hyderabad | fillip technologies
+
+## Info
+
+- LOW_INTERNAL_LINKS: /ai-agent-development - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /ai-consulting - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /ai-gpt-integration - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /aichatbots - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /business-process-automation - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /workflow-automation - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /digital-marketing-company-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-ahmedabad/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-bangalore/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-bhopal/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-guwahati/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-calicut/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-guwahati/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-indore/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-kolkata/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-[your-city]/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-mohali/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-navi-mumbai/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /lead-generation-services-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-pune/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-raipur/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-ranchi/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-surat/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-bhubaneswar - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-calicut - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-chennai - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-delhi - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-faridabad - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-guwahati - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-hyderabad - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-kolkata - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-lucknow - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-mohali - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-nagpur - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-pune - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-surat - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-thane - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-varanasi - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /mobile-app-development-company-in-victoria - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /google-ads-management - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /lead-generation-campaigns - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /meta-ads-management - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /whatsapp-ads-campaign - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /youtube-ads-campaign - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-ahmedabad - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-bangalore - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /best-seo-company-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-bhubaneswar - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-calicut - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-chandigarh - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-chennai - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-coimbatore - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /competitor-analysis-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-delhi-ncr - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /e-commerce-website-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /educational-website-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /enterprise-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-faridabad - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /finance-website-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-guwahati - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /healthcare-website-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /it-website-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-jaipur - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-kolkata - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /local-seo-company-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /local-seo-packages - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /local-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-mumbai - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-navi-mumbai - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /off-page-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /onpage-seo-packages - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /onpage-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-ranchi - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /real-estate-website-seo - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-audit-services-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-bavaria - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-berlin - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-british-columbia - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-california - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-england - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-geneva - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-goteborg - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-ireland - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-massachusetts - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-new-york - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-north-holland - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-ontario - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-queensland - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-singapore - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-south-holland - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-stockholm - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-texas - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-victoria - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-wales - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-washington - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-company-in-zurich - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /seo-packages - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /shopify-seo - Internal link depth should be reviewed from rendered HTML

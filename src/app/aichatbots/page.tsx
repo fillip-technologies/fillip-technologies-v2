@@ -4,23 +4,26 @@ import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
 import AIAutomationLandingTemplate from "@/components/service-landing/templates/AIAutomationLandingTemplate";
 import { getServiceLandingPage } from "@/lib/service-content/repository";
+import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/metadata";
+import { buildJsonLdForPage, JsonLdScript } from "@/lib/seo/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getServiceLandingPage("aichatbots");
   if (!page) notFound();
 
-  return {
-    title: page.seo.title,
-    description: page.seo.description,
-    alternates: { canonical: page.seo.canonical },
-    openGraph: {
-      title: page.seo.openGraph.title,
-      description: page.seo.openGraph.description,
-      url: page.seo.canonical,
-      images: [{ url: page.seo.openGraph.image }],
-    },
-    robots: page.seo.robots,
-  };
+  return buildLandingPageMetadata(page);
 }
 
-export default async function AIChatbotsPage(){const page=await getServiceLandingPage("aichatbots");if(!page||page.templateKey!=="ai-automation")notFound();return <><Navbar/><AIAutomationLandingTemplate page={page}/><Footer/></>}
+export default async function AIChatbotsPage() {
+  const page = await getServiceLandingPage("aichatbots");
+  if (!page || page.templateKey !== "ai-automation") notFound();
+
+  return (
+    <>
+      <JsonLdScript data={buildJsonLdForPage(serviceLandingToSeoRecord(page))} />
+      <Navbar />
+      <AIAutomationLandingTemplate page={page} />
+      <Footer />
+    </>
+  );
+}

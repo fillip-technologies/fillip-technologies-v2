@@ -11,6 +11,7 @@ import Breadcrumb from "@/components/blog/Breadcrumb";
 import RelatedBlogs from "@/components/blog/RelatedBlogs";
 import ShareButtons from "@/components/blog/ShareButtons";
 import { createBlogJsonLd, createBlogMetadata } from "@/lib/metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 import { getAdjacentBlogs, getAllBlogs, getBlogBySlug, getLatestBlogs, getRelatedBlogs } from "@/lib/blogs";
 
 type BlogPostPageProps = {
@@ -41,7 +42,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLdScript data={jsonLd} />
 
       <main className="bg-background">
         <section className="relative overflow-hidden py-20 lg:py-24">
