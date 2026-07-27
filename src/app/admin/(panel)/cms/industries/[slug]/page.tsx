@@ -34,6 +34,13 @@ export default async function IndustrySectionsList({
 
       <StatusBar slug={slug} published={industry.published} />
 
+      <Link
+        href={`/admin/cms/seo/edit?path=${encodeURIComponent(`/industries/${slug}`)}`}
+        className="mb-6 inline-flex items-center gap-1.5 rounded-md border border-border px-4 py-2 text-sm text-body transition-colors hover:border-primary hover:text-primary"
+      >
+        Edit SEO &amp; metadata →
+      </Link>
+
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
         {INDUSTRY_SECTION_IDS.map((id) => {
           const section = getIndustrySectionSpec(id)!.section;

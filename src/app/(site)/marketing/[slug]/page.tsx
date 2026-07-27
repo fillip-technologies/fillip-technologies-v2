@@ -12,6 +12,8 @@ import {
   getServicePage,
   getServicePageData,
 } from "@/server/content/servicepage-registry";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 // Content is CMS-managed, so render fresh (mirrors the /services pages).
 export const dynamic = "force-dynamic";
@@ -38,7 +40,7 @@ export async function generateMetadata({
   }
 
   const page = await getServicePage(slug);
-  if (page) return { title: `${page.title} | Fillip Technologies` };
+  if (page) return pageMetadata(`/marketing/${slug}`, { title: `${page.title} | Fillip Technologies` });
   return {};
 }
 
@@ -65,16 +67,29 @@ export default async function MarketingSlugPage({
     }
     if (!page.published) notFound(); // drafts are visible only via /preview
 
+    const jsonLd = await pageJsonLd(`/marketing/${slug}`);
+    const schema = jsonLd.length ? <JsonLdScript data={jsonLd} /> : null;
+
     if (page.template === "performance-marketing") {
       const data = (await getServicePageData(
         slug,
         "performance-marketing"
       )) as PerformanceMarketingCmsContent;
-      return <PerformanceMarketingCmsPage data={data} />;
+      return (
+        <>
+          {schema}
+          <PerformanceMarketingCmsPage data={data} />
+        </>
+      );
     }
 
     const data = (await getServicePageData(slug, "marketing")) as MarketingContent;
-    return <MarketingPage data={data} />;
+    return (
+      <>
+        {schema}
+        <MarketingPage data={data} />
+      </>
+    );
   }
 
   const staticData = getMarketingBySlug(slug);

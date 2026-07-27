@@ -15,6 +15,8 @@ import {
   getTicketBookingContent,
   getSmsCommunicationContent,
 } from "@/server/content/solution-page-content";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 // Content is CMS-managed, so render fresh (mirrors the other CMS pages).
 export const dynamic = "force-dynamic";
@@ -49,7 +51,10 @@ export async function generateMetadata({
   if (customMeta[slug]) return customMeta[slug];
   const page = await getServicePage(slug);
   if (page) {
-    return { title: `${page.title} | Fillip Technologies`, alternates: { canonical: `/solutions/${slug}` } };
+    return pageMetadata(`/solutions/${slug}`, {
+      title: `${page.title} | Fillip Technologies`,
+      alternates: { canonical: `/solutions/${slug}` },
+    });
   }
   const staticPage = getBusinessSolutionBySlug(slug);
   if (staticPage) {
@@ -87,7 +92,13 @@ export default async function BusinessSolutionSlugPage({
     if (page.template !== "business-solution") notFound(); // lives under another route
     if (!page.published) notFound(); // drafts are visible only via /preview
     const data = (await getServicePageData(slug, "business-solution")) as HardwareSolutionPageData;
-    return <HardwareSolutionPage data={{ ...data, label: page.title }} />;
+    const jsonLd = await pageJsonLd(`/solutions/${slug}`);
+    return (
+      <>
+        {jsonLd.length ? <JsonLdScript data={jsonLd} /> : null}
+        <HardwareSolutionPage data={{ ...data, label: page.title }} />
+      </>
+    );
   }
 
   const staticData = getBusinessSolutionBySlug(slug);

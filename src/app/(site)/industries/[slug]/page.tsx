@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import IndustryPageView from "@/components/industries/IndustryPageView";
 import { getIndustry } from "@/server/content/industry-registry";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +15,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const industry = await getIndustry(slug);
   if (!industry) return {};
-  return { title: `${industry.label} — Fillip Technologies` };
+  return pageMetadata(`/industries/${slug}`, { title: `${industry.label} — Fillip Technologies` });
 }
 
 export default async function IndustryPage({
@@ -27,5 +29,12 @@ export default async function IndustryPage({
   // drafts via /industries/<slug>/preview (session-gated).
   if (!industry || !industry.published) notFound();
 
-  return <IndustryPageView slug={slug} />;
+  const jsonLd = await pageJsonLd(`/industries/${slug}`);
+
+  return (
+    <>
+      {jsonLd.length ? <JsonLdScript data={jsonLd} /> : null}
+      <IndustryPageView slug={slug} />
+    </>
+  );
 }

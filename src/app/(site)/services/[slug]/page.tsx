@@ -6,6 +6,8 @@ import {
   getServicePage,
   getServicePageData,
 } from "@/server/content/servicepage-registry";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 // Content is CMS-managed, so render fresh (mirrors industries / what-we-do).
 export const dynamic = "force-dynamic";
@@ -17,8 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const page = await getServicePage(slug);
-  if (page) return { title: `${page.title} | Fillip Technologies` };
-  return getServiceBySlug(slug) ? {} : {};
+  if (page) return pageMetadata(`/services/${slug}`, { title: `${page.title} | Fillip Technologies` });
+  return {};
 }
 
 export default async function ServiceSlugPage({
@@ -34,7 +36,13 @@ export default async function ServiceSlugPage({
   if (page) {
     if (page.template !== "service") notFound(); // lives under another route
     if (!page.published) notFound(); // drafts are visible only via /preview
-    return <ServicePage data={(await getServicePageData(slug, "service")) as Service} />;
+    const jsonLd = await pageJsonLd(`/services/${slug}`);
+    return (
+      <>
+        {jsonLd.length ? <JsonLdScript data={jsonLd} /> : null}
+        <ServicePage data={(await getServicePageData(slug, "service")) as Service} />
+      </>
+    );
   }
 
   const staticData = getServiceBySlug(slug);

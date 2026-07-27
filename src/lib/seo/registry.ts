@@ -3,12 +3,14 @@ import "server-only";
 import { siteConfig } from "@/config/site";
 import { getAllBlogs } from "@/lib/blogs";
 import { getServiceLandingPage, getServiceLandingPageSlugs } from "@/lib/service-content/repository";
-import { listPublishedIndustries } from "@/server/content/industry-registry";
-import { getPublishedServiceHrefs } from "@/server/content/servicepage-registry";
-import { listPublishedCategories } from "@/server/content/whatwedo-registry";
+import { listIndustries } from "@/server/content/industry-registry";
+import { listServicePages } from "@/server/content/servicepage-registry";
+import { listCategories } from "@/server/content/whatwedo-registry";
+import { getAllSeoOverrides, getSeoOverride } from "@/server/content/seo-overrides";
 import { normalizePath } from "./urls";
+import { mergeSeoOverride } from "./page-seo";
 import { serviceLandingToSeoRecord } from "./metadata";
-import type { SeoPageRecord } from "./types";
+import type { SeoPageRecord, SeoPageStatus } from "./types";
 
 const staticPages: SeoPageRecord[] = [
   {
@@ -77,7 +79,11 @@ function staticRecord(
   };
 }
 
-export async function getSeoPageRecords(): Promise<SeoPageRecord[]> {
+/**
+ * The hardcoded/synthesized records for every page (static + landing + blog +
+ * CMS), before any admin SEO override is applied. This is the *fallback* layer.
+ */
+async function buildBaseRecords(): Promise<SeoPageRecord[]> {
   const records: SeoPageRecord[] = [...staticPages];
 
   await Promise.all([
@@ -87,6 +93,34 @@ export async function getSeoPageRecords(): Promise<SeoPageRecord[]> {
   ]);
 
   return dedupeRecords(records).sort((a, b) => a.path.localeCompare(b.path));
+}
+
+/**
+ * Every page's resolved SEO record: the hardcoded fallback with any admin-saved
+ * override merged over it field-by-field. Used by the sitemap (filtered by
+ * `isIndexable`), the SEO audit, the admin list, and publish validation.
+ */
+export async function getSeoPageRecords(): Promise<SeoPageRecord[]> {
+  const [base, overrides] = await Promise.all([buildBaseRecords(), getAllSeoOverrides()]);
+  return base.map((record) => {
+    const override = overrides.get(normalizePath(record.path));
+    return override ? mergeSeoOverride(record, override) : record;
+  });
+}
+
+/** The base (fallback) record for one path — no override applied. */
+export async function getBaseSeoRecordForPath(path: string): Promise<SeoPageRecord | undefined> {
+  const target = normalizePath(path);
+  return (await buildBaseRecords()).find((record) => normalizePath(record.path) === target);
+}
+
+/** The resolved record for one path — fallback with its override merged in. */
+export async function getResolvedSeoRecord(path: string): Promise<SeoPageRecord | undefined> {
+  const target = normalizePath(path);
+  const base = await getBaseSeoRecordForPath(target);
+  if (!base) return undefined;
+  const override = await getSeoOverride(target);
+  return override ? mergeSeoOverride(base, override) : base;
 }
 
 export function getStaticSeoPageRecords(): SeoPageRecord[] {
@@ -130,31 +164,38 @@ function addBlogPages(records: SeoPageRecord[]) {
   }
 }
 
+// CMS pages are enumerated in full (drafts included) with their real status
+// derived from the `published` flag. Drafts/archived carry a non-"published"
+// status, so `isIndexable` keeps them out of the sitemap while the admin editor
+// and publish validation can still see them.
+const cmsStatus = (published: boolean): SeoPageStatus => (published ? "published" : "draft");
+
 async function addCmsPages(records: SeoPageRecord[]) {
-  const [serviceHrefs, industries, whatWeDoCategories] = await Promise.all([
-    getPublishedServiceHrefs(),
-    listPublishedIndustries(),
-    listPublishedCategories("whatwedo"),
+  const [servicePages, industries, whatWeDoCategories] = await Promise.all([
+    listServicePages(),
+    listIndustries(),
+    listCategories("whatwedo"),
   ]);
 
-  for (const href of serviceHrefs) {
-    const slug = href.split("/").filter(Boolean).at(-1) ?? href;
+  for (const page of servicePages) {
+    const href = `${page.urlPrefix}/${page.slug}`;
+    const name = page.title || titleFromSlug(page.slug);
     records.push({
       path: href,
-      slug,
+      slug: page.slug,
       kind: "service",
-      status: "published",
-      title: `${titleFromSlug(slug)} | ${siteConfig.name}`,
-      description: `${titleFromSlug(slug)} services by ${siteConfig.name}.`,
+      status: cmsStatus(page.published),
+      title: `${name} | ${siteConfig.name}`,
+      description: `${name} services by ${siteConfig.name}.`,
       canonical: href,
       robots: { index: true, follow: true },
       openGraph: { image: siteConfig.defaultOpenGraphImage, type: "website" },
-      serviceName: titleFromSlug(slug),
-      h1: titleFromSlug(slug),
+      serviceName: name,
+      h1: name,
       schema: { webpage: true, service: true, breadcrumb: true },
       priority: 0.55,
       changeFrequency: "monthly",
-      source: `cms-service:${slug}`,
+      source: `cms-service:${page.slug}`,
     });
   }
 
@@ -163,7 +204,7 @@ async function addCmsPages(records: SeoPageRecord[]) {
       path: `/industries/${industry.slug}`,
       slug: industry.slug,
       kind: "industry",
-      status: "published",
+      status: cmsStatus(industry.published),
       title: `${industry.label} | ${siteConfig.name}`,
       description: `${industry.label} digital solutions by ${siteConfig.name}.`,
       canonical: `/industries/${industry.slug}`,
@@ -182,7 +223,7 @@ async function addCmsPages(records: SeoPageRecord[]) {
       path: `/what-we-do/${category.slug}`,
       slug: category.slug,
       kind: "category",
-      status: "published",
+      status: cmsStatus(category.published),
       title: `${category.label} | ${siteConfig.name}`,
       description: category.description || `${category.label} services and solutions by ${siteConfig.name}.`,
       canonical: `/what-we-do/${category.slug}`,

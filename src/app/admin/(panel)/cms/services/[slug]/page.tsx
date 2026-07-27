@@ -35,6 +35,13 @@ export default async function ServicePageSectionsList({
 
       <StatusBar slug={slug} published={page.published} urlPrefix={page.urlPrefix} />
 
+      <Link
+        href={`/admin/cms/seo/edit?path=${encodeURIComponent(`${page.urlPrefix}/${slug}`)}`}
+        className="mb-6 inline-flex items-center gap-1.5 rounded-md border border-border px-4 py-2 text-sm text-body transition-colors hover:border-primary hover:text-primary"
+      >
+        Edit SEO &amp; metadata →
+      </Link>
+
       <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border">
         {schema.sectionIds.map((id) => {
           const section = schema.getSpec(id)!.section;

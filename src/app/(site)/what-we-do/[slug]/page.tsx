@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import CategoryPageView from "@/components/whatwedo/CategoryPageView";
 import { getCategory } from "@/server/content/whatwedo-registry";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +19,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const category = await getCategory(slug);
   if (!category) return {};
-  return { title: `${category.label} — Fillip Technologies` };
+  return pageMetadata(`/what-we-do/${slug}`, { title: `${category.label} — Fillip Technologies` });
 }
 
 export default async function WhatWeDoCategoryPage({
@@ -33,5 +35,12 @@ export default async function WhatWeDoCategoryPage({
   // drafts via /what-we-do/<slug>/preview (session-gated).
   if (!category || !category.published) notFound();
 
-  return <CategoryPageView slug={slug} />;
+  const jsonLd = await pageJsonLd(`/what-we-do/${slug}`);
+
+  return (
+    <>
+      {jsonLd.length ? <JsonLdScript data={jsonLd} /> : null}
+      <CategoryPageView slug={slug} />
+    </>
+  );
 }

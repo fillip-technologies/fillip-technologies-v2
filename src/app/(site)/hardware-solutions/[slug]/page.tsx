@@ -7,6 +7,8 @@ import {
   getServicePageData,
 } from "@/server/content/servicepage-registry";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 // Content is CMS-managed, so render fresh (mirrors the other CMS pages).
 export const dynamic = "force-dynamic";
@@ -26,7 +28,10 @@ export async function generateMetadata({
   }
   const page = await getServicePage(slug);
   if (page) {
-    return { title: `${page.title} | Fillip Technologies`, alternates: { canonical: `/hardware-solutions/${slug}` } };
+    return pageMetadata(`/hardware-solutions/${slug}`, {
+      title: `${page.title} | Fillip Technologies`,
+      alternates: { canonical: `/hardware-solutions/${slug}` },
+    });
   }
   return {};
 }
@@ -49,9 +54,11 @@ export default async function HardwareSolutionSlugPage({
     "hardware-solution"
   )) as unknown as SecuritySurveillanceContent;
   const testimonialItems = await getGlobalTestimonials();
+  const jsonLd = await pageJsonLd(`/hardware-solutions/${slug}`);
 
   return (
     <main className="overflow-hidden bg-background text-heading">
+      {jsonLd.length ? <JsonLdScript data={jsonLd} /> : null}
       <SecuritySurveillance content={content} testimonialItems={testimonialItems} />
     </main>
   );

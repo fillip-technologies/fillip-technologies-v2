@@ -7,6 +7,7 @@ import {
 } from "@/lib/service-content/repository";
 import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/metadata";
 import { buildJsonLdForPage, JsonLdScript } from "@/lib/seo/schema";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 
 type LandingPageProps = {
   params: Promise<{ landingSlug: string }>;
@@ -25,7 +26,7 @@ export async function generateMetadata({
 
   if (!page) notFound();
 
-  return buildLandingPageMetadata(page);
+  return pageMetadata(page.seo.canonical, buildLandingPageMetadata(page));
 }
 
 export default async function ServiceLandingPageRoute({
@@ -36,9 +37,12 @@ export default async function ServiceLandingPageRoute({
 
   if (!page) notFound();
 
+  const resolved = await pageJsonLd(page.seo.canonical);
+  const jsonLd = resolved.length ? resolved : buildJsonLdForPage(serviceLandingToSeoRecord(page));
+
   return (
     <>
-      <JsonLdScript data={buildJsonLdForPage(serviceLandingToSeoRecord(page))} />
+      <JsonLdScript data={jsonLd} />
       <ServiceTemplateResolver page={page} />
     </>
   );

@@ -88,6 +88,17 @@ async function main() {
     if (row?.key) snapshot[`content:${row.key}`] = row.data ?? {};
   }
 
+  // -- per-page SEO overrides (site_content key `seo:<path>`) -----------------
+  // Mirror of getSeoOverride/getAllSeoOverrides cache keys in seo-overrides.ts.
+  const seoRows = contentRows.filter((r) => typeof r?.key === "string" && r.key.startsWith("seo:/"));
+  const allOverrides = [];
+  for (const row of seoRows) {
+    const seoPath = row.key.slice("seo:".length);
+    snapshot[`seo-override:${seoPath}`] = row.data ?? null;
+    allOverrides.push({ path: seoPath, data: row.data ?? null });
+  }
+  snapshot["seo-overrides:all"] = allOverrides;
+
   // -- industries ------------------------------------------------------------
   const industries = (await db.collection("industries").find({}).sort({ sort_order: 1, slug: 1 }).toArray())
     .map(toIndustry);

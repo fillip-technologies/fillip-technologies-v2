@@ -9,6 +9,8 @@ import {
   getServicePage,
   getServicePageData,
 } from "@/server/content/servicepage-registry";
+import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
+import { JsonLdScript } from "@/lib/seo/schema";
 
 // Content is CMS-managed, so render fresh (mirrors the /services pages).
 export const dynamic = "force-dynamic";
@@ -20,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const page = await getServicePage(slug);
-  if (page) return { title: `${page.title} | Fillip Technologies` };
+  if (page) return pageMetadata(`/design/${slug}`, { title: `${page.title} | Fillip Technologies` });
   return {};
 }
 
@@ -39,12 +41,24 @@ export default async function CreativeDesignSlugPage({
       notFound(); // lives under another route
     }
     if (!page.published) notFound(); // drafts are visible only via /preview
+    const jsonLd = await pageJsonLd(`/design/${slug}`);
+    const schema = jsonLd.length ? <JsonLdScript data={jsonLd} /> : null;
     if (page.template === "creative-experience") {
       const data = (await getServicePageData(slug, "creative-experience")) as unknown as GraphicDesigningContent;
-      return <CreativeExperiencePage data={data} />;
+      return (
+        <>
+          {schema}
+          <CreativeExperiencePage data={data} />
+        </>
+      );
     }
     const data = (await getServicePageData(slug, "creative-design")) as CreativeDesignContent;
-    return <CreativeDesignPage data={data} />;
+    return (
+      <>
+        {schema}
+        <CreativeDesignPage data={data} />
+      </>
+    );
   }
 
   const staticData = getCreativeDesignBySlug(slug);

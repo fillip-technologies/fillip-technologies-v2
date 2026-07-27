@@ -68,6 +68,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         icon: FileText,
         accent: "cyan",
       },
+      {
+        href: "/admin/cms/seo",
+        label: "Site SEO",
+        description: "Meta, Open Graph, Twitter, canonical, robots, schema and sitemap for every page.",
+        icon: Search,
+        accent: "emerald",
+      },
     ],
   },
   {
