@@ -3,6 +3,7 @@ import { z } from "zod";
 import { randomBytes } from "node:crypto";
 import { careerApplicationSchema } from "@/server/careers/schema";
 import { insertLead } from "@/server/contact/queries";
+import { CAREER_SOURCE } from "@/server/contact/lead-sources";
 import { parseClientLocation } from "@/server/contact/schema";
 import { resolveLeadLocation } from "@/server/contact/geo";
 import { sendLeadNotification, type MailAttachment } from "@/server/contact/notify";
@@ -131,9 +132,12 @@ export async function POST(request: Request) {
       company: "",
       budget: "",
       message: summary,
-      source: "Careers Application",
+      source: CAREER_SOURCE,
       location,
       packageCategory: "Careers",
+      resume: resumeUrl
+        ? { url: resumeUrl, filename: resume.name || `resume.${ext}`, type: resume.type }
+        : null,
     });
 
     // Notify the team with the resume attached. Best-effort: the lead is saved,

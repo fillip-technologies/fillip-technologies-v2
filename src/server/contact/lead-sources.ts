@@ -1,6 +1,9 @@
 // Framework-neutral (no server-only) so both the mailer and the admin UI can
 // import it. Maps a raw lead `source` string to a human category + label.
 
+/** The `source` value stored on leads created from the careers application form. */
+export const CAREER_SOURCE = "Careers Application";
+
 /** Human labels for known lead sources; anything else is a generic contact lead. */
 export const SOURCE_LABELS: Record<string, string> = {
   "get-a-quote-requirement": "Quote Requirement",
@@ -64,4 +67,15 @@ export const LEAD_STATUS_VALUES: readonly string[] = LEAD_STATUSES.map((s) => s.
 
 export function labelForStatus(status: string): string {
   return LEAD_STATUSES.find((s) => s.value === status)?.label ?? status;
+}
+
+/**
+ * Older career leads stored the resume link inside the message text as a
+ * "Resume: <url>" line. Pull it out so those pre-existing applications still get
+ * a working link before the structured `resume` field existed.
+ */
+export function resumeUrlFromMessage(message: string | null | undefined): string | null {
+  if (!message) return null;
+  const match = message.match(/Resume:\s*(https?:\/\/\S+)/i);
+  return match ? match[1] : null;
 }

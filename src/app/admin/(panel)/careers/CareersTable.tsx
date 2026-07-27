@@ -1,24 +1,65 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
-import { Mail, MapPin, Satellite, Globe, ExternalLink, Trash2, Package as PackageIcon } from "lucide-react";
-import type { Lead } from "@/server/contact/queries";
-import { categoryForSource, labelForSource, LEAD_STATUSES } from "@/server/contact/lead-sources";
+import {
+  Mail,
+  MapPin,
+  ExternalLink,
+  FileText,
+  Eye,
+  Download,
+  Trash2,
+  Link as LinkIcon,
+} from "lucide-react";
+import type { Lead, LeadResume } from "@/server/contact/queries";
+import { LEAD_STATUSES, resumeUrlFromMessage } from "@/server/contact/lead-sources";
 import { trashLeadAction, updateLeadStatusAction } from "@/server/contact/lead-actions";
-import ConfirmButton from "./ConfirmButton";
+import ConfirmButton from "../ConfirmButton";
+
+/** The structured fields the careers form folds into the lead `message`. */
+type Application = {
+  role: string;
+  experience: string;
+  linkedIn: string;
+  portfolio: string;
+  note: string;
+};
 
 /**
- * A lead's category tags. Leads from the quote flow are categorised by the
- * package(s) the client selected; everything else falls back to the broad,
- * source-based category. A lead can belong to several package categories.
+ * Recover the application fields the careers API packs into the lead message so
+ * we can show them as their own columns instead of one blob of text.
  */
-function leadCategoryTags(lead: Lead): string[] {
-  if (lead.packageCategory) {
-    const tags = lead.packageCategory.split(",").map((s) => s.trim()).filter(Boolean);
-    if (tags.length) return tags;
-  }
-  return [categoryForSource(lead.source)];
+// Header lines the careers API prepends before the applicant's free-text note.
+const KNOWN_LINE = /^(Job application for|Experience|LinkedIn|Portfolio|Resume)\s*:/i;
+
+function parseApplication(message: string): Application {
+  const line = (label: string) => {
+    const m = message.match(new RegExp(`^${label}:\\s*(.+)$`, "im"));
+    return m ? m[1].trim() : "";
+  };
+  // The note is whatever remains once the structured header lines are removed.
+  const note = message
+    .split("\n")
+    .filter((l) => !KNOWN_LINE.test(l.trim()))
+    .join("\n")
+    .trim();
+  return {
+    role: line("Job application for"),
+    experience: line("Experience"),
+    linkedIn: line("LinkedIn"),
+    portfolio: line("Portfolio"),
+    note: note && note !== "(No message provided.)" ? note : "",
+  };
+}
+
+/** The resume for a lead — the structured field, or the legacy message link. */
+function resumeFor(lead: Lead): LeadResume | null {
+  if (lead.resume?.url) return lead.resume;
+  const url = resumeUrlFromMessage(lead.message);
+  if (!url) return null;
+  const filename = decodeURIComponent(url.split("/").pop() || "resume");
+  return { url, filename, type: "" };
 }
 
 /** A Google Maps link for a lead's location (coords preferred, else the label). */
@@ -31,78 +72,45 @@ function mapsUrl(loc: Lead["location"]): string | null {
   return null;
 }
 
-export default function LeadsTable({ leads }: { leads: Lead[] }) {
-  const [filter, setFilter] = useState<string>("all");
+export default function CareersTable({ leads }: { leads: Lead[] }) {
   const [activeLead, setActiveLead] = useState<Lead | null>(null);
   const [deleted, setDeleted] = useState<Set<string>>(new Set());
 
   // Hide optimistically-removed rows; revalidation drops them for good.
-  const visibleLeads = useMemo(() => leads.filter((l) => !deleted.has(l.id)), [leads, deleted]);
+  const rows = leads.filter((l) => !deleted.has(l.id));
   const remove = (id: string) => {
     setDeleted((prev) => new Set(prev).add(id));
     setActiveLead((cur) => (cur?.id === id ? null : cur));
   };
 
-  // Tally leads per category tag (package-aware).
-  const counts = useMemo(() => {
-    const map = new Map<string, number>();
-    for (const lead of visibleLeads) {
-      for (const tag of leadCategoryTags(lead)) map.set(tag, (map.get(tag) ?? 0) + 1);
-    }
-    return map;
-  }, [visibleLeads]);
-
-  // Most-common categories first, then alphabetical.
-  const categories = useMemo(
-    () => [...counts.keys()].sort((a, b) => (counts.get(b)! - counts.get(a)!) || a.localeCompare(b)),
-    [counts]
-  );
-
-  const filtered = useMemo(
-    () =>
-      filter === "all"
-        ? visibleLeads
-        : visibleLeads.filter((l) => leadCategoryTags(l).includes(filter)),
-    [visibleLeads, filter]
-  );
+  if (rows.length === 0) {
+    return (
+      <p className="rounded-md border border-border bg-card p-6 text-center text-muted-foreground">
+        No applications in this view.
+      </p>
+    );
+  }
 
   return (
     <>
-      <div className="mb-4 flex flex-wrap items-center gap-2">
-        <FilterButton label="All" count={visibleLeads.length} active={filter === "all"} onClick={() => setFilter("all")} />
-        {categories.map((cat) => (
-          <FilterButton
-            key={cat}
-            label={cat}
-            count={counts.get(cat) ?? 0}
-            active={filter === cat}
-            onClick={() => setFilter(cat)}
-          />
-        ))}
-      </div>
-
-      {filtered.length === 0 ? (
-        <p className="rounded-md border border-border bg-card p-6 text-center text-muted-foreground">
-          No leads in this category.
-        </p>
-      ) : (
-        <div className="overflow-x-auto rounded-lg border border-border">
-          <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr className="border-b border-border bg-card text-left text-muted-foreground">
-                <Th>Received</Th>
-                <Th>Category</Th>
-                <Th>Contact</Th>
-                <Th>Package</Th>
-                <Th>Budget</Th>
-                <Th>Location</Th>
-                <Th>Message</Th>
-                <Th>Status</Th>
-                <Th>Actions</Th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((lead) => (
+      <div className="overflow-x-auto rounded-lg border border-border">
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="border-b border-border bg-card text-left text-muted-foreground">
+              <Th>Received</Th>
+              <Th>Applicant</Th>
+              <Th>Role</Th>
+              <Th>Experience</Th>
+              <Th>Resume</Th>
+              <Th>Status</Th>
+              <Th>Actions</Th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((lead) => {
+              const app = parseApplication(lead.message);
+              const resume = resumeFor(lead);
+              return (
                 <tr
                   key={lead.id}
                   className="cursor-pointer border-b border-border/60 align-top transition-colors hover:bg-card"
@@ -110,16 +118,6 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
                 >
                   <Td className="whitespace-nowrap text-muted-foreground">
                     <ReceivedAt iso={lead.created_at} />
-                  </Td>
-                  <Td className="whitespace-nowrap">
-                    <div className="flex flex-wrap gap-1">
-                      {leadCategoryTags(lead).map((tag) => (
-                        <span key={tag} className="rounded-full border border-border px-2 py-0.5 text-xs">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="mt-1 text-xs text-muted-foreground">{labelForSource(lead.source)}</p>
                   </Td>
                   <Td>
                     <p className="font-medium text-heading">{lead.name}</p>
@@ -139,28 +137,11 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
                         {lead.phone}
                       </a>
                     ) : null}
-                    {lead.company ? <p className="text-xs text-muted-foreground">{lead.company}</p> : null}
                   </Td>
-                  <Td className="max-w-[12rem]">
-                    {lead.packageCategory ? (
-                      <span className="inline-flex items-center gap-1 text-heading">
-                        <PackageIcon size={13} className="shrink-0 text-muted-foreground" />
-                        {lead.packageCategory}
-                      </span>
-                    ) : (
-                      "—"
-                    )}
-                  </Td>
-                  <Td className="whitespace-nowrap">{lead.budget ?? "—"}</Td>
-                  <Td className="max-w-[13rem]">
-                    <LocationCell location={lead.location} />
-                  </Td>
-                  <Td className="max-w-xs">
-                    {lead.message ? (
-                      <span className="line-clamp-2 text-heading">{lead.message}</span>
-                    ) : (
-                      "—"
-                    )}
+                  <Td className="max-w-[14rem] text-heading">{app.role || "—"}</Td>
+                  <Td className="whitespace-nowrap text-heading">{app.experience || "—"}</Td>
+                  <Td>
+                    <ResumeActions leadId={lead.id} resume={resume} />
                   </Td>
                   <Td>
                     <StatusSelect lead={lead} />
@@ -169,14 +150,14 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
                     <TrashButton leadId={lead.id} onDone={() => remove(lead.id)} />
                   </Td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
 
       {activeLead && (
-        <LeadDetailModal
+        <ApplicationModal
           lead={activeLead}
           onClose={() => setActiveLead(null)}
           onDeleted={() => remove(activeLead.id)}
@@ -186,7 +167,7 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
   );
 }
 
-/** Moves a lead to the Bin after an in-app confirmation. */
+/** Moves an application to the Bin after an in-app confirmation. */
 function TrashButton({ leadId, onDone }: { leadId: string; onDone: () => void }) {
   return (
     <ConfirmButton
@@ -194,7 +175,7 @@ function TrashButton({ leadId, onDone }: { leadId: string; onDone: () => void })
       icon={<Trash2 size={13} />}
       variant="danger"
       title="Move to Bin?"
-      message="This lead will be moved to the Bin. You can restore it or delete it permanently from there."
+      message="This application will be moved to the Bin. You can restore it or delete it permanently from there."
       confirmLabel="Move to Bin"
       action={() => trashLeadAction(leadId)}
       onDone={onDone}
@@ -202,34 +183,39 @@ function TrashButton({ leadId, onDone }: { leadId: string; onDone: () => void })
   );
 }
 
-/** Compact location display for the table cell. */
-function LocationCell({ location }: { location: Lead["location"] }) {
-  if (!location) return <span className="text-muted-foreground">—</span>;
-  const url = mapsUrl(location);
-  const Icon = location.source === "gps" ? Satellite : Globe;
-  const inner = (
-    <span className="inline-flex items-start gap-1 text-heading">
-      <Icon size={13} className="mt-0.5 shrink-0 text-muted-foreground" />
-      <span>
-        {location.label || "Unknown"}
-        <span className="ml-1 text-[10px] uppercase tracking-wide text-muted-foreground">
-          {location.source}
-        </span>
-      </span>
-    </span>
-  );
-  return url ? (
-    <a href={url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:text-primary hover:underline">
-      {inner}
-    </a>
-  ) : (
-    inner
+/**
+ * View / Download buttons for a resume (or a dash when there isn't one). Both go
+ * through the admin proxy route (`/api/admin/resume`) so the file is served
+ * behind auth with the correct inline/attachment disposition.
+ */
+function ResumeActions({ leadId, resume }: { leadId: string; resume: LeadResume | null }) {
+  if (!resume) return <span className="text-muted-foreground">—</span>;
+  const href = (mode: "view" | "download") =>
+    `/api/admin/resume?leadId=${encodeURIComponent(leadId)}&mode=${mode}`;
+  return (
+    <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+      <a
+        href={href("view")}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={resume.filename || "View resume"}
+        className="inline-flex items-center gap-1 rounded-md border border-border bg-card px-2 py-1 text-xs font-medium text-heading hover:bg-muted"
+      >
+        <Eye size={13} /> View
+      </a>
+      <a
+        href={href("download")}
+        title="Download resume"
+        className="inline-flex items-center gap-1 rounded-md bg-primary px-2 py-1 text-xs font-medium text-primary-foreground hover:opacity-90"
+      >
+        <Download size={13} /> Download
+      </a>
+    </div>
   );
 }
 
-// Rich detail modal — shows every field we hold on a lead. Closes on backdrop
-// click or Escape.
-function LeadDetailModal({
+// Rich detail modal — the full application. Closes on backdrop click or Escape.
+function ApplicationModal({
   lead,
   onClose,
   onDeleted,
@@ -250,6 +236,8 @@ function LeadDetailModal({
     };
   }, [onClose]);
 
+  const app = parseApplication(lead.message);
+  const resume = resumeFor(lead);
   const loc = lead.location;
   const url = mapsUrl(loc);
 
@@ -268,7 +256,7 @@ function LeadDetailModal({
           <div>
             <h2 className="text-base font-semibold text-heading">{lead.name}</h2>
             <p className="text-xs text-muted-foreground">
-              {labelForSource(lead.source)} · <ReceivedAt iso={lead.created_at} />
+              Job Application · <ReceivedAt iso={lead.created_at} />
             </p>
           </div>
           <button
@@ -296,12 +284,50 @@ function LeadDetailModal({
               </a>
             </Row>
           )}
-          {lead.company && <Row label="Company">{lead.company}</Row>}
-          {lead.packageCategory && <Row label="Package">{lead.packageCategory}</Row>}
-          {lead.budget && <Row label="Budget">{lead.budget}</Row>}
-          <Row label="Category">{leadCategoryTags(lead).join(", ")}</Row>
+          {app.role && <Row label="Role">{app.role}</Row>}
+          {app.experience && <Row label="Experience">{app.experience}</Row>}
+          {app.linkedIn && (
+            <Row label="LinkedIn">
+              <a
+                href={app.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-primary hover:underline"
+              >
+                <LinkIcon size={13} /> Profile
+              </a>
+            </Row>
+          )}
+          {app.portfolio && (
+            <Row label="Portfolio">
+              <a
+                href={app.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 break-all text-primary hover:underline"
+              >
+                <LinkIcon size={13} /> {app.portfolio}
+              </a>
+            </Row>
+          )}
           <Row label="Status"><StatusSelect lead={lead} /></Row>
         </dl>
+
+        <div className="border-b border-border px-5 py-4">
+          <p className="mb-2 flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            <FileText size={13} /> Resume
+          </p>
+          {resume ? (
+            <>
+              <ResumeActions leadId={lead.id} resume={resume} />
+              {resume.filename && (
+                <p className="mt-2 break-all text-xs text-muted-foreground">{resume.filename}</p>
+              )}
+            </>
+          ) : (
+            <p className="text-sm text-muted-foreground">No resume on file (may be email-only).</p>
+          )}
+        </div>
 
         {loc && (
           <div className="border-b border-border px-5 py-4">
@@ -312,16 +338,6 @@ function LeadDetailModal({
               </span>
             </p>
             <p className="text-sm font-medium text-heading">{loc.label || "Unknown"}</p>
-            <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-xs text-muted-foreground">
-              {typeof loc.lat === "number" && typeof loc.lng === "number" && (
-                <Row label="Coordinates">
-                  {loc.lat.toFixed(5)}, {loc.lng.toFixed(5)}
-                </Row>
-              )}
-              {typeof loc.accuracy === "number" && <Row label="Accuracy">±{Math.round(loc.accuracy)} m</Row>}
-              {loc.ip && <Row label="IP">{loc.ip}</Row>}
-              {loc.isp && <Row label="ISP">{loc.isp}</Row>}
-            </dl>
             {url && (
               <a
                 href={url}
@@ -335,12 +351,16 @@ function LeadDetailModal({
           </div>
         )}
 
-        <div className="px-5 py-4">
-          <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Message</p>
-          <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-heading">
-            {lead.message || "—"}
-          </p>
-        </div>
+        {app.note && (
+          <div className="px-5 py-4">
+            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              Why they want to join
+            </p>
+            <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-heading">
+              {app.note}
+            </p>
+          </div>
+        )}
 
         <div className="flex items-center justify-between border-t border-border px-5 py-3">
           <TrashButton leadId={lead.id} onDone={onDeleted} />
@@ -417,33 +437,6 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
       <dt className="text-muted-foreground">{label}</dt>
       <dd className="break-words text-heading">{children}</dd>
     </>
-  );
-}
-
-function FilterButton({
-  label,
-  count,
-  active,
-  onClick,
-}: {
-  label: string;
-  count: number;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-full border px-3 py-1 text-sm transition-colors ${
-        active
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-border bg-card text-heading hover:bg-muted"
-      }`}
-    >
-      {label}
-      <span className={`ml-1.5 text-xs ${active ? "opacity-90" : "text-muted-foreground"}`}>{count}</span>
-    </button>
   );
 }
 

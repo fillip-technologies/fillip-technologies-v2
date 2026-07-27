@@ -24,13 +24,20 @@ const leadSchema = new Schema(
     // Lead category derived from the package/service the client selected (quote
     // flow). Falls back to source-based categorisation when absent.
     package_category: { type: String, default: null },
+    // Career applications only: the uploaded resume as { url, filename, type }.
+    // Null for every other lead source.
+    resume: { type: Schema.Types.Mixed, default: null },
     status: { type: String, required: true, default: "new" }, // new | contacted | closed
     created_at: { type: Date, required: true, default: Date.now },
+    // Soft-delete timestamp. Null/absent = active; a date = in the Bin (trash),
+    // where it can be restored or permanently deleted.
+    deleted_at: { type: Date, default: null },
   },
   { collection: "leads", versionKey: false }
 );
 leadSchema.index({ created_at: -1 });
 leadSchema.index({ status: 1 });
+leadSchema.index({ deleted_at: 1 });
 
 export type LeadDoc = InferSchemaType<typeof leadSchema>;
 export const LeadModel: Model<LeadDoc> =

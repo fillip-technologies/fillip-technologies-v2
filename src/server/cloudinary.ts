@@ -54,4 +54,54 @@ export async function destroyImage(publicId: string): Promise<boolean> {
   }
 }
 
+/**
+ * Turn a stored Cloudinary delivery URL into an *authenticated* download URL
+ * (the `api.cloudinary.com/.../download` endpoint, signed with our API secret).
+ *
+ * Plain — even signed — delivery URLs return 401 for raw PDF/ZIP files when the
+ * account's default "block PDF/ZIP delivery" security setting is on. The
+ * authenticated download endpoint bypasses that restriction, so admin resume
+ * downloads work without changing any Cloudinary settings.
+ *
+ * Returns the original URL unchanged if it doesn't look like a Cloudinary upload
+ * URL (or if URL generation fails), so the caller can still attempt a plain fetch.
+ */
+export function authenticatedDownloadUrl(url: string): string {
+  // .../<resource_type>/upload/[v1234/]<public_id>  — our resume uploads carry no
+  // transformations, so everything after an optional version segment is the id.
+  // For `raw` assets the public_id keeps its file extension.
+  const match = url.match(/\/(image|raw|video)\/upload\/(?:v\d+\/)?(.+)$/);
+  if (!match) return url;
+  const [, resourceType, publicId] = match;
+  try {
+    return cloudinary.utils.private_download_url(publicId, "", {
+      resource_type: resourceType,
+      type: "upload",
+    });
+  } catch {
+    return url;
+  }
+}
+
+/**
+ * Best-effort deletion of an asset given its stored delivery URL (any resource
+ * type). Used to clean up a career applicant's resume when their lead is
+ * deleted. Never throws — cleanup must not break the caller's main flow.
+ */
+export async function destroyAssetByUrl(url: string): Promise<boolean> {
+  const match = url.match(/\/(image|raw|video)\/upload\/(?:v\d+\/)?(.+)$/);
+  if (!match) return false;
+  const [, resourceType, publicId] = match;
+  try {
+    const res = await cloudinary.uploader.destroy(publicId, {
+      resource_type: resourceType,
+      invalidate: true,
+    });
+    return res.result === "ok" || res.result === "not found";
+  } catch (err) {
+    console.error(`Cloudinary destroy failed for ${publicId}:`, err);
+    return false;
+  }
+}
+
 export { cloudinary };
