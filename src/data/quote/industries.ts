@@ -15,7 +15,6 @@ export type IndustryPackage = {
   name: string;
   price: number; // INR
   billing: Billing;
-  timeline?: string;
   bestFor?: string;
   popular?: boolean;
   features: string[];
@@ -44,9 +43,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "hospital-starter",
         name: "Clinic Presence",
-        price: 25000,
+        price: 30000,
         billing: "one-time",
-        timeline: "1–2 weeks",
         bestFor: "Single clinics establishing an online presence.",
         features: [
           "8–10 page responsive hospital website",
@@ -59,9 +57,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "hospital-growth",
         name: "Hospital Growth",
-        price: 60000,
+        price: 80000,
         billing: "one-time",
-        timeline: "3–5 weeks",
         bestFor: "Growing hospitals needing patient self-service.",
         popular: true,
         features: [
@@ -76,9 +73,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "hospital-enterprise",
         name: "Enterprise HMS",
-        price: 150000,
+        price: 200000,
         billing: "one-time",
-        timeline: "8–12 weeks",
         bestFor: "Multi-specialty hospitals & chains.",
         features: [
           "Everything in Hospital Growth",
@@ -103,9 +99,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "doctor-starter",
         name: "Personal Practice",
-        price: 15000,
+        price: 20000,
         billing: "one-time",
-        timeline: "4–7 days",
         bestFor: "Individual doctors starting online.",
         features: [
           "5–7 page personal practice website",
@@ -118,9 +113,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "doctor-pro",
         name: "Clinic Pro",
-        price: 35000,
+        price: 40000,
         billing: "one-time",
-        timeline: "2–3 weeks",
         bestFor: "Established clinics wanting bookings online.",
         popular: true,
         features: [
@@ -134,9 +128,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "doctor-suite",
         name: "Multi-Doctor Suite",
-        price: 75000,
+        price: 100000,
         billing: "one-time",
-        timeline: "4–6 weeks",
         bestFor: "Clinics with multiple practitioners.",
         features: [
           "Everything in Clinic Pro",
@@ -160,9 +153,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "realestate-starter",
         name: "Agent Starter",
-        price: 18000,
+        price: 20000,
         billing: "one-time",
-        timeline: "1 week",
         bestFor: "Individual agents & brokers.",
         features: [
           "6–8 page agent website",
@@ -175,9 +167,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "realestate-growth",
         name: "Agency Growth",
-        price: 45000,
+        price: 60000,
         billing: "one-time",
-        timeline: "3–4 weeks",
         bestFor: "Agencies with active inventory.",
         popular: true,
         features: [
@@ -191,9 +182,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "realestate-portal",
         name: "Property Portal",
-        price: 120000,
+        price: 160000,
         billing: "one-time",
-        timeline: "8–10 weeks",
         bestFor: "Marketplaces & multi-agent portals.",
         features: [
           "Everything in Agency Growth",
@@ -217,9 +207,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "education-starter",
         name: "Institute Starter",
-        price: 20000,
+        price: 30000,
         billing: "one-time",
-        timeline: "1–2 weeks",
         bestFor: "Schools & coaching centres.",
         features: [
           "8–12 page institute website",
@@ -232,9 +221,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "education-growth",
         name: "Campus Growth",
-        price: 50000,
+        price: 60000,
         billing: "one-time",
-        timeline: "3–5 weeks",
         bestFor: "Institutes taking admissions online.",
         popular: true,
         features: [
@@ -248,9 +236,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "education-lms",
         name: "LMS Enterprise",
-        price: 130000,
+        price: 180000,
         billing: "one-time",
-        timeline: "8–12 weeks",
         bestFor: "EdTech & multi-campus institutions.",
         features: [
           "Everything in Campus Growth",
@@ -274,9 +261,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "ecommerce-starter",
         name: "Store Starter",
-        price: 22000,
+        price: 30000,
         billing: "one-time",
-        timeline: "1–2 weeks",
         bestFor: "Small brands launching online.",
         features: [
           "Up to 50 products",
@@ -289,9 +275,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "ecommerce-growth",
         name: "Growth Store",
-        price: 55000,
+        price: 80000,
         billing: "one-time",
-        timeline: "3–5 weeks",
         bestFor: "Scaling stores with more SKUs.",
         popular: true,
         features: [
@@ -306,9 +291,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "ecommerce-marketplace",
         name: "Marketplace",
-        price: 140000,
+        price: 200000,
         billing: "one-time",
-        timeline: "8–12 weeks",
         bestFor: "Multi-vendor marketplaces.",
         features: [
           "Everything in Growth Store",
@@ -332,9 +316,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "restaurant-starter",
         name: "Cafe Starter",
-        price: 16000,
+        price: 20000,
         billing: "one-time",
-        timeline: "4–7 days",
         bestFor: "Cafes & single outlets.",
         features: [
           "5–7 page restaurant website",
@@ -347,9 +330,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "restaurant-growth",
         name: "Restaurant Growth",
-        price: 40000,
+        price: 60000,
         billing: "one-time",
-        timeline: "2–4 weeks",
         bestFor: "Restaurants wanting direct orders.",
         popular: true,
         features: [
@@ -363,9 +345,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "restaurant-cloud",
         name: "Cloud Kitchen Suite",
-        price: 90000,
+        price: 120000,
         billing: "one-time",
-        timeline: "6–9 weeks",
         bestFor: "Multi-outlet & cloud kitchens.",
         features: [
           "Everything in Restaurant Growth",
@@ -389,9 +370,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "other-starter",
         name: "Starter",
-        price: 15000,
+        price: 20000,
         billing: "one-time",
-        timeline: "4–7 days",
         bestFor: "Small businesses getting online.",
         features: [
           "5–8 page responsive website",
@@ -404,9 +384,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "other-growth",
         name: "Growth",
-        price: 45000,
+        price: 60000,
         billing: "one-time",
-        timeline: "2–4 weeks",
         bestFor: "Businesses needing custom features.",
         popular: true,
         features: [
@@ -421,9 +400,8 @@ export const QUOTE_INDUSTRIES: QuoteIndustry[] = [
       {
         id: "other-enterprise",
         name: "Enterprise",
-        price: 100000,
+        price: 160000,
         billing: "one-time",
-        timeline: "6–10 weeks",
         bestFor: "Complex, scalable systems.",
         features: [
           "Everything in Growth",

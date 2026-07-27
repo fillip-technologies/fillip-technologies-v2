@@ -15,7 +15,6 @@ type Fields = {
   industry: string;
   projectType: string;
   budget: string;
-  timeline: string;
   requirements: string;
 };
 
@@ -27,7 +26,6 @@ type Status =
 
 const PROJECT_TYPES = ["New build", "Redesign", "New feature / module", "Maintenance & support", "Not sure yet"];
 const BUDGETS = ["Under ₹25,000", "₹25,000 – ₹50,000", "₹50,000 – ₹1,00,000", "₹1,00,000 – ₹3,00,000", "₹3,00,000+"];
-const TIMELINES = ["ASAP", "Within 1 month", "1–3 months", "Flexible"];
 
 export default function RequirementForm() {
   const params = useSearchParams();
@@ -42,7 +40,6 @@ export default function RequirementForm() {
     industry: presetIndustry,
     projectType: "",
     budget: "",
-    timeline: "",
     requirements: "",
   });
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -66,7 +63,6 @@ export default function RequirementForm() {
       presetPackage ? `Interested package: ${presetPackage}` : null,
       fields.projectType ? `Project type: ${fields.projectType}` : null,
       fields.budget ? `Budget: ${fields.budget}` : null,
-      fields.timeline ? `Timeline: ${fields.timeline}` : null,
       "",
       "Requirements:",
       fields.requirements.trim(),
@@ -147,12 +143,6 @@ export default function RequirementForm() {
           value={fields.budget}
           onChange={(v) => set("budget", v)}
           options={BUDGETS.map((b) => ({ value: b, label: b }))}
-        />
-        <Select
-          label="Timeline"
-          value={fields.timeline}
-          onChange={(v) => set("timeline", v)}
-          options={TIMELINES.map((t) => ({ value: t, label: t }))}
         />
       </div>
 

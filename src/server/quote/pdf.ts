@@ -247,6 +247,7 @@ function drawCommercials(ctx: Ctx, quote: QuoteResult) {
   ctx.y -= 8;
 
   const gstPct = Math.round(quote.gstRate * 100);
+  const GREEN: RGB = rgb(22 / 255, 163 / 255, 74 / 255);
   const totalsRow = (label: string, value: string, bold = false, color: RGB = INK) => {
     ensureSpace(ctx, 16);
     const font = bold ? ctx.bold : ctx.regular;
@@ -264,12 +265,16 @@ function drawCommercials(ctx: Ctx, quote: QuoteResult) {
 
   if (quote.oneTime.subtotal > 0) {
     totalsRow("One-time subtotal", rs(quote.oneTime.subtotal));
+    if (quote.oneTime.discount > 0)
+      totalsRow("Launch discount", "- " + rs(quote.oneTime.discount), false, GREEN);
     if (quote.gstRate > 0) totalsRow(`GST (${gstPct}%)`, rs(quote.oneTime.gst));
     totalsRow("One-time total", rs(quote.oneTime.total), true, NAVY);
   }
   if (quote.monthly.subtotal > 0) {
     if (quote.oneTime.subtotal > 0) ctx.y -= 4;
     totalsRow("Monthly subtotal", rs(quote.monthly.subtotal) + "/mo");
+    if (quote.monthly.discount > 0)
+      totalsRow("Launch discount", "- " + rs(quote.monthly.discount) + "/mo", false, GREEN);
     if (quote.gstRate > 0) totalsRow(`GST (${gstPct}%)`, rs(quote.monthly.gst) + "/mo");
     totalsRow("Monthly total (recurring)", rs(quote.monthly.total) + "/mo", true, NAVY);
   }
@@ -349,9 +354,6 @@ export async function generateQuotePdf(
       color: BLUE,
     });
     ctx.y -= 18;
-    if (pkg.timeline) {
-      drawParagraph(ctx, `Timeline: ${pkg.timeline}`, { size: 9, color: MUTED });
-    }
     for (const group of pkg.featureGroups) {
       ensureSpace(ctx, 16);
       ctx.page.drawText(group.title, { x: MARGIN, y: ctx.y - 11, size: 9.5, font: ctx.bold, color: NAVY });

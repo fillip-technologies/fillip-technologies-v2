@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { QUOTE_INDUSTRIES } from "@/data/quote/industries";
 import { IndustryIcon } from "@/components/quote/industryIcons";
-import { formatINR } from "@/lib/quote";
+import { discountedPrice, formatINR, tierDiscount } from "@/lib/quote";
 
 export const metadata: Metadata = {
   title: "Custom Quotes by Industry | Fillip Technologies",
@@ -29,11 +29,14 @@ export default function CustomOverviewPage() {
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {QUOTE_INDUSTRIES.map((ind) => {
-          const from = Math.min(...ind.packages.map((p) => p.price));
+          // Cheapest tier-discounted price across this industry's packages.
+          const cheapest = ind.packages
+            .map((p, i) => ({ list: p.price, net: discountedPrice(p.price, tierDiscount(i)) }))
+            .reduce((a, b) => (b.net < a.net ? b : a));
           return (
             <Link
               key={ind.slug}
-              href="/contact"
+              href={`/get-a-quote/custom/${ind.slug}`}
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
             >
               <span className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -56,7 +59,8 @@ export default function CustomOverviewPage() {
 
               <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
                 <span className="text-sm text-body">
-                  From <span className="font-bold text-heading">{formatINR(from)}</span>
+                  From <span className="font-bold text-heading">{formatINR(cheapest.net)}</span>{" "}
+                  <span className="text-xs font-medium text-body/60 line-through">{formatINR(cheapest.list)}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
                   View packages

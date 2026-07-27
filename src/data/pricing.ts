@@ -5,12 +5,11 @@ export type Billing = "one-time" | "monthly";
 export type Package = {
   id: string;
   name: string;
-
+ 
   tagline?: string;
   price: number; // INR
   billing: Billing;
 
-  timeline?: string;
   bestFor?: string;
 
   featureGroups: { title: string; items: string[] }[];
@@ -39,7 +38,7 @@ export type ServiceCategory = {
 export const COMPANY = {
   name: "Fillip Technologies Pvt Ltd",
   tagline: "Human × Intelligence",
-  email: "support@filliptechnologies.com",
+  email: "myselfgovind116@gmail.com",
   phone: "",
   website: "fillip-technologies",
   /** Shown in the PDF footer. */
@@ -66,9 +65,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         id: "website-basic",
         name: "Basic Package",
         tagline: "The Starter",
-        price: 10000,
+        price: 16000,
         billing: "one-time",
-        timeline: "3 days",
         bestFor: "Individuals, Startups, and Small Businesses.",
         featureGroups: [
           {
@@ -98,9 +96,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         id: "website-standard",
         name: "Standard Package",
         tagline: "The Professional",
-        price: 25000,
+        price: 40000,
         billing: "one-time",
-        timeline: "7 days",
         bestFor: "Established businesses looking for a dynamic presence.",
         featureGroups: [
           {
@@ -133,9 +130,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         id: "website-premium",
         name: "Premium Package",
         tagline: "The Enterprise",
-        price: 75000,
+        price: 120000,
         billing: "one-time",
-        timeline: "15 days",
         bestFor: "E-commerce stores and high-scale corporate portals.",
         featureGroups: [
           {
@@ -163,12 +159,12 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     // TODO(client): replace with your real website add-ons + prices.
     addOns: [
-      { id: "website-extra-pages", name: "Extra Page", price: 1000, billing: "one-time", unit: "page", maxQuantity: 50 },
-      { id: "website-logo", name: "Logo Design", price: 3000, billing: "one-time" },
-      { id: "website-multilingual", name: "Multilingual Support", price: 8000, billing: "one-time" },
-      { id: "website-payment-gateway", name: "Payment Gateway Integration", price: 6000, billing: "one-time" },
-      { id: "website-amc", name: "Annual Maintenance (AMC)", price: 2000, billing: "monthly" },
-      { id: "website-hosting", name: "Hosting & Domain Setup", price: 4000, billing: "one-time" },
+      { id: "website-extra-pages", name: "Extra Page", price: 1200, billing: "one-time", unit: "page", maxQuantity: 50 },
+      { id: "website-logo", name: "Logo Design", price: 4000, billing: "one-time" },
+      { id: "website-multilingual", name: "Multilingual Support", price: 12000, billing: "one-time" },
+      { id: "website-payment-gateway", name: "Payment Gateway Integration", price: 8000, billing: "one-time" },
+      { id: "website-amc", name: "Annual Maintenance (AMC)", price: 2400, billing: "monthly" },
+      { id: "website-hosting", name: "Hosting & Domain Setup", price: 6000, billing: "one-time" },
     ],
   },
   {
@@ -179,9 +175,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         id: "seo-basic",
         name: "Basic SEO",
-        price: 8000,
+        price: 12000,
         billing: "monthly",
-        timeline: "Per month",
         bestFor: "10–15 Target Keywords.",
         featureGroups: [
           {
@@ -199,9 +194,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         id: "seo-advanced",
         name: "Advanced SEO",
-        price: 18000,
+        price: 28000,
         billing: "monthly",
-        timeline: "Per month",
         bestFor: "20–30 Target Keywords.",
         featureGroups: [
           {
@@ -219,8 +213,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     // TODO(client): replace with your real SEO add-ons + prices.
     addOns: [
-      { id: "seo-extra-blogs", name: "Extra Blog Posts (per 4)", price: 3000, billing: "monthly" },
-      { id: "seo-extra-keywords", name: "Extra Keywords (per 10)", price: 2500, billing: "monthly" },
+      { id: "seo-extra-blogs", name: "Extra Blog Posts (per 4)", price: 4000, billing: "monthly" },
+      { id: "seo-extra-keywords", name: "Extra Keywords (per 10)", price: 3200, billing: "monthly" },
     ],
   },
   {
@@ -231,9 +225,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         id: "smm-growth",
         name: "Growth Package",
-        price: 10000,
+        price: 16000,
         billing: "monthly",
-        timeline: "Per month",
         bestFor: "Facebook & Instagram.",
         featureGroups: [
           {
@@ -250,9 +243,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         id: "smm-dominance",
         name: "Dominance Package",
-        price: 16000,
+        price: 24000,
         billing: "monthly",
-        timeline: "Per month",
         bestFor: "Facebook, Instagram, and LinkedIn/Twitter.",
         featureGroups: [
           {
@@ -269,8 +261,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     // TODO(client): replace with your real SMM add-ons + prices.
     addOns: [
-      { id: "smm-extra-reels", name: "Extra Reels (per 4)", price: 4000, billing: "monthly" },
-      { id: "smm-influencer", name: "Influencer Outreach", price: 6000, billing: "monthly" },
+      { id: "smm-extra-reels", name: "Extra Reels (per 4)", price: 6000, billing: "monthly" },
+      { id: "smm-influencer", name: "Influencer Outreach", price: 8000, billing: "monthly" },
     ],
   },
   {
@@ -281,9 +273,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         id: "performance-pro",
         name: "Professional Ads Management",
-        price: 16000,
+        price: 24000,
         billing: "monthly",
-        timeline: "Per month",
         bestFor: "Google Ads (Search/Display) + Meta Ads.",
         featureGroups: [
           {
@@ -303,14 +294,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "software",
     name: "Software & App Solutions",
-    description: "Building the backbone of your digital infrastructure. Timeline: 20–25 days.",
+    description: "Building the backbone of your digital infrastructure.",
     packages: [
       {
         id: "software-erp",
         name: "Custom ERP/CRM",
-        price: 120000,
+        price: 200000,
         billing: "one-time",
-        timeline: "20–25 days",
         bestFor: "Businesses needing automated internal workflows.",
         featureGroups: [
           {
@@ -326,9 +316,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         id: "software-mobile-app",
         name: "Mobile Applications",
-        price: 275000,
+        price: 400000,
         billing: "one-time",
-        timeline: "20–25 days",
         bestFor: "Native Android and iOS products.",
         featureGroups: [
           {
@@ -344,8 +333,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     // TODO(client): replace with your real software/app add-ons + prices.
     addOns: [
-      { id: "software-admin-dashboard", name: "Admin Dashboard", price: 30000, billing: "one-time" },
-      { id: "software-app-maintenance", name: "App Maintenance & Support", price: 8000, billing: "monthly" },
+      { id: "software-admin-dashboard", name: "Admin Dashboard", price: 40000, billing: "one-time" },
+      { id: "software-app-maintenance", name: "App Maintenance & Support", price: 12000, billing: "monthly" },
     ],
   },
 ];

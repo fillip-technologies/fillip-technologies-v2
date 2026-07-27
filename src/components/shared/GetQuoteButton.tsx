@@ -8,7 +8,7 @@ type GetQuoteButtonProps = {
 };
 
 export default function GetQuoteButton({
-  href = "/contact",
+  href = "/get-a-quote",
   label = "Get a Quote",
   className = "",
 }: GetQuoteButtonProps) {

@@ -3,8 +3,11 @@
 import { captureClientLocation } from "@/lib/capture-location";
 
 import { useMemo, useState } from "react";
+import { Check } from "lucide-react";
 import { SERVICE_CATEGORIES } from "@/data/pricing";
-import { calculateQuote, formatINR, type QuoteSelection } from "@/lib/quote";
+import { calculateQuote, discountedPrice, formatINR, tierDiscount, type QuoteSelection } from "@/lib/quote";
+import { DetailIcon } from "./quoteDetailIcons";
+import { CATEGORY_ICONS } from "@/data/quote/detail";
 
 type Picked = { packageId: string; addOns: { id: string; quantity: number }[] };
 type Selections = Record<string, Picked>;
@@ -102,77 +105,107 @@ export default function QuoteCalculator() {
   const fieldErrors = status.kind === "error" ? status.fieldErrors : undefined;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
-      {/* Left: service selection */}
-      <div className="space-y-10">
-        {SERVICE_CATEGORIES.map((category, index) => {
+    <div className="space-y-16">
+      {/* Step 1 — choose services */}
+      <div>
+        <StepHeader
+          n="1"
+          title="Choose your services"
+          subtitle="Tick the packages you need and skip the rest — your estimate builds automatically as you go."
+        />
+
+        <div className="mt-8 space-y-12">
+        {SERVICE_CATEGORIES.map((category) => {
           const picked = selections[category.id];
           return (
             <section key={category.id} className="scroll-mt-24">
               <div className="flex items-center gap-3">
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-                  {index + 1}
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] text-white shadow-sm shadow-primary/20">
+                  <DetailIcon name={CATEGORY_ICONS[category.id] ?? "LayoutGrid"} className="h-5 w-5" />
                 </span>
-                <h2 className="text-2xl font-bold tracking-tight text-heading">{category.name}</h2>
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight text-heading">{category.name}</h3>
+                  <p className="text-sm text-body">{category.description}</p>
+                </div>
               </div>
-              <p className="mt-2 text-sm text-body">{category.description}</p>
 
               <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {category.packages.map((pkg) => {
+                {category.packages.map((pkg, pIndex) => {
                   const active = picked?.packageId === pkg.id;
+                  const featured = category.packages.length === 3 && pIndex === 1;
+                  const rate = tierDiscount(pIndex);
                   return (
                     <button
                       key={pkg.id}
                       type="button"
                       onClick={() => choosePackage(category.id, pkg.id)}
                       aria-pressed={active}
-                      className={`flex h-full flex-col rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5 ${
+                      className={`group relative flex h-full flex-col rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5 ${
                         active
-                          ? "border-primary bg-primary/5 ring-2 ring-primary/25 shadow-sm"
+                          ? "border-primary bg-primary/5 ring-2 ring-primary/30 shadow-sm"
                           : "border-border bg-card hover:border-primary/50 hover:shadow-sm"
                       }`}
                     >
-                      <div className="flex items-start justify-between gap-2">
-                        <div>
-                          <div className="font-semibold text-heading">{pkg.name}</div>
-                          {pkg.tagline ? (
-                            <div className="text-xs text-body">{pkg.tagline}</div>
-                          ) : null}
-                        </div>
-                        <span
-                          className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border text-[10px] ${
-                            active ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                          }`}
-                          aria-hidden
-                        >
-                          {active ? "✓" : ""}
+                      {featured ? (
+                        <span className="absolute -top-2.5 right-4 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                          Popular
+                        </span>
+                      ) : null}
+
+                      <div className="font-bold text-heading">{pkg.name}</div>
+                      {pkg.tagline ? <div className="text-xs text-body">{pkg.tagline}</div> : null}
+
+                      <div className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                        <span className="text-2xl font-extrabold tracking-tight text-heading">
+                          {formatINR(discountedPrice(pkg.price, rate))}
+                        </span>
+                        <span className="text-sm font-medium text-body/60 line-through">
+                          {formatINR(pkg.price)}
+                        </span>
+                        <span className="text-xs font-medium text-body">
+                          {pkg.billing === "monthly" ? "/mo" : "one-time"}
+                        </span>
+                        <span className="rounded-full bg-green-500/10 px-1.5 py-0.5 text-[10px] font-bold text-green-600">
+                          {Math.round(rate * 100)}% OFF
                         </span>
                       </div>
-
-                      <div className="mt-3 text-xl font-bold text-primary">
-                        {formatINR(pkg.price)}
-                        {pkg.billing === "monthly" ? (
-                          <span className="text-sm font-medium text-body">/mo</span>
-                        ) : null}
-                      </div>
-                      {pkg.timeline ? (
-                        <div className="mt-1 text-xs text-body">Timeline: {pkg.timeline}</div>
-                      ) : null}
                       {pkg.bestFor ? (
-                        <div className="mt-2 text-xs text-body">Best for: {pkg.bestFor}</div>
+                        <div className="mt-2 text-xs text-body">✓ Best for {pkg.bestFor}</div>
                       ) : null}
 
-                      <ul className="mt-3 space-y-1 border-t border-border pt-3">
-                        {pkg.featureGroups
-                          .flatMap((g) => g.items)
-                          .slice(0, 5)
-                          .map((item) => (
-                            <li key={item} className="flex gap-2 text-xs text-body">
-                              <span className="text-primary">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                      </ul>
+                      <div className="mt-4 space-y-3 border-t border-border pt-4">
+                        {pkg.featureGroups.map((group) => (
+                          <div key={group.title}>
+                            <div className="text-[11px] font-bold uppercase tracking-wide text-primary">
+                              {group.title}
+                            </div>
+                            <ul className="mt-1.5 space-y-1">
+                              {group.items.map((item) => (
+                                <li key={item} className="flex gap-2 text-xs text-body">
+                                  <Check className="mt-0.5 size-3 flex-none text-primary" strokeWidth={3} />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div
+                        className={`mt-5 flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
+                          active
+                            ? "bg-primary text-primary-foreground"
+                            : "border border-border text-heading group-hover:border-primary/50 group-hover:text-primary"
+                        }`}
+                      >
+                        {active ? (
+                          <>
+                            <Check className="size-4" strokeWidth={3} /> Selected
+                          </>
+                        ) : (
+                          "Select this package"
+                        )}
+                      </div>
                     </button>
                   );
                 })}
@@ -249,117 +282,165 @@ export default function QuoteCalculator() {
             </section>
           );
         })}
+        </div>
       </div>
 
-      {/* Right: sticky summary + contact form */}
-      <aside className="lg:sticky lg:top-24 lg:self-start">
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-2xl border border-border bg-card p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
-        >
-          <div className="flex items-center justify-between border-b border-border pb-4">
-            <h3 className="text-lg font-bold text-heading">Your estimate</h3>
-            <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
-              {quote.items.length} selected
+      {/* Step 2 — request the estimate by email */}
+      <form
+        id="get-estimate"
+        onSubmit={handleSubmit}
+        className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)] sm:p-10"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 rounded-full blur-[110px]"
+          style={{ background: "var(--glow-primary)" }}
+        />
+        <div className="relative grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          {/* Pitch + total recap */}
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold text-primary">
+              <span className="flex size-4 items-center justify-center rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-[9px] font-bold text-white">
+                2
+              </span>
+              Free &amp; instant · no obligation
             </span>
-          </div>
-
-          {quote.isEmpty ? (
-            <p className="mt-3 text-sm text-body">
-              Select packages on the left to build your estimate.
+            <h3 className="mt-4 text-2xl font-bold tracking-tight text-heading sm:text-3xl">
+              Get your estimate emailed in seconds
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-body">
+              Drop your details and we&apos;ll send a polished PDF estimate — plus an instant copy to
+              download. No obligation, and every number stays negotiable when we talk.
             </p>
-          ) : (
-            <div className="mt-4 space-y-2">
-              {quote.items.map((item, i) => (
-                <div key={`${item.label}-${i}`} className="flex justify-between gap-3 text-sm">
-                  <span className="text-body">
-                    {item.kind === "addon" ? "↳ " : ""}
-                    {item.label}
-                  </span>
-                  <span className="shrink-0 text-heading">
-                    {formatINR(item.price)}
-                    {item.billing === "monthly" ? "/mo" : ""}
+
+            {quote.isEmpty ? (
+              <p className="mt-5 rounded-xl border border-dashed border-border bg-surface p-4 text-sm text-body">
+                Pick at least one package above and your itemised total will show up here.
+              </p>
+            ) : (
+              <div className="mt-5 rounded-xl border border-border bg-surface p-4 text-sm">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <span className="font-semibold text-heading">Your estimate</span>
+                  <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+                    {quote.items.length} selected
                   </span>
                 </div>
-              ))}
 
-              <div className="mt-3 space-y-1 border-t border-border pt-3 text-sm">
-                {quote.oneTime.subtotal > 0 ? (
-                  <>
-                    <Row label="One-time subtotal" value={formatINR(quote.oneTime.subtotal)} />
-                    {quote.gstRate > 0 ? (
+                <div className="mt-3 space-y-2">
+                  {quote.items.map((item, i) => (
+                    <div key={`${item.label}-${i}`} className="flex justify-between gap-3">
+                      <span className="text-body">
+                        {item.kind === "addon" ? "↳ " : ""}
+                        {item.label}
+                      </span>
+                      <span className="shrink-0 text-heading">
+                        {formatINR(item.price)}
+                        {item.billing === "monthly" ? "/mo" : ""}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-3 space-y-1 border-t border-border pt-3">
+                  {quote.oneTime.subtotal > 0 ? (
+                    <>
+                      <Row label="One-time subtotal" value={formatINR(quote.oneTime.subtotal)} />
                       <Row
-                        label={`GST (${Math.round(quote.gstRate * 100)}%)`}
-                        value={formatINR(quote.oneTime.gst)}
+                        label="Launch discount"
+                        value={`− ${formatINR(quote.oneTime.discount)}`}
+                        discount
                       />
-                    ) : null}
-                    <Row label="One-time total" value={formatINR(quote.oneTime.total)} bold />
-                  </>
-                ) : null}
-                {quote.monthly.subtotal > 0 ? (
-                  <>
-                    <Row label="Monthly subtotal" value={`${formatINR(quote.monthly.subtotal)}/mo`} />
-                    {quote.gstRate > 0 ? (
+                      {quote.gstRate > 0 ? (
+                        <Row
+                          label={`GST (${Math.round(quote.gstRate * 100)}%)`}
+                          value={formatINR(quote.oneTime.gst)}
+                        />
+                      ) : null}
+                      <Row label="One-time total" value={formatINR(quote.oneTime.total)} bold />
+                    </>
+                  ) : null}
+                  {quote.monthly.subtotal > 0 ? (
+                    <>
+                      <Row label="Monthly subtotal" value={`${formatINR(quote.monthly.subtotal)}/mo`} />
                       <Row
-                        label={`GST (${Math.round(quote.gstRate * 100)}%)`}
-                        value={`${formatINR(quote.monthly.gst)}/mo`}
+                        label="Launch discount"
+                        value={`− ${formatINR(quote.monthly.discount)}/mo`}
+                        discount
                       />
-                    ) : null}
-                    <Row label="Monthly total" value={`${formatINR(quote.monthly.total)}/mo`} bold />
-                  </>
-                ) : null}
+                      {quote.gstRate > 0 ? (
+                        <Row
+                          label={`GST (${Math.round(quote.gstRate * 100)}%)`}
+                          value={`${formatINR(quote.monthly.gst)}/mo`}
+                        />
+                      ) : null}
+                      <Row label="Monthly total" value={`${formatINR(quote.monthly.total)}/mo`} bold />
+                    </>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          )}
-
-          <p className="mt-4 rounded-lg bg-primary/5 p-3 text-xs text-body">
-            This is an indicative estimate. Final pricing is negotiable when you visit our office or
-            talk to us on a call.
-          </p>
-
-          {/* Contact fields */}
-          <div className="mt-5 space-y-3">
-            <ContactField
-              label="Name" name="name" value={contact.name}
-              onChange={(v) => setContact((c) => ({ ...c, name: v }))}
-              errors={fieldErrors?.name} required
-            />
-            <ContactField
-              label="Email" name="email" type="email" value={contact.email}
-              onChange={(v) => setContact((c) => ({ ...c, email: v }))}
-              errors={fieldErrors?.email} required
-            />
-            <ContactField
-              label="Phone" name="phone" value={contact.phone}
-              onChange={(v) => setContact((c) => ({ ...c, phone: v }))}
-              errors={fieldErrors?.phone} required
-            />
-            <ContactField
-              label="Company (optional)" name="company" value={contact.company}
-              onChange={(v) => setContact((c) => ({ ...c, company: v }))}
-              errors={fieldErrors?.company}
-            />
+            )}
           </div>
 
-          {status.kind === "error" ? (
-            <p className="mt-3 text-sm text-destructive">{status.message}</p>
-          ) : null}
-          {status.kind === "success" ? (
-            <p className="mt-3 rounded-lg bg-primary/10 p-3 text-sm text-heading">{status.message}</p>
-          ) : null}
+          {/* Contact fields */}
+          <div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <ContactField
+                label="Name" name="name" value={contact.name}
+                onChange={(v) => setContact((c) => ({ ...c, name: v }))}
+                errors={fieldErrors?.name} required
+              />
+              <ContactField
+                label="Email" name="email" type="email" value={contact.email}
+                onChange={(v) => setContact((c) => ({ ...c, email: v }))}
+                errors={fieldErrors?.email} required
+              />
+              <ContactField
+                label="Phone" name="phone" value={contact.phone}
+                onChange={(v) => setContact((c) => ({ ...c, phone: v }))}
+                errors={fieldErrors?.phone} required
+              />
+              <ContactField
+                label="Company (optional)" name="company" value={contact.company}
+                onChange={(v) => setContact((c) => ({ ...c, company: v }))}
+                errors={fieldErrors?.company}
+              />
+            </div>
 
-          <button
-            type="submit"
-            disabled={status.kind === "submitting" || quote.isEmpty}
-            className="mt-5 w-full rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {status.kind === "submitting" ? "Preparing your estimate…" : "Email me the estimate (PDF)"}
-          </button>
-          <p className="mt-2 text-center text-xs text-body">
-            We&apos;ll email you the PDF and download a copy for you instantly.
-          </p>
-        </form>
-      </aside>
+            {status.kind === "error" ? (
+              <p className="mt-3 text-sm text-destructive">{status.message}</p>
+            ) : null}
+            {status.kind === "success" ? (
+              <p className="mt-3 rounded-lg bg-primary/10 p-3 text-sm text-heading">{status.message}</p>
+            ) : null}
+
+            <button
+              type="submit"
+              disabled={status.kind === "submitting" || quote.isEmpty}
+              className="mt-4 w-full rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] px-5 py-3.5 font-semibold text-white shadow-sm transition-all hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {status.kind === "submitting" ? "Preparing your estimate…" : "Email me the estimate (PDF)"}
+            </button>
+            <p className="mt-2 text-center text-xs text-body">
+              We&apos;ll email you the PDF and download a copy for you instantly.
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+function StepHeader({ n, title, subtitle }: { n: string; title: string; subtitle: string }) {
+  return (
+    <div className="flex items-start gap-4">
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] text-base font-bold text-white shadow-sm shadow-primary/20">
+        {n}
+      </span>
+      <div>
+        <div className="text-xs font-bold uppercase tracking-wider text-primary">Step {n}</div>
+        <h2 className="text-2xl font-bold tracking-tight text-heading sm:text-3xl">{title}</h2>
+        <p className="mt-1 max-w-xl text-sm text-body">{subtitle}</p>
+      </div>
     </div>
   );
 }
@@ -406,9 +487,23 @@ function Stepper({
   );
 }
 
-function Row({ label, value, bold }: { label: string; value: string; bold?: boolean }) {
+function Row({
+  label,
+  value,
+  bold,
+  discount,
+}: {
+  label: string;
+  value: string;
+  bold?: boolean;
+  discount?: boolean;
+}) {
   return (
-    <div className={`flex justify-between gap-3 ${bold ? "font-semibold text-heading" : "text-body"}`}>
+    <div
+      className={`flex justify-between gap-3 ${
+        bold ? "font-semibold text-heading" : discount ? "font-medium text-green-600" : "text-body"
+      }`}
+    >
       <span>{label}</span>
       <span>{value}</span>
     </div>
