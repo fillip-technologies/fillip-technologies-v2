@@ -11,7 +11,9 @@
     "seo:audit": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seo-audit.mjs",
     "snapshot": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/snapshot-content.mjs",
     "db:migrate": "node --env-file-if-exists=.env --env-file-if-exists=.env.local src/server/db/migrate.ts",
-    "seed:our-story": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-our-story.mjs"
+    "seed:our-story": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-our-story.mjs",
+    "seed:admin": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs",
+    "seed:admin:delete-all": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs --delete-all"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
