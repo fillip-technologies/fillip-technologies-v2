@@ -31,6 +31,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
   }
 
-  await createSession({ userId: admin.id, email: admin.email });
+  await createSession({ userId: admin.id, email: admin.email, sessionVersion: admin.session_version });
   return NextResponse.json({ ok: true, email: admin.email });
 }

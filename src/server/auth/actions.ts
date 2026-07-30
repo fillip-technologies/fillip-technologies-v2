@@ -35,7 +35,7 @@ export async function login(
     return { error: "Invalid email or password." };
   }
 
-  await createSession({ userId: admin.id, email: admin.email });
+  await createSession({ userId: admin.id, email: admin.email, sessionVersion: admin.session_version });
   redirect("/admin");
 }
 

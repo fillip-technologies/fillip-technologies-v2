@@ -2,6 +2,7 @@ import "server-only";
 
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
+import { getAdminById } from "./queries";
 
 const COOKIE_NAME = "admin_session";
 const MAX_AGE_SECONDS = 7 * 24 * 60 * 60; // 7 days
@@ -9,6 +10,9 @@ const MAX_AGE_SECONDS = 7 * 24 * 60 * 60; // 7 days
 export type SessionPayload = {
   userId: string;
   email: string;
+  // Version the admin's password was at when this session was issued. Compared
+  // against the DB on every getSession() so a password change logs everyone out.
+  sessionVersion: number;
 };
 
 function getKey() {
@@ -31,7 +35,11 @@ export async function decrypt(token?: string): Promise<SessionPayload | null> {
   if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, getKey(), { algorithms: ["HS256"] });
-    return { userId: payload.userId as string, email: payload.email as string };
+    return {
+      userId: payload.userId as string,
+      email: payload.email as string,
+      sessionVersion: (payload.sessionVersion as number) ?? 0,
+    };
   } catch {
     return null;
   }
@@ -59,5 +67,14 @@ export async function destroySession(): Promise<void> {
 /** Read + verify the current session. Safe to call from Server Components. */
 export async function getSession(): Promise<SessionPayload | null> {
   const cookieStore = await cookies();
-  return decrypt(cookieStore.get(COOKIE_NAME)?.value);
+  const session = await decrypt(cookieStore.get(COOKIE_NAME)?.value);
+  if (!session) return null;
+
+  // Re-check the token's version against the admin's current one. If the
+  // password has changed since this token was issued (or the admin no longer
+  // exists), the versions won't match and the session is rejected.
+  const admin = await getAdminById(session.userId);
+  if (!admin || admin.session_version !== session.sessionVersion) return null;
+
+  return session;
 }
