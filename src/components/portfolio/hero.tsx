@@ -1,63 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-const projects = [
-  {
-    src: "/images/portfolio/litera-mockup.png",
-    alt: "Litera Valley School",
-    title: "Litera Valley School",
-    category: "Education Industry"
-  },
-  {
-    src: "/images/portfolio/sita-mockup.png",
-    alt: "Sita Interior",
-    title: "Sita Interior",
-    category: "Architecture Industry "
-  },
-  {
-    src: "/images/portfolio/domus-mockup.png",
-    alt: "Domus Cure",
-    title: "Domus Cure",
-    category: "HealthCare Indsutry"
-  },
-  {
-    src: "/images/portfolio/abhijeet-mockup.png",
-    alt: "Dr Abhijeet Jha",
-    title: "Dr Abhijeet Jha",
-    category: "Dermat"
-  },
-  {
-    src: "/images/portfolio/chaapak-mockup.png",
-    alt: "Chappak Resort",
-    title: "Chappak Resort",
-    category: "Event Planning"
-  },
-  {
-    src: "/images/portfolio/wedding-mockups.png",
-    alt: "Weddings72",
-    title: "Weddings72",
-    category: "Event Planning"
-  },
-  {
-    src: "/images/portfolio/technosys-mockup.png",
-    alt: "Technosys It and Managment",
-    title: "Technosys It and Managment",
-    category: "It Industry"
-  },
-  {
-    src: "/images/web-img.png",
-    alt: "Patna Zoo",
-    title: "Patna Zoo",
-    category: "Government Industry"
-  },
-];
+// CMS-editable content (key: page.portfolio.hero). Falls back to defaults.
+type Project = { image: string; title: string; category: string };
+type PortfolioHeroContent = Partial<{
+  headingLead: string;
+  headingHighlight: string;
+  description: string;
+  projects: Project[];
+}>;
 
-const avatars = ["/images/team/team1.png", "/images/team/team2.png", "/images/team/team1.png", "/images/team/team2.png"];
+// Fallback project cards, used only if the CMS list is empty.
+const DEFAULT_PROJECTS: Project[] = [
+  { image: "/images/portfolio/litera-mockup.png", title: "Litera Valley School", category: "Education Industry" },
+  { image: "/images/portfolio/sita-mockup.png", title: "Sita Interior", category: "Architecture Industry" },
+  { image: "/images/portfolio/domus-mockup.png", title: "Domus Cure", category: "HealthCare Industry" },
+  { image: "/images/portfolio/abhijeet-mockup.png", title: "Dr Abhijeet Jha", category: "Dermatology" },
+  { image: "/images/portfolio/chaapak-mockup.png", title: "Chappak Resort", category: "Event Planning" },
+  { image: "/images/portfolio/wedding-mockups.png", title: "Weddings72", category: "Event Planning" },
+  { image: "/images/portfolio/technosys-mockup.png", title: "Technosys It and Managment", category: "It Industry" },
+  { image: "/images/web-img.png", title: "Patna Zoo", category: "Government Industry" },
+];
 
 const slideVariants: Variants = {
   enter: (direction: number) => ({
@@ -88,13 +55,6 @@ const slideVariants: Variants = {
   })
 };
 
-// CMS-editable content (key: page.portfolio.hero). Falls back to defaults.
-type PortfolioHeroContent = Partial<{
-  headingLead: string;
-  headingHighlight: string;
-  description: string;
-}>;
-
 export default function PortfolioHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
   const content = raw as PortfolioHeroContent;
   const c = {
@@ -104,6 +64,7 @@ export default function PortfolioHero({ content: raw = {} }: { content?: Record<
       content.description ??
       "Explore digital products, platforms and growth experiences built by Fillip Technologies for ambitious businesses and public institutions.",
   };
+  const projects = content.projects?.length ? content.projects : DEFAULT_PROJECTS;
 
   const [[page, direction], setPage] = useState([0, 0]);
 
@@ -185,15 +146,6 @@ export default function PortfolioHero({ content: raw = {} }: { content?: Record<
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 flex flex-col items-center"
         >
-          {/* Badge */}
-          {/* <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/[0.03] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary dark:border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-300">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Fillip Technologies · Selected Work
-          </span> */}
-
           {/* Heading */}
           <h3 className="max-w-4xl text-[clamp(2.4rem,5.5vw,5.2rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-heading">
             {c.headingLead}
@@ -206,36 +158,6 @@ export default function PortfolioHero({ content: raw = {} }: { content?: Record<
           <p className="mt-8 max-w-xl text-base leading-relaxed text-body md:text-lg">
             {c.description}
           </p>
-
-          {/* CTAs */}
-          {/* <div className="mt-9 flex flex-wrap justify-center items-center gap-6">
-            <Link href="#portfolio-work" className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-heading px-7 py-3 text-sm font-semibold text-white shadow-[0_18px_45px_rgba(15,23,42,.16)] transition hover:-translate-y-0.5 hover:bg-primary">
-              View Projects <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link href="/contact" className="group inline-flex items-center gap-3 text-sm font-semibold text-heading">
-              <span className="grid size-11 place-items-center rounded-full border-2 border-heading transition group-hover:border-primary group-hover:bg-primary group-hover:text-white"><Play className="ml-0.5 size-4 fill-current" /></span>
-              Start a Project
-            </Link>
-          </div> */}
-
-          {/* Stats Bar */}
-          {/* <div className="mt-14 flex flex-wrap justify-center items-center gap-12 md:gap-20 border-t border-slate-100 dark:border-slate-800/80 pt-8 w-full max-w-2xl">
-            <div className="text-left">
-              <div className="text-4xl font-extrabold tracking-tight text-heading">100%</div>
-              <p className="mt-1 text-xs text-body max-w-32">Custom-built around every client goal</p>
-            </div>
-            <div className="text-left">
-              <div className="flex -space-x-3">
-                {avatars.map((src, index) => (
-                  <div key={`${src}-${index}`} className="relative size-8 overflow-hidden rounded-full border-2 border-white bg-surface shadow-sm">
-                    <Image src={src} alt="Fillip team member" fill sizes="32px" className="object-cover" />
-                  </div>
-                ))}
-                <div className="grid size-8 place-items-center rounded-full border-2 border-white bg-primary text-[9px] font-bold text-white shadow-sm">FT</div>
-              </div>
-              <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-body">Strategy · Design · Engineering</p>
-            </div>
-          </div> */}
         </motion.div>
 
         {/* Mobile Swipeable Slider Layout (Shows one photo at a time) */}
@@ -264,8 +186,8 @@ export default function PortfolioHero({ content: raw = {} }: { content?: Record<
               >
                 {/* Image */}
                 <Image
-                  src={projects[page].src}
-                  alt={projects[page].alt}
+                  src={projects[page].image}
+                  alt={projects[page].title}
                   fill
                   sizes="(max-width: 640px) 100vw, 290px"
                   className="object-cover pointer-events-none"
@@ -337,7 +259,7 @@ export default function PortfolioHero({ content: raw = {} }: { content?: Record<
 
             return (
               <motion.div
-                key={`${project.alt}-${index}`}
+                key={`${project.title}-${index}`}
                 variants={getCardVariants(index, yOffset, rotateVal)}
                 initial="initial"
                 animate="animate"
@@ -347,8 +269,8 @@ export default function PortfolioHero({ content: raw = {} }: { content?: Record<
               >
                 {/* Image desaturated by default */}
                 <Image
-                  src={project.src}
-                  alt={project.alt}
+                  src={project.image}
+                  alt={project.title}
                   fill
                   sizes="(max-width: 768px) 34vw, 200px"
                   className="object-cover filter saturate-[0.85] contrast-[1.02] transition-all duration-300 group-hover:filter-none group-hover:saturate-[1.1] group-hover:scale-102"

@@ -1,66 +1,14 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface LogoItem {
-  name: string;
-  file: string;
-  category: string;
-  folder: "goverment" | "clients";
-}
-
-const ALL_LOGOS: LogoItem[] = [
-  { name: "Rajgir Zoo Safari", file: "Zoo Safari logo copy.jpg", category: "Web Development", folder: "goverment" },
-  { name: "Patna Park", file: "Patna Park.png", category: "Web Development", folder: "goverment" },
-  { name: "Patna Zoo", file: "logo-large-converted-from-svg.png", category: "Web Development", folder: "goverment" },
-  { name: "Vana Vani", file: "Green and Beige Groceries Business Logo.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Nagar Parishad Jamui", file: "jamui logo.png", category: "Web Development", folder: "clients" },
-  { name: "Thakurganj Nagar Panchayat", file: "THAKUR GANJ NAGAR PANCHAYAT.png", category: "Web Development", folder: "clients" },
-  { name: "Domus Cure", file: "Domus-logo png.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Gayatri Astroscience", file: "logo (2).png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Diagno First Lab", file: "Diagno-lab-PNG.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Golden Apple", file: "golden apple logo.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Inception", file: "Inception logo.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Janya Hospital", file: "Janya-Hospital-Logo-PNG copy.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Landmark Hotel", file: "LANDMARK LOGO.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Ruban Hospital", file: "Ruban@logo-with-NABH-2-ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Advante", file: "Advante Logo Final - 25-07-2022 - Copy.png", category: "Web Development", folder: "clients" },
-  { name: "AHL", file: "Ahl-logo-copy-300x76.png", category: "Web Development", folder: "clients" },
-  { name: "ARCS", file: "ARCS.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "BCIT", file: "bcit_logo.webp", category: "Web Development", folder: "clients" },
-  { name: "Edify School", file: "Edify Logo.jpg", category: "Web Development", folder: "clients" },
-  { name: "Hotel Sidh Vedantha", file: "Hotel Sidh Vedantha logo.webp", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "New Era High School", file: "NEW ERA HIGH SCHOOL LOGO.png", category: "Web Development", folder: "clients" },
-  { name: "Patna Dental Clinic", file: "Patna Dental Final Logo.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Medica Emergency", file: "Medica Emergency logo.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Medica Hospital", file: "Medica Logo for Social Media.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Satyadev Hospital", file: "Satyadev Urology Logo.jpg", category: "Mobile Apps", folder: "clients" },
-  { name: "Technosys", file: "technosys-logo (1).png", category: "Mobile Apps", folder: "clients" },
-  { name: "Weddings72 Planners", file: "WEDDINGS72 LOGO.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Abhayanand Super 30", file: "abhayanand_logo-170x115.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Arvind Foundation", file: "arvind foundation logo copy.png", category: "Web Development", folder: "clients" },
-  { name: "Sheodeni Sao College", file: "SHEODENI SAO COLLEGE LOGO-01.png", category: "Web Development", folder: "clients" },
-  { name: "Unicare Hospital", file: "Unicare logo.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Vedanta Hospital", file: "vedantalogo.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Sita Interior", file: "SITA-ARCH-LOGO-DKPorKRm.webp", category: "Web Development", folder: "clients" },
-  { name: "Tax Protect", file: "Tax Protect Logo - 09-June-2022.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Rapid House", file: "rapid_logo.png", category: "Mobile Apps", folder: "clients" },
-  { name: "ClickCharm", file: "logo (3) - Copy.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Kiara", file: "kiayra-removebg-preview.webp", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Natural Spa", file: "NATURAL SPA.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Nirmal Inn", file: "Nirmal Inn logo2.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Parkomico", file: "Parkomiko.png", category: "Mobile Apps", folder: "clients" },
-  { name: "Score High", file: "SCORE HIGH LOGO.jpg", category: "Web Development", folder: "clients" },
-  { name: "K.P Sinha", file: "K.P Sinha Logo.png", category: "Web Development", folder: "clients" },
-  { name: "MIA", file: "MIA logo.png", category: "Graphic Design & Branding", folder: "clients" },
-  { name: "Krrish Fabricators", file: "Krrish Fabricators Logo - Copy.png", category: "Graphic Design & Branding", folder: "clients" }
-];
-
+// CMS-editable content (key: page.portfolio.showcase). Falls back to defaults.
+type LogoItem = { name: string; image: string };
 type ShowcaseContent = Partial<{
   eyebrow: string;
   heading: string;
+  logos: LogoItem[];
 }>;
 
 export default function PortfolioShowcase({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -69,13 +17,7 @@ export default function PortfolioShowcase({ content: raw = {} }: { content?: Rec
     eyebrow: content.eyebrow ?? "✦ Selected Case Studies",
     heading: content.heading ?? "Our Portfolio",
   };
-
-  const getLogoSrc = (logo: LogoItem) => {
-    if (logo.folder === "goverment") {
-      return `/images/goverment/${encodeURIComponent(logo.file)}`;
-    }
-    return `/images/NEW%20CLIENTS%20LOGO/${encodeURIComponent(logo.file)}`;
-  };
+  const logos = content.logos ?? [];
 
   return (
     <section id="portfolio-work" className="py-24 px-6 md:px-12 bg-[#f8fafc] relative overflow-hidden">
@@ -107,8 +49,8 @@ export default function PortfolioShowcase({ content: raw = {} }: { content?: Rec
             transition={{ duration: 0.3 }}
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
           >
-            {ALL_LOGOS.length > 0 ? (
-              ALL_LOGOS.map((logo, idx) => (
+            {logos.length > 0 ? (
+              logos.map((logo, idx) => (
                 <motion.div
                   key={logo.name + idx}
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -118,7 +60,7 @@ export default function PortfolioShowcase({ content: raw = {} }: { content?: Rec
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
-                      src={getLogoSrc(logo)}
+                      src={logo.image}
                       alt={logo.name}
                       fill
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 200px"
