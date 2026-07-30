@@ -60,10 +60,14 @@ async function seedAdmin(collection, { email, password, name }) {
   const normalizedEmail = email.toLowerCase();
   const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 
+  // $inc on session_version invalidates any sessions issued against the old
+  // password (matches createAdmin in src/server/auth/queries.ts). On insert a
+  // missing field is treated as 0, so it lands at 1.
   const result = await collection.updateOne(
     { email: normalizedEmail },
     {
       $set: { email: normalizedEmail, password_hash: passwordHash },
+      $inc: { session_version: 1 },
       $setOnInsert: { name: name ?? null, created_at: new Date() },
     },
     { upsert: true }
@@ -72,7 +76,7 @@ async function seedAdmin(collection, { email, password, name }) {
   console.log(
     result.upsertedCount > 0
       ? `✓ Created admin user ${normalizedEmail}.`
-      : `✓ Updated password for existing admin user ${normalizedEmail}.`
+      : `✓ Updated password for existing admin user ${normalizedEmail} (existing sessions invalidated).`
   );
 }
 
