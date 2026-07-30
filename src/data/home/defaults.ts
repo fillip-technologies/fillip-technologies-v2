@@ -152,7 +152,6 @@ export type UnitItem = {
 };
 
 export const HOME_UNITS: UnitItem[] = [
-  { title: "Engineers Clinic", subtitle: "Technical Mentorship & Internship OS", description: "A practical learning operating system that bridges the gap between academic theory and real-world software engineering through live projects and industry internships.", logo: "/images/Engineers-clinic-logo-black.png", link: "https://engineersclinic.com", badge: "Technical Division" },
   { title: "Fillip Skill Academy", subtitle: "IT & Digital Skill Development Hub", description: "A premier academy offering comprehensive courses in Web Development, Digital Marketing, Graphic Design, and Business Administration to build industry-ready professionals.", logo: "/images/FSA_logo_SVG-removebg-preview.png", link: "https://fillipskillacademy.com", badge: "Educational Division" },
 ];
 

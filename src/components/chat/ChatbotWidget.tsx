@@ -48,8 +48,13 @@ function AssistantMarkdown({ content }: { content: string }) {
 }
 
 const QUICK_PROMPTS = [
-  "What services do you offer?",
-  "Do you build mobile apps?",
+  "Website Development",
+  "Mobile App Development",
+  "SEO & Digital Marketing",
+  "Custom Software / CRM",
+  "Graphic Design / Branding",
+  "AI Chatbots",
+  "Book a Consultation",
 ];
 
 export default function ChatbotWidget() {
@@ -68,6 +73,14 @@ export default function ChatbotWidget() {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsOpen(true);
+    }, 2500);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
@@ -200,15 +213,15 @@ export default function ChatbotWidget() {
           {/* Quick Prompts */}
           {messages.length === 1 && !isLoading && (
             <div className="px-5 py-3 border-t border-slate-100 dark:border-slate-850 bg-white dark:bg-slate-900 flex flex-col gap-2">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Common Questions</span>
-              <div className="flex flex-col gap-1.5">
-                {QUICK_PROMPTS.map((prompt) => (
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Choose a service</span>
+              <div className="grid grid-cols-2 gap-1.5">
+                {QUICK_PROMPTS.map((service) => (
                   <button
-                    key={prompt}
-                    onClick={() => handleSend(prompt)}
-                    className="text-left text-xs p-2 rounded-lg border border-slate-100 hover:border-blue-500/30 hover:bg-blue-50/10 dark:border-slate-800 dark:hover:border-blue-500/30 dark:hover:bg-blue-955/10 text-slate-600 dark:text-slate-400 transition cursor-pointer select-none"
+                    key={service}
+                    onClick={() => handleSend(`I am interested in ${service}. Please guide me.`)}
+                    className="text-left text-xs p-2 rounded-lg border border-slate-100 hover:border-blue-500/30 hover:bg-blue-50/40 dark:border-slate-800 dark:hover:border-blue-500/30 dark:hover:bg-blue-955/10 text-slate-600 dark:text-slate-400 transition cursor-pointer select-none"
                   >
-                    {prompt}
+                    {service}
                   </button>
                 ))}
               </div>
