@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   { href: "/admin", label: "Leads", icon: Users, exact: true },
   { href: "/admin/careers", label: "Careers", icon: Briefcase, exact: false },
   { href: "/admin/bin", label: "Bin", icon: Trash2, exact: false },
-  { href: "/admin/mail", label: "Direct Mail", icon: Mail, exact: false },
+  { href: "/admin/mail", label: "Mail", icon: Mail, exact: false },
   { href: "/admin/cms", label: "Content", icon: FileText, exact: false },
 ];
 
@@ -25,13 +25,17 @@ export default function AdminNav() {
           <Link
             key={href}
             href={href}
-            className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
+            className={`group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all ${
               active
-                ? "bg-primary/10 font-medium text-primary"
-                : "text-body hover:bg-card hover:text-heading"
+                ? "bg-gradient-to-r from-primary to-accent font-semibold text-white shadow-lg shadow-primary/30"
+                : "text-white/60 hover:bg-white/10 hover:text-white"
             }`}
           >
-            <Icon size={18} aria-hidden="true" />
+            <Icon
+              size={18}
+              aria-hidden="true"
+              className={active ? "text-white" : "text-white/60 group-hover:text-white"}
+            />
             {label}
           </Link>
         );

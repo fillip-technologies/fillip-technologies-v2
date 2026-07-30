@@ -53,6 +53,8 @@ export async function sendDirectMailAction(
 
   const parsed = directMailSchema.safeParse({
     to: formData.get("to"),
+    cc: formData.get("cc") ?? "",
+    bcc: formData.get("bcc") ?? "",
     subject: formData.get("subject"),
     message: formData.get("message"),
     bccCompany: formData.get("bccCompany") === "on",

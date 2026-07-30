@@ -40,6 +40,13 @@ export const ABOUT_PAGES: PageGroup[] = [
             default:
               "Explore the milestones, minds, and methodologies that built our agency from a three-person workspace into a powerhouse of digital transformation.",
           },
+          {
+            name: "image",
+            label: "Side illustration",
+            type: "image",
+            default: "/images/our-story-neww.png",
+            help: "Decorative image shown on the right of the hero (desktop only).",
+          },
         ],
       },
       {
@@ -92,7 +99,7 @@ export const ABOUT_PAGES: PageGroup[] = [
             { year: "2020", title: "Transition to Digital", story: "s the world transitions, we support brick-and-mortar brands in shifting to robust e-commerce and secure, remote workflows. We designed custom payment integrations and secured databases to help companies withstand global disruption.", quote: "Disruption forced the world to adapt. We stood beside our clients to build resilience, remote systems, and e-commerce.", image: "/images/How-we-work.png", stat1Label: "Core Team", stat1Value: "15 Experts", stat2Label: "Primary Tech", stat2Value: "React, Node, PostgreSQL", stat3Label: "Projects", stat3Value: "45 Completed" },
             { year: "2022", title: "Growth & Scaling", story: "e expand our expertise to custom software development and advanced branding, growing our team to 40+ professionals and moving to a larger headquarters. We established rigorous automation standards to match the expectations of larger enterprise partners.", quote: "Growth is not just about size. It is about standardizing excellence, automating pipelines, and moving to our main office.", image: "/images/capabilities-background.png", stat1Label: "Core Team", stat1Value: "40+ Experts", stat2Label: "Primary Tech", stat2Value: "Next.js, Tailwind, NestJS", stat3Label: "Projects", stat3Value: "95+ Completed" },
             { year: "2024", title: "Global Operations", story: "stablishing partnerships with global brands across 5+ countries, establishing our presence in international digital consulting. We redesigned workflows, built scalable portals, and proved that a client-first agency can deliver elite code worldwide.", quote: "Borders are constructs. True engineering talent speaks a universal language of quality and speed.", image: "/images/research-mockup.png", stat1Label: "Core Team", stat1Value: "50+ Experts", stat2Label: "Primary Tech", stat2Value: "AWS, GCP, GraphQL, Python", stat3Label: "Projects", stat3Value: "140+ Completed" },
-            { year: "2026 & Beyond", title: "Next Gen AI & SaaS", story: "ushing boundaries with custom AI integrations, chatbot agents, and automated SaaS products to lead the next generation of tech. We believe AI will define modern product scaling, and we are already delivering the pipelines that make it happen.", quote: "AI will not replace strategy; it will amplify it. We are building the automated pipelines of tomorrow, today.", image: "/images/team/team1.png", stat1Label: "Core Team", stat1Value: "55+ Experts", stat2Label: "Primary Tech", stat2Value: "LangChain, OpenAI API, SaaS", stat3Label: "Projects", stat3Value: "150+ Completed" },
+            { year: "2026 & Beyond", title: "Next Gen AI & SaaS", story: "ushing boundaries with custom AI integrations, chatbot agents, and automated SaaS products to lead the next generation of tech. We believe AI will define modern product scaling, and we are already delivering the pipelines that make it happen.", quote: "AI will not replace strategy; it will amplify it. We are building the automated pipelines of tomorrow, today.", image: "/images/saas-dashboard.png", stat1Label: "Core Team", stat1Value: "55+ Experts", stat2Label: "Primary Tech", stat2Value: "LangChain, OpenAI API, SaaS", stat3Label: "Projects", stat3Value: "150+ Completed" },
           ],
         },
       },

@@ -69,10 +69,15 @@ export async function sendDirectMail(
   const transporter = getTransporter();
   const from = process.env.SMTP_FROM || `${COMPANY.name} <${process.env.SMTP_USER}>`;
 
+  // Merge the admin's Bcc list with the optional company copy.
+  const bcc = [...input.bcc];
+  if (input.bccCompany && COMPANY.email) bcc.push(COMPANY.email);
+
   await transporter.sendMail({
     from,
     to: input.to,
-    bcc: input.bccCompany && COMPANY.email ? COMPANY.email : undefined,
+    cc: input.cc.length ? input.cc : undefined,
+    bcc: bcc.length ? bcc : undefined,
     replyTo: COMPANY.email || undefined,
     subject: input.subject,
     text: input.message,

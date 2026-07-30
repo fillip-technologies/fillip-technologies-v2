@@ -78,7 +78,7 @@ const DEFAULT_CHAPTERS = [
     story: "ushing boundaries with custom AI integrations, chatbot agents, and automated SaaS products to lead the next generation of tech. We believe AI will define modern product scaling, and we are already delivering the pipelines that make it happen.",
     quote: "AI will not replace strategy; it will amplify it. We are building the automated pipelines of tomorrow, today.",
     icon: Cpu,
-    image: "/images/team/team1.png",
+    image: "/images/saas-dashboard.png",
     tabColor: "bg-emerald-500",
     stats: [
       { label: "Core Team", value: "55+ Experts" },

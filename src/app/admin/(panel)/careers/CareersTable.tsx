@@ -93,10 +93,10 @@ export default function CareersTable({ leads }: { leads: Lead[] }) {
 
   return (
     <>
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <div className="overflow-x-auto rounded-2xl border border-border bg-card shadow-sm">
         <table className="w-full border-collapse text-sm">
           <thead>
-            <tr className="border-b border-border bg-card text-left text-muted-foreground">
+            <tr className="border-b border-border bg-gradient-to-r from-primary/[0.08] to-accent/[0.06] text-left text-xs font-semibold uppercase tracking-wide text-primary">
               <Th>Received</Th>
               <Th>Applicant</Th>
               <Th>Role</Th>
@@ -113,7 +113,7 @@ export default function CareersTable({ leads }: { leads: Lead[] }) {
               return (
                 <tr
                   key={lead.id}
-                  className="cursor-pointer border-b border-border/60 align-top transition-colors hover:bg-card"
+                  className="cursor-pointer border-b border-border/60 align-top transition-colors hover:bg-primary/[0.035]"
                   onClick={() => setActiveLead(lead)}
                 >
                   <Td className="whitespace-nowrap text-muted-foreground">

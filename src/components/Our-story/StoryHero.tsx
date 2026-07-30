@@ -10,6 +10,7 @@ type StoryHeroContent = Partial<{
   headingLead: string;
   headingHighlight: string;
   subheadline: string;
+  image: string;
 }>;
 
 export default function StoryHero({ content: raw = {} }: { content?: Record<string, unknown> }) {
@@ -21,6 +22,7 @@ export default function StoryHero({ content: raw = {} }: { content?: Record<stri
     subheadline:
       content.subheadline ??
       "Explore the milestones, minds, and methodologies that built our agency from a three-person workspace into a powerhouse of digital transformation.",
+    image: content.image || "/images/our-story-neww.png",
   };
 
   return (
@@ -35,7 +37,7 @@ export default function StoryHero({ content: raw = {} }: { content?: Record<stri
       />
 
       <Image
-        src="/images/our-story-neww.png"
+        src={c.image}
         alt=""
         width={1536}
         height={1024}

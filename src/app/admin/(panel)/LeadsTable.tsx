@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
-import { Mail, MapPin, Satellite, Globe, ExternalLink, Trash2, Package as PackageIcon } from "lucide-react";
+import { Mail, MapPin, Satellite, Globe, ExternalLink, Trash2, Package as PackageIcon, Copy, Check, Forward } from "lucide-react";
 import type { Lead } from "@/server/contact/queries";
 import { categoryForSource, labelForSource, LEAD_STATUSES } from "@/server/contact/lead-sources";
 import { trashLeadAction, updateLeadStatusAction } from "@/server/contact/lead-actions";
@@ -29,6 +29,96 @@ function mapsUrl(loc: Lead["location"]): string | null {
   }
   if (loc.label) return `https://www.google.com/maps/search/${encodeURIComponent(loc.label)}`;
   return null;
+}
+
+/** Subject line used when forwarding a lead's enquiry. */
+function forwardSubject(lead: Lead): string {
+  return `Fwd: Enquiry from ${lead.name}`;
+}
+
+/**
+ * Deterministic date format for the forwarded body. Uses an explicit locale +
+ * timezone so the server and client render the exact same string — otherwise
+ * the value ends up in the Link `href` and causes a hydration mismatch.
+ */
+function formatReceived(iso: string): string {
+  return new Date(iso).toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "Asia/Kolkata",
+  });
+}
+
+/**
+ * A quotable, forward-ready version of the lead's message with the original
+ * sender's details attached — the kind of block you'd paste into an email.
+ */
+function forwardBody(lead: Lead): string {
+  const lines: (string | null)[] = [
+    "---------- Forwarded message ----------",
+    `From: ${lead.name} <${lead.email}>`,
+    lead.phone ? `Phone: ${lead.phone}` : null,
+    lead.company ? `Company: ${lead.company}` : null,
+    `Received: ${formatReceived(lead.created_at)}`,
+    `Source: ${labelForSource(lead.source)}`,
+    lead.budget ? `Budget: ${lead.budget}` : null,
+    "",
+    lead.message || "(no message)",
+  ];
+  return lines.filter((l) => l !== null).join("\n");
+}
+
+/** Link to the Mail panel, pre-filled with the forwarded message (no recipient). */
+function forwardMailHref(lead: Lead): string {
+  const params = new URLSearchParams({
+    subject: forwardSubject(lead),
+    body: forwardBody(lead),
+  });
+  return `/admin/mail?${params.toString()}`;
+}
+
+/**
+ * Copy the message + Forward it via the Mail panel. `text` is what lands on the
+ * clipboard (defaults to the forward-ready block).
+ */
+function ForwardActions({ lead, text }: { lead: Lead; text?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(text ?? forwardBody(lead));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      // Clipboard blocked (e.g. insecure context) — silently ignore.
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <button
+        type="button"
+        onClick={copy}
+        className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-3 py-2 text-sm font-medium text-heading transition-colors hover:border-primary/30 hover:bg-primary/5"
+      >
+        {copied ? <Check size={15} className="text-emerald-600" /> : <Copy size={15} />}
+        {copied ? "Copied" : "Copy message"}
+      </button>
+      <Link
+        href={forwardMailHref(lead)}
+        onClick={(e) => e.stopPropagation()}
+        className="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-primary/5 px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
+      >
+        <Forward size={15} aria-hidden="true" />
+        Forward
+      </Link>
+    </div>
+  );
 }
 
 export default function LeadsTable({ leads }: { leads: Lead[] }) {
@@ -86,10 +176,10 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
           No leads in this category.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-border">
+        <div className="overflow-x-auto rounded-2xl border border-border bg-card shadow-sm">
           <table className="w-full border-collapse text-sm">
             <thead>
-              <tr className="border-b border-border bg-card text-left text-muted-foreground">
+              <tr className="border-b border-border bg-gradient-to-r from-primary/[0.08] to-accent/[0.06] text-left text-xs font-semibold uppercase tracking-wide text-primary">
                 <Th>Received</Th>
                 <Th>Category</Th>
                 <Th>Contact</Th>
@@ -105,7 +195,7 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
               {filtered.map((lead) => (
                 <tr
                   key={lead.id}
-                  className="cursor-pointer border-b border-border/60 align-top transition-colors hover:bg-card"
+                  className="cursor-pointer border-b border-border/60 align-top transition-colors hover:bg-primary/[0.035]"
                   onClick={() => setActiveLead(lead)}
                 >
                   <Td className="whitespace-nowrap text-muted-foreground">
@@ -166,7 +256,18 @@ export default function LeadsTable({ leads }: { leads: Lead[] }) {
                     <StatusSelect lead={lead} />
                   </Td>
                   <Td>
-                    <TrashButton leadId={lead.id} onDone={() => remove(lead.id)} />
+                    <div className="flex items-center gap-1.5">
+                      <Link
+                        href={forwardMailHref(lead)}
+                        onClick={(e) => e.stopPropagation()}
+                        title="Forward via Mail"
+                        aria-label="Forward via Mail"
+                        className="inline-flex items-center justify-center rounded-md border border-primary/30 bg-primary/5 p-2 text-primary transition-colors hover:bg-primary/10"
+                      >
+                        <Forward size={14} aria-hidden="true" />
+                      </Link>
+                      <TrashButton leadId={lead.id} onDone={() => remove(lead.id)} />
+                    </div>
                   </Td>
                 </tr>
               ))}
@@ -337,9 +438,10 @@ function LeadDetailModal({
 
         <div className="px-5 py-4">
           <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Message</p>
-          <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-heading">
+          <p className="mb-3 whitespace-pre-wrap break-words text-sm leading-relaxed text-heading">
             {lead.message || "—"}
           </p>
+          <ForwardActions lead={lead} text={lead.message ?? ""} />
         </div>
 
         <div className="flex items-center justify-between border-t border-border px-5 py-3">
@@ -435,10 +537,10 @@ function FilterButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-3 py-1 text-sm transition-colors ${
+      className={`rounded-full border px-3 py-1 text-sm transition-all ${
         active
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-border bg-card text-heading hover:bg-muted"
+          ? "border-transparent bg-gradient-to-r from-primary to-accent text-white shadow-md shadow-primary/20"
+          : "border-border bg-card text-heading hover:border-primary/30 hover:bg-primary/5"
       }`}
     >
       {label}

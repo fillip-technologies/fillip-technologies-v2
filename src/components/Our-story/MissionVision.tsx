@@ -40,12 +40,6 @@ const DEFAULT_TEAM: TeamMember[] = [
   { name: "Wagish Karna", role: "Content Writer", image: "/images/team/wagish-karna.jpeg", imagePosition: "object-[50%_18%]" },
   { name: "Khushi Bharti", role: "HR Generalist" },
   { name: "Lincy Bhardwaj", role: "HR Executive" },
-
-
-  { name: "Anushka Raj", role: "BDE" },
-
-  { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
-
   { name: "Anushka Raj", role: "Business Development Executive", image: "/images/team/Anushka.jpeg" },
 ];
 
@@ -56,13 +50,13 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
     heading: content.heading ?? "Pioneering the Agentic Future",
     missionText:
       content.missionText ??
-      "To empower modern brands with high-performance custom engineering, future-proof agentic AI systems, and search optimization, transforming complex operational workflows and marketing budgets into measurable business growth.",
+      "To empower modern brands with high-performance engineering, agentic AI, and search optimization — turning complex workflows and marketing spend into measurable growth.",
     visionText:
       content.visionText ??
-      "To establish ourselves as a global benchmark for digital execution and next-generation agentic AI, proving that client transparency, clean scalable code, and forward-looking automation can consistently win on the international stage.",
+      "To become a global benchmark for digital execution and next-generation AI, proving that transparency, clean code, and automation win on the world stage.",
     creedText:
       content.creedText ??
-      "We make commitments, not excuses. We work with absolute accountability, leverage AI responsibly to amplify human intelligence, refuse code shortcuts, and measure our agency's reputation directly by the scalability and success of the products we launch.",
+      "We make commitments, not excuses — working with accountability, using AI responsibly, refusing shortcuts, and measuring our reputation by the products we launch.",
     leadershipEyebrow: content.leadershipEyebrow ?? "Leadership & Team",
     leadershipHeading: content.leadershipHeading ?? "The People Behind The Pages",
     leadershipDescription:
@@ -103,69 +97,32 @@ export default function MissionVision({ content: raw = {} }: { content?: Record<
           <div className="mx-auto mt-4 h-0.5 w-16 bg-primary/30" />
         </div>
 
-        {/* 3-Column Ledger Grid */}
-        <div className="grid grid-cols-1 items-stretch gap-10 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
+        {/* Mission / Vision / Creed cards */}
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3">
+          {[
+            { icon: Target, label: "Our Mission", text: c.missionText, tint: "from-primary to-accent" },
+            { icon: Eye, label: "Our Vision", text: c.visionText, tint: "from-sky-500 to-cyan-400" },
+            { icon: Compass, label: "Our Creed", text: c.creedText, tint: "from-indigo-500 to-primary" },
+          ].map(({ icon: Icon, label, text, tint }, i) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: i * 0.1 }}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-soft"
+            >
+              {/* Coloured accent bar */}
+              <span className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${tint}`} />
 
-          {/* Mission Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col justify-between pt-8 md:pt-0 md:px-6 first:pl-0"
-          >
-            <div>
-              <div className="mb-4 flex items-center gap-2 text-primary">
-                <Target className="size-4.5" />
-                <span className="text-xs font-extrabold uppercase tracking-widest">Our Mission</span>
+              <div className={`mb-5 flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br ${tint} text-white shadow-md`}>
+                <Icon className="size-6" strokeWidth={2} />
               </div>
-              <p className="text-sm leading-relaxed text-body sm:text-base">
-                {c.missionText}
-              </p>
-            </div>
-            <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section I</span>
-          </motion.div>
 
-          {/* Vision Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col justify-between pt-8 md:pt-0 md:px-6"
-          >
-            <div>
-              <div className="mb-4 flex items-center gap-2 text-primary">
-                <Eye className="size-4.5" />
-                <span className="text-xs font-extrabold uppercase tracking-widest">Our Vision</span>
-              </div>
-              <p className="text-sm leading-relaxed text-body sm:text-base">
-                {c.visionText}
-              </p>
-            </div>
-            <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section II</span>
-          </motion.div>
-
-          {/* Creed Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-between pt-8 md:pt-0 md:px-6"
-          >
-            <div>
-              <div className="mb-4 flex items-center gap-2 text-primary">
-                <Compass className="size-4.5" />
-                <span className="text-xs font-extrabold uppercase tracking-widest">Our Creed</span>
-              </div>
-              <p className="text-sm leading-relaxed text-body sm:text-base">
-                {c.creedText}
-              </p>
-            </div>
-            <span className="mt-8 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section III</span>
-          </motion.div>
-
+              <h3 className="mb-3 text-lg font-extrabold tracking-tight text-heading">{label}</h3>
+              <p className="text-sm leading-relaxed text-body sm:text-[15px]">{text}</p>
+            </motion.div>
+          ))}
         </div>
 
         {/* CEO and Team Section */}
