@@ -49,3 +49,8 @@ next-env.d.ts
 # runtime "last-known-good" content cache (the committed seed is
 # src/data/content-snapshot.json; this dir is per-host and disposable)
 /.content-snapshot/
+
+/Fillip-Technologies-Pricing-v2.docx
+/Fillip-Technologies-Pricing.docx
+/quote-test-text.txt
+/scripts
