@@ -316,23 +316,13 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
   const row1 = filteredLogos.slice(0, half);
   const row2 = filteredLogos.slice(half);
 
-  const getLogoHeightClass = (src: string, isDesktop = false) => {
-    const isRajgirZoo = src.toLowerCase().includes("rajgir-zoo") ||
-      (src.toLowerCase().includes("zoo") && src.toLowerCase().includes("safari"));
-    const isOtherSafariOrZoo = src.toLowerCase().includes("safari") || src.toLowerCase().includes("zoo");
-    const isVenuVan = src.toLowerCase().includes("vanu-van") || src.toLowerCase().includes("venu-van");
+  const isCloudinaryUploadedLogo = (src: string) =>
+    src.includes("res.cloudinary.com") && src.includes("/image/upload/") && src.includes("/fillip/uploads/");
 
-    if (isDesktop) {
-      if (isRajgirZoo) return "max-h-[105px]";
-      if (isOtherSafariOrZoo) return "max-h-20";
-      if (isVenuVan) return "max-h-[90px]";
-      return "max-h-14";
-    } else {
-      if (isRajgirZoo) return "max-h-[60px]";
-      if (isOtherSafariOrZoo) return "max-h-12";
-      if (isVenuVan) return "max-h-14";
-      return "max-h-10";
-    }
+  const getLogoDisplaySrc = (src: string) => {
+    if (!isCloudinaryUploadedLogo(src)) return src;
+
+    return src.replace("/image/upload/", "/image/upload/f_auto,q_auto,e_trim,c_fit,w_520,h_240/");
   };
 
   const getMarqueeItems = (arr: typeof visibleLogos) => {
@@ -485,14 +475,14 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
                     {getMarqueeItems(row1).map((logo, index) => (
                       <div
                         key={logo.src + "-row1-" + index}
-                        className="relative flex h-20 shrink-0 items-center justify-center px-2"
+                        className="relative flex h-14 w-40 shrink-0 items-center justify-center px-2"
                       >
                         <Image
-                          src={logo.src}
+                          src={getLogoDisplaySrc(logo.src)}
                           alt={logo.alt}
-                          width={160}
-                          height={64}
-                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-90`}
+                          width={220}
+                          height={100}
+                          className="h-full w-full object-contain opacity-90"
                         />
                       </div>
                     ))}
@@ -513,14 +503,14 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
                     {getMarqueeItems(row2).map((logo, index) => (
                       <div
                         key={logo.src + "-row2-" + index}
-                        className="relative flex h-20 shrink-0 items-center justify-center px-2"
+                        className="relative flex h-14 w-40 shrink-0 items-center justify-center px-2"
                       >
                         <Image
-                          src={logo.src}
+                          src={getLogoDisplaySrc(logo.src)}
                           alt={logo.alt}
-                          width={160}
-                          height={64}
-                          className={`${getLogoHeightClass(logo.src)} w-auto object-contain opacity-90`}
+                          width={220}
+                          height={100}
+                          className="h-full w-full object-contain opacity-90"
                         />
                       </div>
                     ))}
@@ -529,21 +519,21 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
               </div>
 
               {/* Desktop/Tablet View: Standard Grid Layout */}
-              <div className="hidden md:flex flex-wrap items-center justify-center gap-x-16 gap-y-10 w-full">
+              <div className="hidden md:flex flex-wrap items-center justify-center gap-x-10 gap-y-8 w-full">
                 {visibleLogos.map((logo, index) => (
                   <motion.div
                     key={logo.src + index}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.25, delay: Math.min(index * 0.02, 0.3) }}
-                    className="group relative flex h-28 items-center justify-center px-4 transition-all duration-300 ease-out hover:-translate-y-1"
+                    className="group relative flex h-20 w-56 items-center justify-center px-3 transition-all duration-300 ease-out hover:-translate-y-1"
                   >
                     <Image
-                      src={logo.src}
+                      src={getLogoDisplaySrc(logo.src)}
                       alt={logo.alt}
-                      width={160}
-                      height={64}
-                      className={`${getLogoHeightClass(logo.src, true)} w-auto object-contain opacity-90 transition-all duration-300 group-hover:opacity-100`}
+                      width={260}
+                      height={120}
+                      className="h-full w-full object-contain opacity-90 transition-all duration-300 group-hover:opacity-100"
                     />
                   </motion.div>
                 ))}

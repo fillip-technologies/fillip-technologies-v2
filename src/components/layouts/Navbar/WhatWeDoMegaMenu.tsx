@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
@@ -92,22 +91,15 @@ export default function WhatWeDoMegaMenu({
         {columns.map((column, columnIndex) => (
           <div key={columnIndex} className={isHeroMenu ? "space-y-5" : "space-y-6"}>
             {column.map((group) => {
-              const href = "href" in group ? group.href : undefined;
               const titleClass = `
                 block text-left font-medium leading-7 tracking-normal text-heading transition-colors hover:text-body
                 ${isHeroMenu ? "text-[18px]" : "text-[19px]"}
               `;
               return (
                 <section key={group.title}>
-                  {href ? (
-                    <Link href={href} className={titleClass} onClick={() => setOpen(false)}>
-                      {group.title}
-                    </Link>
-                  ) : (
-                    <button type="button" className={titleClass}>
-                      {group.title}
-                    </button>
-                  )}
+                  <button type="button" className={titleClass}>
+                    {group.title}
+                  </button>
                   {group.items ? <BranchItems items={group.items} /> : null}
                 </section>
               );
