@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 300;
+
 const pageSize = 9;
 
 type BlogPageProps = {
@@ -31,7 +33,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const category = params.category ?? "all";
   const currentPage = Math.max(Number(params.page ?? "1"), 1);
 
-  const categoryBlogs = getBlogsByCategory(category);
+  const categoryBlogs = await getBlogsByCategory(category);
   const filteredBlogs = searchBlogs(query, categoryBlogs);
   const totalPages = Math.max(Math.ceil(filteredBlogs.length / pageSize), 1);
   const safePage = Math.min(currentPage, totalPages);
@@ -60,7 +62,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           </form>
 
           <div className="mb-12">
-            <BlogCategories categories={getCategories()} activeCategory={category} query={query} />
+            <BlogCategories categories={await getCategories()} activeCategory={category} query={query} />
           </div>
 
           <BlogGrid blogs={blogs} />

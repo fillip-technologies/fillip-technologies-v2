@@ -5,6 +5,8 @@
  * Standalone (no `@/` alias) so it runs directly under Node.
  */
 import dns from "node:dns";
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 import mongoose from "mongoose";
 
 if (process.env.DNS_SERVERS) {
@@ -158,6 +160,56 @@ const SEED_MOBILE_PAGES = [
   { slug: "on-demand", title: "On-Demand App Development", sort_order: 16 },
 ];
 
+type SeedBlog = {
+  id?: number;
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  content?: string;
+  featuredImage?: string;
+  author?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  readingTime?: string;
+  category?: string;
+  tags?: string[];
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string;
+  };
+};
+
+const BLOGS_DIR = path.join(process.cwd(), "src", "data", "blogs");
+
+function parseSeedDate(value: string | undefined, fallback: Date): Date {
+  if (!value) return fallback;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? fallback : date;
+}
+
+function readJsonFile<T>(file: string): T | null {
+  try {
+    return JSON.parse(readFileSync(file, "utf8")) as T;
+  } catch {
+    return null;
+  }
+}
+
+function readSeedBlogs(): SeedBlog[] {
+  const indexPath = path.join(BLOGS_DIR, "index.json");
+  if (!existsSync(indexPath)) return [];
+
+  const index = readJsonFile<SeedBlog[]>(indexPath) ?? [];
+  return index
+    .map((item) => {
+      if (!item.slug) return item;
+      const full = readJsonFile<SeedBlog>(path.join(BLOGS_DIR, `${item.slug}.json`));
+      return { ...item, ...(full ?? {}) };
+    })
+    .filter((item) => item.title && item.slug);
+}
+
 async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
@@ -168,255 +220,299 @@ async function main() {
   const db = mongoose.connection.db!;
   console.log("Connected. Ensuring indexes ...");
 
-  await db.collection("site_content").createIndex({ key: 1 }, { unique: true });
-  await db.collection("admin_users").createIndex({ email: 1 }, { unique: true });
-  await db.collection("industries").createIndex({ slug: 1 }, { unique: true });
-  await db.collection("industries").createIndex({ sort_order: 1, slug: 1 });
-  await db.collection("service_categories").createIndex({ slug: 1 }, { unique: true });
-  await db.collection("service_categories").createIndex({ sort_order: 1, slug: 1 });
-  await db.collection("service_pages").createIndex({ slug: 1 }, { unique: true });
-  await db.collection("service_pages").createIndex({ sort_order: 1, slug: 1 });
-  await db.collection("leads").createIndex({ created_at: -1 });
+  // await db.collection("site_content").createIndex({ key: 1 }, { unique: true });
+  // await db.collection("admin_users").createIndex({ email: 1 }, { unique: true });
+  // await db.collection("industries").createIndex({ slug: 1 }, { unique: true });
+  // await db.collection("industries").createIndex({ sort_order: 1, slug: 1 });
+  // await db.collection("service_categories").createIndex({ slug: 1 }, { unique: true });
+  // await db.collection("service_categories").createIndex({ sort_order: 1, slug: 1 });
+  // await db.collection("service_pages").createIndex({ slug: 1 }, { unique: true });
+  // await db.collection("service_pages").createIndex({ sort_order: 1, slug: 1 });
+  // await db.collection("leads").createIndex({ created_at: -1 });
+  await db.collection("blogs").createIndex({ slug: 1 }, { unique: true });
+  await db.collection("blogs").createIndex({ published: 1, published_at: -1, id: -1 });
+  await db.collection("blogs").createIndex({ sort_order: 1, slug: 1 });
 
-  console.log("Seeding base industries ...");
-  const now = new Date();
-  for (const ind of SEED_INDUSTRIES) {
-    await db.collection("industries").updateOne(
-      { slug: ind.slug },
-      {
-        $setOnInsert: {
-          slug: ind.slug,
-          label: ind.label,
-          published: true,
-          sort_order: ind.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+  // console.log("Seeding base industries ...");
+  // const now = new Date();
+  // for (const ind of SEED_INDUSTRIES) {
+  //   await db.collection("industries").updateOne(
+  //     { slug: ind.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: ind.slug,
+  //         label: ind.label,
+  //         published: true,
+  //         sort_order: ind.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
 
-  console.log("Seeding What-We-Do categories ...");
-  for (const cat of SEED_CATEGORIES) {
-    await db.collection("service_categories").updateOne(
-      { slug: cat.slug },
-      {
-        $setOnInsert: {
-          slug: cat.slug,
-          label: cat.label,
-          published: true,
-          sort_order: cat.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+  // console.log("Seeding What-We-Do categories ...");
+  // for (const cat of SEED_CATEGORIES) {
+  //   await db.collection("service_categories").updateOne(
+  //     { slug: cat.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: cat.slug,
+  //         label: cat.label,
+  //         published: true,
+  //         sort_order: cat.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
 
-  console.log("Seeding service pages ...");
-  for (const p of SEED_SERVICE_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "service",
-          category_slug: p.category_slug,
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+  // console.log("Seeding service pages ...");
+  // for (const p of SEED_SERVICE_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "service",
+  //         category_slug: p.category_slug,
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
 
-  console.log("Seeding Software & Enterprise pages ...");
-  for (const p of SEED_SOFTWARE_ENTERPRISE_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "software-enterprise",
-          category_slug: "software-enterprise",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+  // console.log("Seeding Software & Enterprise pages ...");
+  // for (const p of SEED_SOFTWARE_ENTERPRISE_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "software-enterprise",
+  //         category_slug: "software-enterprise",
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
 
-  // The Software Development overview page previously used the "service" template
-  // at /services/software-development. It now uses the SaaS-style
-  // software-enterprise layout at /software-development/software-development, so
-  // force-update any pre-existing row (the $setOnInsert seed above won't touch it).
-  console.log("Migrating Software Development overview to software-enterprise ...");
-  await db.collection("service_pages").updateOne(
-    { slug: "software-development" },
-    { $set: { template: "software-enterprise", category_slug: "software-enterprise", updated_at: now } }
-  );
+  // // The Software Development overview page previously used the "service" template
+  // // at /services/software-development. It now uses the SaaS-style
+  // // software-enterprise layout at /software-development/software-development, so
+  // // force-update any pre-existing row (the $setOnInsert seed above won't touch it).
+  // console.log("Migrating Software Development overview to software-enterprise ...");
+  // await db.collection("service_pages").updateOne(
+  //   { slug: "software-development" },
+  //   { $set: { template: "software-enterprise", category_slug: "software-enterprise", updated_at: now } }
+  // );
 
-  console.log("Seeding Creative Experience Design pages ...");
-  for (const p of SEED_CREATIVE_DESIGN_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "creative-design",
-          category_slug: "creative-experience-design",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+  // console.log("Seeding Creative Experience Design pages ...");
+  // for (const p of SEED_CREATIVE_DESIGN_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "creative-design",
+  //         category_slug: "creative-experience-design",
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
 
-  console.log("Seeding SEO & Performance Marketing pages ...");
-  for (const p of SEED_MARKETING_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "marketing",
-          category_slug: "seo-performance-marketing",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+  // console.log("Seeding SEO & Performance Marketing pages ...");
+  // for (const p of SEED_MARKETING_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "marketing",
+  //         category_slug: "seo-performance-marketing",
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
 
-  console.log("Seeding Challenges We Solve menu links (case studies) ...");
-  await db.collection("service_categories").updateOne(
-    { slug: "challenges-we-solve" },
+  // console.log("Seeding Challenges We Solve menu links (case studies) ...");
+  // await db.collection("service_categories").updateOne(
+  //   { slug: "challenges-we-solve" },
+  //   {
+  //     $setOnInsert: {
+  //       slug: "challenges-we-solve",
+  //       label: "Challenges We Solve",
+  //       published: true,
+  //       sort_order: 6,
+  //       created_at: now,
+  //       updated_at: now,
+  //     },
+  //   },
+  //   { upsert: true }
+  // );
+  // await db.collection("site_content").updateOne(
+  //   { key: "whatwedo.challenges-we-solve.menuLinks" },
+  //   {
+  //     $setOnInsert: {
+  //       key: "whatwedo.challenges-we-solve.menuLinks",
+  //       data: { items: SEED_CHALLENGES_MENU_LINKS },
+  //     },
+  //   },
+  //   { upsert: true }
+  // );
+
+  // console.log("Seeding Solutions categories ...");
+  // for (const cat of SEED_SOLUTION_CATEGORIES) {
+  //   await db.collection("service_categories").updateOne(
+  //     { slug: cat.slug },
+  //     {
+  //       $set: { group: "solutions", description: cat.description, updated_at: now },
+  //       $setOnInsert: {
+  //         slug: cat.slug,
+  //         label: cat.label,
+  //         published: true,
+  //         sort_order: cat.sort_order,
+  //         created_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
+
+  // console.log("Seeding Solutions menu links ...");
+  // for (const [slug, items] of Object.entries(SEED_SOLUTION_MENU_LINKS)) {
+  //   await db.collection("site_content").updateOne(
+  //     { key: `whatwedo.${slug}.menuLinks` },
+  //     { $setOnInsert: { key: `whatwedo.${slug}.menuLinks`, data: { items } } },
+  //     { upsert: true }
+  //   );
+  // }
+
+  // console.log("Seeding Hardware Solution pages ...");
+  // for (const p of SEED_HARDWARE_SOLUTION_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "hardware-solution",
+  //         category_slug: "hardware-solutions",
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
+
+  // console.log("Seeding Business Solution pages ...");
+  // for (const p of SEED_BUSINESS_SOLUTION_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "business-solution",
+  //         category_slug: "business-solutions",
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
+
+  // console.log("Seeding mobile-app pages ...");
+  // for (const p of SEED_MOBILE_PAGES) {
+  //   await db.collection("service_pages").updateOne(
+  //     { slug: p.slug },
+  //     {
+  //       $setOnInsert: {
+  //         slug: p.slug,
+  //         title: p.title,
+  //         template: "mobile-app",
+  //         category_slug: "mobile-app-development",
+  //         published: true,
+  //         sort_order: p.sort_order,
+  //         created_at: now,
+  //         updated_at: now,
+  //       },
+  //     },
+  //     { upsert: true }
+  //   );
+  // }
+
+  console.log("Seeding blogs...");
+
+const seedBlogs = readSeedBlogs();
+
+for (const [index, blog] of seedBlogs.entries()) {
+  const publishedAt = parseSeedDate(blog.publishedAt, new Date());
+  const updatedAt = parseSeedDate(blog.updatedAt, publishedAt);
+
+  await db.collection("blogs").updateOne(
+    { slug: blog.slug },
     {
       $setOnInsert: {
-        slug: "challenges-we-solve",
-        label: "Challenges We Solve",
+        id: blog.id ?? index + 1,
+        title: blog.title,
+        slug: blog.slug,
+        excerpt: blog.excerpt ?? "",
+        content: blog.content ?? "",
+        featured_image: blog.featuredImage ?? "",
+        author: blog.author ?? "Fillip Technologies",
+        published_at: publishedAt,
+        updated_at: updatedAt,
+        reading_time: blog.readingTime ?? "1 min",
+        category: blog.category ?? "",
+        tags: blog.tags ?? [],
+        seo: {
+          title: blog.seo?.title ?? "",
+          description: blog.seo?.description ?? "",
+          keywords: blog.seo?.keywords ?? "",
+        },
         published: true,
-        sort_order: 6,
-        created_at: now,
-        updated_at: now,
+        sort_order: index + 1,
+        created_at: new Date(),
+        updated_db_at: new Date(),
       },
     },
     { upsert: true }
   );
-  await db.collection("site_content").updateOne(
-    { key: "whatwedo.challenges-we-solve.menuLinks" },
-    {
-      $setOnInsert: {
-        key: "whatwedo.challenges-we-solve.menuLinks",
-        data: { items: SEED_CHALLENGES_MENU_LINKS },
-      },
-    },
-    { upsert: true }
-  );
+}
 
-  console.log("Seeding Solutions categories ...");
-  for (const cat of SEED_SOLUTION_CATEGORIES) {
-    await db.collection("service_categories").updateOne(
-      { slug: cat.slug },
-      {
-        $set: { group: "solutions", description: cat.description, updated_at: now },
-        $setOnInsert: {
-          slug: cat.slug,
-          label: cat.label,
-          published: true,
-          sort_order: cat.sort_order,
-          created_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
-
-  console.log("Seeding Solutions menu links ...");
-  for (const [slug, items] of Object.entries(SEED_SOLUTION_MENU_LINKS)) {
-    await db.collection("site_content").updateOne(
-      { key: `whatwedo.${slug}.menuLinks` },
-      { $setOnInsert: { key: `whatwedo.${slug}.menuLinks`, data: { items } } },
-      { upsert: true }
-    );
-  }
-
-  console.log("Seeding Hardware Solution pages ...");
-  for (const p of SEED_HARDWARE_SOLUTION_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "hardware-solution",
-          category_slug: "hardware-solutions",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
-
-  console.log("Seeding Business Solution pages ...");
-  for (const p of SEED_BUSINESS_SOLUTION_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "business-solution",
-          category_slug: "business-solutions",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
-
-  console.log("Seeding mobile-app pages ...");
-  for (const p of SEED_MOBILE_PAGES) {
-    await db.collection("service_pages").updateOne(
-      { slug: p.slug },
-      {
-        $setOnInsert: {
-          slug: p.slug,
-          title: p.title,
-          template: "mobile-app",
-          category_slug: "mobile-app-development",
-          published: true,
-          sort_order: p.sort_order,
-          created_at: now,
-          updated_at: now,
-        },
-      },
-      { upsert: true }
-    );
-  }
+console.log(`✓ Seeded ${seedBlogs.length} blogs`);
 
   console.log("✓ MongoDB setup complete.");
   await mongoose.disconnect();

@@ -12,6 +12,7 @@
     "snapshot": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/snapshot-content.mjs",
     "db:migrate": "node --env-file-if-exists=.env --env-file-if-exists=.env.local src/server/db/migrate.ts",
     "seed:our-story": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-our-story.mjs",
+    "seed:our-culture": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-our-culture.mjs",
     "seed:admin": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs",
     "seed:admin:delete-all": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs --delete-all"
   },
