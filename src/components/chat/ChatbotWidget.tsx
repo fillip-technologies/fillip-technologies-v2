@@ -125,21 +125,27 @@ export default function ChatbotWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-[9999] font-sans">
       {/* Chat Bubble Button */}
-      {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)] text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
-          aria-label="Open support chat"
-        >
-          {/* Pulsing Outer Ring */}
-          <span className="absolute inset-0 rounded-full bg-[var(--primary)]/30 animate-ping group-hover:animate-none opacity-75"></span>
-          <MessageSquare className="h-6 w-6 relative z-10" />
-        </button>
-      )}
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`relative flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)] text-white shadow-xl transition-all duration-300 cursor-pointer group ${
+          isOpen ? "pointer-events-none scale-75 opacity-0" : "scale-100 opacity-100 hover:scale-105 active:scale-95"
+        }`}
+        aria-label="Open support chat"
+      >
+        {/* Pulsing Outer Ring */}
+        <span className="absolute inset-0 rounded-full bg-[var(--primary)]/30 animate-ping group-hover:animate-none opacity-75"></span>
+        <MessageSquare className="h-6 w-6 relative z-10" />
+      </button>
 
       {/* Chat Window */}
-      {isOpen && (
-        <div className="relative flex flex-col w-[360px] sm:w-[400px] h-[550px] max-h-[85vh] rounded-3xl border border-slate-150 bg-white/95 dark:bg-slate-900/95 dark:border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.15)] backdrop-blur-md overflow-hidden animate-in slide-in-from-bottom-6 duration-300">
+      <div
+        aria-hidden={!isOpen}
+        className={`absolute bottom-0 right-0 flex h-[550px] max-h-[85vh] w-[360px] origin-bottom-right transform-gpu flex-col overflow-hidden rounded-3xl border border-slate-150 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.15)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] dark:border-slate-800 dark:bg-slate-900/95 sm:w-[400px] ${
+          isOpen
+            ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
+            : "pointer-events-none translate-y-8 scale-95 opacity-0"
+        }`}
+      >
           {/* Header */}
           <div className="flex items-center justify-between p-5 bg-[var(--primary)] text-white">
             <div className="flex items-center gap-3">
@@ -253,8 +259,7 @@ export default function ChatbotWidget() {
               <Send className="h-4.5 w-4.5" />
             </button>
           </form>
-        </div>
-      )}
+      </div>
     </div>
   );
 }

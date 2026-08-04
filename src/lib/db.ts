@@ -8,16 +8,7 @@ if (process.env.DNS_SERVERS) {
   dns.setServers(process.env.DNS_SERVERS.split(",").map((s) => s.trim()).filter(Boolean));
 }
 
-/**
- * A single shared Mongoose connection, created lazily on first use.
- *
- * In development Next.js clears the module cache on every change, which would
- * otherwise open a brand-new connection on each reload and exhaust the pool. We
- * cache the connection promise on `globalThis` to survive hot reloads.
- *
- * The connection is created lazily (not at import time) so importing this module
- * never throws — only an actual query requires MONGODB_URI to be set.
- */
+
 const globalForDb = globalThis as unknown as {
   _mongoose?: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 };

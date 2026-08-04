@@ -48,7 +48,7 @@ export default function BlogSection({
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background py-24 lg:py-28"
+      className="relative overflow-hidden bg-background pt-24 pb-10 lg:pt-28 lg:pb-12"
     >
       <div
         className="absolute inset-0 opacity-[0.02]"

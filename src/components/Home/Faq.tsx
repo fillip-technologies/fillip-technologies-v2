@@ -24,7 +24,7 @@ export default function Faq({ content: raw = {} }: { content?: Record<string, un
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-8 lg:pt-28 lg:pb-8">
+    <section className="relative overflow-hidden pt-8 pb-8 lg:pt-10 lg:pb-8">
       {/* Grid Background */}
       <div
         className="absolute inset-0 opacity-[0.035]"
