@@ -14,6 +14,7 @@ import {
   Puzzle,
   BriefcaseBusiness,
   MessageSquareQuote,
+  Newspaper,
 } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
@@ -74,6 +75,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         description: "Meta, Open Graph, Twitter, canonical, robots, schema and sitemap for every page.",
         icon: Search,
         accent: "emerald",
+      },
+      {
+        href: "/admin/cms/blogs",
+        label: "Blogs",
+        description: "Create, edit and publish posts for the blog listing and latest-blog home cards.",
+        icon: Newspaper,
+        accent: "amber",
       },
     ],
   },

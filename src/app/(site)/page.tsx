@@ -18,6 +18,7 @@ import BlogSection from "@/components/Home/BlogSection";
 import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
 import { siteConfig } from "@/config/site";
+import { getLatestBlogs } from "@/lib/blogs";
 
 
 // Serve a cached copy and regenerate at most every 5 minutes, so most requests
@@ -80,7 +81,7 @@ const SECTION_IDS = [
 
 export default async function HomePage() {
   // One batched round trip for all sections, plus the site-wide testimonials list.
-  const [sections, globalTestimonials] = await Promise.all([
+  const [sections, globalTestimonials, latestBlogs] = await Promise.all([
     getContentDataMany(
       SECTION_IDS.map((id) => ({
         key: `home.${id}`,
@@ -88,6 +89,7 @@ export default async function HomePage() {
       }))
     ),
     getGlobalTestimonials(),
+    getLatestBlogs(3),
   ]);
   const s = (id: (typeof SECTION_IDS)[number]) => sections[`home.${id}`];
   const hero = s("hero");
@@ -125,7 +127,7 @@ export default async function HomePage() {
       <WhyChooseFillip content={whychooseus} />
       <CaseStudies content={casestudies} />
       <UnitOfSection content={unitof} />
-      <BlogSection content={blog} />
+      <BlogSection content={blog} posts={latestBlogs} />
       <Faq content={faq} />
     </>
   );

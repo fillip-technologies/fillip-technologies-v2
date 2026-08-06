@@ -5,13 +5,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import blogIndex from "@/data/blogs/index.json";
 import type { BlogListItem } from "@/lib/schema";
-
-const blogPosts = (blogIndex as BlogListItem[])
-  .slice()
-  .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-  .slice(0, 3);
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en", {
@@ -29,7 +23,13 @@ type BlogContent = Partial<{
   ctaLabel: string;
 }>;
 
-export default function BlogSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
+export default function BlogSection({
+  content: raw = {},
+  posts,
+}: {
+  content?: Record<string, unknown>;
+  posts: BlogListItem[];
+}) {
   const content = raw as BlogContent;
   const c = {
     eyebrow: content.eyebrow ?? "Our Blog",
@@ -43,7 +43,7 @@ export default function BlogSection({ content: raw = {} }: { content?: Record<st
     margin: "-100px",
   });
 
-  if (blogPosts.length === 0) return null;
+  if (posts.length === 0) return null;
 
   return (
     <section
@@ -81,7 +81,7 @@ export default function BlogSection({ content: raw = {} }: { content?: Record<st
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {blogPosts.map((post, index) => (
+          {posts.map((post, index) => (
             <motion.article
               key={post.slug}
               initial={{ opacity: 0, y: 50 }}

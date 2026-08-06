@@ -136,8 +136,8 @@ async function addJsonLandingPages(records: SeoPageRecord[]) {
   }
 }
 
-function addBlogPages(records: SeoPageRecord[]) {
-  for (const blog of getAllBlogs()) {
+async function addBlogPages(records: SeoPageRecord[]) {
+  for (const blog of await getAllBlogs()) {
     records.push({
       path: `/blog/${blog.slug}`,
       slug: blog.slug,

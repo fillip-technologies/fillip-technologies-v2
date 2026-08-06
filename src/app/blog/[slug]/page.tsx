@@ -14,12 +14,14 @@ import { createBlogJsonLd, createBlogMetadata } from "@/lib/metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 import { getAdjacentBlogs, getAllBlogs, getBlogBySlug, getLatestBlogs, getRelatedBlogs } from "@/lib/blogs";
 
+export const revalidate = 300;
+
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return getAllBlogs().map((blog) => ({ slug: blog.slug }));
+export async function generateStaticParams() {
+  return (await getAllBlogs()).map((blog) => ({ slug: blog.slug }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
@@ -35,9 +37,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!blog) notFound();
 
   const toc = getTableOfContents(blog.content);
-  const relatedBlogs = getRelatedBlogs(blog);
-  const latestBlogs = getLatestBlogs(4).filter((item) => item.slug !== blog.slug).slice(0, 3);
-  const { previous, next } = getAdjacentBlogs(blog.slug);
+  const [relatedBlogs, latest, adjacent] = await Promise.all([
+    getRelatedBlogs(blog),
+    getLatestBlogs(4),
+    getAdjacentBlogs(blog.slug),
+  ]);
+  const latestBlogs = latest.filter((item) => item.slug !== blog.slug).slice(0, 3);
+  const { previous, next } = adjacent;
   const jsonLd = createBlogJsonLd(blog);
 
   return (
