@@ -25,7 +25,7 @@ import type { ServiceLandingPage } from "./types";
 type ContentEntry = {
   definition: ServiceDefinitionInput;
   page: ServicePageInput;
-  defaults?: unknown;
+  defaults: unknown;
 };
 
 const contentRoot = path.join(process.cwd(), "src", "data", "services");
