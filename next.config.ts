@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { getNextRedirects } from "./src/lib/redirects/json-source";
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   turbopack: {
     root: process.cwd(),
   },
