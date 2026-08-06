@@ -8,6 +8,7 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+import HomeSectionTitle from "./HomeSectionTitle";
 import { HOME_WHY_CHOOSE, type WhyChooseItem } from "@/data/home/defaults";
 
 // Icon keys admins can type in the CMS map to these lucide icons.
@@ -72,11 +73,10 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
               {c.eyebrow}
             </span>
 
-            <h2 className="mt-6 text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl">
-              {c.headingLine1}
-              <br />
-              {c.headingLine2}
-            </h2>
+            <HomeSectionTitle
+              text={`${c.headingLine1} ${c.headingLine2}`}
+              className="mt-6"
+            />
 
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--body)]">
               {c.description}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import HomeSectionTitle from "./HomeSectionTitle";
 import { HOME_CASE_STUDIES, HOME_CASESTUDIES_BG, type CaseStudyItem } from "@/data/home/defaults";
 import { enrichCaseStudies } from "@/lib/case-studies";
 
@@ -101,14 +102,9 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
                 {c.eyebrow}
               </div>
 
-              <h2 className="text-heading text-5xl font-medium leading-[0.92] lg:text-7xl">
-                {c.headingLine1}
-                <br />
-                {c.headingLine2}
-                <br />
-                {c.headingLine3}
-                <span className="ml-3 inline-block">↘</span>
-              </h2>
+              <HomeSectionTitle
+                text={`${c.headingLine1} ${c.headingLine2} ${c.headingLine3}`}
+              />
 
               <p className="mt-8 max-w-md text-body leading-relaxed">
                 {c.description}

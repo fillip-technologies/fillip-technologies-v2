@@ -5,6 +5,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import HomeSectionTitle from "./HomeSectionTitle";
 import type { BlogListItem } from "@/lib/schema";
 
 function formatDate(date: string) {
@@ -22,6 +23,12 @@ type BlogContent = Partial<{
   heading: string;
   ctaLabel: string;
 }>;
+
+const homeBlogFallbackImages = [
+  "/images/Fillip-tech-ai.jpeg",
+  "/images/fillip-tech-carrer.jpeg",
+  "/images/fillip-tech-design-lover.jpeg",
+];
 
 export default function BlogSection({
   content: raw = {},
@@ -75,25 +82,26 @@ export default function BlogSection({
             {c.eyebrow}
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-heading text-center">
-            {c.heading}
-          </h2>
+          <HomeSectionTitle text={c.heading} className="text-center" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {posts.map((post, index) => (
-            <motion.article
-              key={post.slug}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.6,
-              }}
-              whileHover={{
-                y: -8,
-              }}
-              className="
+          {posts.map((post, index) => {
+            const image = post.featuredImage || homeBlogFallbackImages[index % homeBlogFallbackImages.length];
+
+            return (
+              <motion.article
+                key={post.slug}
+                initial={{ opacity: 0, y: 50 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.6,
+                }}
+                whileHover={{
+                  y: -8,
+                }}
+                className="
                 group
                 relative
                 flex
@@ -108,11 +116,10 @@ export default function BlogSection({
                 duration-300
                 hover:shadow-md
               "
-            >
-              <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/11] w-full overflow-hidden bg-slate-100">
-                {post.featuredImage ? (
+              >
+                <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/11] w-full overflow-hidden bg-slate-100">
                   <img
-                    src={post.featuredImage}
+                    src={image}
                     alt={post.title}
                     loading="lazy"
                     className="
@@ -124,46 +131,42 @@ export default function BlogSection({
                       group-hover:scale-105
                     "
                   />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-slate-100 px-8 text-center text-sm font-semibold uppercase tracking-[0.25em] text-primary">
-                    Fillip Technologies
+
+                  {post.category ? (
+                    <div className="absolute right-6 top-6 rounded-full border border-primary/20 bg-white/90 px-3 py-1 text-[11px] font-bold text-primary backdrop-blur shadow-sm">
+                      {post.category}
+                    </div>
+                  ) : null}
+                </Link>
+
+                <div className="flex flex-1 flex-col justify-between px-8 pb-8 pt-7">
+                  <div>
+                    <h3 className="text-xl font-bold leading-snug text-heading group-hover:text-primary transition-colors duration-300 mb-4">
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h3>
+
+                    <p className="mb-6 line-clamp-3 text-sm leading-6 text-body">{post.excerpt}</p>
+
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-xs font-bold tracking-wider text-primary hover:underline mb-6"
+                    >
+                      READ MORE
+                    </Link>
                   </div>
-                )}
 
-                {post.category ? (
-                  <div className="absolute right-6 top-6 rounded-full border border-primary/20 bg-white/90 px-3 py-1 text-[11px] font-bold text-primary backdrop-blur shadow-sm">
-                    {post.category}
-                  </div>
-                ) : null}
-              </Link>
-
-              <div className="flex flex-1 flex-col justify-between px-8 pb-8 pt-7">
-                <div>
-                  <h3 className="text-xl font-bold leading-snug text-heading group-hover:text-primary transition-colors duration-300 mb-4">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-
-                  <p className="mb-6 line-clamp-3 text-sm leading-6 text-body">{post.excerpt}</p>
-
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-xs font-bold tracking-wider text-primary hover:underline mb-6"
-                  >
-                    READ MORE
-                  </Link>
-                </div>
-
-                <div>
-                  <div className="h-[1px] bg-border w-full mb-4" />
-                  <div className="flex items-center text-xs text-body font-medium">
-                    <span>{formatDate(post.publishedAt)}</span>
-                    <span className="mx-2">-</span>
-                    <span>{post.readingTime}</span>
+                  <div>
+                    <div className="h-[1px] bg-border w-full mb-4" />
+                    <div className="flex items-center text-xs text-body font-medium">
+                      <span>{formatDate(post.publishedAt)}</span>
+                      <span className="mx-2">-</span>
+                      <span>{post.readingTime}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
 
         <div className="mt-12 flex justify-center">

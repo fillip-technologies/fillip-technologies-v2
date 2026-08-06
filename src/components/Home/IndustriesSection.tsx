@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import IndustriesImpactBackground from "./IndustriesImpactBackground";
+import HomeSectionTitle from "./HomeSectionTitle";
 import { HOME_INDUSTRIES, type IndustryItem } from "@/data/home/defaults";
 
 // CMS-editable content (key: home.industries). Falls back to these defaults.
@@ -18,7 +19,6 @@ type IndustriesContent = Partial<{
 export default function IndustriesSection({ content: raw = {} }: { content?: Record<string, unknown> }) {
   const content = raw as IndustriesContent;
   const c = {
-    eyebrow: content.eyebrow ?? "Industries",
     heading: content.heading ?? "Industries We Empower",
     description:
       content.description ??
@@ -39,13 +39,7 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
 
         <div className="mb-16 text-center">
 
-          <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-sm uppercase tracking-[4px] text-cyan-300">
-            {c.eyebrow}
-          </span>
-
-          <h2 className="mt-8 text-5xl font-bold text-slate-900 lg:text-6xl">
-            {c.heading}
-          </h2>
+          <HomeSectionTitle text={c.heading} className="text-center" />
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
             {c.description}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import HomeSectionTitle from "./HomeSectionTitle";
 
 const differences = [
   {
@@ -79,9 +80,7 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
             {c.eyebrow}
           </p>
 
-          <h2 className="text-heading text-5xl font-semibold text-center">
-            {c.heading}
-          </h2>
+          <HomeSectionTitle text={c.heading} className="text-center" />
 
           <p className="mx-auto mt-3 max-w-2xl text-center text-body">
             {c.description}
