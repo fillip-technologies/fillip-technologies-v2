@@ -472,45 +472,59 @@ async function main() {
   //     { upsert: true }
   //   );
   // }
+  console.log("Clearing blog images...");
+
+const result = await db.collection("blogs").updateMany(
+  {},
+  {
+    $set: {
+      featured_image: "",
+      updated_db_at: new Date(),
+    },
+  }
+);
+
+console.log(`Updated ${result.modifiedCount} blogs`);
 
   console.log("Seeding blogs...");
 
 const seedBlogs = readSeedBlogs();
 
-for (const [index, blog] of seedBlogs.entries()) {
-  const publishedAt = parseSeedDate(blog.publishedAt, new Date());
-  const updatedAt = parseSeedDate(blog.updatedAt, publishedAt);
+// for (const [index, blog] of seedBlogs.entries()) {
+//   const publishedAt = parseSeedDate(blog.publishedAt, new Date());
+//   const updatedAt = parseSeedDate(blog.updatedAt, publishedAt);
 
-  await db.collection("blogs").updateOne(
-    { slug: blog.slug },
-    {
-      $setOnInsert: {
-        id: blog.id ?? index + 1,
-        title: blog.title,
-        slug: blog.slug,
-        excerpt: blog.excerpt ?? "",
-        content: blog.content ?? "",
-        featured_image: blog.featuredImage ?? "",
-        author: blog.author ?? "Fillip Technologies",
-        published_at: publishedAt,
-        updated_at: updatedAt,
-        reading_time: blog.readingTime ?? "1 min",
-        category: blog.category ?? "",
-        tags: blog.tags ?? [],
-        seo: {
-          title: blog.seo?.title ?? "",
-          description: blog.seo?.description ?? "",
-          keywords: blog.seo?.keywords ?? "",
-        },
-        published: true,
-        sort_order: index + 1,
-        created_at: new Date(),
-        updated_db_at: new Date(),
-      },
-    },
-    { upsert: true }
-  );
-}
+
+//   await db.collection("blogs").updateOne(
+//     { slug: blog.slug },
+//     {
+//       $setOnInsert: {
+//         id: blog.id ?? index + 1,
+//         title: blog.title,
+//         slug: blog.slug,
+//         excerpt: blog.excerpt ?? "",
+//         content: blog.content ?? "",
+//         featured_image: blog.featuredImage ?? "",
+//         author: blog.author ?? "Fillip Technologies",
+//         published_at: publishedAt,
+//         updated_at: updatedAt,
+//         reading_time: blog.readingTime ?? "1 min",
+//         category: blog.category ?? "",
+//         tags: blog.tags ?? [],
+//         seo: {
+//           title: blog.seo?.title ?? "",
+//           description: blog.seo?.description ?? "",
+//           keywords: blog.seo?.keywords ?? "",
+//         },
+//         published: true,
+//         sort_order: index + 1,
+//         created_at: new Date(),
+//         updated_db_at: new Date(),
+//       },
+//     },
+//     { upsert: true }
+//   );
+// }
 
 console.log(`✓ Seeded ${seedBlogs.length} blogs`);
 
@@ -522,3 +536,4 @@ main().catch((err) => {
   console.error("✗ Migration failed:", err);
   process.exit(1);
 });
+

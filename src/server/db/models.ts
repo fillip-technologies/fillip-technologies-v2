@@ -200,3 +200,195 @@ export type BlogPostDoc = InferSchemaType<typeof blogPostSchema>;
 export const BlogPostModel: Model<BlogPostDoc> =
   (models.BlogPost as Model<BlogPostDoc>) ??
   model<BlogPostDoc>("BlogPost", blogPostSchema);
+
+
+  /* ------------------------------------------------------ location pages -- */
+
+const locationPageSchema = new Schema(
+  {
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+
+    enabled: {
+      type: Boolean,
+      required: true,
+      default: true,
+    },
+
+    service_key: {
+      type: String,
+      required: true,
+    },
+
+    city: {
+      name: {
+        type: String,
+        required: true,
+      },
+      state: {
+        type: String,
+        required: true,
+      },
+      country: {
+        type: String,
+        required: true,
+        default: "India",
+      },
+    },
+
+    seo: {
+      title: {
+        type: String,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+      canonical: {
+        type: String,
+        required: true,
+      },
+
+      open_graph: {
+        title: {
+          type: String,
+          required: true,
+        },
+        description: {
+          type: String,
+          required: true,
+        },
+        image: {
+          type: String,
+          required: true,
+        },
+      },
+
+      robots: {
+        index: {
+          type: Boolean,
+          required: true,
+          default: true,
+        },
+        follow: {
+          type: Boolean,
+          required: true,
+          default: true,
+        },
+      },
+    },
+
+    content: {
+      hero: {
+        title: {
+          type: String,
+          required: true,
+        },
+        highlighted_title: {
+          type: String,
+          required: true,
+        },
+        description: {
+          type: String,
+          required: true,
+        },
+      },
+
+      challenges: {
+        badge: {
+          type: String,
+          required: true,
+        },
+        title: {
+          type: String,
+          required: true,
+        },
+        highlighted_title: {
+          type: String,
+          required: true,
+        },
+        lead: {
+          type: String,
+          required: true,
+        },
+        support: {
+          type: String,
+          required: true,
+        },
+        description: {
+          type: String,
+          required: true,
+        },
+      },
+    },
+
+    faq: {
+      badge: {
+        type: String,
+        required: true,
+      },
+
+      title: {
+        type: String,
+        required: true,
+      },
+
+      description: {
+        type: String,
+        required: true,
+      },
+
+      items: [
+        {
+          question: {
+            type: String,
+            required: true,
+          },
+
+          answer: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
+    },
+
+    created_at: {
+      type: Date,
+      required: true,
+      default: Date.now,
+    },
+
+    updated_at: {
+      type: Date,
+      required: true,
+      default: Date.now,
+    },
+  },
+  {
+    collection: "location_pages",
+    versionKey: false,
+    minimize: false,
+  }
+);
+
+locationPageSchema.index({ slug: 1 });
+locationPageSchema.index({ service_key: 1 });
+locationPageSchema.index({ "city.name": 1 });
+locationPageSchema.index(
+  {
+    service_key: 1,
+    "city.name": 1,
+  },
+  { unique: true }
+);
+
+export type LocationPageDoc = InferSchemaType<typeof locationPageSchema>;
+
+export const LocationPageModel: Model<LocationPageDoc> =
+  (models.LocationPage as Model<LocationPageDoc>) ??
+  model<LocationPageDoc>("LocationPage", locationPageSchema);
