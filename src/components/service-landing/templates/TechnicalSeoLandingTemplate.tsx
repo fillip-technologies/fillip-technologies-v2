@@ -4,7 +4,6 @@ import SEOHeroSection from "@/components/Seo/TechnicalSeo/SEOHeroSection";
 import TechnicalSeoServicesStack from "@/components/Seo/TechnicalSeo/TechnicalSeoServicesStack";
 import TechnicalSeoToolsSection from "@/components/Seo/TechnicalSeo/TechnicalSeoToolsSection";
 import WhyWebsiteIsntRanking from "@/components/Seo/TechnicalSeo/WhyWebsiteIsntRanking";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import FAQSection from "@/components/shared/FAQSection";
 import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import type { TechnicalSeoLandingPage } from "@/lib/service-content/types";
@@ -35,7 +34,6 @@ export default function TechnicalSeoLandingTemplate({
         description={page.faq.description}
         faqs={page.faq.items}
       />
-      <ConsultationFormSection />
     </main>
   );
 }

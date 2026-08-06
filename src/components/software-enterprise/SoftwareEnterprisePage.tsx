@@ -1,5 +1,4 @@
 import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import SaasHero from "./saas/SaasHero";
 import SaasCapabilities from "./saas/SaasCapabilities";
 import SaasScaleTiers from "./saas/SaasScaleTiers";
@@ -26,7 +25,6 @@ export default function SoftwareEnterprisePage({ data }: SoftwareEnterprisePageP
       <SaasCapabilities key={`${data.slug}-capabilities`} data={data.capabilities} />
       <SaasScaleTiers key={`${data.slug}-tiers`} data={data.scaleTiers} />
       <SaasFaq key={`${data.slug}-faq`} data={data.faq} />
-      <ConsultationFormSection />
     </div>
   );
 }

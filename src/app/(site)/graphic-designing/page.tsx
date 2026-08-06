@@ -3,7 +3,6 @@ import GraphicHero from "@/components/graphic-desigining/hero";
 import GraphicCapabilities from "@/components/graphic-desigining/capabilities";
 import GraphicPortfolio from "@/components/graphic-desigining/portfolio";
 import WhyChooseGraphics from "@/components/graphic-desigining/why-choose";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import { getGraphicDesigningContent } from "@/server/content/solution-page-content";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
@@ -42,11 +41,6 @@ export default async function GraphicDesigningPage() {
 
       {/* Testimonials */}
       <TestimonialsSection items={testimonialItems} />
-
-      {/* Consultation Request Form */}
-      <div id="estimate">
-        <ConsultationFormSection />
-      </div>
     </main>
   );
 }

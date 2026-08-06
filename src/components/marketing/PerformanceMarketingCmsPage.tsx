@@ -6,7 +6,6 @@ import ResultsSection from "@/components/performance-marketing/ResultsSection";
 import GrowthStoriesSection from "@/components/performance-marketing/GrowthStoriesSection";
 import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import FAQSection from "@/components/shared/FAQSection";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 
 import type { PerformanceMarketingCmsContent } from "@/data/performance-marketing-cms";
 
@@ -53,8 +52,6 @@ export default function PerformanceMarketingCmsPage({
           description={data.faq.description}
           faqs={data.faq.items}
         />
-
-        <ConsultationFormSection />
       </div>
     </main>
   );

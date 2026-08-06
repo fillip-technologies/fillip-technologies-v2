@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import HomeSectionTitle from "./HomeSectionTitle";
 import type { ClientLogoItem } from "@/data/home/defaults";
 
 const logoDirectory = "/images/NEW%20CLIENTS%20LOGO";
@@ -393,9 +394,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
             {c.eyebrow}
           </p>
 
-          <h2 className="text-heading text-3xl font-semibold text-center">
-            {c.heading}
-          </h2>
+          <HomeSectionTitle text={c.heading} className="text-center" />
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-body md:gap-8">
             <span>{c.stat1}</span>

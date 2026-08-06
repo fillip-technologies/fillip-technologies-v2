@@ -1,6 +1,5 @@
 import FAQSection from "@/components/shared/FAQSection";
 import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import GrowthStoriesSection from "@/components/performance-marketing/GrowthStoriesSection";
 import HeroSection from "@/components/performance-marketing/HeroSection";
 import HowItWorksSection from "@/components/performance-marketing/HowItWorksSection";
@@ -35,7 +34,6 @@ export default function PerformanceMarketingLandingTemplate({
         description={page.faq.description}
         faqs={page.faq.items}
       />
-      <ConsultationFormSection />
     </main>
   );
 }

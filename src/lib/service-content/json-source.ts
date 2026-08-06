@@ -25,7 +25,7 @@ import type { ServiceLandingPage } from "./types";
 type ContentEntry = {
   definition: ServiceDefinitionInput;
   page: ServicePageInput;
-  defaults?: unknown;
+  defaults: unknown;
 };
 
 const contentRoot = path.join(process.cwd(), "src", "data", "services");
@@ -162,6 +162,7 @@ function createAIAutomationLandingPage(
 
 export class JsonServiceContentSource implements ServiceContentSource {
   private entriesPromise?: Promise<Map<string, ContentEntry>>;
+  private devCacheExpiresAt = 0;
 
   async getBySlug(slug: string): Promise<ServiceLandingPage | null> {
     const entry = (await this.getEntries()).get(slug);
@@ -200,7 +201,22 @@ export class JsonServiceContentSource implements ServiceContentSource {
 
   private getEntries() {
     if (process.env.NODE_ENV === "development") {
-      return this.loadEntries();
+      const now = Date.now();
+      if (!this.entriesPromise || now >= this.devCacheExpiresAt) {
+        this.devCacheExpiresAt = Number.POSITIVE_INFINITY;
+        this.entriesPromise = this.loadEntries()
+          .then((entries) => {
+            this.devCacheExpiresAt = Date.now() + 5000;
+            return entries;
+          })
+          .catch((error) => {
+            this.entriesPromise = undefined;
+            this.devCacheExpiresAt = 0;
+            throw error;
+          });
+      }
+
+      return this.entriesPromise;
     }
 
     this.entriesPromise ??= this.loadEntries();
@@ -211,9 +227,8 @@ export class JsonServiceContentSource implements ServiceContentSource {
     const entries = new Map<string, ContentEntry>();
     const serviceDirectories = await fs.readdir(contentRoot, { withFileTypes: true });
 
-    for (const directory of serviceDirectories) {
-      if (!directory.isDirectory()) continue;
-
+    const serviceEntries = await Promise.all(serviceDirectories.map(async (directory) => {
+      if (!directory.isDirectory()) return [];
       const serviceDirectory = path.join(contentRoot, directory.name);
       const definitionPath = path.join(serviceDirectory, "service.json");
       const definitionResult = serviceDefinitionSchema.safeParse(
@@ -223,41 +238,52 @@ export class JsonServiceContentSource implements ServiceContentSource {
       if (!definitionResult.success) {
         throw validationError(definitionPath, definitionResult.error.issues);
       }
-      if (!definitionResult.data.enabled) continue;
+      if (!definitionResult.data.enabled) return [];
 
-      const defaults = definitionResult.data.defaultsFile
-        ? await readJson(path.join(serviceDirectory, definitionResult.data.defaultsFile))
-        : undefined;
+      const defaultsPromise = definitionResult.data.defaultsFile
+        ? readJson(path.join(serviceDirectory, definitionResult.data.defaultsFile))
+        : Promise.resolve(undefined);
 
       const pagesDirectory = path.join(serviceDirectory, "pages");
       const pageFiles = (await fs.readdir(pagesDirectory)).filter((file) =>
         file.endsWith(".json"),
       );
+      const pageSchema = servicePageSchemas[definitionResult.data.templateKey];
+      const defaults = await defaultsPromise;
+      const pages = await Promise.all(
+        pageFiles.map(async (pageFile) => {
+          const pagePath = path.join(pagesDirectory, pageFile);
+          const pageResult = pageSchema.safeParse(await readJson(pagePath));
 
-      for (const pageFile of pageFiles) {
-        const pagePath = path.join(pagesDirectory, pageFile);
-        const pageSchema = servicePageSchemas[definitionResult.data.templateKey];
-        const pageResult = pageSchema.safeParse(await readJson(pagePath));
+          if (!pageResult.success) {
+            throw validationError(pagePath, pageResult.error.issues);
+          }
 
-        if (!pageResult.success) {
-          throw validationError(pagePath, pageResult.error.issues);
-        }
+          const page = pageResult.data;
+          if (page.status ? page.status !== "published" : !page.enabled) {
+            return null;
+          }
+          if (page.serviceKey !== definitionResult.data.serviceKey) {
+            throw new Error(`Service key mismatch in ${pagePath}`);
+          }
 
-        const page = pageResult.data;
-        if (page.status ? page.status !== "published" : !page.enabled) continue;
-        if (page.serviceKey !== definitionResult.data.serviceKey) {
-          throw new Error(`Service key mismatch in ${pagePath}`);
-        }
-        if (entries.has(page.slug)) {
-          throw new Error(`Duplicate service landing-page slug: ${page.slug}`);
-        }
+          return {
+            definition: definitionResult.data,
+            page,
+            defaults,
+          };
+        }),
+      );
 
-        entries.set(page.slug, {
-          definition: definitionResult.data,
-          page,
-          defaults,
-        });
+      return pages.filter((page): page is ContentEntry => page !== null);
+    }));
+
+    for (const entry of serviceEntries.flat()) {
+      if (entries.has(entry.page.slug)) {
+        throw new Error(`Duplicate service landing-page slug: ${entry.page.slug}`);
       }
+
+      entries.set(entry.page.slug, entry);
     }
 
     return entries;

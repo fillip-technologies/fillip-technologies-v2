@@ -9,6 +9,7 @@ import {
   Quote,
   Star,
 } from "lucide-react";
+import HomeSectionTitle from "./HomeSectionTitle";
 import { GLOBAL_TESTIMONIALS, type GlobalTestimonial } from "@/data/testimonials";
 
 // Heading/rating are CMS-editable (key: home.testimonials). The testimonial
@@ -70,9 +71,7 @@ export default function TestimonialsSection({
               className="mb-6 md:mb-8 text-slate-300 h-16 w-16 md:h-24 md:w-24"
             />
 
-            <h2 className="text-[32px] md:text-[42px] font-semibold leading-[1.28] tracking-[-0.03em] text-slate-950 lg:text-[44px]">
-              {c.heading}
-            </h2>
+            <HomeSectionTitle text={c.heading} />
 
             <div className="mt-6 md:mt-10 flex items-center gap-3">
               <span className="text-xl font-medium text-slate-800">

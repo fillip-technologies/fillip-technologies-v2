@@ -2,7 +2,6 @@ import GraphicHero from "@/components/graphic-desigining/hero";
 import GraphicCapabilities from "@/components/graphic-desigining/capabilities";
 import GraphicPortfolio from "@/components/graphic-desigining/portfolio";
 import WhyChooseGraphics from "@/components/graphic-desigining/why-choose";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import type { GraphicDesigningContent } from "@/components/graphic-desigining/content";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
@@ -22,9 +21,6 @@ export default async function CreativeExperiencePage({ data }: { data: GraphicDe
       <GraphicPortfolio content={data.portfolio} />
       <WhyChooseGraphics content={data.whychoose} deliverables={data.deliverables} />
       <TestimonialsSection items={testimonialItems} />
-      <div id="estimate">
-        <ConsultationFormSection />
-      </div>
     </main>
   );
 }

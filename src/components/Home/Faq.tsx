@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import HomeSectionTitle from "./HomeSectionTitle";
 import { HOME_FAQS, type FaqItem } from "@/data/home/defaults";
 
 // CMS-editable content (key: home.faq). Falls back to these defaults.
@@ -50,9 +51,7 @@ export default function Faq({ content: raw = {} }: { content?: Record<string, un
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-[-0.04em] text-[var(--heading)] md:text-5xl uppercase">
-            {c.heading}
-          </h2>
+          <HomeSectionTitle text={c.heading} className="text-center" />
 
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[var(--body)]">
             {c.description}

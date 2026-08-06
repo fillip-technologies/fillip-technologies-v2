@@ -10,14 +10,25 @@ if (process.env.DNS_SERVERS) {
 
 
 const globalForDb = globalThis as unknown as {
-  _mongoose?: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
+  _mongoose?: {
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
+    lastFailureAt: number;
+  };
 };
 
-const cache = globalForDb._mongoose ?? { conn: null, promise: null };
+const cache = globalForDb._mongoose ?? { conn: null, promise: null, lastFailureAt: 0 };
 globalForDb._mongoose = cache;
+
+const serverSelectionTimeoutMS = Number(process.env.DB_CONNECT_TIMEOUT_MS ?? 2500);
+const retryCooldownMS = Number(process.env.DB_RETRY_COOLDOWN_MS ?? 15_000);
 
 export async function dbConnect(): Promise<typeof mongoose> {
   if (cache.conn) return cache.conn;
+
+  if (!cache.promise && Date.now() - cache.lastFailureAt < retryCooldownMS) {
+    throw new Error("MongoDB connection is cooling down after a recent failure.");
+  }
 
   if (!cache.promise) {
     const uri = process.env.MONGODB_URI;
@@ -25,15 +36,13 @@ export async function dbConnect(): Promise<typeof mongoose> {
       throw new Error("MONGODB_URI is not set. Add it to .env.local (see .env.example).");
     }
     // bufferCommands:false surfaces connection errors instead of silently
-    // queueing. minPoolSize keeps a few sockets warm so parallel queries don't
-    // each pay a fresh TLS handshake to Atlas (the cluster is a long RTT away);
-    // serverSelectionTimeoutMS fails fast instead of hanging ~30s when it's down.
+    // queueing. serverSelectionTimeoutMS fails fast so snapshot-backed pages can
+    // render from last-known-good content when Atlas/network access is flaky.
     cache.promise = mongoose
       .connect(uri, {
         bufferCommands: false,
-        minPoolSize: 2,
         maxPoolSize: 10,
-        serverSelectionTimeoutMS: 8000,
+        serverSelectionTimeoutMS,
       })
       .then((m) => m);
   }
@@ -42,6 +51,7 @@ export async function dbConnect(): Promise<typeof mongoose> {
     cache.conn = await cache.promise;
   } catch (err) {
     cache.promise = null;
+    cache.lastFailureAt = Date.now();
     throw err;
   }
   return cache.conn;
