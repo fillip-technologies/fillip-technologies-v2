@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import { getNextRedirects } from "./src/lib/redirects/json-source";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: process.cwd(),
+  },
   experimental: {
     // Admin Direct Mail attachments are sent through a Server Action, whose body
     // defaults to a 1MB cap. Raise it above our 15MB total-attachment limit

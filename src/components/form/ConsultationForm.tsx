@@ -5,14 +5,6 @@ import { captureClientLocation } from "@/lib/capture-location";
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
-const budgets = [
-    "Under ₹50K",
-    "₹50K - ₹1L",
-    "₹1L - ₹3L",
-    "₹3L - ₹5L",
-    "₹5L+",
-];
-
 export default function ConsultationForm({
     className,
     source = "Consultation Form",
@@ -29,7 +21,6 @@ export default function ConsultationForm({
         company: "",
         email: "",
         phone: "",
-        budget: "",
         message: "",
     });
 
@@ -48,10 +39,6 @@ export default function ConsultationForm({
 
         if (!/^[0-9]{10,15}$/.test(form.phone)) {
             newErrors.phone = "Please enter a valid phone number";
-        }
-
-        if (!form.budget) {
-            newErrors.budget = "Select your budget";
         }
 
         if (form.message.trim().length < 20) {
@@ -87,7 +74,6 @@ export default function ConsultationForm({
                     email: form.email,
                     phone: form.phone,
                     company: form.company,
-                    budget: form.budget,
                     message: form.message,
                     source,
                     location,
@@ -104,7 +90,6 @@ export default function ConsultationForm({
                 company: "",
                 email: "",
                 phone: "",
-                budget: "",
                 message: "",
             });
         } catch (err) {
@@ -191,41 +176,6 @@ export default function ConsultationForm({
                     }
                 />
             </div>
-
-            {/* Budget */}
-            <div className="mt-8">
-                <label className="mb-4 block text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Project Budget
-                </label>
-
-                <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
-                    {budgets.map((budget) => (
-                        <button
-                            key={budget}
-                            type="button"
-                            onClick={() =>
-                                setForm({
-                                    ...form,
-                                    budget,
-                                })
-                            }
-                            className={`rounded border p-4 text-xs sm:text-sm transition ${form.budget === budget
-                                ? "border-blue-600 bg-blue-50 text-blue-700"
-                                : "border-slate-200 hover:border-blue-300"
-                                }`}
-                        >
-                            {budget}
-                        </button>
-                    ))}
-                </div>
-
-                {errors.budget && (
-                    <p className="mt-2 text-sm text-red-500">
-                        {errors.budget}
-                    </p>
-                )}
-            </div>
-
             {/* Message */}
             <div className="mt-8">
                 <label className="mb-2 block text-sm font-medium text-slate-700">
@@ -310,3 +260,4 @@ function InputField({
         </div>
     );
 }
+

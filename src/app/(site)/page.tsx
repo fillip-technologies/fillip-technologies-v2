@@ -3,7 +3,6 @@ import OurClients from "@/components/Home/OurClients";
 import HumanAISection from "@/components/Home/HumanAiSection";
 import TechnologyEcosystem from "@/components/Home/TechnologyEcosystem";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import { getContentDataMany } from "@/server/content/queries";
 import { getSection, sectionDefaults } from "@/server/content/home-sections";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
@@ -76,7 +75,7 @@ export const metadata: Metadata = {
 const SECTION_IDS = [
   "hero", "trustedby", "capabilities", "humanai", "industries", "clients",
   "technology", "testimonials", "needguidance", "clientlistcta", "whychooseus",
-  "casestudies", "unitof", "blog", "consultation", "faq",
+  "casestudies", "unitof", "blog", "faq",
 ] as const;
 
 export default async function HomePage() {
@@ -105,7 +104,6 @@ export default async function HomePage() {
   const casestudies = s("casestudies");
   const unitof = s("unitof");
   const blog = s("blog");
-  const consultation = s("consultation");
   const faq = s("faq");
 
   return (
@@ -129,13 +127,6 @@ export default async function HomePage() {
       <UnitOfSection content={unitof} />
       <BlogSection content={blog} />
       <Faq content={faq} />
-
-      <ConsultationFormSection
-        className="pt-8 pb-24"
-        titleLine1={consultation.titleLine1 as string}
-        titleLine2={consultation.titleLine2 as string}
-        description={consultation.description as string}
-      />
     </>
   );
 }

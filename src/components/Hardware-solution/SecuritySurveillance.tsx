@@ -6,7 +6,6 @@ import SecurityPriority from "./SecurityPriority";
 import SecurityServices from "./SecurityServices";
 import SecuritySupport from "./SecuritySupport";
 import FAQSection from "@/components/shared/FAQSection";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 import TestimonialsSection from "@/components/shared/TestimonialsSection";
 import type { SecuritySurveillanceContent } from "./content";
 import type { GlobalTestimonial } from "@/data/testimonials";
@@ -52,8 +51,6 @@ export default function SecuritySurveillance({
         description={content.faqs.description}
         faqs={content.faqs.faqs}
       />
-
-      <ConsultationFormSection />
     </div>
   );
 }

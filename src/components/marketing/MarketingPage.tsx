@@ -6,7 +6,6 @@ import IndustriesWeServeCards from "@/components/Seo/TechnicalSeo/IndustriesWeSe
 import TechnicalSeoToolsSection from "@/components/Seo/TechnicalSeo/TechnicalSeoToolsSection";
 import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 import FAQSection from "@/components/shared/FAQSection";
-import ConsultationFormSection from "@/components/form/ConsultationFormSection";
 
 import type { MarketingContent } from "@/data/marketing";
 
@@ -49,8 +48,6 @@ export default function MarketingPage({ data }: MarketingPageProps) {
         description={data.faq.description}
         faqs={data.faq.items}
       />
-
-      <ConsultationFormSection />
     </main>
   );
 }

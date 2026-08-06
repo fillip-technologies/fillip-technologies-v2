@@ -308,7 +308,7 @@
         "title": "Custom Website Development",
         "description": "Conversion-focused websites built for performance, trust, speed, and long-term growth.",
         "icon": "Globe",
-        "image": "/images/FT-web-1.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784722794/fillip/uploads/fgwagisy4x25jltorpuv.png"
       },
       {
         "category": "Web Development",
@@ -641,7 +641,7 @@
       },
       {
         "name": "Shruti Chouhan",
-        "role": "Software Development Engineer II",
+        "role": "Frontend Developer",
         "image": "/images/team/shruti-singh.png",
         "imagePosition": ""
       },
@@ -694,12 +694,6 @@
         "imagePosition": ""
       },
       {
-        "name": "Anushka Raj",
-        "role": "BDE",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784358614/fillip/uploads/gpzepzmb4jf0nyxc6nos.png",
-        "imagePosition": ""
-      },
-      {
         "name": "Rishab Choubey",
         "role": "IT Team Lead",
         "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1784375261/fillip/uploads/sghvkka67vgbnfhlnkok.png",
@@ -724,7 +718,7 @@
     "prefixText": "",
     "highlightedTitle": "Visitors Into Customers.",
     "suffixText": "",
-    "description": "Fillip Technologies provides you with custom web development that is carefully tailored to meet your business goals and ensure the success and measurable growth of your business.",
+    "description": "Fillip Technologies, the best custom website development company, provides you with websites that are carefully tailored to meet your business goals and ensure the success and measurable growth of your business.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204755/fillip/uploads/t7wm4hpydrmyk6hqtryw.png",
     "imageAlt": ""
   },
@@ -2384,11 +2378,6 @@
         "categories": "all,education"
       },
       {
-        "image": "/images/NEW%20CLIENTS%20LOGO/BMC%20NEW%20LOGO%20222-01.jpg",
-        "alt": "BMC NEW LOGO 222 01",
-        "categories": "all"
-      },
-      {
         "image": "/images/NEW%20CLIENTS%20LOGO/BMC%20NEW%20LOGO-011.png",
         "alt": "BMC NEW LOGO 011",
         "categories": "all,priority"
@@ -2419,14 +2408,14 @@
         "categories": "all,corporate"
       },
       {
-        "image": "/images/NEW%20CLIENTS%20LOGO/Diagno-lab-PNG.png",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785473143/fillip/uploads/y65rrm1pafi8wvgvbxws.png",
         "alt": "Diagno lab PNG",
         "categories": "all,healthcare"
       },
       {
-        "image": "/images/NEW%20CLIENTS%20LOGO/Domus-logo%20png.png",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785474635/fillip/uploads/hcavqtzvletl7e9lg8bb.jpg",
         "alt": "Domus logo png",
-        "categories": "all,priority,corporate"
+        "categories": "all,priority,corporate, healthcare"
       },
       {
         "image": "/images/NEW%20CLIENTS%20LOGO/Edify%20Logo.jpg",
@@ -2651,7 +2640,7 @@
       {
         "image": "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy%20(2).png",
         "alt": "logo Copy (2)",
-        "categories": "all,corporate"
+        "categories": "all,govt"
       },
       {
         "image": "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy%20-%20Copy.png",
@@ -2717,11 +2706,6 @@
         "image": "/images/NEW%20CLIENTS%20LOGO/logo-rng.png",
         "alt": "logo rng",
         "categories": "all,corporate"
-      },
-      {
-        "image": "/images/NEW%20CLIENTS%20LOGO/logo-shubh%20momentz.png",
-        "alt": "logo shubh momentz",
-        "categories": "all,healthcare"
       },
       {
         "image": "/images/NEW%20CLIENTS%20LOGO/logo.jpg",
@@ -2804,11 +2788,6 @@
         "categories": "all,priority,healthcare"
       },
       {
-        "image": "/images/NEW%20CLIENTS%20LOGO/Medica%20Logo%20for%20Social%20Media.png",
-        "alt": "Medica Logo for Social Media",
-        "categories": "all,healthcare"
-      },
-      {
         "image": "/images/NEW%20CLIENTS%20LOGO/MIA%20logo.png",
         "alt": "MIA logo",
         "categories": "all,corporate"
@@ -2829,16 +2808,6 @@
         "categories": "all,priority,education"
       },
       {
-        "image": "/images/NEW%20CLIENTS%20LOGO/NEW%20ERA%20HIGH%20SCHOOL%20LOGO.png",
-        "alt": "NEW ERA HIGH SCHOOL LOGO",
-        "categories": "all,education"
-      },
-      {
-        "image": "/images/NEW%20CLIENTS%20LOGO/Nirmal%20Inn%20logo2.png",
-        "alt": "Nirmal Inn logo2",
-        "categories": "all,corporate"
-      },
-      {
         "image": "/images/NEW%20CLIENTS%20LOGO/Parkomiko.png",
         "alt": "Parkomiko",
         "categories": "all"
@@ -2847,11 +2816,6 @@
         "image": "/images/NEW%20CLIENTS%20LOGO/Patna%20Dental%20Final%20Logo.png",
         "alt": "Patna Dental Final Logo",
         "categories": "all,priority,healthcare"
-      },
-      {
-        "image": "/images/NEW%20CLIENTS%20LOGO/Patna%20Park.png",
-        "alt": "Patna Park",
-        "categories": "all,priority"
       },
       {
         "image": "/images/NEW%20CLIENTS%20LOGO/Rakshit%20Logo.PNG",
@@ -2979,31 +2943,6 @@
         "categories": "all,corporate"
       },
       {
-        "image": "/images/NEW%20CLIENTS%20LOGO/Zoo%20Safari%20logo%20copy.jpg",
-        "alt": "Zoo Safari logo copy",
-        "categories": "all,priority"
-      },
-      {
-        "image": "/images/NEW%20CLIENTS%20LOGO/venu-van.png",
-        "alt": "venu van",
-        "categories": "all,priority,corporate"
-      },
-      {
-        "image": "/images/goverment/rajgir-zoo.png",
-        "alt": "rajgir zoo",
-        "categories": "govt"
-      },
-      {
-        "image": "/images/goverment/Nature%20Safari%20logo%20copy.png",
-        "alt": "Nature Safari logo copy",
-        "categories": "govt"
-      },
-      {
-        "image": "/images/goverment/venu-van.png",
-        "alt": "venu van",
-        "categories": "govt"
-      },
-      {
         "image": "/images/goverment/logo-large-converted-from-svg.png",
         "alt": "logo large converted from svg",
         "categories": "govt"
@@ -3014,19 +2953,39 @@
         "categories": "govt"
       },
       {
-        "image": "/images/goverment/Patna%20Park.png",
-        "alt": "Patna Park",
-        "categories": "govt"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785472161/fillip/uploads/aw4pci6wh1n7amtehkxi.png",
+        "alt": "Bihar Govt",
+        "categories": "all,govt"
       },
       {
-        "image": "/images/goverment/logo%20-%20Copy%20-%20Copy.png",
-        "alt": "logo Copy Copy",
-        "categories": "govt"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785473395/fillip/uploads/pyqb0djym5qjpxzknn4r.png",
+        "alt": "",
+        "categories": "all, healthcare"
       },
       {
-        "image": "/images/goverment/BMC%20NEW%20LOGO%20222-01.jpg",
-        "alt": "BMC NEW LOGO 222 01",
-        "categories": "govt"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785473441/fillip/uploads/xytf68rxvyxqnsqe2jw5.png",
+        "alt": "",
+        "categories": "all, healthcare"
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785473471/fillip/uploads/roda54y9qzrv6iuwmjje.png",
+        "alt": "",
+        "categories": "all, healthcare"
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785473535/fillip/uploads/j12x9nn9cjinmb7gwvgd.webp",
+        "alt": "",
+        "categories": "all,priority,education"
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785474484/fillip/uploads/ed9bkkqdw5ymvtfnsknu.png",
+        "alt": "",
+        "categories": "all, healthcare"
+      },
+      {
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785474529/fillip/uploads/r2fmwob50r5g3p7skyek.webp",
+        "alt": "",
+        "categories": "all,corporate"
       }
     ]
   },
@@ -5475,6 +5434,323 @@
     "note": "Do not see the perfect role? Select General application below and tell us how you can contribute.",
     "roles": []
   },
+  "content:home.unitof": {
+    "headingLead": "Our",
+    "headingHighlight": "Verticals",
+    "description": "Fillip Technologies operates as a core digital development and execution wing under our group organizations, driving synergy across technical mentorship and advanced professional skill development.",
+    "items": [
+      {
+        "title": "Fillip Skill Academy",
+        "subtitle": "IT & Digital Skill Development Hub",
+        "description": "A premier academy offering comprehensive courses in Web Development, Digital Marketing, Graphic Design, and Business Administration to build industry-ready professionals.",
+        "logo": "/images/FSA_logo_SVG-removebg-preview.png",
+        "link": "https://fillipskillacademy.com",
+        "badge": "Educational Division"
+      }
+    ]
+  },
+  "content:page.careers.team": {
+    "eyebrow": "People behind the work",
+    "heading": "A team that learns, builds and grows together.",
+    "description": "At Fillip Technologies, thoughtful collaboration matters as much as technical skill. We give people room to ask better questions, own their work and create solutions with visible business impact.",
+    "stat1Value": "10+",
+    "stat1Label": "Disciplines",
+    "stat2Value": "Real",
+    "stat2Label": "Ownership",
+    "stat3Value": "One",
+    "stat3Label": "Team",
+    "image1": "https://res.cloudinary.com/jhosc75n/image/upload/v1784704707/fillip/uploads/atdjfdhg8brgpmrumll0.jpg",
+    "image2": "https://res.cloudinary.com/jhosc75n/image/upload/v1784704713/fillip/uploads/ntc0zlwhdt7wyrhiztof.jpg"
+  },
+  "content:page.our-culture.hero": {
+    "badge": "Our Culture",
+    "headingLead": "Shaping ideas through",
+    "headingHighlight": "collaborative minds.",
+    "intro": "Culture at Fillip Technologies revolves around the concepts of curiosity, creativity, ownership, and innovation. We think that ideas come out of collaboration among brilliant people who are willing to question the status quo.",
+    "introHighlights": "curiosity, creativity, ownership, innovation",
+    "cardLabel": "Think Big",
+    "image1": "/images/our-cult-1.jpg",
+    "image2": "/images/our-cult-2.jpg",
+    "image3": "/images/our-cult-3.jpg",
+    "image4": "/images/How-we-work.png",
+    "pillars": [
+      {
+        "title": "Curiosity",
+        "description": "Always asking 'why', exploring new ideas, and seeking out better ways to solve complex challenges."
+      },
+      {
+        "title": "Creativity",
+        "description": "Thinking beyond conventional boundaries to craft solutions that are purposeful and visually stunning."
+      },
+      {
+        "title": "Ownership",
+        "description": "Taking deep pride in our work, acting with high accountability, and driving projects to success."
+      },
+      {
+        "title": "Innovation",
+        "description": "Challenging the status quo to transform forward-thinking concepts into real-world business value."
+      }
+    ]
+  },
+  "content:page.our-culture.approach": {
+    "eyebrow": "METHODOLOGY",
+    "heading": "Our Approach: Simple Yet Powerful",
+    "description": "Being the best lead generation agency, we follow a step-by-step and collaborative process, ensuring every project is designed for success.",
+    "steps": [
+      {
+        "phase": "01",
+        "title": "Discover",
+        "description": "We are aware of your business objectives, target audience, and market competitiveness."
+      },
+      {
+        "phase": "02",
+        "title": "Strategize",
+        "description": "We plan a customized roadmap that aligns with your growth objectives."
+      },
+      {
+        "phase": "03",
+        "title": "Create",
+        "description": "We first design, develop, and market solutions that adhere to your brand identity."
+      },
+      {
+        "phase": "04",
+        "title": "Optimise",
+        "description": "Our persistent monitoring and improvement ensure optimised performance and results."
+      },
+      {
+        "phase": "05",
+        "title": "Grow",
+        "description": "We make sure that your business grows with our long-lasting business strategies."
+      }
+    ]
+  },
+  "content:page.portfolio.showcase": {
+    "eyebrow": "✦ From Vision to Reality",
+    "heading": "Our Portfolio",
+    "logos": [
+      {
+        "name": "Rajgir Zoo Safari",
+        "image": "/images/goverment/Zoo%20Safari%20logo%20copy.jpg"
+      },
+      {
+        "name": "Patna Park",
+        "image": "/images/goverment/Patna%20Park.png"
+      },
+      {
+        "name": "Patna Zoo",
+        "image": "/images/goverment/logo-large-converted-from-svg.png"
+      },
+      {
+        "name": "Vana Vani",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Green%20and%20Beige%20Groceries%20Business%20Logo.png"
+      },
+      {
+        "name": "Nagar Parishad Jamui",
+        "image": "/images/NEW%20CLIENTS%20LOGO/jamui%20logo.png"
+      },
+      {
+        "name": "Thakurganj Nagar Panchayat",
+        "image": "/images/NEW%20CLIENTS%20LOGO/THAKUR%20GANJ%20NAGAR%20PANCHAYAT.png"
+      },
+      {
+        "name": "Domus Cure",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Domus-logo%20png.png"
+      },
+      {
+        "name": "Gayatri Astroscience",
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(2).png"
+      },
+      {
+        "name": "Diagno First Lab",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Diagno-lab-PNG.png"
+      },
+      {
+        "name": "Golden Apple",
+        "image": "/images/NEW%20CLIENTS%20LOGO/golden%20apple%20logo.png"
+      },
+      {
+        "name": "Inception",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Inception%20logo.png"
+      },
+      {
+        "name": "Janya Hospital",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Janya-Hospital-Logo-PNG%20copy.png"
+      },
+      {
+        "name": "Landmark Hotel",
+        "image": "/images/NEW%20CLIENTS%20LOGO/LANDMARK%20LOGO.png"
+      },
+      {
+        "name": "Ruban Hospital",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Ruban%40logo-with-NABH-2-ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm.png"
+      },
+      {
+        "name": "Advante",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Advante%20Logo%20Final%20-%2025-07-2022%20-%20Copy.png"
+      },
+      {
+        "name": "AHL",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Ahl-logo-copy-300x76.png"
+      },
+      {
+        "name": "ARCS",
+        "image": "/images/NEW%20CLIENTS%20LOGO/ARCS.png"
+      },
+      {
+        "name": "BCIT",
+        "image": "/images/NEW%20CLIENTS%20LOGO/bcit_logo.webp"
+      },
+      {
+        "name": "Edify School",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Edify%20Logo.jpg"
+      },
+      {
+        "name": "Hotel Sidh Vedantha",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Hotel%20Sidh%20Vedantha%20logo.webp"
+      },
+      {
+        "name": "New Era High School",
+        "image": "/images/NEW%20CLIENTS%20LOGO/NEW%20ERA%20HIGH%20SCHOOL%20LOGO.png"
+      },
+      {
+        "name": "Patna Dental Clinic",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Patna%20Dental%20Final%20Logo.png"
+      },
+      {
+        "name": "Medica Emergency",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Medica%20Emergency%20logo.png"
+      },
+      {
+        "name": "Satyadev Hospital",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Satyadev%20Urology%20Logo.jpg"
+      },
+      {
+        "name": "Technosys",
+        "image": "/images/NEW%20CLIENTS%20LOGO/technosys-logo%20(1).png"
+      },
+      {
+        "name": "Weddings72 Planners",
+        "image": "/images/NEW%20CLIENTS%20LOGO/WEDDINGS72%20LOGO.png"
+      },
+      {
+        "name": "Abhayanand Super 30",
+        "image": "/images/NEW%20CLIENTS%20LOGO/abhayanand_logo-170x115.png"
+      },
+      {
+        "name": "Arvind Foundation",
+        "image": "/images/NEW%20CLIENTS%20LOGO/arvind%20foundation%20logo%20copy.png"
+      },
+      {
+        "name": "Sheodeni Sao College",
+        "image": "/images/NEW%20CLIENTS%20LOGO/SHEODENI%20SAO%20COLLEGE%20LOGO-01.png"
+      },
+      {
+        "name": "Unicare Hospital",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Unicare%20logo.png"
+      },
+      {
+        "name": "Vedanta Hospital",
+        "image": "/images/NEW%20CLIENTS%20LOGO/vedantalogo.png"
+      },
+      {
+        "name": "Sita Interior",
+        "image": "/images/NEW%20CLIENTS%20LOGO/SITA-ARCH-LOGO-DKPorKRm.webp"
+      },
+      {
+        "name": "Tax Protect",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Tax%20Protect%20Logo%20-%2009-June-2022.png"
+      },
+      {
+        "name": "Rapid House",
+        "image": "/images/NEW%20CLIENTS%20LOGO/rapid_logo.png"
+      },
+      {
+        "name": "ClickCharm",
+        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(3)%20-%20Copy.png"
+      },
+      {
+        "name": "Kiara",
+        "image": "/images/NEW%20CLIENTS%20LOGO/kiayra-removebg-preview.webp"
+      },
+      {
+        "name": "Natural Spa",
+        "image": "/images/NEW%20CLIENTS%20LOGO/NATURAL%20SPA.png"
+      },
+      {
+        "name": "Nirmal Inn",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Nirmal%20Inn%20logo2.png"
+      },
+      {
+        "name": "Parkomico",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Parkomiko.png"
+      },
+      {
+        "name": "Score High",
+        "image": "/images/NEW%20CLIENTS%20LOGO/SCORE%20HIGH%20LOGO.jpg"
+      },
+      {
+        "name": "K.P Sinha",
+        "image": "/images/NEW%20CLIENTS%20LOGO/K.P%20Sinha%20Logo.png"
+      },
+      {
+        "name": "MIA",
+        "image": "/images/NEW%20CLIENTS%20LOGO/MIA%20logo.png"
+      },
+      {
+        "name": "Krrish Fabricators",
+        "image": "/images/NEW%20CLIENTS%20LOGO/Krrish%20Fabricators%20Logo%20-%20Copy.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785503983/fillip/uploads/gybzwky63jdxvexqlzkn.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504009/fillip/uploads/g0xzorlneub1rbcfadun.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504051/fillip/uploads/obqu0pd4zyiqdhr571gd.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504059/fillip/uploads/yy4asxa6geolsax4jxj2.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504075/fillip/uploads/aq9svtgwjbj0cesvlwbl.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504115/fillip/uploads/tigcv61kwjkewv00ujun.webp"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504124/fillip/uploads/smivmonpzlev0vhe2qnc.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504140/fillip/uploads/dxyfjkmvchgfsmdrkvdy.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504156/fillip/uploads/in7aaioqmttwexs3r4dz.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504186/fillip/uploads/qudr388nmasqmkcw9gt6.webp"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504206/fillip/uploads/ugeb9bwghgokrhduwbvp.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504235/fillip/uploads/u1vgxxknlzgcoaco04tl.png"
+      }
+    ]
+  },
+  "seo-overrides:all": [],
   "industries:all": [
     {
       "slug": "healthcare",

@@ -4,6 +4,7 @@ import Footer from "@/components/layouts/Footer";
 import ChatbotWidget from "@/components/chat/ChatbotWidget";
 import AnniversaryPopup from "@/components/AnniversaryPopup/AnniversaryPopup";
 import { JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
+import SiteConsultationForm from "@/components/form/SiteConsultationForm";
 
 // Layout for the public marketing site. The admin area and API routes live
 // outside this group, so they don't get the navbar/footer.
@@ -31,6 +32,7 @@ export default function SiteLayout({
         <Navbar />
         {children}
 
+        <SiteConsultationForm />
         <Footer />
         <ChatbotWidget />
       </div>
