@@ -31,6 +31,8 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import HomeTestimonialsSection from "@/components/Home/TestimonialsSection";
+import type { GlobalTestimonial } from "@/data/testimonials";
 import type { WhatsAppBusinessContent } from "./content";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -59,8 +61,10 @@ const INDUSTRY_ICONS = [GraduationCap, HeartPulse, Building2, Plane, Utensils, S
 
 export default function WhatsAppBusinessSolutionsPage({
   content,
+  testimonials = [],
 }: {
   content: WhatsAppBusinessContent;
+  testimonials?: GlobalTestimonial[];
 }) {
   const pageRef = useRef<HTMLElement>(null);
   const { hero, problem, solution, usecases, difference, showcase, industries, whyus, results, cta } = content;
@@ -314,6 +318,12 @@ export default function WhatsAppBusinessSolutionsPage({
           <div className="relative max-w-4xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">{cta.eyebrow}</p><h2 className="mt-5 text-4xl font-bold tracking-[-0.05em] md:text-6xl">{cta.heading}</h2><p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">{cta.description}</p><div className="mt-9 flex flex-wrap gap-3"><Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary transition hover:-translate-y-0.5">{cta.primaryCtaLabel} <ArrowRight className="size-4" /></Link><Link href="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/15">{cta.secondaryCtaLabel}</Link></div></div>
         </motion.div>
       </section>
+      {testimonials.length > 0 ? (
+        <HomeTestimonialsSection
+          content={{ heading: "What Our Clients Say" }}
+          items={testimonials}
+        />
+      ) : null}
     </main>
   );
 }

@@ -3,6 +3,7 @@ import SaasHero from "./saas/SaasHero";
 import SaasCapabilities from "./saas/SaasCapabilities";
 import SaasScaleTiers from "./saas/SaasScaleTiers";
 import SaasFaq from "./saas/SaasFaq";
+import GlobalTestimonials from "@/components/shared/GlobalTestimonials";
 
 import type { SoftwareEnterpriseContent } from "@/data/software-enterprise";
 
@@ -24,6 +25,10 @@ export default function SoftwareEnterprisePage({ data }: SoftwareEnterprisePageP
       <TrustedBrandsSection />
       <SaasCapabilities key={`${data.slug}-capabilities`} data={data.capabilities} />
       <SaasScaleTiers key={`${data.slug}-tiers`} data={data.scaleTiers} />
+      <GlobalTestimonials
+        title="What Our Clients Say"
+        description="See how businesses use our software and enterprise solutions to improve operations, visibility, and growth."
+      />
       <SaasFaq key={`${data.slug}-faq`} data={data.faq} />
     </div>
   );

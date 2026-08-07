@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import WhatsAppBusinessSolutionsPage from "@/components/solutions/WhatsAppBusinessSolutionsPage";
 import { getWhatsAppBusinessContent } from "@/server/content/solution-page-content";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 export const metadata: Metadata = {
   title: "WhatsApp Business Solutions | Fillip Technologies",
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function MessengerPage() {
-  const content = await getWhatsAppBusinessContent();
-  return <WhatsAppBusinessSolutionsPage content={content} />;
+  const [content, testimonials] = await Promise.all([
+    getWhatsAppBusinessContent(),
+    getGlobalTestimonials(),
+  ]);
+  return <WhatsAppBusinessSolutionsPage content={content} testimonials={testimonials} />;
 }

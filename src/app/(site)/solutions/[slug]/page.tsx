@@ -15,6 +15,7 @@ import {
   getTicketBookingContent,
   getSmsCommunicationContent,
 } from "@/server/content/solution-page-content";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 
@@ -76,13 +77,29 @@ export default async function BusinessSolutionSlugPage({
 
   // Bespoke layout slugs render their own CMS-driven component.
   if (CUSTOM_LAYOUT_SLUGS.has(slug)) {
+    const testimonials = await getGlobalTestimonials();
     if (slug === "ticket-booking") {
-      return <TicketBookingSolutionPage content={await getTicketBookingContent()} />;
+      return (
+        <TicketBookingSolutionPage
+          content={await getTicketBookingContent()}
+          testimonials={testimonials}
+        />
+      );
     }
     if (slug === "sms-communication") {
-      return <SmsCommunicationSolutionPage content={await getSmsCommunicationContent()} />;
+      return (
+        <SmsCommunicationSolutionPage
+          content={await getSmsCommunicationContent()}
+          testimonials={testimonials}
+        />
+      );
     }
-    return <WhatsAppBusinessSolutionsPage content={await getWhatsAppBusinessContent()} />;
+    return (
+      <WhatsAppBusinessSolutionsPage
+        content={await getWhatsAppBusinessContent()}
+        testimonials={testimonials}
+      />
+    );
   }
 
   // DB-managed page wins; unknown slugs fall back to the static content (zero

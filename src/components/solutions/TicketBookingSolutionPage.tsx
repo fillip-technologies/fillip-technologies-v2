@@ -40,6 +40,8 @@ import type {
   TicketDashboardContent,
   TicketFaqContent,
 } from "./ticket-content";
+import HomeTestimonialsSection from "@/components/Home/TestimonialsSection";
+import type { GlobalTestimonial } from "@/data/testimonials";
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -61,7 +63,13 @@ const INDUSTRY_ICONS = [Trees, Globe, Landmark, Castle, Calendar, Building2, Act
 const PILLAR_ICONS = [Cpu, Layers, ShieldCheck, Activity, Users, Building2] as const;
 const DASHBOARD_ICONS = [Ticket, CreditCard, Users, Activity, ScanLine, TrendingUp] as const;
 
-export default function TicketBookingSolutionPage({ content }: { content: TicketBookingContent }) {
+export default function TicketBookingSolutionPage({
+  content,
+  testimonials = [],
+}: {
+  content: TicketBookingContent;
+  testimonials?: GlobalTestimonial[];
+}) {
   const pageRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -102,6 +110,12 @@ export default function TicketBookingSolutionPage({ content }: { content: Ticket
       <Industries content={content.industries} />
       <WhyChoose content={content.whychoose} />
       <DashboardShowcase content={content.dashboard} />
+      {testimonials.length > 0 ? (
+        <HomeTestimonialsSection
+          content={{ heading: "What Our Clients Say" }}
+          items={testimonials}
+        />
+      ) : null}
       <FAQ content={content.faq} />
     </main>
   );

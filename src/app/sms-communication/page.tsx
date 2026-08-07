@@ -3,6 +3,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import SmsCommunicationSolutionPage from "@/components/solutions/SmsCommunicationSolutionPage";
 import { getSmsCommunicationContent } from "@/server/content/solution-page-content";
+import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 export const metadata: Metadata = {
   title: "SMS Communication Solution | Fillip Technologies",
@@ -14,11 +15,14 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function SmsCommunicationPage() {
-  const content = await getSmsCommunicationContent();
+  const [content, testimonials] = await Promise.all([
+    getSmsCommunicationContent(),
+    getGlobalTestimonials(),
+  ]);
   return (
     <>
       <Navbar />
-      <SmsCommunicationSolutionPage content={content} />
+      <SmsCommunicationSolutionPage content={content} testimonials={testimonials} />
       <Footer />
     </>
   );
