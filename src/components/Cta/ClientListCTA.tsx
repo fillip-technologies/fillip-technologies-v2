@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, FileText, PhoneCall } from "lucide-react";
 
 // CMS-editable content (key: home.clientlistcta). Falls back to these defaults.
 type ClientListCTAContent = Partial<{
@@ -20,53 +21,64 @@ export default function ClientListCTA({ content: raw = {} }: { content?: Record<
       content.description ??
       "Join startups, growing businesses, and enterprises that trust Fillip Technologies to build, scale, and innovate with confidence. The next business we help grow could be yours.",
     buttonText: content.buttonText ?? "Let's Build Together →",
-    image: content.image || "/images/ai-assistant.png",
   };
 
   return (
-    <section className="py-12 lg:py-16">
-      <div className="container mx-auto max-w-7xl px-6">
-        <div className="animate-border-glow group flex flex-col items-center justify-between gap-8 rounded-xl border bg-white px-8 py-8 transition-all duration-300 lg:flex-row lg:px-10">
-          
-          {/* Content */}
-          <div className="max-w-3xl">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--primary)]">
+    <section className="w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <div className="mx-auto w-full max-w-[82rem]">
+        <div className="relative w-full overflow-hidden rounded-2xl border border-blue-100 bg-white px-6 py-7 shadow-[0_22px_70px_rgba(15,23,42,0.08)] sm:px-9 lg:px-12 lg:py-9">
+          <div className="pointer-events-none absolute bottom-0 left-0 h-44 w-64 opacity-50 [background-image:radial-gradient(#1d4ed8_1.2px,transparent_1.2px)] [background-size:24px_24px]" />
+          <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-blue-100/70 blur-2xl" />
+
+          <div className="relative grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               {c.eyebrow}
-            </span>
+              </p>
+              <div className="mt-3 h-0.5 w-12 rounded-full bg-primary" />
 
-            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[var(--heading)] md:text-3xl">
-              {c.heading}
-            </h2>
+              <h2 className="mt-5 max-w-3xl text-2xl font-bold leading-tight text-slate-950 md:text-3xl lg:text-4xl">
+                {c.heading}
+              </h2>
 
-            <p className="mt-3 leading-relaxed text-[var(--body)]">
-              {c.description}
-            </p>
-          </div>
-
-          {/* CTA */}
-          <button className="group/cta flex shrink-0 flex-col items-center">
-            <div className="relative">
-              <div
-                className="absolute inset-0 rounded-full blur-2xl opacity-30"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(15,111,255,0.35) 0%, transparent 70%)",
-                }}
-              />
-
-              <Image
-                src={c.image}
-                alt="Talk To Experts"
-                width={110}
-                height={110}
-                className="relative object-contain transition-transform duration-300 group-hover/cta:scale-105"
-              />
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-600">
+                {c.description}
+              </p>
             </div>
 
-            <span className="mt-2 text-sm font-semibold text-[var(--heading)] transition-colors duration-300 group-hover/cta:text-[var(--primary)]">
-              {c.buttonText}
-            </span>
-          </button>
+            <div className="relative border-t border-blue-100 pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+              <Link
+                href="/get-a-quote"
+                className="group inline-flex w-full max-w-[18rem] items-center justify-between rounded-xl bg-primary px-5 py-4 text-base font-semibold text-white shadow-[0_22px_45px_rgba(2,66,162,0.26)] transition hover:-translate-y-1 hover:bg-blue-700"
+              >
+                <span className="inline-flex items-center gap-3">
+                  <FileText className="h-5 w-5" />
+                  {c.buttonText}
+                </span>
+                <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+              </Link>
+
+              <div className="mt-6 flex items-start gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-primary">
+                  <PhoneCall className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-slate-950">Call Us :</p>
+                  <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold text-primary xl:flex-nowrap">
+                    <a className="whitespace-nowrap hover:underline" href="tel:+917257930444">
+                      +91 7257930444
+                    </a>
+                    <a className="whitespace-nowrap hover:underline" href="tel:+917545999996">
+                      +91 7545999996
+                    </a>
+                    <a className="whitespace-nowrap hover:underline" href="tel:+917545999995">
+                      +91 7545999995
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
