@@ -37,10 +37,25 @@ export default async function ServiceSlugPage({
     if (page.template !== "service") notFound(); // lives under another route
     if (!page.published) notFound(); // drafts are visible only via /preview
     const jsonLd = await pageJsonLd(`/services/${slug}`);
+    const cmsData = (await getServicePageData(slug, "service")) as Service;
+    // `getServicePageData` only reconstructs sections that are registered in
+    // the CMS schema (hero, challenges, whatWeBuild, technologyStack, process,
+    // outcomes). Fields that live exclusively in the static data files — like
+    // `whyPerformBetter` — must be merged back manually.
+    const staticFallback = getServiceBySlug(slug);
+    const mergedData: Service = {
+      ...cmsData,
+      ...(staticFallback?.whyPerformBetter && {
+        whyPerformBetter: staticFallback.whyPerformBetter,
+      }),
+      ...(staticFallback?.faq && {
+        faq: staticFallback.faq,
+      }),
+    };
     return (
       <>
         {jsonLd.length ? <JsonLdScript data={jsonLd} /> : null}
-        <ServicePage data={(await getServicePageData(slug, "service")) as Service} />
+        <ServicePage data={mergedData} />
       </>
     );
   }

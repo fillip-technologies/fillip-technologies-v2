@@ -28,6 +28,33 @@ export type ServiceOutcomeStat = {
   label: string;
 };
 
+export type WhyPerformBetterRow = {
+  standard: string;
+  fillip: string;
+};
+
+export type WhyPerformBetter = {
+  eyebrow: string;
+  title: string;
+  highlightedTitle: string;
+  description: string;
+  standardLabel: string;
+  fillipLabel: string;
+  rows: WhyPerformBetterRow[];
+};
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type Faq = {
+  eyebrow: string;
+  title: string;
+  highlightedTitle: string;
+  items: FaqItem[];
+};
+
 export type Service = {
   slug: string;
   hero: {
@@ -78,4 +105,6 @@ export type Service = {
     leftPill: string;
     rightPill: string;
   };
+  whyPerformBetter?: WhyPerformBetter;
+  faq?: Faq;
 };

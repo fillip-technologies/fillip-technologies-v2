@@ -133,5 +133,68 @@
     ],
     "leftPill": "🛡️ Proactive Shield",
     "rightPill": "⏰ 24/7 Peace of Mind"
+  },
+  "whyPerformBetter": {
+    "title": "Why Our Websites",
+    "highlightedTitle": "Perform Better",
+    "description": "Not all websites are designed for business success. Where standard websites depend on simple templates and basic functionality, a well-developed website is created to increase efficiency, help you establish yourself online, and facilitate growth. Here at Fillip Technologies, the best website design company, we design websites using speed, security, scalability, and SEO optimization to provide a superior experience for your users. See the difference between a standard website and one that has been well-developed by comparing the two.",
+    "standardLabel": "Standard Website",
+    "fillipLabel": "Website by Fillip Technologies",
+    "rows": [
+      { "standard": "Template Based", "fillip": "Fully Custom Developed" },
+      { "standard": "Basic Design", "fillip": "Conversion-Focused UI" },
+      { "standard": "Slow Loading", "fillip": "Lightning Fast" },
+      { "standard": "Poor SEO", "fillip": "SEO-Optimized Structure" },
+      { "standard": "Limited Security", "fillip": "Enterprise-Grade Security" },
+      { "standard": "Difficult to Scale", "fillip": "Built for Growth" },
+      { "standard": "Generic Code", "fillip": "Clean Scalable Code" }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "title": "Frequently Asked",
+    "highlightedTitle": "Questions",
+    "items": [
+      {
+        "question": "Why do I need a professional Website Maintenance Company?",
+        "answer": "A professional Website Maintenance Company ensures your website stays secure, fast, updated, and fully functional. At Fillip Technologies, the Best Website Maintenance Company, we proactively monitor, optimize, and protect your website to deliver uninterrupted performance."
+      },
+      {
+        "question": "Why is Fillip Technologies the Best Website Maintenance Company?",
+        "answer": "As the Best Website Maintenance Company, Fillip Technologies provides comprehensive website maintenance, including security updates, performance optimization, regular backups, bug fixes, and technical support to keep your business online without interruptions."
+      },
+      {
+        "question": "What services are included in your website maintenance plans?",
+        "answer": "Our website maintenance services include CMS and plugin updates, malware protection, website monitoring, speed optimization, backups, security patches, broken link fixes, and continuous technical support for maximum reliability."
+      },
+      {
+        "question": "How often should a website be maintained?",
+        "answer": "A website should be maintained regularly to ensure optimal performance and security. As the Best Website Maintenance Company, we recommend continuous monitoring along with scheduled updates, backups, and performance checks."
+      },
+      {
+        "question": "Can website maintenance improve my Google rankings?",
+        "answer": "Yes. Regular maintenance improves page speed, fixes technical issues, enhances Core Web Vitals, and ensures a healthy website structure, all of which contribute to better search engine performance and user experience."
+      },
+      {
+        "question": "Will website maintenance protect my website from cyber threats?",
+        "answer": "Absolutely. Our Best Website Maintenance Company implements security updates, malware scanning, firewall monitoring, SSL management, and vulnerability fixes to protect your website from evolving online threats."
+      },
+      {
+        "question": "Do you provide website maintenance for WordPress and custom websites?",
+        "answer": "Yes. We maintain WordPress websites, custom-built websites, eCommerce platforms, and business portals, ensuring every website remains secure, optimized, and fully operational regardless of the technology used."
+      },
+      {
+        "question": "What happens if my website goes down unexpectedly?",
+        "answer": "Our team responds quickly to diagnose and resolve website issues, minimizing downtime and restoring your website as soon as possible to protect your business reputation and customer experience."
+      },
+      {
+        "question": "Can website maintenance improve my website's speed and performance?",
+        "answer": "Definitely. As the Best Website Maintenance Company, we continuously optimize website performance by improving loading speeds, removing unnecessary files, optimizing databases, and monitoring server health."
+      },
+      {
+        "question": "Why should I choose Fillip Technologies for long-term website maintenance?",
+        "answer": "Businesses trust Fillip Technologies, the Best Website Maintenance Company, because we combine proactive monitoring, enterprise-grade security, performance optimization, and dedicated support to ensure websites remain reliable, secure, and ready to support long-term business growth."
+      }
+    ]
   }
 }

@@ -7,6 +7,8 @@ import TechnologyStackBlock from "@/components/services/blocks/TechnologyStackBl
 import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
 import WebsiteAuditCTA from "../Cta/WebsiteAuditCTA";
 import OurClients from "../Home/OurClients";
+import WhyPerformBetterSection from "@/components/website-development/WhyPerformBetterSection";
+import FaqSection from "@/components/website-development/FaqSection";
 
 import type { Service } from "@/data/website-development";
 
@@ -33,6 +35,13 @@ export default function ServicePage({ data }: ServicePageProps) {
 
       <WhatWeBuildBlock key={`${data.slug}-build`} data={data.whatWeBuild} />
 
+      {data.whyPerformBetter && (
+        <WhyPerformBetterSection
+          key={`${data.slug}-why`}
+          data={data.whyPerformBetter}
+        />
+      )}
+
       <OurClients />
 
       <DevelopmentProcessTimeline
@@ -43,6 +52,10 @@ export default function ServicePage({ data }: ServicePageProps) {
       <TechnologyStackBlock key={`${data.slug}-stack`} data={data.technologyStack} />
 
       <BusinessOutcomesSection key={`${data.slug}-outcomes`} data={data.outcomes} />
+
+      {data.faq && (
+        <FaqSection key={`${data.slug}-faq`} data={data.faq} />
+      )}
     </>
   );
 }
