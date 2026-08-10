@@ -8,7 +8,6 @@
  * code-derived by index in the components.
  */
 
-import type { Section } from "./home-sections";
 import type { SectionSpec } from "./servicepage-sections";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

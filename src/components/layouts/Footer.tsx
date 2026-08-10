@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import Image from "next/image";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 
 type FooterLink = {

@@ -24,9 +24,6 @@ export default function FAQSection({
   title,
   description,
   faqs,
-  ctaTitle = "Still Have Questions?",
-  ctaDescription = "Let's discuss your requirements and help you find the right solution.",
-  ctaButtonText = "Book Free Consultation",
 }: FAQSectionProps) {
   const [open, setOpen] = useState<number | null>(0);
 

@@ -10,7 +10,6 @@ import {
   ArrowUpRight,
   QrCode,
   Ticket,
-  BarChart3,
   ScanLine,
   ShieldCheck,
   Calendar,
@@ -31,8 +30,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-const patnaZoo = "/images/web-img.png";
-const rajgirDash = "/images/web-img.png";
 const analyticsDash = "/images/analytics-dashboard.jpg";
 
 
@@ -58,7 +55,6 @@ const stagger = {
 /* ------------------------------------------------------------------ */
 
 export default function TicketingService() {
-  const pageRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <Navbar />

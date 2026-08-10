@@ -4,6 +4,10 @@
  *
  * Standalone (no `@/` alias) so it runs directly under Node.
  */
+// The SEED_* constants below are the migration's source data. They're currently
+// only referenced by the commented-out seeding loops (kept for re-seeding), so
+// disable the unused-vars rule rather than deleting the data.
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import dns from "node:dns";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";

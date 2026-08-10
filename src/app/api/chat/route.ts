@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+interface ChatMessage {
+  role: string;
+  content: string;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
@@ -201,9 +206,9 @@ Pricing is custom and project-based. Always invite users to [book a free consult
     // Gemini startChat history expects the first message to have the 'user' role.
     // We slice out the initial assistant greeting message to conform to this.
     const rawHistory = messages.slice(0, -1);
-    const firstUserIndex = rawHistory.findIndex((msg: any) => msg.role === "user");
+    const firstUserIndex = rawHistory.findIndex((msg: ChatMessage) => msg.role === "user");
 
-    const history = (firstUserIndex === -1 ? [] : rawHistory.slice(firstUserIndex)).map((msg: any) => ({
+    const history = (firstUserIndex === -1 ? [] : rawHistory.slice(firstUserIndex)).map((msg: ChatMessage) => ({
       role: msg.role === "user" ? "user" : "model",
       parts: [{ text: msg.content }],
     }));
@@ -218,10 +223,11 @@ Pricing is custom and project-based. Always invite users to [book a free consult
       role: "assistant",
       content: responseText,
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Gemini API Error:", error);
+    const message = error instanceof Error ? error.message : undefined;
     return NextResponse.json(
-      { error: error.message || "Something went wrong. Please try again." },
+      { error: message || "Something went wrong. Please try again." },
       { status: 500 }
     );
   }

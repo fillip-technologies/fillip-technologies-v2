@@ -2,10 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
 import type { SaasHero as SaasHeroData } from "@/data/software-enterprise";
 import { saasIcon } from "./icons";
-import { CheckCircle2, ShieldCheck, Database, Layers } from "lucide-react";
 import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
 import GetQuoteButton from "@/components/shared/GetQuoteButton";
 

@@ -10,7 +10,7 @@ interface InfoCard {
   values?: { label: string; href: string }[];
   desc: string;
   href?: string;
-  icon: ComponentType<any>;
+  icon: ComponentType<{ className?: string }>;
   badge?: string;
 }
 

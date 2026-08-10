@@ -110,6 +110,7 @@ export default function TechnologyStackSection() {
                   >
                     {/* Icon wrapper */}
                     <div className="h-5 w-5 flex items-center justify-center shrink-0">
+                      {/* eslint-disable-next-line @next/next/no-img-element -- tiny remote CDN SVG icon; next/image adds no value at 18px and needs remote-domain config */}
                       <img
                         src={`https://cdn.simpleicons.org/${tool.slug}`}
                         alt={tool.name}

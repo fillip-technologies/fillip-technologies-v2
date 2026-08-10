@@ -9,7 +9,6 @@
  * the type but MobileAppDevelopmentPage doesn't render it, so it's omitted).
  */
 
-import type { Section } from "./home-sections";
 import type { SectionSpec } from "./servicepage-sections";
 import {
   androidMobileAppContent,

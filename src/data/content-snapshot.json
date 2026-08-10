@@ -714,9 +714,9 @@
     ]
   },
   "content:servicepage.website-development.hero": {
-    "title": "Websites Designed to Convert",
+    "title": "Turning Ideas Into",
     "prefixText": "",
-    "highlightedTitle": "Visitors Into Customers.",
+    "highlightedTitle": "Digital Success",
     "suffixText": "",
     "description": "Fillip Technologies, the best custom website development company, provides you with websites that are carefully tailored to meet your business goals and ensure the success and measurable growth of your business.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784204755/fillip/uploads/t7wm4hpydrmyk6hqtryw.png",
@@ -1264,36 +1264,36 @@
     "imageAlt": ""
   },
   "content:servicepage.wordpress-development.hero": {
-    "title": "Create a Website That's Easy",
+    "title": "WordPress Crafted",
     "prefixText": "",
-    "highlightedTitle": "to Manage and Built to Perform",
+    "highlightedTitle": "For Business",
     "suffixText": "",
     "description": "Be it a start-up, a small company, or a multinational corporation, WordPress has become one of the most popular systems used by modern companies to build their online presence.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359258/fillip/uploads/uqcgpcjhari8ro3iuaio.png",
     "imageAlt": ""
   },
   "content:servicepage.website-maintenance.hero": {
-    "title": "Keep Your Website Fast, Secure and",
+    "title": "Website Support",
     "prefixText": "",
-    "highlightedTitle": "Always Online",
+    "highlightedTitle": "You Can Trust",
     "suffixText": "",
     "description": "Professional website maintenance, security updates, and performance optimization services to keep your site running smoothly 24/7.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784362627/fillip/uploads/o16zvgvk6qnxcmukkunq.png",
     "imageAlt": ""
   },
   "content:servicepage.website-redesign.hero": {
-    "title": "Redesign Your Website for",
+    "title": "From Outdated",
     "prefixText": "",
-    "highlightedTitle": "Higher Conversions",
+    "highlightedTitle": "To Outstanding",
     "suffixText": "",
     "description": "Transform your outdated website into a fast, search-optimized, and customer-focused digital experience that actually drives business outcomes.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359841/fillip/uploads/n6jxwtqlqr82kyfs6o0s.png",
     "imageAlt": ""
   },
   "content:servicepage.ecommerce-development.hero": {
-    "title": "Build Smarter Online Stores",
+    "title": "Grow Your Sales",
     "prefixText": "",
-    "highlightedTitle": "Sell With Less Friction",
+    "highlightedTitle": "With E-commerce",
     "suffixText": "",
     "description": "Being the best e-commerce website development company, we provide strategic, innovative, user-friendly, and seamless e-commerce solutions that will give your brand a competitive advantage over others.",
     "imageSrc": "https://res.cloudinary.com/jhosc75n/image/upload/v1784359198/fillip/uploads/srdzqzfczfidmcmfwql2.png",
@@ -5533,8 +5533,8 @@
         "image": "/images/goverment/Zoo%20Safari%20logo%20copy.jpg"
       },
       {
-        "name": "Patna Park",
-        "image": "/images/goverment/Patna%20Park.png"
+        "name": "SC/ST WELFARE",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786082041/fillip/uploads/a2cu6nej73c8z0afkoqu.jpg"
       },
       {
         "name": "Patna Zoo",
@@ -5542,23 +5542,19 @@
       },
       {
         "name": "Vana Vani",
-        "image": "/images/NEW%20CLIENTS%20LOGO/Green%20and%20Beige%20Groceries%20Business%20Logo.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786082665/fillip/uploads/a0r6iiyx2si2xwuv2ddf.png"
       },
       {
         "name": "Nagar Parishad Jamui",
-        "image": "/images/NEW%20CLIENTS%20LOGO/jamui%20logo.png"
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786082674/fillip/uploads/yqb6yvdulgfawwvnv8v1.svg"
       },
       {
         "name": "Thakurganj Nagar Panchayat",
         "image": "/images/NEW%20CLIENTS%20LOGO/THAKUR%20GANJ%20NAGAR%20PANCHAYAT.png"
       },
       {
-        "name": "Domus Cure",
-        "image": "/images/NEW%20CLIENTS%20LOGO/Domus-logo%20png.png"
-      },
-      {
-        "name": "Gayatri Astroscience",
-        "image": "/images/NEW%20CLIENTS%20LOGO/logo%20(2).png"
+        "name": "Litera Valley",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786082759/fillip/uploads/bpbu3fmk0jipihjti61s.webp"
       },
       {
         "name": "Diagno First Lab",
@@ -5603,14 +5599,6 @@
       {
         "name": "Edify School",
         "image": "/images/NEW%20CLIENTS%20LOGO/Edify%20Logo.jpg"
-      },
-      {
-        "name": "Hotel Sidh Vedantha",
-        "image": "/images/NEW%20CLIENTS%20LOGO/Hotel%20Sidh%20Vedantha%20logo.webp"
-      },
-      {
-        "name": "New Era High School",
-        "image": "/images/NEW%20CLIENTS%20LOGO/NEW%20ERA%20HIGH%20SCHOOL%20LOGO.png"
       },
       {
         "name": "Patna Dental Clinic",
@@ -5738,15 +5726,79 @@
       },
       {
         "name": "",
-        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504186/fillip/uploads/qudr388nmasqmkcw9gt6.webp"
-      },
-      {
-        "name": "",
         "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504206/fillip/uploads/ugeb9bwghgokrhduwbvp.png"
       },
       {
         "name": "",
         "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1785504235/fillip/uploads/u1vgxxknlzgcoaco04tl.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786080680/fillip/uploads/dz6e1ttefjmbcf5ojmg2.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786080890/fillip/uploads/akigejsjideilnzd2hnx.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786081614/fillip/uploads/bbs4qzdsqjg7fin8sh9o.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786081722/fillip/uploads/tg4dtoagef7ihpkogxaq.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786081751/fillip/uploads/b7d2cnljfhrofaxoumv5.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786081798/fillip/uploads/zbrx2ty6plo1zsmnu8nz.png"
+      },
+      {
+        "name": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786081986/fillip/uploads/mnyrd1oqvwf8een3x7dp.webp"
+      }
+    ]
+  },
+  "content:global.testimonials": {
+    "items": [
+      {
+        "name": "Sneha Singh",
+        "role": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786087056/fillip/uploads/psscei7l6xxisjxgd5pb.png",
+        "review": "Fillip Technologies, They deliver creative digital solutions to establish businesses in Patna Achieved online. they have Specialists in designing custom websites, Convenient web platforms, and Responsive eCommerce stores Created to fulfill specific business objectives. From the front-end to full-scale development, website designing, digital Marketing, SEO, social media marketing, lead generation, software development thier assure quality, functionality, and performance."
+      },
+      {
+        "name": "Ishani Aprajita",
+        "role": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786087226/fillip/uploads/l6hjj49ecf9s3bpek6q6.png",
+        "review": "I can't say enough good things about Fillip Technologies, the premier Website Designing Company in Patna! Their work is not just visually appealing but also highly functional, showcasing their deep understanding of user experience. From the moment I engaged with their team, I felt confident in their ability to bring my web design vision to life.\n\nWhat sets them apart is their unwavering commitment to delivering excellence. They paid close attention to my business requirements, ensuring that the final website exceeded my expectations. The result? A website that not only reflects my brand but also engages visitors effectively.\n\nFor anyone in Patna seeking a top-notch Website Designing Company, I wholeheartedly recommend Fillip Technologies. Their expertise and dedication are unmatched, making them the go-to choice for web design solutions in the region. Kudos to the Fillip Technologies team for their outstanding work!"
+      },
+      {
+        "name": "Abhishek Ojha",
+        "role": "",
+        "image": "https://res.cloudinary.com/jhosc75n/image/upload/v1786087311/fillip/uploads/vjgmsu40r8k9oxgl1u4k.png",
+        "review": "I am extremely pleased with the exceptional services provided by Fillip Technologies. As a business owner in Patna, I was searching for a reliable Website Designing Company in Patna, and Fillip Technologies exceeded my expectations. Their expertise in web design is truly commendable. They created a dynamic and user-friendly website for my business that perfectly aligns with my brand identity.\n\nWhat sets Fillip Technologies apart is their dedication to delivering high-quality results. Their team worked closely with me to understand my unique requirements and vision, resulting in a website that not only looks fantastic but also functions flawlessly. I appreciate their attention to detail and commitment to providing an excellent user experience.\n\nFillip Technologies has transformed my online presence, and I've already seen an increase in user engagement and conversions. I highly recommend their services to anyone in Patna seeking top-tier Website Designing Company in Patna. They are, without a doubt, the go-to choice for Website Designing Company in Patna."
+      },
+      {
+        "name": "abhishek kumar",
+        "role": "Operations Head",
+        "image": "/images/background.png",
+        "review": "The Fillip technologies delivers exceptional solutions with a focus on innovation and quality. Their team is highly skilled, responsive, and dedicated to meeting client needs. With timely project completion and seamless communication. Highly recommended!"
+      },
+      {
+        "name": "Amit Kumar",
+        "role": "Startup Founder",
+        "image": "/images/background.png",
+        "review": "From strategy to deployment, every stage was handled with clarity and professionalism."
+      },
+      {
+        "name": "Neha Agarwal",
+        "role": "CEO",
+        "image": "/images/background.png",
+        "review": "One of the most reliable technology partners we've worked with. Great communication and measurable outcomes."
       }
     ]
   },
