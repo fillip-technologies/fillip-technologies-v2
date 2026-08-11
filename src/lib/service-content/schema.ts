@@ -218,11 +218,71 @@ export const technicalSeoServicePageSchema = z.object({
       searchText: nonEmptyString,
       primaryCta: nonEmptyString,
       secondaryCta: nonEmptyString,
+      outlineText: nonEmptyString.optional(),
       image: z.object({
         src: z.string().startsWith("/"),
         alt: nonEmptyString,
       }),
     }),
+    challenges: z.object({
+      badge: nonEmptyString,
+      title: nonEmptyString,
+      highlightedTitle: nonEmptyString,
+      para1: nonEmptyString,
+      para2: nonEmptyString,
+      ctaText: nonEmptyString,
+      items: z.array(z.object({
+        icon: nonEmptyString,
+        title: nonEmptyString,
+        description: nonEmptyString,
+      })).min(1),
+    }).optional(),
+    services: z.object({
+      eyebrow: nonEmptyString,
+      title: nonEmptyString,
+      highlightedTitle: nonEmptyString,
+      description: nonEmptyString,
+      items: z.array(z.object({
+        number: nonEmptyString,
+        title: nonEmptyString,
+        description: nonEmptyString,
+        metric: nonEmptyString,
+        icon: nonEmptyString,
+      })).min(1),
+    }).optional(),
+    issues: z.object({
+      badge: nonEmptyString,
+      title: nonEmptyString,
+      highlightedTitle: nonEmptyString,
+      description: nonEmptyString,
+      items: z.array(z.object({
+        number: nonEmptyString,
+        title: nonEmptyString,
+        description: nonEmptyString,
+        impact: nonEmptyString,
+      })).min(1),
+    }).optional(),
+    industries: z.object({
+      badge: nonEmptyString,
+      title: nonEmptyString,
+      highlightedTitle: nonEmptyString,
+      items: z.array(z.object({
+        name: nonEmptyString,
+        label: nonEmptyString,
+        blurb: nonEmptyString,
+        points: z.array(nonEmptyString).min(1),
+      })).min(1),
+    }).optional(),
+    tools: z.object({
+      eyebrow: nonEmptyString,
+      title: nonEmptyString,
+      highlightedTitle: nonEmptyString,
+      description: nonEmptyString,
+      items: z.array(z.object({
+        name: nonEmptyString,
+        icon: nonEmptyString,
+      })).min(1),
+    }).optional(),
   }),
 });
 

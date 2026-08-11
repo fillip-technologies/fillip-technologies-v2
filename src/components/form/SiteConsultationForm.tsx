@@ -15,6 +15,7 @@ const excludedPaths = new Set([
 
 const pageTestimonialsPaths = new Set([
   "/",
+  "/digital-marketing-company-in-patna",
   "/graphic-designing",
   "/performance-marketing",
   "/security-surveillance",

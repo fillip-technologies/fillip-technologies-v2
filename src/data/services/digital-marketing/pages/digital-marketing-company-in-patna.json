@@ -30,72 +30,204 @@
   },
   "content": {
     "hero": {
-      "title": "Grow your business with",
-      "highlightedTitle": "Digital Marketing",
-      "suffix": "Company in Patna",
+      "badge": "DIGITAL MARKETING SERVICES",
+      "title": "Digital Marketing Company in Patna",
+      "highlightedTitle": "That Drives Growth",
       "description": "Reach the right audience in Patna with SEO, paid campaigns, social media, content, and conversion-focused digital marketing.",
-      "cta": "Plan Your Growth",
-      "metricValue": "Growth",
-      "metricLabel": "Campaigns optimized for qualified traffic, leads, and conversions",
+      "searchText": "Digital Marketing Company in Patna | SEO | Google Ads | Social Media Marketing",
+      "primaryCta": "Plan Your Growth",
+      "secondaryCta": "Get Free Consultation",
+      "outlineText": "GROW",
       "image": {
-        "src": "/images/results-visuals.png",
+        "src": "/images/diigital-marketing-patna.png",
         "alt": "Digital marketing company in Patna"
       }
     },
-    "philosophy": {
-      "badge": "OUR DIGITAL MARKETING PHILOSOPHY",
-      "title": "Build Visibility.",
-      "highlightedTitle": "Convert It Into Growth.",
-      "lead": "Good marketing is not only about reach.",
-      "support": "We connect channels, messaging, landing pages, and reporting around real business outcomes.",
-      "description": "Effective digital marketing combines search visibility, paid acquisition, social engagement, lead capture, analytics, and continuous optimization.",
-      "caption": "Strategy and measurement turn campaigns into growth",
-      "metrics": [
-        { "label": "Qualified Leads", "value": "+58%" },
-        { "label": "Conversion Growth", "value": "+42%" }
-      ]
-    },
-    "workflow": {
-      "badge": "HOW DIGITAL MARKETING WORKS",
-      "title": "From Strategy to",
-      "highlightedTitle": "Measurable Results.",
-      "description": "We plan campaigns around audience intent, channel fit, conversion goals, and clear performance tracking.",
-      "steps": [
+    "challenges": {
+      "badge": "DIGITAL MARKETING CHALLENGES",
+      "title": "Why Your Marketing",
+      "highlightedTitle": "Isn't Converting",
+      "para1": "Many businesses get traffic, likes, or clicks but still struggle to turn attention into qualified enquiries.",
+      "para2": "A focused digital marketing strategy connects audience research, campaign setup, landing pages, tracking, and optimization around measurable business growth.",
+      "ctaText": "See How We Grow Your Business",
+      "items": [
         {
-          "title": "Research & Growth Strategy",
-          "description": "We study your audience, competitors, keywords, offers, and existing digital presence in Patna.",
-          "image": "/images/research-mockup.png",
-          "alt": "Digital marketing research in Patna"
+          "icon": "target",
+          "title": "Unclear Target Audience",
+          "description": "Campaigns waste budget when ads, keywords, and messaging are not aligned with the right customer intent. Impact: Low-quality leads."
         },
         {
-          "title": "Campaign Launch",
-          "description": "We set up campaigns, landing experiences, content, tracking, and conversion actions for measurable execution.",
-          "image": "/images/launch-mockup.png",
-          "alt": "Digital marketing campaign launch",
-          "cta": "Launch Campaigns"
+          "icon": "click",
+          "title": "Poor Landing Experience",
+          "description": "Visitors leave when landing pages are slow, confusing, or missing clear offers and conversion actions. Impact: Lower conversions."
         },
         {
-          "title": "Optimize & Scale",
-          "description": "We improve channels, budgets, messaging, and landing pages using real performance data.",
-          "image": "/images/scale-mockup.png",
-          "alt": "Digital marketing optimization"
+          "icon": "chart",
+          "title": "Weak Performance Tracking",
+          "description": "Without proper analytics, calls, forms, and campaign events cannot be measured accurately. Impact: Unclear ROI."
+        },
+        {
+          "icon": "megaphone",
+          "title": "Disconnected Channels",
+          "description": "SEO, ads, social media, and content underperform when each channel works separately instead of supporting one growth plan. Impact: Missed opportunities."
         }
       ]
     },
-    "results": {
-      "badge": "DIGITAL MARKETING RESULTS",
-      "title": "Growth You Can",
-      "highlightedTitle": "Measure Clearly.",
-      "description": "Our campaigns focus on traffic quality, lead generation, conversion efficiency, and long-term digital growth.",
-      "image": {
-        "src": "/images/results-visuals.png",
-        "alt": "Digital marketing results dashboard"
-      },
-      "metrics": [
-        { "label": "Qualified Traffic", "value": "+64%" },
-        { "label": "Lead Growth", "value": "+58%" },
-        { "label": "Conversion Rate", "value": "+42%" },
-        { "label": "Acquisition Cost", "value": "-29%" }
+    "services": {
+      "eyebrow": "DIGITAL MARKETING SERVICES",
+      "title": "Growth Marketing Solutions",
+      "highlightedTitle": "For Patna Businesses",
+      "description": "We build campaigns that combine search visibility, paid acquisition, social media, content, lead generation, and reporting.",
+      "items": [
+        {
+          "number": "01",
+          "title": "SEO Strategy",
+          "description": "Improve organic visibility for service, location, and high-intent search terms.",
+          "metric": "Search Growth",
+          "icon": "search"
+        },
+        {
+          "number": "02",
+          "title": "Google Ads",
+          "description": "Run targeted paid campaigns focused on qualified enquiries and measurable conversions.",
+          "metric": "Lead Quality",
+          "icon": "target"
+        },
+        {
+          "number": "03",
+          "title": "Social Media Marketing",
+          "description": "Build consistent brand presence with platform-ready content and audience engagement.",
+          "metric": "Brand Reach",
+          "icon": "megaphone"
+        },
+        {
+          "number": "04",
+          "title": "Lead Generation",
+          "description": "Create funnels, landing pages, offers, and tracking for better enquiry generation.",
+          "metric": "Conversion Flow",
+          "icon": "users"
+        },
+        {
+          "number": "05",
+          "title": "Content Planning",
+          "description": "Plan blogs, creatives, campaigns, and messaging around what your customers search and compare.",
+          "metric": "Content Engine",
+          "icon": "file"
+        },
+        {
+          "number": "06",
+          "title": "Analytics & Optimization",
+          "description": "Measure performance, improve campaigns, and scale channels using real data.",
+          "metric": "ROI Tracking",
+          "icon": "activity"
+        }
+      ]
+    },
+    "issues": {
+      "badge": "MARKETING GAPS WE FIX",
+      "title": "Hidden Growth",
+      "highlightedTitle": "Leaks We Fix",
+      "description": "Digital marketing fails when strategy, creative, targeting, landing pages, and reporting do not work together.",
+      "items": [
+        {
+          "number": "01",
+          "title": "Low Quality Traffic",
+          "description": "We refine targeting, keywords, and audience segments so campaigns attract people more likely to enquire.",
+          "impact": "Better Lead Fit"
+        },
+        {
+          "number": "02",
+          "title": "Weak Offers",
+          "description": "We improve campaign messaging and calls to action so users clearly understand why they should respond.",
+          "impact": "Higher Enquiries"
+        },
+        {
+          "number": "03",
+          "title": "Landing Page Drop-Off",
+          "description": "We align landing pages with ad promises, user intent, and conversion goals.",
+          "impact": "More Conversions"
+        },
+        {
+          "number": "04",
+          "title": "No Clear Reporting",
+          "description": "We set up meaningful tracking for forms, calls, leads, campaign costs, and channel performance.",
+          "impact": "Clear ROI"
+        },
+        {
+          "number": "05",
+          "title": "Inconsistent Branding",
+          "description": "We keep messaging, creative, and campaign visuals aligned across search, social, and paid channels.",
+          "impact": "Stronger Trust"
+        },
+        {
+          "number": "06",
+          "title": "Slow Campaign Scaling",
+          "description": "We use performance data to improve budgets, targeting, creative, and landing pages over time.",
+          "impact": "Sustainable Growth"
+        }
+      ]
+    },
+    "industries": {
+      "badge": "INDUSTRIES WE SERVE",
+      "title": "Industries We Help",
+      "highlightedTitle": "Grow Online",
+      "items": [
+        {
+          "name": "Healthcare",
+          "label": "Care",
+          "blurb": "Digital marketing for clinics, hospitals, diagnostics, and healthcare brands that need qualified local enquiries.",
+          "points": ["Clinic campaigns", "Appointment leads", "Local search visibility"]
+        },
+        {
+          "name": "Education",
+          "label": "Admissions",
+          "blurb": "Campaigns for schools, coaching institutes, colleges, and training brands focused on admission enquiries.",
+          "points": ["Admission funnels", "Student enquiries", "Social campaigns"]
+        },
+        {
+          "name": "Real Estate",
+          "label": "Property",
+          "blurb": "Lead generation and campaign strategy for builders, brokers, property consultants, and real estate projects.",
+          "points": ["Buyer leads", "Project promotions", "Local SEO"]
+        },
+        {
+          "name": "Retail",
+          "label": "Sales",
+          "blurb": "Digital campaigns for shops, showrooms, D2C brands, and ecommerce businesses that want more visibility and sales.",
+          "points": ["Store visibility", "Product campaigns", "Social commerce"]
+        },
+        {
+          "name": "Finance",
+          "label": "Trust",
+          "blurb": "Marketing support for finance, insurance, consulting, and professional service brands.",
+          "points": ["Trust-led content", "Lead funnels", "Search campaigns"]
+        },
+        {
+          "name": "Local Services",
+          "label": "Local",
+          "blurb": "Growth campaigns for Patna businesses that depend on calls, walk-ins, enquiries, and local discovery.",
+          "points": ["Google presence", "Lead tracking", "Conversion pages"]
+        }
+      ]
+    },
+    "tools": {
+      "eyebrow": "TOOLS & CHANNELS",
+      "title": "Digital Marketing Tools",
+      "highlightedTitle": "We Work With",
+      "description": "We use search, advertising, analytics, social, and reporting platforms to plan, launch, measure, and improve campaigns.",
+      "items": [
+        { "name": "Google Ads", "icon": "target" },
+        { "name": "Meta Ads", "icon": "megaphone" },
+        { "name": "Google Analytics 4", "icon": "chart" },
+        { "name": "Search Console", "icon": "search" },
+        { "name": "Keyword Research", "icon": "search" },
+        { "name": "Landing Pages", "icon": "click" },
+        { "name": "Lead Tracking", "icon": "activity" },
+        { "name": "Local SEO", "icon": "location" },
+        { "name": "Content Planning", "icon": "file" },
+        { "name": "Conversion Reports", "icon": "database" },
+        { "name": "Campaign Testing", "icon": "zap" },
+        { "name": "Social Media", "icon": "users" }
       ]
     }
   },

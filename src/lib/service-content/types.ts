@@ -1,4 +1,11 @@
 import type { MobileAppDevelopmentContent } from "@/data/mobile-app-development";
+import type {
+  MarketingChallengesContent,
+  MarketingIndustriesContent,
+  MarketingIssuesContent,
+  MarketingServicesContent,
+  MarketingToolsContent,
+} from "@/data/marketing/types";
 import type { Service } from "@/data/website-development";
 
 export type ServiceTemplateKey =
@@ -67,6 +74,7 @@ export type TechnicalSeoHeroContent = {
   searchText: string;
   primaryCta: string;
   secondaryCta: string;
+  outlineText?: string;
   image: {
     src: string;
     alt: string;
@@ -77,6 +85,11 @@ export type TechnicalSeoLandingPage = LandingPageBase & {
   templateKey: "technical-seo";
   content: {
     hero: TechnicalSeoHeroContent;
+    challenges?: MarketingChallengesContent;
+    services?: MarketingServicesContent;
+    issues?: MarketingIssuesContent;
+    industries?: MarketingIndustriesContent;
+    tools?: MarketingToolsContent;
   };
 };
 
