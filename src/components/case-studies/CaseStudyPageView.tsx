@@ -197,32 +197,24 @@ export default function CaseStudyPageView({
             ) : null}
 
             {journey.phases.length ? (
-              <ol className="relative mt-16 space-y-8 before:absolute before:left-[15px] before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-[var(--border)] md:before:left-1/2">
+              <div className="mt-16 grid gap-6 md:grid-cols-2">
                 {journey.phases.map((p, i) => (
-                  <li
+                  <div
                     key={i}
-                    className={`relative md:flex md:items-center md:gap-8 ${
-                      i % 2 === 1 ? "md:flex-row-reverse" : ""
-                    }`}
+                    className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm"
                   >
-                    <span className="absolute left-[8px] top-1.5 z-10 h-4 w-4 rounded-full border-4 border-white bg-[var(--primary)] shadow md:left-1/2 md:-translate-x-1/2" />
-                    <div className="md:w-1/2" />
-                    <div className={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 1 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                      <div className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm">
-                        {p.period ? (
-                          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                            {p.period}
-                          </div>
-                        ) : null}
-                        <h3 className="mt-2 text-xl font-bold text-[var(--heading)]">{p.title}</h3>
-                        {p.description ? (
-                          <p className="mt-3 text-sm leading-7 text-[var(--body)]">{p.description}</p>
-                        ) : null}
+                    {p.period ? (
+                      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                        {p.period}
                       </div>
-                    </div>
-                  </li>
+                    ) : null}
+                    <h3 className="mt-2 text-xl font-bold text-[var(--heading)]">{p.title}</h3>
+                    {p.description ? (
+                      <p className="mt-3 text-sm leading-7 text-[var(--body)]">{p.description}</p>
+                    ) : null}
+                  </div>
                 ))}
-              </ol>
+              </div>
             ) : null}
           </div>
         </section>
