@@ -194,30 +194,9 @@ export default function CaseStudies({ content: raw = {}, caseStudies = [] }: { c
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-                  {/* Result Badge */}
-
-                  <div
-                    className="
-                      absolute
-                      left-8
-                      top-8
-                      rounded-full
-                      bg-white
-                      px-5
-                      py-2
-                      text-sm
-                      font-semibold
-                      text-black
-                    "
-                  >
-                    {item.result}
-                  </div>
                   {/* Content */}
 
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <div className="mb-3 text-xs uppercase tracking-[0.25em] text-white/70">
-                      {item.industry}
-                    </div>
 
                     <h3 className="text-4xl font-medium leading-tight">
                       {item.title}
