@@ -2,7 +2,7 @@ import HeroSection from "@/components/website-development/HeroSection";
 import DevelopmentProcessTimeline from "@/components/website-development/DevelopmentProcessTimeline";
 import WhatWeBuildBlock from "@/components/services/blocks/WhatWeBuildBlock";
 import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
-import OurClients from "@/components/Home/OurClients";
+import OurClientsSection from "@/components/Home/OurClientsSection";
 import PortfolioSection from "./PortfolioSection";
 import WhyChooseUsSection from "./WhyChooseUsSection";
 import CreativeDesignFaq from "./CreativeDesignFaq";
@@ -30,7 +30,7 @@ export default function CreativeDesignPage({ data }: CreativeDesignPageProps) {
 
       <PortfolioSection key={`${data.slug}-portfolio`} data={data.portfolio} />
 
-      <OurClients />
+      <OurClientsSection />
 
       <DevelopmentProcessTimeline key={`${data.slug}-process`} data={data.process} />
 

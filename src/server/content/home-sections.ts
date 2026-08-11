@@ -14,11 +14,11 @@ import {
   HOME_SERVICES, HOME_SERVICES_BG,
   HOME_INDUSTRIES,
   HOME_HUMANAI_BG1, HOME_HUMANAI_BG2,
-  HOME_CLIENT_LOGOS,
   HOME_TECHNOLOGY_BG,
   HOME_WHY_CHOOSE,
-  HOME_CASE_STUDIES, HOME_CASESTUDIES_BG,
+  HOME_CASESTUDIES_BG,
   HOME_UNITS,
+  HOME_TESTIMONIALS,
   HOME_FAQS,
 } from "@/data/home/defaults";
 
@@ -40,6 +40,7 @@ export type ItemField = {
   name: string;
   label: string;
   type: "text" | "textarea" | "image";
+  help?: string;
 };
 
 export type ListDef = {
@@ -211,7 +212,8 @@ export const HOME_SECTIONS: Section[] = [
   {
     id: "clients",
     label: "Our Clients",
-    description: "“Trusted by organizations” heading, the three stat chips and the client logo wall.",
+    description:
+      "“Trusted by organizations” heading and the three stat chips. The client logo wall itself is managed per category under Content → Trusted By Clients.",
     ready: true,
     fields: [
       { name: "eyebrow", label: "Eyebrow", type: "text", default: "TRUSTED BY ORGANIZATIONS" },
@@ -220,17 +222,6 @@ export const HOME_SECTIONS: Section[] = [
       { name: "stat2", label: "Stat 2", type: "text", default: "1000+ Projects Delivered" },
       { name: "stat3", label: "Stat 3", type: "text", default: "20+ Industries Served" },
     ],
-    list: {
-      name: "logos",
-      label: "Client logos",
-      itemNoun: "logo",
-      itemFields: [
-        { name: "image", label: "Logo", type: "image" },
-        { name: "alt", label: "Name / alt text", type: "text" },
-        { name: "categories", label: "Tags (comma-separated: all, govt, healthcare, education, corporate, priority)", type: "text" },
-      ],
-      default: HOME_CLIENT_LOGOS as Record<string, string>[],
-    },
   },
   {
     id: "technology",
@@ -351,19 +342,6 @@ export const HOME_SECTIONS: Section[] = [
       },
       { name: "backgroundImage", label: "Background image", type: "image", default: HOME_CASESTUDIES_BG },
     ],
-    list: {
-      name: "items",
-      label: "Case study cards",
-      itemNoun: "case study",
-      itemFields: [
-        { name: "industry", label: "Industry", type: "text" },
-        { name: "result", label: "Result badge", type: "text" },
-        { name: "title", label: "Title", type: "text" },
-        { name: "description", label: "Description", type: "textarea" },
-        { name: "image", label: "Image", type: "image" },
-      ],
-      default: HOME_CASE_STUDIES as Record<string, string>[],
-    },
   },
   {
     id: "unitof",

@@ -376,7 +376,8 @@ const locationPageSchema = new Schema(
   }
 );
 
-locationPageSchema.index({ slug: 1 });
+// `slug` is already indexed via `unique: true` on the field above — don't
+// redeclare it here or Mongoose warns about a duplicate index.
 locationPageSchema.index({ service_key: 1 });
 locationPageSchema.index({ "city.name": 1 });
 locationPageSchema.index(
@@ -392,3 +393,179 @@ export type LocationPageDoc = InferSchemaType<typeof locationPageSchema>;
 export const LocationPageModel: Model<LocationPageDoc> =
   (models.LocationPage as Model<LocationPageDoc>) ??
   model<LocationPageDoc>("LocationPage", locationPageSchema);
+
+/* ----------------------------------------------------------- case studies -- */
+/**
+ * Case studies are fully self-contained: unlike industries/service pages (whose
+ * section content lives in `site_content`), every section of a case study is
+ * embedded directly in its own document here. One document == one published
+ * /case-studies/<slug> page. Sub-documents use `_id: false` so the editor round-
+ * trips clean objects, and default `[]`/`""` so partially-filled case studies
+ * still render (empty sections are hidden by the template).
+ */
+const caseStudySchema = new Schema(
+  {
+    // --- registry / listing fields ---
+    slug: { type: String, required: true, unique: true },
+    title: { type: String, required: true },
+    industry: { type: String, default: "" },
+    published: { type: Boolean, required: true, default: false },
+    sort_order: { type: Number, required: true, default: 0 },
+
+    // --- section content (all embedded) ---
+    // Hero + card. `excerpt` doubles as the listing-card blurb and hero intro.
+    hero: {
+      type: new Schema(
+        {
+          eyebrow: { type: String, default: "Case Study" },
+          title: { type: String, default: "" },
+          description: { type: String, default: "" }, // intro / overview paragraph
+          heroImage: { type: String, default: "" },
+          cardImage: { type: String, default: "" }, // used by the /case-studies grid
+          imageAlt: { type: String, default: "" },
+          resultBadge: { type: String, default: "" }, // e.g. "+180% organic traffic"
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // "Healthcare Brands We Empowered" — heading, blurb, and a logo grid.
+    brands: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          description: { type: String, default: "" },
+          logos: {
+            type: [
+              new Schema(
+                { name: { type: String, default: "" }, logo: { type: String, default: "" } },
+                { _id: false }
+              ),
+            ],
+            default: [],
+          },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // "The Digital Roadblocks" — heading, intro, bullet list.
+    challenges: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          intro: { type: String, default: "" },
+          items: {
+            type: [new Schema({ text: { type: String, default: "" } }, { _id: false })],
+            default: [],
+          },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // "How We Solved It: Our Growth Strategy" — heading, intro, bullet list.
+    strategy: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          intro: { type: String, default: "" },
+          items: {
+            type: [new Schema({ text: { type: String, default: "" } }, { _id: false })],
+            default: [],
+          },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // "12-Month Growth Journey" — chart data + phase cards.
+    journey: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          subheading: { type: String, default: "" },
+          chartLabel: { type: String, default: "" }, // y-axis / series label
+          chartValues: { type: [Number], default: [] }, // 12 monthly data points
+          phases: {
+            type: [
+              new Schema(
+                {
+                  period: { type: String, default: "" }, // "M1–2", "M3", …
+                  title: { type: String, default: "" },
+                  description: { type: String, default: "" },
+                },
+                { _id: false }
+              ),
+            ],
+            default: [],
+          },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // Headline metric / stat cards shown as a band under the hero.
+    results: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          items: {
+            type: [
+              new Schema(
+                { value: { type: String, default: "" }, label: { type: String, default: "" } },
+                { _id: false }
+              ),
+            ],
+            default: [],
+          },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // "Outcome: The Fillip Difference" — narrative paragraphs.
+    outcome: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          paragraphs: {
+            type: [new Schema({ text: { type: String, default: "" } }, { _id: false })],
+            default: [],
+          },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    // Closing conversion block.
+    cta: {
+      type: new Schema(
+        {
+          heading: { type: String, default: "" },
+          description: { type: String, default: "" },
+          buttonLabel: { type: String, default: "" },
+          buttonHref: { type: String, default: "" },
+        },
+        { _id: false }
+      ),
+      default: () => ({}),
+    },
+
+    created_at: { type: Date, required: true, default: Date.now },
+    updated_at: { type: Date, required: true, default: Date.now },
+  },
+  { collection: "case_studies", versionKey: false, minimize: false }
+);
+caseStudySchema.index({ sort_order: 1, slug: 1 });
+
+export type CaseStudyDoc = InferSchemaType<typeof caseStudySchema>;
+export const CaseStudyModel: Model<CaseStudyDoc> =
+  (models.CaseStudy as Model<CaseStudyDoc>) ?? model<CaseStudyDoc>("CaseStudy", caseStudySchema);

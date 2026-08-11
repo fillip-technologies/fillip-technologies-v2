@@ -197,7 +197,6 @@ export const websiteDevelopmentContent: Service = {
       rightPill: "📈 Higher Conversions",
     },
     whyPerformBetter: {
-      eyebrow: "The Fillip Difference",
       title: "Why Our Websites",
       highlightedTitle: "Perform Better",
       description:

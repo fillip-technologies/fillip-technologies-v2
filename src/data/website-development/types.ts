@@ -34,7 +34,6 @@ export type WhyPerformBetterRow = {
 };
 
 export type WhyPerformBetter = {
-  eyebrow: string;
   title: string;
   highlightedTitle: string;
   description: string;

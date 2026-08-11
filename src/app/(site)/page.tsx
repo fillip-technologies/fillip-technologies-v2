@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import OurClients from "@/components/Home/OurClients";
+import OurClientsSection from "@/components/Home/OurClientsSection";
 import HumanAISection from "@/components/Home/HumanAiSection";
 import TechnologyEcosystem from "@/components/Home/TechnologyEcosystem";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
@@ -19,6 +19,7 @@ import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
 import { siteConfig } from "@/config/site";
 import { getLatestBlogs } from "@/lib/blogs";
+import { listPublishedCaseStudies, toCard } from "@/server/content/casestudy-registry";
 
 
 // Serve a cached copy and regenerate at most every 5 minutes, so most requests
@@ -74,14 +75,14 @@ export const metadata: Metadata = {
 };
 
 const SECTION_IDS = [
-  "hero", "trustedby", "capabilities", "humanai", "industries", "clients",
+  "hero", "trustedby", "capabilities", "humanai", "industries",
   "technology", "testimonials", "needguidance", "clientlistcta", "whychooseus",
   "casestudies", "unitof", "blog", "faq",
 ] as const;
 
 export default async function HomePage() {
   // One batched round trip for all sections, plus the site-wide testimonials list.
-  const [sections, globalTestimonials, latestBlogs] = await Promise.all([
+  const [sections, globalTestimonials, latestBlogs, publishedCaseStudies] = await Promise.all([
     getContentDataMany(
       SECTION_IDS.map((id) => ({
         key: `home.${id}`,
@@ -90,6 +91,7 @@ export default async function HomePage() {
     ),
     getGlobalTestimonials(),
     getLatestBlogs(3),
+    listPublishedCaseStudies(),
   ]);
   const s = (id: (typeof SECTION_IDS)[number]) => sections[`home.${id}`];
   const hero = s("hero");
@@ -97,7 +99,6 @@ export default async function HomePage() {
   const capabilities = s("capabilities");
   const humanai = s("humanai");
   const industries = s("industries");
-  const clients = s("clients");
   const technology = s("technology");
   const testimonials = s("testimonials");
   const needguidance = s("needguidance");
@@ -107,6 +108,8 @@ export default async function HomePage() {
   const unitof = s("unitof");
   const blog = s("blog");
   const faq = s("faq");
+
+  const caseStudyCards = publishedCaseStudies.map(toCard);
 
   return (
     <>
@@ -120,12 +123,12 @@ export default async function HomePage() {
       <IndustriesSection content={industries} />
 
 
-      <OurClients content={clients} />
+      <OurClientsSection />
       <ClientListCTA content={clientlistcta} />
       <TestimonialsSection content={testimonials} items={globalTestimonials} />
       <TechnologyEcosystem content={technology} />
       <WhyChooseFillip content={whychooseus} />
-      <CaseStudies content={casestudies} />
+      <CaseStudies content={casestudies} caseStudies={caseStudyCards} />
       <UnitOfSection content={unitof} />
       <BlogSection content={blog} posts={latestBlogs} />
       <Faq content={faq} />

@@ -6,7 +6,7 @@ import WhatWeBuildBlock from "@/components/services/blocks/WhatWeBuildBlock";
 import TechnologyStackBlock from "@/components/services/blocks/TechnologyStackBlock";
 import TrustedBrandsSection from "@/components/performance-marketing/TrustedBrandsSection";
 import WebsiteAuditCTA from "../Cta/WebsiteAuditCTA";
-import OurClients from "../Home/OurClients";
+import OurClientsSection from "../Home/OurClientsSection";
 import WhyPerformBetterSection from "@/components/website-development/WhyPerformBetterSection";
 import FaqSection from "@/components/website-development/FaqSection";
 
@@ -42,7 +42,7 @@ export default function ServicePage({ data }: ServicePageProps) {
         />
       )}
 
-      <OurClients />
+      <OurClientsSection />
 
       <DevelopmentProcessTimeline
         key={`${data.slug}-process`}

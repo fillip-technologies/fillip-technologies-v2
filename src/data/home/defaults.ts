@@ -89,23 +89,6 @@ export const HOME_HUMANAI_BG2 = "/images/ai.png";
 /* ------------------------------------------------------------ case studies -- */
 export const HOME_CASESTUDIES_BG = "/images/capabilities-background.png";
 
-export type CaseStudyItem = {
-  industry: string;
-  result: string;
-  title: string;
-  description: string;
-  image: string;
-};
-
-export const HOME_CASE_STUDIES: CaseStudyItem[] = [
-  { industry: "Healthcare", result: "+250%", title: "Increase in Patient Leads", description: "SEO, website redesign, and performance campaigns generated a 250% increase in qualified patient inquiries.", image: "/images/case-bg.jpg" },
-  { industry: "E-Commerce", result: "3.8X", title: "Revenue Growth", description: "Conversion optimization and paid acquisition strategies delivered 3.8X growth in online revenue.", image: "/images/case-1.jpg" },
-  { industry: "Real Estate", result: "500+", title: "Qualified Leads", description: "Landing pages and lead funnels generated over 500 qualified prospects within months.", image: "/images/case-3.jpg" },
-  { industry: "Education", result: "+180%", title: "Enrollment Growth", description: "Digital marketing campaigns significantly increased admissions and student engagement.", image: "/images/case-4.jpg" },
-  { industry: "FinTech", result: "+70%", title: "Faster Customer Acquisition", description: "Customer journey optimization reduced acquisition time while improving conversion rates.", image: "/images/case-5.jpg" },
-  { industry: "Manufacturing", result: "Global", title: "Market Expansion", description: "A scalable digital platform enabled expansion into new international markets.", image: "/images/case-6..jpg" },
-];
-
 /* ------------------------------------------------------------- why choose -- */
 export type WhyChooseItem = {
   icon: string; // key into the component's lucide icon map

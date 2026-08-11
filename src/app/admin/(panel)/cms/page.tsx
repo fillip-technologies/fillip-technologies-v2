@@ -16,6 +16,8 @@ import {
   MessageSquareQuote,
   Newspaper,
   MapPin,
+  Users,
+  TrendingUp,
 } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
@@ -62,6 +64,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         description: "Edit the hero, headings and sections on the public home page.",
         icon: Home,
         accent: "blue",
+      },
+      {
+        href: "/admin/cms/clients",
+        label: "Trusted By Clients",
+        description: "Manage the client logo wall by category. Shown on the home page and every service page.",
+        icon: Users,
+        accent: "violet",
       },
       {
         href: "/admin/cms/pages",
@@ -163,6 +172,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         label: "Industries",
         description: "Edit each industry page (hero, challenges, timeline, FAQs…).",
         icon: Building2,
+        accent: "teal",
+      },
+      {
+        href: "/admin/cms/case-studies",
+        label: "Case Studies",
+        description: "Create and publish /case-studies/<slug> pages — hero, growth journey, metrics, outcome.",
+        icon: TrendingUp,
         accent: "teal",
       },
       {

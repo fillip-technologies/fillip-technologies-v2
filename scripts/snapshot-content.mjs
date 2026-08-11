@@ -63,6 +63,73 @@ const toCategory = (d) => ({
   sortOrder: d.sort_order,
 });
 
+// Mirror of normalizeCaseStudy() in casestudy-registry.ts. Case studies are
+// self-contained (all sections embedded), so the snapshot stores the whole
+// normalized doc as the DB-outage fallback for /case-studies.
+const csStr = (v) => (v == null ? "" : String(v));
+const csArr = (v) => (Array.isArray(v) ? v : []);
+const csBulletBlock = (b = {}) => ({
+  heading: csStr(b.heading),
+  intro: csStr(b.intro),
+  items: csArr(b.items).map((i) => ({ text: csStr(i?.text) })),
+});
+const toCaseStudy = (d = {}) => {
+  const hero = d.hero ?? {};
+  const results = d.results ?? {};
+  const brands = d.brands ?? {};
+  const journey = d.journey ?? {};
+  const outcome = d.outcome ?? {};
+  const cta = d.cta ?? {};
+  return {
+    slug: csStr(d.slug),
+    title: csStr(d.title),
+    industry: csStr(d.industry),
+    published: Boolean(d.published),
+    sortOrder: Number(d.sort_order ?? 0),
+    hero: {
+      eyebrow: csStr(hero.eyebrow) || "Case Study",
+      title: csStr(hero.title),
+      description: csStr(hero.description),
+      heroImage: csStr(hero.heroImage),
+      cardImage: csStr(hero.cardImage),
+      imageAlt: csStr(hero.imageAlt),
+      resultBadge: csStr(hero.resultBadge),
+    },
+    results: {
+      heading: csStr(results.heading),
+      items: csArr(results.items).map((i) => ({ value: csStr(i?.value), label: csStr(i?.label) })),
+    },
+    brands: {
+      heading: csStr(brands.heading),
+      description: csStr(brands.description),
+      logos: csArr(brands.logos).map((i) => ({ name: csStr(i?.name), logo: csStr(i?.logo) })),
+    },
+    challenges: csBulletBlock(d.challenges),
+    strategy: csBulletBlock(d.strategy),
+    journey: {
+      heading: csStr(journey.heading),
+      subheading: csStr(journey.subheading),
+      chartLabel: csStr(journey.chartLabel),
+      chartValues: csArr(journey.chartValues).map((n) => Number(n)).filter((n) => Number.isFinite(n)),
+      phases: csArr(journey.phases).map((p) => ({
+        period: csStr(p?.period),
+        title: csStr(p?.title),
+        description: csStr(p?.description),
+      })),
+    },
+    outcome: {
+      heading: csStr(outcome.heading),
+      paragraphs: csArr(outcome.paragraphs).map((i) => ({ text: csStr(i?.text) })),
+    },
+    cta: {
+      heading: csStr(cta.heading),
+      description: csStr(cta.description),
+      buttonLabel: csStr(cta.buttonLabel),
+      buttonHref: csStr(cta.buttonHref),
+    },
+  };
+};
+
 // Mirror of groupFilter() in whatwedo-registry.ts.
 const inGroup = (d, group) => {
   if (!group) return true;
@@ -126,6 +193,13 @@ async function main() {
     snapshot[`categories:published:${suffix}`] = inThisGroup.filter((c) => c.published);
   }
   for (const c of categories) snapshot[`category:${c.slug}`] = c;
+
+  // -- case studies ----------------------------------------------------------
+  const caseStudies = (await db.collection("case_studies").find({}).sort({ sort_order: 1, slug: 1 }).toArray())
+    .map(toCaseStudy);
+  snapshot["case-studies:all"] = caseStudies;
+  snapshot["case-studies:published"] = caseStudies.filter((c) => c.published);
+  for (const c of caseStudies) snapshot[`case-study:${c.slug}`] = c;
 
   await writeFile(OUT_FILE, JSON.stringify(snapshot, null, 2) + "\n", "utf8");
   const keyCount = Object.keys(snapshot).length;

@@ -8,7 +8,7 @@ import {
 import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/metadata";
 import { buildJsonLdForPage, JsonLdScript } from "@/lib/seo/schema";
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
-import LocationPageView from "@/components/location-pages/LocationPageView.tsx";
+import LocationPageView from "@/components/location-pages/LocationPageView";
 import {
   getLocationPage,
   listEnabledLocationPages,
