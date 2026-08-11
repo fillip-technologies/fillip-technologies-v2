@@ -38,7 +38,7 @@ export type ServiceCategory = {
 export const COMPANY = {
   name: "Fillip Technologies Pvt Ltd",
   tagline: "Human × Intelligence",
-  email: "myselfgovind116@gmail.com",
+  email: "support@filliptechnologies.com",
   phone: "",
   website: "fillip-technologies",
   /** Shown in the PDF footer. */

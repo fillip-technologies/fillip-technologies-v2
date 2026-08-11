@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { HOME_CASE_STUDIES, HOME_CASESTUDIES_BG } from "@/data/home/defaults";
-import { enrichCaseStudies, type CaseStudiesContent } from "@/lib/case-studies";
+import { HOME_CASESTUDIES_BG } from "@/data/home/defaults";
 import { getContentData } from "@/server/content/queries";
 import { getSection, sectionDefaults } from "@/server/content/home-sections";
+import { listPublishedCaseStudies, toCard, type CaseStudyCard } from "@/server/content/casestudy-registry";
 
 export const dynamic = "force-dynamic";
 
@@ -15,15 +15,25 @@ export const metadata: Metadata = {
     "Explore Fillip Technologies case studies across healthcare, e-commerce, real estate, education, fintech, and more.",
 };
 
-async function getCaseStudiesContent() {
+type SectionContent = Partial<{
+  eyebrow: string;
+  description: string;
+  backgroundImage: string;
+}>;
+
+async function getSectionContent() {
   const section = getSection("casestudies");
   const defaults = section ? sectionDefaults(section) : {};
-  return getContentData("home.casestudies", defaults) as Promise<CaseStudiesContent>;
+  return getContentData("home.casestudies", defaults) as Promise<SectionContent>;
 }
 
 export default async function CaseStudiesPage() {
-  const content = await getCaseStudiesContent();
-  const items = enrichCaseStudies(content.items?.length ? content.items : HOME_CASE_STUDIES);
+  const [content, published] = await Promise.all([
+    getSectionContent(),
+    listPublishedCaseStudies(),
+  ]);
+
+  const items: CaseStudyCard[] = published.map(toCard);
   const backgroundImage = content.backgroundImage || HOME_CASESTUDIES_BG;
 
   return (
@@ -70,28 +80,36 @@ export default async function CaseStudiesPage() {
                 key={item.slug}
                 className="group overflow-hidden rounded-[32px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(15,23,42,0.11)]"
               >
-                <Link href={item.href} className="relative block aspect-[16/12] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                <Link href={item.href} className="relative block aspect-[16/12] overflow-hidden bg-slate-100">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : null}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <span className="absolute left-6 top-6 rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950">
-                    {item.result}
-                  </span>
-                  <span className="absolute bottom-6 left-6 text-xs font-semibold uppercase tracking-[0.24em] text-white/75">
-                    {item.industry}
-                  </span>
+                  {item.result ? (
+                    <span className="absolute left-6 top-6 rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950">
+                      {item.result}
+                    </span>
+                  ) : null}
+                  {item.industry ? (
+                    <span className="absolute bottom-6 left-6 text-xs font-semibold uppercase tracking-[0.24em] text-white/75">
+                      {item.industry}
+                    </span>
+                  ) : null}
                 </Link>
 
                 <div className="p-7">
                   <h2 className="text-2xl font-bold leading-tight text-[var(--heading)]">
                     <Link href={item.href}>{item.title}</Link>
                   </h2>
-                  <p className="mt-4 text-sm leading-6 text-[var(--body)]">{item.description}</p>
+                  {item.excerpt ? (
+                    <p className="mt-4 text-sm leading-6 text-[var(--body)]">{item.excerpt}</p>
+                  ) : null}
                   <Link
                     href={item.href}
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] transition-all duration-300 group-hover:gap-3"

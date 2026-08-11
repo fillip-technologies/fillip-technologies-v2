@@ -136,6 +136,7 @@ export default function SectionEditor({
                         className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-heading outline-none focus:border-primary"
                       />
                     )}
+                    {f.help ? <p className="mt-1 text-xs text-muted-foreground">{f.help}</p> : null}
                   </div>
                 ))}
               </div>

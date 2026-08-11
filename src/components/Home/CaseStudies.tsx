@@ -6,8 +6,17 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import HomeSectionTitle from "./HomeSectionTitle";
-import { HOME_CASE_STUDIES, HOME_CASESTUDIES_BG, type CaseStudyItem } from "@/data/home/defaults";
-import { enrichCaseStudies } from "@/lib/case-studies";
+import { HOME_CASESTUDIES_BG } from "@/data/home/defaults";
+
+export type CaseStudyCard = {
+  slug: string;
+  title: string;
+  industry: string;
+  href: string;
+  image: string;
+  excerpt: string;
+  result: string;
+};
 
 // CMS-editable content (key: home.casestudies). Falls back to these defaults.
 type CaseStudiesContent = Partial<{
@@ -17,10 +26,9 @@ type CaseStudiesContent = Partial<{
   headingLine3: string;
   description: string;
   backgroundImage: string;
-  items: CaseStudyItem[];
 }>;
 
-export default function CaseStudies({ content: raw = {} }: { content?: Record<string, unknown> }) {
+export default function CaseStudies({ content: raw = {}, caseStudies = [] }: { content?: Record<string, unknown>; caseStudies?: CaseStudyCard[] }) {
   const content = raw as CaseStudiesContent;
   const c = {
     eyebrow: content.eyebrow ?? "CASE STUDIES",
@@ -32,7 +40,6 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
       "Discover how strategy, technology, and execution helped our clients generate more leads, increase revenue, and scale faster.",
     backgroundImage: content.backgroundImage || HOME_CASESTUDIES_BG,
   };
-  const caseStudies = enrichCaseStudies(content.items?.length ? content.items : HOME_CASE_STUDIES);
 
   const sectionRef = useRef(null);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -216,8 +223,8 @@ export default function CaseStudies({ content: raw = {} }: { content?: Record<st
                       {item.title}
                     </h3>
 
-                    <p className="mt-4 text-white/80 leading-relaxed">
-                      {item.description}
+                    <p className="mt-4 text-white/80 leading-relaxed line-clamp-1">
+                      {item.excerpt}
                     </p>
 
                     <div className="mt-8 flex items-center justify-between">

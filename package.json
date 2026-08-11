@@ -14,6 +14,7 @@
     "seed:our-story": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-our-story.mjs",
     "seed:our-culture": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-our-culture.mjs",
     "seed:admin": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs",
+    "seed:case-study-healthcare": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-case-study-healthcare.mjs",
     "seed:admin:delete-all": "node --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/seed-admin.mjs --delete-all"
   },
   "dependencies": {
