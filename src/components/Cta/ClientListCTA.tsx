@@ -48,7 +48,7 @@ export default function ClientListCTA({ content: raw = {} }: { content?: Record<
 
             <div className="relative border-t border-blue-100 pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
               <Link
-                href="/get-a-quote"
+                href="/contact"
                 className="group inline-flex w-full max-w-[18rem] items-center justify-between rounded-xl bg-primary px-5 py-4 text-base font-semibold text-white shadow-[0_22px_45px_rgba(2,66,162,0.26)] transition hover:-translate-y-1 hover:bg-blue-700"
               >
                 <span className="inline-flex items-center gap-3">

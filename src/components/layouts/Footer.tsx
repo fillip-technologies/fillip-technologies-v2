@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 import { MapPin } from "lucide-react";
+import { FaThreads } from "react-icons/fa6";
 
 
 type FooterLink = {
@@ -136,7 +137,7 @@ export default function Footer() {
                   href="https://facebook.com/FillipTechnologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white text-[#1877F2] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90"
                   aria-label="Facebook"
                 >
                   <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -147,7 +148,7 @@ export default function Footer() {
                   href="https://instagram.com/filliptechnologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)] text-white transition-all duration-300 hover:-translate-y-0.5"
                   aria-label="Instagram"
                 >
                   <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -160,7 +161,7 @@ export default function Footer() {
                   href="https://linkedin.com/company/fillip-technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white text-[#0A66C2] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90"
                   aria-label="LinkedIn"
                 >
                   <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -173,7 +174,7 @@ export default function Footer() {
                   href="https://x.com/Fillip_Tech"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-black text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-black/90"
                   aria-label="Twitter/X"
                 >
                   <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="currentColor">
@@ -181,10 +182,19 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
+                  href="https://www.threads.com/@filliptechnologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90"
+                  aria-label="Threads"
+                >
+                  <FaThreads className="h-4.5 w-4.5" aria-hidden="true" />
+                </a>
+                <a
                   href="https://youtube.com/channel/UCR7oww-nQszfqAsf19T2UtQ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition-all duration-300 text-primary-foreground/70"
+                  className="flex items-center justify-center h-9 w-9 rounded-full bg-white text-[#FF0000] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90"
                   aria-label="YouTube"
                 >
                   <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

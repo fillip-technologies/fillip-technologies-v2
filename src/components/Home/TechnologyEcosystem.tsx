@@ -4,77 +4,73 @@ import {
     SiReact,
     SiNextdotjs,
     SiNodedotjs,
-    SiPython,
-    SiDocker,
-    SiMongodb,
-    SiPostgresql,
-    SiOpenai,
-
-    SiFirebase,
-    SiVercel,
-    SiGithub,
     SiTypescript,
+    SiJavascript,
+    SiLaravel,
+    SiPhp,
+    SiPython,
+    SiFlutter,
+    SiOpenai,
+    SiClaude,
+    SiGooglegemini,
+    SiMistralai,
+    SiHuggingface,
+    SiFirebase,
+    SiRedis,
+    SiN8N,
+    SiMake,
+    SiGooglecloud,
+    SiVercel,
+    SiDocker,
+    SiPostgresql,
+    SiMongodb,
+    SiCloudflare,
+    SiGithub,
+    SiGitlab,
+    SiFigma,
+    SiWordpress,
+    SiShopify,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
-import { FaAws } from "react-icons/fa";
 
+type TechItem = {
+    Icon: IconType;
+    name: string;
+    color: string;
+    accentColor?: string;
+};
 
-const techs = [
-    // TOP BAR
-
-    { Icon: SiReact, name: "React", top: "0%", left: "0%", color: "#61DAFB" },
-    { Icon: SiNextdotjs, name: "Next.js", top: "0%", left: "9%", color: "#000000" },
-    { Icon: SiNodedotjs, name: "Node.js", top: "0%", left: "18%", color: "#339933" },
-    { Icon: SiPython, name: "Python", top: "0%", left: "27%", color: "#3776AB", accentColor: "#FFD43B" },
-    { Icon: SiDocker, name: "Docker", top: "0%", left: "36%", color: "#2496ED" },
-
-    // GAP
-
-    { Icon: SiOpenai, name: "OpenAI", top: "0%", left: "48%", color: "#000000" },
-    { Icon: SiFirebase, name: "Firebase", top: "0%", left: "57%", color: "#FFCA28", accentColor: "#FF8F00" },
-    { Icon: SiVercel, name: "Vercel", top: "0%", left: "66%", color: "#000000" },
-    { Icon: SiGithub, name: "GitHub", top: "0%", left: "75%", color: "#181717" },
-    { Icon: FaAws, name: "AWS", top: "0%", left: "84%", color: "#FF9900" },
-    { Icon: SiTypescript, name: "TypeScript", top: "0%", left: "93%", color: "#3178C6" },
-
-    // F LEFT
-
-    { Icon: SiReact, name: "React", top: "16%", left: "0%", color: "#61DAFB" },
-    { Icon: SiNextdotjs, name: "Next.js", top: "32%", left: "0%", color: "#000000" },
-    { Icon: SiNodedotjs, name: "Node.js", top: "48%", left: "0%", color: "#339933" },
-    { Icon: SiPython, name: "Python", top: "64%", left: "0%", color: "#3776AB", accentColor: "#FFD43B" },
-    { Icon: SiDocker, name: "Docker", top: "80%", left: "0%", color: "#2496ED" },
-
-    // F MIDDLE
-
-    { Icon: SiOpenai, name: "OpenAI", top: "48%", left: "9%", color: "#000000" },
-    { Icon: SiMongodb, name: "MongoDB", top: "48%", left: "18%", color: "#47A248" },
-    { Icon: SiPostgresql, name: "PostgreSQL", top: "48%", left: "27%", color: "#336791" },
-
-
-    // T STEM
-
-    { Icon: SiReact, name: "React", top: "16%", left: "75%", color: "#61DAFB" },
-    { Icon: SiNextdotjs, name: "Next.js", top: "32%", left: "75%", color: "#000000" },
-    { Icon: SiNodedotjs, name: "Node.js", top: "48%", left: "75%", color: "#339933" },
-    { Icon: SiPython, name: "Python", top: "64%", left: "75%", color: "#3776AB", accentColor: "#FFD43B" },
-    { Icon: SiDocker, name: "Docker", top: "80%", left: "75%", color: "#2496ED" },
-];
-
-const mobileTechs = [
+const techs: TechItem[] = [
     { Icon: SiReact, name: "React", color: "#61DAFB" },
     { Icon: SiNextdotjs, name: "Next.js", color: "#000000" },
     { Icon: SiNodedotjs, name: "Node.js", color: "#339933" },
-    { Icon: SiPython, name: "Python", color: "#3776AB", accentColor: "#FFD43B" },
-    { Icon: SiDocker, name: "Docker", color: "#2496ED" },
-    { Icon: SiOpenai, name: "OpenAI", color: "#000000" },
-    { Icon: SiFirebase, name: "Firebase", color: "#FFCA28", accentColor: "#FF8F00" },
-    { Icon: SiVercel, name: "Vercel", color: "#000000" },
-    { Icon: SiGithub, name: "GitHub", color: "#181717" },
-    { Icon: FaAws, name: "AWS", color: "#FF9900" },
     { Icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
-    { Icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+    { Icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
+    { Icon: SiLaravel, name: "Laravel", color: "#FF2D20" },
+    { Icon: SiPhp, name: "PHP", color: "#777BB4" },
+    { Icon: SiPython, name: "Python", color: "#3776AB" },
+    { Icon: SiFlutter, name: "Flutter", color: "#02569B" },
+    { Icon: SiReact, name: "React Native", color: "#61DAFB" },
+    { Icon: SiOpenai, name: "OpenAI", color: "#000000" },
+    { Icon: SiClaude, name: "Claude", color: "#D97757" },
+    { Icon: SiGooglegemini, name: "Gemini", color: "#8E75B2" },
+    { Icon: SiMistralai, name: "Mistral AI", color: "#FA520F" },
+    { Icon: SiHuggingface, name: "Hugging Face", color: "#FFD21E" },
+    { Icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
+    { Icon: SiRedis, name: "Redis", color: "#FF4438" },
+    { Icon: SiN8N, name: "n8n", color: "#EA4B71" },
+    { Icon: SiMake, name: "Make.com", color: "#6D00CC" },
+    { Icon: SiGooglecloud, name: "Google Cloud", color: "#4285F4" },
+    { Icon: SiVercel, name: "Vercel", color: "#000000" },
+    { Icon: SiDocker, name: "Docker", color: "#2496ED" },
     { Icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
+    { Icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+    { Icon: SiCloudflare, name: "Cloudflare", color: "#F38020" },
+    { Icon: SiGithub, name: "GitHub", color: "#181717" },
+    { Icon: SiGitlab, name: "GitLab", color: "#FC6D26" },
+    { Icon: SiFigma, name: "Figma", color: "#F24E1E" },
+    { Icon: SiWordpress, name: "WordPress", color: "#21759B" },
+    { Icon: SiShopify, name: "Shopify", color: "#7AB55C" },
 ];
 
 function TechLogo({
@@ -87,18 +83,23 @@ function TechLogo({
     accentColor?: string;
 }) {
     if (!accentColor) {
-        return <Icon className="text-[32px]" style={{ color }} />;
+        return (
+            <Icon
+                className="text-[38px]"
+                style={{ color }}
+            />
+        );
     }
 
     return (
-        <span className="relative block h-8 w-8" aria-hidden="true">
+        <span className="relative block h-[38px] w-[38px]" aria-hidden="true">
             <Icon
-                className="absolute inset-0 text-[32px]"
+                className="absolute inset-0 text-[38px]"
                 style={{ color }}
             />
             <span className="absolute inset-x-0 bottom-0 h-1/2 overflow-hidden">
                 <Icon
-                    className="absolute bottom-0 left-0 text-[32px]"
+                    className="absolute bottom-0 left-0 text-[38px]"
                     style={{ color: accentColor }}
                 />
             </span>
@@ -127,7 +128,7 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
     };
 
     return (
-        <section className="relative overflow-hidden py-20 xl:pt-28 xl:pb-0">
+        <section className="relative overflow-hidden py-20 xl:pb-24 xl:pt-28">
             <div
                 className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
                 style={{
@@ -155,68 +156,42 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
                     </p>
                 </div>
 
-                {/* Mobile / tablet grid */}
+                {/* Technology grid */}
 
-                <div className="mt-14 grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 xl:hidden">
-                    {mobileTechs.map(({ Icon, name, color, accentColor }) => (
+                <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6">
+                    {techs.map(({ Icon, name, color, accentColor }) => (
                         <div
                             key={name}
                             aria-label={name}
                             title={name}
-                            className="flex min-h-24 flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white px-3 py-4 shadow-[0_10px_30px_rgba(15,23,42,0.06)]"
+                            className="
+                                group relative flex min-h-[128px] overflow-hidden rounded-[22px]
+                                border border-white/80 bg-white/78 px-3 py-5
+                                shadow-[0_18px_45px_rgba(15,23,42,0.07),inset_0_1px_0_rgba(255,255,255,0.9)]
+                                backdrop-blur-xl transition-all duration-300
+                                hover:-translate-y-1.5 hover:border-slate-200
+                                hover:bg-white hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]
+                            "
                         >
-                            <TechLogo
-                                Icon={Icon}
-                                color={color}
-                                accentColor={accentColor}
-                            />
+                            <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-                            <span className="mt-3 max-w-full text-center text-xs font-medium leading-tight text-slate-600">
+                            <div className="relative z-10 flex w-full flex-col items-center justify-center">
+                                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-white/70 shadow-[0_12px_28px_rgba(15,23,42,0.08)] transition-transform duration-300 group-hover:scale-105">
+                                    <div className="relative">
+                                        <TechLogo
+                                            Icon={Icon}
+                                            color={color}
+                                            accentColor={accentColor}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span className="relative z-10 mt-auto max-w-full text-center text-xs font-semibold leading-tight text-slate-700 transition-colors duration-300 group-hover:text-heading">
                                 {name}
                             </span>
                         </div>
                     ))}
-                </div>
-
-                {/* Desktop FT Shape */}
-
-                <div className="relative mx-auto mt-24 hidden h-[520px] max-w-[1130px] xl:block">
-                    {techs.map(({ Icon, name, top, left, color, accentColor }, i) => (
-                        <div
-                            key={i}
-                            aria-label={name}
-                            title={name}
-                            className="
-absolute
-flex
-h-20
-w-20
-items-center
-justify-center
-rounded-full
-border
-border-slate-200
-bg-white
-shadow-[0_10px_30px_rgba(15,23,42,0.08)]
-transition-all
-duration-300
-hover:-translate-y-2
-hover:scale-110
-hover:border-indigo-300
-"
-                            style={{
-                                top,
-                                left,
-                            }}  
-                        >
-                            <TechLogo
-                                Icon={Icon}
-                                color={color}
-                                accentColor={accentColor}
-                            />
-                        </div>
-                    ))}
-
                 </div>
             </div>
         </section>

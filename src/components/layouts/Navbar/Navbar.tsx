@@ -158,7 +158,7 @@ export default function Navbar() {
 
   /* Close drawer on resize to desktop */
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) closeDrawer(); };
+    const onResize = () => { if (window.innerWidth >= 1536) closeDrawer(); };
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, [closeDrawer]);
@@ -167,7 +167,7 @@ export default function Navbar() {
   return (
     <>
       <style>{`
-        @media (max-width: 1023px) {
+        @media (max-width: 1535px) {
           [data-mobile-sticky-header] {
             transform: translate3d(0, 0, 0) !important;
             opacity: 1 !important;
@@ -182,7 +182,7 @@ export default function Navbar() {
 
         <div
           data-hero-wrap
-          className="pointer-events-auto w-full px-10 pt-8 hidden lg:block"
+          className="pointer-events-auto w-full px-10 pt-8 hidden 2xl:block"
         >
           <div className="mx-auto flex max-w-[1600px] items-center">
 
@@ -250,7 +250,7 @@ export default function Navbar() {
             pointer-events-none
             will-change-transform
             /* Mobile override: always visible, pointer-events on */
-            lg:[pointer-events:none]
+            2xl:[pointer-events:none]
             [pointer-events:auto]
           "
           style={{
@@ -271,19 +271,19 @@ export default function Navbar() {
             <Logo width={150} height={42} />
 
             {/* Desktop centre links */}
-            <nav className="hidden lg:flex items-center gap-7 xl:gap-9 mx-auto">
+            <nav className="hidden 2xl:flex items-center gap-9 mx-auto">
               {NAV_LINKS.map((l) => (
                 <DesktopNavItem key={l} label={l} panelTopClass="top-[84px]" variant="full" />
               ))}
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:block flex-shrink-0">
+            <div className="hidden 2xl:block flex-shrink-0">
               <TalkButton />
             </div>
 
             {/* Mobile hamburger */}
-            <div className="lg:hidden">
+            <div className="2xl:hidden">
               <MenuButton open={drawerOpen} onClick={toggleDrawer} />
             </div>
           </div>

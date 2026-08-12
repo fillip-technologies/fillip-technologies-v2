@@ -40,7 +40,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
     };
 
     return (
-        <section className="relative flex min-h-0 w-full overflow-hidden bg-[linear-gradient(135deg,color-mix(in_srgb,var(--surface)_92%,white)_0%,color-mix(in_srgb,var(--card)_96%,#f6fbff)_42%,color-mix(in_srgb,var(--surface)_88%,#fff7fb)_100%)] text-heading lg:min-h-[calc(100svh-6rem)]">
+        <section className="relative flex min-h-0 w-full overflow-hidden bg-[linear-gradient(135deg,color-mix(in_srgb,var(--surface)_92%,white)_0%,color-mix(in_srgb,var(--card)_96%,#f6fbff)_42%,color-mix(in_srgb,var(--surface)_88%,#fff7fb)_100%)] text-heading xl:min-h-[calc(100svh-6rem)]">
             <div
                 className="absolute inset-0 opacity-[0.58]"
                 style={{
@@ -59,7 +59,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_18%,color-mix(in_srgb,var(--card)_88%,transparent),color-mix(in_srgb,var(--surface)_38%,transparent)_34%,color-mix(in_srgb,var(--surface)_0%,transparent)_72%)]" />
             <div className="absolute inset-x-[8%] top-[14%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-            <div className="relative z-10 grid w-full grid-cols-1 items-center gap-[clamp(2rem,3.5vw,6rem)] px-6 py-12 pt-28 pb-16 md:px-[clamp(1.5rem,4.5vw,10rem)] md:pb-[clamp(1.5rem,2vw,3rem)] md:pt-[clamp(5rem,6.2vw,10rem)] lg:grid-cols-[58%_42%] lg:min-h-[calc(100svh-6rem)] lg:pb-[clamp(0.5rem,0.8vw,1.25rem)] lg:pt-[clamp(4rem,4.5vw,7.5rem)]">
+            <div className="relative z-10 grid w-full grid-cols-1 items-center gap-[clamp(2rem,3.5vw,6rem)] px-6 py-12 pt-28 pb-16 md:px-[clamp(1.5rem,4.5vw,10rem)] md:pb-[clamp(1.5rem,2vw,3rem)] md:pt-[clamp(5rem,6.2vw,10rem)] xl:grid-cols-[58%_42%] xl:min-h-[calc(100svh-6rem)] xl:pb-[clamp(0.5rem,0.8vw,1.25rem)] xl:pt-[clamp(4rem,4.5vw,7.5rem)]">
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -91,14 +91,14 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
         leading-[0.98]
         tracking-[-0.045em]
         text-transparent
-        lg:text-[clamp(3rem,4.65vw,5.5rem)]
+        xl:text-[clamp(3rem,4.65vw,5.5rem)]
     "
                     >
-                        <span className="block lg:whitespace-nowrap">
+                        <span className="block xl:whitespace-nowrap">
                             {c.headingLine1}
                         </span>
 
-                        <span className="block lg:whitespace-nowrap">
+                        <span className="block xl:whitespace-nowrap">
                             {c.headingLine2}
                         </span>
                     </motion.h1>
@@ -131,12 +131,12 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
                     </motion.div>
                 </motion.div>
 
-                <div className="hidden lg:block relative w-full lg:min-h-[calc(100svh-6rem)]">
+                <div className="hidden xl:block relative w-full xl:min-h-[calc(100svh-6rem)]">
                     <motion.div
                         initial={{ opacity: 0, x: 60, y: -40, rotate: -7, scale: 0.96 }}
                         animate={{ opacity: 1, x: 0, y: 0, rotate: -7, scale: 1 }}
                         transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-                        className="pointer-events-none absolute -right-[34vw] -top-[clamp(4rem,8vw,6rem)] z-10 w-[clamp(38rem,118vw,62rem)] max-w-none drop-shadow-[0_34px_80px_color-mix(in_srgb,var(--heading)_16%,transparent)] sm:-right-[24vw] md:-right-[20vw] lg:right-[clamp(-34rem,-12vw,-10rem)] lg:top-[clamp(-18rem,-7vw,-5rem)] lg:w-[clamp(54rem,66vw,148rem)]"
+                        className="pointer-events-none absolute -right-[34vw] -top-[clamp(4rem,8vw,6rem)] z-10 w-[clamp(38rem,118vw,62rem)] max-w-none drop-shadow-[0_34px_80px_color-mix(in_srgb,var(--heading)_16%,transparent)] sm:-right-[24vw] md:-right-[20vw] xl:right-[clamp(-34rem,-12vw,-10rem)] xl:top-[clamp(-18rem,-7vw,-5rem)] xl:w-[clamp(54rem,66vw,148rem)]"
                     >
                         <Image
                             src={c.heroImage}

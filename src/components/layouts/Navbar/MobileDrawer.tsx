@@ -101,7 +101,7 @@ function MobileDrawer({
           fixed inset-0 z-[950]
           bg-heading/30 backdrop-blur-sm
           opacity-0 pointer-events-none
-          lg:hidden
+          2xl:hidden
         "
         aria-hidden="true"
       />
@@ -115,7 +115,7 @@ function MobileDrawer({
           bg-card
           flex flex-col
           translate-x-full
-          lg:hidden
+          2xl:hidden
           shadow-[-16px_0_48px_color-mix(in_srgb,var(--foreground)_12%,transparent)]
         "
         aria-label="Mobile navigation drawer"
