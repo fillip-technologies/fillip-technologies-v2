@@ -17,6 +17,7 @@ import IndustriesSection from "@/components/Home/IndustriesSection"
 import BlogSection from "@/components/Home/BlogSection";
 import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
+import IndependenceDayPopup from "@/components/Home/IndependenceDayPopup";
 import { siteConfig } from "@/config/site";
 import { getLatestBlogs } from "@/lib/blogs";
 import { listPublishedCaseStudies, toCard } from "@/server/content/casestudy-registry";
@@ -113,7 +114,7 @@ export default async function HomePage() {
 
   return (
     <>
-
+      <IndependenceDayPopup />
       <HeroSection content={hero} />
       <TrustBar content={trustedBy} />
       <ServicesSection content={capabilities} />
