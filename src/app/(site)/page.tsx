@@ -18,6 +18,7 @@ import BlogSection from "@/components/Home/BlogSection";
 import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
 import IndependenceDayPopup from "@/components/Home/IndependenceDayPopup";
+import WhatsAppButton from "@/components/Home/WhatsAppButton";
 import { siteConfig } from "@/config/site";
 import { getLatestBlogs } from "@/lib/blogs";
 import { listPublishedCaseStudies, toCard } from "@/server/content/casestudy-registry";
@@ -28,8 +29,7 @@ import { listPublishedCaseStudies, toCard } from "@/server/content/casestudy-reg
 // calls revalidatePath("/") on save, which rebuilds this page on demand.
 export const revalidate = 300;
 
-const homepageTitle =
-  "Best Digital Marketing Company in Patna | Fillip Technologies";
+const homepageTitle = "Best Digital Marketing Company";
 const homepageDescription =
   "Fillip Technologies is a digital marketing company in Patna helping businesses grow with SEO, performance marketing, website development, social media, and AI-driven solutions.";
 
@@ -115,6 +115,7 @@ export default async function HomePage() {
   return (
     <>
       <IndependenceDayPopup />
+      <WhatsAppButton />
       <HeroSection content={hero} />
       <TrustBar content={trustedBy} />
       <ServicesSection content={capabilities} />

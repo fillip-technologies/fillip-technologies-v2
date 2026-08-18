@@ -75,14 +75,6 @@ export default function ChatbotWidget() {
   };
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setIsOpen(true);
-    }, 2500);
-
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     scrollToBottom();
   }, [messages, isLoading]);
 
