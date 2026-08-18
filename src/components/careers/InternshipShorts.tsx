@@ -30,9 +30,13 @@ function ShortCard({ id, title }: { id: string; title: string }) {
           className="group absolute inset-0 h-full w-full cursor-pointer"
         >
           <img
-            src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+            src={`https://i.ytimg.com/vi/${id}/hq720.jpg`}
             alt={title}
             loading="lazy"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+            }}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
