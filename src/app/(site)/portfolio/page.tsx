@@ -3,7 +3,7 @@ import PortfolioShowcase from "@/components/portfolio/showcase";
 import { getContentData } from "@/server/content/queries";
 import { getPageSection, pageSectionDefaults } from "@/server/content/page-sections";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 function sec(id: string) {
   return getContentData(`page.portfolio.${id}`, pageSectionDefaults(getPageSection("portfolio", id)!));

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 // Always render the latest CMS content (edits show without a rebuild).
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 // Icons for the value cards, applied by position (kept in code).
 const VALUE_ICONS = [Lightbulb, UsersRound, Sparkles, HeartHandshake] as const;

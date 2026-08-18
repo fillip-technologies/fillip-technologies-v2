@@ -5,7 +5,7 @@ import { getCategory } from "@/server/content/whatwedo-registry";
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 // "Challenges We Solve" is presented through case studies, not a dedicated
 // category landing page. Send any visit to the case studies overview.

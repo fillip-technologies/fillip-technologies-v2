@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 // Always render the latest CMS content (edits show without a rebuild).
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 function sec(id: string) {
   return getContentData(`page.our-story.${id}`, pageSectionDefaults(getPageSection("our-story", id)!));

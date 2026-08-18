@@ -7,7 +7,7 @@ import { getContentData } from "@/server/content/queries";
 import { getSection, sectionDefaults } from "@/server/content/home-sections";
 import { listPublishedCaseStudies, toCard, type CaseStudyCard } from "@/server/content/casestudy-registry";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Case Studies | Fillip Technologies",

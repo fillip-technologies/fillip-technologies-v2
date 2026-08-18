@@ -19,11 +19,23 @@ type LandingPageProps = {
 };
 
 export async function generateStaticParams() {
-  const [serviceSlugs, locations] = await Promise.all([
-    getServiceLandingPageSlugs(),
-    listEnabledLocationPages(),
-  ]);
-  const locationSlugs = locations.map((l) => l.slug);
+  // Never let a DB hiccup abort the whole build: if the location-page lookup
+  // fails (Atlas unreachable/slow at build time), fall back to just the
+  // file-based service slugs. Missing slugs still render on-demand at request
+  // time (dynamicParams defaults to true), so nothing is permanently lost.
+  let serviceSlugs: string[] = [];
+  let locationSlugs: string[] = [];
+  try {
+    serviceSlugs = await getServiceLandingPageSlugs();
+  } catch (err) {
+    console.error("generateStaticParams: service slug lookup failed:", err);
+  }
+  try {
+    const locations = await listEnabledLocationPages();
+    locationSlugs = locations.map((l) => l.slug);
+  } catch (err) {
+    console.error("generateStaticParams: location page lookup failed:", err);
+  }
   // Dedupe defensively in case an admin ever reuses a slug that also exists
   // as a service landing page — service landing pages win at build time,
   // and the request-time lookup below also checks location pages first.

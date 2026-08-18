@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import ConsultationForm from "./ConsultationForm";
 
 const emptySubscribe = () => () => {};
@@ -28,6 +28,28 @@ export default function ConsultationFormSection({
         () => true,
         () => false,
     );
+
+    // The decorative background video is ~1.7MB. It sits below the fold on
+    // nearly every page, so defer loading it until the section approaches the
+    // viewport instead of downloading it on every initial page load.
+    const videoWrapRef = useRef<HTMLDivElement>(null);
+    const [videoInView, setVideoInView] = useState(false);
+
+    useEffect(() => {
+        const el = videoWrapRef.current;
+        if (!el || videoInView) return;
+        const io = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((e) => e.isIntersecting)) {
+                    setVideoInView(true);
+                    io.disconnect();
+                }
+            },
+            { rootMargin: "200px" },
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, [videoInView]);
 
     if (showOnlyForm) {
         return (
@@ -98,13 +120,14 @@ export default function ConsultationFormSection({
                         </div>
 
                         {/* Video Column */}
-                        <div className="relative min-h-[500px]" suppressHydrationWarning>
-                            {mounted && (
+                        <div ref={videoWrapRef} className="relative min-h-[500px]" suppressHydrationWarning>
+                            {mounted && videoInView && (
                                 <video
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
+                                    preload="none"
                                     suppressHydrationWarning
                                     className="absolute inset-0 h-full w-full object-cover"
                                 >

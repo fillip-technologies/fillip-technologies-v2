@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 // CMS-managed content — render fresh so edits show without a rebuild.
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function SmsCommunicationPage() {
   const [content, testimonials] = await Promise.all([

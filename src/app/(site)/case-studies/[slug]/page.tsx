@@ -7,7 +7,7 @@ import {
 } from "@/server/content/casestudy-registry";
 import CaseStudyPageView from "@/components/case-studies/CaseStudyPageView";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 type CaseStudyPageProps = { params: Promise<{ slug: string }> };
 

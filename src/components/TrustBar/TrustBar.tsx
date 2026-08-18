@@ -1,5 +1,3 @@
-"use client";
-
 import { Star, Users, BriefcaseBusiness, Award } from "lucide-react";
 
 // CMS-editable content (key: home.trustedby). Falls back to these defaults.

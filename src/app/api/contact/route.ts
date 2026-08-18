@@ -4,12 +4,26 @@ import { contactSchema, parseClientLocation } from "@/server/contact/schema";
 import { insertLead } from "@/server/contact/queries";
 import { resolveLeadLocation } from "@/server/contact/geo";
 import { sendLeadNotification } from "@/server/contact/notify";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 // IP geolocation needs the Node runtime (outbound fetch + request headers).
 export const runtime = "nodejs";
 
+// Spam guard: each submission writes a lead + fires an email + a geo-IP lookup,
+// so cap per-IP submissions to a handful per window.
+const MAX_SUBMISSIONS = 5;
+const WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+
 // POST /api/contact  — public: create a lead from the contact form.
 export async function POST(request: Request) {
+  const limit = rateLimit(`contact:${clientIp(request)}`, MAX_SUBMISSIONS, WINDOW_MS);
+  if (!limit.ok) {
+    return NextResponse.json(
+      { error: "Too many submissions. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(limit.retryAfter) } }
+    );
+  }
+
   let body: unknown;
   try {
     body = await request.json();

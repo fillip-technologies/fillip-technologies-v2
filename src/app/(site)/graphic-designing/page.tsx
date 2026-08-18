@@ -8,7 +8,7 @@ import { getGraphicDesigningContent } from "@/server/content/solution-page-conte
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 
 // Content is CMS-managed (page.graphic-designing.*), so render fresh.
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Premium Graphic Designing Services | Fillip Technologies",

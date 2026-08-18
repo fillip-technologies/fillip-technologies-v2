@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight, FileText, PhoneCall } from "lucide-react";
 

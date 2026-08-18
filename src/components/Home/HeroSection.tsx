@@ -36,7 +36,7 @@ export default function HeroSection({ content: raw = {} }: { content?: Record<st
         primaryCtaHref: normalizeHeroHref(content.primaryCtaHref ?? "#contact"),
         secondaryCtaLabel: content.secondaryCtaLabel ?? "Explore Capabilities",
         secondaryCtaHref: normalizeHeroHref(content.secondaryCtaHref ?? "#capabilities"),
-        heroImage: content.heroImage || "/images/hand.png",
+        heroImage: content.heroImage || "/images/hand.webp",
     };
 
     return (

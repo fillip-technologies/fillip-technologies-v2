@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
     "/*": ["src/data/services/**/*.json", "src/data/blogs/**/*.json", "src/data/redirects.json"],
   },
   images: {
+    // Prefer modern formats; the optimizer re-encodes source PNG/JPEG to these,
+    // which is where most of Lighthouse's "improve image delivery" savings come from.
+    formats: ["image/avif", "image/webp"],
     // Cloudinary-hosted assets (see src/server/cloudinary.ts). Scoped to our
     // cloud's path so only our own media library passes through next/image.
     remotePatterns: [

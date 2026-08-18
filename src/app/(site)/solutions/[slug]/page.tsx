@@ -20,7 +20,7 @@ import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 
 // Content is CMS-managed, so render fresh (mirrors the other CMS pages).
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 // Slugs with a bespoke, hand-built layout that replaces the generic renderer.
 // Their content is managed under CMS group `page.<slug>.*`.

@@ -20,11 +20,26 @@ const globalForDb = globalThis as unknown as {
 const cache = globalForDb._mongoose ?? { conn: null, promise: null, lastFailureAt: 0 };
 globalForDb._mongoose = cache;
 
-const serverSelectionTimeoutMS = Number(process.env.DB_CONNECT_TIMEOUT_MS ?? 2500);
-const retryCooldownMS = Number(process.env.DB_RETRY_COOLDOWN_MS ?? 15_000);
+// A little headroom (5s) absorbs a normal Atlas cold-start / transient blip
+// without tripping the cooldown, while still failing fast enough for snapshot
+// pages. The cooldown is short (3s) so a recovered DB is picked back up quickly
+// instead of being locked out for a long window after a single failure.
+const serverSelectionTimeoutMS = Number(process.env.DB_CONNECT_TIMEOUT_MS ?? 5_000);
+const retryCooldownMS = Number(process.env.DB_RETRY_COOLDOWN_MS ?? 3_000);
 
 export async function dbConnect(): Promise<typeof mongoose> {
-  if (cache.conn) return cache.conn;
+  // readyState: 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting.
+  // A cached mongoose instance can go stale when the Atlas socket is reaped during
+  // idle periods (overnight low traffic + NAT/firewall). Returning it blindly makes
+  // every query throw (bufferCommands:false) until a manual restart, which surfaces
+  // as a 404 on every DB-driven route. Only trust the cache while it's connected.
+  if (cache.conn && cache.conn.connection.readyState === 1) return cache.conn;
+
+  // Stale/dead connection — clear it so we re-establish a fresh one below.
+  if (cache.conn) {
+    cache.conn = null;
+    cache.promise = null;
+  }
 
   if (!cache.promise && Date.now() - cache.lastFailureAt < retryCooldownMS) {
     throw new Error("MongoDB connection is cooling down after a recent failure.");

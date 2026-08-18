@@ -1,5 +1,3 @@
-"use client";
-
 import {
     SiReact,
     SiNextdotjs,
@@ -123,7 +121,7 @@ export default function TechnologyEcosystem({ content: raw = {} }: { content?: R
         description:
             content.description ??
             "From AI and cloud platforms to modern frameworks and enterprise tools, we leverage proven technologies to build scalable digital experiences.",
-        backgroundImage: content.backgroundImage || "/images/TECH-BG.png",
+        backgroundImage: content.backgroundImage || "/images/TECH-BG.webp",
     };
 
     return (

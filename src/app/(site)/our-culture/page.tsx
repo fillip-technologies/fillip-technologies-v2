@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/our-culture" },
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 function sec(id: string) {
   return getContentData(`page.our-culture.${id}`, pageSectionDefaults(getPageSection("our-culture", id)!));
