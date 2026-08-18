@@ -15,10 +15,26 @@ const globalForDb = globalThis as unknown as {
     promise: Promise<typeof mongoose> | null;
     lastFailureAt: number;
   };
+  _mongooseErrorHandlerAttached?: boolean;
 };
 
 const cache = globalForDb._mongoose ?? { conn: null, promise: null, lastFailureAt: 0 };
 globalForDb._mongoose = cache;
+
+// Mongoose emits "error" on the connection when a socket drops post-connect
+// (e.g. Atlas reaping an idle connection overnight). A Node EventEmitter that
+// emits "error" with no listener attached throws it as an uncaught exception,
+// which kills the whole process — not just the one failed query. That's what
+// was taking the entire site down and requiring a manual restart. Attaching a
+// listener (once, surviving dev hot-reload via globalThis) turns that into a
+// logged warning instead; dbConnect()'s readyState check already handles
+// reconnecting on the next request.
+if (!globalForDb._mongooseErrorHandlerAttached) {
+  mongoose.connection.on("error", (err) => {
+    console.warn("[db] MongoDB connection error (will reconnect on next request):", err);
+  });
+  globalForDb._mongooseErrorHandlerAttached = true;
+}
 
 // A little headroom (5s) absorbs a normal Atlas cold-start / transient blip
 // without tripping the cooldown, while still failing fast enough for snapshot
