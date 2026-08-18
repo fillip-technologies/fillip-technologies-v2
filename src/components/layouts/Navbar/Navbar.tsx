@@ -158,7 +158,7 @@ export default function Navbar() {
 
   /* Close drawer on resize to desktop */
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) closeDrawer(); };
+    const onResize = () => { if (window.innerWidth >= 1280) closeDrawer(); };
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, [closeDrawer]);
@@ -167,7 +167,7 @@ export default function Navbar() {
   return (
     <>
       <style>{`
-        @media (max-width: 1023px) {
+        @media (max-width: 1279px) {
           [data-mobile-sticky-header] {
             transform: translate3d(0, 0, 0) !important;
             opacity: 1 !important;
@@ -182,12 +182,12 @@ export default function Navbar() {
 
         <div
           data-hero-wrap
-          className="pointer-events-auto w-full px-10 pt-8 hidden lg:block"
+          className="pointer-events-auto w-full px-5 pt-8 hidden xl:block 2xl:px-10"
         >
           <div className="mx-auto flex max-w-[1600px] items-center">
 
             {/* Left links */}
-            <nav ref={heroLeftRef} className="flex flex-1 items-center justify-end gap-10 pr-16 will-change-transform">
+            <nav ref={heroLeftRef} className="flex flex-1 items-center justify-end gap-5 pr-6 will-change-transform 2xl:gap-10 2xl:pr-16">
               {NAV_LINKS.slice(0, 3).map((l) => (
                 <DesktopNavItem
                   key={l}
@@ -203,7 +203,7 @@ export default function Navbar() {
               ref={heroCenterRef}
               className="flex flex-shrink-0 flex-col items-center will-change-transform"
             >
-              <Logo width={260} height={60} />
+              <Logo width={220} height={52} />
 
               <div className="relative mt-2">
                 {/* AI Stars */}
@@ -230,7 +230,7 @@ export default function Navbar() {
             </div>
 
             {/* Right links + CTA */}
-            <nav ref={heroRightRef} className="flex flex-1 items-center justify-start gap-10 pl-16 will-change-transform">
+            <nav ref={heroRightRef} className="flex flex-1 items-center justify-start gap-5 pl-6 will-change-transform 2xl:gap-10 2xl:pl-16">
               {NAV_LINKS.slice(3).map((l) => <DesktopNavItem key={l} label={l} />)}
               <div className="ml-auto">
                 <TalkButton />
@@ -250,7 +250,7 @@ export default function Navbar() {
             pointer-events-none
             will-change-transform
             /* Mobile override: always visible, pointer-events on */
-            lg:[pointer-events:none]
+            xl:[pointer-events:none]
             [pointer-events:auto]
           "
           style={{
@@ -271,19 +271,19 @@ export default function Navbar() {
             <Logo width={150} height={42} />
 
             {/* Desktop centre links */}
-            <nav className="hidden lg:flex items-center gap-7 xl:gap-9 mx-auto">
+            <nav className="hidden xl:flex items-center gap-5 2xl:gap-9 mx-auto">
               {NAV_LINKS.map((l) => (
                 <DesktopNavItem key={l} label={l} panelTopClass="top-[84px]" variant="full" />
               ))}
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:block flex-shrink-0">
+            <div className="hidden xl:block flex-shrink-0">
               <TalkButton />
             </div>
 
             {/* Mobile hamburger */}
-            <div className="lg:hidden">
+            <div className="xl:hidden">
               <MenuButton open={drawerOpen} onClick={toggleDrawer} />
             </div>
           </div>

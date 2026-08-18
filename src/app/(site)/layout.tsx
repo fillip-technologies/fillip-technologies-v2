@@ -2,7 +2,6 @@ import Script from "next/script";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import ChatbotWidget from "@/components/chat/ChatbotWidget";
-import AnniversaryPopup from "@/components/AnniversaryPopup/AnniversaryPopup";
 import { JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
 import SiteConsultationForm from "@/components/form/SiteConsultationForm";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
@@ -31,7 +30,7 @@ export default async function SiteLayout({
           gtag('config', 'G-PLLBQ2B299');
         `}
       </Script>
-      <div className="anniversary-site-shell">
+      <div>
         <Navbar />
         {children}
 
@@ -39,7 +38,6 @@ export default async function SiteLayout({
         <Footer />
         <ChatbotWidget />
       </div>
-      <AnniversaryPopup />
     </>
   );
 }

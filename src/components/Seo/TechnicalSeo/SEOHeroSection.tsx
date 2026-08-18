@@ -11,6 +11,8 @@ type SEOHeroSectionProps = {
 };
 
 export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
+    const outlineText = data?.outlineText ?? "SEO";
+
     return (
         <section className="relative overflow-hidden pt-32 pb-24">
             {/* Grid Background */}
@@ -33,11 +35,11 @@ export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
             {/* SEO Outline Text */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute -left-16 top-10 text-[260px] font-black leading-none text-slate-100">
-                    SEO
+                    {outlineText}
                 </div>
 
                 <div className="absolute right-0 bottom-0 text-[220px] font-black leading-none text-slate-100">
-                    SEO
+                    {outlineText}
                 </div>
             </div>
 

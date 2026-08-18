@@ -25,6 +25,29 @@ const differences = [
   },
 ];
 
+const rowStyles = [
+  {
+    row: "bg-blue-50/70 hover:bg-blue-50",
+    arrow: "bg-blue-100 text-blue-700",
+  },
+  {
+    row: "bg-emerald-50/70 hover:bg-emerald-50",
+    arrow: "bg-emerald-100 text-emerald-700",
+  },
+  {
+    row: "bg-violet-50/70 hover:bg-violet-50",
+    arrow: "bg-violet-100 text-violet-700",
+  },
+  {
+    row: "bg-amber-50/70 hover:bg-amber-50",
+    arrow: "bg-amber-100 text-amber-700",
+  },
+  {
+    row: "bg-cyan-50/70 hover:bg-cyan-50",
+    arrow: "bg-cyan-100 text-cyan-700",
+  },
+];
+
 type HumanAIContent = Partial<{
   eyebrow: string;
   heading: string;
@@ -105,16 +128,15 @@ export default function HumanAISection({ content: raw = {} }: { content?: Record
             {rows.map((item, index) => (
               <div
                 key={index}
-                className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-6 py-5 last:border-0"
+                className={`grid grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-border px-6 py-5 transition-colors last:border-0 ${rowStyles[index % rowStyles.length].row}`}
               >
                 <span className="text-body">
                   {item.before}
                 </span>
 
-                <ArrowRight
-                  size={16}
-                  className="text-primary"
-                />
+                <span className={`flex h-8 w-8 items-center justify-center rounded-full ${rowStyles[index % rowStyles.length].arrow}`}>
+                  <ArrowRight size={16} />
+                </span>
 
                 <span className="text-right text-heading font-medium">
                   {item.after}

@@ -58,12 +58,14 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                 key={industry.title}
                 layout
                 transition={{
-                  duration: 0.7,
+                  duration: 0.55,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                onMouseEnter={() => setActive(index)}
+                onMouseEnter={() => {
+                  if (active !== index) setActive(index);
+                }}
                 onClick={() => setActive(index)}
-                className={`relative w-full cursor-pointer overflow-hidden rounded-[32px]
+                className={`group relative w-full cursor-pointer overflow-hidden rounded-[32px] transition-[flex,height,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
                 ${isActive
                     ? "md:flex-[5] h-[480px] md:h-full"
                     : "md:flex-1 h-20 md:h-full"
@@ -117,39 +119,26 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                 )}
 
                 {/* Active Content */}
-                <AnimatePresence mode="wait">
+                <AnimatePresence initial={false}>
                   {isActive && (
                     <motion.div
                       key={industry.title}
-                      initial={{ opacity: 0, y: 40 }}
+                      initial={{ opacity: 0, y: 24 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 40 }}
+                      exit={{ opacity: 0, y: 16 }}
                       transition={{
-                        duration: 0.5,
-                        delay: 0.15,
+                        duration: 0.35,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                       className="absolute inset-0 flex items-end p-6 md:p-10 lg:p-14"
                     >
                       <div className="max-w-xl">
-
-                        {/* Industry Number */}
-
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="mb-6 hidden md:inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl"
-                        >
-                          <span className="text-lg font-semibold text-white">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                        </motion.div>
-
                         {/* Title */}
 
                         <motion.h3
-                          initial={{ opacity: 0, y: 25 }}
+                          initial={{ opacity: 0, y: 18 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                           className="text-3xl md:text-5xl font-bold text-white"
                         >
                           {industry.title}
@@ -158,9 +147,9 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                         {/* Description */}
 
                         <motion.p
-                          initial={{ opacity: 0, y: 25 }}
+                          initial={{ opacity: 0, y: 18 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.3 }}
+                          transition={{ duration: 0.35, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
                           className="mt-3 md:mt-6 text-sm md:text-lg leading-6 md:leading-8 text-slate-300"
                         >
                           {industry.description}
@@ -171,7 +160,7 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          transition={{ delay: 0.4 }}
+                          transition={{ duration: 0.35, delay: 0.12 }}
                           className="mt-6 md:mt-10 grid grid-cols-2 gap-3"
                         >
                           {industry.services.split("\n").map((s) => s.trim()).filter(Boolean).map((service) => (
@@ -195,7 +184,7 @@ export default function IndustriesSection({ content: raw = {} }: { content?: Rec
                           <motion.span
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
+                            transition={{ duration: 0.35, delay: 0.18 }}
                             className="group mt-6 md:mt-10 inline-flex items-center gap-2 md:gap-3 rounded-full bg-white px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-semibold text-[#105278] transition-all duration-300 hover:gap-5 hover:bg-cyan-300"
                           >
                             Explore Industry
