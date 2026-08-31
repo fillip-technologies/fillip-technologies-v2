@@ -80,6 +80,12 @@ export default function TechnicalSeoServicesStack({
   const content = data ?? FALLBACK;
   const services = content.items;
 
+  // Short marketing headings ("Technical SEO Solutions For Sustainable Growth")
+  // carry the display size well; full-sentence headings overflow the column at
+  // 7xl, so step them down a notch instead of shrinking every page's heading.
+  const isLongHeading =
+    `${content.title} ${content.highlightedTitle}`.length > 55;
+
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const { scrollYProgress } = useScroll({
@@ -102,14 +108,20 @@ export default function TechnicalSeoServicesStack({
               {content.eyebrow}
             </p>
 
-            <h2 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl xl:text-7xl">
+            <h2
+              className={`font-semibold tracking-tight text-slate-950 ${
+                isLongHeading
+                  ? "text-3xl md:text-4xl xl:text-5xl"
+                  : "text-4xl md:text-6xl xl:text-7xl"
+              }`}
+            >
               {content.title}
               <span className="highlight-text block">
                 {content.highlightedTitle}
               </span>
             </h2>
 
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
+            <p className="mt-7 max-w-xl whitespace-pre-line text-lg leading-8 text-slate-600">
               {content.description}
             </p>
 
