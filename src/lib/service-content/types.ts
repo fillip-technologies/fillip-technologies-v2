@@ -3,6 +3,7 @@ import type {
   MarketingChallengesContent,
   MarketingIndustriesContent,
   MarketingIssuesContent,
+  MarketingJourneyContent,
   MarketingServicesContent,
   MarketingToolsContent,
 } from "@/data/marketing/types";
@@ -90,6 +91,7 @@ export type TechnicalSeoLandingPage = LandingPageBase & {
     issues?: MarketingIssuesContent;
     industries?: MarketingIndustriesContent;
     tools?: MarketingToolsContent;
+    journey?: MarketingJourneyContent;
   };
 };
 

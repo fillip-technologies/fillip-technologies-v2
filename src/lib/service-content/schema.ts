@@ -283,6 +283,19 @@ export const technicalSeoServicePageSchema = z.object({
         icon: nonEmptyString,
       })).min(1),
     }).optional(),
+    journey: z.object({
+      badge: nonEmptyString,
+      title: nonEmptyString,
+      highlightedTitle: nonEmptyString,
+      description: nonEmptyString,
+      footnote: nonEmptyString.optional(),
+      steps: z.array(z.object({
+        number: nonEmptyString,
+        label: nonEmptyString,
+        description: nonEmptyString,
+        icon: nonEmptyString,
+      })).min(1),
+    }).optional(),
   }),
 });
 

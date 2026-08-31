@@ -1,3 +1,4 @@
+import CustomerJourneySection from "@/components/Seo/TechnicalSeo/CustomerJourneySection";
 import HiddenTechnicalIssuesWeFix from "@/components/Seo/TechnicalSeo/HiddenTechnicalIssuesWeFix";
 import IndustriesWeServeCards from "@/components/Seo/TechnicalSeo/IndustriesWeServeCards";
 import SEOHeroSection from "@/components/Seo/TechnicalSeo/SEOHeroSection";
@@ -22,6 +23,7 @@ export default function TechnicalSeoLandingTemplate({
       <SEOHeroSection data={page.content.hero} />
       <WhyWebsiteIsntRanking data={page.content.challenges} />
       <TechnicalSeoServicesStack data={page.content.services} />
+      <CustomerJourneySection data={page.content.journey} />
       <HiddenTechnicalIssuesWeFix data={page.content.issues} />
       <IndustriesWeServeCards data={page.content.industries} />
       <TechnicalSeoToolsSection data={page.content.tools} />

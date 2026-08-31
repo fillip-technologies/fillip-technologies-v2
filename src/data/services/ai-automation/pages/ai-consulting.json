@@ -3,7 +3,7 @@
   "serviceKey": "ai-automation",
   "enabled": true,
   "seo": {
-    "title": "AI Consulting Services | Fillip Technologies",
+    "title": "AI Consulting Services",
     "description": "Practical AI consulting for strategy, use-case discovery, implementation planning, and responsible adoption.",
     "canonical": "/ai-consulting",
     "openGraph": {

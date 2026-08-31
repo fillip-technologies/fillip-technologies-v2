@@ -1,21 +1,6 @@
 import Image from "next/image";
-import {
-  Brain,
-  Briefcase,
-  Rocket,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
 import HomeSectionTitle from "./HomeSectionTitle";
 import { HOME_WHY_CHOOSE, type WhyChooseItem } from "@/data/home/defaults";
-
-// Icon keys admins can type in the CMS map to these lucide icons.
-const iconMap: Record<string, LucideIcon> = {
-  Briefcase,
-  Rocket,
-  Users,
-  Brain,
-};
 
 // CMS-editable content (key: home.whychooseus). Falls back to these defaults.
 type WhyChooseContent = Partial<{
@@ -86,8 +71,6 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
         {/* Cards */}
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {features.map((item, index) => {
-            const Icon = iconMap[item.icon] ?? Briefcase;
-
             return (
               <div
                 key={index}
@@ -103,10 +86,6 @@ export default function WhyChooseUsSection({ content: raw = {} }: { content?: Re
                     className="pointer-events-none absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 )}
-
-                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border)] bg-white transition-all duration-300">
-                  <Icon className="h-5 w-5 text-[var(--primary)]" />
-                </div>
 
                 <h3 className="relative z-10 mt-6 text-2xl font-bold leading-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.85)]">
                   {item.title}

@@ -3,7 +3,7 @@
   "enabled": true,
   "serviceKey": "performance-marketing",
   "seo": {
-    "title": "Lead Generation Campaigns | Fillip Technologies",
+    "title": "Lead Generation Campaigns",
     "description": "Performance-focused lead generation campaigns designed to attract qualified prospects and improve conversion efficiency.",
     "canonical": "/lead-generation-campaigns",
     "openGraph": { "title": "Lead Generation Campaigns", "description": "Generate qualified business leads through measurable digital campaigns.", "image": "/images/seo-magnifier.png" },
