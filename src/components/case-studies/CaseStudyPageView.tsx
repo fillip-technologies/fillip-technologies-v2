@@ -43,6 +43,7 @@ export default function CaseStudyPageView({
             width={1536}
             height={1024}
             aria-hidden="true"
+            sizes="52vw"
             className="pointer-events-none absolute -right-[12%] top-1/2 hidden w-[min(760px,52vw)] -translate-y-1/2 opacity-50 lg:block"
           />
         ) : null}
@@ -114,8 +115,13 @@ export default function CaseStudyPageView({
                     className="flex h-24 items-center justify-center rounded-2xl border border-[var(--border)] bg-white px-6 shadow-sm"
                   >
                     {b.logo ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={b.logo} alt={b.name} className="max-h-12 w-auto object-contain" />
+                      <Image
+                        src={b.logo}
+                        alt={b.name}
+                        width={160}
+                        height={48}
+                        className="max-h-12 w-auto object-contain"
+                      />
                     ) : (
                       <span className="text-sm font-semibold text-[var(--heading)]">{b.name}</span>
                     )}

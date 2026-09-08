@@ -4,7 +4,12 @@ import { dbConnect } from "@/lib/db";
 import { ServiceCategoryModel, SiteContentModel } from "@/server/db/models";
 import { WHAT_WE_DO_ITEMS_BY_SLUG } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
-import { snapshotRead, snapshotReadMany } from "./snapshot-cache";
+import { invalidateSnapshotMany, snapshotRead, snapshotReadMany } from "./snapshot-cache";
+
+// All group variants used as cache-key suffixes (wildcard * + named groups).
+const CAT_GROUPS = ["*", "whatwedo", "solutions"];
+const catListKeys = CAT_GROUPS.flatMap((g) => [`categories:all:${g}`, `categories:published:${g}`]);
+const catKeys = (slug: string) => [...catListKeys, `category:${slug}`, `menulinks:${slug}`];
 import { SERVICE_TEMPLATES } from "./servicepage-templates";
 
 // URL prefixes owned by the Service Pages CMS. A sub-link under one of these is
@@ -227,5 +232,6 @@ export async function setPublished(slug: string, published: boolean): Promise<vo
     { slug },
     { $set: { published, updated_at: new Date() } }
   );
+  await invalidateSnapshotMany(catKeys(slug));
 }
 

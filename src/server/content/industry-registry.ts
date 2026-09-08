@@ -3,7 +3,10 @@ import "server-only";
 import { dbConnect } from "@/lib/db";
 import { IndustryModel, SiteContentModel } from "@/server/db/models";
 import { INDUSTRY_SECTION_IDS } from "./industry-sections";
-import { snapshotRead } from "./snapshot-cache";
+import { invalidateSnapshotMany, snapshotRead } from "./snapshot-cache";
+
+const IND_LIST_KEYS = ["industries:all", "industries:published"];
+const indKeys = (slug: string) => [...IND_LIST_KEYS, `industry:${slug}`];
 
 /**
  * Data access for the `industries` collection. This is the source of truth for
@@ -73,6 +76,7 @@ export async function insertIndustry(slug: string, label: string): Promise<void>
   const last = await IndustryModel.findOne().sort({ sort_order: -1 }).lean();
   const sortOrder = (last?.sort_order ?? 0) + 1;
   await IndustryModel.create({ slug, label, published: false, sort_order: sortOrder });
+  await invalidateSnapshotMany(IND_LIST_KEYS);
 }
 
 /** Toggle publish state. */
@@ -82,6 +86,7 @@ export async function setPublished(slug: string, published: boolean): Promise<vo
     { slug },
     { $set: { published, updated_at: new Date() } }
   );
+  await invalidateSnapshotMany(indKeys(slug));
 }
 
 /** Delete an industry and all of its section content rows. */
@@ -92,4 +97,8 @@ export async function deleteIndustry(slug: string): Promise<void> {
   await SiteContentModel.deleteMany({
     key: { $in: INDUSTRY_SECTION_IDS.map((id) => `industry.${slug}.${id}`) },
   });
+  await invalidateSnapshotMany([
+    ...indKeys(slug),
+    ...INDUSTRY_SECTION_IDS.map((id) => `content:industry.${slug}.${id}`),
+  ]);
 }

@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
 import { getPageSection } from "./page-sections";
 import { upsertContent } from "./queries";
+import { whitelistSectionData } from "./section-utils";
+import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
 
 // Public route(s) that render a given page group's content. Groups whose id
@@ -34,28 +36,14 @@ export async function savePageSection(
   sectionId: string,
   data: Record<string, unknown>
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const section = getPageSection(groupId, sectionId);
   if (!section || !section.ready) {
     return { ok: false, message: "Unknown or unavailable section." };
   }
 
-  const clean: Record<string, unknown> = {};
-  for (const field of section.fields) {
-    clean[field.name] = String(data[field.name] ?? "").trim();
-  }
-  if (section.list) {
-    const raw = Array.isArray(data[section.list.name]) ? (data[section.list.name] as unknown[]) : [];
-    clean[section.list.name] = raw.map((item) => {
-      const row = (item ?? {}) as Record<string, unknown>;
-      const out: Record<string, string> = {};
-      for (const f of section.list!.itemFields) out[f.name] = String(row[f.name] ?? "").trim();
-      return out;
-    });
-  }
+  const clean = whitelistSectionData(section, data);
 
   try {
     await upsertContent(`page.${groupId}.${section.id}`, clean);

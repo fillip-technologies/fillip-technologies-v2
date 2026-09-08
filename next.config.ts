@@ -18,11 +18,16 @@ const nextConfig: NextConfig = {
     "/*": ["src/data/services/**/*.json", "src/data/blogs/**/*.json", "src/data/redirects.json"],
   },
   images: {
-    // Prefer modern formats; the optimizer re-encodes source PNG/JPEG to these,
-    // which is where most of Lighthouse's "improve image delivery" savings come from.
+    // Cloudinary images are served directly from Cloudinary's CDN via the custom
+    // loader (src/lib/cloudinary-image.ts). Local images still go through Next.js's
+    // optimizer. Both paths produce WebP/AVIF at the right size.
+    loaderFile: "./src/lib/cloudinary-image.ts",
+    // Keep formats declared so the /_next/image fallback path (for local images)
+    // still converts PNG/JPEG to AVIF/WebP.
     formats: ["image/avif", "image/webp"],
-    // Cloudinary-hosted assets (see src/server/cloudinary.ts). Scoped to our
-    // cloud's path so only our own media library passes through next/image.
+    // remotePatterns is still needed so next/image accepts Cloudinary src values
+    // without throwing a config error, even though the custom loader bypasses
+    // the optimization pipeline for those URLs.
     remotePatterns: [
       {
         protocol: "https",

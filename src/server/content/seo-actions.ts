@@ -11,6 +11,7 @@ import { upsertSeoOverride } from "./seo-overrides";
 import { setPublished as setIndustryPublished } from "./industry-registry";
 import { setServicePagePublished } from "./servicepage-registry";
 import { setPublished as setCategoryPublished } from "./whatwedo-registry";
+import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
 
 export type SeoSaveState = SaveState & { issues?: SeoIssue[] };
@@ -33,7 +34,7 @@ async function syncCmsPublished(record: SeoPageRecord, published: boolean): Prom
  * same rules the audit uses. Draft/archived saves are always allowed.
  */
 export async function savePageSeo(path: string, raw: unknown): Promise<SeoSaveState> {
-  if (!(await getSession())) return { ok: false, message: "Not authorized." };
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const target = normalizePath(path);
   const base = await getBaseSeoRecordForPath(target);

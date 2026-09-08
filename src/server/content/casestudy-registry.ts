@@ -2,7 +2,10 @@ import "server-only";
 
 import { dbConnect } from "@/lib/db";
 import { CaseStudyModel } from "@/server/db/models";
-import { snapshotRead } from "./snapshot-cache";
+import { invalidateSnapshotMany, snapshotRead } from "./snapshot-cache";
+
+const CS_LIST_KEYS = ["case-studies:all", "case-studies:published"];
+const csKeys = (slug: string) => [...CS_LIST_KEYS, `case-study:${slug}`];
 
 /**
  * Data access for the self-contained `case_studies` collection. Unlike industries
@@ -228,6 +231,7 @@ export async function insertCaseStudy(
     sort_order: sortOrder,
     hero: { title },
   });
+  await invalidateSnapshotMany(CS_LIST_KEYS);
 }
 
 /** Overwrite one embedded section of a case study. */
@@ -241,16 +245,19 @@ export async function updateCaseStudySection(
     { slug },
     { $set: { [sectionId]: data, updated_at: new Date() } }
   );
+  await invalidateSnapshotMany(csKeys(slug));
 }
 
 /** Toggle publish state. */
 export async function setCaseStudyPublished(slug: string, published: boolean): Promise<void> {
   await dbConnect();
   await CaseStudyModel.updateOne({ slug }, { $set: { published, updated_at: new Date() } });
+  await invalidateSnapshotMany(csKeys(slug));
 }
 
 /** Delete a case study document. */
 export async function deleteCaseStudy(slug: string): Promise<void> {
   await dbConnect();
   await CaseStudyModel.deleteOne({ slug });
+  await invalidateSnapshotMany(csKeys(slug));
 }

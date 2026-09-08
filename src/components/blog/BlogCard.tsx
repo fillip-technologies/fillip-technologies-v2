@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { BlogListItem } from "@/lib/schema";
@@ -14,11 +13,12 @@ export default function BlogCard({ blog }: BlogCardProps) {
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-md">
       <Link href={`/blog/${blog.slug}`} className="relative block aspect-[16/11] w-full overflow-hidden bg-slate-100">
         {blog.featuredImage ? (
-          <img
+          <Image
             src={blog.featuredImage}
             alt={blog.title}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-slate-100 px-8 text-center text-sm font-semibold uppercase tracking-[0.25em] text-primary">

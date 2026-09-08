@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
 import { upsertContent } from "@/server/content/queries";
 import type { AboutMenuItem } from "@/components/layouts/Navbar/aboutMegaMenuData";
+import { UNAUTHORIZED } from "@/server/content/types";
 import type { SaveState } from "@/server/content/types";
 import { NAV_MENUS, isNavMenuId, type NavMenuId } from "./menus";
 
@@ -12,9 +13,7 @@ import { NAV_MENUS, isNavMenuId, type NavMenuId } from "./menus";
  * { label, href } and drops blanks.
  */
 export async function saveNavMenu(menuId: NavMenuId, items: AboutMenuItem[]): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!isNavMenuId(menuId)) {
     return { ok: false, message: "Unknown menu." };
   }

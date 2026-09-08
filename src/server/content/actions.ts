@@ -5,7 +5,9 @@ import { getSession } from "@/server/auth/session";
 import { getSection } from "./home-sections";
 import { getClientCategory, clientCategoryKey } from "./client-sections";
 import { upsertContent } from "./queries";
+import { whitelistSectionData } from "./section-utils";
 import type { SaveState } from "./types";
+import { UNAUTHORIZED } from "./types";
 
 /**
  * Save one Home section's content. Called directly from the editor with a
@@ -16,31 +18,14 @@ export async function saveHomeSection(
   data: Record<string, unknown>
 ): Promise<SaveState> {
   // Auth check inside the action (never trust the client).
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const section = getSection(sectionId);
   if (!section || !section.ready) {
     return { ok: false, message: "Unknown or unavailable section." };
   }
 
-  // Whitelist scalar fields.
-  const clean: Record<string, unknown> = {};
-  for (const field of section.fields) {
-    clean[field.name] = String(data[field.name] ?? "").trim();
-  }
-
-  // Whitelist list items to the section's item fields.
-  if (section.list) {
-    const raw = Array.isArray(data[section.list.name]) ? (data[section.list.name] as unknown[]) : [];
-    clean[section.list.name] = raw.map((item) => {
-      const row = (item ?? {}) as Record<string, unknown>;
-      const out: Record<string, string> = {};
-      for (const f of section.list!.itemFields) out[f.name] = String(row[f.name] ?? "").trim();
-      return out;
-    });
-  }
+  const clean = whitelistSectionData(section, data);
 
   try {
     await upsertContent(`home.${section.id}`, clean);
@@ -62,9 +47,7 @@ export async function saveClientCategory(
   categoryId: string,
   data: Record<string, unknown>
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const category = getClientCategory(categoryId);
   if (!category) {

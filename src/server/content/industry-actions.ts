@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
+import { slugify } from "@/lib/slug";
 import { getIndustrySectionSpec } from "./industry-sections";
 import {
   getIndustry,
@@ -10,20 +11,13 @@ import {
   deleteIndustry as deleteIndustryRow,
 } from "./industry-registry";
 import { upsertContent } from "./queries";
+import { whitelistSectionData } from "./section-utils";
+import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
 
 // Slugs already used by non-industry routes under /industries, or otherwise
 // reserved. Keeps admins from shadowing a real page.
 const RESERVED_SLUGS = new Set(["healthcare-web-design", "preview"]);
-
-/** Normalise a free-text label into a URL-safe kebab-case slug. */
-function slugify(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 /**
  * Save one industry-page section (stored FLAT under `industry.<slug>.<id>`).
@@ -34,9 +28,7 @@ export async function saveIndustrySection(
   sectionId: string,
   data: Record<string, unknown>
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const industry = await getIndustry(slug);
   const spec = getIndustrySectionSpec(sectionId);
@@ -45,19 +37,7 @@ export async function saveIndustrySection(
   }
   const section = spec.section;
 
-  const clean: Record<string, unknown> = {};
-  for (const field of section.fields) {
-    clean[field.name] = String(data[field.name] ?? "").trim();
-  }
-  if (section.list) {
-    const raw = Array.isArray(data[section.list.name]) ? (data[section.list.name] as unknown[]) : [];
-    clean[section.list.name] = raw.map((item) => {
-      const row = (item ?? {}) as Record<string, unknown>;
-      const out: Record<string, string> = {};
-      for (const f of section.list!.itemFields) out[f.name] = String(row[f.name] ?? "").trim();
-      return out;
-    });
-  }
+  const clean = whitelistSectionData(section, data);
 
   try {
     await upsertContent(`industry.${slug}.${section.id}`, clean);
@@ -78,9 +58,7 @@ export async function createIndustry(
   label: string,
   slug?: string
 ): Promise<SaveState & { slug?: string }> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const cleanLabel = String(label ?? "").trim();
   if (!cleanLabel) {
@@ -110,9 +88,7 @@ export async function createIndustry(
 
 /** Publish or unpublish an industry page. */
 export async function setIndustryPublished(slug: string, published: boolean): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!(await getIndustry(slug))) {
     return { ok: false, message: "Unknown industry." };
   }
@@ -133,9 +109,7 @@ export async function setIndustryPublished(slug: string, published: boolean): Pr
 
 /** Permanently delete an industry page and its content. */
 export async function deleteIndustry(slug: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!(await getIndustry(slug))) {
     return { ok: false, message: "Unknown industry." };
   }
