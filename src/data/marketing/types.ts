@@ -105,3 +105,17 @@ export type MarketingContent = {
   testimonials: MarketingTestimonialsContent;
   faq: MarketingFaqContent;
 };
+
+export type MarketingJourneyContent = {
+  badge: string;
+  title: string;
+  highlightedTitle: string;
+  description: string;
+  footnote?: string;
+  steps: {
+    number: string;
+    label: string;
+    description: string;
+    icon: string; // key into SEO_ICONS
+  }[];
+};

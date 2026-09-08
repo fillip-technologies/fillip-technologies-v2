@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, BriefcaseBusiness, HeartHandshake, Lightbulb, MapPin, Sparkles, UsersRound } from "lucide-react";
 import CareerApplicationForm from "@/components/form/CareerApplicationForm";
+import InternshipShorts from "@/components/careers/InternshipShorts";
 import { getContentData } from "@/server/content/queries";
 import { getPageSection, pageSectionDefaults } from "@/server/content/page-sections";
 
@@ -53,7 +54,9 @@ export default async function CareerPage() {
 
       <section id="open-roles" className="pt-24 pb-[2px] lg:pt-32 lg:pb-[2px]"><div className="mx-auto max-w-7xl px-6 lg:px-10"><div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"><div><span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">{rolesSection.eyebrow as string}</span><h2 className="mt-5 text-5xl font-bold tracking-tight">{rolesSection.heading as string}</h2></div><p className="max-w-md text-lg leading-8 text-slate-600">{rolesSection.description as string}</p></div>{roles.length > 0 ? <div className="mt-14 grid gap-5 md:grid-cols-2">{roles.map((role, i) => <article key={role.title || i} className="group rounded-[24px] border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"><div className="flex items-start justify-between gap-5"><div><div className="flex flex-wrap gap-2"><span className="rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary">{role.type}</span><span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">{role.location}</span></div><h3 className="mt-5 text-2xl font-bold">{role.title}</h3></div><a href={`#apply`} aria-label={`Apply for ${role.title}`} className="grid size-11 shrink-0 place-items-center rounded-full border border-slate-200 transition group-hover:border-primary group-hover:bg-primary group-hover:text-white"><ArrowUpRight className="size-4" /></a></div><p className="mt-4 max-w-xl leading-7 text-slate-600">{role.description}</p><div className="mt-7 flex items-center gap-2 text-sm font-semibold text-slate-700"><MapPin className="size-4 text-primary" />{role.location}</div></article>)}</div> : <div className="mt-14 rounded-[24px] border border-dashed border-slate-300 bg-slate-50 p-8 text-center"><BriefcaseBusiness className="mx-auto size-8 text-primary" /><h3 className="mt-4 text-2xl font-bold text-slate-950">Currently we are not hiring</h3><p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">Please check back later for new openings at Fillip Technologies.</p></div>}<div className="mt-10 flex items-center gap-3 rounded-2xl border border-dashed border-primary/25 bg-primary/[0.035] p-5 text-sm text-slate-600"><BriefcaseBusiness className="size-5 shrink-0 text-primary" /><p>{rolesSection.note as string}</p></div></div></section>
 
-      <CareerApplicationForm roles={[...roles.map((role) => role.title), "General application"]} />
+      <CareerApplicationForm roles={[...roles.map((role) => role.title), "Internship", "General application"]} />
+
+      <InternshipShorts />
     </main>
   );
 }

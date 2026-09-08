@@ -3,7 +3,7 @@
   "enabled": true,
   "serviceKey": "performance-marketing",
   "seo": {
-    "title": "YouTube Ads Campaign Management | Fillip Technologies",
+    "title": "YouTube Ads Campaign Management",
     "description": "YouTube advertising campaigns designed to build awareness, reach relevant audiences, and generate conversions.",
     "canonical": "/youtube-ads-campaign",
     "openGraph": { "title": "YouTube Ads Campaign Management", "description": "Strategic YouTube advertising for awareness and conversions.", "image": "/images/youtube-ads.png" },

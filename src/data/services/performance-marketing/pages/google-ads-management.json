@@ -3,7 +3,7 @@
   "enabled": true,
   "serviceKey": "performance-marketing",
   "seo": {
-    "title": "Google Ads Management | Fillip Technologies",
+    "title": "Google Ads Management",
     "description": "Google Ads campaign management focused on qualified leads, conversions, and measurable return on ad spend.",
     "canonical": "/google-ads-management",
     "openGraph": { "title": "Google Ads Management", "description": "Conversion-focused Google Ads campaign management.", "image": "/images/google-ads.png" },

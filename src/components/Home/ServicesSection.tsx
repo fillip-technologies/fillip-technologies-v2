@@ -3,67 +3,11 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    ArrowRight,
-    BadgeCheck,
-    BarChart3,
-    Box,
-    Brush,
-    Building2,
-    Code2,
-    Database,
-
-    GitBranch,
-    Globe,
-    Layers3,
-    LayoutPanelTop,
-    MapPin,
-    Megaphone,
-    Palette,
-    PenTool,
-    RefreshCw,
-    Search,
-    ServerCog,
-    Smartphone,
-    Target,
-    TrendingUp,
-    Users,
-    Wrench,
-    X,
-    Zap,
-} from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import ConsultationForm from "@/components/form/ConsultationForm";
 import { HOME_SERVICES, HOME_SERVICE_CATEGORIES, HOME_SERVICES_BG, type ServiceItem } from "@/data/home/defaults";
 
 type Service = ServiceItem;
-
-const iconMap = {
-    Globe,
-    Code2,
-    LayoutPanelTop,
-    RefreshCw,
-    Wrench,
-    Smartphone,
-    Layers3,
-    Building2,
-    Zap,
-    Database,
-    Users,
-    ServerCog,
-    GitBranch,
-    Search,
-    MapPin,
-    TrendingUp,
-    Megaphone,
-
-    Target,
-    PenTool,
-    Box,
-    Brush,
-    Palette,
-    BadgeCheck,
-    BarChart3,
-};
 
 // CMS-editable content (key: home.capabilities). Falls back to these defaults.
 type ServicesContent = Partial<{
@@ -339,8 +283,6 @@ function ServiceCard({
     service: Service;
     onGetStarted: () => void;
 }) {
-    const Icon = iconMap[service.icon as keyof typeof iconMap] ?? iconMap.Globe;
-
     return (
         <motion.article
             layout
@@ -371,10 +313,6 @@ function ServiceCard({
                         />
 
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-slate-950/5 to-transparent" />
-
-                        <div className="absolute left-5 top-5 flex h-12 w-12 items-center justify-center rounded-xl border border-white/45 bg-white/80 shadow-[0_12px_35px_rgba(15,23,42,0.16)] backdrop-blur-md">
-                            <Icon className="h-6 w-6 text-blue-600" />
-                        </div>
                     </motion.div>
                 </div>
 

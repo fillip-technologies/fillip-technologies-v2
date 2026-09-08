@@ -17,7 +17,7 @@ const staticPages: SeoPageRecord[] = [
     path: "/",
     kind: "home",
     status: "published",
-    title: "Best Digital Marketing Company in Patna | Fillip Technologies",
+    title: "Best Digital Marketing Company | Fillip Technologies",
     description:
       "Fillip Technologies is a digital marketing company in Patna helping businesses grow with SEO, performance marketing, website development, social media, and AI-driven solutions.",
     canonical: "/",

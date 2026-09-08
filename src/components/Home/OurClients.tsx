@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -270,6 +271,48 @@ type ClientsContent = Partial<{
   logos: ClientLogoItem[];
 }>;
 
+// Full-bleed auto-scrolling carousel of client logos, used in place of the
+// static grid (see the disabled block below). All logos render together in
+// one row.
+function ClientLogosCarousel({ logos }: { logos: Client[] }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    dragFree: true,
+  });
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const id = setInterval(() => emblaApi.scrollNext(), 2200);
+    return () => clearInterval(id);
+  }, [emblaApi]);
+
+  if (logos.length === 0) return null;
+
+  return (
+    <div className="relative left-1/2 w-screen -translate-x-1/2">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {logos.map((logo, index) => (
+            <div
+              key={logo.src + index}
+              className="flex h-32 flex-none basis-1/3 items-center justify-center px-2 sm:basis-1/4 md:basis-1/6 lg:basis-[12.5%]"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={160}
+                height={80}
+                className="h-16 w-32 object-contain opacity-90"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function OurClients({ content: raw = {} }: { content?: Record<string, unknown> }) {
   const content = raw as ClientsContent;
   const c = {
@@ -399,7 +442,9 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
           </div>
         </div>
 
-        {/* Filter Pills */}
+        {/* Filter Pills — disabled; all client logos now show together in one
+            carousel instead of being split by category. */}
+        {false && (
         <div className="mx-auto mt-12 max-w-5xl px-6 flex justify-center">
           <div
             role="tablist"
@@ -441,8 +486,19 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
             })}
           </div>
         </div>
+        )}
 
-        {/* Logos Grid */}
+        {/* Logos carousel (full-width) — every client logo except govt projects, no category filter */}
+        <div className="mt-14">
+          <ClientLogosCarousel
+            logos={clientLogosData.filter((logo) => !logo.categories.includes("govt"))}
+          />
+        </div>
+
+        {/* Logos Grid — temporarily disabled in favor of the carousel above.
+            Kept in place so it can be restored later; flip `false` to `true`
+            (or delete the carousel block) to bring it back. */}
+        {false && (
         <div className="mx-auto mt-14 max-w-7xl px-6">
           <AnimatePresence mode="wait">
             <motion.div
@@ -555,6 +611,7 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
             </div>
           )}
         </div>
+        )}
       </div>
     </section>
   );
