@@ -1,8 +1,8 @@
 {
   "summary": {
-    "ERROR": 0,
-    "WARNING": 61,
-    "INFO": 285
+    "ERROR": 2,
+    "WARNING": 62,
+    "INFO": 286
   },
   "issues": [
     {
@@ -53,6 +53,13 @@
       "message": "Internal link depth should be reviewed from rendered HTML",
       "path": "/digital-marketing-company-in-patna",
       "source": "src/data/services/digital-marketing/pages/digital-marketing-company-in-patna.json"
+    },
+    {
+      "severity": "INFO",
+      "code": "LOW_INTERNAL_LINKS",
+      "message": "Internal link depth should be reviewed from rendered HTML",
+      "path": "/it-company-in-patna",
+      "source": "src/data/services/it-services/pages/it-company-in-patna.json"
     },
     {
       "severity": "INFO",
@@ -114,7 +121,7 @@
       "severity": "INFO",
       "code": "LOW_INTERNAL_LINKS",
       "message": "Internal link depth should be reviewed from rendered HTML",
-      "path": "https://filliptechnologies.com/lead-generation-service-in-[your-city]/",
+      "path": "/lead-generation-service-in-lucknow",
       "source": "src/data/services/lead-generation/pages/lucknow.json"
     },
     {
@@ -751,6 +758,13 @@
       "severity": "INFO",
       "code": "LOW_INTERNAL_LINKS",
       "message": "Internal link depth should be reviewed from rendered HTML",
+      "path": "/web-development-company-in-patna",
+      "source": "src/data/services/web-development/pages/patna.json"
+    },
+    {
+      "severity": "INFO",
+      "code": "LOW_INTERNAL_LINKS",
+      "message": "Internal link depth should be reviewed from rendered HTML",
       "path": "/website-design-company-in-bavaria",
       "source": "src/data/services/website-design/pages/bavaria.json"
     },
@@ -844,13 +858,6 @@
       "message": "Internal link depth should be reviewed from rendered HTML",
       "path": "/website-design-company-in-hyderabad",
       "source": "src/data/services/website-design/pages/hyderabad.json"
-    },
-    {
-      "severity": "INFO",
-      "code": "LOW_INTERNAL_LINKS",
-      "message": "Internal link depth should be reviewed from rendered HTML",
-      "path": "/website-design-company-in-hydreabad",
-      "source": "src/data/services/website-design/pages/hydreabad.json"
     },
     {
       "severity": "INFO",
@@ -1563,6 +1570,27 @@
       "severity": "WARNING",
       "code": "MISSING_OG_IMAGE",
       "message": "Missing Open Graph image",
+      "path": "/",
+      "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
+    },
+    {
+      "severity": "WARNING",
+      "code": "MISSING_TWITTER_IMAGE",
+      "message": "Missing Twitter image",
+      "path": "/",
+      "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
+    },
+    {
+      "severity": "WARNING",
+      "code": "MISSING_BREADCRUMB_SCHEMA",
+      "message": "Missing Breadcrumb schema",
+      "path": "/",
+      "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
+    },
+    {
+      "severity": "WARNING",
+      "code": "MISSING_OG_IMAGE",
+      "message": "Missing Open Graph image",
       "path": "/sms-communication",
       "source": "src/app/sms-communication/page.tsx"
     },
@@ -2414,18 +2442,18 @@
       "source": "src/data/blogs/index.json"
     },
     {
-      "severity": "WARNING",
-      "code": "DUPLICATE_TITLE",
-      "message": "Duplicate meta title: website design company in hyderabad | fillip technologies",
-      "path": "/website-design-company-in-hyderabad",
-      "source": "src/data/services/website-design/pages/hyderabad.json"
+      "severity": "ERROR",
+      "code": "DUPLICATE_CANONICAL",
+      "message": "Duplicate canonical: https://filliptechnologies.com/",
+      "path": "/",
+      "source": "src/app/(site)/page.tsx"
     },
     {
-      "severity": "WARNING",
-      "code": "DUPLICATE_TITLE",
-      "message": "Duplicate meta title: website design company in hyderabad | fillip technologies",
-      "path": "/website-design-company-in-hydreabad",
-      "source": "src/data/services/website-design/pages/hydreabad.json"
+      "severity": "ERROR",
+      "code": "DUPLICATE_CANONICAL",
+      "message": "Duplicate canonical: https://filliptechnologies.com/",
+      "path": "/",
+      "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
     }
   ],
   "records": [
@@ -2434,7 +2462,7 @@
       "slug": "ai-agent-development",
       "kind": "landing",
       "status": "published",
-      "title": "AI Agent Development | Fillip Technologies",
+      "title": "AI Agent Development",
       "description": "Custom AI agents that reason across tasks, tools, data, and business workflows.",
       "canonical": "/ai-agent-development",
       "robots": {
@@ -2461,7 +2489,7 @@
       "slug": "ai-consulting",
       "kind": "landing",
       "status": "published",
-      "title": "AI Consulting Services | Fillip Technologies",
+      "title": "AI Consulting Services",
       "description": "Practical AI consulting for strategy, use-case discovery, implementation planning, and responsible adoption.",
       "canonical": "/ai-consulting",
       "robots": {
@@ -2488,7 +2516,7 @@
       "slug": "ai-gpt-integration",
       "kind": "landing",
       "status": "published",
-      "title": "AI and GPT Integration | Fillip Technologies",
+      "title": "AI and GPT Integration",
       "description": "Integrate GPT-powered intelligence into websites, applications, knowledge bases, and business systems.",
       "canonical": "/ai-gpt-integration",
       "robots": {
@@ -2515,7 +2543,7 @@
       "slug": "aichatbots",
       "kind": "landing",
       "status": "published",
-      "title": "AI Chatbot Development | Fillip Technologies",
+      "title": "AI Chatbot Development",
       "description": "Custom AI chatbots for lead generation, support, booking, and workflow automation.",
       "canonical": "/aichatbots",
       "robots": {
@@ -2542,7 +2570,7 @@
       "slug": "business-process-automation",
       "kind": "landing",
       "status": "published",
-      "title": "Business Process Automation | Fillip Technologies",
+      "title": "Business Process Automation",
       "description": "Redesign and automate multi-team business processes for better speed, control, visibility, and scale.",
       "canonical": "/business-process-automation",
       "robots": {
@@ -2569,7 +2597,7 @@
       "slug": "workflow-automation",
       "kind": "landing",
       "status": "published",
-      "title": "Workflow Automation Services | Fillip Technologies",
+      "title": "Workflow Automation Services",
       "description": "Automate repetitive workflows, approvals, notifications, data movement, and system handoffs.",
       "canonical": "/workflow-automation",
       "robots": {
@@ -2596,7 +2624,7 @@
       "slug": "digital-marketing-company-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "Digital Marketing Company in Patna | Fillip Technologies",
+      "title": "Digital Marketing Company in Patna",
       "description": "Digital marketing services in Patna for SEO, paid ads, social media, lead generation, and measurable business growth.",
       "canonical": "/digital-marketing-company-in-patna",
       "robots": {
@@ -2605,9 +2633,9 @@
       },
       "openGraphImage": "/images/results-visuals.png",
       "twitterImage": "/images/results-visuals.png",
-      "h1": "Grow your business with Digital Marketing Company in Patna",
+      "h1": "Digital Marketing Company in Patna That Drives Growth",
       "h1Count": 1,
-      "faqCount": 4,
+      "faqCount": 15,
       "city": "Patna",
       "serviceKey": "digital-marketing",
       "schema": {
@@ -2620,11 +2648,39 @@
       "source": "src/data/services/digital-marketing/pages/digital-marketing-company-in-patna.json"
     },
     {
+      "path": "/it-company-in-patna",
+      "slug": "it-company-in-patna",
+      "kind": "landing",
+      "status": "published",
+      "title": "Best IT Company in Patna",
+      "description": "Fillip Technologies is an IT company in Patna offering website development, custom software, mobile apps, UI/UX design, digital marketing, AI automation and IT infrastructure services under one roof.",
+      "canonical": "/it-company-in-patna",
+      "robots": {
+        "index": true,
+        "follow": true
+      },
+      "openGraphImage": "/images/TECH-BG.png",
+      "twitterImage": "/images/TECH-BG.png",
+      "h1": "IT Company in Patna Built Around Your Business",
+      "h1Count": 1,
+      "faqCount": 8,
+      "city": "Patna",
+      "serviceKey": "it-services",
+      "schema": {
+        "webpage": true,
+        "service": true,
+        "faq": true,
+        "breadcrumb": true,
+        "localBusiness": true
+      },
+      "source": "src/data/services/it-services/pages/it-company-in-patna.json"
+    },
+    {
       "path": "https://filliptechnologies.com/lead-generation-service-in-ahmedabad/",
       "slug": "lead-generation-service-in-ahmedabad",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Ahmedabad | Fillip Technologies",
+      "title": "Lead Generation Service in Ahmedabad",
       "description": "Lead generation services in Ahmedabad designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-ahmedabad/",
       "robots": {
@@ -2652,7 +2708,7 @@
       "slug": "lead-generation-service-in-bangalore",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Bangalore | Fillip Technologies",
+      "title": "Lead Generation Service in Bangalore",
       "description": "Lead generation services in Bangalore designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-bangalore/",
       "robots": {
@@ -2680,7 +2736,7 @@
       "slug": "lead-generation-service-in-bhopal",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Bhopal | Fillip Technologies",
+      "title": "Lead Generation Service in Bhopal",
       "description": "Lead generation services in Bhopal designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-bhopal/",
       "robots": {
@@ -2708,7 +2764,7 @@
       "slug": "lead-generation-service-in-guwahati",
       "kind": "landing",
       "status": "draft",
-      "title": "Lead Generation Service in Guwahati | Fillip Technologies",
+      "title": "Lead Generation Service in Guwahati",
       "description": "Lead generation services in Guwahati designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
       "robots": {
@@ -2736,7 +2792,7 @@
       "slug": "lead-generation-service-in-calicut",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Calicut | Fillip Technologies",
+      "title": "Lead Generation Service in Calicut",
       "description": "Lead generation services in Calicut designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-calicut/",
       "robots": {
@@ -2764,7 +2820,7 @@
       "slug": "lead-generation-service-in-guwahati",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Guwahati | Fillip Technologies",
+      "title": "Lead Generation Service in Guwahati",
       "description": "Lead generation services in Guwahati designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
       "robots": {
@@ -2792,7 +2848,7 @@
       "slug": "lead-generation-service-in-indore",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Indore | Fillip Technologies",
+      "title": "Lead Generation Service in Indore",
       "description": "Lead generation services in Indore designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-indore/",
       "robots": {
@@ -2820,7 +2876,7 @@
       "slug": "lead-generation-service-in-kolkata",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Kolkata | Fillip Technologies",
+      "title": "Lead Generation Service in Kolkata",
       "description": "Lead generation services in Kolkata designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-kolkata/",
       "robots": {
@@ -2844,23 +2900,23 @@
       "source": "src/data/services/lead-generation/pages/Kolkata.json"
     },
     {
-      "path": "https://filliptechnologies.com/lead-generation-service-in-[your-city]/",
+      "path": "/lead-generation-service-in-lucknow",
       "slug": "lead-generation-service-in-lucknow",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in [Your City] | Fillip Technologies",
-      "description": "Lead generation services in [Your City] designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
-      "canonical": "https://filliptechnologies.com/lead-generation-service-in-[your-city]/",
+      "title": "Lead Generation Service in Lucknow",
+      "description": "Lead generation services in Lucknow designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
+      "canonical": "/lead-generation-service-in-lucknow",
       "robots": {
         "index": true,
         "follow": true
       },
       "openGraphImage": "/images/seo-magnifier.png",
       "twitterImage": "/images/seo-magnifier.png",
-      "h1": "Build your pipeline with Lead Generation Services in [Your City]",
+      "h1": "Build your pipeline with Lead Generation Services in Lucknow",
       "h1Count": 1,
       "faqCount": 4,
-      "city": "[Your City]",
+      "city": "Lucknow",
       "serviceKey": "lead-generation",
       "schema": {
         "webpage": true,
@@ -2876,7 +2932,7 @@
       "slug": "lead-generation-service-in-mohali",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Mohali | Fillip Technologies",
+      "title": "Lead Generation Service in Mohali",
       "description": "Lead generation services in Mohali designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-mohali/",
       "robots": {
@@ -2904,7 +2960,7 @@
       "slug": "lead-generation-service-in-navi-mumbai",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Navi Mumbai | Fillip Technologies",
+      "title": "Lead Generation Service in Navi Mumbai",
       "description": "Lead generation services in Navi Mumbai designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-navi-mumbai/",
       "robots": {
@@ -2932,7 +2988,7 @@
       "slug": "lead-generation-services-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Services in Patna | Fillip Technologies",
+      "title": "Lead Generation Services in Patna",
       "description": "Lead generation services in Patna designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "/lead-generation-services-in-patna",
       "robots": {
@@ -2960,7 +3016,7 @@
       "slug": "lead-generation-service-in-pune",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Pune | Fillip Technologies",
+      "title": "Lead Generation Service in Pune",
       "description": "Lead generation services in Pune designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-pune/",
       "robots": {
@@ -2988,7 +3044,7 @@
       "slug": "lead-generation-service-in-raipur",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Raipur | Fillip Technologies",
+      "title": "Lead Generation Service in Raipur",
       "description": "Lead generation services in Raipur designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-raipur/",
       "robots": {
@@ -3016,7 +3072,7 @@
       "slug": "lead-generation-service-in-ranchi",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Ranchi | Fillip Technologies",
+      "title": "Lead Generation Service in Ranchi",
       "description": "Lead generation services in Ranchi designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-ranchi/",
       "robots": {
@@ -3044,7 +3100,7 @@
       "slug": "lead-generation-service-in-surat",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Service in Surat | Fillip Technologies",
+      "title": "Lead Generation Service in Surat",
       "description": "Lead generation services in Surat designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
       "canonical": "https://filliptechnologies.com/lead-generation-service-in-surat/",
       "robots": {
@@ -3072,7 +3128,7 @@
       "slug": "mobile-app-development-company-in-bhubaneswar",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Bhubaneswar | Fillip Technologies",
+      "title": "Mobile App Development Company in Bhubaneswar",
       "description": "Mobile app development services in Bhubaneswar for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-bhubaneswar",
       "robots": {
@@ -3100,7 +3156,7 @@
       "slug": "mobile-app-development-company-in-calicut",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Calicut | Fillip Technologies",
+      "title": "Mobile App Development Company in Calicut",
       "description": "Mobile app development services in Calicut for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-calicut",
       "robots": {
@@ -3128,7 +3184,7 @@
       "slug": "mobile-app-development-company-in-chennai",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Chennai | Fillip Technologies",
+      "title": "Mobile App Development Company in Chennai",
       "description": "Mobile app development services in Chennai for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-chennai",
       "robots": {
@@ -3156,7 +3212,7 @@
       "slug": "mobile-app-development-company-in-delhi",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Delhi | Fillip Technologies",
+      "title": "Mobile App Development Company in Delhi",
       "description": "Mobile app development services in Delhi for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-delhi",
       "robots": {
@@ -3184,7 +3240,7 @@
       "slug": "mobile-app-development-company-in-faridabad",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Faridabad | Fillip Technologies",
+      "title": "Mobile App Development Company in Faridabad",
       "description": "Mobile app development services in Faridabad for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-faridabad",
       "robots": {
@@ -3212,7 +3268,7 @@
       "slug": "mobile-app-development-company-in-guwahati",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Guwahati | Fillip Technologies",
+      "title": "Mobile App Development Company in Guwahati",
       "description": "Mobile app development services in Guwahati for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-guwahati",
       "robots": {
@@ -3240,7 +3296,7 @@
       "slug": "mobile-app-development-company-in-hyderabad",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Hyderabad | Fillip Technologies",
+      "title": "Mobile App Development Company in Hyderabad",
       "description": "Mobile app development services in Hyderabad for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-hyderabad",
       "robots": {
@@ -3268,7 +3324,7 @@
       "slug": "mobile-app-development-company-in-kolkata",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Kolkata | Fillip Technologies",
+      "title": "Mobile App Development Company in Kolkata",
       "description": "Mobile app development services in Kolkata for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-kolkata",
       "robots": {
@@ -3296,7 +3352,7 @@
       "slug": "mobile-app-development-company-in-lucknow",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Lucknow | Fillip Technologies",
+      "title": "Mobile App Development Company in Lucknow",
       "description": "Mobile app development services in Lucknow for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-lucknow",
       "robots": {
@@ -3324,7 +3380,7 @@
       "slug": "mobile-app-development-company-in-mohali",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Mohali | Fillip Technologies",
+      "title": "Mobile App Development Company in Mohali",
       "description": "Mobile app development services in Mohali for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-mohali",
       "robots": {
@@ -3352,7 +3408,7 @@
       "slug": "mobile-app-development-company-in-nagpur",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Nagpur | Fillip Technologies",
+      "title": "Mobile App Development Company in Nagpur",
       "description": "Mobile app development services in Nagpur for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-nagpur",
       "robots": {
@@ -3380,7 +3436,7 @@
       "slug": "mobile-app-development-company-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Patna | Fillip Technologies",
+      "title": "Mobile App Development Company in Patna",
       "description": "Mobile app development company in Patna building secure, scalable Android, iOS, and cross-platform applications for businesses.",
       "canonical": "/mobile-app-development-company-in-patna",
       "robots": {
@@ -3408,7 +3464,7 @@
       "slug": "mobile-app-development-company-in-pune",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Pune | Fillip Technologies",
+      "title": "Mobile App Development Company in Pune",
       "description": "Mobile app development services in Pune for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-pune",
       "robots": {
@@ -3436,7 +3492,7 @@
       "slug": "mobile-app-development-company-in-surat",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Surat | Fillip Technologies",
+      "title": "Mobile App Development Company in Surat",
       "description": "Mobile app development services in Surat for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-surat",
       "robots": {
@@ -3464,7 +3520,7 @@
       "slug": "mobile-app-development-company-in-thane",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Thane | Fillip Technologies",
+      "title": "Mobile App Development Company in Thane",
       "description": "Mobile app development services in Thane for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-thane",
       "robots": {
@@ -3492,7 +3548,7 @@
       "slug": "mobile-app-development-company-in-varanasi",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Varanasi | Fillip Technologies",
+      "title": "Mobile App Development Company in Varanasi",
       "description": "Mobile app development services in Varanasi for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-varanasi",
       "robots": {
@@ -3520,7 +3576,7 @@
       "slug": "mobile-app-development-company-in-victoria",
       "kind": "landing",
       "status": "published",
-      "title": "Mobile App Development Company in Victoria | Fillip Technologies",
+      "title": "Mobile App Development Company in Victoria",
       "description": "Mobile app development services in Victoria for secure, scalable Android, iOS, and cross-platform business applications.",
       "canonical": "/mobile-app-development-company-in-victoria",
       "robots": {
@@ -3548,7 +3604,7 @@
       "slug": "google-ads-management",
       "kind": "landing",
       "status": "published",
-      "title": "Google Ads Management | Fillip Technologies",
+      "title": "Google Ads Management",
       "description": "Google Ads campaign management focused on qualified leads, conversions, and measurable return on ad spend.",
       "canonical": "/google-ads-management",
       "robots": {
@@ -3575,7 +3631,7 @@
       "slug": "lead-generation-campaigns",
       "kind": "landing",
       "status": "published",
-      "title": "Lead Generation Campaigns | Fillip Technologies",
+      "title": "Lead Generation Campaigns",
       "description": "Performance-focused lead generation campaigns designed to attract qualified prospects and improve conversion efficiency.",
       "canonical": "/lead-generation-campaigns",
       "robots": {
@@ -3602,7 +3658,7 @@
       "slug": "meta-ads-management",
       "kind": "landing",
       "status": "published",
-      "title": "Facebook & Instagram Ads Management | Fillip Technologies",
+      "title": "Facebook & Instagram Ads Management",
       "description": "Meta (Facebook & Instagram) ads management focused on qualified leads, conversions, and measurable return on ad spend.",
       "canonical": "/meta-ads-management",
       "robots": {
@@ -3629,7 +3685,7 @@
       "slug": "whatsapp-ads-campaign",
       "kind": "landing",
       "status": "published",
-      "title": "WhatsApp Ads Campaign Management | Fillip Technologies",
+      "title": "WhatsApp Ads Campaign Management",
       "description": "Click-to-WhatsApp advertising campaigns that turn customer interest into direct business conversations.",
       "canonical": "/whatsapp-ads-campaign",
       "robots": {
@@ -3656,7 +3712,7 @@
       "slug": "youtube-ads-campaign",
       "kind": "landing",
       "status": "published",
-      "title": "YouTube Ads Campaign Management | Fillip Technologies",
+      "title": "YouTube Ads Campaign Management",
       "description": "YouTube advertising campaigns designed to build awareness, reach relevant audiences, and generate conversions.",
       "canonical": "/youtube-ads-campaign",
       "robots": {
@@ -3683,7 +3739,7 @@
       "slug": "seo-company-in-ahmedabad",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Ahmedabad | Fillip Technologies",
+      "title": "SEO Company in Ahmedabad",
       "description": "Row your business with our SEO Company in Ahmedabad. Our solutions enhance your visibility, improve user engagement, and drive more traffic efficiently.",
       "canonical": "/seo-company-in-ahmedabad",
       "robots": {
@@ -3711,7 +3767,7 @@
       "slug": "seo-company-in-bangalore",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Bangalore | Fillip Technologies",
+      "title": "SEO Company in Bangalore",
       "description": "Increase your website traffic with our SEO Company in Bangalore. Our strategies improve your online presence, engage users, and ensure lasting success",
       "canonical": "/seo-company-in-bangalore",
       "robots": {
@@ -3766,7 +3822,7 @@
       "slug": "seo-company-in-bhubaneswar",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Solutions in Bhubaneswar | Fillip Technologies",
+      "title": "SEO Solutions in Bhubaneswar",
       "description": "Fillip Technologies, a leading SEO Company in Bhubaneswar, is recognized as the Best SEO Company in Bhubaneswar for top-notch digital marketing solutions.",
       "canonical": "/seo-company-in-bhubaneswar",
       "robots": {
@@ -3794,7 +3850,7 @@
       "slug": "seo-company-in-calicut",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Calicut | Fillip Technologies",
+      "title": "SEO Company in Calicut",
       "description": "Boost your online presence with our SEO Company in Calicut. Our effective strategies increase traffic, improve rankings, and help your business stand out.",
       "canonical": "/seo-company-in-calicut",
       "robots": {
@@ -3822,7 +3878,7 @@
       "slug": "seo-company-in-chandigarh",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Chandigarh | Fillip Technologies",
+      "title": "SEO Company in Chandigarh",
       "description": "Partner with our SEO Company in Chandigarh for solutions that enhance visibility and drive business growth. We focus on effective strategies for success.",
       "canonical": "/seo-company-in-chandigarh",
       "robots": {
@@ -3850,7 +3906,7 @@
       "slug": "seo-company-in-chennai",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Chennai | Fillip Technologies",
+      "title": "SEO Company in Chennai",
       "description": "Improve your rankings with our SEO Company in Chennai. We provide tailored solutions that enhance visibility, drive traffic, and engage your audience effectively.",
       "canonical": "/seo-company-in-chennai",
       "robots": {
@@ -3878,7 +3934,7 @@
       "slug": "seo-company-in-coimbatore",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Coimbatore | Fillip Technologies",
+      "title": "SEO Company in Coimbatore",
       "description": "Achieve digital growth with our SEO Company in Coimbatore. We provide strategies designed to boost your website’s visibility and attract more visitors online.",
       "canonical": "/seo-company-in-coimbatore",
       "robots": {
@@ -3906,7 +3962,7 @@
       "slug": "competitor-analysis-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Competitor Analysis SEO Services | Fillip Technologies",
+      "title": "Competitor Analysis SEO Services",
       "description": "Get detailed competitor analysis SEO from Fillip Technologies. Identify competitors, track strategies, and improve rankings to grow your online presence.",
       "canonical": "/competitor-analysis-seo",
       "robots": {
@@ -3933,7 +3989,7 @@
       "slug": "seo-company-in-delhi-ncr",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Delhi NCR | Fillip Technologies",
+      "title": "SEO Company in Delhi NCR",
       "description": "Looking for the best SEO company in Delhi NCR? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
       "canonical": "/seo-company-in-delhi-ncr",
       "robots": {
@@ -3961,7 +4017,7 @@
       "slug": "e-commerce-website-seo",
       "kind": "landing",
       "status": "published",
-      "title": "E-commerce Website SEO Services | Fillip Technologies",
+      "title": "E-commerce Website SEO Services",
       "description": "Improve your e-commerce website with expert SEO services from Fillip Technologies. Increase rankings, traffic, conversions, and product visibility online.",
       "canonical": "/e-commerce-website-seo",
       "robots": {
@@ -3988,7 +4044,7 @@
       "slug": "educational-website-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Educational Website SEO Services | Fillip Technologies",
+      "title": "Educational Website SEO Services",
       "description": "Improve your educational website with expert SEO services from Fillip Technologies. Increase rankings, visibility, student reach, and online engagement.",
       "canonical": "/educational-website-seo",
       "robots": {
@@ -4015,7 +4071,7 @@
       "slug": "enterprise-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Enterprise SEO Services | Fillip Technologies",
+      "title": "Enterprise SEO Services",
       "description": "Enterprise SEO services for large websites, multi-location brands, technical optimization, scalable content strategy, and organic growth.",
       "canonical": "/enterprise-seo",
       "robots": {
@@ -4042,7 +4098,7 @@
       "slug": "seo-company-in-faridabad",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Faridabad | Fillip Technologies",
+      "title": "SEO Company in Faridabad",
       "description": "Optimize your website with our SEO Company in Faridabad. We provide effective strategies tailored for better rankings and visibility to drive success.",
       "canonical": "/seo-company-in-faridabad",
       "robots": {
@@ -4070,7 +4126,7 @@
       "slug": "finance-website-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Finance Website SEO Services | Fillip Technologies",
+      "title": "Finance Website SEO Services",
       "description": "Improve your finance website with expert SEO services from Fillip Technologies. Increase rankings, visibility, trust, and targeted organic traffic online.",
       "canonical": "/finance-website-seo",
       "robots": {
@@ -4097,7 +4153,7 @@
       "slug": "seo-company-in-guwahati",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Guwahati | Fillip Technologies",
+      "title": "SEO Company in Guwahati",
       "description": "Looking for the best SEO company in Guwahati ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
       "canonical": "/seo-company-in-guwahati",
       "robots": {
@@ -4125,7 +4181,7 @@
       "slug": "healthcare-website-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Healthcare Website SEO Services | Fillip Technologies",
+      "title": "Healthcare Website SEO Services",
       "description": "Get expert SEO services for healthcare websites from Fillip Technologies. Improve rankings, attract patients, and build strong online trust and visibility.",
       "canonical": "/healthcare-website-seo",
       "robots": {
@@ -4152,7 +4208,7 @@
       "slug": "it-website-seo",
       "kind": "landing",
       "status": "published",
-      "title": "IT Website SEO Services | Fillip Technologies",
+      "title": "IT Website SEO Services",
       "description": "Improve your IT website with expert SEO services from Fillip Technologies. Increase rankings, visibility, leads, and organic traffic for better growth.",
       "canonical": "/it-website-seo",
       "robots": {
@@ -4179,7 +4235,7 @@
       "slug": "seo-company-in-jaipur",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Jaipur | Fillip Technologies",
+      "title": "Top SEO Company in Jaipur",
       "description": "Fillip Technologies, the Best SEO Company in Jaipur, provides comprehensive SEO solutions as a top-rated SEO Company in Jaipur",
       "canonical": "/seo-company-in-jaipur",
       "robots": {
@@ -4207,7 +4263,7 @@
       "slug": "seo-company-in-kolkata",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Experts in Kolkata | Fillip Technologies",
+      "title": "SEO Experts in Kolkata",
       "description": "Fillip Technologies, your trusted SEO Company in Kolkata, is also the Best SEO Company in Kolkata for innovative and top SEO solutions",
       "canonical": "/seo-company-in-kolkata",
       "robots": {
@@ -4235,7 +4291,7 @@
       "slug": "local-seo-company-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "Best Local SEO Company in Patna | Fillip Technologies",
+      "title": "Best Local SEO Company in Patna",
       "description": "Looking for the best Local SEO Company in Patna? Fillip Technologies offers expert Local SEO services for startups, small businesses, and local brands to grow online.",
       "canonical": "/local-seo-company-in-patna",
       "robots": {
@@ -4262,7 +4318,7 @@
       "slug": "local-seo-packages",
       "kind": "landing",
       "status": "published",
-      "title": "Best Local SEO Packages | Fillip Technologies",
+      "title": "Best Local SEO Packages",
       "description": "Boost your local visibility with expert Local SEO packages from Fillip Technologies. Improve rankings, map presence, traffic, and customer reach effectively.",
       "canonical": "/local-seo-packages",
       "robots": {
@@ -4289,7 +4345,7 @@
       "slug": "local-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Local SEO Services | Fillip Technologies",
+      "title": "Local SEO Services",
       "description": "Local SEO services that improve Google Business Profile visibility, local rankings, map presence, and qualified nearby leads.",
       "canonical": "/local-seo",
       "robots": {
@@ -4316,7 +4372,7 @@
       "slug": "seo-company-in-mumbai",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Mumbai | Fillip Technologies",
+      "title": "SEO Company in Mumbai",
       "description": "Drive traffic and boost rankings with our expert SEO Company in Mumbai. Customized strategies to elevate your online presence.",
       "canonical": "/seo-company-in-mumbai",
       "robots": {
@@ -4344,7 +4400,7 @@
       "slug": "seo-company-in-navi-mumbai",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Navi Mumbai | Fillip Technologies",
+      "title": "SEO Company in Navi Mumbai",
       "description": "Looking for the best SEO company in Navi Mumbai ? Fillip Technologies offers expert SEO services to improve rankings, traffic, and online visibility.",
       "canonical": "/seo-company-in-navi-mumbai",
       "robots": {
@@ -4399,7 +4455,7 @@
       "slug": "onpage-seo-packages",
       "kind": "landing",
       "status": "published",
-      "title": "Best On-Page SEO Packages | Fillip Technologies",
+      "title": "Best On-Page SEO Packages",
       "description": "Optimize your website with expert On-Page SEO packages from Fillip Technologies. Improve content, tags, structure, and boost search engine rankings.",
       "canonical": "/onpage-seo-packages",
       "robots": {
@@ -4453,7 +4509,7 @@
       "slug": "seo-company-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company In Patna - Fillip Technologies",
+      "title": "SEO Company In Patna",
       "description": "SEO Company in Patna offering expert SEO services to boost rankings, drive organic traffic, improve online visibility, and grow your business effectively.",
       "canonical": "/seo-company-in-patna",
       "robots": {
@@ -4481,7 +4537,7 @@
       "slug": "seo-company-in-ranchi",
       "kind": "landing",
       "status": "published",
-      "title": "Best SEO Company in Ranchi | Fillip Technologies",
+      "title": "Best SEO Company in Ranchi",
       "description": "For reliable SEO, Fillip Technologies is the Best SEO Company in Ranchi. Your trusted SEO Company in Ranchi for effective digital marketing.",
       "canonical": "/seo-company-in-ranchi",
       "robots": {
@@ -4509,7 +4565,7 @@
       "slug": "real-estate-website-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Real Estate Website SEO Services | Fillip Technologies",
+      "title": "Real Estate Website SEO Services",
       "description": "Improve your real estate website with expert SEO services from Fillip Technologies. Increase rankings, leads, visibility, and organic traffic online.",
       "canonical": "/real-estate-website-seo",
       "robots": {
@@ -4536,7 +4592,7 @@
       "slug": "seo-audit-services-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Audit Services in Patna | Fillip Technologies",
+      "title": "SEO Audit Services in Patna",
       "description": "Get a professional SEO audit in Patna with Fillip Technologies. We identify technical issues, improve website performance, and boost search rankings.",
       "canonical": "/seo-audit-services-in-patna",
       "robots": {
@@ -4563,7 +4619,7 @@
       "slug": "seo-company-in-bavaria",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Bavaria | Fillip Technologies",
+      "title": "Top SEO Company in Bavaria",
       "description": "Elevate your online presence with a leading SEO company in Bavaria. We offer tailored SEO strategies that will boost your website traffic and conversions.",
       "canonical": "/seo-company-in-bavaria",
       "robots": {
@@ -4591,7 +4647,7 @@
       "slug": "seo-company-in-berlin",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Berlin | Fillip Technologies",
+      "title": "Top SEO Company in Berlin",
       "description": "Partner with a top SEO company in Berlin and increase your website's traffic and rankings. Our customized SEO strategies will help your business grow online.",
       "canonical": "/seo-company-in-berlin",
       "robots": {
@@ -4619,7 +4675,7 @@
       "slug": "seo-company-in-british-columbia",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in British Columbia | Fillip Technologies",
+      "title": "Top SEO Company in British Columbia",
       "description": "Boost your website rankings at our professional SEO Company in British Columbia. Our SEO strategies will be beneficial to achieve long-term business growth.",
       "canonical": "/seo-company-in-british-columbia",
       "robots": {
@@ -4647,7 +4703,7 @@
       "slug": "seo-company-in-california",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in California | Fillip Technologies",
+      "title": "Top SEO Company in California",
       "description": "Get expert services at our SEO Company in California to enhance your website's presence. Drive traffic and increase conversions with our tailored SEO solutions",
       "canonical": "/seo-company-in-california",
       "robots": {
@@ -4675,7 +4731,7 @@
       "slug": "seo-company-in-england",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in England | Fillip Technologies",
+      "title": "Top SEO Company in England",
       "description": "Enhance your online visibility with our SEO company in England. We provide expert SEO services to improve rankings and drive more traffic to your website.",
       "canonical": "/seo-company-in-england",
       "robots": {
@@ -4703,7 +4759,7 @@
       "slug": "seo-company-in-geneva",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Geneva | Fillip Technologies",
+      "title": "Top SEO Company in Geneva",
       "description": "Improve your online presence with our professional SEO Company in Geneva. Our strategies boost your rankings and help drive organic traffic to your website.",
       "canonical": "/seo-company-in-geneva",
       "robots": {
@@ -4731,7 +4787,7 @@
       "slug": "seo-company-in-goteborg",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Goteborg | Fillip Technologies",
+      "title": "Top SEO Company in Goteborg",
       "description": "Elevate your brand with our top SEO Company in Göteborg. Our expert SEO strategies will improve your search rankings and drive more traffic to your website.",
       "canonical": "/seo-company-in-goteborg",
       "robots": {
@@ -4759,7 +4815,7 @@
       "slug": "seo-company-in-ireland",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Ireland | Fillip Technologies",
+      "title": "Top SEO Company in Ireland",
       "description": "Get expert SEO services from a trusted SEO company in Ireland. Increase website traffic, improve search engine rankings, and grow your online presence.",
       "canonical": "/seo-company-in-ireland",
       "robots": {
@@ -4815,7 +4871,7 @@
       "slug": "seo-company-in-new-york",
       "kind": "landing",
       "status": "published",
-      "title": "Seo Company in New York - Fillip Technologies",
+      "title": "Seo Company in New York",
       "description": "Fillip Technologies is a trusted SEO company in New York, offering expert SEO services to improve rankings, drive organic traffic, generate leads, and grow your business.",
       "canonical": "/seo-company-in-new-york",
       "robots": {
@@ -4843,7 +4899,7 @@
       "slug": "seo-company-in-north-holland",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in North-Holland | Fillip Technologies",
+      "title": "Top SEO Company in North-Holland",
       "description": "Improve your search engine rankings with our SEO company in North-Holland. We provide effective SEO services that increase website traffic and visibility.",
       "canonical": "/seo-company-in-north-holland",
       "robots": {
@@ -4871,7 +4927,7 @@
       "slug": "seo-company-in-ontario",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Ontario | Fillip Technologies",
+      "title": "Top SEO Company in Ontario",
       "description": "Improve your online visibility with an expert SEO company in Ontario. Drive more organic traffic and grow your business with our effective SEO solutions.",
       "canonical": "/seo-company-in-ontario",
       "robots": {
@@ -4899,7 +4955,7 @@
       "slug": "seo-company-in-queensland",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Queensland | Fillip Technologies",
+      "title": "Top SEO Company in Queensland",
       "description": "Drive business growth with our expert SEO Company in Queensland. Our tailored SEO strategies help improve your website rankings and increase organic traffic.",
       "canonical": "/seo-company-in-queensland",
       "robots": {
@@ -4927,7 +4983,7 @@
       "slug": "seo-company-in-singapore",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Singapore | Fillip Technologies",
+      "title": "Top SEO Company in Singapore",
       "description": "Boost your online presence with an expert SEO company in Singapore. We offer proven SEO strategies to improve rankings and drive more traffic to your site.",
       "canonical": "/seo-company-in-singapore",
       "robots": {
@@ -4955,7 +5011,7 @@
       "slug": "seo-company-in-south-holland",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in South Holland | Fillip Technologies",
+      "title": "Top SEO Company in South Holland",
       "description": "Get professional SEO services from an experienced SEO company in South Holland. Our strategies help you brand improve rankings and drive more organic traffic",
       "canonical": "/seo-company-in-south-holland",
       "robots": {
@@ -4983,7 +5039,7 @@
       "slug": "seo-company-in-stockholm",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Stockholm | Fillip Technologies",
+      "title": "Top SEO Company in Stockholm",
       "description": "Improve your digital presence with our professional SEO company in Stockholm. We help businesses rank higher and drive more organic traffic to their websites.",
       "canonical": "/seo-company-in-stockholm",
       "robots": {
@@ -5011,7 +5067,7 @@
       "slug": "seo-company-in-texas",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Texas | Fillip Technologies",
+      "title": "Top SEO Company in Texas",
       "description": "Improve your website rankings with top SEO company in Texas. Our services drive more traffic and enhance your brand's online presence for success.",
       "canonical": "/seo-company-in-texas",
       "robots": {
@@ -5039,7 +5095,7 @@
       "slug": "seo-company-in-victoria",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Victoria | Fillip Technologies",
+      "title": "Top SEO Company in Victoria",
       "description": "Enhance your digital presence with a trusted SEO company in Victoria. Our expert SEO services will drive more traffic and improve your website's rankings.",
       "canonical": "/seo-company-in-victoria",
       "robots": {
@@ -5067,7 +5123,7 @@
       "slug": "seo-company-in-wales",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Wales | Fillip Technologies",
+      "title": "Top SEO Company in Wales",
       "description": "Get high-quality SEO solutions from a top SEO company in Wales. Our expert strategies will increase your website's search engine rankings and visibility.",
       "canonical": "/seo-company-in-wales",
       "robots": {
@@ -5095,7 +5151,7 @@
       "slug": "seo-company-in-washington",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Washington | Fillip Technologies",
+      "title": "Top SEO Company in Washington",
       "description": "Drive business growth with our SEO company in Washington and take leverage of tailored SEO strategies to boost your rankings, traffic, and online visibility.",
       "canonical": "/seo-company-in-washington",
       "robots": {
@@ -5123,7 +5179,7 @@
       "slug": "seo-company-in-zurich",
       "kind": "landing",
       "status": "published",
-      "title": "Top SEO Company in Zurich | Fillip Technologies",
+      "title": "Top SEO Company in Zurich",
       "description": "Boost your website rankings with a leading SEO company in Zurich. Our tailored SEO solutions help businesses grow by improving online visibility.",
       "canonical": "/seo-company-in-zurich",
       "robots": {
@@ -5151,7 +5207,7 @@
       "slug": "seo-packages",
       "kind": "landing",
       "status": "published",
-      "title": "Affordable SEO Packages in Patna | Fillip Technologies",
+      "title": "Affordable SEO Packages in Patna",
       "description": "Choose affordable SEO packages from Fillip Technologies. Get customized SEO solutions to improve rankings, drive traffic, and grow your business.",
       "canonical": "/seo-packages",
       "robots": {
@@ -5178,7 +5234,7 @@
       "slug": "shopify-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Shopify SEO Services Company | Fillip Technologies",
+      "title": "Shopify SEO Services Company",
       "description": "Boost your Shopify store rankings with expert SEO services from Fillip Technologies. Improve visibility, traffic, product pages, and sales growth.",
       "canonical": "/shopify-seo",
       "robots": {
@@ -5205,7 +5261,7 @@
       "slug": "small-business-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Small Business SEO Services | Fillip Technologies",
+      "title": "Small Business SEO Services",
       "description": "Grow your small business with expert SEO services from Fillip Technologies. Improve rankings, attract customers, and increase traffic and online visibility.",
       "canonical": "/small-business-seo",
       "robots": {
@@ -5232,7 +5288,7 @@
       "slug": "seo-company-in-surat",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Surat | Fillip Technologies",
+      "title": "SEO Company in Surat",
       "description": "Achieve digital growth with our SEO Company in Surat. Our strategies boost your website’s visibility and increase traffic, helping your business thrive.",
       "canonical": "/seo-company-in-surat",
       "robots": {
@@ -5260,7 +5316,7 @@
       "slug": "technical-seo",
       "kind": "landing",
       "status": "published",
-      "title": "Technical SEO Services in Patna | Fillip Technologies",
+      "title": "Technical SEO Services in Patna",
       "description": "Boost your website with expert Technical SEO services in Patna. Fillip Technologies fixes crawl, speed, indexing, and Core Web Vitals for better rankings.",
       "canonical": "/technical-seo",
       "robots": {
@@ -5287,7 +5343,7 @@
       "slug": "seo-company-in-varanasi",
       "kind": "landing",
       "status": "published",
-      "title": "SEO Company in Varanasi | Fillip Technologies",
+      "title": "SEO Company in Varanasi",
       "description": "Achieve higher search rankings with our SEO Company in Varanasi. Our tailored strategies enhance visibility, drive traffic, and ensure your business thrives.",
       "canonical": "/seo-company-in-varanasi",
       "robots": {
@@ -5315,7 +5371,7 @@
       "slug": "wordpress-seo",
       "kind": "landing",
       "status": "published",
-      "title": "WordPress SEO Services Company | Fillip Technologies",
+      "title": "WordPress SEO Services Company",
       "description": "Improve your WordPress website rankings with expert SEO services from Fillip Technologies. Optimize speed, content, structure, and boost organic traffic.",
       "canonical": "/wordpress-seo",
       "robots": {
@@ -5342,7 +5398,7 @@
       "slug": "software-development-company-in-patna",
       "kind": "landing",
       "status": "published",
-      "title": "Software Development Company in Patna | Fillip Technologies",
+      "title": "Software Development Company in Patna",
       "description": "Software development company in Patna building secure, scalable, custom software, web applications, and business automation solutions.",
       "canonical": "/software-development-company-in-patna",
       "robots": {
@@ -5364,6 +5420,34 @@
         "localBusiness": true
       },
       "source": "src/data/services/software-development/pages/patna.json"
+    },
+    {
+      "path": "/web-development-company-in-patna",
+      "slug": "web-development-company-in-patna",
+      "kind": "landing",
+      "status": "published",
+      "title": "Best Web Development Company in Patna",
+      "description": "Fillip Technologies is a web development company in Patna building business websites, ecommerce stores, WordPress sites and custom web applications that are fast, responsive and easy to manage.",
+      "canonical": "/web-development-company-in-patna",
+      "robots": {
+        "index": true,
+        "follow": true
+      },
+      "openGraphImage": "/images/web-img.png",
+      "twitterImage": "/images/web-img.png",
+      "h1": "Web Development Company in  Patna",
+      "h1Count": 1,
+      "faqCount": 8,
+      "city": "Patna",
+      "serviceKey": "web-development",
+      "schema": {
+        "webpage": true,
+        "service": true,
+        "faq": true,
+        "breadcrumb": true,
+        "localBusiness": true
+      },
+      "source": "src/data/services/web-development/pages/patna.json"
     },
     {
       "path": "/website-design-company-in-bavaria",
@@ -5426,7 +5510,7 @@
       "slug": "website-design-company-in-bhubaneswar",
       "kind": "landing",
       "status": "published",
-      "title": "Website Design Company in Bhubaneshwar | Fillip Technologies",
+      "title": "Website Design Company in Bhubaneshwar",
       "description": "Fillip Technologies is the best website design company in Bhubaneswar. We offer top-notch, responsive website designing services to meet your needs.",
       "canonical": "/website-design-company-in-bhubaneswar",
       "robots": {
@@ -5482,7 +5566,7 @@
       "slug": "website-design-company-in-calicut",
       "kind": "landing",
       "status": "published",
-      "title": "Website Design Company in Calicut | Fillip Technologies",
+      "title": "Website Design Company in Calicut",
       "description": "Bring your business online with our expert website design company in Calicut. Engaging, responsive designs tailored to your needs.",
       "canonical": "/website-design-company-in-calicut",
       "robots": {
@@ -5538,7 +5622,7 @@
       "slug": "website-design-company-in-chandigarh",
       "kind": "landing",
       "status": "published",
-      "title": "Website Design Company in Chandigarh | Fillip Technologies",
+      "title": "Website Design Company in Chandigarh",
       "description": "Get a tailored website design company in Chandigarh that captivates your audience. We blend creativity with technology for optimal results.",
       "canonical": "/website-design-company-in-chandigarh",
       "robots": {
@@ -5566,7 +5650,7 @@
       "slug": "website-design-company-in-chennai",
       "kind": "landing",
       "status": "published",
-      "title": "Best Website Design Company in Chennai | Fillip Technologies",
+      "title": "Best Website Design Company in Chennai",
       "description": "We are delivering innovative, responsive website design company in Chennai. You can make your business presence online with our creative approach.",
       "canonical": "/website-design-company-in-chennai",
       "robots": {
@@ -5734,7 +5818,7 @@
       "slug": "website-design-company-in-hyderabad",
       "kind": "landing",
       "status": "published",
-      "title": "Website Design Company in Hyderabad | Fillip Technologies",
+      "title": "Website Design Company in Hyderabad",
       "description": "Professional website design and development services in Hyderabad focused on performance, user experience, lead generation, and scalable business growth.",
       "canonical": "/website-design-company-in-hyderabad",
       "robots": {
@@ -5758,39 +5842,11 @@
       "source": "src/data/services/website-design/pages/hyderabad.json"
     },
     {
-      "path": "/website-design-company-in-hydreabad",
-      "slug": "website-design-company-in-hydreabad",
-      "kind": "landing",
-      "status": "published",
-      "title": "Website Design Company in Hyderabad | Fillip Technologies",
-      "description": "Get the best website design Company in Hyderabad with Fillip Technologies. We create stunning, user-friendly, and responsive websites for your business.",
-      "canonical": "/website-design-company-in-hydreabad",
-      "robots": {
-        "index": true,
-        "follow": true
-      },
-      "openGraphImage": "/images/tilt.png",
-      "twitterImage": "/images/tilt.png",
-      "h1": "Website Design Company in  Hyderabad",
-      "h1Count": 1,
-      "faqCount": 4,
-      "city": "Hyderabad",
-      "serviceKey": "website-design",
-      "schema": {
-        "webpage": true,
-        "service": true,
-        "faq": true,
-        "breadcrumb": true,
-        "localBusiness": true
-      },
-      "source": "src/data/services/website-design/pages/hydreabad.json"
-    },
-    {
       "path": "/website-design-company-in-indore",
       "slug": "website-design-company-in-indore",
       "kind": "landing",
       "status": "published",
-      "title": "Best Website Design Company in Indore | Fillip Technologies",
+      "title": "Best Website Design Company in Indore",
       "description": "Fillip Technologies is the best website design company in Indore, offering creative, user-friendly, and SEO-friendly websites to grow your business online.",
       "canonical": "/website-design-company-in-indore",
       "robots": {
@@ -5846,7 +5902,7 @@
       "slug": "website-design-company-in-lucknow",
       "kind": "landing",
       "status": "published",
-      "title": "Top Website Design Company in Lucknow | Fillip Technologies",
+      "title": "Top Website Design Company in Lucknow",
       "description": "Fillip Technologies is one of the best website design company in Lucknow. Our goal is to deliver excellent results and provide SEO-friendly websites.",
       "canonical": "/website-design-company-in-lucknow",
       "robots": {
@@ -6098,7 +6154,7 @@
       "slug": "website-design-company-in-ranchi",
       "kind": "landing",
       "status": "published",
-      "title": "Best Website Design Company in Ranchi | Fillip Technologies",
+      "title": "Best Website Design Company in Ranchi",
       "description": "Fillip Technologies is one of the best website design company in Ranchi. Our goal is to deliver excellent results and provide SEO-friendly websites.",
       "canonical": "/website-design-company-in-ranchi",
       "robots": {
@@ -6210,7 +6266,7 @@
       "slug": "website-design-company-in-surat",
       "kind": "landing",
       "status": "published",
-      "title": "Best Website Design Company in Surat | Fillip Technologies",
+      "title": "Best Website Design Company in Surat",
       "description": "Elevate your brand with a responsive, user-friendly website design company in Surat. Our custom designs are built for performance and growth.",
       "canonical": "/website-design-company-in-surat",
       "robots": {
@@ -6266,7 +6322,7 @@
       "slug": "website-design-company-in-varanasi",
       "kind": "landing",
       "status": "published",
-      "title": "Website Design Company in Varanasi | Fillip Technologies",
+      "title": "Website Design Company in Varanasi",
       "description": "Fillip Technologies – the best website design company in Varanasi. Get modern, responsive, and SEO-friendly websites for your business. Contact us today!",
       "canonical": "/website-design-company-in-varanasi",
       "robots": {
@@ -6554,7 +6610,7 @@
       "kind": "static",
       "status": "published",
       "title": "Share Your Requirement | Fillip Technologies",
-      "description": "Tell us your exact requirements — industry, budget, timeline and scope — and we",
+      "description": "Tell us your exact requirements — industry, budget and scope — and we",
       "canonical": "/get-a-quote/requirement",
       "robots": {
         "index": false,
@@ -6701,7 +6757,7 @@
       "kind": "static",
       "status": "published",
       "title": "Our Story | Fillip Technologies",
-      "description": "Discover the journey of Fillip Technologies. Founded in 2018, we grew from a small local agency into a global digital partner delivering software engineering, SaaS systems, and high-impact digital marketing.",
+      "description": "Discover the journey of Fillip Technologies. Founded in 2013, we grew from a small local agency into a global digital partner delivering software engineering, SaaS systems, and high-impact digital marketing.",
       "canonical": "/our-story",
       "robots": {
         "index": true,
@@ -6827,8 +6883,8 @@
       "slug": "services",
       "kind": "static",
       "status": "published",
-      "title": "Services | Fillip Technologies",
-      "description": "Services | Fillip Technologies by Fillip Technologies.",
+      "title": "Web Development",
+      "description": "Websites, ecommerce stores and web applications built to perform.",
       "canonical": "/services",
       "robots": {
         "index": true,
@@ -6970,6 +7026,26 @@
       "source": "src/app/blog/page.tsx"
     },
     {
+      "path": "/",
+      "kind": "home",
+      "status": "published",
+      "title": "CMS — Admin",
+      "description": "Edit the hero, headings and sections on the public home page.",
+      "canonical": "/",
+      "robots": {
+        "index": true,
+        "follow": true
+      },
+      "h1Count": 1,
+      "schema": {
+        "webpage": true,
+        "breadcrumb": false,
+        "localBusiness": true,
+        "service": false
+      },
+      "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
+    },
+    {
       "path": "/sms-communication",
       "slug": "sms-communication",
       "kind": "static",
@@ -6995,14 +7071,14 @@
       "slug": "ticket-booking",
       "kind": "static",
       "status": "published",
-      "title": "Online Ticket Booking",
-      "description": "Online Ticket Booking by Fillip Technologies.",
+      "title": "Ticket Booking | Fillip Technologies",
+      "description": "Ticket Booking | Fillip Technologies by Fillip Technologies.",
       "canonical": "/ticket-booking",
       "robots": {
         "index": true,
         "follow": true
       },
-      "h1Count": 1,
+      "h1Count": 0,
       "schema": {
         "webpage": true,
         "breadcrumb": true,

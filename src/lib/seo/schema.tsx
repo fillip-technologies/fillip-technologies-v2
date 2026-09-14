@@ -18,17 +18,18 @@ export function JsonLdScript({ data }: { data: JsonLdValue | JsonLdValue[] }) {
 }
 
 export function organizationJsonLd(): JsonLdValue {
-  return {
+  return compact({
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
     logo: imageUrl(siteConfig.logo),
+    foundingDate: siteConfig.foundingDate,
     email: siteConfig.email,
     telephone: siteConfig.phone,
     sameAs: siteConfig.socialLinks,
-  };
+  });
 }
 
 export function websiteJsonLd(): JsonLdValue {
@@ -42,9 +43,16 @@ export function websiteJsonLd(): JsonLdValue {
   };
 }
 
+/** Drop keys whose value is empty/undefined so JSON-LD never ships blank fields. */
+function compact<T extends Record<string, unknown>>(value: T): T {
+  return Object.fromEntries(
+    Object.entries(value).filter(([, v]) => v !== undefined && v !== null && v !== "")
+  ) as T;
+}
+
 export function localBusinessJsonLd(page?: SeoPageRecord): JsonLdValue {
   const city = page?.city;
-  return {
+  return compact({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${siteConfig.url}/#localbusiness`,
@@ -53,15 +61,17 @@ export function localBusinessJsonLd(page?: SeoPageRecord): JsonLdValue {
     image: imageUrl(siteConfig.defaultOpenGraphImage),
     telephone: siteConfig.phone,
     email: siteConfig.email,
-    address: {
+    // `compact` also runs on the address so an unset postalCode is omitted
+    // rather than emitted as "", which is invalid structured data.
+    address: compact({
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.streetAddress,
       addressLocality: city?.name ?? siteConfig.address.addressLocality,
       addressRegion: city?.state ?? siteConfig.address.addressRegion,
       postalCode: siteConfig.address.postalCode,
       addressCountry: city?.country ?? siteConfig.address.addressCountry,
-    },
-  };
+    }),
+  });
 }
 
 export function webPageJsonLd(page: SeoPageRecord): JsonLdValue {
@@ -175,6 +185,24 @@ export function siteJsonLd(): JsonLdValue[] {
   return [organizationJsonLd(), websiteJsonLd(), localBusinessJsonLd()];
 }
 
+/**
+ * URL prefixes that group CMS pages but are not routes themselves — they come
+ * from `templateUrlPrefix()` in the service-page registry, and no `page.tsx`
+ * exists for any of them (each returns 404). A BreadcrumbList item needs a
+ * resolvable `item` URL, so these are skipped rather than linked.
+ *
+ * If a real hub page is ever added for one of these, delete it from this set and
+ * add a record to `staticPages` in `src/lib/seo/registry.ts`.
+ */
+const NON_ROUTE_PATH_PREFIXES = new Set([
+  "/marketing",
+  "/design",
+  "/solutions",
+  "/hardware-solutions",
+  "/what-we-do",
+  "/industries",
+]);
+
 export function defaultBreadcrumbs(page: SeoPageRecord): SeoBreadcrumb[] {
   const path = normalizePath(page.path);
   if (path === "/") return [{ name: "Home", item: "/" }];
@@ -183,6 +211,8 @@ export function defaultBreadcrumbs(page: SeoPageRecord): SeoBreadcrumb[] {
   let current = "";
   for (const segment of segments) {
     current += `/${segment}`;
+    // Never emit a crumb that points at a URL which 404s.
+    if (current !== path && NON_ROUTE_PATH_PREFIXES.has(current)) continue;
     crumbs.push({
       name: segment
         .split("-")

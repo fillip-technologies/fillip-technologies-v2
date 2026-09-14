@@ -1,0 +1,269 @@
+{
+  "slug": "it-company-in-patna",
+  "serviceKey": "it-services",
+  "enabled": true,
+  "status": "published",
+  "city": {
+    "name": "Patna",
+    "state": "Bihar",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Best IT Company in Patna",
+    "description": "Fillip Technologies is an IT company in Patna offering website development, custom software, mobile apps, UI/UX design, digital marketing, AI automation and IT infrastructure services under one roof.",
+    "canonical": "/it-company-in-patna",
+    "keywords": [
+      "IT company in Patna",
+      "best IT company in Patna",
+      "top IT companies in Patna",
+      "IT services in Patna",
+      "technology company in Patna"
+    ],
+    "openGraph": {
+      "title": "Best IT Company in Patna",
+      "description": "Website development, custom software, mobile apps, design, digital marketing, AI automation and IT infrastructure — delivered by one team in Patna.",
+      "image": "/images/TECH-BG.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Best IT Company in Patna",
+      "description": "Website development, custom software, mobile apps, design, digital marketing, AI automation and IT infrastructure — delivered by one team in Patna.",
+      "image": "/images/TECH-BG.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "badge": "IT SERVICES IN PATNA",
+      "title": "IT Company in Patna",
+      "highlightedTitle": "Built Around Your Business",
+      "description": "Fillip Technologies works with businesses in Patna on websites, custom software, mobile apps, design, digital marketing and IT infrastructure. One team, one point of contact, across the whole stack.",
+      "searchText": "IT Company in Patna | Web Development | Software | Mobile Apps | IT Support",
+      "primaryCta": "Talk to Our Team",
+      "secondaryCta": "Get Free Consultation",
+      "outlineText": "BUILD",
+      "image": {
+        "src": "/images/TECH-BG.png",
+        "alt": "IT company in Patna"
+      }
+    },
+    "services": {
+      "eyebrow": "WHAT WE DO",
+      "title": "Everything An IT Partner Should Cover,",
+      "highlightedTitle": "Under One Roof.",
+      "description": "Most businesses end up juggling one vendor for the website, another for software, another for marketing, and someone else for the network.\n\nFillip Technologies covers all of it in-house, so the people who build your website are the same people who understand your software, your campaigns and your infrastructure.",
+      "items": [
+        {
+          "number": "01",
+          "title": "Website Development",
+          "description": "Business websites, ecommerce stores, WordPress builds and web applications.",
+          "metric": "Web",
+          "icon": "globe"
+        },
+        {
+          "number": "02",
+          "title": "Custom Software",
+          "description": "CRM, ERP, SaaS products and API integrations built around how your team actually works.",
+          "metric": "Software",
+          "icon": "code"
+        },
+        {
+          "number": "03",
+          "title": "Mobile App Development",
+          "description": "Android, iOS, ecommerce and business automation apps.",
+          "metric": "Mobile",
+          "icon": "click"
+        },
+        {
+          "number": "04",
+          "title": "UI/UX & Brand Design",
+          "description": "Product design, logo and brand identity, and motion design.",
+          "metric": "Design",
+          "icon": "target"
+        },
+        {
+          "number": "05",
+          "title": "SEO & Digital Marketing",
+          "description": "Technical SEO, local SEO, Google Ads, Meta Ads and lead generation campaigns.",
+          "metric": "Growth",
+          "icon": "search"
+        },
+        {
+          "number": "06",
+          "title": "AI & Automation",
+          "description": "AI chatbots, GPT integration, AI agents and workflow automation.",
+          "metric": "Automation",
+          "icon": "bot"
+        },
+        {
+          "number": "07",
+          "title": "IT Infrastructure",
+          "description": "Networking, servers, security surveillance, system integration and connectivity.",
+          "metric": "Infrastructure",
+          "icon": "network"
+        },
+        {
+          "number": "08",
+          "title": "Business Solutions",
+          "description": "Ticket booking platforms, SMS communication and WhatsApp Business solutions.",
+          "metric": "Platforms",
+          "icon": "megaphone"
+        }
+      ]
+    },
+    "industries": {
+      "badge": "INDUSTRIES WE SERVE",
+      "title": "Different Sectors,",
+      "highlightedTitle": "Different Requirements.",
+      "items": [
+        {
+          "name": "Healthcare",
+          "label": "Hospitals, clinics and diagnostics",
+          "blurb": "Websites and systems that help patients find you and book with you.",
+          "points": [
+            "Appointment and enquiry flows",
+            "Department and doctor listings",
+            "Local search visibility"
+          ]
+        },
+        {
+          "name": "Education",
+          "label": "Schools, colleges and training institutes",
+          "blurb": "Admission-focused websites and systems for student enquiries.",
+          "points": [
+            "Admission and enquiry forms",
+            "Course and faculty pages",
+            "Notice and result sections"
+          ]
+        },
+        {
+          "name": "Finance",
+          "label": "Financial services and advisory",
+          "blurb": "Clear, trust-building websites and internal tools.",
+          "points": [
+            "Service and product explainers",
+            "Lead capture and follow-up",
+            "Secure form handling"
+          ]
+        },
+        {
+          "name": "Real Estate",
+          "label": "Builders, brokers and property firms",
+          "blurb": "Project showcases that turn interest into site visits.",
+          "points": [
+            "Project and listing pages",
+            "Enquiry and site-visit forms",
+            "Gallery and location details"
+          ]
+        },
+        {
+          "name": "Retail",
+          "label": "Shops, showrooms and ecommerce",
+          "blurb": "Online stores and catalogues built to sell.",
+          "points": [
+            "Product catalogue and checkout",
+            "Payment gateway integration",
+            "Order and inventory workflows"
+          ]
+        },
+        {
+          "name": "Logistics",
+          "label": "Transport and supply chain",
+          "blurb": "Tracking and operations tools alongside a clear public website.",
+          "points": [
+            "Tracking and status pages",
+            "Operations dashboards",
+            "Service area information"
+          ]
+        }
+      ]
+    },
+    "journey": {
+      "badge": "HOW WE WORK",
+      "title": "A Simple Process,",
+      "highlightedTitle": "From First Call to Ongoing Support.",
+      "description": "No long proposals before anyone understands the problem. We start by listening, agree on scope in writing, build in stages you can see, and stay available after launch.",
+      "footnote": "You get one point of contact through every stage.",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Discovery",
+          "description": "We understand your business, your customers and what the project actually needs to achieve.",
+          "icon": "search"
+        },
+        {
+          "number": "02",
+          "label": "Scope & Proposal",
+          "description": "You get a written scope with deliverables and timelines before any work begins.",
+          "icon": "file"
+        },
+        {
+          "number": "03",
+          "label": "Design & Build",
+          "description": "Design first, then development, with review points so there are no surprises at the end.",
+          "icon": "code"
+        },
+        {
+          "number": "04",
+          "label": "Testing",
+          "description": "Functionality, responsiveness and performance are checked before anything goes live.",
+          "icon": "check"
+        },
+        {
+          "number": "05",
+          "label": "Launch",
+          "description": "We handle deployment, domain and hosting setup, and hand over access.",
+          "icon": "zap"
+        },
+        {
+          "number": "06",
+          "label": "Support",
+          "description": "Maintenance, updates and improvements once you are live.",
+          "icon": "shield"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "IT COMPANY PATNA FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about working with an IT company in Patna.",
+    "items": [
+      {
+        "question": "What services does Fillip Technologies offer as an IT company in Patna?",
+        "answer": "We cover website development, ecommerce and WordPress, custom software including CRM and ERP, mobile app development for Android and iOS, UI/UX and brand design, SEO and digital marketing, AI automation and chatbots, and IT infrastructure such as networking, servers and security surveillance."
+      },
+      {
+        "question": "Where is Fillip Technologies located?",
+        "answer": "Our head office is in Kankarbagh, Patna, Bihar, and we also have a branch office in Ranchi, Jharkhand. Full addresses and phone numbers are listed on our contact page."
+      },
+      {
+        "question": "Do you work with small businesses and startups, or only larger companies?",
+        "answer": "Both. We scope projects to the stage a business is at, so a single-page website and a multi-module software platform are both things we take on."
+      },
+      {
+        "question": "Can you handle both the website and the software side of a project?",
+        "answer": "Yes. Because web, software, design, marketing and infrastructure sit in the same team, a project that spans several of those areas does not need to be split across vendors."
+      },
+      {
+        "question": "Do you only work with businesses in Patna?",
+        "answer": "No. We are based in Patna and work with clients across India and internationally, but being local means businesses in and around Patna can meet us in person."
+      },
+      {
+        "question": "What does a project cost and how long does it take?",
+        "answer": "It depends on scope — the number of pages or modules, the features involved, integrations and content requirements. We share a written estimate and timeline after an initial discussion about your requirements."
+      },
+      {
+        "question": "Do you provide support after the project goes live?",
+        "answer": "Yes. We offer ongoing maintenance and support covering updates, fixes, performance and security, so you are not left on your own after launch."
+      },
+      {
+        "question": "How do I start a project with Fillip Technologies?",
+        "answer": "Get in touch through our contact page or call the numbers listed there. We will talk through your requirement and share a scope and estimate before any work begins."
+      }
+    ]
+  }
+}

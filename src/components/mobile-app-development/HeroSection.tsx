@@ -61,7 +61,7 @@ export default function MobileAppHero({ data }: MobileAppHeroProps) {
         {/* Content */}
         <div className="mx-auto max-w-5xl text-center">
           <h1 className="text-4xl font-bold leading-[1.05] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl mt-6">
-            {data.title}
+            {data.title}{" "}
             <br />
             <span className="bg-gradient-to-r from-[#0242A2] via-[#0F6FFF] to-[#38BDF8] bg-clip-text text-transparent">
               {data.highlightedTitle}

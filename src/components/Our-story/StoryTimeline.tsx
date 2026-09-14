@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const DEFAULT_CHAPTERS = [
   {
-    year: "2018",
+    year: "2013",
     roman: "I",
     title: "The Seed is Sown",
     dropCap: "F",

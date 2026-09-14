@@ -4,27 +4,454 @@
     "destination": "/carrer",
     "type": 301,
     "enabled": true,
-    "note": "Public careers URL moved to top-level /carrer while preserving existing page implementation"
-  },
-  {
-    "source": "/technical-seo",
-    "destination": "/marketing/technical-seo",
-    "type": 301,
-    "enabled": true,
-    "note": "Rich SEO layout is now the dynamic /marketing template"
+    "note": "Canonical careers URL is /carrer (rewritten to /others/carrer)."
   },
   {
     "source": "/services/saas-product-development",
     "destination": "/software-development/saas-product-development",
     "type": 301,
     "enabled": true,
-    "note": "SaaS page moved into the Software & Enterprise section (CMS-driven SaaS layout)"
+    "note": "Moved under the software-development prefix."
   },
   {
     "source": "/services/software-development",
     "destination": "/software-development/software-development",
     "type": 301,
     "enabled": true,
-    "note": "Software Development overview moved into the Software & Enterprise section (SaaS layout)"
+    "note": "Moved under the software-development prefix."
+  },
+  {
+    "source": "/about-us",
+    "destination": "/our-story",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy WordPress URL. Closest current page is Our Story."
+  },
+  {
+    "source": "/contact-us",
+    "destination": "/contact",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy WordPress URL."
+  },
+  {
+    "source": "/our-services",
+    "destination": "/services",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy WordPress URL. /services is now the service hub."
+  },
+  {
+    "source": "/best-it-company-in-patna",
+    "destination": "/it-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy URL still surfacing in search. Points at the dedicated IT company page."
+  },
+  {
+    "source": "/website-design-company-in-hydreabad",
+    "destination": "/website-design-company-in-hyderabad",
+    "type": 301,
+    "enabled": true,
+    "note": "Duplicate of the Hyderabad page created by a slug typo; source file deleted."
+  },
+  {
+    "source": "/15-holi-marketing-ideas-2026-to-skyrocket-festive-sales",
+    "destination": "/blog/15-holi-marketing-ideas-2026-to-skyrocket-festive-sales",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/5-content-writing-skills-you-cant-ignore-in-2026",
+    "destination": "/blog/5-content-writing-skills-you-cant-ignore-in-2026",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/5-high-paying-careers-after-digital-marketing-training-in-2026",
+    "destination": "/blog/5-high-paying-careers-after-digital-marketing-training-in-2026",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/affordable-and-creative-poster-designing-company-in-patna",
+    "destination": "/blog/affordable-and-creative-poster-designing-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/ai-powered-personalization-and-automation-the-future-of-smart-marketing",
+    "destination": "/blog/ai-powered-personalization-and-automation-the-future-of-smart-marketing",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/best-digital-marketing-company-in-bhopal-drive-results",
+    "destination": "/blog/best-digital-marketing-company-in-bhopal-drive-results",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/best-seo-strategies-for-video-content-in-2024",
+    "destination": "/blog/best-seo-strategies-for-video-content-in-2024",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/best-summer-training-for-students-to-master-it-and-digital-marketing",
+    "destination": "/blog/best-summer-training-for-students-to-master-it-and-digital-marketing",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/best-website-design-company-in-patna",
+    "destination": "/blog/best-website-design-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/boost-your-business-expert-strategies-for-fb-ig-ads-management",
+    "destination": "/blog/boost-your-business-expert-strategies-for-fb-ig-ads-management",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/boost-your-business-with-fillip-technologies-lead-generation-services-in-patna",
+    "destination": "/blog/boost-your-business-with-fillip-technologies-lead-generation-services-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/boost-your-business-with-sms-and-whatsapp-marketing-in-patna",
+    "destination": "/blog/boost-your-business-with-sms-and-whatsapp-marketing-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/build-a-powerful-linkedin-profile-in-30-minutes",
+    "destination": "/blog/build-a-powerful-linkedin-profile-in-30-minutes",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/choosing-the-best-web-design-company-in-patna",
+    "destination": "/blog/choosing-the-best-web-design-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/christmas-cheer-with-fillip-technologies-your-digital-marketing-company-in-patna",
+    "destination": "/blog/christmas-cheer-with-fillip-technologies-your-digital-marketing-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/custom-website-development-in-patna-vs-templates",
+    "destination": "/blog/custom-website-development-in-patna-vs-templates",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/earn-big-rewards-by-inviting-friends-to-the-ambassador-program-today",
+    "destination": "/blog/earn-big-rewards-by-inviting-friends-to-the-ambassador-program-today",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/empowering-your-brand-with-social-media-marketing-company-in-patna",
+    "destination": "/blog/empowering-your-brand-with-social-media-marketing-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/fillip-technologies-empower-your-career-with-a-digital-marketing-course-in-patna",
+    "destination": "/blog/fillip-technologies-empower-your-career-with-a-digital-marketing-course-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/fillip-technologies-internship-announcement-dont-miss-out",
+    "destination": "/blog/fillip-technologies-internship-announcement-dont-miss-out",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/fillip-technologies-the-best-digital-marketing-agency-in-patna",
+    "destination": "/blog/fillip-technologies-the-best-digital-marketing-agency-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/fillip-technologies-your-trusted-website-designing-company-in-patna",
+    "destination": "/blog/fillip-technologies-your-trusted-website-designing-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/from-likes-to-lights-fun-diwali-campaign-ideas-for-social-media-growth",
+    "destination": "/blog/from-likes-to-lights-fun-diwali-campaign-ideas-for-social-media-growth",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/happy-new-year-2026-start-the-year-like-a-winner",
+    "destination": "/blog/happy-new-year-2026-start-the-year-like-a-winner",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/how-technology-driven-digital-marketing-delivers-higher-roi",
+    "destination": "/blog/how-technology-driven-digital-marketing-delivers-higher-roi",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/how-to-join-an-ambassador-program-and-start-earning-fast-today",
+    "destination": "/blog/how-to-join-an-ambassador-program-and-start-earning-fast-today",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/increase-your-online-presence-with-custom-web-development-in-patna",
+    "destination": "/blog/increase-your-online-presence-with-custom-web-development-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/laravel-development-company-in-patna-for-innovating-solutions-business",
+    "destination": "/blog/laravel-development-company-in-patna-for-innovating-solutions-business",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/mega-scholarship-test-take-today-earn-a-%e2%82%b93000-merit-scholarship",
+    "destination": "/blog/mega-scholarship-test-take-today-earn-a-%e2%82%b93000-merit-scholarship",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/one-vote-can-change-everything-are-you-ready",
+    "destination": "/blog/one-vote-can-change-everything-are-you-ready",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/openai-codex-for-non-coders-build-without-coding-skills",
+    "destination": "/blog/openai-codex-for-non-coders-build-without-coding-skills",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/premier-google-advertising-agency-in-patna-leading-your-business-to-success",
+    "destination": "/blog/premier-google-advertising-agency-in-patna-leading-your-business-to-success",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/professional-ui-ux-designing-company-in-patna-boost-your-online-presence",
+    "destination": "/blog/professional-ui-ux-designing-company-in-patna-boost-your-online-presence",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/republic-day-special-10-ideas-to-make-your-brand-shine",
+    "destination": "/blog/republic-day-special-10-ideas-to-make-your-brand-shine",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/short-form-video-content-simple-hacks-for-maximum-reach",
+    "destination": "/blog/short-form-video-content-simple-hacks-for-maximum-reach",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/smart-lead-generation-strategies-to-grow-your-business-in-2026",
+    "destination": "/blog/smart-lead-generation-strategies-to-grow-your-business-in-2026",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/static-vs-dynamic-websites-which-is-best-for-your-business",
+    "destination": "/blog/static-vs-dynamic-websites-which-is-best-for-your-business",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/step-by-step-digital-marketing-strategy-for-small-medium-businesses",
+    "destination": "/blog/step-by-step-digital-marketing-strategy-for-small-medium-businesses",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/stop-scrolling-crafting-high-impact-instagram-reels-now",
+    "destination": "/blog/stop-scrolling-crafting-high-impact-instagram-reels-now",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/the-rise-of-ai-influencers-what-you-need-to-know",
+    "destination": "/blog/the-rise-of-ai-influencers-what-you-need-to-know",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/top-10-independence-day-marketing-ideas-for-small-businesses",
+    "destination": "/blog/top-10-independence-day-marketing-ideas-for-small-businesses",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/top-it-trends-in-2026-every-business-owner-must-know",
+    "destination": "/blog/top-it-trends-in-2026-every-business-owner-must-know",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/top-leading-logo-designing-company-in-patna",
+    "destination": "/blog/top-leading-logo-designing-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/top-rated-ecommerce-website-development-company-in-patna",
+    "destination": "/blog/top-rated-ecommerce-website-development-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/top-shopify-development-company-in-patna-increase-your-e-commerce-business",
+    "destination": "/blog/top-shopify-development-company-in-patna-increase-your-e-commerce-business",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/transform-your-online-presence-with-fillip-technologies-the-leading-website-designing-company-in-patna",
+    "destination": "/blog/transform-your-online-presence-with-fillip-technologies-the-leading-website-designing-company-in-patna",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/transforming-ideas-into-reality-with-wordpress-development-company-in-patna-bihar",
+    "destination": "/blog/transforming-ideas-into-reality-with-wordpress-development-company-in-patna-bihar",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/turn-your-hobby-into-a-youtube-money-maker",
+    "destination": "/blog/turn-your-hobby-into-a-youtube-money-maker",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/ui-ux-design-certification-your-fast-track-to-a-high-paying-ux-career",
+    "destination": "/blog/ui-ux-design-certification-your-fast-track-to-a-high-paying-ux-career",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/what-are-the-7-types-of-ai-understand-with-examples",
+    "destination": "/blog/what-are-the-7-types-of-ai-understand-with-examples",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/what-is-digital-marketing-in-2026-complete-guide-for-businesses",
+    "destination": "/blog/what-is-digital-marketing-in-2026-complete-guide-for-businesses",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/whats-new-latest-social-platform-updates-youll-actually-love",
+    "destination": "/blog/whats-new-latest-social-platform-updates-youll-actually-love",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/why-content-marketing-is-the-backbone-of-online-growth",
+    "destination": "/blog/why-content-marketing-is-the-backbone-of-online-growth",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/why-does-indian-army-day-fall-on-january-15th",
+    "destination": "/blog/why-does-indian-army-day-fall-on-january-15th",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/why-is-filip-technologies-the-right-digital-partner-for-your-business",
+    "destination": "/blog/why-is-filip-technologies-the-right-digital-partner-for-your-business",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/win-more-clients-using-a-local-ai-company-in-patna-strategy",
+    "destination": "/blog/win-more-clients-using-a-local-ai-company-in-patna-strategy",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
+  },
+  {
+    "source": "/world-pneumonia-awareness-day-small-steps-to-save-big-lives",
+    "destination": "/blog/world-pneumonia-awareness-day-small-steps-to-save-big-lives",
+    "type": 301,
+    "enabled": true,
+    "note": "Legacy flat blog URL from the pre-Next.js site."
   }
 ]

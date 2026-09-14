@@ -1,27 +1,32 @@
 [
   {
-    "file": "src/app/ticket-booking/page.tsx",
-    "src": "/images/ticket-booking-What.png",
+    "file": "src/components/Home/UnitOfSection.tsx",
+    "src": "/images/FSA-logo-2.png",
     "message": "Missing or empty alt text"
   },
   {
-    "file": "src/app/ticket-booking/page.tsx",
-    "src": "/images/How-we-work.png",
-    "message": "Missing or empty alt text"
-  },
-  {
-    "file": "src/app/ticket-booking/page.tsx",
-    "src": "/images/tckt-why.png",
-    "message": "Missing or empty alt text"
-  },
-  {
-    "file": "src/components/Our-story/StoryHero.tsx",
-    "src": "/images/our-story-neww.png",
+    "file": "src/components/Home/UnitOfSection.tsx",
+    "src": "/images/FSA-logo-2.png",
     "message": "Missing or empty alt text"
   },
   {
     "file": "src/components/Seo/TechnicalSeo/WhyWebsiteIsntRanking.tsx",
     "src": "/images/background.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/solutions/TicketBookingLandingView.tsx",
+    "src": "/images/ticket-booking-What.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/solutions/TicketBookingLandingView.tsx",
+    "src": "/images/How-we-work.png",
+    "message": "Missing or empty alt text"
+  },
+  {
+    "file": "src/components/solutions/TicketBookingLandingView.tsx",
+    "src": "/images/tckt-why.png",
     "message": "Missing or empty alt text"
   },
   {

@@ -4,13 +4,40 @@ import type { ServiceLandingPage } from "@/lib/service-content/types";
 import { absoluteUrl, imageUrl, normalizeCanonical } from "./urls";
 import type { SeoPageRecord } from "./types";
 
+/**
+ * Guarantee a title ends with the brand exactly once.
+ *
+ * Title sources disagree: the SEO registry and the hardcoded `page.tsx` files
+ * already append "| Fillip Technologies", while the 144 file-based landing pages
+ * do not. The root layout used to add a `%s | Fillip Technologies` template on
+ * top, which produced "… | Fillip Technologies | Fillip Technologies" on every
+ * page that had already appended it. The template is gone (see `baseMetadata`)
+ * and this is now the single place the suffix is applied.
+ */
+export function withBrandSuffix(title: string): string {
+  const brand = siteConfig.name;
+  let base = title.trim();
+  // Strip any number of trailing "| Brand" / "- Brand" / "— Brand" segments.
+  const trailing = new RegExp(`\\s*[|\\-–—]\\s*${escapeRegExp(brand)}\\s*$`, "i");
+  while (trailing.test(base)) base = base.replace(trailing, "").trim();
+  // A title that *is* the brand (or is empty after stripping) stands alone.
+  if (!base || base.toLowerCase() === brand.toLowerCase()) return brand;
+  return `${base} | ${brand}`;
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 export function buildSeoMetadata(page: SeoPageRecord): Metadata {
   const openGraphImage =
     page.openGraph?.image || siteConfig.defaultOpenGraphImage;
   const twitterImage =
     page.twitter?.image || openGraphImage;
   const canonical = normalizeCanonical(page.canonical || page.path);
-  const title = page.title;
+  const title = withBrandSuffix(page.title);
+  // OG/Twitter keep the page's own title — only <title> carries the brand suffix.
+  const socialTitle = page.title;
   const description = page.description;
 
   return {
@@ -22,7 +49,7 @@ export function buildSeoMetadata(page: SeoPageRecord): Metadata {
       languages: {},
     },
     openGraph: {
-      title: page.openGraph?.title ?? title,
+      title: page.openGraph?.title ?? socialTitle,
       description: page.openGraph?.description ?? description,
       url: canonical,
       siteName: siteConfig.name,
@@ -32,7 +59,7 @@ export function buildSeoMetadata(page: SeoPageRecord): Metadata {
     },
     twitter: {
       card: page.twitter?.card ?? "summary_large_image",
-      title: page.twitter?.title ?? page.openGraph?.title ?? title,
+      title: page.twitter?.title ?? page.openGraph?.title ?? socialTitle,
       description:
         page.twitter?.description ?? page.openGraph?.description ?? description,
       images: [imageUrl(twitterImage)],
@@ -96,10 +123,12 @@ export function baseMetadata(): Metadata {
   return {
     metadataBase: new URL(siteConfig.url),
     applicationName: siteConfig.name,
-    title: {
-      default: siteConfig.name,
-      template: `%s | ${siteConfig.name}`,
-    },
+    // A plain string, not a `{ default, template }` pair, on purpose. Page titles
+    // come from three sources that disagree about whether they already end in the
+    // brand, so a `%s | Brand` template appended it twice on most pages. The
+    // suffix is now normalised once in `withBrandSuffix`. Pages that set no title
+    // of their own still inherit this value.
+    title: siteConfig.name,
     icons: {
       icon: [{ url: "/images/fav-icon.png", type: "image/png" }],
       shortcut: [{ url: "/images/fav-icon.png", type: "image/png" }],

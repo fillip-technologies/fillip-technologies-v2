@@ -1,19 +1,20 @@
 # SEO Audit
 
-Generated: 2026-07-27T07:23:28.373Z
+Generated: 2026-09-14T05:38:37.917Z
 
 ## Summary
 
-- Pages analyzed: 229
-- Errors: 0
-- Warnings: 61
-- Info: 285
+- Pages analyzed: 231
+- Errors: 2
+- Warnings: 62
+- Info: 286
 - Broken links: 0
-- Missing alt text: 8
+- Missing alt text: 9
 
 ## Errors
 
-- None
+- DUPLICATE_CANONICAL: / - Duplicate canonical: https://filliptechnologies.com/
+- DUPLICATE_CANONICAL: / - Duplicate canonical: https://filliptechnologies.com/
 
 ## Warnings
 
@@ -70,14 +71,15 @@ Generated: 2026-07-27T07:23:28.373Z
 - MISSING_TWITTER_IMAGE: /wordpress-development - Missing Twitter image
 - MISSING_OG_IMAGE: /blog - Missing Open Graph image
 - MISSING_TWITTER_IMAGE: /blog - Missing Twitter image
+- MISSING_OG_IMAGE: / - Missing Open Graph image
+- MISSING_TWITTER_IMAGE: / - Missing Twitter image
+- MISSING_BREADCRUMB_SCHEMA: / - Missing Breadcrumb schema
 - MISSING_OG_IMAGE: /sms-communication - Missing Open Graph image
 - MISSING_TWITTER_IMAGE: /sms-communication - Missing Twitter image
 - MISSING_OG_IMAGE: /ticket-booking - Missing Open Graph image
 - MISSING_TWITTER_IMAGE: /ticket-booking - Missing Twitter image
 - MISSING_OG_IMAGE: /blog/top-leading-logo-designing-company-in-patna - Missing Open Graph image
 - MISSING_TWITTER_IMAGE: /blog/top-leading-logo-designing-company-in-patna - Missing Twitter image
-- DUPLICATE_TITLE: /website-design-company-in-hyderabad - Duplicate meta title: website design company in hyderabad | fillip technologies
-- DUPLICATE_TITLE: /website-design-company-in-hydreabad - Duplicate meta title: website design company in hyderabad | fillip technologies
 
 ## Info
 
@@ -88,6 +90,7 @@ Generated: 2026-07-27T07:23:28.373Z
 - LOW_INTERNAL_LINKS: /business-process-automation - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: /workflow-automation - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: /digital-marketing-company-in-patna - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /it-company-in-patna - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-ahmedabad/ - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-bangalore/ - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-bhopal/ - Internal link depth should be reviewed from rendered HTML
@@ -96,7 +99,7 @@ Generated: 2026-07-27T07:23:28.373Z
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-guwahati/ - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-indore/ - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-kolkata/ - Internal link depth should be reviewed from rendered HTML
-- LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-[your-city]/ - Internal link depth should be reviewed from rendered HTML
+- LOW_INTERNAL_LINKS: /lead-generation-service-in-lucknow - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-mohali/ - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: https://filliptechnologies.com/lead-generation-service-in-navi-mumbai/ - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: /lead-generation-services-in-patna - Internal link depth should be reviewed from rendered HTML
@@ -180,4 +183,3 @@ Generated: 2026-07-27T07:23:28.373Z
 - LOW_INTERNAL_LINKS: /seo-company-in-washington - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: /seo-company-in-zurich - Internal link depth should be reviewed from rendered HTML
 - LOW_INTERNAL_LINKS: /seo-packages - Internal link depth should be reviewed from rendered HTML
-- LOW_INTERNAL_LINKS: /shopify-seo - Internal link depth should be reviewed from rendered HTML

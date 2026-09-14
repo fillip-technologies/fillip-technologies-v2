@@ -54,7 +54,7 @@ const stagger = {
 
 /* ------------------------------------------------------------------ */
 
-export default function TicketingService() {
+export default function TicketBookingLandingView() {
   return (
     <>
       <Navbar />
