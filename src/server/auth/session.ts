@@ -3,9 +3,11 @@ import "server-only";
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 import { getAdminById } from "./queries";
+import { getRedisClient } from "@/lib/redis";
 
 const COOKIE_NAME = "admin_session";
 const MAX_AGE_SECONDS = 7 * 24 * 60 * 60; // 7 days
+const BLOCKLIST_PREFIX = "fillip:logout:";
 
 export type SessionPayload = {
   userId: string;
@@ -31,7 +33,7 @@ export async function encrypt(payload: SessionPayload): Promise<string> {
     .sign(getKey());
 }
 
-export async function decrypt(token?: string): Promise<SessionPayload | null> {
+export async function decrypt(token?: string): Promise<(SessionPayload & { iat?: number }) | null> {
   if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, getKey(), { algorithms: ["HS256"] });
@@ -39,6 +41,7 @@ export async function decrypt(token?: string): Promise<SessionPayload | null> {
       userId: payload.userId as string,
       email: payload.email as string,
       sessionVersion: (payload.sessionVersion as number) ?? 0,
+      iat: payload.iat,
     };
   } catch {
     return null;
@@ -58,9 +61,31 @@ export async function createSession(payload: SessionPayload): Promise<void> {
   });
 }
 
-/** Clear the session cookie. Call only from a Server Action / Route Handler. */
+/**
+ * Clear the session cookie and record a kill-timestamp in Redis so the JWT is
+ * rejected immediately even if presented again (e.g. a copied cookie) before
+ * its 7-day expiry. Best-effort — a Redis outage just means the cookie stays
+ * valid until the session_version DB check in getSession().
+ */
 export async function destroySession(): Promise<void> {
   const cookieStore = await cookies();
+  const token = cookieStore.get(COOKIE_NAME)?.value;
+
+  if (token) {
+    const payload = await decrypt(token);
+    if (payload) {
+      try {
+        const client = getRedisClient();
+        if (client) {
+          const key = `${BLOCKLIST_PREFIX}${payload.userId}:${payload.sessionVersion}`;
+          await client.set(key, String(Date.now()), "EX", MAX_AGE_SECONDS);
+        }
+      } catch {
+        // Redis error — cookie is deleted below, logout still proceeds.
+      }
+    }
+  }
+
   cookieStore.delete(COOKIE_NAME);
 }
 
@@ -70,9 +95,27 @@ export async function getSession(): Promise<SessionPayload | null> {
   const session = await decrypt(cookieStore.get(COOKIE_NAME)?.value);
   if (!session) return null;
 
-  // Re-check the token's version against the admin's current one. If the
-  // password has changed since this token was issued (or the admin no longer
-  // exists), the versions won't match and the session is rejected.
+  // Fast path: check the Redis logout blocklist before hitting the DB.
+  // The kill record stores the logout timestamp; the token's `iat` is when it
+  // was issued. If killedAt > issuedAt the user logged out after this token was
+  // minted, so reject it. A fresh login after logout gets a new token with a
+  // later iat and is never blocked by the old kill record.
+  try {
+    const client = getRedisClient();
+    if (client) {
+      const key = `${BLOCKLIST_PREFIX}${session.userId}:${session.sessionVersion}`;
+      const killedAtStr = await client.get(key);
+      if (killedAtStr !== null) {
+        const killedAt = Number(killedAtStr);
+        const issuedAt = (session.iat ?? 0) * 1000;
+        if (killedAt > issuedAt) return null;
+      }
+    }
+  } catch {
+    // Redis error — fall through to the DB check below.
+  }
+
+  // DB check: session_version still matches (handles password changes).
   const admin = await getAdminById(session.userId);
   if (!admin || admin.session_version !== session.sessionVersion) return null;
 

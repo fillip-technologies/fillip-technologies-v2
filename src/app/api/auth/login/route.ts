@@ -18,7 +18,7 @@ const WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 
 // POST /api/auth/login — sets the admin_session cookie on success.
 export async function POST(request: Request) {
-  const limit = rateLimit(`login:${clientIp(request)}`, MAX_ATTEMPTS, WINDOW_MS);
+  const limit = await rateLimit(`login:${clientIp(request)}`, MAX_ATTEMPTS, WINDOW_MS);
   if (!limit.ok) {
     return NextResponse.json(
       { error: "Too many login attempts. Please try again later." },

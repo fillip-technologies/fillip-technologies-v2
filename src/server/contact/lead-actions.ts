@@ -5,6 +5,7 @@ import { getSession } from "@/server/auth/session";
 import { deleteLead, getLeadById, restoreLead, trashLead, updateLeadStatus } from "./queries";
 import { LEAD_STATUS_VALUES, resumeUrlFromMessage } from "./lead-sources";
 import { destroyAssetByUrl } from "@/server/cloudinary";
+import { UNAUTHORIZED } from "@/server/content/types";
 import type { SaveState } from "@/server/content/types";
 
 // Admin pages that show leads and must refresh after any lead mutation.
@@ -18,9 +19,7 @@ function revalidateLeadPaths() {
  * Won/Lost). Auth-guarded; validates the status against the known set.
  */
 export async function updateLeadStatusAction(id: string, status: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!LEAD_STATUS_VALUES.includes(status)) {
     return { ok: false, message: "Unknown status." };
   }
@@ -40,9 +39,7 @@ export async function updateLeadStatusAction(id: string, status: string): Promis
  * (if any) is kept so a binned career application can still be restored intact.
  */
 export async function trashLeadAction(id: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   try {
     const ok = await trashLead(id);
     if (!ok) return { ok: false, message: "Lead not found." };
@@ -56,9 +53,7 @@ export async function trashLeadAction(id: string): Promise<SaveState> {
 
 /** Admin action: restore a lead from the Bin. Auth-guarded. */
 export async function restoreLeadAction(id: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   try {
     const ok = await restoreLead(id);
     if (!ok) return { ok: false, message: "Lead not found." };
@@ -76,9 +71,7 @@ export async function restoreLeadAction(id: string): Promise<SaveState> {
  * an orphaned file behind.
  */
 export async function deleteLeadAction(id: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   try {
     // Grab the resume link before deleting so we can clean it up afterwards.
     const lead = await getLeadById(id);

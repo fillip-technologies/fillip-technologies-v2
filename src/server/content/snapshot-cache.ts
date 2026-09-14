@@ -4,31 +4,26 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 import seedRaw from "@/data/content-snapshot.json";
+import { getRedisClient } from "@/lib/redis";
 
 /**
- * Read-through "last-known-good" cache for public content reads.
+ * Read-through cache + last-known-good fallback for public content reads.
  *
- * `snapshotRead` wraps a DB read (`loader`). While the DB is reachable it just
- * returns fresh data and quietly records it. When the DB is unreachable it
- * returns the newest value it can find instead of throwing, so public pages keep
- * rendering the content that was last saved in the database. Fallback tiers,
- * newest first:
+ * `snapshotRead` checks four tiers in order, newest first:
  *
- *   1. in-memory   — refreshed on every successful read; survives across
- *                    requests in a warm process (Vercel warm instance / Node).
- *   2. runtime disk — `.content-snapshot/` written best-effort; survives a
- *                     restart on a writable host, silently skipped on read-only
- *                     serverless filesystems.
- *   3. build seed  — `src/data/content-snapshot.json`, bundled at build time;
- *                    present even on a cold serverless start with the DB down.
- *   4. fallback    — the caller's code default (`sectionDefaults` / [] / null).
+ *   1. in-process memory  — instant; warm after first request in this process.
+ *   2. Redis              — shared across instances/restarts; populated on every
+ *                           DB read; invalidated explicitly on CMS saves.
+ *   3. runtime disk       — `.content-snapshot/` written best-effort; survives a
+ *                           process restart on a writable host.
+ *   4. build seed         — `src/data/content-snapshot.json`, bundled at build
+ *                           time; always present even when DB + Redis are down.
+ *   5. code default       — the caller's `fallback` value; last resort.
  *
- * Only *reads* use this. Writes (upsert/insert/delete) must still fail loudly
- * when the DB is down.
+ * Only *reads* use this. Writes must still fail loudly when the DB is down.
  *
- * Stored values are always the JSON-safe `serialize(value)` form. For plain
- * objects/arrays that is the value itself; `opts.serialize`/`opts.deserialize`
- * handle non-JSON values (e.g. a `Set` cached as an array).
+ * Stored values are always the JSON-safe `serialize(value)` form. `opts.serialize`
+ * / `opts.deserialize` handle non-JSON values (e.g. a `Set` cached as an array).
  */
 
 export type SnapshotOptions<T> = {
@@ -39,16 +34,14 @@ export type SnapshotOptions<T> = {
 };
 
 const SNAPSHOT_DIR = path.join(process.cwd(), ".content-snapshot");
+const REDIS_PREFIX = "fillip:snapshot:";
 const seed = seedRaw as Record<string, unknown>;
 
 // Caches survive Next's dev hot-reload module clearing by living on globalThis.
 const globalForSnapshot = globalThis as unknown as {
   _contentSnapshot?: {
-    /** key -> latest JSON-safe value read from the DB. */
     memory: Map<string, unknown>;
-    /** key -> JSON string last written to disk (skips redundant writes). */
     writtenJson: Map<string, string>;
-    /** key -> last time we logged a DB-down fallback (throttles noise). */
     lastLogged: Map<string, number>;
   };
 };
@@ -61,24 +54,95 @@ const store =
     lastLogged: new Map(),
   });
 
-/** `content:home.hero` -> `content_home.hero.json` (safe, readable filename). */
+/* ------------------------------------------------------------------ TTLs -- */
+
+/** Redis TTL (seconds) by cache-key prefix. */
+function cacheTtl(key: string): number {
+  if (key.startsWith("content:")) return 900;       // 15 min — CMS sections
+  if (key.startsWith("blogs:")) return 300;          // 5 min  — blog lists
+  if (key.startsWith("blog-admin:")) return 120;     // 2 min  — admin editor reads
+  if (key.startsWith("blog:")) return 600;           // 10 min — public blog posts
+  if (key.startsWith("case-studies:")) return 900;   // 15 min
+  if (key.startsWith("case-study:")) return 900;     // 15 min
+  if (key.startsWith("industries:")) return 900;     // 15 min
+  if (key.startsWith("industry:")) return 900;       // 15 min
+  if (key.startsWith("categories:")) return 900;     // 15 min
+  if (key.startsWith("category:")) return 900;       // 15 min
+  if (key.startsWith("menulinks:")) return 900;      // 15 min
+  if (key.startsWith("servicepages:")) return 900;   // 15 min
+  if (key.startsWith("servicepage:")) return 900;    // 15 min
+  return 600;                                         // 10 min — default
+}
+
+/* --------------------------------------------------------------- Redis I/O -- */
+
+async function redisGet(key: string): Promise<unknown | undefined> {
+  try {
+    const client = getRedisClient();
+    if (!client) return undefined;
+    const raw = await client.get(`${REDIS_PREFIX}${key}`);
+    if (raw === null) return undefined;
+    return JSON.parse(raw);
+  } catch {
+    return undefined; // Redis down → fall through to DB
+  }
+}
+
+/** Fetch multiple keys in one MGET. Returns null when Redis is unavailable. */
+async function redisMGet(keys: string[]): Promise<(unknown | null)[] | null> {
+  try {
+    const client = getRedisClient();
+    if (!client) return null;
+    const results = await client.mget(keys.map((k) => `${REDIS_PREFIX}${k}`));
+    return results.map((r) => {
+      if (r === null) return null;
+      try {
+        return JSON.parse(r);
+      } catch {
+        return null;
+      }
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function redisSetRaw(key: string, json: string, ttlSec: number): Promise<void> {
+  try {
+    const client = getRedisClient();
+    if (!client) return;
+    await client.set(`${REDIS_PREFIX}${key}`, json, "EX", ttlSec);
+  } catch {
+    // Redis down → no-op; DB is still the source of truth
+  }
+}
+
+async function redisDelKeys(keys: string[]): Promise<void> {
+  try {
+    const client = getRedisClient();
+    if (!client || keys.length === 0) return;
+    await client.del(keys.map((k) => `${REDIS_PREFIX}${k}`));
+  } catch {
+    // no-op
+  }
+}
+
+/* ------------------------------------------------------------ disk helpers -- */
+
 function snapshotFile(cacheKey: string): string {
   const safe = cacheKey.replace(/[^a-zA-Z0-9._-]/g, "_");
   return path.join(SNAPSHOT_DIR, `${safe}.json`);
 }
 
-/** Persist a value to the runtime snapshot dir. Best-effort — never throws. */
 async function writeToDisk(cacheKey: string, json: string): Promise<void> {
   try {
     await fs.mkdir(SNAPSHOT_DIR, { recursive: true });
     await fs.writeFile(snapshotFile(cacheKey), json, "utf8");
   } catch {
-    // Read-only FS (serverless) or any IO error: the in-memory tier and build
-    // seed still cover us, so silently give up.
+    // Read-only FS or IO error — silently give up.
   }
 }
 
-/** Read a previously persisted value from the runtime snapshot dir, or undefined. */
 async function readFromDisk(cacheKey: string): Promise<unknown | undefined> {
   try {
     const raw = await fs.readFile(snapshotFile(cacheKey), "utf8");
@@ -88,15 +152,13 @@ async function readFromDisk(cacheKey: string): Promise<unknown | undefined> {
   }
 }
 
-/**
- * Read a cached value through the fallback tiers (memory -> runtime disk ->
- * build seed). Returns `{ hit: false }` when no tier has the key.
- */
+/* ------------------------------------------------------ tier fallback read -- */
+
 async function readTiers(cacheKey: string): Promise<{ hit: boolean; raw?: unknown }> {
   if (store.memory.has(cacheKey)) return { hit: true, raw: store.memory.get(cacheKey) };
   const fromDisk = await readFromDisk(cacheKey);
   if (fromDisk !== undefined) {
-    store.memory.set(cacheKey, fromDisk); // warm memory for next time
+    store.memory.set(cacheKey, fromDisk);
     return { hit: true, raw: fromDisk };
   }
   if (Object.prototype.hasOwnProperty.call(seed, cacheKey)) {
@@ -105,7 +167,8 @@ async function readTiers(cacheKey: string): Promise<{ hit: boolean; raw?: unknow
   return { hit: false };
 }
 
-/** Log a DB-down fallback at most once per minute per key. */
+/* ------------------------------------------------------------ logging utils -- */
+
 function logFallbackOnce(cacheKey: string, err: unknown): void {
   const now = Date.now();
   const last = store.lastLogged.get(cacheKey) ?? 0;
@@ -117,6 +180,27 @@ function logFallbackOnce(cacheKey: string, err: unknown): void {
   );
 }
 
+/* ------------------------------------------------------------------ record -- */
+
+/** Persist a JSON-safe value to memory + disk + Redis (all best-effort). */
+function record(cacheKey: string, stored: unknown): void {
+  store.memory.set(cacheKey, stored);
+  const json = JSON.stringify(stored);
+  if (store.writtenJson.get(cacheKey) !== json) {
+    store.writtenJson.set(cacheKey, json);
+    void writeToDisk(cacheKey, json);
+    void redisSetRaw(cacheKey, json, cacheTtl(cacheKey));
+  }
+}
+
+/* ================================================================ public API == */
+
+/**
+ * Read one cached value.
+ *
+ * Tier order: L1 memory → L2 Redis → L3 MongoDB → L4 disk → L5 seed → default.
+ * On a warm process (or warm Redis) the DB is never touched.
+ */
 export async function snapshotRead<T>(
   cacheKey: string,
   loader: () => Promise<T>,
@@ -126,27 +210,37 @@ export async function snapshotRead<T>(
   const serialize = opts?.serialize ?? ((v: T) => v as unknown);
   const deserialize = opts?.deserialize ?? ((r: unknown) => r as T);
 
+  // L1: in-process memory
+  if (store.memory.has(cacheKey)) {
+    return deserialize(store.memory.get(cacheKey));
+  }
+
+  // L2: Redis
+  const redisCached = await redisGet(cacheKey);
+  if (redisCached !== undefined) {
+    store.memory.set(cacheKey, redisCached); // warm L1 for next in-process request
+    return deserialize(redisCached);
+  }
+
+  // L3: MongoDB
   try {
     const value = await loader();
-    // `record` only touches the disk when the content actually changed, to
-    // avoid churning a file on every request.
-    record(cacheKey, serialize(value));
+    record(cacheKey, serialize(value)); // → L1 + disk + Redis
     return value;
   } catch (err) {
     logFallbackOnce(cacheKey, err);
-    const tier = await readTiers(cacheKey);
+    const tier = await readTiers(cacheKey); // → disk → seed
     return tier.hit ? deserialize(tier.raw) : fallback;
   }
 }
 
 /**
- * Batch variant of {@link snapshotRead}. `loader` runs the DB read for *all*
- * keys at once (e.g. a single `find({ key: { $in } })`) and returns a Map keyed
- * by `cacheKey`. Each key is recorded individually so per-key fallback still
- * works. On a DB failure every key falls back through its own snapshot tiers.
+ * Batch variant of {@link snapshotRead}. Collapses N keys into:
+ *   - one L1 check  (all-or-nothing; any miss drops to L2)
+ *   - one Redis MGET (all-or-nothing; any miss drops to DB)
+ *   - one batched DB query via `loader`
  *
- * This collapses a fan-out of N per-item queries into one round trip while
- * keeping the same resilience as N separate `snapshotRead` calls.
+ * On failure every key falls back independently through its own disk/seed tiers.
  */
 export async function snapshotReadMany<T>(
   entries: Array<{ cacheKey: string; fallback: T }>,
@@ -156,12 +250,40 @@ export async function snapshotReadMany<T>(
   const serialize = opts?.serialize ?? ((v: T) => v as unknown);
   const deserialize = opts?.deserialize ?? ((r: unknown) => r as T);
 
+  // L1: all keys in memory?
+  if (entries.every(({ cacheKey }) => store.memory.has(cacheKey))) {
+    const out = new Map<string, T>();
+    for (const { cacheKey, fallback } of entries) {
+      const raw = store.memory.get(cacheKey);
+      out.set(cacheKey, raw !== undefined ? deserialize(raw) : fallback);
+    }
+    return out;
+  }
+
+  // L2: all keys in Redis? (single MGET)
+  const redisResults = await redisMGet(entries.map((e) => e.cacheKey));
+  if (redisResults !== null && redisResults.every((r) => r !== null)) {
+    const out = new Map<string, T>();
+    for (let i = 0; i < entries.length; i++) {
+      const { cacheKey, fallback } = entries[i];
+      const raw = redisResults[i];
+      if (raw !== null) {
+        store.memory.set(cacheKey, raw); // warm L1
+        out.set(cacheKey, deserialize(raw));
+      } else {
+        out.set(cacheKey, fallback);
+      }
+    }
+    return out;
+  }
+
+  // L3: MongoDB — single batched query
   try {
     const values = await loader();
     const out = new Map<string, T>();
     for (const { cacheKey, fallback } of entries) {
       const value = values.has(cacheKey) ? (values.get(cacheKey) as T) : fallback;
-      record(cacheKey, serialize(value));
+      record(cacheKey, serialize(value)); // → L1 + disk + Redis
       out.set(cacheKey, value);
     }
     return out;
@@ -176,21 +298,10 @@ export async function snapshotReadMany<T>(
   }
 }
 
-/** Record a JSON-safe value under `cacheKey` (memory + best-effort disk). */
-function record(cacheKey: string, stored: unknown): void {
-  store.memory.set(cacheKey, stored);
-  const json = JSON.stringify(stored);
-  if (store.writtenJson.get(cacheKey) !== json) {
-    store.writtenJson.set(cacheKey, json);
-    void writeToDisk(cacheKey, json);
-  }
-}
-
 /**
- * Merge freshly-saved object content into the snapshot without a DB read. Called
- * after a successful write so a DB outage immediately afterwards still serves the
- * newest data. Merges over the existing cached entry so keys the writer didn't
- * include (e.g. code defaults previously merged in by a read) are preserved.
+ * Merge freshly-saved content into the cache without a DB read. Called after a
+ * successful write so a DB outage immediately afterwards still serves the newest
+ * data. Also updates Redis so other instances see the fresh value right away.
  */
 export function primeMergeSnapshot(
   cacheKey: string,
@@ -201,5 +312,26 @@ export function primeMergeSnapshot(
     existing && typeof existing === "object" && !Array.isArray(existing)
       ? (existing as Record<string, unknown>)
       : {};
-  record(cacheKey, { ...base, ...partial });
+  record(cacheKey, { ...base, ...partial }); // → L1 + disk + Redis
+}
+
+/**
+ * Evict one key from every cache tier so the next read fetches fresh from DB.
+ * Call this after any write that changes a key's meaning (delete, publish toggle).
+ */
+export async function invalidateSnapshot(cacheKey: string): Promise<void> {
+  store.memory.delete(cacheKey);
+  store.writtenJson.delete(cacheKey);
+  await redisDelKeys([cacheKey]);
+}
+
+/**
+ * Evict multiple keys at once (single Redis DEL command).
+ */
+export async function invalidateSnapshotMany(cacheKeys: string[]): Promise<void> {
+  for (const key of cacheKeys) {
+    store.memory.delete(key);
+    store.writtenJson.delete(key);
+  }
+  await redisDelKeys(cacheKeys);
 }

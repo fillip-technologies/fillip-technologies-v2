@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { dbConnect } from "@/lib/db";
 import { AdminUserModel } from "@/server/db/models";
 
@@ -30,13 +31,16 @@ export async function getAdminByEmail(email: string): Promise<AdminUser | null> 
   return doc ? toAdmin(doc) : null;
 }
 
-export async function getAdminById(id: string): Promise<AdminUser | null> {
+// Deduplicate DB lookups within a single request: if getSession() is called
+// from multiple server components or actions during one render, only one
+// AdminUserModel.findById query fires.
+export const getAdminById = cache(async (id: string): Promise<AdminUser | null> => {
   await dbConnect();
   // Guard against malformed ids so a bad cookie can't throw a cast error.
   if (!/^[a-f\d]{24}$/i.test(id)) return null;
   const doc = await AdminUserModel.findById(id).lean();
   return doc ? toAdmin(doc) : null;
-}
+});
 
 export async function createAdmin(
   email: string,

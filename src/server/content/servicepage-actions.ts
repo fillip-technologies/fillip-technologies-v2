@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
+import { slugify } from "@/lib/slug";
 import { getTemplateSchema } from "./servicepage-schema";
 import { templateUrlPrefix, isTemplateId } from "./servicepage-templates";
 import {
@@ -17,20 +18,13 @@ import {
   removeCategoryMenuLink,
 } from "./whatwedo-registry";
 import { upsertContent } from "./queries";
+import { whitelistSectionData } from "./section-utils";
+import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
 
 // Slugs that are their own static routes (would shadow the dynamic [slug]),
 // plus reserved words. Keeps admins from creating dead pages.
 const RESERVED_SLUGS = new Set(["preview"]);
-
-/** Normalise a free-text label into a URL-safe kebab-case slug. */
-function slugify(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 /**
  * Save one service-page section (stored FLAT under `servicepage.<slug>.<id>`).
@@ -41,9 +35,7 @@ export async function saveServicePageSection(
   sectionId: string,
   data: Record<string, unknown>
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const page = await getServicePage(slug);
   if (!page) {
@@ -55,19 +47,7 @@ export async function saveServicePageSection(
   }
   const section = spec.section;
 
-  const clean: Record<string, unknown> = {};
-  for (const field of section.fields) {
-    clean[field.name] = String(data[field.name] ?? "").trim();
-  }
-  if (section.list) {
-    const raw = Array.isArray(data[section.list.name]) ? (data[section.list.name] as unknown[]) : [];
-    clean[section.list.name] = raw.map((item) => {
-      const row = (item ?? {}) as Record<string, unknown>;
-      const out: Record<string, string> = {};
-      for (const f of section.list!.itemFields) out[f.name] = String(row[f.name] ?? "").trim();
-      return out;
-    });
-  }
+  const clean = whitelistSectionData(section, data);
 
   try {
     await upsertContent(`servicepage.${slug}.${section.id}`, clean);
@@ -91,9 +71,7 @@ export async function createServicePage(
   template = "service",
   slug?: string
 ): Promise<SaveState & { slug?: string }> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const cleanTitle = String(title ?? "").trim();
   if (!cleanTitle) {
@@ -145,9 +123,7 @@ export async function setServicePagePublishedAction(
   slug: string,
   published: boolean
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   const page = await getServicePage(slug);
   if (!page) {
     return { ok: false, message: "Unknown page." };
@@ -170,9 +146,7 @@ export async function setServicePagePublishedAction(
 
 /** Permanently delete a service page and its content. */
 export async function deleteServicePage(slug: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   const page = await getServicePage(slug);
   if (!page) {
     return { ok: false, message: "Unknown page." };

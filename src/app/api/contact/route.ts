@@ -16,7 +16,7 @@ const WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 
 // POST /api/contact  — public: create a lead from the contact form.
 export async function POST(request: Request) {
-  const limit = rateLimit(`contact:${clientIp(request)}`, MAX_SUBMISSIONS, WINDOW_MS);
+  const limit = await rateLimit(`contact:${clientIp(request)}`, MAX_SUBMISSIONS, WINDOW_MS);
   if (!limit.ok) {
     return NextResponse.json(
       { error: "Too many submissions. Please try again later." },

@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
+import { slugify } from "@/lib/slug";
 import { getCaseStudySectionSpec } from "./casestudy-sections";
 import {
   getCaseStudy,
@@ -10,18 +11,12 @@ import {
   setCaseStudyPublished,
   deleteCaseStudy as deleteCaseStudyRow,
 } from "./casestudy-registry";
+import { whitelistSectionData } from "./section-utils";
+import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
 
 // Slugs reserved by other routes under /case-studies.
 const RESERVED_SLUGS = new Set(["preview"]);
-
-function slugify(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 /**
  * Save one case-study section. Auth-checked; whitelists to the section's
@@ -33,9 +28,7 @@ export async function saveCaseStudySection(
   sectionId: string,
   data: Record<string, unknown>
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const cs = await getCaseStudy(slug);
   const spec = getCaseStudySectionSpec(sectionId);
@@ -44,19 +37,7 @@ export async function saveCaseStudySection(
   }
   const section = spec.section;
 
-  const clean: Record<string, unknown> = {};
-  for (const field of section.fields) {
-    clean[field.name] = String(data[field.name] ?? "").trim();
-  }
-  if (section.list) {
-    const raw = Array.isArray(data[section.list.name]) ? (data[section.list.name] as unknown[]) : [];
-    clean[section.list.name] = raw.map((item) => {
-      const row = (item ?? {}) as Record<string, unknown>;
-      const out: Record<string, string> = {};
-      for (const f of section.list!.itemFields) out[f.name] = String(row[f.name] ?? "").trim();
-      return out;
-    });
-  }
+  const clean = whitelistSectionData(section, data);
 
   try {
     await updateCaseStudySection(slug, section.id, spec.unflatten(clean));
@@ -78,9 +59,7 @@ export async function createCaseStudy(
   industry?: string,
   slug?: string
 ): Promise<SaveState & { slug?: string }> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const cleanTitle = String(title ?? "").trim();
   if (!cleanTitle) {
@@ -117,9 +96,7 @@ export async function setCaseStudyPublishedAction(
   slug: string,
   published: boolean
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!(await getCaseStudy(slug))) {
     return { ok: false, message: "Unknown case study." };
   }
@@ -143,9 +120,7 @@ export async function setCaseStudyPublishedAction(
 
 /** Permanently delete a case study. */
 export async function deleteCaseStudy(slug: string): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!(await getCaseStudy(slug))) {
     return { ok: false, message: "Unknown case study." };
   }

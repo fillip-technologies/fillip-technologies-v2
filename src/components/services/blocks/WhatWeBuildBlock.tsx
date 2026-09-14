@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Service } from "@/data/website-development";
 
 // Data-driven "What We Build" section — renders each service's own capability
@@ -39,13 +40,15 @@ export default function WhatWeBuildBlock({ data }: { data: Service["whatWeBuild"
               className="flex flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] shadow-xs transition-all duration-300 hover:shadow-md"
             >
               {card.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="h-44 w-full object-cover"
-                  loading="lazy"
-                />
+                <div className="relative h-44 w-full">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
               ) : null}
 
               <div className="flex flex-1 flex-col p-7">

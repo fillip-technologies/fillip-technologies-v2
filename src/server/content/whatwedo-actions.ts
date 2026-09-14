@@ -9,6 +9,8 @@ import {
   menuLinksKey,
 } from "./whatwedo-registry";
 import { upsertContent } from "./queries";
+import { whitelistSectionData } from "./section-utils";
+import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
 import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 
@@ -21,9 +23,7 @@ export async function saveWhatWeDoSection(
   sectionId: string,
   data: Record<string, unknown>
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
 
   const category = await getCategory(slug);
   const spec = getWhatWeDoSectionSpec(sectionId);
@@ -32,19 +32,7 @@ export async function saveWhatWeDoSection(
   }
   const section = spec.section;
 
-  const clean: Record<string, unknown> = {};
-  for (const field of section.fields) {
-    clean[field.name] = String(data[field.name] ?? "").trim();
-  }
-  if (section.list) {
-    const raw = Array.isArray(data[section.list.name]) ? (data[section.list.name] as unknown[]) : [];
-    clean[section.list.name] = raw.map((item) => {
-      const row = (item ?? {}) as Record<string, unknown>;
-      const out: Record<string, string> = {};
-      for (const f of section.list!.itemFields) out[f.name] = String(row[f.name] ?? "").trim();
-      return out;
-    });
-  }
+  const clean = whitelistSectionData(section, data);
 
   try {
     await upsertContent(`whatwedo.${slug}.${section.id}`, clean);
@@ -66,9 +54,7 @@ export async function saveCategoryMenuLinks(
   slug: string,
   items: MegaMenuItem[]
 ): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!(await getCategory(slug))) {
     return { ok: false, message: "Unknown category." };
   }
@@ -94,9 +80,7 @@ export async function saveCategoryMenuLinks(
 
 /** Publish or unpublish a category page. */
 export async function setCategoryPublished(slug: string, published: boolean): Promise<SaveState> {
-  if (!(await getSession())) {
-    return { ok: false, message: "Not authorized." };
-  }
+  if (!(await getSession())) return UNAUTHORIZED;
   if (!(await getCategory(slug))) {
     return { ok: false, message: "Unknown category." };
   }

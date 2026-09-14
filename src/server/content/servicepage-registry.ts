@@ -2,8 +2,11 @@ import "server-only";
 
 import { dbConnect } from "@/lib/db";
 import { ServicePageModel, SiteContentModel } from "@/server/db/models";
-import { getContentData } from "./queries";
-import { snapshotRead } from "./snapshot-cache";
+import { getContentDataMany } from "./queries";
+import { invalidateSnapshotMany, snapshotRead } from "./snapshot-cache";
+
+const SP_LIST_KEYS = ["servicepages:all", "servicepages:published-slugs", "servicepages:published-hrefs"];
+const spKeys = (slug: string) => [...SP_LIST_KEYS, `servicepage:${slug}`];
 import { getTemplateSchema } from "./servicepage-schema";
 import { templateUrlPrefix } from "./servicepage-templates";
 
@@ -119,6 +122,7 @@ export async function insertServicePage(
     published: false,
     sort_order: sortOrder,
   });
+  await invalidateSnapshotMany(SP_LIST_KEYS);
 }
 
 /** Toggle publish state. */
@@ -128,6 +132,7 @@ export async function setServicePagePublished(slug: string, published: boolean):
     { slug },
     { $set: { published, updated_at: new Date() } }
   );
+  await invalidateSnapshotMany(spKeys(slug));
 }
 
 /** Delete a page and all of its section content rows (any template). */
@@ -135,28 +140,36 @@ export async function deleteServicePage(slug: string): Promise<void> {
   await dbConnect();
   await ServicePageModel.deleteOne({ slug });
   await SiteContentModel.deleteMany({ key: { $regex: `^servicepage\\.${slug}\\.` } });
+  await invalidateSnapshotMany(spKeys(slug));
 }
 
 /**
  * Assemble the full nested content object for a page from its template's
  * sections: each section's saved content merged over its default, then
- * unflattened into the shape the renderer takes. Shape depends on `template`
- * (Service for "service", MobileAppDevelopmentContent for "mobile-app").
+ * unflattened into the shape the renderer takes.
+ *
+ * Uses a single batched DB query (via getContentDataMany) instead of one
+ * findOne per section, so cost is O(1) round trips regardless of section count.
  */
 export async function getServicePageData(
   slug: string,
   template: string
 ): Promise<Record<string, any>> {
   const schema = getTemplateSchema(template);
-  const entries = await Promise.all(
-    schema.sectionIds.map(async (id) => {
-      const spec = schema.getSpec(id)!;
-      const flat = await getContentData(
-        `servicepage.${slug}.${id}`,
-        spec.flatten(schema.default(slug, id))
-      );
-      return [id, spec.unflatten(flat)] as const;
-    })
+
+  const sectionSpecs = schema.sectionIds.map((id) => {
+    const spec = schema.getSpec(id)!;
+    return { id, key: `servicepage.${slug}.${id}`, defaults: spec.flatten(schema.default(slug, id)), spec };
+  });
+
+  const contentMap = await getContentDataMany(
+    sectionSpecs.map(({ key, defaults }) => ({ key, defaults }))
   );
-  return { slug, ...Object.fromEntries(entries) };
+
+  return {
+    slug,
+    ...Object.fromEntries(
+      sectionSpecs.map(({ id, key, spec }) => [id, spec.unflatten(contentMap[key])])
+    ),
+  };
 }
