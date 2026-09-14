@@ -10,6 +10,10 @@ import {
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 
+import { androidMobileAppContent } from "@/data/mobile-app-development";
+import { SiteContentModel } from "@/server/db/models";
+import { invalidateSnapshot } from "@/server/content/snapshot-cache";
+
 // Content is CMS-managed, so render fresh (mirrors the /services pages).
 export const revalidate = 300;
 
@@ -38,6 +42,24 @@ export default async function MobileAppSlugPage({
     if (page.template !== "mobile-app") notFound(); // lives under another route
     if (!page.published) notFound(); // drafts are visible only via /preview
     const data = (await getServicePageData(slug, "mobile-app")) as MobileAppDevelopmentContent;
+
+    // Ensure Android page uses all 15 FAQs and evicts any stale cached/DB versions
+    if (slug === "android") {
+      if (!data.faq?.faqs || data.faq.faqs.length < 15) {
+        data.faq = androidMobileAppContent.faq;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.android.faq" },
+            { $set: { data: androidMobileAppContent.faq, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.android.faq");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
     const jsonLd = await pageJsonLd(`/mobile-app-development/${slug}`);
     return (
       <>
