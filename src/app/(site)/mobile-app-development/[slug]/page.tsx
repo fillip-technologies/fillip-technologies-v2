@@ -15,6 +15,8 @@ import {
   iosMobileAppContent,
   enterpriseMobileAppContent,
   ecommerceMobileAppContent,
+  businessAutomationMobileAppContent,
+  appUiUxMobileAppContent,
 } from "@/data/mobile-app-development";
 import { SiteContentModel } from "@/server/db/models";
 import { invalidateSnapshot } from "@/server/content/snapshot-cache";
@@ -124,6 +126,40 @@ export default async function MobileAppSlugPage({
             { upsert: true }
           );
           await invalidateSnapshot("content:servicepage.ecommerce.faq");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
+    // Ensure Business Automation page uses all 15 FAQs and evicts any stale cached/DB versions
+    if (slug === "business-automation") {
+      if (!data.faq?.faqs || data.faq.faqs.length < 15) {
+        data.faq = businessAutomationMobileAppContent.faq;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.business-automation.faq" },
+            { $set: { data: businessAutomationMobileAppContent.faq, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.business-automation.faq");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
+    // Ensure App UI/UX Design page uses all 15 FAQs and evicts any stale cached/DB versions
+    if (slug === "app-ui-ux-design") {
+      if (!data.faq?.faqs || data.faq.faqs.length < 15) {
+        data.faq = appUiUxMobileAppContent.faq;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.app-ui-ux-design.faq" },
+            { $set: { data: appUiUxMobileAppContent.faq, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.app-ui-ux-design.faq");
         } catch {
           // best-effort DB update
         }

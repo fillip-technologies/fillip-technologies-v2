@@ -7,6 +7,7 @@ import {
   enterpriseMobileAppContent,
   ecommerceMobileAppContent,
   businessAutomationMobileAppContent,
+  appUiUxMobileAppContent,
 } from "@/data/mobile-app-development";
 
 type MobileAppFAQProps = {
@@ -27,6 +28,8 @@ export default function MobileAppFAQ({ data }: MobileAppFAQProps) {
     faqs = ecommerceMobileAppContent.faq.faqs;
   } else if ((title.includes("automation") || title.includes("process")) && faqs.length < 15) {
     faqs = businessAutomationMobileAppContent.faq.faqs;
+  } else if ((title.includes("ui") || title.includes("ux") || title.includes("design")) && faqs.length < 15) {
+    faqs = appUiUxMobileAppContent.faq.faqs;
   }
 
   return (
