@@ -46,8 +46,9 @@
       "secondaryCta": "Get Free Consultation",
       "outlineText": "BUILD",
       "image": {
-        "src": "/images/TECH-BG.png",
-        "alt": "IT company in Patna"
+        "src": "/images/it-company-in-patna.png",
+        "alt": "IT company in Patna",
+        "size": "wide"
       }
     },
     "services": {
