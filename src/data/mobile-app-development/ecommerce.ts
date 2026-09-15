@@ -258,34 +258,81 @@ export const ecommerceMobileAppContent = {
       "Common questions retailers and commerce brands ask before building a mobile shopping application.",
     faqs: [
       {
-        question: "Can you build apps for both single-brand stores and marketplaces?",
+        question: "What does an E-commerce Mobile Solutions Company do?",
         answer:
-          "Yes. We build dedicated brand storefronts, multi-vendor marketplaces, B2B commerce apps, and hybrid commerce platforms.",
+          "An E-commerce Mobile Solutions Company builds mobile shopping apps that make browsing, buying, payments, and order management seamless.",
       },
       {
-        question: "Can the app connect with our existing website or ERP?",
+        question: "Why does my business need an e-commerce mobile app?",
         answer:
-          "Yes. We can integrate with existing e-commerce websites, ERPs, inventory tools, CRMs, payment gateways, and logistics providers.",
+          "A dedicated app creates a faster, more personalized shopping experience that can drive conversions and repeat purchases.",
       },
       {
-        question: "Do you support payment gateway integration?",
+        question: "Can an e-commerce app improve customer retention?",
         answer:
-          "Yes. We integrate secure payment gateways, UPI, cards, wallets, coupons, refunds, and order confirmation workflows.",
+          "Yes, personalized offers, loyalty features, wishlists, and notifications can encourage customers to keep coming back.",
       },
       {
-        question: "Can customers track orders inside the app?",
+        question: "Can Fillip Technologies build a custom shopping app?",
         answer:
-          "Yes. We can add order history, shipment tracking, delivery updates, return requests, and push notifications.",
+          "Yes, our E-commerce Mobile Solutions Company builds fully customized apps around your products, customers, and business goals.",
       },
       {
-        question: "Can you add loyalty and offer features?",
+        question: "Can you integrate secure payment options?",
         answer:
-          "Yes. We build loyalty points, coupon systems, referral flows, personalized offers, and campaign-based notifications.",
+          "Yes, we integrate suitable secure payment solutions to make checkout smooth, convenient, and reliable.",
       },
       {
-        question: "Do you provide post-launch support?",
+        question: "Can an e-commerce app support multiple payment methods?",
         answer:
-          "Yes. We provide maintenance, performance monitoring, feature improvements, security updates, and integration support.",
+          "Yes, your app can support multiple suitable payment options based on your business and customer requirements.",
+      },
+      {
+        question: "Can you add AI features to my shopping app?",
+        answer:
+          "Yes, an E-commerce Mobile Solutions Company can add AI-powered recommendations, intelligent search, and personalized experiences.",
+      },
+      {
+        question: "Can customers track their orders through the app?",
+        answer:
+          "Yes, we can integrate order tracking and real-time updates to keep customers informed after purchase.",
+      },
+      {
+        question:
+          "Can the app integrate with my existing inventory system?",
+        answer:
+          "Yes, we can connect your app with suitable inventory, ERP, CRM, and other business systems.",
+      },
+      {
+        question: "Will my e-commerce app be scalable?",
+        answer:
+          "Yes, our E-commerce Mobile Solutions Company develops scalable applications designed to grow with your customers and business.",
+      },
+      {
+        question: "Can you create loyalty and rewards features?",
+        answer:
+          "Yes, we can build loyalty programs, reward points, exclusive offers, and engagement features into your app.",
+      },
+      {
+        question: "How can an e-commerce app reduce cart abandonment?",
+        answer:
+          "A smoother checkout, faster performance, simplified payments, and better user journeys can help reduce purchase friction.",
+      },
+      {
+        question: "Do you design the UI/UX for e-commerce apps?",
+        answer:
+          "Yes, we create intuitive shopping journeys designed to make product discovery and checkout effortless.",
+      },
+      {
+        question: "Do you provide support after the app is launched?",
+        answer:
+          "Yes, we provide ongoing support, updates, optimization, and feature enhancements to keep your app performing reliably.",
+      },
+      {
+        question:
+          "How can an E-commerce Mobile Solutions Company help my business grow?",
+        answer:
+          "The right E-commerce Mobile Solutions Company can turn your mobile app into a powerful channel for conversions, loyalty, and long-term growth.",
       },
     ],
     ctaTitle: "Ready To Build Your E-Commerce Mobile App?",

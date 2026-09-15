@@ -10,7 +10,12 @@ import {
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 
-import { androidMobileAppContent } from "@/data/mobile-app-development";
+import {
+  androidMobileAppContent,
+  iosMobileAppContent,
+  enterpriseMobileAppContent,
+  ecommerceMobileAppContent,
+} from "@/data/mobile-app-development";
 import { SiteContentModel } from "@/server/db/models";
 import { invalidateSnapshot } from "@/server/content/snapshot-cache";
 
@@ -68,6 +73,57 @@ export default async function MobileAppSlugPage({
             { upsert: true }
           );
           await invalidateSnapshot("content:servicepage.android.growthPartner");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
+    // Ensure iOS page uses all 15 FAQs and evicts any stale cached/DB versions
+    if (slug === "ios") {
+      if (!data.faq?.faqs || data.faq.faqs.length < 15) {
+        data.faq = iosMobileAppContent.faq;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.ios.faq" },
+            { $set: { data: iosMobileAppContent.faq, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.ios.faq");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
+    // Ensure Enterprise page uses all 15 FAQs and evicts any stale cached/DB versions
+    if (slug === "enterprise") {
+      if (!data.faq?.faqs || data.faq.faqs.length < 15) {
+        data.faq = enterpriseMobileAppContent.faq;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.enterprise.faq" },
+            { $set: { data: enterpriseMobileAppContent.faq, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.enterprise.faq");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
+    // Ensure Ecommerce page uses all 15 FAQs and evicts any stale cached/DB versions
+    if (slug === "ecommerce") {
+      if (!data.faq?.faqs || data.faq.faqs.length < 15) {
+        data.faq = ecommerceMobileAppContent.faq;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.ecommerce.faq" },
+            { $set: { data: ecommerceMobileAppContent.faq, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.ecommerce.faq");
         } catch {
           // best-effort DB update
         }

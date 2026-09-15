@@ -258,34 +258,79 @@ export const businessAutomationMobileAppContent = {
       "Common questions organizations ask before building a custom mobile workflow automation platform.",
     faqs: [
       {
-        question: "Can you automate our existing manual approval process?",
+        question: "What does a Business Process Automation Apps Company do?",
         answer:
-          "Yes. We can map your current workflow and build mobile submission, review, approval, escalation, and reporting flows.",
+          "A Business Process Automation Apps Company builds applications that automate workflows, reduce manual work, and improve operational efficiency.",
       },
       {
-        question: "Can different departments have different workflows?",
+        question: "What business processes can be automated?",
         answer:
-          "Yes. We can create department-specific forms, access levels, approval chains, notifications, and dashboards.",
+          "Approvals, task management, reporting, audits, field operations, notifications, and internal workflows can be automated.",
       },
       {
-        question: "Can the app work for field teams?",
+        question: "How can automation apps reduce manual work?",
         answer:
-          "Yes. We support field reporting, attendance, visit logs, photo uploads, location-aware workflows, and offline capture where needed.",
+          "They automate repetitive tasks, route approvals, send updates, and keep workflows moving with less human intervention.",
       },
       {
-        question: "Can the app integrate with our existing software?",
+        question: "Can a Business Process Automation Apps Company build custom apps?",
         answer:
-          "Yes. We can integrate with HRMS, ERPs, CRMs, databases, cloud storage, reporting tools, and custom internal systems.",
+          "Yes, custom automation apps can be developed around your specific workflows, teams, and operational requirements.",
       },
       {
-        question: "Will managers get reports and dashboards?",
+        question: "Can automation apps improve team collaboration?",
         answer:
-          "Yes. We build dashboards for pending work, completion status, team performance, bottlenecks, and process turnaround time.",
+          "Yes, they connect teams, centralize tasks, and provide real-time updates across business operations.",
       },
       {
-        question: "Do you provide ongoing improvements after launch?",
+        question: "Can approval processes be automated?",
         answer:
-          "Yes. We support maintenance, workflow changes, feature enhancements, performance monitoring, and security updates.",
+          "Yes, automation apps can route requests to the right people and speed up approval workflows.",
+      },
+      {
+        question: "Do automation apps provide real-time visibility?",
+        answer:
+          "Yes, businesses can track tasks, approvals, activities, and operational progress in real time.",
+      },
+      {
+        question: "Can automation apps be used for field operations?",
+        answer:
+          "Yes, they can help manage field teams, task updates, reporting, audits, and operational activities.",
+      },
+      {
+        question: "Can a Business Process Automation Apps Company integrate existing systems?",
+        answer:
+          "Yes, automation applications can be integrated with suitable existing business systems and tools.",
+      },
+      {
+        question: "Are business automation apps scalable?",
+        answer:
+          "Yes, well-developed automation apps can scale as your teams, processes, and operational requirements grow.",
+      },
+      {
+        question: "Can AI be integrated into business automation apps?",
+        answer:
+          "Yes, AI can support smarter workflows, automated decisions, insights, and process optimization.",
+      },
+      {
+        question: "How secure are business process automation apps?",
+        answer:
+          "Security features can include secure access, role-based permissions, data protection, and controlled workflows.",
+      },
+      {
+        question: "Can automation apps improve reporting?",
+        answer:
+          "Yes, they can simplify data collection and provide faster, more organized operational reporting.",
+      },
+      {
+        question: "Why choose Fillip Technologies as a Business Process Automation Apps Company?",
+        answer:
+          "Fillip Technologies builds customized, scalable, and technology-driven automation solutions aligned with business goals.",
+      },
+      {
+        question: "How can a Business Process Automation Apps Company help my business grow?",
+        answer:
+          "By reducing operational bottlenecks, improving efficiency, connecting teams, and creating workflows that scale with your business.",
       },
     ],
     ctaTitle: "Ready To Automate Your Business Processes?",
