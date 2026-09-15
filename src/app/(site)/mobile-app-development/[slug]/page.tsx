@@ -58,6 +58,24 @@ export default async function MobileAppSlugPage({
           // best-effort DB update
         }
       }
+
+      if (!data.growthPartner?.rows || data.growthPartner.rows.length < 7) {
+        data.growthPartner = androidMobileAppContent.growthPartner;
+        try {
+          await SiteContentModel.updateOne(
+            { key: "servicepage.android.growthPartner" },
+            { $set: { data: androidMobileAppContent.growthPartner, updated_at: new Date() } },
+            { upsert: true }
+          );
+          await invalidateSnapshot("content:servicepage.android.growthPartner");
+        } catch {
+          // best-effort DB update
+        }
+      }
+    }
+
+    if (!data.growthPartner && MOBILE_CONTENT[slug]?.growthPartner) {
+      data.growthPartner = MOBILE_CONTENT[slug].growthPartner;
     }
 
     const jsonLd = await pageJsonLd(`/mobile-app-development/${slug}`);

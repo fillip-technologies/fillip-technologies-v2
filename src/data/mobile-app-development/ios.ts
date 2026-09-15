@@ -61,6 +61,26 @@ export const iosMobileAppContent = {
       { title: "Scalable Codebase", description: "Plan for future app versions and features.", icon: "Layers3" },
     ],
   },
+  growthPartner: {
+    badge: "BUSINESS GROWTH PARTNER",
+    title: "Why Businesses Opt For",
+    highlightedTitle: "Fillip Technologies As Their Business Growth Partner?",
+    description:
+      "App development is much more than developing an application. It is about building a mobile solution that helps you grow your business and delivers an excellent user experience. With Fillip Technologies, get innovative, strategic, and advanced technology-driven iOS applications that ensure the security, scalability, and superior performance of your Apple solution. As a well-recognized Mobile App Development Company, we help you develop applications that not only meet today’s requirements but also scale up to support your future endeavors.",
+    subDescription:
+      "Find out how an iOS application developed by us differs from other mobile applications.",
+    standardLabel: "Generic iOS App",
+    fillipLabel: "iOS App by Fillip Technologies",
+    rows: [
+      { standard: "Generic UI", fillip: "Business-Centric UX" },
+      { standard: "Slow Performance", fillip: "Optimized Performance" },
+      { standard: "Basic Security", fillip: "Enterprise Security" },
+      { standard: "Limited Features", fillip: "Fully Customized" },
+      { standard: "Hard to Scale", fillip: "Future Ready" },
+      { standard: "No AI", fillip: "AI-Integrated" },
+      { standard: "Weak Support", fillip: "Dedicated Support" },
+    ],
+  },
   whyChooseUs: {
     badge: "WHY IOS APPS MATTER",
     title: "Premium Users Expect",

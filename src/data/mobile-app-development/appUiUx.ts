@@ -61,6 +61,26 @@ export const appUiUxMobileAppContent = {
       { title: "Developer-Ready Files", description: "Prepare clean handoff for faster builds.", icon: "Cloud" },
     ],
   },
+  growthPartner: {
+    badge: "BUSINESS GROWTH PARTNER",
+    title: "Why Businesses Opt For",
+    highlightedTitle: "Fillip Technologies As Their Business Growth Partner?",
+    description:
+      "App development is much more than developing an application. It is about building a mobile solution that helps you grow your business and delivers an excellent user experience. With Fillip Technologies, get innovative, strategic, and advanced technology-driven UI/UX design that ensures high user engagement, retention, and seamless performance. As a well-recognized Mobile App Development Company, we help you develop applications that not only meet today’s requirements but also scale up to support your future endeavors.",
+    subDescription:
+      "Find out how an app designed by us differs from generic mobile templates.",
+    standardLabel: "Generic App Design",
+    fillipLabel: "UX Design by Fillip Technologies",
+    rows: [
+      { standard: "Generic UI", fillip: "Business-Centric UX" },
+      { standard: "Slow Performance", fillip: "Optimized Performance" },
+      { standard: "Basic Security", fillip: "Enterprise Security" },
+      { standard: "Limited Features", fillip: "Fully Customized" },
+      { standard: "Hard to Scale", fillip: "Future Ready" },
+      { standard: "No AI", fillip: "AI-Integrated" },
+      { standard: "Weak Support", fillip: "Dedicated Support" },
+    ],
+  },
   whyChooseUs: {
     badge: "WHY APP DESIGN MATTERS",
     title: "Great Apps Start With",

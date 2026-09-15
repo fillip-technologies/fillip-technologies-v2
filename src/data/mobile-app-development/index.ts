@@ -7,10 +7,12 @@ export { iosMobileAppContent } from "./ios";
 export { onDemandMobileAppContent } from "./onDemand";
 export type {
   MobileAppChallengesContent,
+  MobileAppComparisonRow,
   MobileAppDevelopmentContent,
   MobileAppFAQContent,
   MobileAppFeature,
   MobileAppFeaturesContent,
+  MobileAppGrowthPartnerContent,
   MobileAppHeroContent,
   MobileAppIconName,
   MobileAppSolution,

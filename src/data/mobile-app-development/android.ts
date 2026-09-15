@@ -5,7 +5,7 @@ export const androidMobileAppContent = {
     title: "Android App Development",
     highlightedTitle: "Built for Scale",
     description:
-      "We build fast, secure, and user-friendly Android applications for startups, enterprises, ecommerce brands, and service businesses.",
+      "Fillip Technologies is a reputable Android App Development company when it comes to app development solutions, as our Android apps offer great performance with a seamless user experience while scaling up your business.",
     leftCard: {
       title: "Native Experience",
       description: "Smooth Android apps optimized for performance and usability.",
@@ -25,9 +25,9 @@ export const androidMobileAppContent = {
     highlightedTitle: "We Solve",
     lead: "Android users expect speed, simplicity, and reliability.",
     support:
-      "We help businesses launch Android apps that perform well across devices and screen sizes.",
+      "Users want fast speeds, smooth execution, and perfection on all devices. Optimization problems, bad integrations, and poor UI restrict app success.",
     description:
-      "From poor performance to confusing flows and weak backend integration, we solve the issues that stop Android apps from growing.",
+      "As an Android App Development Company, Fillip Technologies delivers top-performing Android applications that are scalable and provide outstanding experiences.",
     items: [
       "Slow App Performance",
       "Poor Device Compatibility",
@@ -121,6 +121,26 @@ export const androidMobileAppContent = {
       { title: "Analytics", description: "Track usage, conversions, and business performance.", icon: "BarChart3" },
       { title: "Role-Based Access", description: "Control permissions for users and teams.", icon: "KeyRound" },
       { title: "Scalable Architecture", description: "Build apps ready for future growth.", icon: "Layers3" },
+    ],
+  },
+  growthPartner: {
+    badge: "BUSINESS GROWTH PARTNER",
+    title: "Why Businesses Opt For",
+    highlightedTitle: "Fillip Technologies As Their Business Growth Partner?",
+    description:
+      "App development is much more than developing an application. It is about building a mobile solution that helps you grow your business and delivers an excellent user experience. With Fillip Technologies, get innovative, strategic, and advanced technology-driven Android applications that ensure the security, scalability, and superior performance of your Android solution. As a well-recognized Android App Development Company, we help you develop applications that not only meet today’s requirements but also scale up to support your future endeavors.",
+    subDescription:
+      "Find out how an Android application developed by us differs from other mobile applications.",
+    standardLabel: "Generic Android App",
+    fillipLabel: "Android App by Fillip Technologies",
+    rows: [
+      { standard: "Generic UI", fillip: "Business-Centric UX" },
+      { standard: "Slow Performance", fillip: "Optimized Performance" },
+      { standard: "Basic Security", fillip: "Enterprise Security" },
+      { standard: "Limited Features", fillip: "Fully Customized" },
+      { standard: "Hard to Scale", fillip: "Future Ready" },
+      { standard: "No AI", fillip: "AI-Integrated" },
+      { standard: "Weak Support", fillip: "Dedicated Support" },
     ],
   },
   whyChooseUs: {
