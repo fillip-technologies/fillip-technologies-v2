@@ -235,43 +235,79 @@ export type FaqItem = {
 
 export const HOME_FAQS: FaqItem[] = [
   {
-    question: "What solutions does Fillip Technologies offer?",
-    answer: "Fillip Technologies delivers a wide array of digital services such as Website Designing services, Web Development, Custom Software Development, SEO, Digital Marketing, Social Media Marketing, Branding, UI/UX Design, and Performance Marketing. We ensure that our digital services will assist your business in building its online presence through continuous growth.",
+    question: "What is Fillip Technologies?",
+    answer:
+      "Fillip Technologies is a leading IT and business growth partner, offering web, software, AI, and marketing solutions. We are recognized as a Best Digital Marketing Company focused on measurable business growth.",
   },
   {
-    question: "How can a professional website help my business grow?",
-    answer: "An effective website will serve as the virtual shop front of your business and will assist you in increasing your level of credibility and attracting prospects that could become business opportunities.",
+    question: "Why is Fillip Technologies the Best Digital Marketing Company?",
+    answer:
+      "We combine data-driven marketing, innovative technology, and creative strategies to deliver measurable business results. Our integrated approach helps brands grow faster and smarter.",
   },
   {
-    question: "Do you develop custom websites or use ready-made templates?",
-    answer: "We believe in the fact that every organization has different needs. Therefore, we ensure to provide customized web development services based on our clients' business goals, brand image, and their target audience.",
+    question: "What services does Fillip Technologies provide?",
+    answer:
+      "We offer Website Development, SEO, Digital Marketing, AI Solutions, Software Development, Mobile Apps, Hardware Solutions, and Business Automation under one roof.",
   },
   {
-    question: "How does SEO benefit modern companies?",
-    answer: "Through SEO, you can make your company visible to potential customers when they search for goods or services on the internet. This is beneficial since it raises visibility and enhances performance, which ultimately boosts traffic and creates room for growth.",
+    question: "Does Fillip Technologies build custom websites?",
+    answer:
+      "Yes. We design and develop custom, SEO-friendly, and scalable websites tailored to your business goals and customer expectations.",
   },
   {
-    question: "Can Fillip Technologies be able to get us leads and sales through the internet?",
-    answer: "Yes. Being the best lead generation agency, our marketing techniques ensure that our clients are well placed in such a way that they are capable of generating leads and sales from their prospective clients. This is done through various marketing methods, including SEO and PPC marketing.",
+    question: "Can Fillip Technologies improve my online visibility?",
+    answer:
+      "Absolutely. As a Best Digital Marketing Company, we help businesses improve search rankings, website traffic, and lead generation through strategic digital marketing.",
   },
   {
-    question: "Do you offer services to startups, small firms, and large corporations?",
-    answer: "Yes, we have services that cater to organizations regardless of their size or stage of development, whether a startup wanting a digital footprint or an existing organization in need of advanced digital solutions.",
+    question: "Does Fillip Technologies offer AI-powered business solutions?",
+    answer:
+      "Yes. We provide AI Chatbots, AI Agents, GPT Integration, AI Consulting, and Workflow Automation to improve productivity and customer experiences.",
   },
   {
-    question: "What distinguishes Fillip Technologies from other digital marketing firms?",
-    answer: "We blend the elements of creativity, technology, AI innovation and strategy. Instead of presenting off-the-shelf solutions, we concentrate on knowing your business, your audience, and what you hope to achieve through digital marketing.",
+    question: "Which industries does Fillip Technologies serve?",
+    answer:
+      "We work with healthcare, education, retail, hospitality, manufacturing, finance, startups, and enterprises through customized digital solutions.",
   },
   {
-    question: "Could you assist in enhancing my current website and digital presence?",
-    answer: "Absolutely. If you require assistance in updating your website, enhancing your search engine optimization, optimizing the performance of your site, improving branding, or anything else relating to your digital presence, we will be happy to do so.",
+    question: "Why should I choose Fillip Technologies?",
+    answer:
+      "Fillip Technologies combines technology, creativity, and business strategy to build scalable digital solutions that drive long-term business success.",
   },
   {
-    question: "Does Fillip Technologies offer Local SEO Services?",
-    answer: "Yes, our local SEO services are designed to help businesses rank higher in local searches, enhancing visibility and bolstering targeted traffic.",
+    question: "Can Fillip Technologies manage all my digital business needs?",
+    answer:
+      "Absolutely. As the Best Digital Marketing Company, we offer everything from branding and websites to AI solutions, software development, and business automation.",
   },
   {
-    question: "How can I start working with Fillip Technologies?",
-    answer: "All you have to do to start is tell us about your business goals or the problems you are facing, or your project requirements. We will analyze your needs and come up with a solution that suits your business.",
+    question: "Can Fillip Technologies develop custom software?",
+    answer:
+      "Yes. We build CRM systems, ERP software, web applications, enterprise solutions, and business automation platforms tailored to your needs.",
+  },
+  {
+    question: "How does Fillip Technologies help businesses grow?",
+    answer:
+      "As the Best Digital Marketing Company, we combine digital marketing, AI, and custom technology solutions to generate leads, improve efficiency, and increase revenue.",
+  },
+  {
+    question: "Do you provide mobile app development services?",
+    answer:
+      "Yes. We develop secure, scalable Android, iOS, and cross-platform mobile applications for businesses of all sizes.",
+  },
+  {
+    question: "Does Fillip Technologies provide ongoing support?",
+    answer:
+      "Yes. We offer continuous maintenance, security monitoring, technical support, and performance optimization for all digital solutions.",
+  },
+  {
+    question: "Is Fillip Technologies suitable for startups and enterprises?",
+    answer:
+      "Absolutely. Our scalable solutions support startups, SMEs, and large enterprises at every stage of their digital transformation journey.",
+  },
+  {
+    question: "How can I get started with Fillip Technologies?",
+    answer:
+      "Simply contact our team for a free consultation, and we'll recommend the best digital, AI, or technology solution for your business goals.",
   },
 ];
+

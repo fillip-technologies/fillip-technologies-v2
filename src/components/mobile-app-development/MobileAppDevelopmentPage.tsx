@@ -4,6 +4,7 @@ import type { MobileAppDevelopmentContent } from "@/data/mobile-app-development"
 import MobileAppChallenges from "./MobileAppChallenges";
 import MobileAppFAQ from "./MobileAppFAQ";
 import MobileAppFeatures from "./MobileAppFeatures";
+import MobileAppGrowthPartner from "./MobileAppGrowthPartner";
 import MobileAppHero from "./MobileAppHero";
 import MobileAppSolutions from "./MobileAppSolutions";
 import MobileAppTestimonials from "./MobileAppTestimonials";
@@ -27,6 +28,8 @@ export default function MobileAppDevelopmentPage({
       />
 
       <MobileAppFeatures data={data.features} />
+
+      <MobileAppGrowthPartner data={data.growthPartner} />
 
       <MobileAppTestimonials data={data.testimonials} />
       <MobileAppFAQ data={data.faq} />

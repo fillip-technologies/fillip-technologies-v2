@@ -25,6 +25,9 @@ export default async function MobileAppPreviewPage({
   if (!page || page.template !== "mobile-app") notFound();
 
   const data = (await getServicePageData(slug, "mobile-app")) as MobileAppDevelopmentContent;
+  if (!data.growthPartner && MOBILE_CONTENT[slug]?.growthPartner) {
+    data.growthPartner = MOBILE_CONTENT[slug].growthPartner;
+  }
 
   return (
     <>

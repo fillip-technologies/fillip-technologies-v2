@@ -61,6 +61,26 @@ export const appUiUxMobileAppContent = {
       { title: "Developer-Ready Files", description: "Prepare clean handoff for faster builds.", icon: "Cloud" },
     ],
   },
+  growthPartner: {
+    badge: "BUSINESS GROWTH PARTNER",
+    title: "Why Businesses Opt For",
+    highlightedTitle: "Fillip Technologies As Their Business Growth Partner?",
+    description:
+      "App development is much more than developing an application. It is about building a mobile solution that helps you grow your business and delivers an excellent user experience. With Fillip Technologies, get innovative, strategic, and advanced technology-driven UI/UX design that ensures high user engagement, retention, and seamless performance. As a well-recognized Mobile App Development Company, we help you develop applications that not only meet today’s requirements but also scale up to support your future endeavors.",
+    subDescription:
+      "Find out how an app designed by us differs from generic mobile templates.",
+    standardLabel: "Generic App Design",
+    fillipLabel: "UX Design by Fillip Technologies",
+    rows: [
+      { standard: "Generic UI", fillip: "Business-Centric UX" },
+      { standard: "Slow Performance", fillip: "Optimized Performance" },
+      { standard: "Basic Security", fillip: "Enterprise Security" },
+      { standard: "Limited Features", fillip: "Fully Customized" },
+      { standard: "Hard to Scale", fillip: "Future Ready" },
+      { standard: "No AI", fillip: "AI-Integrated" },
+      { standard: "Weak Support", fillip: "Dedicated Support" },
+    ],
+  },
   whyChooseUs: {
     badge: "WHY APP DESIGN MATTERS",
     title: "Great Apps Start With",
@@ -93,11 +113,81 @@ export const appUiUxMobileAppContent = {
     title: "Frequently Asked Questions About App UI/UX Design",
     description: "Common questions before starting mobile app design.",
     faqs: [
-      { question: "Can you design only the app UI without development?", answer: "Yes. We can provide wireframes, UI screens, prototypes, and developer-ready handoff files." },
-      { question: "Do you redesign existing mobile apps?", answer: "Yes. We audit current flows and redesign screens to improve usability, clarity, and conversions." },
-      { question: "Will I get a clickable prototype?", answer: "Yes. We can create interactive prototypes so you can review the user journey before development." },
-      { question: "Can developers use your design files directly?", answer: "Yes. We prepare organized design files, assets, components, and handoff notes." },
-      { question: "How long does app UI/UX design take?", answer: "A typical app design project takes 2-6 weeks depending on the number of screens and complexity." },
+      {
+        question: "What does a Mobile App UI/UX Design Company do?",
+        answer:
+          "A Mobile App UI/UX Design Company creates intuitive interfaces and user journeys that make mobile apps simple and engaging.",
+      },
+      {
+        question: "Why is UI/UX design important for mobile apps?",
+        answer:
+          "Good UI/UX reduces friction, improves usability, and helps users navigate your app effortlessly.",
+      },
+      {
+        question: "Why choose Fillip Technologies for UI/UX design?",
+        answer:
+          "Fillip Technologies delivers user-focused, conversion-driven designs aligned with your business goals.",
+      },
+      {
+        question: "Can a Mobile App UI/UX Design Company design Android apps?",
+        answer:
+          "Yes, we design intuitive and responsive experiences specifically for Android applications.",
+      },
+      {
+        question: "Do you design iOS app interfaces?",
+        answer:
+          "Yes, our Mobile App UI/UX Design Company creates polished iOS experiences tailored to Apple users.",
+      },
+      {
+        question: "Can you design cross-platform app experiences?",
+        answer:
+          "Yes, we create consistent UI/UX experiences for cross-platform mobile applications.",
+      },
+      {
+        question: "Do you create app wireframes?",
+        answer:
+          "Yes, we create detailed wireframes to establish clear navigation and user flows before visual design.",
+      },
+      {
+        question: "Do you provide interactive prototypes?",
+        answer:
+          "Yes, a Mobile App UI/UX Design Company can create interactive prototypes to visualize and test app experiences.",
+      },
+      {
+        question: "Can UI/UX design improve app conversions?",
+        answer:
+          "Yes, strategic design can make CTAs clearer, simplify journeys, and encourage users to take action.",
+      },
+      {
+        question: "Can you improve an existing app's UI/UX?",
+        answer:
+          "Absolutely. As the best Mobile App UI/UX design company, we identify usability issues and redesign confusing interfaces for smoother user experiences.",
+      },
+      {
+        question: "Do you create design systems for mobile apps?",
+        answer:
+          "Yes, we develop scalable design systems that maintain consistency across screens and features.",
+      },
+      {
+        question: "How does a Mobile App UI/UX Design Company improve navigation?",
+        answer:
+          "We create logical information structures and user flows that help users find what they need faster.",
+      },
+      {
+        question: "Can UI/UX design improve user retention?",
+        answer:
+          "Yes, intuitive and enjoyable experiences can increase engagement and encourage users to return.",
+      },
+      {
+        question: "What makes Fillip Technologies different?",
+        answer:
+          "As a Mobile App UI/UX Design Company, we combine user research, strategic thinking, and purposeful design to create meaningful experiences.",
+      },
+      {
+        question: "How can a Mobile App UI/UX Design Company help my business?",
+        answer:
+          "A Mobile App UI/UX Design Company can turn complex app interactions into seamless experiences that support engagement, adoption, and growth.",
+      },
     ],
     ctaTitle: "Ready To Design Your Mobile App?",
     ctaDescription: "Let's plan your app flows, screens, and user experience.",

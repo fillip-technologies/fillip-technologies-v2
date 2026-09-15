@@ -224,6 +224,57 @@ export const MOBILEAPP_SECTION_SPECS: Record<string, SectionSpec> = {
     }),
   },
 
+  growthPartner: {
+    section: {
+      id: "growthPartner",
+      label: "Growth Partner Comparison",
+      description: "Why businesses choose us comparison table: headline, intro, labels, and comparison rows.",
+      ready: true,
+      fields: [
+        { name: "badge", label: "Badge", type: "text", default: "" },
+        { name: "title", label: "Title", type: "text", default: "" },
+        { name: "highlightedTitle", label: "Highlighted title", type: "text", default: "" },
+        { name: "description", label: "Description", type: "textarea", default: "" },
+        { name: "subDescription", label: "Sub-description", type: "textarea", default: "" },
+        { name: "standardLabel", label: "Generic / Standard Label", type: "text", default: "" },
+        { name: "fillipLabel", label: "Fillip Technologies Label", type: "text", default: "" },
+      ],
+      list: {
+        name: "rows",
+        label: "Comparison Rows",
+        itemNoun: "row",
+        itemFields: [
+          { name: "standard", label: "Generic / Standard", type: "text" },
+          { name: "fillip", label: "Fillip Technologies", type: "text" },
+        ],
+        default: [],
+      },
+    },
+    flatten: (d) => ({
+      badge: str(d.badge),
+      title: str(d.title),
+      highlightedTitle: str(d.highlightedTitle),
+      description: str(d.description),
+      subDescription: str(d.subDescription),
+      standardLabel: str(d.standardLabel),
+      fillipLabel: str(d.fillipLabel),
+      rows: (d.rows ?? []).map((r: AnyRec) => ({
+        standard: str(r.standard),
+        fillip: str(r.fillip),
+      })),
+    }),
+    unflatten: (f) => ({
+      badge: f.badge,
+      title: f.title,
+      highlightedTitle: f.highlightedTitle,
+      description: f.description,
+      subDescription: f.subDescription,
+      standardLabel: f.standardLabel,
+      fillipLabel: f.fillipLabel,
+      rows: f.rows ?? [],
+    }),
+  },
+
   testimonials: {
     section: {
       id: "testimonials",
@@ -330,6 +381,7 @@ export const MOBILEAPP_SECTION_IDS = [
   "challenges",
   "solutions",
   "features",
+  "growthPartner",
   "testimonials",
   "faq",
   "guidance",
