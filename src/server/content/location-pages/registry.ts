@@ -2,7 +2,7 @@ import "server-only";
 
 import { dbConnect } from "@/lib/db";
 import { LocationPageModel } from "@/server/db/models";
-import { snapshotRead } from "@/server/content/snapshot-cache";
+import { snapshotRead, invalidateSnapshotMany } from "@/server/content/snapshot-cache";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -201,6 +201,7 @@ export async function insertLocationPage(doc: {
       items: doc.faq.items,
     },
   });
+  await invalidateSnapshotMany([`locationpage:${doc.slug}`, "locationpages:all", "locationpages:enabled"]);
 }
 
 /** Overwrite editable content on an existing page (everything except slug/service_key/city/enabled). */
@@ -249,16 +250,19 @@ export async function updateLocationPageContent(
       },
     }
   );
+  await invalidateSnapshotMany([`locationpage:${slug}`, "locationpages:all", "locationpages:enabled"]);
 }
 
 /** Toggle whether the page is served publicly. */
 export async function setLocationPageEnabled(slug: string, enabled: boolean): Promise<void> {
   await dbConnect();
   await LocationPageModel.updateOne({ slug }, { $set: { enabled, updated_at: new Date() } });
+  await invalidateSnapshotMany([`locationpage:${slug}`, "locationpages:all", "locationpages:enabled"]);
 }
 
 /** Permanently delete a location page. */
 export async function deleteLocationPage(slug: string): Promise<void> {
   await dbConnect();
   await LocationPageModel.deleteOne({ slug });
+  await invalidateSnapshotMany([`locationpage:${slug}`, "locationpages:all", "locationpages:enabled"]);
 }
