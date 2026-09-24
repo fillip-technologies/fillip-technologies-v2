@@ -222,6 +222,7 @@ export const technicalSeoServicePageSchema = z.object({
       image: z.object({
         src: z.string().startsWith("/"),
         alt: nonEmptyString,
+        size: z.enum(["default", "wide"]).optional(),
       }),
     }),
     challenges: z.object({

@@ -155,7 +155,7 @@ export const WHAT_WE_DO_MENU: MegaMenuGroup[][] = [
       items: [
         {
           label: "Technical SEO",
-          href: "/marketing/technical-seo",
+          href: "/technical-seo",
         },
         {
           label: "Local SEO",

@@ -3,8 +3,10 @@ import "server-only";
 import { siteConfig } from "@/config/site";
 import { getAllBlogs } from "@/lib/blogs";
 import { getServiceLandingPage, getServiceLandingPageSlugs } from "@/lib/service-content/repository";
+import { listCaseStudies } from "@/server/content/casestudy-registry";
 import { listIndustries } from "@/server/content/industry-registry";
 import { listServicePages } from "@/server/content/servicepage-registry";
+import { listLocationPages } from "@/server/location-pages/registry";
 import { listCategories } from "@/server/content/whatwedo-registry";
 import { getAllSeoOverrides, getSeoOverride } from "@/server/content/seo-overrides";
 import { normalizePath } from "./urls";
@@ -35,6 +37,7 @@ const staticPages: SeoPageRecord[] = [
   staticRecord("/our-culture", "Our Culture | Fillip Technologies", "Explore the people, values, work culture, and team spirit behind Fillip Technologies.", 0.4),
   staticRecord("/portfolio", "Portfolio | Fillip Technologies", "View creative, web, technology, and digital work delivered by Fillip Technologies.", 0.45),
   staticRecord("/services", "Services | Fillip Technologies", "Explore website development, SEO, mobile app, software, marketing, design, automation, and digital services from Fillip Technologies.", 0.65),
+  staticRecord("/social-media-marketing", "Social Media Marketing | Fillip Technologies", "Social media marketing, content, and community growth services from Fillip Technologies.", 0.45),
   staticRecord("/website-development", "Website Development | Fillip Technologies", "Build fast, scalable, responsive, and SEO-ready websites with Fillip Technologies.", 0.55),
   staticRecord("/wordpress-development", "WordPress Development | Fillip Technologies", "Custom WordPress website design, development, maintenance, and optimization services by Fillip Technologies.", 0.5),
   staticRecord("/ecommerce-development", "Ecommerce Development | Fillip Technologies", "Ecommerce website and platform development services for growing online businesses.", 0.5),
@@ -43,8 +46,8 @@ const staticPages: SeoPageRecord[] = [
   staticRecord("/performance-marketing", "Performance Marketing | Fillip Technologies", "Performance marketing campaigns focused on measurable leads, conversions, and growth.", 0.55),
   staticRecord("/graphic-designing", "Premium Graphic Designing Services | Fillip Technologies", "Premium graphic design, brand identity, creative design, and visual communication services.", 0.5),
   staticRecord("/security-surveillance", "Security Surveillance | Fillip Technologies", "Security surveillance and hardware solution services for homes, offices, institutions, and organizations.", 0.45),
-  staticRecord("/messenger", "WhatsApp Business Solutions | Fillip Technologies", "WhatsApp Business, chatbot, and messaging automation solutions for sales, support, and engagement.", 0.45),
-  staticRecord("/sms-communication", "SMS Communication Solutions | Fillip Technologies", "SMS communication solutions for customer notifications, campaigns, alerts, and business engagement.", 0.45),
+  staticRecord("/messenger", "WhatsApp Business Solutions | Fillip Technologies", "WhatsApp Business, chatbot, and messaging automation solutions for sales, support, and engagement.", 0.45, true, "/solutions/whatsapp-business"),
+  staticRecord("/sms-communication", "SMS Communication Solutions | Fillip Technologies", "SMS communication solutions for customer notifications, campaigns, alerts, and business engagement.", 0.45, true, "/solutions/sms-communication"),
   staticRecord("/ticket-booking", "Ticketing Platform Development Services | Fillip Technologies", "Ticketing platform development services for bookings, operations, dashboards, and event workflows.", 0.45),
   staticRecord("/get-a-quote", "Get a Quote | Fillip Technologies", "Request a project estimate from Fillip Technologies for digital, software, website, app, and marketing services.", 0.35, false),
   staticRecord("/get-a-quote/requirement", "Project Requirement | Fillip Technologies", "Share your project requirement with Fillip Technologies.", 0.25, false),
@@ -54,14 +57,40 @@ const staticPages: SeoPageRecord[] = [
   staticRecord("/terms", "Terms | Fillip Technologies", "Read the Fillip Technologies terms of service.", 0.2),
   staticRecord("/cookies", "Cookie Policy | Fillip Technologies", "Read the Fillip Technologies cookie policy.", 0.2),
   staticRecord("/compliance", "Compliance | Fillip Technologies", "Review Fillip Technologies compliance information.", 0.2),
+  // Alias route: renders the Healthcare industry page verbatim. Kept live for
+  // any inbound links, canonicalised to the page it duplicates.
+  staticRecord(
+    "/industries/healthcare-web-design",
+    "Healthcare Web Design | Fillip Technologies",
+    "Healthcare website design and digital solutions by Fillip Technologies.",
+    0.4,
+    true,
+    "/industries/healthcare"
+  ),
 ];
+
+/**
+ * Routes that render real content but deliberately defer to another URL as the
+ * indexable one. `sitemap.ts` lists canonical URLs only, so an alias listed here
+ * stops competing with the page it duplicates without being taken offline.
+ */
+const CMS_CANONICAL_ALIASES: Record<string, string> = {
+  // The file-based landing page at /technical-seo is the retained canonical for
+  // this topic (see redirects.json — the old /technical-seo -> /marketing/...
+  // rule was removed because it put a redirecting URL in the sitemap).
+  "/marketing/technical-seo": "/technical-seo",
+};
 
 function staticRecord(
   path: string,
   title: string,
   description: string,
   priority: number,
-  index = true
+  index = true,
+  // When a route deliberately points its canonical at a different URL (an alias
+  // route kept for backwards compatibility), pass that URL here. `sitemap.ts`
+  // lists canonical URLs only, so aliases drop out of the sitemap automatically.
+  canonical: string = path
 ): SeoPageRecord {
   return {
     path,
@@ -69,7 +98,7 @@ function staticRecord(
     status: "published",
     title,
     description,
-    canonical: path,
+    canonical,
     robots: { index, follow: true },
     openGraph: { image: siteConfig.defaultOpenGraphImage, type: "website" },
     schema: { webpage: true, breadcrumb: true },
@@ -90,6 +119,8 @@ async function buildBaseRecords(): Promise<SeoPageRecord[]> {
     addJsonLandingPages(records),
     addBlogPages(records),
     addCmsPages(records),
+    addCaseStudies(records),
+    addLocationPages(records),
   ]);
 
   return dedupeRecords(records).sort((a, b) => a.path.localeCompare(b.path));
@@ -187,7 +218,7 @@ async function addCmsPages(records: SeoPageRecord[]) {
       status: cmsStatus(page.published),
       title: `${name} | ${siteConfig.name}`,
       description: `${name} services by ${siteConfig.name}.`,
-      canonical: href,
+      canonical: CMS_CANONICAL_ALIASES[href] ?? href,
       robots: { index: true, follow: true },
       openGraph: { image: siteConfig.defaultOpenGraphImage, type: "website" },
       serviceName: name,
@@ -234,6 +265,81 @@ async function addCmsPages(records: SeoPageRecord[]) {
       priority: 0.5,
       changeFrequency: "monthly",
       source: `cms-category:${category.slug}`,
+    });
+  }
+}
+
+// Case-study detail pages live in the `case_studies` collection and render at
+// /case-studies/<slug>. Without this they render fine but never reach the
+// sitemap, which is where the overview page's only inbound crawl path is.
+async function addCaseStudies(records: SeoPageRecord[]) {
+  for (const study of await listCaseStudies()) {
+    records.push({
+      path: `/case-studies/${study.slug}`,
+      slug: study.slug,
+      kind: "static",
+      status: cmsStatus(study.published),
+      title: `${study.title} | ${siteConfig.name}`,
+      description: study.hero.description || `${study.title} — a ${study.industry} case study by ${siteConfig.name}.`,
+      canonical: `/case-studies/${study.slug}`,
+      robots: { index: true, follow: true },
+      openGraph: {
+        image: study.hero.cardImage || study.hero.heroImage || siteConfig.defaultOpenGraphImage,
+        type: "article",
+      },
+      h1: study.hero.title || study.title,
+      breadcrumbs: [
+        { name: "Home", item: "/" },
+        { name: "Case Studies", item: "/case-studies" },
+        { name: study.title, item: `/case-studies/${study.slug}` },
+      ],
+      schema: { webpage: true, breadcrumb: true },
+      priority: 0.5,
+      changeFrequency: "monthly",
+      source: `case-study:${study.slug}`,
+    });
+  }
+}
+
+// Admin-managed "<service> in <city>" pages served through the [landingSlug]
+// catch-all. They were previously absent from the sitemap entirely.
+async function addLocationPages(records: SeoPageRecord[]) {
+  for (const page of await listLocationPages()) {
+    const path = page.seo.canonical || `/${page.slug}`;
+    records.push({
+      path: `/${page.slug}`,
+      slug: page.slug,
+      kind: "landing",
+      status: page.enabled ? "published" : "draft",
+      title: page.seo.title,
+      description: page.seo.description,
+      canonical: path,
+      robots: page.seo.robots,
+      openGraph: {
+        title: page.seo.openGraph.title || page.seo.title,
+        description: page.seo.openGraph.description || page.seo.description,
+        image: page.seo.openGraph.image || siteConfig.defaultOpenGraphImage,
+        type: "website",
+      },
+      serviceName: page.serviceKey,
+      city: page.city?.name
+        ? { name: page.city.name, state: page.city.state, country: page.city.country }
+        : undefined,
+      h1: [page.content.hero.title, page.content.hero.highlightedTitle]
+        .filter(Boolean)
+        .join(" ")
+        .trim(),
+      faq: page.faq.items,
+      schema: {
+        webpage: true,
+        service: true,
+        breadcrumb: true,
+        faq: Boolean(page.faq.items.length),
+        localBusiness: Boolean(page.city?.name),
+      },
+      priority: 0.7,
+      changeFrequency: "monthly",
+      source: `location-page:${page.slug}`,
     });
   }
 }

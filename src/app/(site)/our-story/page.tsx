@@ -8,7 +8,7 @@ import { getPageSection, pageSectionDefaults } from "@/server/content/page-secti
 
 export const metadata: Metadata = {
   title: "Our Story | Fillip Technologies",
-  description: "Discover the journey of Fillip Technologies. Founded in 2018, we grew from a small local agency into a global digital partner delivering software engineering, SaaS systems, and high-impact digital marketing.",
+  description: "Discover the journey of Fillip Technologies. Founded in 2013, we grew from a small local agency into a global digital partner delivering software engineering, SaaS systems, and high-impact digital marketing.",
   alternates: { canonical: "/our-story" },
 };
 

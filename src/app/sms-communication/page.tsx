@@ -4,6 +4,7 @@ import Footer from "@/components/layouts/Footer";
 import SmsCommunicationSolutionPage from "@/components/solutions/SmsCommunicationSolutionPage";
 import { getSmsCommunicationContent } from "@/server/content/solution-page-content";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
+import { JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
   title: "SMS Communication Solution | Fillip Technologies",
@@ -21,6 +22,7 @@ export default async function SmsCommunicationPage() {
   ]);
   return (
     <>
+      <JsonLdScript data={siteJsonLd()} />
       <Navbar />
       <SmsCommunicationSolutionPage content={content} testimonials={testimonials} />
       <Footer />

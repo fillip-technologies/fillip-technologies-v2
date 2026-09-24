@@ -20,7 +20,7 @@ export default function Faq({ content: raw = {} }: { content?: Record<string, un
       content.description ??
       "Have questions about our digital services? We've got answers. Explore our FAQs or get in touch for custom requirements.",
   };
-  const faqs = content.items?.length ? content.items : HOME_FAQS;
+  const faqs = content.items && content.items.length >= 15 ? content.items : HOME_FAQS;
 
   const [open, setOpen] = useState<number | null>(0);
 

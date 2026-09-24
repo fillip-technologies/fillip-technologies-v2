@@ -5,7 +5,7 @@ import Navbar from "@/components/layouts/Navbar";
 import AIAutomationLandingTemplate from "@/components/service-landing/templates/AIAutomationLandingTemplate";
 import { getServiceLandingPage } from "@/lib/service-content/repository";
 import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/metadata";
-import { buildJsonLdForPage, JsonLdScript } from "@/lib/seo/schema";
+import { buildJsonLdForPage, JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getServiceLandingPage("aichatbots");
@@ -20,7 +20,7 @@ export default async function AIChatbotsPage() {
 
   return (
     <>
-      <JsonLdScript data={buildJsonLdForPage(serviceLandingToSeoRecord(page))} />
+      <JsonLdScript data={[...siteJsonLd(), ...buildJsonLdForPage(serviceLandingToSeoRecord(page))]} />
       <Navbar />
       <AIAutomationLandingTemplate page={page} />
       <Footer />

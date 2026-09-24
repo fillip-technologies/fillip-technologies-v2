@@ -127,11 +127,28 @@ export type MobileAppFAQContent = {
   ctaButtonText: string;
 };
 
+export type MobileAppComparisonRow = {
+  standard: string;
+  fillip: string;
+};
+
+export type MobileAppGrowthPartnerContent = {
+  badge?: string;
+  title: string;
+  highlightedTitle: string;
+  description: string;
+  subDescription?: string;
+  standardLabel: string;
+  fillipLabel: string;
+  rows: MobileAppComparisonRow[];
+};
+
 export type MobileAppDevelopmentContent = {
   hero: MobileAppHeroContent;
   challenges: MobileAppChallengesContent;
   solutions: MobileAppSolutionsContent;
   features: MobileAppFeaturesContent;
+  growthPartner?: MobileAppGrowthPartnerContent;
   whyChooseUs: MobileAppWhyChooseUsContent;
   testimonials: MobileAppTestimonialsContent;
   faq: MobileAppFAQContent;

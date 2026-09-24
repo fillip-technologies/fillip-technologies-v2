@@ -1,0 +1,114 @@
+{
+  "slug": "web-development-company-in-patna",
+  "serviceKey": "web-development",
+  "enabled": true,
+  "status": "published",
+  "city": {
+    "name": "Patna",
+    "state": "Bihar",
+    "country": "India"
+  },
+  "seo": {
+    "title": "Best Web Development Company in Patna",
+    "description": "Fillip Technologies is a web development company in Patna building business websites, ecommerce stores, WordPress sites and custom web applications that are fast, responsive and easy to manage.",
+    "canonical": "/web-development-company-in-patna",
+    "keywords": [
+      "web development company in Patna",
+      "best web development company in Patna",
+      "website development company in Patna",
+      "web development agency Patna",
+      "web developers in Patna"
+    ],
+    "openGraph": {
+      "title": "Best Web Development Company in Patna",
+      "description": "Business websites, ecommerce stores, WordPress and custom web applications built for Patna businesses.",
+      "image": "/images/web-img.png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Best Web Development Company in Patna",
+      "description": "Business websites, ecommerce stores, WordPress and custom web applications built for Patna businesses.",
+      "image": "/images/web-img.png"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "content": {
+    "hero": {
+      "title": "Web Development Company in ",
+      "highlightedTitle": "Patna",
+      "description": "Business websites, ecommerce stores, WordPress sites and custom web applications, built for Patna businesses that need a site which loads fast, works on every device and is simple to update."
+    },
+    "challenges": {
+      "eyebrow": "Web Development Challenges for Patna Businesses",
+      "title": "A Website Should Be Built To Run,",
+      "highlightedTitle": "Not Just To Launch.",
+      "description": "Plenty of businesses in Patna launch a website and then find they cannot update it, it slows down as content grows, or it breaks on mobile.",
+      "secondaryDescription": "At Fillip Technologies, we build on stable, well-supported technology and hand over a site your team can actually manage after launch.",
+      "cta": "Discuss Your Project",
+      "items": [
+        {
+          "title": "Hard To Update",
+          "description": "When every small text or image change needs a developer, the website stops reflecting the business. We hand over a content structure your own team can manage."
+        },
+        {
+          "title": "Slow As It Grows",
+          "description": "Sites that were quick on day one often slow down once real content, images and traffic arrive. We build with performance in mind from the start."
+        },
+        {
+          "title": "Breaks On Mobile",
+          "description": "Most visitors in Patna arrive on a phone. Layouts that were only checked on a desktop lose those visitors immediately."
+        },
+        {
+          "title": "No Room To Extend",
+          "description": "Adding a booking form, a payment gateway or a new section should not mean rebuilding. We structure projects so they can grow."
+        },
+        {
+          "title": "Nothing After Handover",
+          "description": "A site left without updates or backups becomes a liability. We stay available for maintenance and improvements after launch."
+        }
+      ]
+    }
+  },
+  "faq": {
+    "badge": "Web Development Patna FAQs",
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about web development services for businesses in Patna.",
+    "items": [
+      {
+        "question": "What is the difference between web design and web development?",
+        "answer": "Design covers how the site looks and how visitors move through it. Development is the build — the code, the content structure, forms, integrations and everything that makes it work. We handle both, so you do not need to coordinate two vendors."
+      },
+      {
+        "question": "What kinds of websites do you build?",
+        "answer": "Business and corporate websites, ecommerce stores, WordPress sites, website redesigns, and custom web applications such as portals and internal tools."
+      },
+      {
+        "question": "Will I be able to update the website myself?",
+        "answer": "Yes. We set up the content structure and walk your team through it at handover, so routine text, image and page updates do not need a developer."
+      },
+      {
+        "question": "Will the website work properly on mobile?",
+        "answer": "Yes. Every site is built mobile-first and checked across phone, tablet and desktop before launch."
+      },
+      {
+        "question": "Can you redesign our existing website instead of starting over?",
+        "answer": "Yes. We review what you already have, keep what is working, and improve structure, performance, usability and the paths that lead to enquiries."
+      },
+      {
+        "question": "Can you integrate payments, bookings or other third-party tools?",
+        "answer": "Yes. Payment gateways, booking and enquiry flows, CRM and marketing tools, and other third-party services can be integrated as part of the build."
+      },
+      {
+        "question": "How long does a web development project take and what does it cost?",
+        "answer": "It depends on the number of pages or modules, the features involved and how much content is ready. We share a written timeline and estimate after discussing your requirement."
+      },
+      {
+        "question": "Do you offer maintenance after the website is live?",
+        "answer": "Yes. We provide ongoing maintenance covering updates, backups, security, performance and content changes."
+      }
+    ]
+  }
+}

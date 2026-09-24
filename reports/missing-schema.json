@@ -5,5 +5,12 @@
     "message": "Missing Breadcrumb schema",
     "path": "/",
     "source": "src/app/(site)/page.tsx"
+  },
+  {
+    "severity": "WARNING",
+    "code": "MISSING_BREADCRUMB_SCHEMA",
+    "message": "Missing Breadcrumb schema",
+    "path": "/",
+    "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
   }
 ]

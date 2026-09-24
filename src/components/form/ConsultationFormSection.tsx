@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { X } from "lucide-react";
 import ConsultationForm from "./ConsultationForm";
 
 const emptySubscribe = () => () => {};
@@ -11,12 +12,19 @@ export default function ConsultationFormSection({
     titleLine1 = "Let's Discuss Your",
     titleLine2 = "Next Project",
     description = "Tell us about your requirements and our team will get back to you within 24 hours.",
+    isOpen = false,
+    onClose,
 }: {
     showOnlyForm?: boolean;
     className?: string;
     titleLine1?: string;
     titleLine2?: string;
     description?: string;
+    // Modal mode is opt-in and keyed off onClose: pass it (with isOpen) to get
+    // the section inside a dismissible overlay. Call sites that omit it render
+    // exactly as before, as a normal in-page section.
+    isOpen?: boolean;
+    onClose?: () => void;
 }) {
     // Render the decorative background video only after hydration. Browser
     // extensions (e.g. video speed controllers) inject controls into <video>
@@ -50,6 +58,60 @@ export default function ConsultationFormSection({
         io.observe(el);
         return () => io.disconnect();
     }, [videoInView]);
+
+    const isModal = typeof onClose === "function";
+
+    // Escape to dismiss, and lock background scroll while the overlay is up.
+    // Both are no-ops unless this instance is actually being used as a modal.
+    useEffect(() => {
+        if (!isModal || !isOpen) return;
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") onClose?.();
+        };
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isModal, isOpen, onClose]);
+
+    if (isModal) {
+        if (!isOpen) return null;
+        // Renders the same section through a plain (non-modal) instance of this
+        // component, so the overlay never duplicates the markup below.
+        return (
+            <div
+                role="dialog"
+                aria-modal="true"
+                onClick={onClose}
+                className="fixed inset-0 z-[100] flex overflow-y-auto bg-slate-900/60 p-4 backdrop-blur-sm sm:p-6"
+            >
+                <div
+                    onClick={(event) => event.stopPropagation()}
+                    className="relative m-auto w-full max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl"
+                >
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        aria-label="Close consultation form"
+                        className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-600 shadow-md transition hover:bg-white hover:text-slate-900"
+                    >
+                        <X className="h-5 w-5" />
+                    </button>
+
+                    <ConsultationFormSection
+                        showOnlyForm={showOnlyForm}
+                        className={className === "py-24" ? "py-12" : className}
+                        titleLine1={titleLine1}
+                        titleLine2={titleLine2}
+                        description={description}
+                    />
+                </div>
+            </div>
+        );
+    }
 
     if (showOnlyForm) {
         return (

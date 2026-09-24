@@ -12,6 +12,7 @@ type SEOHeroSectionProps = {
 
 export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
     const outlineText = data?.outlineText ?? "SEO";
+    const isWideImage = data?.image?.size === "wide";
 
     return (
         <section className="relative overflow-hidden pt-32 pb-24">
@@ -122,9 +123,14 @@ export default function SEOHeroSection({ data }: SEOHeroSectionProps) {
                         <Image
                             src={data?.image?.src ?? "/images/seo-magnifier.png"}
                             alt={data?.image?.alt ?? "SEO Illustration"}
-                            width={650}
-                            height={650}
-                            className="relative z-10 max-w-[320px]"
+                            width={isWideImage ? 1200 : 650}
+                            height={isWideImage ? 675 : 650}
+                            sizes={isWideImage ? "(max-width: 1024px) 90vw, 660px" : undefined}
+                            className={
+                                isWideImage
+                                    ? "relative z-10 w-full max-w-[560px] rounded-2xl shadow-xl shadow-slate-900/10 lg:w-[112%] lg:max-w-none"
+                                    : "relative z-10 max-w-[320px]"
+                            }
                         />
 
                     </div>

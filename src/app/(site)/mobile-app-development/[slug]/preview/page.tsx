@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import MobileAppDevelopmentPage from "@/components/mobile-app-development/MobileAppDevelopmentPage";
 import type { MobileAppDevelopmentContent } from "@/data/mobile-app-development";
+import { MOBILE_CONTENT } from "@/server/content/mobileapp-sections";
 import {
   getServicePage,
   getServicePageData,
@@ -25,6 +26,9 @@ export default async function MobileAppPreviewPage({
   if (!page || page.template !== "mobile-app") notFound();
 
   const data = (await getServicePageData(slug, "mobile-app")) as MobileAppDevelopmentContent;
+  if (!data.growthPartner && MOBILE_CONTENT[slug]?.growthPartner) {
+    data.growthPartner = MOBILE_CONTENT[slug].growthPartner;
+  }
 
   return (
     <>

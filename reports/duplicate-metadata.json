@@ -1,7 +1,7 @@
 {
   "titles": [
     {
-      "key": "lead generation service in guwahati | fillip technologies",
+      "key": "lead generation service in guwahati",
       "count": 2,
       "records": [
         {
@@ -11,20 +11,6 @@
         {
           "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
           "source": "src/data/services/lead-generation/pages/Guwahati.json"
-        }
-      ]
-    },
-    {
-      "key": "website design company in hyderabad | fillip technologies",
-      "count": 2,
-      "records": [
-        {
-          "path": "/website-design-company-in-hyderabad",
-          "source": "src/data/services/website-design/pages/hyderabad.json"
-        },
-        {
-          "path": "/website-design-company-in-hydreabad",
-          "source": "src/data/services/website-design/pages/hydreabad.json"
         }
       ]
     }
@@ -57,6 +43,20 @@
         {
           "path": "https://filliptechnologies.com/lead-generation-service-in-guwahati/",
           "source": "src/data/services/lead-generation/pages/Guwahati.json"
+        }
+      ]
+    },
+    {
+      "key": "https://filliptechnologies.com/",
+      "count": 2,
+      "records": [
+        {
+          "path": "/",
+          "source": "src/app/(site)/page.tsx"
+        },
+        {
+          "path": "/",
+          "source": "src/app/DASHBOARD_EDIT_REFERENCE_cms_page.tsx"
         }
       ]
     }

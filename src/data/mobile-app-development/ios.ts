@@ -61,6 +61,26 @@ export const iosMobileAppContent = {
       { title: "Scalable Codebase", description: "Plan for future app versions and features.", icon: "Layers3" },
     ],
   },
+  growthPartner: {
+    badge: "BUSINESS GROWTH PARTNER",
+    title: "Why Businesses Opt For",
+    highlightedTitle: "Fillip Technologies As Their Business Growth Partner?",
+    description:
+      "App development is much more than developing an application. It is about building a mobile solution that helps you grow your business and delivers an excellent user experience. With Fillip Technologies, get innovative, strategic, and advanced technology-driven iOS applications that ensure the security, scalability, and superior performance of your Apple solution. As a well-recognized Mobile App Development Company, we help you develop applications that not only meet today’s requirements but also scale up to support your future endeavors.",
+    subDescription:
+      "Find out how an iOS application developed by us differs from other mobile applications.",
+    standardLabel: "Generic iOS App",
+    fillipLabel: "iOS App by Fillip Technologies",
+    rows: [
+      { standard: "Generic UI", fillip: "Business-Centric UX" },
+      { standard: "Slow Performance", fillip: "Optimized Performance" },
+      { standard: "Basic Security", fillip: "Enterprise Security" },
+      { standard: "Limited Features", fillip: "Fully Customized" },
+      { standard: "Hard to Scale", fillip: "Future Ready" },
+      { standard: "No AI", fillip: "AI-Integrated" },
+      { standard: "Weak Support", fillip: "Dedicated Support" },
+    ],
+  },
   whyChooseUs: {
     badge: "WHY IOS APPS MATTER",
     title: "Premium Users Expect",
@@ -91,13 +111,83 @@ export const iosMobileAppContent = {
   },
   faq: {
     title: "Frequently Asked Questions About iOS App Development",
-    description: "Common questions before building a custom iOS app.",
+    description: "Common questions businesses ask before building a custom iOS application.",
     faqs: [
-      { question: "Do you build iPhone and iPad apps?", answer: "Yes. We build iOS apps for iPhone and iPad based on your business requirements." },
-      { question: "Can you help with App Store submission?", answer: "Yes. We support App Store build preparation, listing assets, review guidance, and release steps." },
-      { question: "Can the iOS app integrate with existing systems?", answer: "Yes. We integrate with CRMs, ERPs, payment gateways, websites, cloud tools, and APIs." },
-      { question: "How long does an iOS app take?", answer: "Most iOS apps take 8-16 weeks depending on scope, design, integrations, and backend needs." },
-      { question: "Do you provide post-launch support?", answer: "Yes. We provide maintenance, updates, bug fixes, and feature enhancements." },
+      {
+        question: "Why choose Fillip Technologies as an iOS App Development Company?",
+        answer:
+          "As an experienced iOS App Development Company, we build secure, scalable, and high-performance apps aligned with your business goals.",
+      },
+      {
+        question: "What types of iOS applications do you develop?",
+        answer:
+          "Our iOS App Development Company develops eCommerce, business, booking, analytics, customer, and enterprise applications.",
+      },
+      {
+        question: "Can you develop a custom iPhone application?",
+        answer:
+          "Yes, we create fully customized iPhone applications with features, workflows, and interfaces tailored to your requirements.",
+      },
+      {
+        question: "Do you develop custom iPad applications?",
+        answer:
+          "Yes, our iOS App Development Company designs and develops iPad applications optimized for usability and performance.",
+      },
+      {
+        question: "Can you integrate an iOS app with my existing business systems?",
+        answer:
+          "Yes, we integrate iOS apps with CRMs, ERPs, APIs, payment gateways, cloud platforms, and other business systems.",
+      },
+      {
+        question: "How secure will my iOS application be?",
+        answer:
+          "Our iOS App Development Company follows secure development practices, authentication controls, encryption, and API security measures.",
+      },
+      {
+        question: "Can you develop an iOS app for my eCommerce business?",
+        answer:
+          "Yes, we build eCommerce apps with seamless browsing, secure payments, order tracking, and personalized shopping experiences.",
+      },
+      {
+        question: "Can you help publish my app on the Apple App Store?",
+        answer:
+          "Yes, our iOS App Development Company can support app preparation and submission for the Apple App Store.",
+      },
+      {
+        question: "How long does iOS app development take?",
+        answer:
+          "The timeline depends on your app's complexity, features, integrations, design requirements, and testing scope.",
+      },
+      {
+        question: "Do you provide UI/UX design for iOS apps?",
+        answer:
+          "Yes, we create intuitive, Apple-ready interfaces that deliver seamless and engaging user experiences.",
+      },
+      {
+        question: "Can you add AI-powered features to an iOS application?",
+        answer:
+          "Yes, we can integrate suitable AI capabilities to create smarter, more personalized, and efficient app experiences.",
+      },
+      {
+        question: "Can you upgrade or modernize an existing iOS application?",
+        answer:
+          "Yes, our iOS App Development Company can improve existing apps with modern features, UX, and technology.",
+      },
+      {
+        question: "Do you provide maintenance after launching an iOS app?",
+        answer:
+          "Yes, we provide ongoing updates, bug fixes, optimization, security improvements, and feature enhancements.",
+      },
+      {
+        question: "Can my iOS app scale as my business grows?",
+        answer:
+          "Absolutely, we build scalable applications designed to support growing users, features, and business requirements.",
+      },
+      {
+        question: "What makes Fillip Technologies a trusted iOS App Development Company?",
+        answer:
+          "As a trusted iOS App Development Company, we combine premium UX, modern technology, security, scalability, and dedicated support.",
+      },
     ],
     ctaTitle: "Ready To Build Your iOS App?",
     ctaDescription: "Let's plan your iOS app experience and launch roadmap.",

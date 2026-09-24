@@ -79,6 +79,9 @@ export type TechnicalSeoHeroContent = {
   image: {
     src: string;
     alt: string;
+    // Most pages use a portrait illustration that sits inside the hero rings.
+    // "wide" is for landscape photos/screenshots, which look undersized there.
+    size?: "default" | "wide";
   };
 };
 

@@ -156,6 +156,26 @@ export const enterpriseMobileAppContent = {
       },
     ],
   },
+  growthPartner: {
+    badge: "BUSINESS GROWTH PARTNER",
+    title: "Why Businesses Opt For",
+    highlightedTitle: "Fillip Technologies As Their Business Growth Partner?",
+    description:
+      "App development is much more than developing an application. It is about building a mobile solution that helps you grow your business and delivers an excellent user experience. With Fillip Technologies, get innovative, strategic, and advanced technology-driven enterprise applications that ensure the security, scalability, and superior performance of your mobile solution. As a well-recognized Mobile App Development Company, we help you develop applications that not only meet today’s requirements but also scale up to support your future endeavors.",
+    subDescription:
+      "Find out how an enterprise application developed by us differs from generic mobile applications.",
+    standardLabel: "Generic Enterprise App",
+    fillipLabel: "Enterprise App by Fillip Technologies",
+    rows: [
+      { standard: "Generic UI", fillip: "Business-Centric UX" },
+      { standard: "Slow Performance", fillip: "Optimized Performance" },
+      { standard: "Basic Security", fillip: "Enterprise Security" },
+      { standard: "Limited Features", fillip: "Fully Customized" },
+      { standard: "Hard to Scale", fillip: "Future Ready" },
+      { standard: "No AI", fillip: "AI-Integrated" },
+      { standard: "Weak Support", fillip: "Dedicated Support" },
+    ],
+  },
   whyChooseUs: {
     badge: "WHY MOBILE APPS MATTER",
     title: "Your Customers Expect Mobile.",
@@ -239,34 +259,87 @@ export const enterpriseMobileAppContent = {
     faqs: [
       {
         question:
-          "How long does it take to develop an enterprise mobile application?",
+          "Why choose Fillip Technologies as an Enterprise Mobile Applications Company?",
         answer:
-          "The timeline depends on complexity, integrations, security requirements, and feature scope. Most enterprise mobile applications take between 12–24 weeks from planning to deployment.",
+          "As an Enterprise Mobile Applications Company, we build secure, scalable, and business-focused solutions for complex organizational needs.",
       },
       {
-        question: "Do you build apps for both Android and iOS?",
+        question: "What is an enterprise mobile application?",
         answer:
-          "Yes. We develop native Android and iOS applications as well as cross-platform solutions using modern frameworks to maximize efficiency and reach.",
+          "An enterprise mobile application helps organizations manage business processes, teams, data, and workflows more efficiently.",
       },
       {
-        question: "Can you integrate the app with our existing business systems?",
+        question: "What types of enterprise applications do you develop?",
         answer:
-          "Absolutely. We regularly integrate enterprise applications with CRMs, ERPs, HRMS platforms, payment gateways, inventory systems, and custom business software.",
+          "Our Enterprise Mobile Applications Company develops workflow apps, business portals, dashboards, CRM/ERP solutions, and custom enterprise platforms.",
       },
       {
-        question: "How do you ensure enterprise-grade security?",
+        question:
+          "Can enterprise applications integrate with existing business systems?",
         answer:
-          "We implement secure authentication, role-based access controls, encrypted data transmission, secure APIs, compliance best practices, and ongoing security reviews throughout development.",
+          "Yes, we integrate enterprise applications with CRMs, ERPs, APIs, cloud platforms, databases, and third-party tools.",
       },
       {
-        question: "Will the application scale as our organization grows?",
+        question:
+          "Can you develop a fully customized enterprise application?",
         answer:
-          "Yes. Our applications are built with scalable architectures that support increasing users, transactions, locations, and future feature expansions without compromising performance.",
+          "Yes, our Enterprise Mobile Applications Company builds custom solutions around your workflows, operations, and business objectives.",
       },
       {
-        question: "Do you provide support after the application is launched?",
+        question:
+          "How can enterprise applications improve business efficiency?",
         answer:
-          "Yes. We offer ongoing maintenance, performance monitoring, feature enhancements, security updates, and technical support to ensure long-term success.",
+          "They streamline workflows, automate repetitive tasks, improve collaboration, and provide faster access to critical information.",
+      },
+      {
+        question: "Can enterprise applications support automation?",
+        answer:
+          "Yes, enterprise applications can automate workflows, approvals, notifications, reporting, and other recurring business processes.",
+      },
+      {
+        question: "Can AI be integrated into enterprise applications?",
+        answer:
+          "Yes, we can integrate suitable AI capabilities, intelligent automation, analytics, and data-driven features into enterprise solutions.",
+      },
+      {
+        question: "Are enterprise applications scalable?",
+        answer:
+          "Yes, our Enterprise Mobile Applications Company builds scalable applications designed to support growing users, data, features, and operations.",
+      },
+      {
+        question: "How secure are enterprise applications?",
+        answer:
+          "We implement secure architecture, authentication, access controls, and data protection practices for business-critical applications.",
+      },
+      {
+        question:
+          "Can enterprise apps provide real-time business insights?",
+        answer:
+          "Yes, dashboards and analytics features can provide real-time visibility into workflows, operations, and business performance.",
+      },
+      {
+        question:
+          "Can you modernize an existing enterprise application?",
+        answer:
+          "Yes, our Enterprise Mobile Applications Company can upgrade legacy applications with modern technology, automation, integrations, and improved UX.",
+      },
+      {
+        question:
+          "Do you provide support after enterprise application deployment?",
+        answer:
+          "Yes, we provide ongoing maintenance, optimization, updates, technical support, and feature enhancements.",
+      },
+      {
+        question:
+          "Can enterprise applications connect remote and field teams?",
+        answer:
+          "Yes, mobile enterprise applications can help teams access workflows, updates, tasks, and business information from anywhere.",
+      },
+      {
+        question:
+          "What makes Fillip Technologies a trusted Enterprise Mobile Applications Company?",
+        answer:
+          "Our Enterprise Mobile Applications Company combines customized development, automation, integrations, security, scalability, and business-focused strategy.",
       },
     ],
     ctaTitle: "Ready To Build Your Enterprise Mobile App?",

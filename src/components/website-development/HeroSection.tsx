@@ -96,7 +96,7 @@ export default function HeroSection({ data = defaultData }: HeroSectionProps) {
             </span>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl leading-[1.15] dark:text-white">
-              {data.title}
+              {data.title}{" "}
               <br />
               <span className="inline-flex flex-wrap items-center gap-3">
                 {data.prefixText && <span>{data.prefixText}</span>}

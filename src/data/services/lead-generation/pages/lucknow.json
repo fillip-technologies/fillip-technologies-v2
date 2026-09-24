@@ -3,17 +3,17 @@
   "enabled": true,
   "serviceKey": "lead-generation",
   "city": {
-    "name": "[Your City]",
-    "state": "[Your State]",
+    "name": "Lucknow",
+    "state": "Uttar Pradesh",
     "country": "India"
   },
   "seo": {
-    "title": "Lead Generation Service in [Your City]",
-    "description": "Lead generation services in [Your City] designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
-    "canonical": "https://filliptechnologies.com/lead-generation-service-in-[your-city]/",
+    "title": "Lead Generation Service in Lucknow",
+    "description": "Lead generation services in Lucknow designed to attract qualified prospects, improve conversion efficiency, and build a measurable sales pipeline.",
+    "canonical": "/lead-generation-service-in-lucknow",
     "openGraph": {
-      "title": "Lead Generation Service in [Your City]",
-      "description": "Generate qualified business leads in [Your City] through measurable, performance-focused digital campaigns.",
+      "title": "Lead Generation Service in Lucknow",
+      "description": "Generate qualified business leads in Lucknow through measurable, performance-focused digital campaigns.",
       "image": "/images/seo-magnifier.png"
     },
     "robots": {
@@ -25,14 +25,14 @@
     "hero": {
       "title": "Build your pipeline with",
       "highlightedTitle": "Lead Generation",
-      "suffix": "Services in [Your City]",
-      "description": "Attract qualified prospects in [Your City] and convert campaign traffic into measurable sales opportunities.",
+      "suffix": "Services in Lucknow",
+      "description": "Attract qualified prospects in Lucknow and convert campaign traffic into measurable sales opportunities.",
       "cta": "Plan Your Campaign",
       "metricValue": "Leads",
       "metricLabel": "Campaigns focused on quality and conversion efficiency",
       "image": {
         "src": "/images/seo-magnifier.png",
-        "alt": "Lead generation services in [Your City]"
+        "alt": "Lead generation services in Lucknow"
       }
     },
     "philosophy": {
@@ -40,7 +40,7 @@
       "title": "Generate Better Leads.",
       "highlightedTitle": "Not Just More Leads.",
       "lead": "High lead volume has little value when prospects are not qualified.",
-      "support": "We optimize [Your City] campaigns around relevance, intent, and sales potential.",
+      "support": "We optimize Lucknow campaigns around relevance, intent, and sales potential.",
       "description": "Effective lead generation connects precise targeting, compelling offers, focused landing pages, reliable tracking, and continuous sales feedback.",
       "caption": "Lead quality matters more than volume",
       "metrics": [
@@ -56,9 +56,9 @@
       "steps": [
         {
           "title": "Audience & Offer Strategy",
-          "description": "We define ideal prospects in [Your City], campaign channels, offers, qualification rules, and conversion goals.",
+          "description": "We define ideal prospects in Lucknow, campaign channels, offers, qualification rules, and conversion goals.",
           "image": "/images/research-mockup.png",
-          "alt": "Lead generation research in [Your City]"
+          "alt": "Lead generation research in Lucknow"
         },
         {
           "title": "Launch & Capture Leads",
@@ -93,12 +93,12 @@
     }
   },
   "faq": {
-    "badge": "LEAD GENERATION [YOUR CITY] FAQS",
+    "badge": "LEAD GENERATION LUCKNOW FAQS",
     "title": "Frequently Asked Questions",
-    "description": "Common questions about lead generation services in [Your City].",
+    "description": "Common questions about lead generation services in Lucknow.",
     "items": [
       {
-        "question": "Which lead generation channels work for businesses in [Your City]?",
+        "question": "Which lead generation channels work for businesses in Lucknow?",
         "answer": "The right mix depends on your audience and offer. Campaigns may use Google Ads, Meta Ads, landing pages, WhatsApp, remarketing, and other targeted digital channels."
       },
       {
