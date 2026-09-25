@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { ChevronDown, ChevronUp, Plus, Trash2 } from "lucide-react";
-import { saveLocationPage } from "@/server/location-pages/actions";
+import { saveLocationPage } from "@/server/content/location-pages/actions";
 import type { SaveState } from "@/server/content/types";
 
 type LocationContent = {

@@ -8,7 +8,7 @@ import {
   createLocationPage,
   deleteLocationPage,
   setLocationPagePublished,
-} from "@/server/location-pages/actions";
+} from "@/server/content/location-pages/actions";
 
 type LocationPage = {
   slug: string;
