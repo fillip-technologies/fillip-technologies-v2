@@ -252,13 +252,6 @@
     "note": "Legacy flat blog URL from the pre-Next.js site."
   },
   {
-    "source": "/mega-scholarship-test-take-today-earn-a-%e2%82%b93000-merit-scholarship",
-    "destination": "/blog/mega-scholarship-test-take-today-earn-a-%e2%82%b93000-merit-scholarship",
-    "type": 301,
-    "enabled": true,
-    "note": "Legacy flat blog URL from the pre-Next.js site."
-  },
-  {
     "source": "/one-vote-can-change-everything-are-you-ready",
     "destination": "/blog/one-vote-can-change-everything-are-you-ready",
     "type": 301,
