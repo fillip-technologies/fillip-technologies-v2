@@ -1,10 +1,7 @@
 import ServicesHub, { type HubGroup } from "@/components/services/ServicesHub";
 import { listServicePages } from "@/server/content/servicepage-registry";
 import { listPublishedCategories } from "@/server/content/whatwedo-registry";
-import {
-  getServiceLandingPage,
-  getServiceLandingPageSlugs,
-} from "@/lib/service-content/repository";
+import { listEnabledLocationPages } from "@/server/location-pages/registry";
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
 
@@ -57,19 +54,18 @@ const GROUP_FALLBACK: Record<string, { title: string; description: string }> = {
 };
 
 /**
- * The city landing pages for our own base. These already exist as file-based
- * landing pages but had no inbound internal links anywhere on the site, so the
- * hub is where they become reachable. Derived from the landing-page data itself
- * (`city.name`), so a new Patna page appears here without touching this file.
+ * The city landing pages for our own base. They had no inbound internal links
+ * anywhere on the site, so the hub is where they become reachable. Derived from
+ * the admin-managed location pages (`city.name`), so a new Patna page created
+ * under Content → Locations appears here without touching this file.
  */
 async function patnaServiceLinks() {
-  const slugs = await getServiceLandingPageSlugs();
-  const pages = await Promise.all(slugs.map((slug) => getServiceLandingPage(slug)));
+  const pages = await listEnabledLocationPages();
   return pages
-    .filter((page) => page?.city?.name === "Patna")
+    .filter((page) => page.city.name.trim().toLowerCase() === "patna")
     .map((page) => ({
-      label: page!.seo.title.replace(/\s*\|.*$/, "").replace(/^Best\s+/i, ""),
-      href: `/${page!.slug}`,
+      label: page.seo.title.replace(/\s*\|.*$/, "").replace(/^Best\s+/i, ""),
+      href: `/${page.slug}`,
     }))
     .sort((a, b) => a.label.localeCompare(b.label));
 }

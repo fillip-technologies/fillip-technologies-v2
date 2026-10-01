@@ -113,17 +113,21 @@ function staticRecord(
  * CMS), before any admin SEO override is applied. This is the *fallback* layer.
  */
 async function buildBaseRecords(): Promise<SeoPageRecord[]> {
-  const records: SeoPageRecord[] = [...staticPages];
+  // Sources load in parallel but are concatenated in a fixed order, so the
+  // first-record-wins dedupe is deterministic. Admin-managed location pages
+  // precede file-based landing pages, matching the [landingSlug] route.
+  const [locations, cms, caseStudies, blogs, landing] = await Promise.all(
+    [addLocationPages, addCmsPages, addCaseStudies, addBlogPages, addJsonLandingPages].map(
+      async (add) => {
+        const records: SeoPageRecord[] = [];
+        await add(records);
+        return records;
+      }
+    )
+  );
 
-  await Promise.all([
-    addJsonLandingPages(records),
-    addBlogPages(records),
-    addCmsPages(records),
-    addCaseStudies(records),
-    addLocationPages(records),
-  ]);
-
-  return dedupeRecords(records).sort((a, b) => a.path.localeCompare(b.path));
+  return dedupeRecords([...staticPages, ...locations, ...cms, ...caseStudies, ...blogs, ...landing])
+    .sort((a, b) => a.path.localeCompare(b.path));
 }
 
 /**
