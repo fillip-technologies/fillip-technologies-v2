@@ -11,7 +11,8 @@ import { getRedisClient } from "@/lib/redis";
  *
  * `snapshotRead` checks four tiers in order, newest first:
  *
- *   1. in-process memory  — instant; warm after first request in this process.
+ *   1. in-process memory  — instant; warm after first request in this process;
+ *                           reloaded in the background once stale (L1_TTL_MS).
  *   2. Redis              — shared across instances/restarts; populated on every
  *                           DB read; invalidated explicitly on CMS saves.
  *   3. runtime disk       — `.content-snapshot/` written best-effort; survives a
@@ -41,6 +42,8 @@ const seed = seedRaw as Record<string, unknown>;
 const globalForSnapshot = globalThis as unknown as {
   _contentSnapshot?: {
     memory: Map<string, unknown>;
+    /** Epoch ms until which a `memory` entry may be served as an L1 hit. */
+    freshUntil: Map<string, number>;
     writtenJson: Map<string, string>;
     lastLogged: Map<string, number>;
   };
@@ -50,9 +53,32 @@ const store =
   globalForSnapshot._contentSnapshot ??
   (globalForSnapshot._contentSnapshot = {
     memory: new Map(),
+    freshUntil: new Map(),
     writtenJson: new Map(),
     lastLogged: new Map(),
   });
+// A store created by an older module version (dev hot-reload) lacks this map.
+store.freshUntil ??= new Map();
+
+/**
+ * How long an in-process (L1) entry counts as fresh.
+ *
+ * CMS writes only evict L1 in the process that performed them. Other processes
+ * — e.g. production, when content is edited from a local admin against the same
+ * DB — would otherwise serve their copy until restart. A stale entry is still
+ * served instantly but triggers one background reload from the DB
+ * (stale-while-revalidate), so renders never wait on the refresh.
+ */
+const L1_TTL_MS = 60_000;
+
+function setL1(cacheKey: string, raw: unknown): void {
+  store.memory.set(cacheKey, raw);
+  store.freshUntil.set(cacheKey, Date.now() + L1_TTL_MS);
+}
+
+function isL1Stale(cacheKey: string): boolean {
+  return (store.freshUntil.get(cacheKey) ?? 0) <= Date.now();
+}
 
 /* ------------------------------------------------------------------ TTLs -- */
 
@@ -184,7 +210,7 @@ function logFallbackOnce(cacheKey: string, err: unknown): void {
 
 /** Persist a JSON-safe value to memory + disk + Redis (all best-effort). */
 function record(cacheKey: string, stored: unknown): void {
-  store.memory.set(cacheKey, stored);
+  setL1(cacheKey, stored);
   const json = JSON.stringify(stored);
   if (store.writtenJson.get(cacheKey) !== json) {
     store.writtenJson.set(cacheKey, json);
@@ -193,13 +219,45 @@ function record(cacheKey: string, stored: unknown): void {
   }
 }
 
+/**
+ * Reload stale L1 entries without blocking the caller. `load` resolves to the
+ * JSON-safe value per key. It goes straight to the DB rather than Redis: the DB
+ * is the one tier every process shares, while Redis may still hold the
+ * pre-write value. `record` then refreshes Redis + disk if the value changed.
+ */
+function refreshInBackground(
+  cacheKeys: string[],
+  load: () => Promise<Map<string, unknown>>
+): void {
+  // Marking fresh up front dedupes concurrent requests and, while the DB is
+  // down, retries once per TTL instead of once per request.
+  const before = new Map<string, unknown>();
+  for (const key of cacheKeys) {
+    before.set(key, store.memory.get(key));
+    store.freshUntil.set(key, Date.now() + L1_TTL_MS);
+  }
+  void Promise.resolve()
+    .then(load)
+    .then((values) => {
+      for (const [key, stored] of values) {
+        // Skip keys rewritten or evicted mid-reload (e.g. by a CMS save in this
+        // process): this read may predate that write.
+        if (store.memory.has(key) && store.memory.get(key) === before.get(key)) {
+          record(key, stored);
+        }
+      }
+    })
+    .catch((err) => logFallbackOnce(cacheKeys[0], err));
+}
+
 /* ================================================================ public API == */
 
 /**
  * Read one cached value.
  *
  * Tier order: L1 memory → L2 Redis → L3 MongoDB → L4 disk → L5 seed → default.
- * On a warm process (or warm Redis) the DB is never touched.
+ * On a warm process reads never wait on Redis or the DB; stale L1 entries are
+ * reloaded in the background.
  */
 export async function snapshotRead<T>(
   cacheKey: string,
@@ -210,15 +268,18 @@ export async function snapshotRead<T>(
   const serialize = opts?.serialize ?? ((v: T) => v as unknown);
   const deserialize = opts?.deserialize ?? ((r: unknown) => r as T);
 
-  // L1: in-process memory
+  // L1: in-process memory (served even when stale; see L1_TTL_MS)
   if (store.memory.has(cacheKey)) {
+    if (isL1Stale(cacheKey)) {
+      refreshInBackground([cacheKey], async () => new Map([[cacheKey, serialize(await loader())]]));
+    }
     return deserialize(store.memory.get(cacheKey));
   }
 
   // L2: Redis
   const redisCached = await redisGet(cacheKey);
   if (redisCached !== undefined) {
-    store.memory.set(cacheKey, redisCached); // warm L1 for next in-process request
+    setL1(cacheKey, redisCached); // warm L1 for next in-process request
     return deserialize(redisCached);
   }
 
@@ -250,8 +311,19 @@ export async function snapshotReadMany<T>(
   const serialize = opts?.serialize ?? ((v: T) => v as unknown);
   const deserialize = opts?.deserialize ?? ((r: unknown) => r as T);
 
-  // L1: all keys in memory?
+  // L1: all keys in memory? (served even when stale; see L1_TTL_MS)
   if (entries.every(({ cacheKey }) => store.memory.has(cacheKey))) {
+    const keys = entries.map((e) => e.cacheKey);
+    if (keys.some(isL1Stale)) {
+      refreshInBackground(keys, async () => {
+        const values = await loader();
+        const fresh = new Map<string, unknown>();
+        for (const { cacheKey, fallback } of entries) {
+          fresh.set(cacheKey, serialize(values.has(cacheKey) ? (values.get(cacheKey) as T) : fallback));
+        }
+        return fresh;
+      });
+    }
     const out = new Map<string, T>();
     for (const { cacheKey, fallback } of entries) {
       const raw = store.memory.get(cacheKey);
@@ -268,7 +340,7 @@ export async function snapshotReadMany<T>(
       const { cacheKey, fallback } = entries[i];
       const raw = redisResults[i];
       if (raw !== null) {
-        store.memory.set(cacheKey, raw); // warm L1
+        setL1(cacheKey, raw); // warm L1
         out.set(cacheKey, deserialize(raw));
       } else {
         out.set(cacheKey, fallback);
@@ -321,6 +393,7 @@ export function primeMergeSnapshot(
  */
 export async function invalidateSnapshot(cacheKey: string): Promise<void> {
   store.memory.delete(cacheKey);
+  store.freshUntil.delete(cacheKey);
   store.writtenJson.delete(cacheKey);
   await redisDelKeys([cacheKey]);
 }
@@ -331,6 +404,7 @@ export async function invalidateSnapshot(cacheKey: string): Promise<void> {
 export async function invalidateSnapshotMany(cacheKeys: string[]): Promise<void> {
   for (const key of cacheKeys) {
     store.memory.delete(key);
+    store.freshUntil.delete(key);
     store.writtenJson.delete(key);
   }
   await redisDelKeys(cacheKeys);
