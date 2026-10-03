@@ -458,8 +458,7 @@
         "alt": "Fillip's custom quote builder, backed by a Node.js quote and lead flow",
         "width": 1440,
         "height": 760
-      },
-      "href": "/get-a-quote/custom"
+      }
     },
     "projectTypes": [
       "APIs",

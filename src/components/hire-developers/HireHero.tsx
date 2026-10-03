@@ -61,7 +61,7 @@ export default function HireHero({ hero, image }: { hero: HeroContent; image?: H
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
           >
-            <path d="M0 40 C 300 0 480 110 680 220 C 880 320 1180 310 1440 295 L1440 320 L0 320 Z" fill="#ffffff" />
+            <path d="M0 40 C 380 0 620 100 840 225 C 1010 315 1220 308 1440 295 L1440 320 L0 320 Z" fill="#ffffff" />
           </svg>
         </div>
 
@@ -73,7 +73,7 @@ export default function HireHero({ hero, image }: { hero: HeroContent; image?: H
                 {hero.eyebrow}
               </span>
 
-              <h1 className="mt-4 text-4xl font-bold leading-[1.02] tracking-tight text-slate-900 sm:text-5xl xl:text-6xl">
+              <h1 className="mt-4 max-w-xl text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl xl:text-6xl">
                 <HighlightTitle title={hero.title} breakBeforeAfter />
               </h1>
 

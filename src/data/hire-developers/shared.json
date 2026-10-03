@@ -17,7 +17,7 @@
   "hero": {
     "primaryCta": {
       "label": "Hire {Plural}",
-      "href": "/get-a-quote"
+      "href": "/contact"
     },
     "secondaryCta": {
       "label": "Discuss Your Project",
@@ -150,11 +150,11 @@
     "ctas": [
       {
         "label": "Hire {Plural}",
-        "href": "/get-a-quote"
+        "href": "/contact"
       },
       {
-        "label": "Meet the Team",
-        "href": "/our-story"
+        "label": "Talk to Our Team",
+        "href": "/contact"
       }
     ]
   },
@@ -703,7 +703,7 @@
     "description": "Share your requirements and we'll help you find the right {roles} for your product, timeline and engagement model.",
     "primaryCta": {
       "label": "Hire {Plural}",
-      "href": "/get-a-quote"
+      "href": "/contact"
     },
     "secondaryCta": {
       "label": "Discuss Your Project",
