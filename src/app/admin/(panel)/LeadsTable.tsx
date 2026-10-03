@@ -552,7 +552,7 @@ function FilterButton({
 // Locale-formatted timestamp. `suppressHydrationWarning` covers the expected
 // server/client difference in locale + timezone formatting.
 function ReceivedAt({ iso }: { iso: string }) {
-  return <span suppressHydrationWarning>{new Date(iso).toLocaleString()}</span>;
+  return <span suppressHydrationWarning>{new Date(iso).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}</span>;
 }
 
 function Th({ children }: { children: React.ReactNode }) {

@@ -9,7 +9,6 @@ import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/m
 import { buildJsonLdForPage, JsonLdScript } from "@/lib/seo/schema";
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import LocationPageView from "@/components/location-pages/LocationPageView";
-import RelatedCityServices from "@/components/location-pages/RelatedCityServices";
 import {
   getLocationPage,
   listEnabledLocationPages,
@@ -52,7 +51,8 @@ export async function generateMetadata({
   // Admin-managed location pages ("<service> in <city>") take priority —
   // check these first since they're managed outside the service-landing repo.
   const location = await getLocationPage(landingSlug);
-  if (location && location.enabled) {
+  if (location) {
+    if (!location.enabled) notFound();
     return pageMetadata(`/${landingSlug}`, {
       title: location.seo.title,
       description: location.seo.description,
@@ -73,23 +73,6 @@ export async function generateMetadata({
   if (!page) notFound();
 
   return pageMetadata(page.seo.canonical, buildLandingPageMetadata(page));
-}
-
-/**
- * The other landing pages that serve the same city. Read from the same
- * file-based landing data the page itself uses, so a new city page is picked up
- * with no further wiring.
- */
-async function relatedCityLinks(city: string, currentSlug: string) {
-  const slugs = await getServiceLandingPageSlugs();
-  const pages = await Promise.all(slugs.map((slug) => getServiceLandingPage(slug)));
-  return pages
-    .filter((page) => page?.city?.name === city && page.slug !== currentSlug)
-    .map((page) => ({
-      label: page!.seo.title.replace(/\s*\|.*$/, "").replace(/^Best\s+/i, ""),
-      href: `/${page!.slug}`,
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
 }
 
 export default async function ServiceLandingPageRoute({
@@ -118,14 +101,11 @@ export default async function ServiceLandingPageRoute({
 
   const resolved = await pageJsonLd(page.seo.canonical);
   const jsonLd = resolved.length ? resolved : buildJsonLdForPage(serviceLandingToSeoRecord(page));
-  const cityName = page.city?.name;
-  const related = cityName ? await relatedCityLinks(cityName, page.slug) : [];
 
   return (
     <>
       <JsonLdScript data={jsonLd} />
       <ServiceTemplateResolver page={page} />
-      {cityName ? <RelatedCityServices city={cityName} links={related} /> : null}
     </>
   );
 }

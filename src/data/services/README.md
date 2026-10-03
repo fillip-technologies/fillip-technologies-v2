@@ -1,14 +1,11 @@
 # Service landing pages
 
-## Add a city to an existing service
+## City / location pages are not managed here
 
-1. Copy a valid JSON file from that service's `pages` directory.
-2. Rename the file for the city, for example `delhi.json`.
-3. Set a unique `slug`, the city fields, SEO metadata, content overrides, and FAQs.
-4. Keep `serviceKey` identical to the value in the service's `service.json`.
-5. Set `enabled` to `true` when the page is ready to publish.
-
-The shared `[landingSlug]` route discovers enabled JSON files automatically. Do not create a route or component for each city.
+"<service> in <city>" pages are admin-managed: create and edit them under
+Admin → Content → Locations (MongoDB `location_pages`). The shared
+`[landingSlug]` route serves them ahead of anything in this folder. Do not add
+city JSON files here — this folder holds service landing pages only.
 
 ## Add a service that uses an existing template
 
@@ -23,9 +20,9 @@ No routing change is required. Services that share a UI template can publish pag
 1. Build one reusable template for the service family.
 2. Add its content type and Zod override schema.
 3. Register its `templateKey` in the shared loader and template resolver.
-4. Add the service and city JSON files.
+4. Add the service and its page JSON files.
 
-This is a one-time integration for the service family. Future city pages then require JSON only.
+This is a one-time integration for the service family. Future pages for it then require JSON only.
 
 ## Content rules
 

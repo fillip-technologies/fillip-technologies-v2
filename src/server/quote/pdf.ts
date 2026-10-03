@@ -151,6 +151,7 @@ function drawMeta(ctx: Ctx, input: QuoteRequestInput) {
     day: "2-digit",
     month: "long",
     year: "numeric",
+    timeZone: "Asia/Kolkata",
   });
   const left = [
     ["Prepared for", input.name],

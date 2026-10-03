@@ -11,6 +11,7 @@ function formatDate(date: string) {
     month: "long",
     day: "numeric",
     year: "numeric",
+    timeZone: "Asia/Kolkata",
   }).format(new Date(date));
 }
 

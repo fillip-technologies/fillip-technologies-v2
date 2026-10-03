@@ -135,7 +135,7 @@ function RestoreButton({ leadId, onDone }: { leadId: string; onDone: () => void 
 // hydration mismatch).
 function WhenText({ iso }: { iso: string | null }) {
   if (!iso) return <span>—</span>;
-  return <span suppressHydrationWarning>{new Date(iso).toLocaleString()}</span>;
+  return <span suppressHydrationWarning>{new Date(iso).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}</span>;
 }
 
 function Th({ children }: { children: React.ReactNode }) {
