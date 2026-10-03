@@ -78,7 +78,7 @@ function buildHtml(lead: Lead, label: string): string {
     lead.budget ? row("Budget", esc(lead.budget)) : "",
     lead.location ? row("Location", locationHtml(lead.location)) : "",
     row("Source", esc(lead.source ?? "—")),
-    row("Received", new Date(lead.created_at).toLocaleString()),
+    row("Received", new Date(lead.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })),
   ].join("");
 
   return `
