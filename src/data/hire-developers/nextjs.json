@@ -1,0 +1,507 @@
+{
+  "slug": "nextjs",
+  "path": "/hire-nextjs-developers",
+  "role": {
+    "singular": "Next.js developer",
+    "plural": "Next.js developers",
+    "Singular": "Next.js Developer",
+    "Plural": "Next.js Developers",
+    "short": "Next.js",
+    "Short": "Next.js"
+  },
+  "seo": {
+    "title": "Hire Next.js Developers",
+    "metaTitle": "Hire Next.js Developers",
+    "metaDescription": "Hire Next.js developers from Fillip Technologies to build fast, SEO-friendly websites, full-stack web applications and headless CMS platforms with Next.js, React and TypeScript.",
+    "keywords": [
+      "hire Next.js developers",
+      "dedicated Next.js developers",
+      "Next.js development team",
+      "Next.js agency"
+    ]
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/nextjs/hero.jpg",
+      "alt": "Developers working on a modern website on a laptop in a bright office"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/nextjs/capabilities.jpg",
+      "alt": "Illustration for Next.js Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/nextjs/stack.jpg",
+      "alt": "Illustration for Next.js Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/nextjs/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/nextjs/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/nextjs/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/nextjs/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/nextjs/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/nextjs/case-study.jpg",
+      "alt": "Fillip Technologies services page, built with Next.js"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/nextjs/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/nextjs/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Next.js Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "Next.js Developers"
+    },
+    "description": "Hire experienced Next.js developers from Fillip Technologies to build fast, SEO-friendly websites, full-stack web applications and content platforms that are easy to scale.",
+    "floatingCards": {
+      "left": {
+        "title": "Next.js Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "globe"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "SSR",
+          "TS",
+          "API",
+          "CMS"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Next.js Developers",
+      "after": "Build?"
+    },
+    "description": "From high-performance marketing sites to full-stack products, our Next.js developers build web experiences that load fast and rank well.",
+    "items": [
+      {
+        "title": "Next.js Websites",
+        "description": "Build fast, responsive company and marketing websites on Next.js.",
+        "icon": "globe"
+      },
+      {
+        "title": "SEO-Friendly Rendering",
+        "description": "Use server rendering and static generation so search engines can crawl your pages.",
+        "icon": "search"
+      },
+      {
+        "title": "Full-Stack Next.js Apps",
+        "description": "Build frontends and server-side route handlers in one Next.js codebase.",
+        "icon": "layers"
+      },
+      {
+        "title": "Headless CMS Builds",
+        "description": "Connect Next.js to headless CMS platforms your team can edit.",
+        "icon": "panels"
+      },
+      {
+        "title": "E-commerce Frontends",
+        "description": "Build fast storefronts connected to your commerce platform and payments.",
+        "icon": "shoppingCart"
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Improve page speed, image delivery and rendering on existing Next.js sites.",
+        "icon": "gauge"
+      },
+      {
+        "title": "Migration to Next.js",
+        "description": "Move existing React or legacy websites to Next.js step by step.",
+        "icon": "refresh"
+      },
+      {
+        "title": "Dashboards & Portals",
+        "description": "Build authenticated dashboards, portals and admin panels.",
+        "icon": "layoutDashboard"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Next.js",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build with Next.js, React and TypeScript, backed by reliable data, content platforms and hosting.",
+    "categories": [
+      {
+        "title": "Next.js Core",
+        "description": "The foundation of every Next.js build.",
+        "icon": "globe",
+        "items": [
+          {
+            "name": "Next.js",
+            "verified": true
+          },
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Styling & UI",
+        "description": "Responsive, consistent interfaces.",
+        "icon": "palette",
+        "items": [
+          {
+            "name": "Tailwind CSS",
+            "verified": true
+          },
+          {
+            "name": "Framer Motion",
+            "verified": true
+          },
+          {
+            "name": "Figma",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Data & APIs",
+        "description": "Connect pages and route handlers to your data.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Content & Commerce",
+        "description": "Headless content and commerce platforms.",
+        "icon": "panels",
+        "items": [
+          {
+            "name": "Strapi",
+            "verified": true
+          },
+          {
+            "name": "Contentful",
+            "verified": true
+          },
+          {
+            "name": "Sanity",
+            "verified": true
+          },
+          {
+            "name": "Shopify",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Hosting & Edge",
+        "description": "Deploy and serve your site reliably.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "Vercel",
+            "verified": true
+          },
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Cloudflare",
+            "verified": true
+          },
+          {
+            "name": "Netlify",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Backend & Services",
+        "description": "Services that power full-stack Next.js products.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "NestJS",
+            "verified": true
+          },
+          {
+            "name": "Firebase",
+            "verified": true
+          },
+          {
+            "name": "Supabase",
+            "verified": true
+          },
+          {
+            "name": "Redis",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Next.js Specialist"
+    },
+    "description": "Choose the Next.js expertise that matches your website, product and growth plans.",
+    "caption": {
+      "title": "One partner, every Next.js role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Next.js Frontend Developer",
+        "description": "Builds pages, layouts and features in your Next.js app."
+      },
+      {
+        "title": "Full-Stack Next.js Developer",
+        "description": "Works across Next.js pages, route handlers and databases."
+      },
+      {
+        "title": "Next.js + Headless CMS Developer",
+        "description": "Connects Next.js to Strapi, Contentful, Sanity and similar CMSs."
+      },
+      {
+        "title": "Next.js SEO & Performance Developer",
+        "description": "Improves rendering, metadata, sitemaps and page speed."
+      },
+      {
+        "title": "Next.js E-commerce Developer",
+        "description": "Builds headless storefronts connected to your commerce platform."
+      },
+      {
+        "title": "Next.js + TypeScript Developer",
+        "description": "Writes typed, maintainable code for larger Next.js products."
+      },
+      {
+        "title": "Next.js Migration Developer",
+        "description": "Moves existing websites and React apps onto Next.js."
+      },
+      {
+        "title": "Next.js Dashboard Developer",
+        "description": "Builds authenticated dashboards, portals and admin tools."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "Next.js Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our Next.js developers build websites and web products that are fast for visitors and practical for the teams who run them.",
+    "items": [
+      {
+        "title": "Company & Marketing Websites",
+        "icon": "globe",
+        "problem": "Slow, hard-to-update websites lose visitors and leads.",
+        "solution": "Fast Next.js websites with structured SEO and content your team can update.",
+        "applications": [
+          "Service pages",
+          "Landing pages",
+          "Lead forms"
+        ]
+      },
+      {
+        "title": "SaaS Products",
+        "icon": "layoutGrid",
+        "problem": "Products need a fast, reliable frontend that can grow with features.",
+        "solution": "Full-stack Next.js applications with authentication, dashboards and APIs.",
+        "applications": [
+          "User dashboards",
+          "Billing views",
+          "Settings"
+        ]
+      },
+      {
+        "title": "Content Platforms & Blogs",
+        "icon": "fileText",
+        "problem": "Publishing at scale needs structure, speed and search visibility.",
+        "solution": "Next.js content platforms with a headless CMS and SEO-ready pages.",
+        "applications": [
+          "Blogs",
+          "Resource hubs",
+          "Documentation"
+        ]
+      },
+      {
+        "title": "E-commerce Storefronts",
+        "icon": "shoppingCart",
+        "problem": "Template stores limit speed, design and flexibility.",
+        "solution": "Headless Next.js storefronts connected to your commerce platform.",
+        "applications": [
+          "Product pages",
+          "Collections",
+          "Checkout flows"
+        ]
+      },
+      {
+        "title": "Customer Portals",
+        "icon": "users",
+        "problem": "Customers expect self-service, not emails.",
+        "solution": "Secure Next.js portals connected to your backend systems.",
+        "applications": [
+          "Account areas",
+          "Order history",
+          "Support requests"
+        ]
+      },
+      {
+        "title": "Multi-Location Page Systems",
+        "icon": "mapPin",
+        "problem": "Creating city or service pages by hand doesn't scale.",
+        "solution": "Template-driven Next.js pages generated from structured content.",
+        "applications": [
+          "City pages",
+          "Service variations",
+          "Sitemaps"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Next.js Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip Next.js Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "globe"
+    }
+  },
+  "caseStudies": {
+    "featured": {
+      "category": "Next.js Platform",
+      "label": "In-house product",
+      "title": "Fillip Technologies Website & CMS",
+      "description": "Fillip's own company website: a Next.js platform with service, industry, location and blog pages, managed through a custom admin CMS.",
+      "challenge": "A growing catalogue of services, industries and location pages needed to stay fast, consistent and search-friendly, while the team needed to update content without code changes.",
+      "solution": "A Next.js App Router site with reusable page templates, a custom admin CMS for content and SEO, and structured metadata, sitemaps and schema built in.",
+      "technology": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "MongoDB",
+        "Cloudinary"
+      ],
+      "delivered": [
+        "Reusable templates for service, industry and location pages",
+        "Admin CMS for page content, blogs, case studies and SEO",
+        "Metadata, sitemap and structured data generated per page",
+        "Responsive, animated interface across the site"
+      ],
+      "outcomes": [
+        "Faster content updates",
+        "Consistent page structure",
+        "SEO built into every page"
+      ],
+      "image": {
+        "src": "/images/hire-developers/nextjs/case-study.jpg",
+        "alt": "Fillip Technologies services page, built with Next.js",
+        "width": 1440,
+        "height": 900
+      },
+      "href": "/services"
+    },
+    "projectTypes": [
+      "Websites",
+      "SaaS",
+      "Headless CMS",
+      "E-commerce",
+      "Portals",
+      "Migrations"
+    ]
+  },
+  "costTechnologyItems": [
+    "Server rendering",
+    "Headless CMS",
+    "Route handlers & APIs",
+    "Authentication",
+    "E-commerce",
+    "Migrations"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a Next.js developer?",
+      "answer": "The cost depends on the developer's experience, the complexity of your website or application, the integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of Next.js developers can I hire?",
+      "answer": "You can hire Next.js Frontend Developers, Full-Stack Next.js Developers, Next.js + Headless CMS Developers, Next.js SEO & Performance Developers, Next.js E-commerce Developers, Next.js + TypeScript Developers, Next.js Migration Developers and Next.js Dashboard Developers."
+    },
+    {
+      "question": "What technologies do your Next.js developers work with?",
+      "answer": "Our Next.js developers work with Next.js, React and TypeScript; Tailwind CSS and Framer Motion; REST and GraphQL APIs; databases such as MongoDB and PostgreSQL; headless platforms such as Strapi, Contentful, Sanity and Shopify; and hosting on Vercel, AWS, Cloudflare or Netlify."
+    },
+    {
+      "question": "Is Next.js a good choice for SEO?",
+      "answer": "Next.js supports server-side rendering and static generation, which help search engines crawl and index your pages. Our developers also set up page metadata, sitemaps and structured data as part of the build."
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "slug": "wordpress",
+  "path": "/hire-wordpress-developers",
+  "role": {
+    "singular": "WordPress developer",
+    "plural": "WordPress developers",
+    "Singular": "WordPress Developer",
+    "Plural": "WordPress Developers",
+    "short": "WordPress",
+    "Short": "WordPress"
+  },
+  "seo": {
+    "title": "Hire WordPress Developers",
+    "metaTitle": "Hire WordPress Developers",
+    "metaDescription": "Hire WordPress developers from Fillip Technologies to build custom WordPress websites, themes, plugins and WooCommerce stores, and to keep them fast, secure and maintained.",
+    "keywords": [
+      "hire WordPress developers",
+      "dedicated WordPress developers",
+      "WordPress development team",
+      "WooCommerce developers"
+    ]
+  },
+  "sections": {
+    "showCaseStudies": false
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/wordpress/hero.jpg",
+      "alt": "A website developer and a colleague reviewing a company website on a laptop"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/wordpress/capabilities.jpg",
+      "alt": "Illustration for WordPress Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/wordpress/stack.jpg",
+      "alt": "Illustration for WordPress Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/wordpress/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/wordpress/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/wordpress/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/wordpress/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/wordpress/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/wordpress/case-study.jpg",
+      "alt": "WordPress project screenshot"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/wordpress/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/wordpress/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated WordPress Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "WordPress Developers"
+    },
+    "description": "Hire experienced WordPress developers from Fillip Technologies to build custom websites, themes, plugins and WooCommerce stores — and to keep them fast, secure and up to date.",
+    "floatingCards": {
+      "left": {
+        "title": "WordPress Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "panels"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "WP",
+          "PHP",
+          "WOO",
+          "SEO"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "WordPress Developers",
+      "after": "Build?"
+    },
+    "description": "Our WordPress developers build websites your team can manage easily, with the custom features your business needs.",
+    "items": [
+      {
+        "title": "Custom WordPress Websites",
+        "description": "Build fast, responsive websites tailored to your brand.",
+        "icon": "globe"
+      },
+      {
+        "title": "Custom Themes",
+        "description": "Build bespoke themes instead of heavily modified templates.",
+        "icon": "palette"
+      },
+      {
+        "title": "Custom Plugins",
+        "description": "Add features WordPress doesn't offer out of the box.",
+        "icon": "puzzle"
+      },
+      {
+        "title": "WooCommerce Stores",
+        "description": "Build and customise WooCommerce stores and checkouts.",
+        "icon": "shoppingCart"
+      },
+      {
+        "title": "Speed Optimization",
+        "description": "Improve load times with caching, image and code optimisation.",
+        "icon": "gauge"
+      },
+      {
+        "title": "Security & Maintenance",
+        "description": "Keep core, themes and plugins updated, backed up and protected.",
+        "icon": "shieldCheck"
+      },
+      {
+        "title": "Headless WordPress",
+        "description": "Use WordPress as a CMS behind a modern frontend.",
+        "icon": "layers"
+      },
+      {
+        "title": "Migrations & Redesigns",
+        "description": "Move or redesign your website without losing content or rankings.",
+        "icon": "refresh"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "WordPress",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build and run WordPress websites with custom development, e-commerce, performance and security tooling.",
+    "categories": [
+      {
+        "title": "WordPress Core",
+        "description": "The platform and languages behind your site.",
+        "icon": "panels",
+        "items": [
+          {
+            "name": "WordPress",
+            "verified": true
+          },
+          {
+            "name": "PHP",
+            "verified": true
+          },
+          {
+            "name": "MySQL",
+            "verified": true
+          },
+          {
+            "name": "WP-CLI",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Custom Development",
+        "description": "Structured content and custom features.",
+        "icon": "codeXml",
+        "items": [
+          {
+            "name": "ACF",
+            "verified": true
+          },
+          {
+            "name": "Custom Post Types",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          },
+          {
+            "name": "Tailwind CSS",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "E-commerce",
+        "description": "Sell online with WordPress.",
+        "icon": "shoppingCart",
+        "items": [
+          {
+            "name": "WooCommerce",
+            "verified": true
+          },
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Performance",
+        "description": "Keep pages fast for visitors and search engines.",
+        "icon": "gauge",
+        "items": [
+          {
+            "name": "WP Rocket",
+            "verified": true
+          },
+          {
+            "name": "NitroPack",
+            "verified": true
+          },
+          {
+            "name": "Redis Caching",
+            "verified": true
+          },
+          {
+            "name": "Cloudflare CDN",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Security & Backups",
+        "description": "Protect and recover your website.",
+        "icon": "shieldCheck",
+        "items": [
+          {
+            "name": "Wordfence",
+            "verified": true
+          },
+          {
+            "name": "Sucuri",
+            "verified": true
+          },
+          {
+            "name": "Cloudflare WAF",
+            "verified": true
+          },
+          {
+            "name": "UpdraftPlus",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Headless & Integrations",
+        "description": "Connect WordPress to modern frontends and tools.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "Headless CMS",
+            "verified": true
+          },
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "Next.js",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "WordPress Specialist"
+    },
+    "description": "Choose the WordPress expertise that matches your website and business goals.",
+    "caption": {
+      "title": "One partner, every WordPress role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "WordPress Developer",
+        "description": "Builds and updates pages, features and layouts on your site."
+      },
+      {
+        "title": "WordPress Theme Developer",
+        "description": "Builds custom themes from your designs."
+      },
+      {
+        "title": "WordPress Plugin Developer",
+        "description": "Builds custom plugins for features your site needs."
+      },
+      {
+        "title": "WooCommerce Developer",
+        "description": "Builds and customises WooCommerce stores and checkouts."
+      },
+      {
+        "title": "WordPress Performance Specialist",
+        "description": "Improves page speed, caching and Core Web Vitals."
+      },
+      {
+        "title": "WordPress Maintenance Developer",
+        "description": "Handles updates, backups, security and fixes."
+      },
+      {
+        "title": "Headless WordPress Developer",
+        "description": "Connects WordPress content to React or Next.js frontends."
+      },
+      {
+        "title": "WordPress Migration Developer",
+        "description": "Moves and redesigns sites without losing content or SEO."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "WordPress Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our WordPress developers build and look after websites that support your marketing, sales and content.",
+    "items": [
+      {
+        "title": "Company Websites",
+        "icon": "globe",
+        "problem": "Your website doesn't reflect your brand or generate enquiries.",
+        "solution": "A custom WordPress website your team can update easily.",
+        "applications": [
+          "Service pages",
+          "Contact forms",
+          "Team pages"
+        ]
+      },
+      {
+        "title": "WooCommerce Stores",
+        "icon": "shoppingCart",
+        "problem": "You want to sell online without a complex platform.",
+        "solution": "WooCommerce stores with custom features and payment gateways.",
+        "applications": [
+          "Product pages",
+          "Checkout",
+          "Payments"
+        ]
+      },
+      {
+        "title": "Blogs & Content Hubs",
+        "icon": "fileText",
+        "problem": "Publishing regular content is slow and disorganised.",
+        "solution": "Structured WordPress content hubs with custom post types and fields.",
+        "applications": [
+          "Blogs",
+          "Resources",
+          "Case studies"
+        ]
+      },
+      {
+        "title": "Campaign Landing Pages",
+        "icon": "trendingUp",
+        "problem": "Marketing campaigns wait on developers for new pages.",
+        "solution": "Reusable WordPress landing page templates your marketers can launch.",
+        "applications": [
+          "Ad landing pages",
+          "Lead forms",
+          "Promotions"
+        ]
+      },
+      {
+        "title": "Slow or Outdated Sites",
+        "icon": "gauge",
+        "problem": "A slow, outdated site loses visitors and rankings.",
+        "solution": "Speed, security and design improvements to your existing site.",
+        "applications": [
+          "Speed fixes",
+          "Redesigns",
+          "Plugin cleanup"
+        ]
+      },
+      {
+        "title": "Ongoing Website Care",
+        "icon": "shieldCheck",
+        "problem": "Updates, backups and security get missed.",
+        "solution": "Regular maintenance with updates, backups and monitoring.",
+        "applications": [
+          "Updates",
+          "Backups",
+          "Security checks"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "WordPress Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "WordPress",
+        "PHP",
+        "WooCommerce",
+        "ACF"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip WordPress Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "panels"
+    }
+  },
+  "caseStudies": {
+    "featured": null,
+    "projectTypes": [
+      "Websites",
+      "Themes",
+      "Plugins",
+      "WooCommerce",
+      "Speed",
+      "Maintenance"
+    ]
+  },
+  "costTechnologyItems": [
+    "Custom theme",
+    "Custom plugins",
+    "WooCommerce",
+    "Speed optimisation",
+    "Security & backups",
+    "Migration"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a WordPress developer?",
+      "answer": "The cost depends on the developer's experience, the size of your website, the custom features and integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of WordPress developers can I hire?",
+      "answer": "You can hire WordPress Developers, WordPress Theme Developers, WordPress Plugin Developers, WooCommerce Developers, WordPress Performance Specialists, WordPress Maintenance Developers, Headless WordPress Developers and WordPress Migration Developers."
+    },
+    {
+      "question": "What technologies do your WordPress developers work with?",
+      "answer": "Our WordPress developers work with WordPress, PHP and MySQL; ACF, custom post types and WP-CLI; WooCommerce with payment gateways such as Razorpay and Stripe; performance tools such as WP Rocket, NitroPack, Redis caching and Cloudflare CDN; and security and backup tools such as Wordfence, Sucuri, Cloudflare WAF and UpdraftPlus."
+    },
+    {
+      "question": "Can you fix or speed up our existing WordPress website?",
+      "answer": "Yes. Developers can review your current site, then fix issues, improve speed and security, and clean up themes and plugins without rebuilding everything."
+    }
+  ]
+}

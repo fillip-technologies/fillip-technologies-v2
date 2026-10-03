@@ -1,0 +1,504 @@
+{
+  "slug": "ai",
+  "path": "/hire-ai-developers",
+  "role": {
+    "singular": "AI developer",
+    "plural": "AI developers",
+    "Singular": "AI Developer",
+    "Plural": "AI Developers",
+    "short": "AI",
+    "Short": "AI"
+  },
+  "seo": {
+    "title": "Hire AI Developers",
+    "metaTitle": "Hire AI Developers",
+    "metaDescription": "Hire experienced AI developers from Fillip Technologies to build AI agents, generative AI applications, RAG systems, AI automation, chatbots and AI-powered business applications.",
+    "keywords": [
+      "hire AI developers",
+      "dedicated AI developers",
+      "AI development team",
+      "generative AI developers",
+      "RAG developers"
+    ]
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/ai/hero.jpg",
+      "alt": "Two developers collaborating on an AI application at a laptop"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/ai/capabilities.jpg",
+      "alt": "Illustration for AI Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/ai/stack.jpg",
+      "alt": "Illustration for AI Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/ai/specialists.jpg",
+      "alt": "Developers working together in a bright open-plan office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/ai/solutions.jpg",
+      "alt": "Two developers reviewing an AI application on a laptop in a bright office"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/ai/engagement.jpg",
+      "alt": "Two developers collaborating on an AI application at a laptop"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/ai/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/ai/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/ai/case-study.png",
+      "alt": "Fillip AI Support answering a visitor's question about AI chatbots"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/ai/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/ai/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated AI Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "AI Developers"
+    },
+    "description": "Hire experienced AI developers from Fillip Technologies to build AI agents, generative AI applications, RAG systems, AI automation, chatbots and AI-powered business applications.",
+    "floatingCards": {
+      "left": {
+        "title": "AI Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "brain"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "AI",
+          "ML",
+          "RAG",
+          "LLM"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "AI Developers",
+      "after": "Build?"
+    },
+    "description": "From intelligent automation to custom AI applications, our developers can help you design, build and integrate AI solutions around your business needs.",
+    "items": [
+      {
+        "title": "AI Agents",
+        "description": "Build AI agents that can reason, perform tasks and support business workflows.",
+        "icon": "bot"
+      },
+      {
+        "title": "Generative AI Applications",
+        "description": "Develop applications powered by modern generative AI and large language models.",
+        "icon": "sparkles"
+      },
+      {
+        "title": "RAG Applications",
+        "description": "Build AI systems that retrieve information from your documents, databases and knowledge sources.",
+        "icon": "database"
+      },
+      {
+        "title": "AI Chatbots",
+        "description": "Create intelligent customer-support, website and internal business assistants.",
+        "icon": "messagesSquare"
+      },
+      {
+        "title": "AI Workflow Automation",
+        "description": "Connect AI with CRM, ERP, email and other business systems to automate repetitive workflows.",
+        "icon": "workflow"
+      },
+      {
+        "title": "AI Document Processing",
+        "description": "Extract, classify, summarize and process information from business documents.",
+        "icon": "scanText"
+      },
+      {
+        "title": "AI Search",
+        "description": "Build semantic and natural-language search experiences for business applications.",
+        "icon": "search"
+      },
+      {
+        "title": "AI API Integration",
+        "description": "Add AI capabilities to your existing web, SaaS or mobile applications.",
+        "icon": "plug"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "AI",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build intelligent, scalable applications with modern AI models, frameworks, backend technologies, data platforms and cloud infrastructure.",
+    "categories": [
+      {
+        "title": "AI Models & Platforms",
+        "description": "Power intelligent experiences with leading foundation models.",
+        "icon": "brain",
+        "items": [
+          {
+            "name": "OpenAI",
+            "verified": true
+          },
+          {
+            "name": "Claude",
+            "verified": true
+          },
+          {
+            "name": "Gemini",
+            "verified": true
+          },
+          {
+            "name": "Mistral AI",
+            "verified": true
+          },
+          {
+            "name": "Hugging Face",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "AI Frameworks",
+        "description": "Orchestrate prompts, retrieval and multi-step workflows.",
+        "icon": "blocks",
+        "items": [
+          {
+            "name": "LangChain",
+            "verified": true
+          },
+          {
+            "name": "OpenAI API",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Backend & AI Engineering",
+        "description": "Production APIs and services around your AI features.",
+        "icon": "serverCog",
+        "items": [
+          {
+            "name": "Python",
+            "verified": true
+          },
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          },
+          {
+            "name": "NestJS",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Data & Databases",
+        "description": "Store, index and retrieve the knowledge your AI relies on.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          },
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "Redis",
+            "verified": true
+          },
+          {
+            "name": "Supabase",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Cloud & Infrastructure",
+        "description": "Deploy and scale AI workloads securely.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Microsoft Azure",
+            "verified": true
+          },
+          {
+            "name": "Google Cloud",
+            "verified": true
+          },
+          {
+            "name": "Docker",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Automation & Integrations",
+        "description": "Connect AI to the tools and systems your business already uses.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "n8n",
+            "verified": true
+          },
+          {
+            "name": "Make",
+            "verified": true
+          },
+          {
+            "name": "Zapier",
+            "verified": true
+          },
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "AI Specialist"
+    },
+    "description": "Choose the expertise that matches your product, technology and business requirements.",
+    "caption": {
+      "title": "One partner, every AI role",
+      "subtitle": "Hire one specialist or a full team"
+    },
+    "items": [
+      {
+        "title": "Generative AI Developer",
+        "description": "Builds copilots, assistants and content tools on large language models."
+      },
+      {
+        "title": "AI Agent Developer",
+        "description": "Designs agents that plan, use tools and complete multi-step tasks."
+      },
+      {
+        "title": "RAG Developer",
+        "description": "Connects AI to your documents and data for accurate, grounded answers."
+      },
+      {
+        "title": "LLM Developer",
+        "description": "Selects, prompts, evaluates and optimises language models for your product."
+      },
+      {
+        "title": "AI Automation Developer",
+        "description": "Automates repetitive workflows across CRM, ERP, email and internal tools."
+      },
+      {
+        "title": "Machine Learning Engineer",
+        "description": "Builds, trains and deploys predictive models on your business data."
+      },
+      {
+        "title": "Conversational AI Developer",
+        "description": "Creates chatbots and assistants for customers and internal teams."
+      },
+      {
+        "title": "AI Integration Developer",
+        "description": "Adds AI features to your existing web, SaaS and mobile applications."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "AI Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "From customer support to internal operations, our AI developers build solutions that solve specific business problems and fit into your existing workflows.",
+    "items": [
+      {
+        "title": "Customer Support",
+        "icon": "headset",
+        "problem": "Support teams answer the same questions all day.",
+        "solution": "AI assistants resolve routine queries from your knowledge base and hand complex ones to your team.",
+        "applications": [
+          "Website chat",
+          "WhatsApp support",
+          "Ticket triage"
+        ]
+      },
+      {
+        "title": "Sales & Lead Automation",
+        "icon": "trendingUp",
+        "problem": "Leads go cold before anyone follows up.",
+        "solution": "AI qualifies, scores and routes leads, and drafts personalised follow-ups.",
+        "applications": [
+          "Lead scoring",
+          "CRM enrichment",
+          "Follow-up emails"
+        ]
+      },
+      {
+        "title": "Knowledge & Enterprise Search",
+        "icon": "search",
+        "problem": "Answers are buried across documents, wikis and drives.",
+        "solution": "RAG-powered search answers questions in plain language and cites its sources.",
+        "applications": [
+          "Internal assistant",
+          "Policy Q&A",
+          "Team onboarding"
+        ]
+      },
+      {
+        "title": "Document Intelligence",
+        "icon": "fileSearch",
+        "problem": "Teams spend hours re-typing data from documents.",
+        "solution": "AI extracts, classifies and summarises information from business documents.",
+        "applications": [
+          "Invoice processing",
+          "Contract review",
+          "Form extraction"
+        ]
+      },
+      {
+        "title": "Workflow Automation",
+        "icon": "workflow",
+        "problem": "Repetitive manual tasks slow down operations.",
+        "solution": "AI-driven workflows connect your CRM, ERP, email and internal tools.",
+        "applications": [
+          "Email triage",
+          "Report generation",
+          "Approval routing"
+        ]
+      },
+      {
+        "title": "AI-Powered SaaS",
+        "icon": "layoutGrid",
+        "problem": "Your product needs AI features to stay competitive.",
+        "solution": "We build AI capabilities directly into your SaaS product.",
+        "applications": [
+          "In-app copilots",
+          "Smart recommendations",
+          "AI summaries"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "AI Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "Python",
+        "LangChain",
+        "OpenAI",
+        "Gemini"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip AI Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "brain"
+    }
+  },
+  "caseStudies": {
+    "description": "From intelligent automation to AI-powered applications, our developers build practical solutions around real business requirements, workflows and product goals.",
+    "featured": {
+      "category": "AI Chatbot",
+      "label": "In-house product",
+      "title": "Fillip AI Support — Website AI Assistant",
+      "description": "A conversational AI assistant that answers visitor questions about Fillip's services, team and industries, directly on the website.",
+      "challenge": "Fillip offers a wide range of services across web, mobile, software, marketing, hardware and AI. Visitors need quick, accurate answers to find the right one without waiting for the team.",
+      "solution": "A generative AI assistant on every page, powered by Gemini 2.5 Flash and grounded in a curated knowledge base of Fillip's services, team, industries and key pages.",
+      "technology": [
+        "Gemini 2.5 Flash",
+        "Google Generative AI SDK",
+        "Next.js",
+        "TypeScript"
+      ],
+      "delivered": [
+        "Chat assistant available on every page of the website",
+        "Server-side chat API that keeps the model and keys off the client",
+        "Curated company knowledge base and conversation guidelines",
+        "Quick-start prompts and formatted, easy-to-read answers"
+      ],
+      "outcomes": [
+        "Always-available answers",
+        "Consistent company information",
+        "Visitors guided to a consultation"
+      ],
+      "image": {
+        "src": "/images/hire-developers/ai/case-study.png",
+        "alt": "Fillip AI Support answering a visitor's question about AI chatbots",
+        "width": 880,
+        "height": 1180
+      },
+      "tryLive": true
+    },
+    "projectTypes": [
+      "AI Agents",
+      "RAG",
+      "Generative AI",
+      "Automation",
+      "Chatbot",
+      "Document Intelligence",
+      "AI Integration"
+    ]
+  },
+  "costTechnologyItems": [
+    "LLM integration",
+    "RAG",
+    "AI agents",
+    "Automation",
+    "Data pipelines",
+    "Custom AI workflows"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire an AI developer?",
+      "answer": "The cost depends on the developer's expertise, the complexity of your project, the AI technologies involved, the engagement model and how long you need the developer. Instead of a one-size-fits-all price, we provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of AI developers can I hire from Fillip Technologies?",
+      "answer": "You can hire Generative AI Developers, AI Agent Developers, RAG Developers, LLM Developers, AI Automation Developers, Machine Learning Engineers, Conversational AI Developers and AI Integration Developers, depending on what your product needs."
+    },
+    {
+      "question": "What technologies do your AI developers work with?",
+      "answer": "Our AI developers work with AI models such as OpenAI, Claude, Gemini and Mistral AI; frameworks such as LangChain; backend technologies such as Python and Node.js; databases such as PostgreSQL, MongoDB and Redis; cloud platforms such as AWS, Microsoft Azure and Google Cloud; and integration tools such as n8n, Make and Zapier. The exact stack depends on your project."
+    }
+  ]
+}

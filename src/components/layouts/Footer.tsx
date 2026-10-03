@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import { FaThreads } from "react-icons/fa6";
+import hireDeveloperLinks from "@/data/hire-developers/links.json";
 
 
 type FooterLink = {
@@ -290,6 +291,18 @@ export default function Footer() {
               </nav>
             ))}
           </div>
+
+          {/* Hire Developers — rendered from src/data/hire-developers/links.json */}
+          <nav aria-label="Hire Developers" className="mt-12 border-t border-white/5 pt-10">
+            <h3 className="text-[13.5px] font-bold uppercase tracking-[0.2em] text-white mb-5 pb-2 border-b border-white/5 relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-6 after:bg-accent">
+              Hire Developers
+            </h3>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2.5 sm:grid-cols-3 lg:grid-cols-5">
+              {hireDeveloperLinks.map((link) => (
+                <FooterNavLink key={link.href} label={link.label} href={link.href} />
+              ))}
+            </div>
+          </nav>
         </section>
 
         {/* Tier 3: Corporate Footer (Bottom) */}

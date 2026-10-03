@@ -1,0 +1,499 @@
+{
+  "slug": "nodejs",
+  "path": "/hire-nodejs-developers",
+  "role": {
+    "singular": "Node.js developer",
+    "plural": "Node.js developers",
+    "Singular": "Node.js Developer",
+    "Plural": "Node.js Developers",
+    "short": "Node.js",
+    "Short": "Node.js"
+  },
+  "seo": {
+    "title": "Hire Node.js Developers",
+    "metaTitle": "Hire Node.js Developers",
+    "metaDescription": "Hire Node.js developers from Fillip Technologies to build APIs, backend systems, integrations and server-side applications with Node.js, Express, NestJS and TypeScript.",
+    "keywords": [
+      "hire Node.js developers",
+      "dedicated Node.js developers",
+      "Node.js backend developers",
+      "Node.js development team"
+    ]
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/nodejs/hero.jpg",
+      "alt": "A backend developer working on code and server logs on a laptop"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/nodejs/capabilities.jpg",
+      "alt": "Illustration for Node.js Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/nodejs/stack.jpg",
+      "alt": "Illustration for Node.js Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/nodejs/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/nodejs/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/nodejs/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/nodejs/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/nodejs/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/nodejs/case-study.jpg",
+      "alt": "Fillip's custom quote builder, backed by a Node.js quote and lead flow"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/nodejs/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/nodejs/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Node.js Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "Node.js Developers"
+    },
+    "description": "Hire experienced Node.js developers from Fillip Technologies to build fast APIs, reliable backend systems and integrations that connect your applications and business tools.",
+    "floatingCards": {
+      "left": {
+        "title": "Node.js Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "server"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "API",
+          "TS",
+          "DB",
+          "SQL"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Node.js Developers",
+      "after": "Build?"
+    },
+    "description": "From APIs to complete backend platforms, our Node.js developers build the server-side systems your web and mobile products depend on.",
+    "items": [
+      {
+        "title": "API Development",
+        "description": "Build REST and GraphQL APIs for web, mobile and partner applications.",
+        "icon": "codeXml"
+      },
+      {
+        "title": "Backend Systems",
+        "description": "Design and build the server-side logic behind your product.",
+        "icon": "server"
+      },
+      {
+        "title": "Third-Party Integrations",
+        "description": "Connect CRMs, ERPs, messaging tools and external services.",
+        "icon": "plug"
+      },
+      {
+        "title": "Payment Integration",
+        "description": "Integrate payment gateways such as Razorpay and Stripe.",
+        "icon": "creditCard"
+      },
+      {
+        "title": "Authentication & Access",
+        "description": "Implement sign-in, roles and permissions for your users.",
+        "icon": "keyRound"
+      },
+      {
+        "title": "Database Design",
+        "description": "Model, query and optimise data in SQL and NoSQL databases.",
+        "icon": "database"
+      },
+      {
+        "title": "Automation & Background Jobs",
+        "description": "Run scheduled tasks, notifications and data processing.",
+        "icon": "workflow"
+      },
+      {
+        "title": "Cloud Deployment",
+        "description": "Containerise and deploy Node.js services to the cloud.",
+        "icon": "cloud"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Node.js",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build server-side systems with Node.js frameworks, reliable databases, cloud infrastructure and integrations.",
+    "categories": [
+      {
+        "title": "Node.js Core",
+        "description": "The runtime and languages behind your backend.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Frameworks",
+        "description": "Structure for APIs and services of any size.",
+        "icon": "blocks",
+        "items": [
+          {
+            "name": "Express",
+            "verified": true
+          },
+          {
+            "name": "NestJS",
+            "verified": true
+          },
+          {
+            "name": "Next.js",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "APIs",
+        "description": "Interfaces for apps, partners and services.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "Webhooks",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Databases",
+        "description": "Store and serve your application data.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          },
+          {
+            "name": "MySQL",
+            "verified": true
+          },
+          {
+            "name": "Redis",
+            "verified": true
+          },
+          {
+            "name": "Supabase",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Deploy, scale and ship with confidence.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Google Cloud",
+            "verified": true
+          },
+          {
+            "name": "Docker",
+            "verified": true
+          },
+          {
+            "name": "CI/CD",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Payments & Integrations",
+        "description": "Connect payments and business tools.",
+        "icon": "creditCard",
+        "items": [
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          },
+          {
+            "name": "Firebase",
+            "verified": true
+          },
+          {
+            "name": "n8n",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Node.js Specialist"
+    },
+    "description": "Choose the Node.js expertise that matches your architecture and product roadmap.",
+    "caption": {
+      "title": "One partner, every backend role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Node.js Backend Developer",
+        "description": "Builds and maintains the server-side logic of your product."
+      },
+      {
+        "title": "Node.js API Developer",
+        "description": "Designs and builds REST and GraphQL APIs."
+      },
+      {
+        "title": "Express Developer",
+        "description": "Builds lightweight, flexible services with Express."
+      },
+      {
+        "title": "NestJS Developer",
+        "description": "Builds structured, modular backends with NestJS."
+      },
+      {
+        "title": "Full-Stack Node.js Developer",
+        "description": "Works across Node.js backends and React or Next.js frontends."
+      },
+      {
+        "title": "Node.js Integration Developer",
+        "description": "Connects payments, CRMs, messaging and third-party services."
+      },
+      {
+        "title": "Node.js + TypeScript Developer",
+        "description": "Writes typed, maintainable server-side code."
+      },
+      {
+        "title": "Node.js Database Developer",
+        "description": "Models and optimises data in MongoDB, PostgreSQL and MySQL."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "Node.js Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our Node.js developers build the backends and integrations that keep your applications and operations running.",
+    "items": [
+      {
+        "title": "Mobile App Backends",
+        "icon": "smartphone",
+        "problem": "Mobile apps need secure, fast APIs and data.",
+        "solution": "Node.js APIs with authentication, data storage and notifications.",
+        "applications": [
+          "User accounts",
+          "App APIs",
+          "Push notifications"
+        ]
+      },
+      {
+        "title": "SaaS Backends",
+        "icon": "layoutGrid",
+        "problem": "Products need a backend that grows with customers and features.",
+        "solution": "Structured Node.js services with roles, billing hooks and integrations.",
+        "applications": [
+          "Multi-user accounts",
+          "Usage data",
+          "Admin APIs"
+        ]
+      },
+      {
+        "title": "E-commerce & Payments",
+        "icon": "creditCard",
+        "problem": "Orders and payments must be reliable and traceable.",
+        "solution": "Node.js order, payment and webhook handling with gateways such as Razorpay and Stripe.",
+        "applications": [
+          "Checkout APIs",
+          "Payment webhooks",
+          "Order status"
+        ]
+      },
+      {
+        "title": "Business System Integrations",
+        "icon": "plug",
+        "problem": "Data is stuck in separate tools and spreadsheets.",
+        "solution": "Node.js integrations that sync data between your CRM, ERP and other systems.",
+        "applications": [
+          "CRM sync",
+          "ERP connectors",
+          "Data exports"
+        ]
+      },
+      {
+        "title": "Notifications & Messaging",
+        "icon": "bell",
+        "problem": "Customers miss updates sent manually.",
+        "solution": "Automated email, SMS and WhatsApp notifications triggered by your system.",
+        "applications": [
+          "Order updates",
+          "Reminders",
+          "Alerts"
+        ]
+      },
+      {
+        "title": "Lead & Quote Automation",
+        "icon": "workflow",
+        "problem": "Enquiries arrive in different places and get lost.",
+        "solution": "Node.js flows that validate, store and route leads and send follow-ups.",
+        "applications": [
+          "Lead capture",
+          "Quote PDFs",
+          "Team notifications"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Node.js Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "Node.js",
+        "TypeScript",
+        "MongoDB",
+        "REST APIs"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip Node.js Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "server"
+    }
+  },
+  "caseStudies": {
+    "featured": {
+      "category": "Backend & Automation",
+      "label": "In-house product",
+      "title": "Quote & Lead Processing Flow",
+      "description": "The server-side flow behind Fillip's online quote builder and contact forms, turning website enquiries into stored, followed-up leads.",
+      "challenge": "Quote requests and enquiries needed to be validated, saved and followed up consistently, with an estimate sent to the visitor straight away.",
+      "solution": "Node.js route handlers that validate each request, calculate the quote, generate a PDF estimate, email it to the visitor and store the quote and lead in MongoDB.",
+      "technology": [
+        "Node.js",
+        "Next.js",
+        "TypeScript",
+        "MongoDB",
+        "Zod",
+        "Nodemailer"
+      ],
+      "delivered": [
+        "Validated API endpoints for quotes and contact enquiries",
+        "PDF estimate generation and email delivery",
+        "Lead and quote storage in MongoDB",
+        "Team notifications for new enquiries"
+      ],
+      "outcomes": [
+        "Instant estimates by email",
+        "Every enquiry stored",
+        "Consistent follow-up"
+      ],
+      "image": {
+        "src": "/images/hire-developers/nodejs/case-study.jpg",
+        "alt": "Fillip's custom quote builder, backed by a Node.js quote and lead flow",
+        "width": 1440,
+        "height": 760
+      },
+      "href": "/get-a-quote/custom"
+    },
+    "projectTypes": [
+      "APIs",
+      "Backends",
+      "Integrations",
+      "Payments",
+      "Automation",
+      "Databases"
+    ]
+  },
+  "costTechnologyItems": [
+    "REST / GraphQL APIs",
+    "Database design",
+    "Payments",
+    "Third-party integrations",
+    "Background jobs",
+    "Cloud deployment"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a Node.js developer?",
+      "answer": "The cost depends on the developer's experience, the complexity of your backend, the integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of Node.js developers can I hire?",
+      "answer": "You can hire Node.js Backend Developers, Node.js API Developers, Express Developers, NestJS Developers, Full-Stack Node.js Developers, Node.js Integration Developers, Node.js + TypeScript Developers and Node.js Database Developers."
+    },
+    {
+      "question": "What technologies do your Node.js developers work with?",
+      "answer": "Our Node.js developers work with Node.js, TypeScript and JavaScript; frameworks such as Express, NestJS and Next.js; REST, GraphQL and webhooks; databases such as MongoDB, PostgreSQL, MySQL and Redis; cloud and DevOps tools such as AWS, Google Cloud, Docker and CI/CD; and payment gateways such as Razorpay and Stripe."
+    },
+    {
+      "question": "Can your Node.js developers build the backend for our mobile app?",
+      "answer": "Yes. Node.js developers can build the APIs, authentication, data storage and notifications your Android, iOS or cross-platform app needs, and work alongside your mobile developers."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  { "slug": "dedicated", "label": "Hire Dedicated Developers", "href": "/hire-dedicated-developers" },
+  { "slug": "ai", "label": "Hire AI Developers", "href": "/hire-ai-developers" },
+  { "slug": "full-stack", "label": "Hire Full-Stack Developers", "href": "/hire-full-stack-developers" },
+  { "slug": "python", "label": "Hire Python Developers", "href": "/hire-python-developers" },
+  { "slug": "react", "label": "Hire React Developers", "href": "/hire-react-developers" },
+  { "slug": "nodejs", "label": "Hire Node.js Developers", "href": "/hire-nodejs-developers" },
+  { "slug": "nextjs", "label": "Hire Next.js Developers", "href": "/hire-nextjs-developers" },
+  { "slug": "flutter", "label": "Hire Flutter Developers", "href": "/hire-flutter-developers" },
+  { "slug": "react-native", "label": "Hire React Native Developers", "href": "/hire-react-native-developers" },
+  { "slug": "laravel", "label": "Hire Laravel Developers", "href": "/hire-laravel-developers" },
+  { "slug": "php", "label": "Hire PHP Developers", "href": "/hire-php-developers" },
+  { "slug": "wordpress", "label": "Hire WordPress Developers", "href": "/hire-wordpress-developers" },
+  { "slug": "shopify", "label": "Hire Shopify Developers", "href": "/hire-shopify-developers" }
+]

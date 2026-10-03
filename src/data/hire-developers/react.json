@@ -1,0 +1,501 @@
+{
+  "slug": "react",
+  "path": "/hire-react-developers",
+  "role": {
+    "singular": "React developer",
+    "plural": "React developers",
+    "Singular": "React Developer",
+    "Plural": "React Developers",
+    "short": "React",
+    "Short": "React"
+  },
+  "seo": {
+    "title": "Hire React Developers",
+    "metaTitle": "Hire React Developers",
+    "metaDescription": "Hire React developers from Fillip Technologies to build fast web applications, reusable component libraries, dashboards and modern frontends with React, Next.js and TypeScript.",
+    "keywords": [
+      "hire React developers",
+      "dedicated React developers",
+      "React development team",
+      "React frontend developers"
+    ]
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/react/hero.jpg",
+      "alt": "Two frontend developers reviewing a web application interface on a large monitor"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/react/capabilities.jpg",
+      "alt": "Illustration for React Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/react/stack.jpg",
+      "alt": "Illustration for React Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/react/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/react/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/react/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/react/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/react/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/react/case-study.jpg",
+      "alt": "Fillip's instant quote builder, built with React"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/react/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/react/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated React Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "React Developers"
+    },
+    "description": "Hire experienced React developers from Fillip Technologies to build fast, scalable web applications, reusable component libraries, dashboards and modern frontends for your product.",
+    "floatingCards": {
+      "left": {
+        "title": "React Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "component"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "JS",
+          "TS",
+          "UI",
+          "API"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "React Developers",
+      "after": "Build?"
+    },
+    "description": "From single features to complete product frontends, our React developers build interfaces that are fast, maintainable and easy to extend.",
+    "items": [
+      {
+        "title": "React Web Applications",
+        "description": "Build responsive, production-ready web applications with React.",
+        "icon": "appWindow"
+      },
+      {
+        "title": "Component Development",
+        "description": "Create reusable, consistent UI components and component libraries.",
+        "icon": "component"
+      },
+      {
+        "title": "Frontend Architecture",
+        "description": "Structure state, routing and data flow so your codebase scales cleanly.",
+        "icon": "layers"
+      },
+      {
+        "title": "API Integration",
+        "description": "Connect React frontends to REST and GraphQL APIs and third-party services.",
+        "icon": "plug"
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Improve load times, rendering and responsiveness of existing React apps.",
+        "icon": "gauge"
+      },
+      {
+        "title": "Dashboards & Admin Panels",
+        "description": "Build data-rich dashboards, internal tools and admin interfaces.",
+        "icon": "layoutDashboard"
+      },
+      {
+        "title": "Headless CMS Frontends",
+        "description": "Pair React and Next.js with headless CMS platforms for content-driven sites.",
+        "icon": "panels"
+      },
+      {
+        "title": "UI Modernization",
+        "description": "Rebuild or refresh outdated interfaces with modern React patterns.",
+        "icon": "refresh"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "React",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build modern frontends with the React ecosystem, typed code, flexible styling and reliable APIs and hosting.",
+    "categories": [
+      {
+        "title": "React Ecosystem",
+        "description": "The core of every React frontend we build.",
+        "icon": "component",
+        "items": [
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "Next.js",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Styling & Motion",
+        "description": "Consistent, responsive interfaces with refined interactions.",
+        "icon": "palette",
+        "items": [
+          {
+            "name": "Tailwind CSS",
+            "verified": true
+          },
+          {
+            "name": "Framer Motion",
+            "verified": true
+          },
+          {
+            "name": "Figma",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "APIs & Data",
+        "description": "Connect your frontend to the data it needs.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "Firebase",
+            "verified": true
+          },
+          {
+            "name": "Supabase",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Backend Integration",
+        "description": "Work alongside the services that power your product.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "NestJS",
+            "verified": true
+          },
+          {
+            "name": "Express",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Hosting & Delivery",
+        "description": "Ship and serve your frontend reliably.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "Vercel",
+            "verified": true
+          },
+          {
+            "name": "Netlify",
+            "verified": true
+          },
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Cloudflare",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "CMS & Workflow",
+        "description": "Content platforms and source control for your team.",
+        "icon": "gitBranch",
+        "items": [
+          {
+            "name": "Strapi",
+            "verified": true
+          },
+          {
+            "name": "Contentful",
+            "verified": true
+          },
+          {
+            "name": "Sanity",
+            "verified": true
+          },
+          {
+            "name": "GitHub",
+            "verified": true
+          },
+          {
+            "name": "GitLab",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "React Specialist"
+    },
+    "description": "Choose the React expertise that matches your product, codebase and delivery plans.",
+    "caption": {
+      "title": "One partner, every React role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "React Frontend Developer",
+        "description": "Builds responsive interfaces and features in your React codebase."
+      },
+      {
+        "title": "React + Next.js Developer",
+        "description": "Builds server-rendered, SEO-friendly applications with Next.js."
+      },
+      {
+        "title": "React + TypeScript Developer",
+        "description": "Writes typed, maintainable React code for larger products."
+      },
+      {
+        "title": "UI Component Developer",
+        "description": "Creates reusable component libraries and design-system pieces."
+      },
+      {
+        "title": "React Dashboard Developer",
+        "description": "Builds data-heavy dashboards, admin panels and internal tools."
+      },
+      {
+        "title": "Full-Stack React Developer",
+        "description": "Works across React frontends and Node.js backends."
+      },
+      {
+        "title": "React Performance Specialist",
+        "description": "Finds and fixes slow rendering, large bundles and load issues."
+      },
+      {
+        "title": "React Migration Developer",
+        "description": "Moves legacy frontends to modern React step by step."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "React Solutions Built Around",
+      "highlight": "Your Product"
+    },
+    "description": "Our React developers build frontends for the products and platforms your customers and teams use every day.",
+    "items": [
+      {
+        "title": "SaaS Dashboards",
+        "icon": "layoutDashboard",
+        "problem": "Users need to see and act on complex data quickly.",
+        "solution": "Fast, interactive React dashboards with clear navigation and reusable components.",
+        "applications": [
+          "Analytics views",
+          "Account settings",
+          "Reporting"
+        ]
+      },
+      {
+        "title": "Customer Portals",
+        "icon": "users",
+        "problem": "Customers expect self-service instead of emails and calls.",
+        "solution": "Secure React portals connected to your backend and business systems.",
+        "applications": [
+          "Account management",
+          "Order tracking",
+          "Support requests"
+        ]
+      },
+      {
+        "title": "Headless E-commerce",
+        "icon": "shoppingCart",
+        "problem": "Template storefronts limit design and performance.",
+        "solution": "Custom React storefronts connected to your commerce platform and payments.",
+        "applications": [
+          "Product browsing",
+          "Cart & checkout",
+          "Promotions"
+        ]
+      },
+      {
+        "title": "Internal Tools",
+        "icon": "wrench",
+        "problem": "Teams rely on spreadsheets and manual processes.",
+        "solution": "Purpose-built React admin panels and tools around your workflows.",
+        "applications": [
+          "Admin panels",
+          "Approval flows",
+          "Data entry"
+        ]
+      },
+      {
+        "title": "Content-Driven Websites",
+        "icon": "panels",
+        "problem": "Marketing teams wait on developers for every content change.",
+        "solution": "React and Next.js sites powered by a headless CMS your team can edit.",
+        "applications": [
+          "Marketing sites",
+          "Landing pages",
+          "Blogs"
+        ]
+      },
+      {
+        "title": "Booking & Service Platforms",
+        "icon": "appWindow",
+        "problem": "Booking by phone or email doesn't scale.",
+        "solution": "Interactive React booking flows connected to your scheduling and payment systems.",
+        "applications": [
+          "Appointments",
+          "Reservations",
+          "Online quotes"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "React Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip React Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "component"
+    }
+  },
+  "caseStudies": {
+    "featured": {
+      "category": "React Application",
+      "label": "In-house product",
+      "title": "Instant Quote Builder",
+      "description": "An interactive estimate builder on Fillip's website where visitors pick packages and add-ons and get their estimate by email.",
+      "challenge": "Visitors wanted a quick idea of project scope without a long back-and-forth over email before a first conversation.",
+      "solution": "A React interface for choosing packages, industry-specific options and add-ons with a live total, connected to a server-side flow that validates the request and emails a PDF estimate.",
+      "technology": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "delivered": [
+        "Package, custom and requirement-based quote flows",
+        "Industry-specific options with live totals",
+        "Validated quote requests with PDF estimates by email",
+        "Responsive interface across desktop and mobile"
+      ],
+      "outcomes": [
+        "Self-serve estimates",
+        "Fewer back-and-forth emails",
+        "Leads captured with context"
+      ],
+      "image": {
+        "src": "/images/hire-developers/react/case-study.jpg",
+        "alt": "Fillip's instant quote builder, built with React",
+        "width": 1440,
+        "height": 900
+      },
+      "href": "/get-a-quote"
+    },
+    "projectTypes": [
+      "Web Apps",
+      "Dashboards",
+      "Component Libraries",
+      "Portals",
+      "Headless Frontends",
+      "Performance"
+    ]
+  },
+  "costTechnologyItems": [
+    "Component library",
+    "State & data fetching",
+    "API integration",
+    "Next.js / SSR",
+    "Animations",
+    "Headless CMS"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a React developer?",
+      "answer": "The cost depends on the developer's experience, the complexity of your frontend, the technologies involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of React developers can I hire?",
+      "answer": "You can hire React Frontend Developers, React + Next.js Developers, React + TypeScript Developers, UI Component Developers, React Dashboard Developers, Full-Stack React Developers, React Performance Specialists and React Migration Developers."
+    },
+    {
+      "question": "What technologies do your React developers work with?",
+      "answer": "Our React developers work with React, Next.js, TypeScript and JavaScript; styling and motion tools such as Tailwind CSS and Framer Motion; REST and GraphQL APIs; backends such as Node.js and NestJS; headless CMS platforms such as Strapi, Contentful and Sanity; and hosting on Vercel, Netlify, AWS or Cloudflare."
+    },
+    {
+      "question": "Can your React developers work on our existing codebase?",
+      "answer": "Yes. Developers can review your existing React code, follow your conventions and workflow, and add features, fix issues or improve performance alongside your team."
+    }
+  ]
+}

@@ -1,0 +1,713 @@
+{
+  "sections": {
+    "showCapabilities": true,
+    "showTechnologyStack": true,
+    "showSpecialistTypes": true,
+    "showUseCases": true,
+    "showWhyFillip": true,
+    "showEngagementModels": true,
+    "showHiringProcess": true,
+    "showCollaboration": true,
+    "showCaseStudies": true,
+    "showSecuritySection": true,
+    "showCostSection": true,
+    "showFaq": true,
+    "showFinalCta": true
+  },
+  "hero": {
+    "primaryCta": {
+      "label": "Hire {Plural}",
+      "href": "/get-a-quote"
+    },
+    "secondaryCta": {
+      "label": "Discuss Your Project",
+      "href": "/contact"
+    },
+    "trustPoints": [
+      {
+        "label": "Dedicated Developers",
+        "icon": "userCheck"
+      },
+      {
+        "label": "Flexible Engagement",
+        "icon": "handshake"
+      },
+      {
+        "label": "NDA & IP Protection",
+        "icon": "shieldCheck"
+      },
+      {
+        "label": "Timezone Overlap",
+        "icon": "clock"
+      },
+      {
+        "label": "Direct Developer Communication",
+        "icon": "messageCircle"
+      },
+      {
+        "label": "Scalable Teams",
+        "icon": "users"
+      }
+    ],
+    "stats": [
+      {
+        "value": "13+",
+        "label": [
+          "Years",
+          "Experience"
+        ]
+      },
+      {
+        "value": "1000+",
+        "label": [
+          "Projects",
+          "Delivered"
+        ]
+      },
+      {
+        "value": "20+",
+        "label": [
+          "Industries",
+          "Served"
+        ]
+      }
+    ]
+  },
+  "whyFillip": {
+    "eyebrow": "Why Fillip",
+    "title": {
+      "before": "Why Hire {Plural} From",
+      "highlight": "Fillip Technologies?"
+    },
+    "description": "Get dedicated {short} development expertise with flexible engagement, direct communication and a delivery process built around your product requirements.",
+    "badge": "Developers who join your team",
+    "tile": "Engineering team based in India",
+    "benefits": [
+      {
+        "title": "Dedicated Expertise",
+        "description": "Developers focused on your product, working as part of your team.",
+        "icon": "userCheck"
+      },
+      {
+        "title": "Direct Communication",
+        "description": "Talk to your developers directly — no account-manager relay.",
+        "icon": "messageCircle"
+      },
+      {
+        "title": "Flexible Engagement",
+        "description": "Choose the engagement model that fits your timeline and budget.",
+        "icon": "handshake"
+      },
+      {
+        "title": "NDA & IP Protection",
+        "description": "Your code, data and ideas stay yours, protected by NDA.",
+        "icon": "shieldCheck"
+      },
+      {
+        "title": "Scale When You Need",
+        "description": "Add or reduce developers as your roadmap changes.",
+        "icon": "expand"
+      },
+      {
+        "title": "India-Based Engineering Team",
+        "description": "Experienced engineers in India with working-hour overlap for global teams.",
+        "icon": "mapPin"
+      }
+    ],
+    "team": [
+      [
+        {
+          "name": "Tech Lead",
+          "role": "Dedicated developer",
+          "image": "/images/hire-developers/shared/avatar-1.jpg"
+        },
+        {
+          "name": "Frontend Engineer",
+          "role": "Dedicated developer",
+          "image": "/images/hire-developers/shared/avatar-2.jpg"
+        }
+      ],
+      [
+        {
+          "name": "Backend Engineer",
+          "role": "Dedicated developer",
+          "image": "/images/hire-developers/shared/avatar-3.jpg"
+        },
+        {
+          "name": "Full-Stack Engineer",
+          "role": "Dedicated developer",
+          "image": "/images/hire-developers/shared/avatar-4.jpg"
+        }
+      ],
+      [
+        {
+          "name": "Software Engineer",
+          "role": "Dedicated developer",
+          "image": "/images/hire-developers/shared/avatar-5.jpg"
+        }
+      ]
+    ],
+    "ctas": [
+      {
+        "label": "Hire {Plural}",
+        "href": "/get-a-quote"
+      },
+      {
+        "label": "Meet the Team",
+        "href": "/our-story"
+      }
+    ]
+  },
+  "engagementModels": {
+    "eyebrow": "Engagement Models",
+    "title": {
+      "before": "Choose the Right",
+      "highlight": "Engagement Model"
+    },
+    "description": "Whether you need one {role} or a complete development team, choose an engagement model that fits your project, timeline and level of involvement.",
+    "models": [
+      {
+        "title": "Dedicated {Singular}",
+        "icon": "userCheck",
+        "summary": "One {role} working as part of your team.",
+        "purpose": "Add focused {short} expertise to your existing team without hiring in-house.",
+        "bestFor": [
+          "Extending an in-house team with specialist skills",
+          "Ongoing feature development",
+          "Teams that want to direct the work themselves"
+        ],
+        "facts": [
+          {
+            "label": "Team size",
+            "value": "1 developer"
+          },
+          {
+            "label": "Your involvement",
+            "value": "High — you direct daily work"
+          },
+          {
+            "label": "Scope",
+            "value": "Ongoing and evolving"
+          }
+        ]
+      },
+      {
+        "title": "Dedicated {Short} Development Team",
+        "icon": "users",
+        "summary": "A team assembled around your product.",
+        "purpose": "Get {roles} plus the supporting engineering roles your product needs, working as one unit.",
+        "bestFor": [
+          "Building a new product end to end",
+          "Companies without an in-house tech team",
+          "Scaling a product roadmap faster"
+        ],
+        "facts": [
+          {
+            "label": "Team size",
+            "value": "Multiple specialists"
+          },
+          {
+            "label": "Your involvement",
+            "value": "Medium — shared with a team lead"
+          },
+          {
+            "label": "Scope",
+            "value": "Long-term product work"
+          }
+        ]
+      },
+      {
+        "title": "Time & Material",
+        "icon": "clock",
+        "summary": "Pay for the actual time and effort spent.",
+        "purpose": "Keep scope flexible while requirements are still taking shape.",
+        "bestFor": [
+          "Proofs of concept and experiments",
+          "Projects with changing requirements",
+          "Iterative feature work"
+        ],
+        "facts": [
+          {
+            "label": "Team size",
+            "value": "Flexible"
+          },
+          {
+            "label": "Your involvement",
+            "value": "Medium — you set priorities"
+          },
+          {
+            "label": "Scope",
+            "value": "Changing or exploratory"
+          }
+        ]
+      },
+      {
+        "title": "Fixed-Project Engagement",
+        "icon": "fileCheck",
+        "summary": "A defined scope delivered to an agreed plan.",
+        "purpose": "Agree scope, timeline and cost upfront for clearly defined work.",
+        "bestFor": [
+          "Well-defined features",
+          "MVPs with fixed requirements",
+          "Budget-controlled projects"
+        ],
+        "facts": [
+          {
+            "label": "Team size",
+            "value": "As the scope requires"
+          },
+          {
+            "label": "Your involvement",
+            "value": "Low — milestone reviews"
+          },
+          {
+            "label": "Scope",
+            "value": "Fixed and well-defined"
+          }
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "eyebrow": "Hiring Process",
+    "title": {
+      "before": "Hire Your {Singular} in",
+      "highlight": "5 Simple Steps"
+    },
+    "description": "From sharing your requirements to starting development, our hiring process is designed to keep things clear and straightforward.",
+    "steps": [
+      {
+        "title": "Share Your Requirements",
+        "description": "Tell us about the skills, experience, technology and project requirements you need.",
+        "icon": "clipboardList"
+      },
+      {
+        "title": "Get Developer Profiles",
+        "description": "Our team identifies suitable developers based on your requirements.",
+        "icon": "userSearch"
+      },
+      {
+        "title": "Interview & Select",
+        "description": "Review profiles, discuss your requirements and interview the shortlisted developers.",
+        "icon": "video"
+      },
+      {
+        "title": "Start Your Engagement",
+        "description": "Complete the required agreements and onboarding, then begin working with your selected developer or team.",
+        "icon": "rocket"
+      },
+      {
+        "title": "Scale When Needed",
+        "description": "Add developers or other specialists as your project requirements evolve.",
+        "icon": "usersRound"
+      }
+    ],
+    "brief": {
+      "role": "{Singular}",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": []
+    },
+    "profiles": [
+      {
+        "name": "Backend Engineer",
+        "role": "Matched to your brief",
+        "image": "/images/hire-developers/shared/avatar-3.jpg"
+      },
+      {
+        "name": "Full-Stack Engineer",
+        "role": "Matched to your brief",
+        "image": "/images/hire-developers/shared/avatar-4.jpg"
+      },
+      {
+        "name": "Frontend Engineer",
+        "role": "Matched to your brief",
+        "image": "/images/hire-developers/shared/avatar-2.jpg"
+      }
+    ],
+    "interviewer": {
+      "name": "Tech Lead",
+      "role": "Interview panel",
+      "image": "/images/hire-developers/shared/avatar-1.jpg"
+    },
+    "team": [
+      {
+        "name": "Tech Lead",
+        "role": "Dedicated developer",
+        "image": "/images/hire-developers/shared/avatar-1.jpg"
+      },
+      {
+        "name": "Backend Engineer",
+        "role": "Dedicated developer",
+        "image": "/images/hire-developers/shared/avatar-3.jpg"
+      },
+      {
+        "name": "Full-Stack Engineer",
+        "role": "Dedicated developer",
+        "image": "/images/hire-developers/shared/avatar-4.jpg"
+      },
+      {
+        "name": "Software Engineer",
+        "role": "Dedicated developer",
+        "image": "/images/hire-developers/shared/avatar-5.jpg"
+      }
+    ],
+    "teamRoles": [
+      "{Singular}",
+      "Backend Developer"
+    ]
+  },
+  "collaboration": {
+    "eyebrow": "How We Work",
+    "title": {
+      "before": "Your Team, Extended With",
+      "highlight": "{Short} Expertise"
+    },
+    "description": "Our developers can work alongside your existing product, engineering and business teams using the communication, project management and development workflows that fit your organization.",
+    "centre": {
+      "title": "Fillip {Singular}",
+      "subtitle": "Embedded in your team",
+      "icon": "code"
+    },
+    "roles": [
+      {
+        "title": "Product Team",
+        "detail": "Roadmap & priorities",
+        "icon": "layoutDashboard",
+        "x": 50,
+        "y": 9
+      },
+      {
+        "title": "Design Team",
+        "detail": "UX & interface flows",
+        "icon": "palette",
+        "x": 17,
+        "y": 50
+      },
+      {
+        "title": "Client Team",
+        "detail": "Stakeholders & feedback",
+        "icon": "building",
+        "x": 83,
+        "y": 50
+      },
+      {
+        "title": "QA / DevOps",
+        "detail": "Testing & releases",
+        "icon": "shieldCheck",
+        "x": 50,
+        "y": 91
+      }
+    ],
+    "workflow": [
+      {
+        "title": "Requirements",
+        "icon": "clipboardList"
+      },
+      {
+        "title": "Communication",
+        "icon": "messagesSquare"
+      },
+      {
+        "title": "Development",
+        "icon": "codeXml"
+      },
+      {
+        "title": "Code Review",
+        "icon": "gitPullRequest"
+      },
+      {
+        "title": "Testing",
+        "icon": "flask"
+      },
+      {
+        "title": "Delivery",
+        "icon": "packageCheck"
+      }
+    ],
+    "toolsHeading": "Works inside the tools your team already uses",
+    "toolGroups": [
+      {
+        "title": "Communication",
+        "icon": "messagesSquare",
+        "tools": [
+          {
+            "name": "Slack",
+            "verified": true
+          },
+          {
+            "name": "Microsoft Teams",
+            "verified": false
+          },
+          {
+            "name": "Google Meet",
+            "verified": false
+          },
+          {
+            "name": "Zoom",
+            "verified": false
+          }
+        ]
+      },
+      {
+        "title": "Project Management",
+        "icon": "kanban",
+        "tools": [
+          {
+            "name": "Jira",
+            "verified": false
+          },
+          {
+            "name": "ClickUp",
+            "verified": false
+          },
+          {
+            "name": "Trello",
+            "verified": false
+          },
+          {
+            "name": "Asana",
+            "verified": false
+          }
+        ]
+      },
+      {
+        "title": "Development",
+        "icon": "gitBranch",
+        "tools": [
+          {
+            "name": "GitHub",
+            "verified": true
+          },
+          {
+            "name": "GitLab",
+            "verified": true
+          },
+          {
+            "name": "Bitbucket",
+            "verified": false
+          }
+        ]
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "{Short} Development in Action",
+    "title": {
+      "before": "{Short} Projects Built for",
+      "highlight": "Real Business Needs"
+    },
+    "description": "Our developers build practical solutions around real business requirements, workflows and product goals.",
+    "featured": null,
+    "secondary": [],
+    "projectTypes": []
+  },
+  "security": {
+    "eyebrow": "Security, NDA & Intellectual Property Protection",
+    "title": {
+      "before": "Your Product, Data and Intellectual Property",
+      "highlight": "Stay Protected"
+    },
+    "description": "When you work with Fillip Technologies, security and ownership are considered from the beginning of the engagement. Our development workflow can be structured around confidentiality, controlled access and clear intellectual property ownership.",
+    "points": [
+      {
+        "title": "NDA & Confidentiality",
+        "description": "Protect confidential project information through appropriate confidentiality agreements when required.",
+        "icon": "fileLock"
+      },
+      {
+        "title": "Intellectual Property Ownership",
+        "description": "Project-specific ownership and IP terms can be defined clearly as part of the engagement agreement.",
+        "icon": "fileText"
+      },
+      {
+        "title": "Controlled Project Access",
+        "description": "Access to repositories, environments, APIs and project resources can be managed according to the requirements of the engagement.",
+        "icon": "keyRound"
+      },
+      {
+        "title": "Secure Development Workflow",
+        "description": "Development, code review, testing and deployment workflows can be structured around the access and security requirements of your project.",
+        "icon": "gitBranch"
+      }
+    ],
+    "strip": [
+      {
+        "label": "NDA Available",
+        "icon": "fileLock"
+      },
+      {
+        "label": "Clear IP Terms",
+        "icon": "fileText"
+      },
+      {
+        "label": "Controlled Access",
+        "icon": "keyRound"
+      },
+      {
+        "label": "Direct Communication",
+        "icon": "messageCircle"
+      }
+    ],
+    "cta": {
+      "text": "Have security or IP requirements for your project?",
+      "button": {
+        "label": "Discuss Your Requirements",
+        "href": "/contact"
+      }
+    }
+  },
+  "cost": {
+    "eyebrow": "{Short} Development Cost",
+    "title": {
+      "before": "How Much Does It Cost to",
+      "highlight": "Hire {Plural}?"
+    },
+    "description": "The cost of hiring {roles} depends on the developer profile, technical expertise, project complexity, engagement model and duration of the engagement. Instead of presenting a one-size-fits-all price, we structure the engagement around your actual requirements.",
+    "flow": [
+      "Project Requirements",
+      "Technical Complexity",
+      "Team / Specialist Requirement",
+      "Engagement Model",
+      "Project Cost"
+    ],
+    "factors": [
+      {
+        "title": "Developer Expertise",
+        "description": "Junior, mid-level and senior expertise can affect engagement cost.",
+        "influences": [
+          2
+        ],
+        "scale": {
+          "kind": "range",
+          "from": "Junior",
+          "to": "Senior",
+          "stops": [
+            "Junior",
+            "Mid-level",
+            "Senior"
+          ]
+        }
+      },
+      {
+        "title": "Project Complexity",
+        "description": "A simple feature or integration and a production-grade platform have different development requirements.",
+        "influences": [
+          1
+        ],
+        "scale": {
+          "kind": "range",
+          "from": "Simple feature or integration",
+          "to": "Production-grade platform"
+        }
+      },
+      {
+        "title": "Technology Requirements",
+        "description": "Different frameworks, integrations and technical requirements may call for different expertise.",
+        "influences": [
+          1,
+          2
+        ],
+        "scale": {
+          "kind": "options",
+          "items": []
+        }
+      },
+      {
+        "title": "Engagement Model",
+        "description": "Dedicated developer, dedicated team, time & material and fixed-project engagements can have different cost structures.",
+        "influences": [
+          3
+        ],
+        "scale": {
+          "kind": "options",
+          "items": [
+            "Dedicated developer",
+            "Dedicated team",
+            "Time & material",
+            "Fixed project"
+          ]
+        }
+      },
+      {
+        "title": "Engagement Duration",
+        "description": "Long-term product development and short-term implementation projects may require different staffing approaches.",
+        "influences": [
+          2,
+          3
+        ],
+        "scale": {
+          "kind": "range",
+          "from": "Short-term implementation",
+          "to": "Long-term product development"
+        }
+      }
+    ],
+    "cta": {
+      "title": "Get a Project-Specific Estimate",
+      "subtitle": "Share your requirements and we'll scope the right engagement.",
+      "button": {
+        "label": "Discuss Your Project",
+        "href": "/contact"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": {
+      "before": "Questions About",
+      "highlight": "Hiring {Plural}"
+    },
+    "description": "Find answers to common questions about hiring {roles}, engagement models, communication, technology and project delivery.",
+    "items": [
+      {
+        "question": "Can I hire a dedicated {role}?",
+        "answer": "Yes. With the dedicated developer model, your {role} focuses on your project and works as an extension of your existing team, following your priorities, tools and communication rhythm."
+      },
+      {
+        "question": "Can I hire a complete {short} development team?",
+        "answer": "Yes. A dedicated development team can be structured around your project requirements, combining {roles} with supporting roles such as backend development, QA, UI/UX or project coordination where applicable."
+      },
+      {
+        "question": "Can your {roles} work with our existing team?",
+        "answer": "Yes. Developers can join your existing workflow: communicating through your team's chat and meeting tools, working in your project-management system and contributing through your code repositories, with code review and testing as part of the process."
+      },
+      {
+        "question": "Can {roles} work with teams in different time zones?",
+        "answer": "Yes. Communication and working-hour overlap can be structured around your team's working hours and project requirements, so there is regular time for meetings, reviews and collaboration."
+      },
+      {
+        "question": "Can I sign an NDA before discussing my project?",
+        "answer": "Yes. Confidentiality arrangements, including an NDA, can be put in place when required before you share project details. Let us know your requirements when you get in touch."
+      },
+      {
+        "question": "Who owns the source code and intellectual property?",
+        "answer": "Ownership of the source code and intellectual property is defined in the engagement agreement and project-specific terms, so it is clear for your project from the start."
+      },
+      {
+        "question": "How quickly can I onboard {roles}?",
+        "answer": "It depends on the expertise you need, developer availability and your project requirements. Once we understand your needs, we can share expected availability and an onboarding plan."
+      },
+      {
+        "question": "Can I scale the development team later?",
+        "answer": "Yes. The engagement can be adjusted as your project requirements evolve, for example by adding developers or other specialists, subject to developer and team availability."
+      }
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "Get Started",
+    "title": {
+      "before": "Ready to Hire",
+      "highlight": "{Plural}?"
+    },
+    "description": "Share your requirements and we'll help you find the right {roles} for your product, timeline and engagement model.",
+    "primaryCta": {
+      "label": "Hire {Plural}",
+      "href": "/get-a-quote"
+    },
+    "secondaryCta": {
+      "label": "Discuss Your Project",
+      "href": "/contact"
+    }
+  }
+}

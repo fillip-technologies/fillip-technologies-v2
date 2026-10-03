@@ -1,0 +1,511 @@
+{
+  "slug": "full-stack",
+  "path": "/hire-full-stack-developers",
+  "role": {
+    "singular": "full-stack developer",
+    "plural": "full-stack developers",
+    "Singular": "Full-Stack Developer",
+    "Plural": "Full-Stack Developers",
+    "short": "full-stack",
+    "Short": "Full-Stack"
+  },
+  "seo": {
+    "title": "Hire Full-Stack Developers",
+    "metaTitle": "Hire Full-Stack Developers",
+    "metaDescription": "Hire full-stack developers from Fillip Technologies to build complete web applications, SaaS products, business software and APIs across frontend, backend and databases.",
+    "keywords": [
+      "hire full-stack developers",
+      "dedicated full-stack developers",
+      "full-stack development team",
+      "MERN stack developers"
+    ]
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/full-stack/hero.jpg",
+      "alt": "Two developers reviewing a web application on a laptop in a bright office"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/full-stack/capabilities.jpg",
+      "alt": "Illustration for Full-Stack Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/full-stack/stack.jpg",
+      "alt": "Illustration for Full-Stack Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/full-stack/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/full-stack/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/full-stack/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/full-stack/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/full-stack/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/full-stack/case-study.jpg",
+      "alt": "Fillip's contact page and enquiry form"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/full-stack/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/full-stack/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Full-Stack Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "Full-Stack Developers"
+    },
+    "description": "Hire experienced full-stack developers from Fillip Technologies to build complete web applications, SaaS products and business software — from the interface to the APIs and database.",
+    "floatingCards": {
+      "left": {
+        "title": "Full-Stack Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "layers"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "UI",
+          "API",
+          "DB",
+          "OPS"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Full-Stack Developers",
+      "after": "Build?"
+    },
+    "description": "Our full-stack developers take features from database to interface, so you can build and ship complete products with fewer hand-offs.",
+    "items": [
+      {
+        "title": "End-to-End Web Applications",
+        "description": "Build complete applications across frontend, backend and database.",
+        "icon": "layers"
+      },
+      {
+        "title": "SaaS Product Development",
+        "description": "Take SaaS products from MVP to a scalable launch.",
+        "icon": "layoutGrid"
+      },
+      {
+        "title": "Business Software",
+        "description": "Build custom CRM, ERP and internal tools around your processes.",
+        "icon": "building"
+      },
+      {
+        "title": "APIs & Integrations",
+        "description": "Design APIs and connect payments, CRMs and third-party services.",
+        "icon": "plug"
+      },
+      {
+        "title": "Dashboards & Admin Panels",
+        "description": "Build admin panels, reporting and role-based dashboards.",
+        "icon": "layoutDashboard"
+      },
+      {
+        "title": "E-commerce Platforms",
+        "description": "Build custom stores, carts, checkout and order management.",
+        "icon": "shoppingCart"
+      },
+      {
+        "title": "MVP Development",
+        "description": "Build a focused first version of your product to test with users.",
+        "icon": "rocket"
+      },
+      {
+        "title": "Maintenance & Feature Work",
+        "description": "Maintain, extend and improve existing applications.",
+        "icon": "wrench"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Full-Stack",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build complete products with modern frontends, proven backend frameworks, reliable databases and cloud infrastructure.",
+    "categories": [
+      {
+        "title": "Full-Stack Core",
+        "description": "The JavaScript stack behind most of our builds.",
+        "icon": "layers",
+        "items": [
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "Next.js",
+            "verified": true
+          },
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Frontend",
+        "description": "Interfaces for web applications and dashboards.",
+        "icon": "appWindow",
+        "items": [
+          {
+            "name": "Tailwind CSS",
+            "verified": true
+          },
+          {
+            "name": "Vue.js",
+            "verified": true
+          },
+          {
+            "name": "Angular",
+            "verified": true
+          },
+          {
+            "name": "Framer Motion",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Backend",
+        "description": "Server-side frameworks and languages.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Express",
+            "verified": true
+          },
+          {
+            "name": "NestJS",
+            "verified": true
+          },
+          {
+            "name": "Laravel",
+            "verified": true
+          },
+          {
+            "name": "Python",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Databases",
+        "description": "Storage for your application data.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          },
+          {
+            "name": "MySQL",
+            "verified": true
+          },
+          {
+            "name": "Redis",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Deploy and run your product reliably.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Vercel",
+            "verified": true
+          },
+          {
+            "name": "Docker",
+            "verified": true
+          },
+          {
+            "name": "CI/CD",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "APIs & Payments",
+        "description": "Connect services, data and payments.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          },
+          {
+            "name": "Firebase",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Full-Stack Specialist"
+    },
+    "description": "Choose the full-stack profile that matches your product's stack and stage.",
+    "caption": {
+      "title": "One partner, every stack",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Full-Stack JavaScript Developer",
+        "description": "Builds with React or Next.js on the front and Node.js on the back."
+      },
+      {
+        "title": "MERN Stack Developer",
+        "description": "Works across MongoDB, Express, React and Node.js."
+      },
+      {
+        "title": "Full-Stack Next.js Developer",
+        "description": "Builds pages, APIs and data access in one Next.js codebase."
+      },
+      {
+        "title": "Laravel Full-Stack Developer",
+        "description": "Builds Laravel backends with modern JavaScript frontends."
+      },
+      {
+        "title": "Python Full-Stack Developer",
+        "description": "Pairs Python backends with React or Next.js frontends."
+      },
+      {
+        "title": "SaaS Full-Stack Developer",
+        "description": "Builds multi-user products with roles, billing and dashboards."
+      },
+      {
+        "title": "E-commerce Full-Stack Developer",
+        "description": "Builds custom stores, checkout and order management."
+      },
+      {
+        "title": "Full-Stack Maintenance Developer",
+        "description": "Keeps existing applications updated, stable and improving."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "Full-Stack Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our full-stack developers build the complete products and platforms that run your business.",
+    "items": [
+      {
+        "title": "Startup MVPs",
+        "icon": "rocket",
+        "problem": "You need a working product quickly to test with real users.",
+        "solution": "A focused full-stack MVP with the core features, data and admin you need.",
+        "applications": [
+          "User sign-up",
+          "Core workflow",
+          "Admin panel"
+        ]
+      },
+      {
+        "title": "SaaS Platforms",
+        "icon": "layoutGrid",
+        "problem": "A product needs to serve many customers reliably.",
+        "solution": "Multi-user SaaS applications with roles, settings and integrations.",
+        "applications": [
+          "Accounts & roles",
+          "Dashboards",
+          "Billing hooks"
+        ]
+      },
+      {
+        "title": "CRM & ERP Systems",
+        "icon": "building",
+        "problem": "Off-the-shelf tools don't fit how your team works.",
+        "solution": "Custom CRM and ERP software built around your processes.",
+        "applications": [
+          "Lead pipelines",
+          "Inventory",
+          "Reporting"
+        ]
+      },
+      {
+        "title": "Marketplaces & Booking",
+        "icon": "store",
+        "problem": "Matching customers, providers and payments is complex.",
+        "solution": "Full-stack platforms for listings, bookings and payments.",
+        "applications": [
+          "Listings",
+          "Bookings",
+          "Payments"
+        ]
+      },
+      {
+        "title": "Customer Portals",
+        "icon": "users",
+        "problem": "Customers expect self-service instead of emails and calls.",
+        "solution": "Secure portals connected to your data and business systems.",
+        "applications": [
+          "Account areas",
+          "Documents",
+          "Support requests"
+        ]
+      },
+      {
+        "title": "Legacy Modernization",
+        "icon": "refresh",
+        "problem": "Older applications are slow, fragile and hard to change.",
+        "solution": "Rebuild or modernise applications step by step on a current stack.",
+        "applications": [
+          "Code refactoring",
+          "UI rebuilds",
+          "Data migration"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Full-Stack Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "MongoDB"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip Full-Stack Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "layers"
+    }
+  },
+  "caseStudies": {
+    "featured": {
+      "category": "Full-Stack Application",
+      "label": "In-house product",
+      "title": "Enquiry & Lead Management",
+      "description": "The full flow behind Fillip's contact and enquiry forms, from the website form to stored leads managed in an admin panel.",
+      "challenge": "Enquiries from different forms across the website needed to reach the team reliably, be stored in one place and be easy to follow up.",
+      "solution": "React forms on the website, validated server-side API endpoints, lead storage in MongoDB, email notifications to the team and a leads table in the admin panel.",
+      "technology": [
+        "Next.js",
+        "React",
+        "Node.js",
+        "TypeScript",
+        "MongoDB",
+        "Tailwind CSS"
+      ],
+      "delivered": [
+        "Enquiry forms across the website",
+        "Validated API endpoints for incoming leads",
+        "Lead storage and email notifications",
+        "Leads table in the admin panel"
+      ],
+      "outcomes": [
+        "All enquiries in one place",
+        "Faster follow-up",
+        "Less manual handling"
+      ],
+      "image": {
+        "src": "/images/hire-developers/full-stack/case-study.jpg",
+        "alt": "Fillip's contact page and enquiry form",
+        "width": 1440,
+        "height": 900
+      },
+      "href": "/contact"
+    },
+    "projectTypes": [
+      "MVPs",
+      "SaaS",
+      "CRM & ERP",
+      "Marketplaces",
+      "Portals",
+      "Modernization"
+    ]
+  },
+  "costTechnologyItems": [
+    "Frontend framework",
+    "Backend framework",
+    "Database design",
+    "Integrations & payments",
+    "Admin panel",
+    "Cloud deployment"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a full-stack developer?",
+      "answer": "The cost depends on the developer's experience, the scope of your application, the technologies involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of full-stack developers can I hire?",
+      "answer": "You can hire Full-Stack JavaScript Developers, MERN Stack Developers, Full-Stack Next.js Developers, Laravel Full-Stack Developers, Python Full-Stack Developers, SaaS Full-Stack Developers, E-commerce Full-Stack Developers and Full-Stack Maintenance Developers."
+    },
+    {
+      "question": "What technologies do your full-stack developers work with?",
+      "answer": "Our full-stack developers work with React, Next.js, Vue.js and Angular on the frontend; Node.js, Express, NestJS, Laravel and Python on the backend; databases such as MongoDB, PostgreSQL, MySQL and Redis; and cloud and DevOps tools such as AWS, Vercel, Docker and CI/CD."
+    },
+    {
+      "question": "Should I hire a full-stack developer or separate frontend and backend developers?",
+      "answer": "A full-stack developer suits MVPs, smaller teams and features that cross the frontend and backend. Larger products often benefit from a team with dedicated frontend and backend specialists. We can recommend a setup once we understand your project."
+    }
+  ]
+}
