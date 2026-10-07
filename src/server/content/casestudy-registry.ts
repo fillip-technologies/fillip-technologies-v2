@@ -172,6 +172,21 @@ export function toCard(cs: CaseStudy): CaseStudyCard {
   };
 }
 
+/* ------------------------------------------------------------- nav link -- */
+/** The What We Do column ("Challenges We Solve") whose hover menu lists case studies. */
+export const CASE_STUDY_MENU_CATEGORY = "challenges-we-solve";
+
+/** A case study's link in that column: "<Industry> — <Title>" → /case-studies/<slug>. */
+export function caseStudyMenuLink(cs: { slug: string; title: string; industry: string }): {
+  label: string;
+  href: string;
+} {
+  return {
+    label: cs.industry ? `${cs.industry} — ${cs.title}` : cs.title,
+    href: `/case-studies/${cs.slug}`,
+  };
+}
+
 /* -------------------------------------------------------------- queries -- */
 /** All case studies (published + drafts), ordered for the admin list. */
 export async function listCaseStudies(): Promise<CaseStudy[]> {

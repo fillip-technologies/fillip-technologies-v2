@@ -137,7 +137,7 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
       {
         href: "/admin/cms/category/challenges-we-solve",
         label: "Challenges We Solve",
-        description: "Pages under the Challenges column (e.g. /challenges/low-organic-traffic).",
+        description: "Case studies shown under the Challenges column (e.g. /case-studies/<slug>).",
         icon: Puzzle,
         accent: "amber",
       },

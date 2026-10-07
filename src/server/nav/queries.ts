@@ -4,15 +4,17 @@ import type { AboutMenuItem } from "@/components/layouts/Navbar/aboutMegaMenuDat
 import { NAV_MENUS, type NavMenuId } from "./menus";
 
 /**
- * The Industries dropdown is auto-generated from the published industry pages
- * (source of truth = the `industries` collection — label, slug and sort_order).
- * Publishing/unpublishing a page adds/removes it from the nav automatically.
- * Falls back to the static defaults if nothing is published yet.
+ * The Industries dropdown is generated from the published industry pages that
+ * are marked "Show in menu" (source of truth = the `industries` collection —
+ * label, slug, sort_order, show_in_menu). A page can be live without being in
+ * the dropdown. Falls back to the static defaults only if nothing is published.
  */
 async function getIndustriesNav(): Promise<AboutMenuItem[]> {
   const industries = await listPublishedIndustries();
-  const items = industries.map((i) => ({ label: i.label, href: `/industries/${i.slug}` }));
-  return items.length ? items : NAV_MENUS.industries.defaults;
+  if (!industries.length) return NAV_MENUS.industries.defaults;
+  return industries
+    .filter((i) => i.showInMenu !== false)
+    .map((i) => ({ label: i.label, href: `/industries/${i.slug}` }));
 }
 
 /**

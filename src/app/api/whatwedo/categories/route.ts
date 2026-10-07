@@ -3,7 +3,6 @@ import {
   listPublishedCategories,
   getPublicCategoryMenuLinksBatch,
 } from "@/server/content/whatwedo-registry";
-import { getPublishedServiceHrefs } from "@/server/content/servicepage-registry";
 
 // GET /api/whatwedo/categories — public. Returns the published What-We-Do
 // category pages (with their mega-menu sub-links) for the nav. Cached briefly so
@@ -13,15 +12,9 @@ export const revalidate = 300;
 
 export async function GET() {
   try {
-    const [categories, publishedHrefs] = await Promise.all([
-      listPublishedCategories("whatwedo"),
-      getPublishedServiceHrefs(),
-    ]);
+    const categories = await listPublishedCategories("whatwedo");
     // One batched query for all columns' sub-links instead of one per category.
-    const linksBySlug = await getPublicCategoryMenuLinksBatch(
-      categories.map((c) => c.slug),
-      publishedHrefs
-    );
+    const linksBySlug = await getPublicCategoryMenuLinksBatch(categories.map((c) => c.slug));
     const items = categories.map((c) => ({
       slug: c.slug,
       label: c.label,

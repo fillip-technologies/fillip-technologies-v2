@@ -5,12 +5,16 @@ import { getSession } from "@/server/auth/session";
 import { slugify } from "@/lib/slug";
 import { getCaseStudySectionSpec } from "./casestudy-sections";
 import {
+  CASE_STUDY_MENU_CATEGORY,
+  caseStudyMenuLink,
   getCaseStudy,
   insertCaseStudy,
   updateCaseStudySection,
   setCaseStudyPublished,
   deleteCaseStudy as deleteCaseStudyRow,
 } from "./casestudy-registry";
+import { removeCategoryMenuLink, setCategoryMenuLink } from "./whatwedo-registry";
+import { revalidateMenus } from "./revalidate-menus";
 import { whitelistSectionData } from "./section-utils";
 import { UNAUTHORIZED } from "./types";
 import type { SaveState } from "./types";
@@ -106,6 +110,8 @@ export async function setCaseStudyPublishedAction(
     revalidatePath("/admin/cms/case-studies");
     revalidatePath(`/case-studies/${slug}`);
     revalidatePath("/case-studies");
+    // A menu link to this case study shows only while it's published.
+    revalidateMenus();
     return {
       ok: true,
       message: published
@@ -114,6 +120,38 @@ export async function setCaseStudyPublishedAction(
     };
   } catch (err) {
     console.error("setCaseStudyPublishedAction failed:", err);
+    return { ok: false, message: "Something went wrong." };
+  }
+}
+
+/**
+ * Show or hide a case study in the "Challenges We Solve" hover-menu column —
+ * independent of publishing. Showing appends "<Industry> — <Title>" to the end
+ * of the column; reorder/rename it in that column's Menu links editor. A link to
+ * a draft stays hidden from the public until the case study is published.
+ */
+export async function setCaseStudyInMenu(slug: string, inMenu: boolean): Promise<SaveState> {
+  if (!(await getSession())) return UNAUTHORIZED;
+  const cs = await getCaseStudy(slug);
+  if (!cs) {
+    return { ok: false, message: "Unknown case study." };
+  }
+
+  try {
+    await setCategoryMenuLink(CASE_STUDY_MENU_CATEGORY, caseStudyMenuLink(cs), inMenu);
+    revalidatePath("/admin/cms/case-studies");
+    revalidatePath(`/admin/cms/category/${CASE_STUDY_MENU_CATEGORY}`);
+    revalidateMenus();
+    return {
+      ok: true,
+      message: inMenu
+        ? cs.published
+          ? `“${cs.title}” now shows in the hover menu.`
+          : `“${cs.title}” will show in the hover menu once published.`
+        : `“${cs.title}” is hidden from the hover menu.`,
+    };
+  } catch (err) {
+    console.error("setCaseStudyInMenu failed:", err);
     return { ok: false, message: "Something went wrong." };
   }
 }
@@ -127,8 +165,11 @@ export async function deleteCaseStudy(slug: string): Promise<SaveState> {
 
   try {
     await deleteCaseStudyRow(slug);
+    // Purge its hover-menu link so the nav doesn't keep a dead entry.
+    await removeCategoryMenuLink(CASE_STUDY_MENU_CATEGORY, `/case-studies/${slug}`);
     revalidatePath("/admin/cms/case-studies");
     revalidatePath("/case-studies");
+    revalidateMenus();
     return { ok: true, message: "Case study deleted." };
   } catch (err) {
     console.error("deleteCaseStudy failed:", err);

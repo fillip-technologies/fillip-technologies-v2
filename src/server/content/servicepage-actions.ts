@@ -11,12 +11,8 @@ import {
   setServicePagePublished,
   deleteServicePage as deleteServicePageRow,
 } from "./servicepage-registry";
-import {
-  getCategory,
-  getCategoryMenuLinks,
-  menuLinksKey,
-  removeCategoryMenuLink,
-} from "./whatwedo-registry";
+import { getCategory, removeCategoryMenuLink, setCategoryMenuLink } from "./whatwedo-registry";
+import { revalidateMenus } from "./revalidate-menus";
 import { upsertContent } from "./queries";
 import { whitelistSectionData } from "./section-utils";
 import { UNAUTHORIZED } from "./types";
@@ -61,15 +57,17 @@ export async function saveServicePageSection(
 
 /**
  * Create a new (unpublished) service page. `title` is required; `slug` is
- * optional (derived from the title). Picks a template + a What-We-Do category;
- * the page's link is appended to that category's mega-menu sub-links so it shows
- * in the nav once published. Returns the created slug for navigation.
+ * optional (derived from the title). Picks a template + a What-We-Do category.
+ * The page's link is added to that category's hover menu only when `showInMenu`
+ * is set (it then shows once published); otherwise it stays out of the menu
+ * until toggled on. Returns the created slug for navigation.
  */
 export async function createServicePage(
   title: string,
   categorySlug: string,
   template = "service",
-  slug?: string
+  slug?: string,
+  showInMenu = false
 ): Promise<SaveState & { slug?: string }> {
   if (!(await getSession())) return UNAUTHORIZED;
 
@@ -100,17 +98,13 @@ export async function createServicePage(
   try {
     await insertServicePage(cleanSlug, cleanTitle, template, categorySlug);
 
-    // Append the new page to its category's mega-menu sub-links (dedupe by href).
-    const href = `${templateUrlPrefix(template)}/${cleanSlug}`;
-    const existing = await getCategoryMenuLinks(categorySlug);
-    if (!existing.some((i) => i.href === href)) {
-      await upsertContent(menuLinksKey(categorySlug), {
-        items: [...existing, { label: cleanTitle, href }],
-      });
+    if (showInMenu) {
+      const href = `${templateUrlPrefix(template)}/${cleanSlug}`;
+      await setCategoryMenuLink(categorySlug, { label: cleanTitle, href }, true);
+      revalidateMenus();
     }
 
     revalidatePath("/admin/cms/services");
-    revalidatePath("/", "layout");
     return { ok: true, message: "Page created. Edit its sections, then publish.", slug: cleanSlug };
   } catch (err) {
     console.error("createServicePage failed:", err);
@@ -133,13 +127,52 @@ export async function setServicePagePublishedAction(
     await setServicePagePublished(slug, published);
     revalidatePath("/admin/cms/services");
     revalidatePath(`${page.urlPrefix}/${slug}`);
-    revalidatePath("/", "layout");
+    // A menu link to this page shows only while it's published.
+    revalidateMenus();
     return {
       ok: true,
       message: published ? "Published. The page is now live." : "Unpublished. The page is hidden from the public.",
     };
   } catch (err) {
     console.error("setServicePagePublishedAction failed:", err);
+    return { ok: false, message: "Something went wrong." };
+  }
+}
+
+/**
+ * Show or hide a service page in its category's hover menu — independent of
+ * publishing. Showing appends the link (label = page title) to the end of the
+ * column; reorder/rename it in the category's Menu links editor. A link to a
+ * draft stays hidden from the public until the page is published.
+ */
+export async function setServicePageInMenu(slug: string, inMenu: boolean): Promise<SaveState> {
+  if (!(await getSession())) return UNAUTHORIZED;
+  const page = await getServicePage(slug);
+  if (!page) {
+    return { ok: false, message: "Unknown page." };
+  }
+  if (!page.categorySlug) {
+    return { ok: false, message: "This page has no menu category." };
+  }
+
+  try {
+    await setCategoryMenuLink(
+      page.categorySlug,
+      { label: page.title, href: `${page.urlPrefix}/${slug}` },
+      inMenu
+    );
+    revalidatePath("/admin/cms/services");
+    revalidateMenus();
+    return {
+      ok: true,
+      message: inMenu
+        ? page.published
+          ? `“${page.title}” now shows in the hover menu.`
+          : `“${page.title}” will show in the hover menu once published.`
+        : `“${page.title}” is hidden from the hover menu.`,
+    };
+  } catch (err) {
+    console.error("setServicePageInMenu failed:", err);
     return { ok: false, message: "Something went wrong." };
   }
 }
@@ -160,7 +193,7 @@ export async function deleteServicePage(slug: string): Promise<SaveState> {
     }
     revalidatePath("/admin/cms/services");
     revalidatePath(`${page.urlPrefix}/${slug}`);
-    revalidatePath("/", "layout");
+    revalidateMenus();
     return { ok: true, message: "Page deleted." };
   } catch (err) {
     console.error("deleteServicePage failed:", err);

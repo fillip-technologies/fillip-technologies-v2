@@ -6,6 +6,9 @@ const industrySchema = new Schema(
     slug: { type: String, required: true, unique: true },
     label: { type: String, required: true },
     published: { type: Boolean, required: true, default: false },
+    // Listed in the Industries nav dropdown (when published). Missing on older
+    // docs, which count as shown.
+    show_in_menu: { type: Boolean, default: true },
     sort_order: { type: Number, required: true, default: 0 },
     created_at: { type: Date, required: true, default: Date.now },
     updated_at: { type: Date, required: true, default: Date.now },

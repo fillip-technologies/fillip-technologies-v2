@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExternalLink, Pencil } from "lucide-react";
 import { listServicePages } from "@/server/content/servicepage-registry";
-import { listCategories } from "@/server/content/whatwedo-registry";
+import { listCategories, withMenuState } from "@/server/content/whatwedo-registry";
 import { SERVICE_TEMPLATES, isSolutionTemplate } from "@/server/content/servicepage-templates";
 import ServicePagesManager from "../services/ServicePagesManager";
 
@@ -41,7 +41,7 @@ export default async function SolutionPagesCmsPage() {
     listCategories("solutions"),
   ]);
   // Only the Solutions-menu pages (hardware + business solution templates).
-  const pages = allPages.filter((p) => isSolutionTemplate(p.template));
+  const pages = await withMenuState(allPages.filter((p) => isSolutionTemplate(p.template)));
   const templates = SERVICE_TEMPLATES.filter((t) => isSolutionTemplate(t.id));
 
   return (
@@ -56,7 +56,8 @@ export default async function SolutionPagesCmsPage() {
       <p className="mb-6 text-sm text-muted-foreground">
         The detail pages behind the “Solutions” menu (e.g. <code>/hardware-solutions/networking</code>,{" "}
         <code>/solutions/ticket-booking</code>). Create a page under a solution category, edit its
-        sections, then publish — its link is added to that category’s menu automatically.
+        sections, then publish to make it live. <strong className="text-heading">Show in menu</strong>{" "}
+        decides whether it appears when hovering the Solutions menu.
       </p>
 
       <ServicePagesManager

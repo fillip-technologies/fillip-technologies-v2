@@ -7,8 +7,10 @@ import { ChevronRight, ExternalLink, Eye, Plus, Trash2 } from "lucide-react";
 import {
   createServicePage,
   deleteServicePage,
+  setServicePageInMenu,
   setServicePagePublishedAction,
 } from "@/server/content/servicepage-actions";
+import { MenuBadge, MenuHint, MenuToggleButton } from "../MenuToggle";
 
 type ServicePage = {
   slug: string;
@@ -18,6 +20,10 @@ type ServicePage = {
   published: boolean;
   sortOrder: number;
   urlPrefix: string;
+  // Whether the page's link is in its column's hover menu (independent of
+  // publishing), plus an optional note — e.g. a same-named link already there.
+  inMenu: boolean;
+  menuNote: string | null;
 };
 type Category = { slug: string; label: string };
 type Template = { id: string; label: string; urlPrefix: string };
@@ -40,6 +46,8 @@ export default function ServicePagesManager({
   const [slug, setSlug] = useState("");
   const [template, setTemplate] = useState(templates[0]?.id ?? "service");
   const [categorySlug, setCategorySlug] = useState(categories[0]?.slug ?? "");
+  // New pages stay out of the hover menu unless this is ticked.
+  const [showInMenu, setShowInMenu] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   // "all" shows every page; otherwise filter the list to one category.
   const [filter, setFilter] = useState<string>("all");
@@ -55,13 +63,23 @@ export default function ServicePagesManager({
   const create = () => {
     setMsg(null);
     startTransition(async () => {
-      const res = await createServicePage(title, categorySlug, template, slug);
+      const res = await createServicePage(title, categorySlug, template, slug, showInMenu);
       setMsg({ ok: res.ok, text: res.message });
       if (res.ok && res.slug) {
         setTitle("");
         setSlug("");
+        setShowInMenu(false);
         router.push(`/admin/cms/services/${res.slug}`);
       }
+    });
+  };
+
+  const toggleMenu = (s: string, next: boolean) => {
+    setMsg(null);
+    startTransition(async () => {
+      const res = await setServicePageInMenu(s, next);
+      setMsg({ ok: res.ok, text: res.message });
+      router.refresh();
     });
   };
 
@@ -150,10 +168,20 @@ export default function ServicePagesManager({
             </select>
           </div>
         </div>
+        <label className="mt-3 flex items-center gap-2 text-sm text-body">
+          <input
+            type="checkbox"
+            checked={showInMenu}
+            onChange={(e) => setShowInMenu(e.target.checked)}
+            className="h-4 w-4 accent-primary"
+          />
+          Show in the hover menu
+        </label>
         <p className="mt-2 text-xs text-muted-foreground">
-          URL: <code>{selectedPrefix}/{effectiveSlug || "…"}</code> · added to the{" "}
-          <strong className="text-heading">{labelFor(categorySlug)}</strong> menu · starts as an
-          unpublished draft.
+          URL: <code>{selectedPrefix}/{effectiveSlug || "…"}</code> ·{" "}
+          {showInMenu ? "added to" : "not added to"} the{" "}
+          <strong className="text-heading">{labelFor(categorySlug)}</strong> hover menu (change it
+          any time) · starts as an unpublished draft.
         </p>
         <div className="mt-4 flex items-center gap-3">
           <button
@@ -212,10 +240,12 @@ export default function ServicePagesManager({
                 >
                   {p.published ? "Published" : "Draft"}
                 </span>
+                {p.categorySlug ? <MenuBadge inMenu={p.inMenu} /> : null}
               </p>
               <p className="truncate text-sm text-muted-foreground">
                 {p.urlPrefix}/{p.slug} · {labelFor(p.categorySlug)}
               </p>
+              <MenuHint inMenu={p.inMenu} published={p.published} note={p.menuNote} />
             </Link>
 
             <div className="flex items-center gap-1">
@@ -226,6 +256,13 @@ export default function ServicePagesManager({
                 <IconLink href={`${p.urlPrefix}/${p.slug}`} title="View live page">
                   <ExternalLink size={16} />
                 </IconLink>
+              ) : null}
+              {p.categorySlug ? (
+                <MenuToggleButton
+                  inMenu={p.inMenu}
+                  disabled={pending}
+                  onClick={() => toggleMenu(p.slug, !p.inMenu)}
+                />
               ) : null}
               <button
                 type="button"

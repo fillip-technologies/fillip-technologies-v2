@@ -19,6 +19,10 @@ export type Industry = {
   label: string;
   published: boolean;
   sortOrder: number;
+  // Listed in the Industries nav dropdown (when published). Independent of
+  // publishing; older docs and cached copies without the field count as shown,
+  // so read it as `showInMenu !== false`.
+  showInMenu: boolean;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,6 +31,7 @@ const toIndustry = (d: any): Industry => ({
   label: d.label,
   published: d.published,
   sortOrder: d.sort_order,
+  showInMenu: d.show_in_menu !== false,
 });
 
 /** All industries (published + drafts), ordered for the admin list. */
@@ -85,6 +90,16 @@ export async function setPublished(slug: string, published: boolean): Promise<vo
   await IndustryModel.updateOne(
     { slug },
     { $set: { published, updated_at: new Date() } }
+  );
+  await invalidateSnapshotMany(indKeys(slug));
+}
+
+/** Show or hide an industry in the Industries nav dropdown. */
+export async function setShowInMenu(slug: string, show: boolean): Promise<void> {
+  await dbConnect();
+  await IndustryModel.updateOne(
+    { slug },
+    { $set: { show_in_menu: show, updated_at: new Date() } }
   );
   await invalidateSnapshotMany(indKeys(slug));
 }

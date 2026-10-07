@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { listServicePages } from "@/server/content/servicepage-registry";
-import { listCategories } from "@/server/content/whatwedo-registry";
+import { listCategories, withMenuState } from "@/server/content/whatwedo-registry";
 import { SERVICE_TEMPLATES, isSolutionTemplate } from "@/server/content/servicepage-templates";
 import ServicePagesManager from "./ServicePagesManager";
 
@@ -13,7 +13,7 @@ export default async function ServicePagesCmsPage() {
     listCategories("whatwedo"),
   ]);
   // Solution pages live under the separate "Soln" area.
-  const pages = allPages.filter((p) => !isSolutionTemplate(p.template));
+  const pages = await withMenuState(allPages.filter((p) => !isSolutionTemplate(p.template)));
   const templates = SERVICE_TEMPLATES.filter((t) => !isSolutionTemplate(t.id));
 
   return (
@@ -28,7 +28,8 @@ export default async function ServicePagesCmsPage() {
       <p className="mb-6 text-sm text-muted-foreground">
         The detail pages behind the “What We Do” menu links (e.g.{" "}
         <code>/services/ecommerce-development</code>). Create a page under a category, edit its
-        sections, then publish — its link is added to that category’s menu automatically.
+        sections, then publish to make it live. <strong className="text-heading">Show in menu</strong>{" "}
+        decides whether it appears when hovering the What We Do menu.
       </p>
 
       <ServicePagesManager

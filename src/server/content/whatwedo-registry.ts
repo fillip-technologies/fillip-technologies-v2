@@ -4,7 +4,15 @@ import { dbConnect } from "@/lib/db";
 import { ServiceCategoryModel, SiteContentModel } from "@/server/db/models";
 import { WHAT_WE_DO_ITEMS_BY_SLUG } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
 import type { MegaMenuItem } from "@/components/layouts/Navbar/whatWeDoMegaMenuData";
-import { invalidateSnapshotMany, snapshotRead, snapshotReadMany } from "./snapshot-cache";
+import {
+  invalidateSnapshot,
+  invalidateSnapshotMany,
+  snapshotRead,
+  snapshotReadMany,
+} from "./snapshot-cache";
+import { upsertContent } from "./queries";
+import { getPublishedServiceHrefs } from "./servicepage-registry";
+import { listPublishedCaseStudies } from "./casestudy-registry";
 
 // All group variants used as cache-key suffixes (wildcard * + named groups).
 const CAT_GROUPS = ["*", "whatwedo", "solutions"];
@@ -12,13 +20,34 @@ const catListKeys = CAT_GROUPS.flatMap((g) => [`categories:all:${g}`, `categorie
 const catKeys = (slug: string) => [...catListKeys, `category:${slug}`, `menulinks:${slug}`];
 import { SERVICE_TEMPLATES } from "./servicepage-templates";
 
-// URL prefixes owned by the Service Pages CMS. A sub-link under one of these is
-// a "managed" link whose visibility must follow its page's publish state.
-const MANAGED_PREFIXES = [...new Set(SERVICE_TEMPLATES.map((t) => t.urlPrefix))];
+// Case-study detail pages — the "Challenges We Solve" column links to these.
+const CASE_STUDY_PREFIX = "/case-studies";
 
-/** An href points at a specific CMS-managed service page (prefix + a slug). */
-function isManagedServiceHref(href: string): boolean {
+// URL prefixes owned by the CMS (service pages + case studies). A sub-link under
+// one of these is a "managed" link whose visibility must follow its page's
+// publish state.
+const MANAGED_PREFIXES = [
+  ...new Set([...SERVICE_TEMPLATES.map((t) => t.urlPrefix), CASE_STUDY_PREFIX]),
+];
+
+/** An href points at a specific CMS-managed page (prefix + a slug). */
+function isManagedHref(href: string): boolean {
   return MANAGED_PREFIXES.some((p) => href.startsWith(`${p}/`));
+}
+
+/**
+ * Public hrefs of every *published* CMS page a menu link can point at — service
+ * pages plus case studies. Links to any other managed href (a draft or deleted
+ * page) are dropped from the public menu, since they'd 404 on click.
+ */
+export async function getPublishedMenuTargetHrefs(): Promise<Set<string>> {
+  const [serviceHrefs, caseStudies] = await Promise.all([
+    getPublishedServiceHrefs(),
+    listPublishedCaseStudies(),
+  ]);
+  const hrefs = new Set(serviceHrefs);
+  for (const cs of caseStudies) hrefs.add(`${CASE_STUDY_PREFIX}/${cs.slug}`);
+  return hrefs;
 }
 
 /**
@@ -125,11 +154,9 @@ function menuLinksFromRow(slug: string, rowData: unknown): MegaMenuItem[] {
   return WHAT_WE_DO_ITEMS_BY_SLUG[slug] ?? [];
 }
 
-/** Drop sub-links pointing at an unpublished/deleted service page. */
+/** Drop sub-links pointing at an unpublished/deleted CMS page. */
 function filterPublicLinks(items: MegaMenuItem[], publishedHrefs: Set<string>): MegaMenuItem[] {
-  return items.filter(
-    (i) => !i.href || !isManagedServiceHref(i.href) || publishedHrefs.has(i.href)
-  );
+  return items.filter((i) => !i.href || !isManagedHref(i.href) || publishedHrefs.has(i.href));
 }
 
 /**
@@ -183,46 +210,122 @@ export async function getCategoryMenuLinksBatch(
 
 /**
  * Public mega-menu sub-links for a category: the saved links minus any that
- * point at a service page that is unpublished or no longer exists. Non-managed
- * links (category pages, industries, external URLs, label-only headers) always
- * pass through. Pass `publishedHrefs` (from getPublishedServiceHrefs) so the
- * caller can compute it once for all categories.
+ * point at a CMS page (service page or case study) that is unpublished or no
+ * longer exists. Non-managed links (category pages, standalone pages, external
+ * URLs, label-only headers) always pass through.
  */
-export async function getPublicCategoryMenuLinks(
-  slug: string,
-  publishedHrefs: Set<string>
-): Promise<MegaMenuItem[]> {
-  return filterPublicLinks(await getCategoryMenuLinks(slug), publishedHrefs);
+export async function getPublicCategoryMenuLinks(slug: string): Promise<MegaMenuItem[]> {
+  return (await getPublicCategoryMenuLinksBatch([slug])).get(slug) ?? [];
 }
 
 /**
  * Batched public menu links for several categories at once — one DB round trip
- * for all of them. Returns a Map keyed by slug.
+ * for all of them. Returns a Map keyed by slug. Resolves the published targets
+ * itself so no caller can filter against an incomplete set.
  */
 export async function getPublicCategoryMenuLinksBatch(
-  slugs: string[],
-  publishedHrefs: Set<string>
+  slugs: string[]
 ): Promise<Map<string, MegaMenuItem[]>> {
-  const raw = await getCategoryMenuLinksBatch(slugs);
+  const [raw, publishedHrefs] = await Promise.all([
+    getCategoryMenuLinksBatch(slugs),
+    getPublishedMenuTargetHrefs(),
+  ]);
   return new Map(slugs.map((slug) => [slug, filterPublicLinks(raw.get(slug) ?? [], publishedHrefs)]));
 }
 
 /**
- * Remove a saved mega-menu sub-link (matched by href) from a category. Called
- * when the page it points to is permanently deleted, so the nav doesn't keep a
- * dead link. No-op if the category has no saved links or the href isn't present.
+ * The hrefs currently listed in each category's menu (saved list, or the static
+ * default when nothing is saved) — what the admin "In menu" badges read. Unlike
+ * the public links, drafts are included. Returns a Map keyed by slug.
  */
-export async function removeCategoryMenuLink(categorySlug: string, href: string): Promise<void> {
+export async function getMenuHrefsByCategory(
+  slugs: string[]
+): Promise<Map<string, Set<string>>> {
+  const raw = await getCategoryMenuLinksBatch(slugs);
+  return new Map(
+    slugs.map((slug) => [
+      slug,
+      new Set((raw.get(slug) ?? []).flatMap((i) => (i.href ? [i.href] : []))),
+    ])
+  );
+}
+
+/** A page's place in its column's menu, for the admin lists. */
+export type MenuState = { inMenu: boolean; menuNote: string | null };
+
+/**
+ * Whether `href` is listed in a column's menu `links` and, when it isn't, a note
+ * if the column already has a same-named link pointing elsewhere (e.g. "Technical
+ * SEO" → a standalone landing page), so an admin doesn't add a duplicate.
+ */
+export function menuStateFor(links: MegaMenuItem[], href: string, title: string): MenuState {
+  if (links.some((i) => i.href === href)) return { inMenu: true, menuNote: null };
+  const name = title.trim().toLowerCase();
+  const twin = links.find((i) => i.label.trim().toLowerCase() === name);
+  return {
+    inMenu: false,
+    menuNote: twin
+      ? `The menu already has “${twin.label}”${twin.href ? ` → ${twin.href}` : ""}.`
+      : null,
+  };
+}
+
+/**
+ * Annotate service pages with their menu state (one batched read for all their
+ * columns). Pages without a category are never in a menu.
+ */
+export async function withMenuState<
+  T extends { slug: string; title: string; categorySlug: string | null; urlPrefix: string },
+>(pages: T[]): Promise<(T & MenuState)[]> {
+  const slugs = [...new Set(pages.flatMap((p) => (p.categorySlug ? [p.categorySlug] : [])))];
+  const links = await getCategoryMenuLinksBatch(slugs);
+  return pages.map((p) => ({
+    ...p,
+    ...(p.categorySlug
+      ? menuStateFor(links.get(p.categorySlug) ?? [], `${p.urlPrefix}/${p.slug}`, p.title)
+      : { inMenu: false, menuNote: null }),
+  }));
+}
+
+/**
+ * Persist a category's mega-menu sub-links and evict the cached copy, so the nav
+ * shows the change on the next request instead of after the cache TTL. Every
+ * write to a `menuLinks` row goes through here.
+ */
+export async function writeCategoryMenuLinks(slug: string, items: MegaMenuItem[]): Promise<void> {
+  await upsertContent(menuLinksKey(slug), { items });
+  await invalidateSnapshot(menuLinksCacheKey(slug));
+}
+
+/**
+ * Add (`include`) or remove one sub-link, matched by href, in a category's menu.
+ * An added link goes to the end of the list. Reads the saved list straight from
+ * the DB (never the cache) so a stale copy is never written back; a category
+ * with nothing saved yet starts from its static default list, so its existing
+ * links are kept. Adding a link that's already there (or removing one that
+ * isn't) is a no-op.
+ */
+export async function setCategoryMenuLink(
+  categorySlug: string,
+  item: { label: string; href: string },
+  include: boolean
+): Promise<void> {
   await dbConnect();
   const row = await SiteContentModel.findOne({ key: menuLinksKey(categorySlug) }).lean();
-  const saved = (row?.data as { items?: unknown } | undefined)?.items;
-  if (!Array.isArray(saved)) return; // nothing saved → still on static defaults
-  const next = saved.filter((i) => (i as { href?: string })?.href !== href);
-  if (next.length === saved.length) return; // href wasn't there
-  await SiteContentModel.updateOne(
-    { key: menuLinksKey(categorySlug) },
-    { $set: { data: { items: next }, updated_at: new Date() } }
-  );
+  const current = menuLinksFromRow(categorySlug, row?.data);
+  if (current.some((i) => i.href === item.href) === include) return;
+  const next = include
+    ? [...current, { label: item.label, href: item.href }]
+    : current.filter((i) => i.href !== item.href);
+  await writeCategoryMenuLinks(categorySlug, next);
+}
+
+/**
+ * Remove a mega-menu sub-link (matched by href) from a category. Called when the
+ * page it points to is permanently deleted, so the nav doesn't keep a dead link.
+ */
+export async function removeCategoryMenuLink(categorySlug: string, href: string): Promise<void> {
+  await setCategoryMenuLink(categorySlug, { label: "", href }, false);
 }
 
 /** Toggle publish state. */

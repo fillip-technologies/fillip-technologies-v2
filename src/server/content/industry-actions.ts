@@ -8,6 +8,7 @@ import {
   getIndustry,
   insertIndustry,
   setPublished,
+  setShowInMenu,
   deleteIndustry as deleteIndustryRow,
 } from "./industry-registry";
 import { upsertContent } from "./queries";
@@ -103,6 +104,37 @@ export async function setIndustryPublished(slug: string, published: boolean): Pr
     };
   } catch (err) {
     console.error("setIndustryPublished failed:", err);
+    return { ok: false, message: "Something went wrong." };
+  }
+}
+
+/**
+ * Show or hide an industry in the Industries nav dropdown — independent of
+ * publishing. A hidden industry's page stays live; a shown draft appears in the
+ * dropdown once published.
+ */
+export async function setIndustryShowInMenu(slug: string, show: boolean): Promise<SaveState> {
+  if (!(await getSession())) return UNAUTHORIZED;
+  const industry = await getIndustry(slug);
+  if (!industry) {
+    return { ok: false, message: "Unknown industry." };
+  }
+
+  try {
+    await setShowInMenu(slug, show);
+    revalidatePath("/admin/cms/industries");
+    revalidatePath("/admin/cms/nav");
+    revalidatePath("/", "layout"); // refresh the nav across the site
+    return {
+      ok: true,
+      message: show
+        ? industry.published
+          ? `“${industry.label}” now shows in the Industries menu.`
+          : `“${industry.label}” will show in the Industries menu once published.`
+        : `“${industry.label}” is hidden from the Industries menu.`,
+    };
+  } catch (err) {
+    console.error("setIndustryShowInMenu failed:", err);
     return { ok: false, message: "Something went wrong." };
   }
 }

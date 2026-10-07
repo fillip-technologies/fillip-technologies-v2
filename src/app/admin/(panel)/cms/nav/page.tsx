@@ -36,8 +36,9 @@ export default async function NavCmsPage() {
         <div className="rounded-lg border border-border bg-card/40 p-5">
           <p className="text-sm text-body">
             The Industries dropdown is generated automatically from your{" "}
-            <strong className="text-heading">published</strong> industry pages. Publish, unpublish or
-            reorder pages to change these links — labels and order come from each page.
+            <strong className="text-heading">published</strong> industry pages that are marked{" "}
+            <strong className="text-heading">Show in menu</strong>. Toggle that, or reorder pages, to
+            change these links — labels and order come from each page.
           </p>
           {industries.length ? (
             <ul className="mt-3 flex flex-wrap gap-2">

@@ -8,9 +8,17 @@ import {
   createIndustry,
   deleteIndustry,
   setIndustryPublished,
+  setIndustryShowInMenu,
 } from "@/server/content/industry-actions";
+import { MenuBadge, MenuHint, MenuToggleButton } from "../MenuToggle";
 
-type Industry = { slug: string; label: string; published: boolean; sortOrder: number };
+type Industry = {
+  slug: string;
+  label: string;
+  published: boolean;
+  sortOrder: number;
+  showInMenu: boolean; // listed in the Industries nav dropdown (independent of publishing)
+};
 
 // Live-preview the slug the same way the server derives it.
 const previewSlug = (s: string) =>
@@ -42,6 +50,15 @@ export default function IndustriesManager({ initial }: { initial: Industry[] }) 
     setMsg(null);
     startTransition(async () => {
       const res = await setIndustryPublished(s, next);
+      setMsg({ ok: res.ok, text: res.message });
+      router.refresh();
+    });
+  };
+
+  const toggleMenu = (s: string, next: boolean) => {
+    setMsg(null);
+    startTransition(async () => {
+      const res = await setIndustryShowInMenu(s, next);
       setMsg({ ok: res.ok, text: res.message });
       router.refresh();
     });
@@ -125,8 +142,10 @@ export default function IndustriesManager({ initial }: { initial: Industry[] }) 
                 >
                   {ind.published ? "Published" : "Draft"}
                 </span>
+                <MenuBadge inMenu={ind.showInMenu} />
               </p>
               <p className="truncate text-sm text-muted-foreground">/industries/{ind.slug}</p>
+              <MenuHint inMenu={ind.showInMenu} published={ind.published} />
             </Link>
 
             <div className="flex items-center gap-1">
@@ -138,6 +157,11 @@ export default function IndustriesManager({ initial }: { initial: Industry[] }) 
                   <ExternalLink size={16} />
                 </IconLink>
               ) : null}
+              <MenuToggleButton
+                inMenu={ind.showInMenu}
+                disabled={pending}
+                onClick={() => toggleMenu(ind.slug, !ind.showInMenu)}
+              />
               <button
                 type="button"
                 onClick={() => togglePublish(ind.slug, !ind.published)}

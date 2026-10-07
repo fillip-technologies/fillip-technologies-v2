@@ -1,6 +1,9 @@
 import ServicesHub, { type HubGroup } from "@/components/services/ServicesHub";
 import { listServicePages } from "@/server/content/servicepage-registry";
-import { listPublishedCategories } from "@/server/content/whatwedo-registry";
+import {
+  getMenuHrefsByCategory,
+  listPublishedCategories,
+} from "@/server/content/whatwedo-registry";
 import { listEnabledLocationPages } from "@/server/location-pages/registry";
 import { pageMetadata, pageJsonLd } from "@/lib/seo/page-metadata";
 import { JsonLdScript } from "@/lib/seo/schema";
@@ -10,8 +13,9 @@ export const revalidate = 300;
 export const generateMetadata = () => pageMetadata("/services");
 
 // Groups are keyed by the CMS category slug that the service pages already carry
-// (`categorySlug`), so publishing a page in the admin adds it here automatically.
-// Titles/descriptions come from the CMS category where one exists.
+// (`categorySlug`). A group lists the published pages that are in that column's
+// hover menu, so the hub mirrors the menu; other published pages go under "More
+// service pages". Titles/descriptions come from the CMS category where one exists.
 const GROUP_ORDER = [
   "web-development",
   "software-enterprise",
@@ -71,21 +75,25 @@ async function patnaServiceLinks() {
 }
 
 export default async function ServicesPage() {
-  const [servicePages, categories, patnaLinks, jsonLd] = await Promise.all([
+  const [servicePages, categories, menuHrefs, patnaLinks, jsonLd] = await Promise.all([
     listServicePages(),
     listPublishedCategories("whatwedo"),
+    getMenuHrefsByCategory([...GROUP_ORDER]),
     patnaServiceLinks(),
     pageJsonLd("/services"),
   ]);
 
   const categoryMeta = new Map(categories.map((c) => [c.slug, c]));
   const published = servicePages.filter((page) => page.published);
+  const hrefOf = (page: (typeof published)[number]) => `${page.urlPrefix}/${page.slug}`;
+  const inMenu = (page: (typeof published)[number]) =>
+    !!page.categorySlug && (menuHrefs.get(page.categorySlug)?.has(hrefOf(page)) ?? false);
 
   const groups: HubGroup[] = GROUP_ORDER.map((slug) => {
     const links = published
-      .filter((page) => page.categorySlug === slug)
+      .filter((page) => page.categorySlug === slug && inMenu(page))
       .sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title))
-      .map((page) => ({ label: page.title, href: `${page.urlPrefix}/${page.slug}` }));
+      .map((page) => ({ label: page.title, href: hrefOf(page) }));
 
     const cms = categoryMeta.get(slug);
     const fallback = GROUP_FALLBACK[slug];
@@ -95,6 +103,20 @@ export default async function ServicesPage() {
       links,
     };
   }).filter((group) => group.links.length > 0);
+
+  // Live pages kept out of the hover menu (e.g. city-specific landing pages) still
+  // get an internal link from the hub, just outside the curated column groups.
+  const unlisted = published
+    .filter((page) => !inMenu(page))
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .map((page) => ({ label: page.title, href: hrefOf(page) }));
+  if (unlisted.length) {
+    groups.push({
+      title: "More service pages",
+      description: "Further pages on our services, including location-specific ones.",
+      links: unlisted,
+    });
+  }
 
   if (patnaLinks.length) {
     groups.push({

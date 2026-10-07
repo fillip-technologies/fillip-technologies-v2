@@ -7,10 +7,21 @@ import { ChevronRight, ExternalLink, Eye, Plus, Trash2 } from "lucide-react";
 import {
   createCaseStudy,
   deleteCaseStudy,
+  setCaseStudyInMenu,
   setCaseStudyPublishedAction,
 } from "@/server/content/casestudy-actions";
+import { MenuBadge, MenuHint, MenuToggleButton } from "../MenuToggle";
 
-type CaseStudyRow = { slug: string; title: string; industry: string; published: boolean };
+type CaseStudyRow = {
+  slug: string;
+  title: string;
+  industry: string;
+  published: boolean;
+  // Whether it's linked from the "Challenges We Solve" hover-menu column
+  // (independent of publishing), plus an optional note about that column.
+  inMenu: boolean;
+  menuNote: string | null;
+};
 
 // Live-preview the slug the same way the server derives it.
 const previewSlug = (s: string) =>
@@ -44,6 +55,15 @@ export default function CaseStudiesManager({ initial }: { initial: CaseStudyRow[
     setMsg(null);
     startTransition(async () => {
       const res = await setCaseStudyPublishedAction(s, next);
+      setMsg({ ok: res.ok, text: res.message });
+      router.refresh();
+    });
+  };
+
+  const toggleMenu = (s: string, next: boolean) => {
+    setMsg(null);
+    startTransition(async () => {
+      const res = await setCaseStudyInMenu(s, next);
       setMsg({ ok: res.ok, text: res.message });
       router.refresh();
     });
@@ -139,8 +159,10 @@ export default function CaseStudiesManager({ initial }: { initial: CaseStudyRow[
                 >
                   {cs.published ? "Published" : "Draft"}
                 </span>
+                <MenuBadge inMenu={cs.inMenu} />
               </p>
               <p className="truncate text-sm text-muted-foreground">/case-studies/{cs.slug}</p>
+              <MenuHint inMenu={cs.inMenu} published={cs.published} note={cs.menuNote} />
             </Link>
 
             <div className="flex items-center gap-1">
@@ -152,6 +174,11 @@ export default function CaseStudiesManager({ initial }: { initial: CaseStudyRow[
                   <ExternalLink size={16} />
                 </IconLink>
               ) : null}
+              <MenuToggleButton
+                inMenu={cs.inMenu}
+                disabled={pending}
+                onClick={() => toggleMenu(cs.slug, !cs.inMenu)}
+              />
               <button
                 type="button"
                 onClick={() => togglePublish(cs.slug, !cs.published)}

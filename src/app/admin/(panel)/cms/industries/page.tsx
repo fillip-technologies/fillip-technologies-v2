@@ -19,10 +19,15 @@ export default async function IndustriesListPage() {
       <h1 className="mb-1 text-lg font-semibold text-heading">Industry pages</h1>
       <p className="mb-6 text-sm text-muted-foreground">
         Create, edit and publish <code>/industries/&lt;slug&gt;</code> pages. New pages start as
-        drafts — edit their sections, preview privately, then publish to go live.
+        drafts — edit their sections, preview privately, then publish to go live.{" "}
+        <strong className="text-heading">Show in menu</strong> decides whether a page is listed in
+        the Industries dropdown.
       </p>
 
-      <IndustriesManager initial={industries} />
+      <IndustriesManager
+        // Cached copies from before the menu flag existed lack it: count as shown.
+        initial={industries.map((i) => ({ ...i, showInMenu: i.showInMenu !== false }))}
+      />
     </section>
   );
 }
