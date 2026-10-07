@@ -1,0 +1,460 @@
+{
+  "slug": "react-native",
+  "path": "/hire-react-native-developers",
+  "role": {
+    "singular": "React Native developer",
+    "plural": "React Native developers",
+    "Singular": "React Native Developer",
+    "Plural": "React Native Developers",
+    "short": "React Native",
+    "Short": "React Native"
+  },
+  "seo": {
+    "title": "Hire React Native Developers",
+    "metaTitle": "Hire React Native Developers",
+    "metaDescription": "Hire React Native developers from Fillip Technologies to build Android and iOS apps with JavaScript and TypeScript, sharing skills and logic with your React web products.",
+    "keywords": [
+      "hire React Native developers",
+      "dedicated React Native developers",
+      "React Native app developers",
+      "cross-platform app developers"
+    ]
+  },
+  "sections": {
+    "showCaseStudies": false
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/react-native/hero.jpg",
+      "alt": "A mobile developer comparing an app on two smartphones"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/react-native/capabilities.jpg",
+      "alt": "Illustration for React Native Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/react-native/stack.jpg",
+      "alt": "Illustration for React Native Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/react-native/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/react-native/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/react-native/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/react-native/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/react-native/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/react-native/case-study.jpg",
+      "alt": "React Native app screenshot"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/react-native/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/react-native/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated React Native Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "React Native Developers"
+    },
+    "description": "Hire experienced React Native developers from Fillip Technologies to build Android and iOS apps with JavaScript and TypeScript — and share skills and logic with your React web products.",
+    "floatingCards": {
+      "left": {
+        "title": "React Native Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "smartphone"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "JS",
+          "TS",
+          "iOS",
+          "AND"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "React Native Developers",
+      "after": "Build?"
+    },
+    "description": "Our React Native developers build mobile apps for Android and iOS using the same React skills your web team already knows.",
+    "items": [
+      {
+        "title": "Cross-Platform Mobile Apps",
+        "description": "Build Android and iOS apps from one React Native codebase.",
+        "icon": "smartphone"
+      },
+      {
+        "title": "Web & Mobile Code Sharing",
+        "description": "Share logic and patterns between your React web app and mobile app.",
+        "icon": "layers"
+      },
+      {
+        "title": "Mobile UI Development",
+        "description": "Build responsive, native-feeling screens from your designs.",
+        "icon": "palette"
+      },
+      {
+        "title": "API & Backend Integration",
+        "description": "Connect your app to Firebase, Node.js or your existing APIs.",
+        "icon": "plug"
+      },
+      {
+        "title": "Payment Integration",
+        "description": "Add in-app payments through gateways such as Razorpay and Stripe.",
+        "icon": "creditCard"
+      },
+      {
+        "title": "Push Notifications",
+        "description": "Keep users informed with timely notifications.",
+        "icon": "bell"
+      },
+      {
+        "title": "MVP App Development",
+        "description": "Launch a focused first version of your app quickly.",
+        "icon": "rocket"
+      },
+      {
+        "title": "App Maintenance & Upgrades",
+        "description": "Keep existing React Native apps updated and stable.",
+        "icon": "wrench"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "React Native",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build mobile apps with React Native, typed JavaScript, reliable backends and APIs, payments and a clean delivery workflow.",
+    "categories": [
+      {
+        "title": "React Native & Platforms",
+        "description": "One JavaScript codebase for Android and iOS.",
+        "icon": "smartphone",
+        "items": [
+          {
+            "name": "React Native",
+            "verified": true
+          },
+          {
+            "name": "Android",
+            "verified": true
+          },
+          {
+            "name": "iOS",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Languages & React",
+        "description": "Skills shared with your web team.",
+        "icon": "component",
+        "items": [
+          {
+            "name": "JavaScript",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          },
+          {
+            "name": "React",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "App Backend",
+        "description": "Services that power your app.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Firebase",
+            "verified": true
+          },
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "Supabase",
+            "verified": true
+          },
+          {
+            "name": "NestJS",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "APIs & Data",
+        "description": "Connect your app to data and services.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Payments",
+        "description": "Take payments inside your app.",
+        "icon": "creditCard",
+        "items": [
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Design & Delivery",
+        "description": "From design files to shipped builds.",
+        "icon": "gitBranch",
+        "items": [
+          {
+            "name": "Figma",
+            "verified": true
+          },
+          {
+            "name": "GitHub",
+            "verified": true
+          },
+          {
+            "name": "GitLab",
+            "verified": true
+          },
+          {
+            "name": "CI/CD",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "React Native Specialist"
+    },
+    "description": "Choose the React Native expertise that matches your app and your existing team.",
+    "caption": {
+      "title": "One partner, every app role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "React Native App Developer",
+        "description": "Builds features and screens across your mobile app."
+      },
+      {
+        "title": "React Native + TypeScript Developer",
+        "description": "Writes typed, maintainable mobile code."
+      },
+      {
+        "title": "React Native UI Developer",
+        "description": "Turns designs into smooth, native-feeling screens."
+      },
+      {
+        "title": "React Native + Firebase Developer",
+        "description": "Builds apps with Firebase authentication, data and notifications."
+      },
+      {
+        "title": "React Native Integration Developer",
+        "description": "Connects your app to APIs, payments and backend services."
+      },
+      {
+        "title": "Web-to-Mobile React Developer",
+        "description": "Brings your React web product to mobile, sharing what makes sense."
+      },
+      {
+        "title": "React Native MVP Developer",
+        "description": "Gets a focused first version of your app ready for users."
+      },
+      {
+        "title": "React Native Maintenance Developer",
+        "description": "Keeps your app updated, stable and compatible."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "React Native Apps Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our React Native developers build mobile apps that extend your product to Android and iOS users.",
+    "items": [
+      {
+        "title": "Mobile Version of Your Web Product",
+        "icon": "layers",
+        "problem": "Your users want your web product on their phone.",
+        "solution": "A React Native app that reuses your team's React skills and connects to the same backend.",
+        "applications": [
+          "Shared APIs",
+          "Familiar UI",
+          "Single team"
+        ]
+      },
+      {
+        "title": "E-commerce Apps",
+        "icon": "shoppingCart",
+        "problem": "Mobile shoppers expect fast, simple buying.",
+        "solution": "React Native shopping apps connected to your store and payments.",
+        "applications": [
+          "Catalogue",
+          "Cart & checkout",
+          "Order tracking"
+        ]
+      },
+      {
+        "title": "On-Demand & Booking Apps",
+        "icon": "appWindow",
+        "problem": "Customers expect to book and pay from their phone.",
+        "solution": "React Native apps for booking, scheduling and payments.",
+        "applications": [
+          "Bookings",
+          "Live status",
+          "In-app payments"
+        ]
+      },
+      {
+        "title": "Customer Account Apps",
+        "icon": "users",
+        "problem": "Customers need self-service on mobile.",
+        "solution": "Secure apps for accounts, requests and notifications.",
+        "applications": [
+          "Profiles",
+          "Requests",
+          "Notifications"
+        ]
+      },
+      {
+        "title": "Internal Team Apps",
+        "icon": "building",
+        "problem": "Teams on the move rely on calls and paper.",
+        "solution": "React Native apps for tasks, forms and reporting.",
+        "applications": [
+          "Task lists",
+          "Forms",
+          "Reports"
+        ]
+      },
+      {
+        "title": "Startup MVP Apps",
+        "icon": "rocket",
+        "problem": "You need to validate your idea on mobile quickly.",
+        "solution": "A focused React Native MVP for both platforms.",
+        "applications": [
+          "Core features",
+          "Sign-up",
+          "Analytics hooks"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "React Native Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "React Native",
+        "TypeScript",
+        "Firebase",
+        "REST APIs"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip React Native Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "smartphone"
+    }
+  },
+  "caseStudies": {
+    "featured": null,
+    "projectTypes": [
+      "Cross-Platform Apps",
+      "E-commerce Apps",
+      "Booking Apps",
+      "Team Apps",
+      "MVPs"
+    ]
+  },
+  "costTechnologyItems": [
+    "Cross-platform UI",
+    "Web code sharing",
+    "Backend & APIs",
+    "Payments",
+    "Push notifications",
+    "App store release"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a React Native developer?",
+      "answer": "The cost depends on the developer's experience, the complexity of your app, the integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of React Native developers can I hire?",
+      "answer": "You can hire React Native App Developers, React Native + TypeScript Developers, React Native UI Developers, React Native + Firebase Developers, React Native Integration Developers, Web-to-Mobile React Developers, React Native MVP Developers and React Native Maintenance Developers."
+    },
+    {
+      "question": "What technologies do your React Native developers work with?",
+      "answer": "Our React Native developers build for Android and iOS with React Native, JavaScript and TypeScript, and work with backends such as Firebase, Node.js, Supabase and NestJS; REST and GraphQL APIs; databases such as MongoDB and PostgreSQL; and payment gateways such as Razorpay and Stripe."
+    },
+    {
+      "question": "Should I choose React Native or Flutter?",
+      "answer": "Both can build Android and iOS apps from one codebase. React Native can be a natural fit if your team already works with React and JavaScript; Flutter is a strong option for highly customised interfaces. We can recommend an approach once we understand your product."
+    }
+  ]
+}

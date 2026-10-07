@@ -8,7 +8,13 @@ const geist = Geist({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = baseMetadata();
+export const metadata: Metadata = {
+  ...baseMetadata(),
+  // Google Search Console ownership: <meta name="google-site-verification" ...>
+  verification: {
+    google: "-ob6_m-5aqC2zUMEYbPiJDBJQfkOTnOZcyIj8D9qGEE",
+  },
+};
 
 export default function RootLayout({
   children,

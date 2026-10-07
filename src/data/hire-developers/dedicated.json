@@ -1,0 +1,522 @@
+{
+  "slug": "dedicated",
+  "path": "/hire-dedicated-developers",
+  "role": {
+    "singular": "developer",
+    "plural": "dedicated developers",
+    "Singular": "Developer",
+    "Plural": "Dedicated Developers",
+    "short": "",
+    "Short": ""
+  },
+  "seo": {
+    "title": "Hire Dedicated Developers",
+    "metaTitle": "Hire Dedicated Developers",
+    "metaDescription": "Hire dedicated developers from Fillip Technologies to extend your team across web, mobile, backend, AI, WordPress and Shopify development, with flexible engagement models.",
+    "keywords": [
+      "hire dedicated developers",
+      "dedicated development team",
+      "dedicated software developers",
+      "remote developers"
+    ]
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/dedicated/hero.jpg",
+      "alt": "Two developers working together at a desk with a laptop and monitor in a bright office"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/dedicated/capabilities.jpg",
+      "alt": "Illustration for Dedicated Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/dedicated/stack.jpg",
+      "alt": "Illustration for Dedicated Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/dedicated/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/dedicated/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/dedicated/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/dedicated/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/dedicated/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/dedicated/case-study.jpg",
+      "alt": "Fillip Technologies Our Story page, part of the in-house digital platform"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/dedicated/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/dedicated/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Development Teams",
+    "title": {
+      "before": "Hire",
+      "highlight": "Dedicated Developers"
+    },
+    "description": "Hire dedicated developers from Fillip Technologies to extend your team across web, mobile, backend, AI, WordPress and Shopify development — working on your product, in your workflow.",
+    "floatingCards": {
+      "left": {
+        "title": "Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "userCheck"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "WEB",
+          "APP",
+          "API",
+          "AI"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Dedicated Developers",
+      "after": "Build?"
+    },
+    "description": "Dedicated developers can cover the skills your product needs, whether that's one specialist or a mixed team.",
+    "items": [
+      {
+        "title": "Web Applications",
+        "description": "Build and extend web applications with React, Next.js and more.",
+        "icon": "appWindow"
+      },
+      {
+        "title": "Mobile Apps",
+        "description": "Build Android and iOS apps with Flutter or React Native.",
+        "icon": "smartphone"
+      },
+      {
+        "title": "Backend & APIs",
+        "description": "Build APIs and backend systems with Node.js, Python, Laravel or PHP.",
+        "icon": "server"
+      },
+      {
+        "title": "AI Solutions",
+        "description": "Add AI features, assistants and automation to your product.",
+        "icon": "brain"
+      },
+      {
+        "title": "E-commerce",
+        "description": "Build and improve stores on Shopify, WooCommerce or custom stacks.",
+        "icon": "shoppingCart"
+      },
+      {
+        "title": "CMS Websites",
+        "description": "Build and maintain WordPress and headless CMS websites.",
+        "icon": "panels"
+      },
+      {
+        "title": "UI Implementation",
+        "description": "Turn your designs into responsive, polished interfaces.",
+        "icon": "palette"
+      },
+      {
+        "title": "Maintenance & Support",
+        "description": "Keep your existing products updated, stable and improving.",
+        "icon": "wrench"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Technologies Our",
+      "highlight": "Dedicated Developers",
+      "after": "Cover"
+    },
+    "description": "Hire developers across frontend, backend, mobile, AI, data and cloud technologies.",
+    "categories": [
+      {
+        "title": "Web & Frontend",
+        "description": "Interfaces for web products and websites.",
+        "icon": "appWindow",
+        "items": [
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "Next.js",
+            "verified": true
+          },
+          {
+            "name": "Vue.js",
+            "verified": true
+          },
+          {
+            "name": "Angular",
+            "verified": true
+          },
+          {
+            "name": "TypeScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Backend",
+        "description": "Server-side languages and frameworks.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "Python",
+            "verified": true
+          },
+          {
+            "name": "Laravel",
+            "verified": true
+          },
+          {
+            "name": "PHP",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Mobile",
+        "description": "Apps for Android and iOS.",
+        "icon": "smartphone",
+        "items": [
+          {
+            "name": "Flutter",
+            "verified": true
+          },
+          {
+            "name": "React Native",
+            "verified": true
+          },
+          {
+            "name": "Firebase",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "AI & Automation",
+        "description": "AI features and workflow automation.",
+        "icon": "brain",
+        "items": [
+          {
+            "name": "OpenAI",
+            "verified": true
+          },
+          {
+            "name": "Claude",
+            "verified": true
+          },
+          {
+            "name": "Gemini",
+            "verified": true
+          },
+          {
+            "name": "LangChain",
+            "verified": true
+          },
+          {
+            "name": "n8n",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Data & Cloud",
+        "description": "Databases and infrastructure.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          },
+          {
+            "name": "MySQL",
+            "verified": true
+          },
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Docker",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "CMS & Commerce",
+        "description": "Content and e-commerce platforms.",
+        "icon": "store",
+        "items": [
+          {
+            "name": "WordPress",
+            "verified": true
+          },
+          {
+            "name": "WooCommerce",
+            "verified": true
+          },
+          {
+            "name": "Shopify",
+            "verified": true
+          },
+          {
+            "name": "Strapi",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Dedicated Developer"
+    },
+    "description": "Choose the developer profile that fits your product — or combine several into one team.",
+    "caption": {
+      "title": "One partner, every development role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Full-Stack Developer",
+        "description": "Works across frontend, backend and database."
+      },
+      {
+        "title": "Frontend Developer",
+        "description": "Builds interfaces with React, Next.js, Vue.js or Angular."
+      },
+      {
+        "title": "Backend Developer",
+        "description": "Builds APIs and systems with Node.js, Python, Laravel or PHP."
+      },
+      {
+        "title": "Mobile App Developer",
+        "description": "Builds Android and iOS apps with Flutter or React Native."
+      },
+      {
+        "title": "AI Developer",
+        "description": "Builds AI features, assistants and automation."
+      },
+      {
+        "title": "WordPress Developer",
+        "description": "Builds and maintains WordPress websites and WooCommerce stores."
+      },
+      {
+        "title": "Shopify Developer",
+        "description": "Builds, customises and migrates Shopify stores."
+      },
+      {
+        "title": "Maintenance Developer",
+        "description": "Keeps existing products updated, stable and improving."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "When to Hire",
+      "highlight": "Dedicated Developers"
+    },
+    "description": "A dedicated developer or team works best when you need consistent capacity and people who get to know your product.",
+    "items": [
+      {
+        "title": "Extending Your In-House Team",
+        "icon": "users",
+        "problem": "Your team has more work than people.",
+        "solution": "Dedicated developers who join your workflow and pick up work alongside your team.",
+        "applications": [
+          "Sprint capacity",
+          "Feature delivery",
+          "Code reviews"
+        ]
+      },
+      {
+        "title": "Building a New Product",
+        "icon": "rocket",
+        "problem": "You have a product idea but no development team.",
+        "solution": "A dedicated team assembled around your product, from first version onwards.",
+        "applications": [
+          "MVP",
+          "Roadmap delivery",
+          "Launch"
+        ]
+      },
+      {
+        "title": "Clearing a Development Backlog",
+        "icon": "clipboardList",
+        "problem": "Features and fixes keep piling up.",
+        "solution": "Dedicated capacity focused on working through your backlog.",
+        "applications": [
+          "Bug fixes",
+          "Small features",
+          "Tech debt"
+        ]
+      },
+      {
+        "title": "Adding New Skills",
+        "icon": "sparkles",
+        "problem": "You need AI, mobile or other skills your team doesn't have.",
+        "solution": "A dedicated specialist who brings the missing expertise to your team.",
+        "applications": [
+          "AI features",
+          "Mobile apps",
+          "Integrations"
+        ]
+      },
+      {
+        "title": "Long-Term Maintenance",
+        "icon": "wrench",
+        "problem": "Your product needs ongoing care after launch.",
+        "solution": "Dedicated developers who maintain, update and improve your product.",
+        "applications": [
+          "Updates",
+          "Monitoring",
+          "Improvements"
+        ]
+      },
+      {
+        "title": "Scaling During Growth",
+        "icon": "trendingUp",
+        "problem": "Hiring in-house can't keep up with your growth.",
+        "solution": "Add dedicated developers as your roadmap grows.",
+        "applications": [
+          "Team scaling",
+          "New modules",
+          "Parallel workstreams"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Dedicated Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "React",
+        "Node.js",
+        "Flutter",
+        "Python"
+      ]
+    },
+    "teamRoles": [
+      "Full-Stack Developer",
+      "Backend Developer"
+    ]
+  },
+  "collaboration": {
+    "title": {
+      "before": "Your Team, Extended With",
+      "highlight": "Dedicated Developers"
+    },
+    "centre": {
+      "title": "Fillip Dedicated Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "userCheck"
+    }
+  },
+  "caseStudies": {
+    "featured": {
+      "category": "Digital Platform",
+      "label": "In-house product",
+      "title": "Fillip Technologies Digital Platform",
+      "description": "Fillip's own website, admin CMS, quote builder and AI assistant — built and maintained by the in-house development team.",
+      "challenge": "The business needed one platform for its website, content management, online quotes, lead handling and visitor support, maintained by a single team.",
+      "solution": "A Next.js platform with an admin CMS, an online quote and lead flow and a Gemini-powered website assistant, developed and maintained by Fillip's own developers.",
+      "technology": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "MongoDB",
+        "Tailwind CSS",
+        "Gemini"
+      ],
+      "delivered": [
+        "Company website with service, industry and location pages",
+        "Admin CMS for content, blogs, case studies and SEO",
+        "Online quote builder with PDF estimates and lead storage",
+        "AI assistant answering visitor questions"
+      ],
+      "outcomes": [
+        "One platform, one team",
+        "Content managed in-house",
+        "Leads and quotes in one place"
+      ],
+      "image": {
+        "src": "/images/hire-developers/dedicated/case-study.jpg",
+        "alt": "Fillip Technologies Our Story page, part of the in-house digital platform",
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "projectTypes": [
+      "Web Apps",
+      "Mobile Apps",
+      "Backends",
+      "AI",
+      "E-commerce",
+      "Maintenance"
+    ]
+  },
+  "costTechnologyItems": [
+    "Frontend",
+    "Backend",
+    "Mobile",
+    "AI",
+    "CMS & e-commerce",
+    "Cloud & DevOps"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a dedicated developer?",
+      "answer": "The cost depends on the skills and experience you need, the complexity of your project, the engagement model and how long you need the developer or team. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What does a dedicated developer do?",
+      "answer": "A dedicated developer focuses on your project and works as part of your team: following your priorities, using your tools and communicating directly with you, for as long as the engagement runs."
+    },
+    {
+      "question": "Which technologies can your dedicated developers cover?",
+      "answer": "Dedicated developers can cover frontend technologies such as React, Next.js, Vue.js and Angular; backends such as Node.js, Python, Laravel and PHP; mobile apps with Flutter and React Native; AI with OpenAI, Claude, Gemini and LangChain; databases and cloud such as MongoDB, PostgreSQL, MySQL, AWS and Docker; and platforms such as WordPress, WooCommerce and Shopify."
+    },
+    {
+      "question": "How is a dedicated developer different from a freelancer?",
+      "answer": "A dedicated developer works on your project through an engagement with Fillip Technologies, with our team behind them, while a freelancer usually works independently, often across several clients at once. The right choice depends on your project and how much continuity you need."
+    }
+  ]
+}

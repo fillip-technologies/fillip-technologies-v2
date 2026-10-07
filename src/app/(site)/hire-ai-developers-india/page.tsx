@@ -1,13 +1,7 @@
-import type { Metadata } from "next";
-import HireDevelopersPage from "@/components/hire-developers/HireDevelopersPage";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Hire AI Developers in India | Fillip Technologies",
-  description:
-    "Hire experienced AI developers from Fillip Technologies to build AI agents, generative AI applications, RAG systems, AI automation, chatbots and AI-powered business applications.",
-  alternates: { canonical: "/hire-ai-developers-india" },
-};
-
-export default function HireAiDevelopersIndiaPage() {
-  return <HireDevelopersPage />;
+// This page moved to /hire-ai-developers when the Hire Developers pages became
+// one JSON-driven master template. Keep the old URL working.
+export default function HireAiDevelopersIndiaRedirect() {
+  permanentRedirect("/hire-ai-developers");
 }

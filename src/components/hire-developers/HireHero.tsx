@@ -1,190 +1,134 @@
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
-import {
-  ArrowRight,
-  Bot,
-  BrainCircuit,
-  CircleCheck,
-  Clock,
-  Database,
-  Handshake,
-  Layers,
-  MessageCircle,
-  MessagesSquare,
-  ShieldCheck,
-  Sparkles,
-  UserCheck,
-  Users,
-  Workflow,
-} from "lucide-react";
-import DiscussProjectButton from "@/components/shared/DiscussProjectButton";
+import { ArrowRight, Plus } from "lucide-react";
+import type { HeroContent, HireImage } from "@/data/hire-developers/types";
+import HighlightTitle from "./HighlightTitle";
+import { DynamicIcon, getIcon } from "./icons";
 
-const TRUST_POINTS: { label: string; icon: LucideIcon }[] = [
-  { label: "Dedicated Developers", icon: UserCheck },
-  { label: "Flexible Engagement", icon: Handshake },
-  { label: "NDA & IP Protection", icon: ShieldCheck },
-  { label: "Timezone Overlap", icon: Clock },
-  { label: "Direct Developer Communication", icon: MessageCircle },
-  { label: "Scalable Teams", icon: Users },
-];
+const BADGE_COLORS = ["#0242A2", "#0F6FFF", "#38BDF8", "#081C2E"];
 
-const BUILDS: { label: string; icon: LucideIcon }[] = [
-  { label: "AI Agents", icon: Bot },
-  { label: "Generative AI Apps", icon: Sparkles },
-  { label: "RAG Systems", icon: Database },
-  { label: "AI Automation", icon: Workflow },
-  { label: "Chatbots", icon: MessagesSquare },
-  { label: "AI Business Apps", icon: Layers },
-];
-
-const STACK = ["Python", "LangChain", "OpenAI", "Claude", "Vector DBs", "FastAPI"];
-
-const STEPS = ["Share requirements", "Interview developers", "Start building"];
-
-export default function HireHero() {
+export default function HireHero({ hero, image }: { hero: HeroContent; image?: HireImage | null }) {
+  // Top padding clears the fixed navbar so it never sits over the photo.
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-16 lg:pt-36 lg:pb-24">
-      {/* Grid + glow background, matching the site's hero language */}
-      <div
-        aria-hidden
-        className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_40%,transparent_80%)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(2,66,162,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(2,66,162,0.08) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute -top-40 right-[-10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-blue-200/40 via-cyan-200/30 to-transparent blur-[120px]"
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-[-20%] left-[-10%] h-[420px] w-[420px] rounded-full bg-blue-100/40 blur-[120px]"
-      />
-
-      <div className="container relative z-10 mx-auto px-4 sm:px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          {/* Left: message + CTAs */}
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#0242A2]">
-              <BrainCircuit className="h-3.5 w-3.5" />
-              Dedicated AI Engineers · India
+    <section className="bg-white px-2 pt-24 pb-12 sm:px-3 lg:pt-28 lg:pb-16">
+      <div className="relative overflow-hidden rounded-[28px] bg-white">
+        {/* Photo area */}
+        <div
+          className="relative h-[360px] bg-cover bg-[position:68%_top] sm:h-[460px] lg:h-[600px] lg:bg-[position:center_top] xl:h-[680px]"
+          style={{
+            // Without a photo, the brand gradient beneath is shown on its own.
+            backgroundImage: `${image ? `url("${image.src}"), ` : ""}radial-gradient(circle at 75% 20%, rgba(56,189,248,0.55), transparent 45%), radial-gradient(circle at 20% 10%, rgba(15,111,255,0.6), transparent 50%), linear-gradient(135deg, #081C2E 0%, #0242A2 55%, #0F6FFF 100%)`,
+          }}
+          role={image ? "img" : undefined}
+          aria-label={image?.alt}
+        >
+          {/* Floating card — left */}
+          <div className="absolute left-4 top-[34%] hidden items-center gap-3 rounded-2xl bg-white/95 py-3 pr-5 pl-3 shadow-[0_18px_40px_rgba(7,47,55,0.18)] backdrop-blur sm:flex lg:left-8">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#0242A2] to-[#38BDF8] text-white">
+              <DynamicIcon name={hero.floatingCards.left.icon} className="h-5 w-5" />
             </span>
-
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl xl:text-6xl">
-              Hire{" "}
-              <span className="bg-gradient-to-r from-[#0242A2] via-[#0F6FFF] to-[#38BDF8] bg-clip-text text-transparent">
-                AI Developers
-              </span>{" "}
-              in India
-            </h1>
-
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Hire experienced AI developers from Fillip Technologies to build AI agents,
-              generative AI applications, RAG systems, AI automation, chatbots and
-              AI-powered business applications — working as an extension of your team.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <DiscussProjectButton href="/get-a-quote" label="Hire an AI Developer" />
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-4 text-xs font-bold uppercase tracking-wider text-slate-800 shadow-xs transition-all duration-300 hover:border-blue-200 hover:bg-blue-50/50 hover:text-[#0242A2]"
-              >
-                Discuss Your Project
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">{hero.floatingCards.left.title}</p>
+              <p className="text-xs text-slate-500">{hero.floatingCards.left.subtitle}</p>
             </div>
-
-            <ul className="mt-10 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 xl:grid-cols-3">
-              {TRUST_POINTS.map(({ label, icon: Icon }) => (
-                <li key={label} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#0242A2]">
-                    <Icon className="h-3.5 w-3.5" />
-                  </span>
-                  {label}
-                </li>
-              ))}
-            </ul>
+            <span className="absolute -right-2 -bottom-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#0F6FFF] text-white shadow-md">
+              <Plus className="h-3.5 w-3.5" />
+            </span>
           </div>
 
-          {/* Right: "what you're hiring" panel */}
-          <div className="relative">
-            <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-5 shadow-[0_24px_60px_rgba(7,47,55,0.12)] backdrop-blur sm:p-7">
-              {/* Role header */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0242A2] to-[#38BDF8] text-white">
-                    <BrainCircuit className="h-6 w-6" />
-                  </span>
-                  <div>
-                    <p className="text-base font-semibold text-slate-900">AI Developer</p>
-                    <p className="text-sm text-slate-500">Dedicated · Remote from India</p>
-                  </div>
-                </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  Available
+          {/* Floating card — right */}
+          <div className="absolute right-4 top-[58%] z-10 hidden items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-[0_18px_40px_rgba(7,47,55,0.18)] backdrop-blur md:flex lg:right-10">
+            <div className="flex -space-x-2">
+              {hero.floatingCards.right.badges.map((t, i) => (
+                <span
+                  key={t}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-[10px] font-bold text-white"
+                  style={{ background: BADGE_COLORS[i % BADGE_COLORS.length] }}
+                >
+                  {t}
                 </span>
-              </div>
-
-              {/* Stack chips */}
-              <div className="mt-5 flex flex-wrap gap-2">
-                {STACK.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              {/* What they build */}
-              <p className="mt-7 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                What they build
-              </p>
-              <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
-                {BUILDS.map(({ label, icon: Icon }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-2 rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2.5 text-xs font-semibold text-slate-700 sm:text-sm"
-                  >
-                    <Icon className="h-4 w-4 shrink-0 text-[#0F6FFF]" />
-                    {label}
-                  </div>
-                ))}
-              </div>
-
-              {/* How to start */}
-              <p className="mt-7 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                How to start
-              </p>
-              <ol className="mt-3 grid gap-2 sm:grid-cols-3">
-                {STEPS.map((step, i) => (
-                  <li
-                    key={step}
-                    className="flex items-center gap-2.5 rounded-xl bg-[#081C2E] px-3 py-2.5 text-xs font-medium text-white sm:text-sm"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/15 text-[11px] font-bold">
-                      {i + 1}
-                    </span>
-                    {step}
-                  </li>
-                ))}
-              </ol>
+              ))}
             </div>
-
-            {/* Floating accent card */}
-            <div className="absolute -bottom-6 -left-4 hidden items-center gap-3 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-[0_18px_40px_rgba(7,47,55,0.12)] sm:flex lg:-left-8">
-              <CircleCheck className="h-5 w-5 text-emerald-500" />
-              <div>
-                <p className="text-sm font-semibold text-slate-900">Your team, your process</p>
-                <p className="text-xs text-slate-500">Daily standups · Direct Slack access</p>
-              </div>
+            <div>
+              <p className="text-sm font-bold text-slate-900">{hero.floatingCards.right.title}</p>
+              <p className="text-xs text-slate-500">{hero.floatingCards.right.subtitle}</p>
             </div>
           </div>
+
+          {/* White wave — high on the left for the heading, dropping away before the faces */}
+          <svg
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-[45%] w-full sm:h-[50%]"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path d="M0 40 C 380 0 620 100 840 225 C 1010 315 1220 308 1440 295 L1440 320 L0 320 Z" fill="#ffffff" />
+          </svg>
+        </div>
+
+        {/* Content on the white wave */}
+        <div className="relative z-10 -mt-24 px-4 sm:-mt-40 sm:px-8 lg:-mt-56 lg:px-12 xl:-mt-64">
+          <div className="grid items-end gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-12">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#0242A2]">
+                {hero.eyebrow}
+              </span>
+
+              <h1 className="mt-4 max-w-xl text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl xl:text-6xl">
+                <HighlightTitle title={hero.title} breakBeforeAfter />
+              </h1>
+
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
+                {hero.description}
+              </p>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link
+                  href={hero.primaryCta.href}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0242A2] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(2,66,162,0.3)] transition-all duration-300 hover:bg-[#0F6FFF] hover:shadow-[0_12px_30px_rgba(15,111,255,0.35)]"
+                >
+                  {hero.primaryCta.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href={hero.secondaryCta.href}
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 transition-colors duration-300 hover:border-[#0242A2] hover:text-[#0242A2]"
+                >
+                  {hero.secondaryCta.label}
+                </Link>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <dl className="grid grid-cols-3 gap-4 lg:justify-items-end lg:pb-2">
+              {hero.stats.map((s) => (
+                <div key={s.value} className="flex items-center gap-2.5">
+                  <dt className="sr-only">{s.label.join(" ")}</dt>
+                  <dd className="text-2xl font-bold text-slate-900 sm:text-3xl">{s.value}</dd>
+                  <dd aria-hidden className="text-[11px] leading-tight text-slate-500 sm:text-xs">
+                    {s.label[0]}
+                    <br />
+                    {s.label[1]}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Trust points */}
+          <ul className="mt-10 flex flex-wrap gap-2 border-t border-slate-100 pt-6 sm:gap-3">
+            {hero.trustPoints.map(({ label, icon }) => {
+              const Icon = getIcon(icon);
+              return (
+              <li
+                key={label}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-xs font-medium text-slate-700 sm:text-sm"
+              >
+                <Icon className="h-3.5 w-3.5 text-[#0F6FFF]" />
+                {label}
+              </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>

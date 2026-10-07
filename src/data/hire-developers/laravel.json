@@ -1,0 +1,465 @@
+{
+  "slug": "laravel",
+  "path": "/hire-laravel-developers",
+  "role": {
+    "singular": "Laravel developer",
+    "plural": "Laravel developers",
+    "Singular": "Laravel Developer",
+    "Plural": "Laravel Developers",
+    "short": "Laravel",
+    "Short": "Laravel"
+  },
+  "seo": {
+    "title": "Hire Laravel Developers",
+    "metaTitle": "Hire Laravel Developers",
+    "metaDescription": "Hire Laravel developers from Fillip Technologies to build web applications, APIs, admin panels, business software and e-commerce backends with Laravel and PHP.",
+    "keywords": [
+      "hire Laravel developers",
+      "dedicated Laravel developers",
+      "Laravel development team",
+      "Laravel PHP developers"
+    ]
+  },
+  "sections": {
+    "showCaseStudies": false
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/laravel/hero.jpg",
+      "alt": "A developer explaining a web application dashboard to a colleague"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/laravel/capabilities.jpg",
+      "alt": "Illustration for Laravel Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/laravel/stack.jpg",
+      "alt": "Illustration for Laravel Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/laravel/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/laravel/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/laravel/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/laravel/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/laravel/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/laravel/case-study.jpg",
+      "alt": "Laravel project screenshot"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/laravel/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/laravel/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Laravel Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "Laravel Developers"
+    },
+    "description": "Hire experienced Laravel developers from Fillip Technologies to build secure web applications, APIs, admin panels and business software on Laravel and PHP.",
+    "floatingCards": {
+      "left": {
+        "title": "Laravel Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "server"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "PHP",
+          "API",
+          "SQL",
+          "VUE"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Laravel Developers",
+      "after": "Build?"
+    },
+    "description": "Our Laravel developers build structured, maintainable web applications and backends that are easy to grow.",
+    "items": [
+      {
+        "title": "Laravel Web Applications",
+        "description": "Build custom web applications on the Laravel framework.",
+        "icon": "appWindow"
+      },
+      {
+        "title": "REST API Development",
+        "description": "Build APIs for web frontends, mobile apps and partners.",
+        "icon": "codeXml"
+      },
+      {
+        "title": "Admin Panels & Dashboards",
+        "description": "Build role-based admin areas, reports and dashboards.",
+        "icon": "layoutDashboard"
+      },
+      {
+        "title": "CRM & ERP Systems",
+        "description": "Build business software around your sales and operations.",
+        "icon": "building"
+      },
+      {
+        "title": "E-commerce & Payments",
+        "description": "Build store backends with payment gateways such as Razorpay and Stripe.",
+        "icon": "shoppingCart"
+      },
+      {
+        "title": "SaaS Platforms",
+        "description": "Build multi-user products with roles, plans and settings.",
+        "icon": "layoutGrid"
+      },
+      {
+        "title": "Legacy PHP Migration",
+        "description": "Move older PHP applications onto Laravel step by step.",
+        "icon": "refresh"
+      },
+      {
+        "title": "Maintenance & Upgrades",
+        "description": "Keep Laravel applications updated, secure and performing well.",
+        "icon": "wrench"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Laravel",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build with Laravel and PHP, modern frontends, reliable databases, payments and cloud infrastructure.",
+    "categories": [
+      {
+        "title": "Laravel & PHP",
+        "description": "The foundation of every Laravel build.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Laravel",
+            "verified": true
+          },
+          {
+            "name": "PHP",
+            "verified": true
+          },
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "Webhooks",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Frontend",
+        "description": "Interfaces paired with Laravel backends.",
+        "icon": "appWindow",
+        "items": [
+          {
+            "name": "Vue.js",
+            "verified": true
+          },
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "Tailwind CSS",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Databases",
+        "description": "Store and serve your application data.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "MySQL",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          },
+          {
+            "name": "Redis",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Payments & APIs",
+        "description": "Connect payments and external services.",
+        "icon": "creditCard",
+        "items": [
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Deploy and run Laravel applications.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Docker",
+            "verified": true
+          },
+          {
+            "name": "CI/CD",
+            "verified": true
+          },
+          {
+            "name": "Cloudflare",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Mobile Backends",
+        "description": "Laravel APIs for your mobile apps.",
+        "icon": "smartphone",
+        "items": [
+          {
+            "name": "Flutter",
+            "verified": true
+          },
+          {
+            "name": "React Native",
+            "verified": true
+          },
+          {
+            "name": "Firebase",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Laravel Specialist"
+    },
+    "description": "Choose the Laravel expertise that matches your application and roadmap.",
+    "caption": {
+      "title": "One partner, every Laravel role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Laravel Backend Developer",
+        "description": "Builds and maintains the server-side logic of your application."
+      },
+      {
+        "title": "Laravel API Developer",
+        "description": "Builds APIs for web frontends, mobile apps and partners."
+      },
+      {
+        "title": "Laravel Full-Stack Developer",
+        "description": "Works across Laravel backends and Vue.js or React frontends."
+      },
+      {
+        "title": "Laravel Admin Panel Developer",
+        "description": "Builds admin areas, reports and role-based dashboards."
+      },
+      {
+        "title": "Laravel E-commerce Developer",
+        "description": "Builds store backends, orders and payment flows."
+      },
+      {
+        "title": "Laravel SaaS Developer",
+        "description": "Builds multi-user products with roles and plans."
+      },
+      {
+        "title": "Laravel Migration Developer",
+        "description": "Moves legacy PHP applications onto Laravel."
+      },
+      {
+        "title": "Laravel Maintenance Developer",
+        "description": "Keeps your application updated, secure and fast."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "Laravel Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our Laravel developers build the web applications and backends that support your customers and operations.",
+    "items": [
+      {
+        "title": "Business Portals & CRM",
+        "icon": "building",
+        "problem": "Customer and sales data is scattered across tools.",
+        "solution": "Laravel portals and CRM systems built around your processes.",
+        "applications": [
+          "Lead tracking",
+          "Customer records",
+          "Reports"
+        ]
+      },
+      {
+        "title": "E-commerce Backends",
+        "icon": "shoppingCart",
+        "problem": "Orders, stock and payments are hard to manage together.",
+        "solution": "Laravel backends for catalogues, orders, payments and stock.",
+        "applications": [
+          "Order management",
+          "Inventory",
+          "Payment gateways"
+        ]
+      },
+      {
+        "title": "Booking & Reservation Systems",
+        "icon": "appWindow",
+        "problem": "Manual bookings cause double-booking and missed customers.",
+        "solution": "Laravel booking systems with availability, payments and notifications.",
+        "applications": [
+          "Availability",
+          "Online payments",
+          "Confirmations"
+        ]
+      },
+      {
+        "title": "APIs for Mobile Apps",
+        "icon": "smartphone",
+        "problem": "Your app needs a dependable backend and admin.",
+        "solution": "Laravel APIs and admin panels behind your Flutter or React Native app.",
+        "applications": [
+          "App APIs",
+          "Admin panel",
+          "Notifications"
+        ]
+      },
+      {
+        "title": "SaaS Products",
+        "icon": "layoutGrid",
+        "problem": "A product needs to serve many customers securely.",
+        "solution": "Laravel SaaS platforms with accounts, roles and plans.",
+        "applications": [
+          "Accounts & roles",
+          "Plans",
+          "Dashboards"
+        ]
+      },
+      {
+        "title": "Legacy Modernization",
+        "icon": "refresh",
+        "problem": "Older PHP code is hard to change and maintain.",
+        "solution": "Structured migration of legacy PHP applications to Laravel.",
+        "applications": [
+          "Code restructuring",
+          "Database cleanup",
+          "Feature parity"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Laravel Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Vue.js"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip Laravel Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "server"
+    }
+  },
+  "caseStudies": {
+    "featured": null,
+    "projectTypes": [
+      "Web Apps",
+      "APIs",
+      "Admin Panels",
+      "CRM & ERP",
+      "E-commerce",
+      "Migrations"
+    ]
+  },
+  "costTechnologyItems": [
+    "APIs",
+    "Admin panel",
+    "Payments",
+    "Database design",
+    "Frontend framework",
+    "Legacy migration"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a Laravel developer?",
+      "answer": "The cost depends on the developer's experience, the complexity of your application, the integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of Laravel developers can I hire?",
+      "answer": "You can hire Laravel Backend Developers, Laravel API Developers, Laravel Full-Stack Developers, Laravel Admin Panel Developers, Laravel E-commerce Developers, Laravel SaaS Developers, Laravel Migration Developers and Laravel Maintenance Developers."
+    },
+    {
+      "question": "What technologies do your Laravel developers work with?",
+      "answer": "Our Laravel developers work with Laravel and PHP; frontends such as Vue.js, React and Tailwind CSS; databases such as MySQL, PostgreSQL and Redis; payment gateways such as Razorpay and Stripe; and cloud and DevOps tools such as AWS, Docker and CI/CD."
+    },
+    {
+      "question": "Can you take over or upgrade an existing Laravel application?",
+      "answer": "Yes. Developers can review your existing Laravel codebase, then fix issues, add features or plan an upgrade, working within your current setup and workflow."
+    }
+  ]
+}

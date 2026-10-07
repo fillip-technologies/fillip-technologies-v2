@@ -1,0 +1,448 @@
+{
+  "slug": "shopify",
+  "path": "/hire-shopify-developers",
+  "role": {
+    "singular": "Shopify developer",
+    "plural": "Shopify developers",
+    "Singular": "Shopify Developer",
+    "Plural": "Shopify Developers",
+    "short": "Shopify",
+    "Short": "Shopify"
+  },
+  "seo": {
+    "title": "Hire Shopify Developers",
+    "metaTitle": "Hire Shopify Developers",
+    "metaDescription": "Hire Shopify developers from Fillip Technologies to set up, customise and migrate Shopify stores, build custom Liquid themes and create headless storefronts with Next.js.",
+    "keywords": [
+      "hire Shopify developers",
+      "dedicated Shopify developers",
+      "Shopify theme developers",
+      "Shopify development team"
+    ]
+  },
+  "sections": {
+    "showCaseStudies": false
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/shopify/hero.jpg",
+      "alt": "A developer working on an online store on a laptop"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/shopify/capabilities.jpg",
+      "alt": "Illustration for Shopify Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/shopify/stack.jpg",
+      "alt": "Illustration for Shopify Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/shopify/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/shopify/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/shopify/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/shopify/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/shopify/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/shopify/case-study.jpg",
+      "alt": "Shopify store screenshot"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/shopify/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/shopify/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Shopify Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "Shopify Developers"
+    },
+    "description": "Hire experienced Shopify developers from Fillip Technologies to set up, customise and migrate Shopify stores, build custom themes and create fast headless storefronts.",
+    "floatingCards": {
+      "left": {
+        "title": "Shopify Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "store"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "LIQ",
+          "UI",
+          "API",
+          "CRO"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Shopify Developers",
+      "after": "Build?"
+    },
+    "description": "Our Shopify developers build and improve stores that are easy to manage and pleasant to shop.",
+    "items": [
+      {
+        "title": "Shopify Store Setup",
+        "description": "Set up your store, products, collections and checkout.",
+        "icon": "store"
+      },
+      {
+        "title": "Custom Shopify Themes",
+        "description": "Build bespoke themes that match your brand.",
+        "icon": "palette"
+      },
+      {
+        "title": "Liquid Customization",
+        "description": "Customise templates and sections with Shopify Liquid.",
+        "icon": "codeXml"
+      },
+      {
+        "title": "Headless Storefronts",
+        "description": "Build fast custom storefronts with Next.js and React.",
+        "icon": "layers"
+      },
+      {
+        "title": "Payments & Checkout",
+        "description": "Configure payment gateways such as Razorpay and Stripe.",
+        "icon": "creditCard"
+      },
+      {
+        "title": "Third-Party Integrations",
+        "description": "Connect your store to marketing, inventory and business tools.",
+        "icon": "plug"
+      },
+      {
+        "title": "Store Migration",
+        "description": "Move products, customers and content to Shopify.",
+        "icon": "refresh"
+      },
+      {
+        "title": "Speed & Conversion Improvements",
+        "description": "Improve store speed and remove friction from the buying journey.",
+        "icon": "trendingUp"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Shopify",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build Shopify stores with custom themes, headless frontends, payments, content platforms and integrations.",
+    "categories": [
+      {
+        "title": "Shopify Core",
+        "description": "The platform and templating behind your store.",
+        "icon": "store",
+        "items": [
+          {
+            "name": "Shopify",
+            "verified": true
+          },
+          {
+            "name": "Liquid",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Headless Commerce",
+        "description": "Custom storefronts on top of Shopify.",
+        "icon": "layers",
+        "items": [
+          {
+            "name": "Next.js",
+            "verified": true
+          },
+          {
+            "name": "React",
+            "verified": true
+          },
+          {
+            "name": "Headless CMS",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Design & UI",
+        "description": "Brand-consistent, responsive storefronts.",
+        "icon": "palette",
+        "items": [
+          {
+            "name": "Tailwind CSS",
+            "verified": true
+          },
+          {
+            "name": "Figma",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Payments",
+        "description": "Accept payments from your customers.",
+        "icon": "creditCard",
+        "items": [
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Content Platforms",
+        "description": "Rich content alongside your products.",
+        "icon": "panels",
+        "items": [
+          {
+            "name": "Contentful",
+            "verified": true
+          },
+          {
+            "name": "Strapi",
+            "verified": true
+          },
+          {
+            "name": "Sanity",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Integrations",
+        "description": "Connect your store to the rest of your business.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "Webhooks",
+            "verified": true
+          },
+          {
+            "name": "n8n",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Shopify Specialist"
+    },
+    "description": "Choose the Shopify expertise that matches your store and growth plans.",
+    "caption": {
+      "title": "One partner, every store role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Shopify Developer",
+        "description": "Builds and updates features across your Shopify store."
+      },
+      {
+        "title": "Shopify Theme Developer",
+        "description": "Builds custom themes from your designs."
+      },
+      {
+        "title": "Liquid Developer",
+        "description": "Customises templates and sections with Shopify Liquid."
+      },
+      {
+        "title": "Headless Shopify Developer",
+        "description": "Builds custom storefronts with Next.js and React."
+      },
+      {
+        "title": "Shopify Integration Developer",
+        "description": "Connects your store to marketing and business tools."
+      },
+      {
+        "title": "Shopify Migration Developer",
+        "description": "Moves stores from other platforms to Shopify."
+      },
+      {
+        "title": "Shopify Store Setup Specialist",
+        "description": "Sets up products, collections, payments and checkout."
+      },
+      {
+        "title": "Shopify Maintenance Developer",
+        "description": "Keeps your store updated, fast and working smoothly."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "Shopify Solutions Built Around",
+      "highlight": "Your Store"
+    },
+    "description": "Our Shopify developers help you launch, grow and improve your online store.",
+    "items": [
+      {
+        "title": "Launching a New Store",
+        "icon": "rocket",
+        "problem": "You want to start selling online quickly and properly.",
+        "solution": "A Shopify store set up with your products, payments and branding.",
+        "applications": [
+          "Store setup",
+          "Payments",
+          "Shipping rules"
+        ]
+      },
+      {
+        "title": "Brand-Led Redesigns",
+        "icon": "palette",
+        "problem": "Your store looks like every other template.",
+        "solution": "A custom Shopify theme built around your brand.",
+        "applications": [
+          "Custom theme",
+          "Product pages",
+          "Collections"
+        ]
+      },
+      {
+        "title": "Moving to Shopify",
+        "icon": "refresh",
+        "problem": "Your current platform is hard to manage or scale.",
+        "solution": "A planned migration of products, customers and content to Shopify.",
+        "applications": [
+          "Product import",
+          "Customer data",
+          "Redirects"
+        ]
+      },
+      {
+        "title": "Headless Storefronts",
+        "icon": "layers",
+        "problem": "You need more speed and design freedom than themes allow.",
+        "solution": "A Next.js storefront connected to your Shopify store.",
+        "applications": [
+          "Custom frontend",
+          "Fast pages",
+          "Rich content"
+        ]
+      },
+      {
+        "title": "Business Integrations",
+        "icon": "plug",
+        "problem": "Orders and stock live in separate systems.",
+        "solution": "Integrations between Shopify and your inventory, marketing and business tools.",
+        "applications": [
+          "Inventory sync",
+          "Order exports",
+          "Marketing tools"
+        ]
+      },
+      {
+        "title": "Ongoing Store Support",
+        "icon": "wrench",
+        "problem": "Small store changes pile up and wait for weeks.",
+        "solution": "A dedicated developer who handles updates and improvements.",
+        "applications": [
+          "Theme updates",
+          "New sections",
+          "Fixes"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Shopify Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "Shopify",
+        "Liquid",
+        "JavaScript",
+        "Figma"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip Shopify Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "store"
+    }
+  },
+  "caseStudies": {
+    "featured": null,
+    "projectTypes": [
+      "Store Setup",
+      "Custom Themes",
+      "Headless",
+      "Migrations",
+      "Integrations"
+    ]
+  },
+  "costTechnologyItems": [
+    "Custom theme",
+    "Liquid customisation",
+    "Headless storefront",
+    "Payments",
+    "Integrations",
+    "Store migration"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a Shopify developer?",
+      "answer": "The cost depends on the developer's experience, the size of your store, the custom features and integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of Shopify developers can I hire?",
+      "answer": "You can hire Shopify Developers, Shopify Theme Developers, Liquid Developers, Headless Shopify Developers, Shopify Integration Developers, Shopify Migration Developers, Shopify Store Setup Specialists and Shopify Maintenance Developers."
+    },
+    {
+      "question": "What technologies do your Shopify developers work with?",
+      "answer": "Our Shopify developers work with Shopify, Liquid and JavaScript; Next.js and React for headless storefronts; Tailwind CSS and Figma designs; payment gateways such as Razorpay and Stripe; content platforms such as Contentful, Strapi and Sanity; and REST, GraphQL and webhook integrations."
+    },
+    {
+      "question": "Can you migrate our existing store to Shopify?",
+      "answer": "Yes. Developers can plan and carry out a migration of your products, customers and content to Shopify, including redirects so existing links keep working."
+    }
+  ]
+}

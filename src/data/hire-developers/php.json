@@ -1,0 +1,449 @@
+{
+  "slug": "php",
+  "path": "/hire-php-developers",
+  "role": {
+    "singular": "PHP developer",
+    "plural": "PHP developers",
+    "Singular": "PHP Developer",
+    "Plural": "PHP Developers",
+    "short": "PHP",
+    "Short": "PHP"
+  },
+  "seo": {
+    "title": "Hire PHP Developers",
+    "metaTitle": "Hire PHP Developers",
+    "metaDescription": "Hire PHP developers from Fillip Technologies to build and maintain custom PHP applications, APIs, CMS and e-commerce websites, and to upgrade legacy PHP code.",
+    "keywords": [
+      "hire PHP developers",
+      "dedicated PHP developers",
+      "PHP development team",
+      "core PHP developers"
+    ]
+  },
+  "sections": {
+    "showCaseStudies": false
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/php/hero.jpg",
+      "alt": "A senior developer reviewing code on a large monitor"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/php/capabilities.jpg",
+      "alt": "Illustration for PHP Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/php/stack.jpg",
+      "alt": "Illustration for PHP Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/php/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/php/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/php/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/php/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/php/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/php/case-study.jpg",
+      "alt": "PHP project screenshot"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/php/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/php/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated PHP Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "PHP Developers"
+    },
+    "description": "Hire experienced PHP developers from Fillip Technologies to build and maintain custom PHP applications, APIs, CMS and e-commerce websites — and to modernise legacy PHP code.",
+    "floatingCards": {
+      "left": {
+        "title": "PHP Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "codeXml"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "PHP",
+          "SQL",
+          "API",
+          "CMS"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "PHP Developers",
+      "after": "Build?"
+    },
+    "description": "Our PHP developers build new applications and keep existing PHP websites and systems running smoothly.",
+    "items": [
+      {
+        "title": "Custom PHP Applications",
+        "description": "Build web applications tailored to your business processes.",
+        "icon": "appWindow"
+      },
+      {
+        "title": "PHP API Development",
+        "description": "Build REST APIs and webhooks for apps and integrations.",
+        "icon": "codeXml"
+      },
+      {
+        "title": "CMS Customization",
+        "description": "Extend WordPress and other PHP CMSs with custom features.",
+        "icon": "panels"
+      },
+      {
+        "title": "E-commerce Development",
+        "description": "Build and customise PHP-based online stores and checkouts.",
+        "icon": "shoppingCart"
+      },
+      {
+        "title": "Database Development",
+        "description": "Design, query and optimise MySQL databases.",
+        "icon": "database"
+      },
+      {
+        "title": "Legacy PHP Maintenance",
+        "description": "Fix, stabilise and extend older PHP applications.",
+        "icon": "wrench"
+      },
+      {
+        "title": "PHP Version Upgrades",
+        "description": "Upgrade applications to current PHP versions safely.",
+        "icon": "refresh"
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Speed up slow pages, queries and server responses.",
+        "icon": "gauge"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "PHP",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build and maintain PHP applications with proven frameworks, CMS platforms, databases and hosting.",
+    "categories": [
+      {
+        "title": "PHP Core",
+        "description": "The foundation of your PHP application.",
+        "icon": "codeXml",
+        "items": [
+          {
+            "name": "PHP",
+            "verified": true
+          },
+          {
+            "name": "MySQL",
+            "verified": true
+          },
+          {
+            "name": "JavaScript",
+            "verified": true
+          },
+          {
+            "name": "HTML",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Frameworks & CMS",
+        "description": "Proven platforms built on PHP.",
+        "icon": "blocks",
+        "items": [
+          {
+            "name": "Laravel",
+            "verified": true
+          },
+          {
+            "name": "WordPress",
+            "verified": true
+          },
+          {
+            "name": "WooCommerce",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "APIs",
+        "description": "Connect your application to other systems.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "Webhooks",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Caching & Performance",
+        "description": "Keep pages and queries fast.",
+        "icon": "gauge",
+        "items": [
+          {
+            "name": "Redis",
+            "verified": true
+          },
+          {
+            "name": "Cloudflare",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Hosting & DevOps",
+        "description": "Deploy and run PHP applications.",
+        "icon": "cloud",
+        "items": [
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Docker",
+            "verified": true
+          },
+          {
+            "name": "CI/CD",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Payments",
+        "description": "Take payments online.",
+        "icon": "creditCard",
+        "items": [
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "PHP Specialist"
+    },
+    "description": "Choose the PHP expertise that matches your application, CMS or upgrade plans.",
+    "caption": {
+      "title": "One partner, every PHP role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Core PHP Developer",
+        "description": "Builds and maintains custom PHP code without a framework."
+      },
+      {
+        "title": "PHP Backend Developer",
+        "description": "Builds the server-side logic behind your website or app."
+      },
+      {
+        "title": "PHP API Developer",
+        "description": "Builds APIs and webhooks for apps and integrations."
+      },
+      {
+        "title": "Laravel Developer",
+        "description": "Builds structured applications on the Laravel framework."
+      },
+      {
+        "title": "WordPress PHP Developer",
+        "description": "Builds custom themes, plugins and features for WordPress."
+      },
+      {
+        "title": "PHP E-commerce Developer",
+        "description": "Builds and customises PHP-based stores and checkouts."
+      },
+      {
+        "title": "Legacy PHP Developer",
+        "description": "Stabilises, extends and upgrades older PHP applications."
+      },
+      {
+        "title": "PHP Performance Developer",
+        "description": "Improves page speed, queries and server response times."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "PHP Solutions Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our PHP developers build new features and keep your existing PHP systems reliable.",
+    "items": [
+      {
+        "title": "Maintaining Existing PHP Sites",
+        "icon": "wrench",
+        "problem": "Your PHP site works, but changes are slow and risky.",
+        "solution": "Developers who understand your code and make safe, steady improvements.",
+        "applications": [
+          "Bug fixes",
+          "New features",
+          "Security updates"
+        ]
+      },
+      {
+        "title": "Custom Business Applications",
+        "icon": "building",
+        "problem": "Off-the-shelf software doesn't match your process.",
+        "solution": "Custom PHP applications built around how your team works.",
+        "applications": [
+          "Workflows",
+          "Records",
+          "Reports"
+        ]
+      },
+      {
+        "title": "E-commerce Stores",
+        "icon": "shoppingCart",
+        "problem": "Your store needs custom features and reliable checkout.",
+        "solution": "PHP-based stores with custom features and payment gateways.",
+        "applications": [
+          "Product catalogue",
+          "Checkout",
+          "Payments"
+        ]
+      },
+      {
+        "title": "CMS-Powered Websites",
+        "icon": "panels",
+        "problem": "Your team needs to update content without developers.",
+        "solution": "WordPress or PHP CMS websites with custom features and editing.",
+        "applications": [
+          "Custom themes",
+          "Plugins",
+          "Content editing"
+        ]
+      },
+      {
+        "title": "Integrations & APIs",
+        "icon": "plug",
+        "problem": "Your website and business tools don't talk to each other.",
+        "solution": "PHP APIs and integrations that connect your systems.",
+        "applications": [
+          "CRM sync",
+          "Payment webhooks",
+          "Data exports"
+        ]
+      },
+      {
+        "title": "Upgrades & Modernization",
+        "icon": "refresh",
+        "problem": "Outdated PHP versions and code create risk.",
+        "solution": "Planned upgrades to current PHP versions or migration to Laravel.",
+        "applications": [
+          "PHP upgrades",
+          "Refactoring",
+          "Laravel migration"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "PHP Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "PHP",
+        "MySQL",
+        "Laravel",
+        "REST APIs"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip PHP Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "codeXml"
+    }
+  },
+  "caseStudies": {
+    "featured": null,
+    "projectTypes": [
+      "Custom Apps",
+      "APIs",
+      "CMS",
+      "E-commerce",
+      "Maintenance",
+      "Upgrades"
+    ]
+  },
+  "costTechnologyItems": [
+    "Custom PHP",
+    "Framework or CMS",
+    "APIs",
+    "Database work",
+    "Payments",
+    "Version upgrades"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a PHP developer?",
+      "answer": "The cost depends on the developer's experience, the size and condition of your codebase, the integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of PHP developers can I hire?",
+      "answer": "You can hire Core PHP Developers, PHP Backend Developers, PHP API Developers, Laravel Developers, WordPress PHP Developers, PHP E-commerce Developers, Legacy PHP Developers and PHP Performance Developers."
+    },
+    {
+      "question": "What technologies do your PHP developers work with?",
+      "answer": "Our PHP developers work with PHP and MySQL; frameworks and platforms such as Laravel, WordPress and WooCommerce; REST and GraphQL APIs and webhooks; caching with Redis and Cloudflare; hosting and DevOps with AWS, Docker and CI/CD; and payment gateways such as Razorpay and Stripe."
+    },
+    {
+      "question": "Can you maintain or upgrade our existing PHP application?",
+      "answer": "Yes. Developers can review your existing PHP code, fix issues, add features and plan upgrades to current PHP versions, working carefully around what already works."
+    }
+  ]
+}

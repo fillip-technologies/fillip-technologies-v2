@@ -1,0 +1,464 @@
+{
+  "slug": "flutter",
+  "path": "/hire-flutter-developers",
+  "role": {
+    "singular": "Flutter developer",
+    "plural": "Flutter developers",
+    "Singular": "Flutter Developer",
+    "Plural": "Flutter Developers",
+    "short": "Flutter",
+    "Short": "Flutter"
+  },
+  "seo": {
+    "title": "Hire Flutter Developers",
+    "metaTitle": "Hire Flutter Developers",
+    "metaDescription": "Hire Flutter developers from Fillip Technologies to build cross-platform Android and iOS apps from a single codebase, with backend, payments and notifications integrated.",
+    "keywords": [
+      "hire Flutter developers",
+      "dedicated Flutter developers",
+      "Flutter app developers",
+      "cross-platform app developers"
+    ]
+  },
+  "sections": {
+    "showCaseStudies": false
+  },
+  "images": {
+    "heroImage": {
+      "src": "/images/hire-developers/flutter/hero.jpg",
+      "alt": "Two mobile developers testing an app on a smartphone and laptop"
+    },
+    "capabilitiesImage": {
+      "src": "/images/hire-developers/flutter/capabilities.jpg",
+      "alt": "Illustration for Flutter Developers"
+    },
+    "stackImage": {
+      "src": "/images/hire-developers/flutter/stack.jpg",
+      "alt": "Illustration for Flutter Developers"
+    },
+    "specialistImage": {
+      "src": "/images/hire-developers/flutter/specialists.jpg",
+      "alt": "Developers working together in a bright office"
+    },
+    "solutionsImage": {
+      "src": "/images/hire-developers/flutter/solutions.jpg",
+      "alt": "A business application in use"
+    },
+    "whyFillipImage": null,
+    "engagementImage": {
+      "src": "/images/hire-developers/flutter/engagement.jpg",
+      "alt": "A developer collaborating with a client team"
+    },
+    "hiringImage": {
+      "src": "/images/hire-developers/flutter/hiring.jpg",
+      "alt": "A developer interview and onboarding meeting"
+    },
+    "collaborationImage": {
+      "src": "/images/hire-developers/flutter/collaboration.jpg",
+      "alt": "A developer working with a client team"
+    },
+    "caseStudyImage": {
+      "src": "/images/hire-developers/flutter/case-study.jpg",
+      "alt": "Flutter app screenshot"
+    },
+    "securityImage": {
+      "src": "/images/hire-developers/flutter/security.jpg",
+      "alt": "A secure software development workspace"
+    },
+    "finalCtaImage": {
+      "src": "/images/hire-developers/flutter/final-cta.jpg",
+      "alt": "A development team celebrating a successful launch"
+    }
+  },
+  "hero": {
+    "eyebrow": "Dedicated Flutter Engineers",
+    "title": {
+      "before": "Hire",
+      "highlight": "Flutter Developers"
+    },
+    "description": "Hire experienced Flutter developers from Fillip Technologies to build polished Android and iOS apps from a single codebase, connected to your backend, payments and notifications.",
+    "floatingCards": {
+      "left": {
+        "title": "Flutter Developer Matched",
+        "subtitle": "Joined your sprint this week",
+        "icon": "smartphone"
+      },
+      "right": {
+        "title": "Scalable Teams",
+        "subtitle": "Add developers as you grow",
+        "badges": [
+          "iOS",
+          "AND",
+          "UI",
+          "API"
+        ]
+      }
+    }
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": {
+      "before": "What Can Our",
+      "highlight": "Flutter Developers",
+      "after": "Build?"
+    },
+    "description": "Our Flutter developers build cross-platform mobile apps that look and feel consistent on Android and iOS.",
+    "items": [
+      {
+        "title": "Cross-Platform Apps",
+        "description": "Build Android and iOS apps from one shared Flutter codebase.",
+        "icon": "smartphone"
+      },
+      {
+        "title": "Flutter UI Development",
+        "description": "Build smooth, consistent interfaces from your designs.",
+        "icon": "palette"
+      },
+      {
+        "title": "Backend & API Integration",
+        "description": "Connect your app to Firebase, Node.js, Laravel or your existing APIs.",
+        "icon": "plug"
+      },
+      {
+        "title": "Payment Integration",
+        "description": "Add in-app payments through gateways such as Razorpay and Stripe.",
+        "icon": "creditCard"
+      },
+      {
+        "title": "Push Notifications",
+        "description": "Keep users informed with timely notifications and alerts.",
+        "icon": "bell"
+      },
+      {
+        "title": "MVP App Development",
+        "description": "Launch a focused first version of your app to test with users.",
+        "icon": "rocket"
+      },
+      {
+        "title": "Business & Enterprise Apps",
+        "description": "Build apps for teams, field work, dashboards and workflows.",
+        "icon": "building"
+      },
+      {
+        "title": "App Maintenance & Updates",
+        "description": "Keep existing Flutter apps updated, stable and improving.",
+        "icon": "wrench"
+      }
+    ]
+  },
+  "techStack": {
+    "eyebrow": "Technology",
+    "title": {
+      "before": "Flutter",
+      "highlight": "Technology",
+      "after": "Stack"
+    },
+    "description": "Build cross-platform apps with Flutter, reliable backends and APIs, payments and a clean design-to-delivery workflow.",
+    "categories": [
+      {
+        "title": "Flutter & Platforms",
+        "description": "One codebase for Android and iOS.",
+        "icon": "smartphone",
+        "items": [
+          {
+            "name": "Flutter",
+            "verified": true
+          },
+          {
+            "name": "Android",
+            "verified": true
+          },
+          {
+            "name": "iOS",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "App Backend",
+        "description": "Services that power your app.",
+        "icon": "server",
+        "items": [
+          {
+            "name": "Firebase",
+            "verified": true
+          },
+          {
+            "name": "Node.js",
+            "verified": true
+          },
+          {
+            "name": "Laravel",
+            "verified": true
+          },
+          {
+            "name": "Supabase",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "APIs",
+        "description": "Connect your app to data and services.",
+        "icon": "plug",
+        "items": [
+          {
+            "name": "REST APIs",
+            "verified": true
+          },
+          {
+            "name": "GraphQL",
+            "verified": true
+          },
+          {
+            "name": "Webhooks",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Databases",
+        "description": "Store your app's data reliably.",
+        "icon": "database",
+        "items": [
+          {
+            "name": "MongoDB",
+            "verified": true
+          },
+          {
+            "name": "PostgreSQL",
+            "verified": true
+          },
+          {
+            "name": "MySQL",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Payments & Cloud",
+        "description": "Take payments and run services in the cloud.",
+        "icon": "creditCard",
+        "items": [
+          {
+            "name": "Razorpay",
+            "verified": true
+          },
+          {
+            "name": "Stripe",
+            "verified": true
+          },
+          {
+            "name": "AWS",
+            "verified": true
+          },
+          {
+            "name": "Google Cloud",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "title": "Design & Delivery",
+        "description": "From design files to shipped builds.",
+        "icon": "gitBranch",
+        "items": [
+          {
+            "name": "Figma",
+            "verified": true
+          },
+          {
+            "name": "GitHub",
+            "verified": true
+          },
+          {
+            "name": "GitLab",
+            "verified": true
+          },
+          {
+            "name": "CI/CD",
+            "verified": true
+          }
+        ]
+      }
+    ]
+  },
+  "specialists": {
+    "eyebrow": "Specialists",
+    "title": {
+      "before": "Hire the Right",
+      "highlight": "Flutter Specialist"
+    },
+    "description": "Choose the Flutter expertise that matches your app, users and launch plans.",
+    "caption": {
+      "title": "One partner, every app role",
+      "subtitle": "Hire one developer or a full team"
+    },
+    "items": [
+      {
+        "title": "Flutter App Developer",
+        "description": "Builds features and screens across your Flutter app."
+      },
+      {
+        "title": "Flutter UI Developer",
+        "description": "Turns designs into smooth, consistent app interfaces."
+      },
+      {
+        "title": "Flutter + Firebase Developer",
+        "description": "Builds apps with Firebase authentication, data and notifications."
+      },
+      {
+        "title": "Flutter Integration Developer",
+        "description": "Connects your app to APIs, payments and backend services."
+      },
+      {
+        "title": "Flutter E-commerce App Developer",
+        "description": "Builds shopping apps with catalogues, carts and payments."
+      },
+      {
+        "title": "Flutter MVP Developer",
+        "description": "Gets a focused first version of your app ready for users."
+      },
+      {
+        "title": "Enterprise Flutter Developer",
+        "description": "Builds apps for internal teams, field work and workflows."
+      },
+      {
+        "title": "Flutter Maintenance Developer",
+        "description": "Keeps your app updated, stable and compatible."
+      }
+    ]
+  },
+  "useCases": {
+    "eyebrow": "Use Cases",
+    "title": {
+      "before": "Flutter Apps Built Around",
+      "highlight": "Your Business"
+    },
+    "description": "Our Flutter developers build mobile apps that serve your customers and support your teams on both Android and iOS.",
+    "items": [
+      {
+        "title": "On-Demand & Booking Apps",
+        "icon": "appWindow",
+        "problem": "Customers expect to book services from their phone.",
+        "solution": "Flutter apps for booking, scheduling, tracking and payments.",
+        "applications": [
+          "Service booking",
+          "Order tracking",
+          "In-app payments"
+        ]
+      },
+      {
+        "title": "E-commerce Apps",
+        "icon": "shoppingCart",
+        "problem": "Mobile shoppers drop off on slow, clunky experiences.",
+        "solution": "Smooth Flutter shopping apps connected to your store and payments.",
+        "applications": [
+          "Product catalogue",
+          "Cart & checkout",
+          "Order history"
+        ]
+      },
+      {
+        "title": "Business & Field Apps",
+        "icon": "building",
+        "problem": "Teams on the move rely on calls and paper forms.",
+        "solution": "Flutter apps for field teams with forms, tasks and synced data.",
+        "applications": [
+          "Task lists",
+          "Digital forms",
+          "Reports"
+        ]
+      },
+      {
+        "title": "Customer Service Apps",
+        "icon": "headset",
+        "problem": "Customers need a simple way to reach you and manage accounts.",
+        "solution": "Flutter apps with accounts, requests and notifications.",
+        "applications": [
+          "Account management",
+          "Support requests",
+          "Notifications"
+        ]
+      },
+      {
+        "title": "Healthcare Appointment Apps",
+        "icon": "clipboardList",
+        "problem": "Patients struggle to book and manage appointments by phone.",
+        "solution": "Flutter apps for appointment booking, reminders and records access.",
+        "applications": [
+          "Appointments",
+          "Reminders",
+          "Patient profiles"
+        ]
+      },
+      {
+        "title": "Education Apps",
+        "icon": "users",
+        "problem": "Learners and parents need updates and content on mobile.",
+        "solution": "Flutter apps for courses, schedules and announcements.",
+        "applications": [
+          "Course content",
+          "Schedules",
+          "Announcements"
+        ]
+      }
+    ]
+  },
+  "hiringProcess": {
+    "brief": {
+      "role": "Flutter Developer",
+      "experience": "Mid to senior level",
+      "engagement": "Dedicated, full-time",
+      "skills": [
+        "Flutter",
+        "Firebase",
+        "REST APIs",
+        "Figma"
+      ]
+    }
+  },
+  "collaboration": {
+    "centre": {
+      "title": "Fillip Flutter Developer",
+      "subtitle": "Embedded in your team",
+      "icon": "smartphone"
+    }
+  },
+  "caseStudies": {
+    "featured": null,
+    "projectTypes": [
+      "Cross-Platform Apps",
+      "E-commerce Apps",
+      "Booking Apps",
+      "Enterprise Apps",
+      "MVPs"
+    ]
+  },
+  "costTechnologyItems": [
+    "Cross-platform UI",
+    "Backend & APIs",
+    "Payments",
+    "Push notifications",
+    "Offline support",
+    "App store release"
+  ],
+  "faqItems": [
+    {
+      "question": "How much does it cost to hire a Flutter developer?",
+      "answer": "The cost depends on the developer's experience, the complexity of your app, the integrations involved, the engagement model and how long you need the developer. We provide a project-specific estimate once we understand your requirements."
+    },
+    {
+      "question": "What type of Flutter developers can I hire?",
+      "answer": "You can hire Flutter App Developers, Flutter UI Developers, Flutter + Firebase Developers, Flutter Integration Developers, Flutter E-commerce App Developers, Flutter MVP Developers, Enterprise Flutter Developers and Flutter Maintenance Developers."
+    },
+    {
+      "question": "What technologies do your Flutter developers work with?",
+      "answer": "Our Flutter developers build for Android and iOS with Flutter, and work with backends such as Firebase, Node.js, Laravel and Supabase; REST and GraphQL APIs; databases such as MongoDB, PostgreSQL and MySQL; payment gateways such as Razorpay and Stripe; and Figma designs."
+    },
+    {
+      "question": "Can one Flutter codebase support both Android and iOS?",
+      "answer": "Yes. Flutter lets developers build Android and iOS apps from a shared codebase, while still allowing platform-specific adjustments where your app needs them."
+    }
+  ]
+}
