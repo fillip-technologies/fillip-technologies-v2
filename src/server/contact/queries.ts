@@ -91,6 +91,33 @@ export async function listLeads(
   return docs.map(toLead);
 }
 
+/**
+ * One page of active (non-binned) leads, newest first, plus how many match in
+ * total — for the integrations API, so callers can page through every lead.
+ * `status` filters to one lifecycle status; `since` to leads created at or after
+ * that moment.
+ */
+export async function listLeadsPage(opts: {
+  page: number;
+  limit: number;
+  status?: string;
+  since?: Date;
+}): Promise<{ leads: Lead[]; total: number }> {
+  await dbConnect();
+  const query: Record<string, unknown> = { deleted_at: null };
+  if (opts.status) query.status = opts.status;
+  if (opts.since) query.created_at = { $gte: opts.since };
+  const [docs, total] = await Promise.all([
+    LeadModel.find(query)
+      .sort({ created_at: -1, _id: -1 })
+      .skip((opts.page - 1) * opts.limit)
+      .limit(opts.limit)
+      .lean(),
+    LeadModel.countDocuments(query),
+  ]);
+  return { leads: docs.map(toLead), total };
+}
+
 /** Fetch a single lead by id. Returns null for an unknown or malformed id. */
 export async function getLeadById(id: string): Promise<Lead | null> {
   if (!/^[a-f0-9]{24}$/i.test(id)) return null; // avoid Mongoose cast errors
