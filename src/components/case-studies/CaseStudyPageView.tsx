@@ -10,6 +10,14 @@ import {
 import type { CaseStudy } from "@/server/content/casestudy-registry";
 import GrowthChart from "./GrowthChart";
 
+// Metric-band layout by how many metrics there are, so one to three metrics
+// don't leave empty columns in a four-column band.
+const METRIC_LAYOUT: Record<number, string> = {
+  1: "mx-auto max-w-sm",
+  2: "mx-auto max-w-3xl sm:grid-cols-2",
+  3: "sm:grid-cols-3",
+};
+
 /**
  * Shared template for every /case-studies/<slug> page. Content comes straight
  * from the self-contained case-study document. Each section renders only when it
@@ -23,6 +31,10 @@ export default function CaseStudyPageView({
   related: { slug: string; title: string; industry: string; href: string; image: string; result: string }[];
 }) {
   const { hero, results, brands, challenges, strategy, journey, outcome, cta } = data;
+  const hasBrands = brands.logos.length > 0 || Boolean(brands.heading);
+  // The metric band overlaps the hero; without the brands section after it, the
+  // challenge cards need their own top spacing so they don't butt against it.
+  const challengesTopSpace = results.items.length && !hasBrands ? "pt-12 lg:pt-16" : "";
 
   return (
     <main className="bg-[#f8fafc]">
@@ -81,7 +93,11 @@ export default function CaseStudyPageView({
       {results.items.length ? (
         <section className="relative z-10 -mt-14">
           <div className="container mx-auto max-w-7xl px-6">
-            <div className="grid gap-4 rounded-[32px] border border-[var(--border)] bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:grid-cols-2 lg:grid-cols-4">
+            <div
+              className={`grid gap-4 rounded-[32px] border border-[var(--border)] bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.08)] ${
+                METRIC_LAYOUT[results.items.length] ?? "sm:grid-cols-2 lg:grid-cols-4"
+              }`}
+            >
               {results.items.map((m, i) => (
                 <div key={i} className="text-center">
                   <div className="text-4xl font-bold tracking-[-0.04em] text-[var(--primary)] md:text-5xl">
@@ -96,7 +112,7 @@ export default function CaseStudyPageView({
       ) : null}
 
       {/* -------------------------------------------------------------- brands */}
-      {brands.logos.length || brands.heading ? (
+      {hasBrands ? (
         <section className="py-20 lg:py-24">
           <div className="container mx-auto max-w-7xl px-6 text-center">
             {brands.heading ? (
@@ -135,7 +151,7 @@ export default function CaseStudyPageView({
 
       {/* --------------------------------------------- challenges + strategy */}
       {challenges.items.length || strategy.items.length ? (
-        <section className="pb-20 lg:pb-28">
+        <section className={`${challengesTopSpace} pb-20 lg:pb-28`}>
           <div className="container mx-auto max-w-7xl px-6">
             <div className="grid gap-8 lg:grid-cols-2">
               {challenges.items.length ? (
