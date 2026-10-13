@@ -255,20 +255,20 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-[15px] font-bold text-white tracking-wider uppercase">Branch Office (Ranchi)</h4>
-                <p className="text-[13.5px] text-primary-foreground/75 leading-relaxed mt-1.5">
-                  Ispat Residency, 1st Floor, A-block-104, Kathal More – Argora – Ranchi Rd, Harmu, Ranchi, Jharkhand 834002
-                </p>
-                <div className="mt-3.5 space-y-1.5 text-[13.5px] text-primary-foreground/70">
-                  <div className="flex flex-col gap-1">
-                    <span className="font-semibold text-primary-foreground/40">Tel:</span>
-                    <a href="tel:+917545999996" className="hover:text-accent transition-colors font-medium">+91 7545999996</a>
-                  </div>
-                  <p className="pt-1">
-                    <span className="font-semibold text-primary-foreground/40">Email: </span>
-                    <a href="mailto:ranchi@filliptechnologies.com" className="hover:text-accent transition-colors font-medium">ranchi@filliptechnologies.com</a>
-                  </p>
+              <div className="w-full">
+                <h4 className="text-[15px] font-bold text-white tracking-wider uppercase">Find Us On Map</h4>
+                <div className="mt-3.5 overflow-hidden rounded-xl border border-white/10">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d899.5225855971062!2d85.14704962485065!3d25.60191406519035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed595a98c04db7%3A0x301470cd11758004!2sFillip%20Technologies!5e0!3m2!1sen!2sin!4v1791888055609!5m2!1sen!2sin"
+                    title="Fillip Technologies office location on Google Maps"
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="h-[220px] w-full"
+                  />
                 </div>
               </div>
             </div>
