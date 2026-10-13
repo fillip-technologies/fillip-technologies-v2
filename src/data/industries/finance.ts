@@ -36,21 +36,21 @@ export const financeData = {
         "title": "Low Digital Confidence",
         "description": "Outdated websites and unclear service pages make prospects hesitate before sharing details, booking consultations, or applying online.",
         "impact": "Lower Lead Quality",
-        "image": "/images/healthcare/problem-1.png"
+        "image": "/images/industries/finance/challenge-1.jpg"
       },
       {
         "badge": "Search Visibility",
         "title": "Poor Financial Search Rankings",
         "description": "When customers search for loans, advisors, investment help, or financial services, competitors often capture the most valuable traffic first.",
         "impact": "Missed High-Intent Prospects",
-        "image": "/images/healthcare/problem-2.png"
+        "image": "/images/industries/finance/challenge-2.jpg"
       },
       {
         "badge": "Lead Conversion",
         "title": "Weak Enquiry Funnels",
         "description": "Complex forms, unclear CTAs, and missing proof points reduce conversions from visitors who are already interested in your services.",
         "impact": "Fewer Consultation Requests",
-        "image": "/images/healthcare/problem-3.png"
+        "image": "/images/industries/finance/challenge-3.jpg"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const financeData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected finance growth system to build trust, attract high-intent prospects, and generate qualified enquiries.",
     "image": {
-      "src": "/images/funel-stack.png",
+      "src": "/images/industries/finance/growth-engine.png",
       "alt": "Finance Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const financeData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "/images/hourglass.png",
+      "src": "/images/industries/finance/why-choose-us.png",
       "alt": "Finance Growth"
     },
     "titlePrefix": "Finance Customers Compare",

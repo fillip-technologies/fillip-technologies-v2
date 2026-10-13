@@ -29,9 +29,9 @@ import { listPublishedCaseStudies, toCard } from "@/server/content/casestudy-reg
 // calls revalidatePath("/") on save, which rebuilds this page on demand.
 export const revalidate = 300;
 
-const homepageTitle = "Best Digital Marketing Company";
+const homepageTitle = "IT Services Company in India | Fillip Technologies";
 const homepageDescription =
-  "Fillip Technologies is a digital marketing company in Patna helping businesses grow with SEO, performance marketing, website development, social media, and AI-driven solutions.";
+  "Fillip Technologies is an IT services company in India offering web development, software solutions, AI automation, mobile apps, and digital solutions.";
 
 export const metadata: Metadata = {
   title: homepageTitle,

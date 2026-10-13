@@ -36,21 +36,21 @@ export const logisticsData = {
         "title": "Unclear Logistics Capabilities",
         "description": "When service areas, fleet strengths, warehousing, delivery models, or industry expertise are unclear, buyers hesitate to contact you.",
         "impact": "Fewer B2B Enquiries",
-        "image": "/images/healthcare/problem-1.png"
+        "image": "/images/industries/logistics/challenge-1.jpg"
       },
       {
         "badge": "Search Visibility",
         "title": "Low Route & Service Visibility",
         "description": "Companies searching for transport, courier, warehousing, or supply chain partners may not find your business first.",
         "impact": "Missed Contract Opportunities",
-        "image": "/images/healthcare/problem-2.png"
+        "image": "/images/industries/logistics/challenge-2.jpg"
       },
       {
         "badge": "Buyer Trust",
         "title": "Weak Proof of Reliability",
         "description": "Without strong case studies, service pages, certifications, and operational proof, buyers may choose more visible competitors.",
         "impact": "Lower Conversion Confidence",
-        "image": "/images/healthcare/problem-3.png"
+        "image": "/images/industries/logistics/challenge-3.jpg"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const logisticsData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected logistics growth system to communicate reliability, improve discovery, and generate B2B enquiries.",
     "image": {
-      "src": "/images/funel-stack.png",
+      "src": "/images/industries/logistics/growth-engine.png",
       "alt": "Logistics Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const logisticsData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "/images/hourglass.png",
+      "src": "/images/industries/logistics/why-choose-us.png",
       "alt": "Logistics Growth"
     },
     "titlePrefix": "Businesses Need Logistics",

@@ -36,21 +36,21 @@ export const realEstateData = {
         "title": "Weak Property Presentation",
         "description": "If project details, location benefits, pricing cues, and enquiry options are unclear, buyers move to competing listings.",
         "impact": "Lower Buyer Interest",
-        "image": "/images/healthcare/problem-1.png"
+        "image": "/images/industries/real-estate/challenge-1.jpg"
       },
       {
         "badge": "Search Visibility",
         "title": "Low Location Rankings",
         "description": "When buyers search by property type, budget, or location, low visibility means your projects are not considered.",
         "impact": "Missed High-Intent Leads",
-        "image": "/images/healthcare/problem-2.png"
+        "image": "/images/industries/real-estate/challenge-2.jpg"
       },
       {
         "badge": "Lead Quality",
         "title": "Poor Enquiry Funnels",
         "description": "Generic campaigns and weak landing pages often generate low-quality leads instead of serious buyer enquiries.",
         "impact": "Wasted Sales Effort",
-        "image": "/images/healthcare/problem-3.png"
+        "image": "/images/industries/real-estate/challenge-3.jpg"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const realEstateData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected real estate growth system to showcase properties, build trust, and generate qualified buyer enquiries.",
     "image": {
-      "src": "/images/funel-stack.png",
+      "src": "/images/industries/real-estate/growth-engine.png",
       "alt": "Real Estate Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const realEstateData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "/images/hourglass.png",
+      "src": "/images/industries/real-estate/why-choose-us.png",
       "alt": "Real Estate Growth"
     },
     "titlePrefix": "Property Buyers Are Comparing",
