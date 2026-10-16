@@ -36,21 +36,21 @@ export const retailData = {
         "title": "Poor Product Discovery",
         "description": "Confusing navigation, weak category pages, and slow product journeys make it harder for shoppers to find and buy what they need.",
         "impact": "Lower Online Sales",
-        "image": "/images/healthcare/problem-1.png"
+        "image": "/images/industries/retail/challenge-1.jpg"
       },
       {
         "badge": "Search Demand",
         "title": "Low Product Visibility",
         "description": "If your products and categories are not visible in search, customers discover competitor stores first.",
         "impact": "Missed Purchase Intent",
-        "image": "/images/healthcare/problem-2.png"
+        "image": "/images/industries/retail/challenge-2.jpg"
       },
       {
         "badge": "Customer Retention",
         "title": "Weak Brand Engagement",
         "description": "Inconsistent content and campaigns make it harder to bring shoppers back for repeat purchases.",
         "impact": "Lower Repeat Revenue",
-        "image": "/images/healthcare/problem-3.png"
+        "image": "/images/industries/retail/challenge-3.jpg"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const retailData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected retail growth system to attract shoppers, improve discovery, and increase sales.",
     "image": {
-      "src": "/images/funel-stack.png",
+      "src": "/images/industries/retail/growth-engine.png",
       "alt": "Retail Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const retailData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "/images/hourglass.png",
+      "src": "/images/industries/retail/why-choose-us.png",
       "alt": "Retail Growth"
     },
     "titlePrefix": "Retail Customers Are Ready",

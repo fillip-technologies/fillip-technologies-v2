@@ -59,7 +59,7 @@ export const healthcareData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected healthcare growth system to attract, engage, and convert more patients.",
     "image": {
-      "src": "/images/funel-stack.png",
+      "src": "/images/industries/healthcare/growth-engine.png",
       "alt": "Healthcare Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const healthcareData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "/images/hourglass.png",
+      "src": "/images/industries/healthcare/why-choose-us.png",
       "alt": "Every Patient Opportunity Counts"
     },
     "titlePrefix": "Patients Are Searching",

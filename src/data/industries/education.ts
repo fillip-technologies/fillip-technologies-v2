@@ -36,21 +36,21 @@ export const educationData = {
         "title": "Confusing Program Information",
         "description": "When courses, fees, outcomes, and enquiry steps are unclear, students and parents delay or choose another institution.",
         "impact": "Fewer Admission Enquiries",
-        "image": "/images/healthcare/problem-1.png"
+        "image": "/images/industries/education/challenge-1.jpg"
       },
       {
         "badge": "Search Visibility",
         "title": "Low Course Discovery",
         "description": "If your programs do not appear in search results, high-intent students find competitors first.",
         "impact": "Lost Student Interest",
-        "image": "/images/healthcare/problem-2.png"
+        "image": "/images/industries/education/challenge-2.jpg"
       },
       {
         "badge": "Trust Building",
         "title": "Weak Proof & Engagement",
         "description": "Without strong outcomes, testimonials, content, and social presence, families may not feel confident enough to enquire.",
         "impact": "Lower Conversion Confidence",
-        "image": "/images/healthcare/problem-3.png"
+        "image": "/images/industries/education/challenge-3.jpg"
       }
     ]
   },
@@ -59,7 +59,7 @@ export const educationData = {
     "title": "One Growth Engine. Four Digital Channels.",
     "description": "Website Development, SEO, Social Media, and Paid Advertising work together inside one connected education growth system to attract students, build trust, and increase admission enquiries.",
     "image": {
-      "src": "/images/funel-stack.png",
+      "src": "/images/industries/education/growth-engine.png",
       "alt": "Education Funnel"
     },
     "leftCards": [
@@ -139,7 +139,7 @@ export const educationData = {
   "whyChooseUs": {
     "badge": "WHY CHOOSE US",
     "image": {
-      "src": "/images/hourglass.png",
+      "src": "/images/industries/education/why-choose-us.png",
       "alt": "Education Growth"
     },
     "titlePrefix": "Students Are Searching",
