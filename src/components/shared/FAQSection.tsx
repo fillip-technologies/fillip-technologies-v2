@@ -27,7 +27,7 @@ export default function FAQSection({
 }: FAQSectionProps) {
   const [open, setOpen] = useState<number | null>(0);
 
-  if (faqs.length === 0) return null;
+  if (!faqs?.length) return null;
 
   return (
     <section className="relative overflow-hidden py-24 lg:py-26">
