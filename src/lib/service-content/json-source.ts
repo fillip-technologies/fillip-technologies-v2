@@ -160,6 +160,79 @@ function createAIAutomationLandingPage(
   };
 }
 
+/**
+ * Turn a validated page input into the render-ready landing page for its
+ * service's template. Shared by the JSON source and by admin-managed location
+ * pages, so both go through exactly the same defaults/merge/validation.
+ */
+export function assembleLandingPage(
+  definition: ServiceDefinitionInput,
+  page: ServicePageInput,
+  defaults: unknown,
+): ServiceLandingPage {
+  switch (definition.templateKey) {
+    case "website-design":
+      return createWebsiteLandingPage(definition, page as WebsiteServicePageInput);
+    case "mobile-app-development":
+      return createMobileAppLandingPage(definition, page as MobileAppServicePageInput);
+    case "technical-seo":
+      return createTechnicalSeoLandingPage(page as TechnicalSeoServicePageInput);
+    case "performance-marketing":
+      return createPerformanceMarketingLandingPage(page as PerformanceMarketingServicePageInput);
+    case "ai-automation":
+      return createAIAutomationLandingPage(page as AIAutomationServicePageInput, defaults);
+  }
+}
+
+export type ServiceFamily = {
+  definition: ServiceDefinitionInput;
+  defaults: unknown;
+};
+
+const familyCache = new Map<string, Promise<ServiceFamily | null>>();
+
+async function loadServiceFamily(serviceKey: string): Promise<ServiceFamily | null> {
+  const serviceDirectory = path.join(contentRoot, serviceKey);
+  const definitionPath = path.join(serviceDirectory, "service.json");
+  let raw: unknown;
+  try {
+    raw = await readJson(definitionPath);
+  } catch {
+    return null; // no such service family
+  }
+
+  const definitionResult = serviceDefinitionSchema.safeParse(raw);
+  if (!definitionResult.success) {
+    throw validationError(definitionPath, definitionResult.error.issues);
+  }
+
+  const defaults = definitionResult.data.defaultsFile
+    ? await readJson(path.join(serviceDirectory, definitionResult.data.defaultsFile))
+    : undefined;
+
+  return { definition: definitionResult.data, defaults };
+}
+
+/**
+ * The service family (`src/data/services/<serviceKey>/service.json` + its
+ * defaults file) for a service key, or null if there is none. Cached for the
+ * life of the process, except in development.
+ */
+export function getServiceFamily(serviceKey: string): Promise<ServiceFamily | null> {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(serviceKey)) return Promise.resolve(null);
+  if (process.env.NODE_ENV === "development") return loadServiceFamily(serviceKey);
+
+  let cached = familyCache.get(serviceKey);
+  if (!cached) {
+    cached = loadServiceFamily(serviceKey).catch((error) => {
+      familyCache.delete(serviceKey);
+      throw error;
+    });
+    familyCache.set(serviceKey, cached);
+  }
+  return cached;
+}
+
 export class JsonServiceContentSource implements ServiceContentSource {
   private entriesPromise?: Promise<Map<string, ContentEntry>>;
   private devCacheExpiresAt = 0;
@@ -168,31 +241,7 @@ export class JsonServiceContentSource implements ServiceContentSource {
     const entry = (await this.getEntries()).get(slug);
     if (!entry) return null;
 
-    switch (entry.definition.templateKey) {
-      case "website-design":
-        return createWebsiteLandingPage(
-          entry.definition,
-          entry.page as WebsiteServicePageInput,
-        );
-      case "mobile-app-development":
-        return createMobileAppLandingPage(
-          entry.definition,
-          entry.page as MobileAppServicePageInput,
-        );
-      case "technical-seo":
-        return createTechnicalSeoLandingPage(
-          entry.page as TechnicalSeoServicePageInput,
-        );
-      case "performance-marketing":
-        return createPerformanceMarketingLandingPage(
-          entry.page as PerformanceMarketingServicePageInput,
-        );
-      case "ai-automation":
-        return createAIAutomationLandingPage(
-          entry.page as AIAutomationServicePageInput,
-          entry.defaults,
-        );
-    }
+    return assembleLandingPage(entry.definition, entry.page, entry.defaults);
   }
 
   async getAllSlugs(): Promise<string[]> {

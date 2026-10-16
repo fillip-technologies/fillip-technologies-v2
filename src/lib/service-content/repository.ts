@@ -11,3 +11,6 @@ export function getServiceLandingPage(slug: string) {
 export function getServiceLandingPageSlugs() {
   return contentSource.getAllSlugs();
 }
+
+export { assembleLandingPage, getServiceFamily } from "./json-source";
+export type { ServiceFamily } from "./json-source";

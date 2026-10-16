@@ -1,4 +1,7 @@
-import { getLocationPage } from "@/server/location-pages/registry";
+import ServiceTemplateResolver from "@/components/service-landing/ServiceTemplateResolver";
+import FAQSection from "@/components/shared/FAQSection";
+import { buildLocationLandingPage } from "@/server/content/location-pages/landing";
+import { getLocationPage, type LocationPage } from "@/server/location-pages/registry";
 
 // Renders an admin-managed "<service> in <city>" page. Re-fetches by slug
 // (cheap — snapshot-cached) so this stays a self-contained, cacheable unit
@@ -7,6 +10,30 @@ export default async function LocationPageView({ slug }: { slug: string }) {
   const page = await getLocationPage(slug);
   if (!page) return null;
 
+  // Use the parent service's landing template when it has one.
+  const landing = await buildLocationLandingPage(page);
+  if (landing) {
+    return (
+      <>
+        <ServiceTemplateResolver page={landing} />
+        {/* The AI-automation template has no FAQ section of its own. */}
+        {landing.templateKey === "ai-automation" && page.faq.items.length > 0 ? (
+          <FAQSection
+            badge={page.faq.badge}
+            title={page.faq.title}
+            description={page.faq.description}
+            faqs={page.faq.items}
+          />
+        ) : null}
+      </>
+    );
+  }
+
+  return <PlainLocationPage page={page} />;
+}
+
+// Fallback layout for services without a landing template.
+function PlainLocationPage({ page }: { page: LocationPage }) {
   return (
     <main>
       {/* Hero */}

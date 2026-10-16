@@ -51,6 +51,10 @@ const locationPageSchema = new Schema(
         },
       ],
     },
+    // Extra sections for the page's service landing template (images, CTAs,
+    // workflow, results, …) beyond the admin-edited hero/challenges/FAQ above.
+    // Optional: pages without it render with the template's defaults.
+    template_content: { type: Schema.Types.Mixed, required: false },
     created_at: { type: Date, required: true, default: Date.now },
     updated_at: { type: Date, required: true, default: Date.now },
   },

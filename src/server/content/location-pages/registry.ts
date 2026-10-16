@@ -43,6 +43,8 @@ export type LocationPage = {
     description: string;
     items: { question: string; answer: string }[];
   };
+  /** Extra sections for the service landing template; see landing.ts. */
+  templateContent?: Record<string, unknown>;
   createdAt: string;
   updatedAt: string;
 };
@@ -93,6 +95,9 @@ const toLocationPage = (d: any): LocationPage => ({
       ? d.faq.items.map((i: any) => ({ question: i.question ?? "", answer: i.answer ?? "" }))
       : [],
   },
+  ...(d.template_content && typeof d.template_content === "object" && !Array.isArray(d.template_content)
+    ? { templateContent: d.template_content as Record<string, unknown> }
+    : {}),
   createdAt: d.created_at ? new Date(d.created_at).toISOString() : new Date().toISOString(),
   updatedAt: d.updated_at ? new Date(d.updated_at).toISOString() : new Date().toISOString(),
 });

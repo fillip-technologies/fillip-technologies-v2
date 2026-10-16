@@ -47,7 +47,11 @@ type WhyWebsiteIsntRankingProps = {
 };
 
 export default function WhyWebsiteIsntRanking({ data }: WhyWebsiteIsntRankingProps) {
-  const content = data ?? FALLBACK;
+  // Field-level fallback so a partial override (e.g. a location page that only
+  // sets the heading copy) still gets the default challenge cards.
+  const content: MarketingChallengesContent = data
+    ? { ...FALLBACK, ...data, items: data.items?.length ? data.items : FALLBACK.items }
+    : FALLBACK;
   const challenges = content.items;
 
   return (

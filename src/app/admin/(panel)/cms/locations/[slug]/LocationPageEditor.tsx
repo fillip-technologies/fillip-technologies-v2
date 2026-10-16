@@ -103,6 +103,10 @@ export default function LocationPageEditor({
 
       {/* Challenges */}
       <Group title="Challenges section">
+        <Help>
+          Shown in the service template&apos;s challenges section. Until you change the auto-generated
+          placeholder copy, the page shows the service&apos;s own section copy instead.
+        </Help>
         <div className="grid gap-4 sm:grid-cols-2">
           <Labeled label="Badge">
             <input value={form.content.challenges.badge} onChange={(e) => setChallenges("badge", e.target.value)} className={inputCls} />
