@@ -14,6 +14,10 @@ import {
   listEnabledLocationPages,
 } from "@/server/location-pages/registry";
 
+// Location pages are DB-managed: re-render at most every 10 minutes so DB-side
+// changes go live without a rebuild (admin saves still revalidate instantly).
+export const revalidate = 600;
+
 type LandingPageProps = {
   params: Promise<{ landingSlug: string }>;
 };
