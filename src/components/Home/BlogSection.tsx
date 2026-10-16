@@ -40,8 +40,9 @@ export default function BlogSection({
 }) {
   const content = raw as BlogContent;
   const c = {
-    eyebrow: content.eyebrow ?? "Our Blog",
-    heading: content.heading ?? "Latest Blog",
+    // The eyebrow line was dropped and its text promoted to the heading, so a
+    // CMS-set eyebrow still wins here and nothing editable is silently lost.
+    heading: content.eyebrow ?? content.heading ?? "Our Blog",
     ctaLabel: content.ctaLabel ?? "View All Blogs",
   };
 
@@ -79,10 +80,6 @@ export default function BlogSection({
 
       <div className="relative z-10 container mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary text-center mb-3">
-            {c.eyebrow}
-          </p>
-
           <HomeSectionTitle text={c.heading} className="text-center" />
         </div>
 
@@ -126,7 +123,7 @@ export default function BlogSection({
                     className="
                       h-full
                       w-full
-                      object-cover
+                      object-contain
                       transition-transform
                       duration-700
                       group-hover:scale-105
