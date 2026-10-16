@@ -68,6 +68,19 @@ export default function SectionEditor({
             </label>
             {field.type === "image" ? (
               <ImageField value={values[field.name]} onChange={(v) => setField(field.name, v)} />
+            ) : field.type === "select" ? (
+              <select
+                id={field.name}
+                value={values[field.name]}
+                onChange={(e) => setField(field.name, e.target.value)}
+                className="w-full rounded-md border border-border bg-background px-3 py-2 text-heading outline-none focus:border-primary"
+              >
+                {(field.options ?? []).map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
             ) : field.type === "textarea" ? (
               <textarea
                 id={field.name}

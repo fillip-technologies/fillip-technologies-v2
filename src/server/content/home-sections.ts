@@ -13,6 +13,7 @@
 import {
   HOME_SERVICES, HOME_SERVICES_BG,
   HOME_INDUSTRIES,
+  HOME_CLIENT_LOGOS,
   HOME_HUMANAI_BG1, HOME_HUMANAI_BG2,
   HOME_TECHNOLOGY_BG,
   HOME_WHY_CHOOSE,
@@ -22,7 +23,7 @@ import {
   HOME_FAQS,
 } from "@/data/home/defaults";
 
-export type FieldType = "text" | "textarea" | "url" | "image";
+export type FieldType = "text" | "textarea" | "url" | "image" | "select";
 
 export type Field = {
   name: string;
@@ -30,6 +31,8 @@ export type Field = {
   type: FieldType;
   default: string;
   help?: string;
+  /** Choices for a `select` field (the stored value is `value`). */
+  options?: { value: string; label: string }[];
   // Optional subsection heading. Consecutive fields sharing a `group` are shown
   // together under this heading in the admin editor, so long forms read clearly.
   group?: string;
@@ -213,7 +216,7 @@ export const HOME_SECTIONS: Section[] = [
     id: "clients",
     label: "Our Clients",
     description:
-      "“Trusted by organizations” heading and the three stat chips. The client logo wall itself is managed per category under Content → Trusted By Clients.",
+      "“Trusted by organizations” heading, the three stat chips and the client-logo carousel. Shown on the home page and every service page.",
     ready: true,
     fields: [
       { name: "eyebrow", label: "Eyebrow", type: "text", default: "TRUSTED BY ORGANIZATIONS" },
@@ -222,6 +225,16 @@ export const HOME_SECTIONS: Section[] = [
       { name: "stat2", label: "Stat 2", type: "text", default: "1000+ Projects Delivered" },
       { name: "stat3", label: "Stat 3", type: "text", default: "20+ Industries Served" },
     ],
+    list: {
+      name: "logos",
+      label: "Client logos",
+      itemNoun: "logo",
+      itemFields: [
+        { name: "image", label: "Logo", type: "image" },
+        { name: "alt", label: "Client name (alt text)", type: "text" },
+      ],
+      default: HOME_CLIENT_LOGOS as Record<string, string>[],
+    },
   },
   {
     id: "technology",

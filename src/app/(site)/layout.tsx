@@ -5,6 +5,8 @@ import ChatbotWidget from "@/components/chat/ChatbotWidget";
 import { JsonLdScript, siteJsonLd } from "@/lib/seo/schema";
 import SiteConsultationForm from "@/components/form/SiteConsultationForm";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
+import { getSitePopup } from "@/server/content/global-popup";
+import SitePopup from "@/components/popup/SitePopup";
 
 // Layout for the public marketing site. The admin area and API routes live
 // outside this group, so they don't get the navbar/footer.
@@ -13,7 +15,7 @@ export default async function SiteLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const testimonials = await getGlobalTestimonials();
+  const [testimonials, popup] = await Promise.all([getGlobalTestimonials(), getSitePopup()]);
 
   return (
     <>
@@ -37,6 +39,7 @@ export default async function SiteLayout({
         <SiteConsultationForm testimonials={testimonials} />
         <Footer />
         <ChatbotWidget />
+        <SitePopup popup={popup} />
       </div>
     </>
   );

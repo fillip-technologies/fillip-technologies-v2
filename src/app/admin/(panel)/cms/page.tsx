@@ -16,8 +16,8 @@ import {
   MessageSquareQuote,
   Newspaper,
   MapPin,
-  Users,
   TrendingUp,
+  Megaphone,
 } from "lucide-react";
 
 export const metadata = { title: "CMS — Admin" };
@@ -64,13 +64,6 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         description: "Edit the hero, headings and sections on the public home page.",
         icon: Home,
         accent: "blue",
-      },
-      {
-        href: "/admin/cms/clients",
-        label: "Trusted By Clients",
-        description: "Manage the client logo wall by category. Shown on the home page and every service page.",
-        icon: Users,
-        accent: "violet",
       },
       {
         href: "/admin/cms/pages",
@@ -208,6 +201,13 @@ const CMS_GROUPS: { title: string; dot: keyof typeof GROUP_DOT; areas: Area[] }[
         description: "The single testimonials list shown site-wide (home carousel + every service/industry page). Edit once, updates everywhere.",
         icon: MessageSquareQuote,
         accent: "cyan",
+      },
+      {
+        href: "/admin/cms/popup",
+        label: "Popup Ad",
+        description: "The popup ad shown on every page — upload an image and set its link. Remove the image to turn it off.",
+        icon: Megaphone,
+        accent: "orange",
       },
     ],
   },

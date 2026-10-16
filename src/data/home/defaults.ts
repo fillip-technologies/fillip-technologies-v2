@@ -139,93 +139,133 @@ export const HOME_UNITS: UnitItem[] = [
 ];
 
 /* --------------------------------------------------------------- clients -- */
-// Logo wall. Categories are derived from the filename (same rules the component
-// used) so the CMS default reproduces the existing wall exactly. Admins can then
-// edit/add/remove logos and their category tags freely.
+// Client-logo carousel ("Trusted By Organizations"). One flat list, edited under
+// Content → Home Page → Our Clients; this is only the fallback used until the
+// `home.clients` row is saved.
 export type ClientLogoItem = {
   image: string;
   alt: string;
-  categories: string; // comma-separated tags (all, priority, govt, healthcare, education, corporate)
 };
 
-const LOGO_DIR = "/images/NEW%20CLIENTS%20LOGO";
-
-const PRIORITY_FILES = [
-  "Patna Park.png", "BMC NEW LOGO-011.png", "THAKUR GANJ NAGAR PANCHAYAT.png", "Zoo Safari logo copy.jpg",
-  "Ruban@logo-with-NABH-2-ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm.png", "Medica Emergency logo.png",
-  "Patna Dental Final Logo.png", "arvind foundation logo copy.png", "darsh news logo.png",
-  "New era high school LOGO copy.png", "SHEODENI SAO COLLEGE LOGO-01.png", "Tax Protect Logo - 09-June-2022.png",
-  "technosys-logo (1).png", "rapid_logo.png", "Advance Line Logo Final.png", "Domus-logo png.png",
-  "Map sketch logo.png", "venu-van.png",
+export const HOME_CLIENT_LOGOS: ClientLogoItem[] = [
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786518057/fillip/uploads/qldqajyj2tu1ei5hzhqc.webp", alt: "BMC NEW LOGO 011" },
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786518066/fillip/uploads/unfiyek3moyujecdlefg.webp", alt: "Zoo Safari logo copy" },
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786518208/fillip/uploads/vv7dcqvjwd5v3x6e2b0m.png", alt: "logo large converted from svg" },
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786518837/fillip/uploads/z3zxair3l2a3cpbdvyca.png", alt: "" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/ADVANCED%20NEURO%20HOSPITAL.png", alt: "ADVANCED NEURO HOSPITAL" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Diagno-lab-PNG.png", alt: "Diagno lab PNG" },
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786518977/fillip/uploads/lbulsxpa2olwgzzmyodd.png", alt: "Janya Hospital Logo PNG copy" },
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786519070/fillip/uploads/luadqb3u290clcx21ceg.webp", alt: "kashlaya reahb logo" },
+  { image: "https://res.cloudinary.com/jhosc75n/image/upload/v1786519077/fillip/uploads/uf9eevgavkee3jlmizci.webp", alt: "logo shubh momentz" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Medica%20Emergency%20logo.png", alt: "Medica Emergency logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Patna%20Dental%20Final%20Logo.png", alt: "Patna Dental Final Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/SAI%20CARE%20CLININC.png", alt: "SAI CARE CLININC" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Saicare%20logo.png", alt: "Saicare logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Sanjivani%20medicine%20logo%20copy.png", alt: "Sanjivani medicine logo copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Satyadev%20Urology%20Logo.jpg", alt: "Satyadev Urology Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/tanush%20ent%20fnail%20logo.png", alt: "tanush ent fnail logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Unicare%20logo.png", alt: "Unicare logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/bcit_logo.webp", alt: "bcit logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Edify%20Logo.jpg", alt: "Edify Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/LVS_logo.webp", alt: "LVS logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/New%20era%20high%20school%20LOGO%20copy.png", alt: "New era high school LOGO copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/NEW%20ERA%20HIGH%20SCHOOL%20LOGO.png", alt: "NEW ERA HIGH SCHOOL LOGO" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/SCORE%20HIGH%20LOGO.jpg", alt: "SCORE HIGH LOGO" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/SHEODENI%20SAO%20COLLEGE%20LOGO-01.png", alt: "SHEODENI SAO COLLEGE LOGO 01" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/abhayanand_logo-170x115.png", alt: "abhayanand logo 170x115" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Advance%20Line%20Logo%20Final.png", alt: "Advance Line Logo Final" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Advante%20Logo%20Final%20-%2025-07-2022%20-%20Copy.png", alt: "Advante Logo Final 25 07 2022 Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Ahl-logo-copy-300x76.png", alt: "Ahl logo copy 300x76" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/ARCS.png", alt: "ARCS" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/arvind%20foundation%20logo%20copy.png", alt: "arvind foundation logo copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/cropped-Capture_Atithi_prev_ui.png", alt: "cropped Capture Atithi prev ui" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/cropped-Screenshot-2024-09-10-184114-300x300.png", alt: "cropped Screenshot 2024 09 10 184114 300x300" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/darsh%20logo%20copy%20(1).png", alt: "darsh logo copy (1)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/darsh%20news%20logo.png", alt: "darsh news logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/DHPL%20logo%201%20copy.png", alt: "DHPL logo 1 copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Domus-logo%20png.png", alt: "Domus logo png" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/golden%20apple%20logo.png", alt: "golden apple logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Green%20and%20Beige%20Groceries%20Business%20Logo.png", alt: "Green and Beige Groceries Business Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Hotel%20Sidh%20Vedantha%20logo.webp", alt: "Hotel Sidh Vedantha logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Inception%20logo.png", alt: "Inception logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/K.P%20Sinha%20Logo.png", alt: "K.P Sinha Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/kanika%20spa%20logo.jpg", alt: "kanika spa logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/kiayra-removebg-preview.webp", alt: "kiayra removebg preview" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Krrish%20Fabricators%20Logo%20-%20Copy.png", alt: "Krrish Fabricators Logo Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/LANDMARK%20LOGO.png", alt: "LANDMARK LOGO" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(1)%20-%20Copy.jpg", alt: "logo (1) Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(1).png", alt: "logo (1)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(10).png", alt: "logo (10)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(11).png", alt: "logo (11)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(13).png", alt: "logo (13)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(14).png", alt: "logo (14)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(15).png", alt: "logo (15)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(16)%20-%20Copy.png", alt: "logo (16) Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(17).png", alt: "logo (17)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(18).png", alt: "logo (18)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(19).png", alt: "logo (19)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Logo%20(2).png", alt: "Logo (2)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(20).png", alt: "logo (20)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(21).png", alt: "logo (21)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(22).png", alt: "logo (22)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(23).png", alt: "logo (23)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(24).png", alt: "logo (24)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(25)%20-%20Copy.png", alt: "logo (25) Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(26).png", alt: "logo (26)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(27).png", alt: "logo (27)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(28).png", alt: "logo (28)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(29).png", alt: "logo (29)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(3)%20-%20Copy.png", alt: "logo (3) Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(30).png", alt: "logo (30)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(4)%20-%20Copy.png", alt: "logo (4) Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(5).png", alt: "logo (5)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(6).png", alt: "logo (6)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(7).png", alt: "logo (7)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(8).png", alt: "logo (8)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20(9).png", alt: "logo (9)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy%20(2).png", alt: "logo Copy (2)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo%20-%20Copy%20-%20Copy.png", alt: "logo Copy Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Logo%20Black.png", alt: "Logo Black" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-01-removebg-preview-768x257.png", alt: "logo 01 removebg preview 768x257" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Logo-1%20-%20Copy.png", alt: "Logo 1 Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-2%20-%20Copy.png", alt: "logo 2 Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-fotter-300x69.png", alt: "logo fotter 300x69" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-green-new.png", alt: "logo green new" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-lg.png", alt: "logo lg" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-name.png", alt: "logo name" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-removebg-preview%20-%20Copy.png", alt: "logo removebg preview Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo-rng.png", alt: "logo rng" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo.jpg", alt: "logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo.png", alt: "logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo1%20(2).png", alt: "logo1 (2)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo1%20-%20Copy.png", alt: "logo1 Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo1-1536x359.png", alt: "logo1 1536x359" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Logo2-01.png", alt: "Logo2 01" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo2.png", alt: "logo2" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo4.png", alt: "logo4" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logonew2.png", alt: "logonew2" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/logo_old.png", alt: "logo old" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Maa.jpg", alt: "Maa" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Map%20sketch%20logo.png", alt: "Map sketch logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/MIA%20logo.png", alt: "MIA logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/NATURAL%20SPA.png", alt: "NATURAL SPA" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Nirmal%20Inn%20logo2.png", alt: "Nirmal Inn logo2" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Rakshit%20Logo.PNG", alt: "Rakshit Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/RAMRATAN%20LOGO.png", alt: "RAMRATAN LOGO" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/rapid_logo.png", alt: "rapid logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/rkch-logo.png", alt: "rkch logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Savij%20LOGO-01%20(1)%20-%20Copy.png", alt: "Savij LOGO 01 (1) Copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Sri%20millets%20logo%20copy.jpg", alt: "Sri millets logo copy" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Startup%20Logo.png", alt: "Startup Logo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/Tax%20Protect%20Logo%20-%2009-June-2022.png", alt: "Tax Protect Logo 09 June 2022" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/technosys-logo%20(1).png", alt: "technosys logo (1)" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/tqpl%20logo%20red%20white.JPG", alt: "tqpl logo red white" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/TRIVEDI%20DESIGN.webp", alt: "TRIVEDI DESIGN" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/vedantalogo.png", alt: "vedantalogo" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/WEDDINGS72%20LOGO.png", alt: "WEDDINGS72 LOGO" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/WhatsApp%20Image%202022-03-28%20at%2011.38.44%20AM.jpeg", alt: "WhatsApp Image 2022 03 28 at 11.38.44 AM" },
+  { image: "/images/NEW%20CLIENTS%20LOGO/venu-van.png", alt: "venu van" },
 ];
-
-const CLIENT_FILES = [
-  "abhayanand_logo-170x115.png", "Advance Line Logo Final.png", "ADVANCED NEURO HOSPITAL.png",
-  "Advante Logo Final - 25-07-2022 - Copy.png", "Ahl-logo-copy-300x76.png", "ARCS.png",
-  "arvind foundation logo copy.png", "bcit_logo.webp", "BMC NEW LOGO 222-01.jpg", "BMC NEW LOGO-011.png",
-  "cropped-Capture_Atithi_prev_ui.png", "cropped-Screenshot-2024-09-10-184114-300x300.png", "darsh logo copy (1).png",
-  "darsh news logo.png", "DHPL logo 1 copy.png", "Diagno-lab-PNG.png", "Domus-logo png.png", "Edify Logo.jpg",
-  "gadgethubpatna logo 900.png", "golden apple logo.png", "Green and Beige Groceries Business Logo.png",
-  "Hotel Sidh Vedantha logo.webp", "Inception logo.png", "jamui logo.png", "Janya-Hospital-Logo-PNG copy.png",
-  "K.P Sinha Logo.png", "kanika spa logo.jpg", "kashlaya reahb logo.png", "kiayra-removebg-preview.webp",
-  "Krrish Fabricators Logo - Copy.png", "LANDMARK LOGO.png", "logo (1) - Copy.jpg", "logo (1).png", "logo (10).png",
-  "logo (11).png", "logo (13).png", "logo (14).png", "logo (15).png", "logo (16) - Copy.png", "logo (17).png",
-  "logo (18).png", "logo (19).png", "Logo (2).png", "logo (20).png", "logo (21).png", "logo (22).png", "logo (23).png",
-  "logo (24).png", "logo (25) - Copy.png", "logo (26).png", "logo (27).png", "logo (28).png", "logo (29).png",
-  "logo (3) - Copy.png", "logo (30).png", "logo (4) - Copy.png", "logo (5).png", "logo (6).png", "logo (7).png",
-  "logo (8).png", "logo (9).png", "logo - Copy (2).png", "logo - Copy - Copy.png", "Logo Black.png",
-  "logo-01-removebg-preview-768x257.png", "Logo-1 - Copy.png", "logo-2 - Copy.png", "logo-fotter-300x69.png",
-  "logo-green-new.png", "logo-lg.png", "logo-name.png", "logo-partyt patna zone.png", "logo-removebg-preview - Copy.png",
-  "logo-rng.png", "logo-shubh momentz.png", "logo.jpg", "logo.png", "logo1 (2).png", "logo1 - Copy.png",
-  "logo1-1536x359.png", "Logo2-01.png", "logo2.png", "logo4.png", "logonew2.png",
-  "logo_old.png", "LVS_logo.webp", "Maa.jpg", "Map sketch logo.png", "Medica Emergency logo.png",
-  "Medica Logo for Social Media.png", "MIA logo.png", "NATURAL SPA.png", "Nature Safari logo copy.png",
-  "New era high school LOGO copy.png", "NEW ERA HIGH SCHOOL LOGO.png", "Nirmal Inn logo2.png", "Parkomiko.png",
-  "Patna Dental Final Logo.png", "Patna Park.png", "Rakshit Logo.PNG", "RAMRATAN LOGO.png", "rapid_logo.png",
-  "rkch-logo.png", "Ruban@logo-with-NABH-2-ovg23ovg0xx8ocfhzbaqtv86rfyyms5d4as9irornm.png", "SAI CARE CLININC.png",
-  "Saicare logo.png", "Sanjivani medicine logo copy.png", "Satyadev Urology Logo.jpg", "Savij LOGO-01 (1) - Copy.png",
-  "SCORE HIGH LOGO.jpg", "SHEODENI SAO COLLEGE LOGO-01.png", "SITA-ARCH-LOGO-DKPorKRm.webp", "Sri millets logo copy.jpg",
-  "Startup Logo.png", "tanush ent fnail logo.png", "Tax Protect Logo - 09-June-2022.png", "technosys-logo (1).png",
-  "THAKUR GANJ NAGAR PANCHAYAT.png", "tqpl logo red white.JPG", "TRIVEDI DESIGN.webp", "Unicare logo.png",
-  "vedantalogo.png", "WEDDINGS72 LOGO.png", "WhatsApp Image 2022-03-28 at 11.38.44 AM.jpeg", "Zoo Safari logo copy.jpg",
-  "venu-van.png",
-];
-
-const GOVERNMENT_FILES = [
-  "rajgir-zoo.png", "Nature Safari logo copy.png", "venu-van.png", "logo-large-converted-from-svg.png",
-  "BMC NEW LOGO-011.png", "Patna Park.png", "logo - Copy - Copy.png", "BMC NEW LOGO 222-01.jpg",
-];
-
-function altFromFile(file: string): string {
-  return file.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
-}
-
-function categoriesFor(file: string): string[] {
-  const categories: string[] = ["all"];
-  if (PRIORITY_FILES.includes(file)) categories.push("priority");
-  const f = file.toLowerCase();
-  if (f.includes("park") || f.includes("safari") || f.includes("bmc") || f.includes("jamui") || f.includes("nagar") || f.includes("panchayat") || f.includes("municipal") || f.includes("council") || f.includes("zoo") || f.includes("sita-arch") || f.includes("patna") || f.includes("zone")) categories.push("govt");
-  if (f.includes("hospital") || f.includes("diagno") || f.includes("clinic") || f.includes("medicine") || f.includes("urology") || f.includes("rehab") || f.includes("reahb") || f.includes("medica") || f.includes("dental") || f.includes("care") || f.includes("ent") || f.includes("ruban") || f.includes("physio")) categories.push("healthcare");
-  if (f.includes("school") || f.includes("college") || f.includes("edify") || f.includes("score high") || f.includes("lvs") || f.includes("bcit") || f.includes("academy") || f.includes("learning") || f.includes("education")) categories.push("education");
-  if (!categories.includes("govt") && !categories.includes("healthcare") && !categories.includes("education")) categories.push("corporate");
-  return categories;
-}
-
-const wallItems: ClientLogoItem[] = Array.from(new Set(CLIENT_FILES)).map((file) => ({
-  image: `${LOGO_DIR}/${encodeURIComponent(file)}`,
-  alt: altFromFile(file),
-  categories: categoriesFor(file).join(","),
-}));
-
-// The government tab historically used a distinct set from /images/goverment.
-// Fold them into the same list tagged "govt" so everything lives in one editor.
-const govtItems: ClientLogoItem[] = GOVERNMENT_FILES.map((file) => ({
-  image: `/images/goverment/${encodeURIComponent(file)}`,
-  alt: altFromFile(file),
-  categories: "govt",
-}));
-
-export const HOME_CLIENT_LOGOS: ClientLogoItem[] = [...wallItems, ...govtItems];
 
 /* --------------------------------------------------------------------- faq -- */
 export type FaqItem = {
