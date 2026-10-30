@@ -12,9 +12,9 @@ import FestiveWhatYouGet from "@/components/festival-offer/FestiveWhatYouGet";
 import FestiveWhyChoose from "@/components/festival-offer/FestiveWhyChoose";
 
 export const metadata: Metadata = {
-  title: "Festive Growth 360° Offer | Fillip Technologies",
+  title: "Diwali Growth 360° Offer | Fillip Technologies",
   description:
-    "Grow your brand this festive season with Fillip Technologies. Get social media management, creative content and Meta Ads management at ₹9,999/month.",
+    "Grow your brand this Diwali season with Fillip Technologies. Get social media management, creative content and Meta Ads management at ₹9,999/month.",
   alternates: { canonical: "/festival-offer" },
 };
 

@@ -30,7 +30,7 @@ export default function FestiveHero() {
           <div className="max-w-xl text-left">
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#C9972B]/35 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#A9741B] shadow-sm">
-                <span aria-hidden="true" className="text-[#B91C1C]">✦</span> Durga Puja Special Offer
+                <span aria-hidden="true" className="text-[#B91C1C]">✦</span> Diwali Special Offer
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-[#081C2E]/10 bg-white/80 px-3.5 py-2 text-[11px] font-semibold text-[#081C2E] shadow-sm">
                 <span className="font-extrabold text-[#B91C1C]">13+</span>
@@ -135,10 +135,10 @@ export default function FestiveHero() {
               <div className="relative">
                 <div className="mb-6 border-b border-slate-100 pb-5 text-center">
                   <h2 className="text-[22px] font-bold leading-snug text-[#081C2E] sm:text-2xl">
-                    Get Your Festive Growth Plan
+                    Get Your Diwali Growth Plan
                   </h2>
                   <p className="mx-auto mt-2 max-w-sm text-[13px] leading-6 text-slate-500">
-                    Interested in the ₹9,999/month festive offer? Share your details and
+                    Interested in the ₹9,999/month Diwali offer? Share your details and
                     our team will get in touch shortly.
                   </p>
                 </div>

@@ -21,7 +21,7 @@ export default function FestiveOfferBanner() {
               <Diya className="h-9 w-9 shrink-0" />
               <h2 className="bg-gradient-to-r from-[#F0B429] to-[#E8C97A] bg-clip-text text-[26px] font-bold leading-tight text-transparent sm:text-[30px]">
                 Limited Period
-                <span className="block">Durga Puja Offer</span>
+                <span className="block">Diwali Offer</span>
               </h2>
             </div>
 

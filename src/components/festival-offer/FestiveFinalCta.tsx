@@ -27,7 +27,7 @@ export default function FestiveFinalCta() {
         <div className="relative">
           <Diya className="mx-auto h-11 w-11" />
           <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.22em] text-[#F0B429]">
-            A limited period Durga Puja offer
+            A limited period Diwali offer
           </p>
           <h2 className="mx-auto mt-4 max-w-2xl text-[30px] font-bold leading-tight tracking-tight text-white sm:text-[42px]">
             Ready to Make Your Brand the Festive Favourite?

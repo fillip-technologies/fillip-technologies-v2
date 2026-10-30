@@ -8,14 +8,14 @@ const SIZE_CLASSES = {
   closing: "size-[84px]",
 } as const;
 
-/** Vermilion and gold offer seal with a small lotus motif for Durga Puja. */
+/** Vermilion and gold offer seal with a small lotus motif for Diwali. */
 export default function DurgaPujaDiscountBadge({
   size = "hero",
 }: DurgaPujaDiscountBadgeProps) {
   return (
     <span
       role="img"
-      aria-label="Durga Puja special, 60 percent off"
+      aria-label="Diwali special, 60 percent off"
       className={`relative inline-flex shrink-0 flex-col items-center justify-center overflow-hidden rounded-full border-[3px] border-[#FDE68A] bg-gradient-to-br from-[#9F1239] via-[#C2410C] to-[#F59E0B] text-center text-white shadow-[0_10px_28px_rgba(153,27,27,0.3)] ring-1 ring-inset ring-[#7F1D1D]/30 ${SIZE_CLASSES[size]}`}
     >
       <span
@@ -37,7 +37,7 @@ export default function DurgaPujaDiscountBadge({
         />
       </svg>
       <span className="relative text-[8px] font-extrabold uppercase leading-none tracking-[0.14em] text-[#FFF3C4]">
-        Durga Puja
+        Diwali
       </span>
       <span className="relative mt-0.5 text-[22px] font-black leading-[0.95] tracking-tight sm:text-2xl">
         60%
