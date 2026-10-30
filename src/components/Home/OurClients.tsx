@@ -41,14 +41,14 @@ function ClientLogosCarousel({ logos }: { logos: Logo[] }) {
           {logos.map((logo, index) => (
             <div
               key={logo.src + index}
-              className="flex h-32 flex-none basis-1/3 items-center justify-center px-2 sm:basis-1/4 md:basis-1/6 lg:basis-[12.5%]"
+              className="flex h-32 flex-none basis-1/3 items-center justify-center px-2 sm:basis-1/4 md:basis-1/6 lg:basis-[12.5%] transition-transform duration-300 hover:scale-110"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={160}
                 height={80}
-                className="h-16 w-32 object-contain opacity-90"
+                className="h-16 w-32 object-contain opacity-90 transition-opacity duration-300 hover:opacity-100 hover:drop-shadow-lg"
               />
             </div>
           ))}
@@ -136,11 +136,11 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
           <HomeSectionTitle text={c.heading} className="text-center" />
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-body md:gap-8">
-            <span>{c.stat1}</span>
+            <span className="transition-transform duration-300 hover:scale-110 cursor-default">✨ {c.stat1}</span>
             <span>•</span>
-            <span>{c.stat2}</span>
+            <span className="transition-transform duration-300 hover:scale-110 cursor-default">🚀 {c.stat2}</span>
             <span>•</span>
-            <span>{c.stat3}</span>
+            <span className="transition-transform duration-300 hover:scale-110 cursor-default">🌍 {c.stat3}</span>
           </div>
         </div>
 
