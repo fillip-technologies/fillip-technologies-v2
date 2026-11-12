@@ -3,7 +3,7 @@ import "server-only";
 import { siteConfig } from "@/config/site";
 import { getAllBlogs } from "@/lib/blogs";
 import { getServiceLandingPage, getServiceLandingPageSlugs } from "@/lib/service-content/repository";
-import { listCaseStudies } from "@/server/content/casestudy-registry";
+import { CASE_STUDY_MENU_CATEGORY, listCaseStudies } from "@/server/content/casestudy-registry";
 import { listIndustries } from "@/server/content/industry-registry";
 import { listServicePages } from "@/server/content/servicepage-registry";
 import { listLocationPages } from "@/server/location-pages/registry";
@@ -254,6 +254,9 @@ async function addCmsPages(records: SeoPageRecord[]) {
   }
 
   for (const category of whatWeDoCategories) {
+    // "Challenges We Solve" has no landing page of its own: the route redirects to
+    // /case-studies (see what-we-do/[slug]/page.tsx), so it must stay out of the sitemap.
+    const redirectsToCaseStudies = category.slug === CASE_STUDY_MENU_CATEGORY;
     records.push({
       path: `/what-we-do/${category.slug}`,
       slug: category.slug,
@@ -262,7 +265,7 @@ async function addCmsPages(records: SeoPageRecord[]) {
       title: `${category.label} | ${siteConfig.name}`,
       description: category.description || `${category.label} services and solutions by ${siteConfig.name}.`,
       canonical: `/what-we-do/${category.slug}`,
-      robots: { index: true, follow: true },
+      robots: { index: !redirectsToCaseStudies, follow: true },
       openGraph: { image: siteConfig.defaultOpenGraphImage, type: "website" },
       h1: category.label,
       schema: { webpage: true, breadcrumb: true },
