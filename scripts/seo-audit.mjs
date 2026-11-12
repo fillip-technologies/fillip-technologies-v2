@@ -3,7 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const reportsDir = path.join(root, "reports");
-const siteUrl = "https://filliptechnologies.com";
+const siteUrl = "https://www.filliptechnologies.com";
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const validStatuses = new Set(["draft", "review", "published", "archived"]);
 
