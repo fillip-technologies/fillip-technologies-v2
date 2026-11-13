@@ -136,11 +136,11 @@ export default function OurClients({ content: raw = {} }: { content?: Record<str
           <HomeSectionTitle text={c.heading} className="text-center" />
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-body md:gap-8">
-            <span className="transition-transform duration-300 hover:scale-110 cursor-default">✨ {c.stat1}</span>
+            <span className="transition-transform duration-300 hover:scale-110 cursor-default">{c.stat1}</span>
             <span>•</span>
-            <span className="transition-transform duration-300 hover:scale-110 cursor-default">🚀 {c.stat2}</span>
+            <span className="transition-transform duration-300 hover:scale-110 cursor-default">{c.stat2}</span>
             <span>•</span>
-            <span className="transition-transform duration-300 hover:scale-110 cursor-default">🌍 {c.stat3}</span>
+            <span className="transition-transform duration-300 hover:scale-110 cursor-default">{c.stat3}</span>
           </div>
         </div>
 

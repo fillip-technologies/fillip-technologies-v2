@@ -57,8 +57,15 @@ function SolutionMegaMenuItem({ item }: { item: SolutionMenuItem }) {
   );
 }
 
+const PANEL_MAX_WIDTH = 1040;
+const VIEWPORT_GUTTER = 16;
+
 export default function SolutionsMegaMenu() {
   const [open, setOpen] = useState(false);
+  // Panel offset from the trigger, so the panel stays inside the viewport
+  // even when the trigger sits right of centre.
+  const [panelLeft, setPanelLeft] = useState(0);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Published categories drive the menu; fall back to the static menu until they
   // load (or if none/failed).
@@ -73,15 +80,31 @@ export default function SolutionsMegaMenu() {
     };
 
     window.addEventListener("scroll", closeOnScroll, { passive: true });
+    // The panel position is measured on open, so close it if the window size changes.
+    window.addEventListener("resize", closeOnScroll, { passive: true });
 
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current);
       window.removeEventListener("scroll", closeOnScroll);
+      window.removeEventListener("resize", closeOnScroll);
     };
   }, []);
 
+  /** Centre the panel under the trigger, then clamp it inside the viewport. */
+  const positionPanel = () => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const rect = wrap.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    const width = Math.min(PANEL_MAX_WIDTH, viewportWidth - VIEWPORT_GUTTER * 2);
+    const centred = rect.left + rect.width / 2 - width / 2;
+    const clamped = Math.min(Math.max(centred, VIEWPORT_GUTTER), viewportWidth - VIEWPORT_GUTTER - width);
+    setPanelLeft(clamped - rect.left);
+  };
+
   const showMenu = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (!open) positionPanel();
     setOpen(true);
   };
 
@@ -90,7 +113,7 @@ export default function SolutionsMegaMenu() {
   };
 
   return (
-    <div className="relative shrink-0" onMouseEnter={showMenu} onMouseLeave={hideMenu}>
+    <div ref={wrapRef} className="relative shrink-0" onMouseEnter={showMenu} onMouseLeave={hideMenu}>
       <button
         type="button"
         className="
@@ -119,10 +142,8 @@ export default function SolutionsMegaMenu() {
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={showMenu}
             onMouseLeave={hideMenu}
-            className="
-              absolute left-1/2 top-full z-[940] w-[min(1040px,calc(100vw-32px))]
-              -translate-x-1/2 pt-4
-            "
+            style={{ left: panelLeft }}
+            className="absolute top-full z-[940] w-[min(1040px,calc(100vw-32px))] pt-4"
           >
             <div
               className="

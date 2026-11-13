@@ -233,7 +233,7 @@ export default function Navbar() {
             <nav ref={heroRightRef} className="flex flex-1 items-center justify-start gap-5 pl-6 will-change-transform 2xl:gap-10 2xl:pl-16">
               {NAV_LINKS.slice(3).map((l) => <DesktopNavItem key={l} label={l} />)}
               <div className="ml-auto">
-                <TalkButton />
+                <TalkButton label="Internship" href="/internship" />
               </div>
             </nav>
 
@@ -279,7 +279,7 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden xl:block flex-shrink-0">
-              <TalkButton />
+              <TalkButton label="Internship" href="/internship" />
             </div>
 
             {/* Mobile hamburger */}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-function TalkButton() {
+function TalkButton({ label = "Get Proposal", href = "/contact" }: { label?: string; href?: string }) {
   return (
     <div className="relative inline-flex">
       {/* AI Stars */}
@@ -15,10 +15,10 @@ function TalkButton() {
 
       <div className="animated-border inline-flex rounded-full p-[1px]">
         <Link
-          href="/contact"
+          href={href}
           className="group inline-flex h-11 min-w-[132px] items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-card px-4 text-xs font-semibold text-heading transition-all duration-300 hover:bg-primary hover:text-primary-foreground 2xl:min-w-[154px] 2xl:gap-2 2xl:px-5 2xl:text-sm"
         >
-          <span>Get Proposal</span>
+          <span>{label}</span>
           <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
       </div>
