@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getSession } from "@/server/auth/session";
+import { siteConfig } from "@/config/site";
 import { slugify } from "@/lib/slug";
 import { listServicePages } from "@/server/content/servicepage-registry";
 import { getServiceLandingPageSlugs } from "@/lib/service-content/repository";
@@ -21,7 +22,7 @@ import type { SaveState } from "@/server/content/types";
 const PUBLIC_PREFIX = "";
 
 
-const SITE_ORIGIN = "https://filliptechnologies.com";
+const SITE_ORIGIN = siteConfig.url;
 
 
 const RESERVED_SLUGS = new Set([
