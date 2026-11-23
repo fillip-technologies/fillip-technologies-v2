@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import HomeSectionTitle from "./HomeSectionTitle";
 import { HOME_CLIENT_LOGOS, type ClientLogoItem } from "@/data/home/defaults";
@@ -17,42 +15,48 @@ type ClientsContent = Partial<{
   logos: ClientLogoItem[];
 }>;
 
-// Full-bleed auto-scrolling carousel of client logos. All logos render together
-// in one row.
+/** Seconds each logo takes to scroll past; the total duration scales with the number of logos. */
+const SECONDS_PER_LOGO = 2.2;
+/** Each half of the track needs at least this many slots (12 × 176px > a 1920px screen) so no gap shows. */
+const MIN_SLOTS_PER_HALF = 12;
+
+// Full-bleed logo marquee that scrolls continuously and smoothly. The list is
+// rendered twice and the track moves by exactly half its width (keyframes
+// `marquee-2x`), so the loop restarts on an identical frame with no jump.
+// Every logo slot has the same fixed width, which keeps both halves equal.
 function ClientLogosCarousel({ logos }: { logos: Logo[] }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    dragFree: true,
-  });
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const id = setInterval(() => emblaApi.scrollNext(), 2200);
-    return () => clearInterval(id);
-  }, [emblaApi]);
-
   if (logos.length === 0) return null;
 
+  // With only a few logos, repeat the list so one half is wider than the screen.
+  const repeats = Math.ceil(MIN_SLOTS_PER_HALF / logos.length);
+  const half = Array.from({ length: repeats }, () => logos).flat();
+  const duration = Math.max(30, half.length * SECONDS_PER_LOGO);
+
   return (
-    <div className="relative left-1/2 w-screen -translate-x-1/2">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
-          {logos.map((logo, index) => (
+    <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      <div
+        className="hover-pause flex w-max motion-safe:animate-[marquee-2x_60s_linear_infinite]"
+        style={{ animationDuration: `${duration}s` }}
+      >
+        {[...half, ...half].map((logo, index) => {
+          // Only the first copy of each logo is announced to screen readers.
+          const isCopy = index >= logos.length;
+          return (
             <div
-              key={logo.src + index}
-              className="flex h-32 flex-none basis-1/3 items-center justify-center px-2 sm:basis-1/4 md:basis-1/6 lg:basis-[12.5%] transition-transform duration-300 hover:scale-110"
+              key={`${logo.src}-${index}`}
+              aria-hidden={isCopy || undefined}
+              className="flex h-32 w-[132px] shrink-0 items-center justify-center px-3 transition-transform duration-300 hover:scale-110 sm:w-[176px] sm:px-5"
             >
               <Image
                 src={logo.src}
-                alt={logo.alt}
+                alt={isCopy ? "" : logo.alt}
                 width={160}
                 height={80}
                 className="h-16 w-32 object-contain opacity-90 transition-opacity duration-300 hover:opacity-100 hover:drop-shadow-lg"
               />
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );

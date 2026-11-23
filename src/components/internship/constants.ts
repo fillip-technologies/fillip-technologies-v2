@@ -8,6 +8,9 @@ export const INTERNSHIP_PATH = "/internship";
 
 export const REGISTRATION_FEE = "₹500";
 
+/** Internship desk phone, shown everywhere on the internship page (instead of the main office number). */
+export const INTERNSHIP_PHONE = { display: "+91 75459 99996", tel: "+917545999996" } as const;
+
 /**
  * Fired by the hero form and "Apply for this track" to prefill the registration
  * form. Detail: a partial of { name, phone, email, domain, mode }.
@@ -33,6 +36,13 @@ export const TRUST_STATS = [
   { value: "55+", label: "in-house experts" },
 ] as const;
 
+/** Faces of past interns, cropped from Fillip's own intern-story videos (see InternshipShorts). */
+export const INTERN_AVATARS = [
+  "/images/internship/intern-1.webp",
+  "/images/internship/intern-2.webp",
+  "/images/internship/intern-3.webp",
+] as const;
+
 export const ENGINEERS_CLINIC = {
   name: "Engineers Clinic",
   url: "https://engineersclinic.com",
@@ -48,6 +58,10 @@ export type Track = {
   /** Also the value saved as "Domain of interest" in the registration form. */
   title: string;
   short: string;
+  /** Short tag line shown on image cards, e.g. "SEO · Social · Ads". */
+  tags: string;
+  /** Photo shown on the track cards (from /public/images). */
+  image: string;
   icon: TrackIconKey;
   overview: string;
   learn: readonly string[];
@@ -57,10 +71,31 @@ export type Track = {
 
 export const TRACKS: readonly Track[] = [
   {
+    id: "ai-ml",
+    name: "AI / ML",
+    title: "Artificial Intelligence & Machine Learning (AI/ML)",
+    short: "Models, algorithms & AI basics",
+    tags: "ML · Models · Python",
+    image: "/images/our-cult-3.jpg",
+    icon: "ai",
+    overview:
+      "Get a practical introduction to machine learning: work with small datasets, learn core algorithm concepts and see how AI supports modern businesses.",
+    learn: [
+      "Core machine learning algorithm concepts",
+      "Preparing data for machine learning",
+      "Building and evaluating basic ML models",
+      "How AI is used in real business products",
+    ],
+    tools: ["Python", "NumPy", "Pandas", "scikit-learn", "Jupyter"],
+    idealFor: "Learners who want to move into AI and machine learning roles.",
+  },
+  {
     id: "digital-marketing",
     name: "Digital Marketing",
     title: "Digital Marketing",
     short: "SEO, social media & ads",
+    tags: "SEO · Social · Ads",
+    image: "/images/SERVICES/enterprise.jpg",
     icon: "marketing",
     overview:
       "Work on practical tasks like social media planning, SEO, content ideas and campaign tracking, and learn how brands actually grow online.",
@@ -78,6 +113,8 @@ export const TRACKS: readonly Track[] = [
     name: "Full Stack",
     title: "Full Stack Development",
     short: "Front-end, back-end & APIs",
+    tags: "Front-end · Back-end · APIs",
+    image: "/images/SERVICES/custom-website.jpg",
     icon: "fullstack",
     overview:
       "Learn both front-end and back-end development. Build web pages, connect them through APIs and see how real websites work from design to deployment.",
@@ -91,27 +128,12 @@ export const TRACKS: readonly Track[] = [
     idealFor: "Students who love programming and want to understand complete website development.",
   },
   {
-    id: "ai-ml",
-    name: "AI / ML",
-    title: "Artificial Intelligence & Machine Learning (AI/ML)",
-    short: "Models, algorithms & AI basics",
-    icon: "ai",
-    overview:
-      "Get a practical introduction to machine learning: work with small datasets, learn core algorithm concepts and see how AI supports modern businesses.",
-    learn: [
-      "Core machine learning algorithm concepts",
-      "Preparing data for machine learning",
-      "Building and evaluating basic ML models",
-      "How AI is used in real business products",
-    ],
-    tools: ["Python", "NumPy", "Pandas", "scikit-learn", "Jupyter"],
-    idealFor: "Learners who want to move into AI and machine learning roles.",
-  },
-  {
     id: "data-science",
     name: "Data Science / Analytics",
     title: "Data Science / Data Analytics",
     short: "Analysis, dashboards & insights",
+    tags: "Analytics · SQL · Dashboards",
+    image: "/images/saas-desk-setup.png",
     icon: "data",
     overview:
       "Learn to collect, clean and analyse data, build dashboards and turn numbers into insights that support business decisions.",
@@ -164,8 +186,8 @@ export const ELIGIBILITY = [
 
 /** Application journey, in order. */
 export const PROCESS_STEPS = [
-  { title: "Apply & accept terms", description: "Read the programme notes and accept the terms & conditions." },
-  { title: "Fill the form", description: "Share your personal, college and internship details." },
+  { title: "Choose your track", description: "Select the internship track you want to join." },
+  { title: "Fill the form", description: "Add your personal and college details, upload your ID card and accept the terms." },
   { title: "Registration & payment", description: `Complete registration by paying the ${REGISTRATION_FEE} registration fee.` },
   { title: "Batch allotment", description: "Get placed in a classroom batch or an online batch." },
   { title: "Routine & receipt", description: "Receive your class routine and payment receipt." },
@@ -235,6 +257,61 @@ export const TERMS = [
 export const ACADEMIC_BATCHES = ["2023–2026", "2024–2027", "2025–2028", "2026–2029", "2027–2030", "Other"] as const;
 export const GENDERS = ["Female", "Male", "Prefer not to say", "Other"] as const;
 export const MODES = ["Online", "Offline (Classroom)"] as const;
+
+/** Radio-card copy for each mode (value must stay one of MODES). */
+export const MODE_OPTIONS: readonly { value: (typeof MODES)[number]; title: string; sub: string }[] = [
+  { value: "Online", title: "Online", sub: "Learn from anywhere" },
+  { value: "Offline (Classroom)", title: "Classroom", sub: "Kankarbagh, Patna" },
+];
+
+export const LAST_PASSED_COURSES = ["10th", "12th", "Diploma", "Graduation", "Post Graduation", "Other"] as const;
+
+/** Max size of the college ID card upload, in MB. */
+export const ID_CARD_MAX_MB = 3;
+
+/** Element focused when another section hands the student over to the registration form. */
+export const REGISTRATION_FOCUS_ID = "intern-registration-start";
+/** Wrapper of step 2 (the form), used as the scroll target. */
+export const REGISTRATION_FORM_ID = "registration-form";
+
+export const INDIAN_STATES = [
+  "Andaman and Nicobar Islands",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chandigarh",
+  "Chhattisgarh",
+  "Dadra and Nagar Haveli and Daman and Diu",
+  "Delhi",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jammu and Kashmir",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Ladakh",
+  "Lakshadweep",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Puducherry",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+] as const;
 
 export const OFFICE = {
   name: "Fillip Technologies",

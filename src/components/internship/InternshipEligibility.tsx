@@ -1,21 +1,30 @@
 import { Award, CalendarCheck, CircleCheck, TriangleAlert, Wallet } from "lucide-react";
 import { ELIGIBILITY, IMPORTANT_NOTES } from "./constants";
+import Blobs from "./Blobs";
+import { PopIn } from "./motion";
+import SectionHeading, { Highlight } from "./SectionHeading";
 
 const NOTE_ICONS = [Wallet, Award, CalendarCheck] as const;
 
 export default function InternshipEligibility() {
   return (
-    <section className="py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Eligibility</span>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 lg:text-5xl">Is this internship for you?</h2>
-        </div>
+    <section className="relative overflow-hidden py-20 lg:py-28">
+      <Blobs />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionHeading
+          align="split"
+          title={
+            <>
+              Is this internship <Highlight>for you?</Highlight>
+            </>
+          }
+          description="Check who can apply and read the three programme notes before you register."
+        />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {/* Who can apply */}
-          <div className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-[0_18px_44px_rgba(15,23,42,0.05)] sm:p-9">
-            <h3 className="text-xl font-bold text-slate-950">Who can apply</h3>
+          <PopIn index={0} className="rounded-[28px] bg-white shadow-[0_16px_40px_-24px_rgba(2,30,80,0.25)] ring-1 ring-slate-200/70 p-7 sm:p-9">
+            <h3 className="intern-display text-xl text-[#0b1733]">Who can apply</h3>
             <ul className="mt-6 space-y-4">
               {ELIGIBILITY.map((item) => (
                 <li key={item} className="flex gap-3 leading-7 text-slate-700">
@@ -24,11 +33,11 @@ export default function InternshipEligibility() {
                 </li>
               ))}
             </ul>
-          </div>
+          </PopIn>
 
           {/* Before you apply */}
-          <div className="rounded-[28px] border border-amber-200/70 bg-amber-50/50 p-7 sm:p-9">
-            <h3 className="flex items-center gap-2 text-xl font-bold text-slate-950">
+          <PopIn index={1} className="rounded-[28px] bg-amber-50/70 p-7 ring-1 ring-amber-200/70 sm:p-9">
+            <h3 className="intern-display flex items-center gap-2 text-xl text-[#0b1733]">
               <TriangleAlert className="size-5 text-amber-600" /> Before you apply
             </h3>
             <ol className="mt-6 space-y-5">
@@ -47,7 +56,7 @@ export default function InternshipEligibility() {
                 );
               })}
             </ol>
-          </div>
+          </PopIn>
         </div>
       </div>
     </section>

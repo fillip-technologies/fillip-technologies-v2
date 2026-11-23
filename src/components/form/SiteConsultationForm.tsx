@@ -11,6 +11,7 @@ const excludedPaths = new Set([
   "/portfolio",
   "/carrer",
   "/others/carrer",
+  "/internship",
 ]);
 
 const pageTestimonialsPaths = new Set([

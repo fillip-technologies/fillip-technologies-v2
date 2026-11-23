@@ -17,7 +17,6 @@ import IndustriesSection from "@/components/Home/IndustriesSection"
 import BlogSection from "@/components/Home/BlogSection";
 import UnitOfSection from "@/components/Home/UnitOfSection";
 import Faq from "@/components/Home/Faq";
-import WhatsAppButton from "@/components/Home/WhatsAppButton";
 import { siteConfig } from "@/config/site";
 import { getLatestBlogs } from "@/lib/blogs";
 import { listPublishedCaseStudies, toCard } from "@/server/content/casestudy-registry";
@@ -113,7 +112,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <WhatsAppButton />
       <HeroSection content={hero} />
       <TrustBar content={trustedBy} />
       <ServicesSection content={capabilities} />

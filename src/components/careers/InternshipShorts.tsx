@@ -9,7 +9,7 @@ const SHORTS = [
   { id: "bVse6hf6Bt4", title: "Behind the Scenes at Fillip Technologies" },
 ] as const;
 
-function ShortCard({ id, title }: { id: string; title: string }) {
+function ShortCard({ id, title, showTitle }: { id: string; title: string; showTitle: boolean }) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -39,30 +39,46 @@ function ShortCard({ id, title }: { id: string; title: string }) {
             }}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+          {showTitle ? (
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+          ) : (
+            <div className="absolute inset-0 bg-slate-950/10 transition group-hover:bg-slate-950/20" />
+          )}
           <span className="absolute inset-0 flex items-center justify-center">
             <span className="grid size-16 place-items-center rounded-full bg-white/95 text-primary shadow-lg transition group-hover:scale-110">
               <Play className="size-6 translate-x-0.5 fill-current" />
             </span>
           </span>
-          <span className="absolute inset-x-4 bottom-4 text-left text-sm font-semibold text-white">
-            {title}
-          </span>
+          {showTitle ? (
+            <span className="absolute inset-x-4 bottom-4 text-left text-sm font-semibold text-white">{title}</span>
+          ) : null}
         </button>
       )}
     </div>
   );
 }
 
-export default function InternshipShorts() {
+/**
+ * `showTitles={false}` hides the caption on each card (the videos already show the intern's name).
+ * `showEyebrow={false}` hides the small "Watch & Explore" label above the heading.
+ */
+export default function InternshipShorts({
+  showTitles = true,
+  showEyebrow = true,
+}: {
+  showTitles?: boolean;
+  showEyebrow?: boolean;
+}) {
   return (
     <section className="border-y border-slate-200 bg-slate-50 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-3xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Watch &amp; Explore
-          </span>
-          <h2 className="mt-5 text-5xl font-bold tracking-tight text-slate-950">
+          {showEyebrow ? (
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              Watch &amp; Explore
+            </span>
+          ) : null}
+          <h2 className={`${showEyebrow ? "mt-5" : ""} text-5xl font-bold tracking-tight text-slate-950`}>
             See What Our Interns Are Building
           </h2>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600">
@@ -73,7 +89,7 @@ export default function InternshipShorts() {
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SHORTS.map((short) => (
-            <ShortCard key={short.id} id={short.id} title={short.title} />
+            <ShortCard key={short.id} id={short.id} title={short.title} showTitle={showTitles} />
           ))}
         </div>
       </div>

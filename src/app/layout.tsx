@@ -3,6 +3,7 @@ import "./globals.css";
 import { Geist } from "next/font/google";
 import type { Metadata } from "next";
 import { baseMetadata } from "@/lib/seo/metadata";
+import WhatsAppButton from "@/components/Home/WhatsAppButton";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -30,7 +31,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
-      <body className={geist.className}>{children}</body>
+      <body className={geist.className}>
+        {children}
+        {/* Floating WhatsApp button on every public page (hidden in /admin). */}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

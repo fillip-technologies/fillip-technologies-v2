@@ -1,14 +1,24 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowDown, ArrowRight, Check } from "lucide-react";
-import { MODES, PREFILL_EVENT, REGISTRATION_FEE, TRACKS, type PrefillDetail } from "./constants";
-import { EMAIL_RE, fieldClass, PHONE_RE } from "./formUtils";
+import { ArrowDown, ArrowRight, Check, Layers, Mail, Phone, User } from "lucide-react";
+import {
+  MODE_OPTIONS,
+  PREFILL_EVENT,
+  REGISTRATION_FEE,
+  REGISTRATION_FOCUS_ID,
+  REGISTRATION_FORM_ID,
+  TRACKS,
+  type PrefillDetail,
+} from "./constants";
+import { FieldShell, IconInput, IconSelect, RadioCard } from "./formFields";
+import { EMAIL_RE, PHONE_RE } from "./formUtils";
 
 type Fields = Required<Pick<PrefillDetail, "name" | "phone" | "email" | "domain" | "mode">>;
 type FieldErrors = Partial<Record<keyof Fields, string>>;
 
 const INITIAL: Fields = { name: "", phone: "", email: "", domain: "", mode: "" };
+const ORDER: (keyof Fields)[] = ["name", "phone", "email", "domain", "mode"];
 
 function validate(f: Fields): FieldErrors {
   const e: FieldErrors = {};
@@ -20,17 +30,19 @@ function validate(f: Fields): FieldErrors {
   return e;
 }
 
-/** Scrolls to the full registration form and focuses its first control. */
+/** Scrolls to the registration form (step 2) and focuses its heading. */
 function goToRegistration() {
-  document.getElementById("apply")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  // Let the smooth scroll start before moving focus, so focus doesn't jump the page.
-  window.setTimeout(() => document.getElementById("intern-terms")?.focus({ preventScroll: true }), 600);
+  // Give the registration form a moment to render the prefilled step first.
+  window.setTimeout(() => {
+    const target = document.getElementById(REGISTRATION_FORM_ID) ?? document.getElementById("apply");
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 80);
+  window.setTimeout(() => document.getElementById(REGISTRATION_FOCUS_ID)?.focus({ preventScroll: true }), 700);
 }
 
 /**
  * Short application form in the hero. It does not submit anywhere itself: it
- * hands the details to the full registration form below (terms, college
- * details and payment are completed there).
+ * hands the details to the full registration form below.
  */
 export default function HeroApplyForm() {
   const [fields, setFields] = useState<Fields>(INITIAL);
@@ -42,17 +54,11 @@ export default function HeroApplyForm() {
     setErrors((e) => ({ ...e, [key]: undefined }));
   };
 
-  const a11y = (key: keyof Fields) => ({
-    id: `hero-${key}`,
-    "aria-invalid": errors[key] ? true : undefined,
-    "aria-describedby": errors[key] ? `hero-${key}-error` : undefined,
-  });
-
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const nextErrors = validate(fields);
     setErrors(nextErrors);
-    const firstInvalid = Object.keys(nextErrors)[0];
+    const firstInvalid = ORDER.find((k) => nextErrors[k]);
     if (firstInvalid) {
       document.getElementById(`hero-${firstInvalid}`)?.focus();
       return;
@@ -63,22 +69,13 @@ export default function HeroApplyForm() {
     goToRegistration();
   };
 
-  const error = (key: keyof Fields) =>
-    errors[key] ? (
-      <p id={`hero-${key}-error`} className="mt-1.5 text-xs text-red-600">
-        {errors[key]}
-      </p>
-    ) : null;
-
-  const labelClass = "block text-sm font-semibold text-slate-700";
-
   return (
-    <div className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_30px_80px_rgba(15,23,42,0.12)] sm:p-8">
+    <div className="relative overflow-hidden rounded-[28px] bg-white p-6 shadow-[0_30px_70px_-20px_rgba(2,30,80,0.25)] ring-1 ring-slate-200/70 sm:p-8">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-[#0b6ad6] to-sky-400" />
 
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-slate-950">Start your application</h2>
+          <h2 className="intern-display text-[1.5rem] leading-tight text-[#0b1733]">Start your application</h2>
           <p className="mt-1 text-sm text-slate-500">Share a few details to begin.</p>
         </div>
         <span className="inline-flex items-center rounded-full bg-gradient-to-r from-[#f97316] to-[#f43f5e] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-sm">
@@ -92,7 +89,7 @@ export default function HeroApplyForm() {
             <Check className="size-4" strokeWidth={3} /> Details saved
           </p>
           <p className="mt-1.5 text-sm leading-6 text-emerald-900/80">
-            Continue below: accept the terms, add your college details and pay the registration fee.
+            Continue below: add your college details, upload your ID card and agree to the terms.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <button
@@ -113,119 +110,92 @@ export default function HeroApplyForm() {
         </div>
       ) : (
         <form noValidate onSubmit={onSubmit} className="mt-7 grid gap-4">
-          <div>
-            <label htmlFor="hero-name" className={labelClass}>
-              Full name <span className="text-red-500">*</span>
-            </label>
-            <input
-              {...a11y("name")}
-              type="text"
+          <FieldShell id="hero-name" label="Full name" required error={errors.name}>
+            <IconInput
+              id="hero-name"
+              icon={User}
               autoComplete="name"
               value={fields.name}
               onChange={(e) => update("name", e.target.value)}
               placeholder="Enter your full name"
-              className={fieldClass(!!errors.name)}
+              error={errors.name}
             />
-            {error("name")}
-          </div>
+          </FieldShell>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label htmlFor="hero-phone" className={labelClass}>
-                Mobile number <span className="text-red-500">*</span>
-              </label>
-              <input
-                {...a11y("phone")}
+            <FieldShell id="hero-phone" label="Mobile number" required error={errors.phone}>
+              <IconInput
+                id="hero-phone"
+                icon={Phone}
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
                 value={fields.phone}
                 onChange={(e) => update("phone", e.target.value)}
-                placeholder="+91 98765 43210"
-                className={fieldClass(!!errors.phone)}
+                placeholder="Mobile number"
+                error={errors.phone}
               />
-              {error("phone")}
-            </div>
-            <div>
-              <label htmlFor="hero-email" className={labelClass}>
-                Email ID <span className="text-red-500">*</span>
-              </label>
-              <input
-                {...a11y("email")}
+            </FieldShell>
+            <FieldShell id="hero-email" label="Email" required error={errors.email}>
+              <IconInput
+                id="hero-email"
+                icon={Mail}
                 type="email"
                 autoComplete="email"
                 value={fields.email}
                 onChange={(e) => update("email", e.target.value)}
                 placeholder="you@example.com"
-                className={fieldClass(!!errors.email)}
+                error={errors.email}
               />
-              {error("email")}
-            </div>
+            </FieldShell>
           </div>
 
-          <div>
-            <label htmlFor="hero-domain" className={labelClass}>
-              Track <span className="text-red-500">*</span>
-            </label>
-            <select
-              {...a11y("domain")}
+          <FieldShell id="hero-domain" label="Track" required error={errors.domain}>
+            <IconSelect
+              id="hero-domain"
+              icon={Layers}
               value={fields.domain}
               onChange={(e) => update("domain", e.target.value)}
-              className={fieldClass(!!errors.domain)}
-            >
-              <option value="">Select your preferred track</option>
-              {TRACKS.map((t) => (
-                <option key={t.id} value={t.title}>
-                  {t.title}
-                </option>
-              ))}
-            </select>
-            {error("domain")}
-          </div>
+              placeholder="Select your preferred track"
+              options={TRACKS.map((t) => t.title)}
+              error={errors.domain}
+            />
+          </FieldShell>
 
           <fieldset aria-describedby={errors.mode ? "hero-mode-error" : undefined}>
-            <legend className={labelClass}>
+            <legend className="mb-2 block text-[12.5px] font-bold uppercase tracking-[0.04em] text-slate-700">
               Preferred mode <span className="text-red-500">*</span>
             </legend>
-            <div className="mt-2 grid grid-cols-2 gap-3">
-              {MODES.map((mode, i) => {
-                const checked = fields.mode === mode;
-                return (
-                  <label
-                    key={mode}
-                    className={`flex h-11 cursor-pointer items-center gap-2.5 rounded-xl border px-3.5 text-sm font-medium transition ${
-                      checked
-                        ? "border-primary bg-primary/[0.05] text-primary"
-                        : errors.mode
-                          ? "border-red-400 text-slate-700"
-                          : "border-slate-200 text-slate-700 hover:border-slate-300"
-                    }`}
-                  >
-                    <input
-                      id={i === 0 ? "hero-mode" : undefined}
-                      type="radio"
-                      name="hero-mode"
-                      value={mode}
-                      checked={checked}
-                      onChange={(e) => update("mode", e.target.value)}
-                      className="size-4 accent-primary"
-                    />
-                    {mode === MODES[1] ? "Classroom" : mode}
-                  </label>
-                );
-              })}
+            <div className="grid grid-cols-2 gap-3">
+              {MODE_OPTIONS.map((m, i) => (
+                <RadioCard
+                  key={m.value}
+                  id={i === 0 ? "hero-mode" : undefined}
+                  name="hero-mode"
+                  value={m.value}
+                  checked={fields.mode === m.value}
+                  onChange={(v) => update("mode", v)}
+                  title={m.title}
+                  sub={m.sub}
+                  hasError={!!errors.mode}
+                />
+              ))}
             </div>
-            {error("mode")}
+            {errors.mode ? (
+              <p id="hero-mode-error" className="mt-1.5 text-xs font-medium text-red-600">
+                {errors.mode}
+              </p>
+            ) : null}
           </fieldset>
 
           <button
             type="submit"
-            className="mt-2 inline-flex h-13 w-full items-center justify-center gap-2 rounded-full bg-primary px-7 text-[15px] font-semibold text-white shadow-[0_14px_30px_rgba(2,66,162,0.28)] transition hover:-translate-y-0.5"
+            className="intern-glare mt-2 inline-flex h-13 w-full items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-bold uppercase tracking-[0.06em] text-white shadow-[0_14px_30px_rgba(2,66,162,0.28)] transition hover:-translate-y-0.5"
           >
             Continue application <ArrowRight className="size-4" />
           </button>
           <p className="text-center text-xs leading-5 text-slate-500">
-            Next: accept the terms, add college details and pay the registration fee.
+            Next: college details, ID card upload and the {REGISTRATION_FEE} registration fee.
           </p>
         </form>
       )}
