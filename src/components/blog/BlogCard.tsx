@@ -18,18 +18,13 @@ export default function BlogCard({ blog }: BlogCardProps) {
             alt={blog.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-contain transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-slate-100 px-8 text-center text-sm font-semibold uppercase tracking-[0.25em] text-primary">
             Fillip Technologies
           </div>
         )}
-        {blog.category ? (
-          <span className="absolute right-6 top-6 rounded-full border border-primary/20 bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-primary backdrop-blur shadow-sm">
-            {blog.category}
-          </span>
-        ) : null}
       </Link>
 
       <div className="flex flex-1 flex-col justify-between px-8 pb-8 pt-7">

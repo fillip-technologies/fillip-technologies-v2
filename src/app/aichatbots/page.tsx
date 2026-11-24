@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
+import ServiceDock from "@/components/layouts/ServiceDock/ServiceDock";
 import AIAutomationLandingTemplate from "@/components/service-landing/templates/AIAutomationLandingTemplate";
 import { getServiceLandingPage } from "@/lib/service-content/repository";
 import { buildLandingPageMetadata, serviceLandingToSeoRecord } from "@/lib/seo/metadata";
@@ -23,6 +24,8 @@ export default async function AIChatbotsPage() {
       <JsonLdScript data={[...siteJsonLd(), ...buildJsonLdForPage(serviceLandingToSeoRecord(page))]} />
       <Navbar />
       <AIAutomationLandingTemplate page={page} />
+      {/* This route sits outside the (site) layout, so mount the dock here. */}
+      <ServiceDock />
       <Footer />
     </>
   );

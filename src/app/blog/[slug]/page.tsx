@@ -65,11 +65,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="relative z-10 container mx-auto max-w-6xl px-6">
             <Breadcrumb current={blog.title} />
             <div className="max-w-4xl">
-              {blog.category ? (
-                <span className="mb-5 inline-flex rounded-full bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                  {blog.category}
-                </span>
-              ) : null}
               <h1 className="text-4xl font-bold leading-tight tracking-tight text-heading md:text-6xl">{blog.title}</h1>
               <p className="mt-6 text-lg leading-8 text-body">{blog.excerpt}</p>
               <div className="mt-8">
@@ -81,8 +76,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {blog.featuredImage ? (
           <div className="container mx-auto max-w-6xl px-6">
-            <div className="aspect-[16/8] overflow-hidden rounded-[36px] bg-slate-100 shadow-sm">
-              <img src={blog.featuredImage} alt={blog.title} className="h-full w-full object-cover" />
+            {/* Same treatment as the home page blog cards: show the whole image
+                (featured images are designed posters with text) on a soft frame. */}
+            <div className="aspect-[16/11] overflow-hidden rounded-[36px] border border-border bg-slate-100 shadow-sm md:aspect-[16/9]">
+              <img src={blog.featuredImage} alt={blog.title} className="h-full w-full object-contain" />
             </div>
           </div>
         ) : null}

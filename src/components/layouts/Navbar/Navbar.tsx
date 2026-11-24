@@ -13,7 +13,8 @@ import MenuButton from "./MenuButton";
 import NavDropdownMenu from "./NavDropdownMenu";
 import NavLink from "./NavLink";
 import SolutionsMegaMenu from "./SolutionsMegaMenu";
-import TalkButton from "./TalkButton";
+// Internship CTA is hidden for now — uncomment with the two <TalkButton> blocks below.
+// import TalkButton from "./TalkButton";
 import WhatWeDoMegaMenu from "./WhatWeDoMegaMenu";
 
 
@@ -232,9 +233,11 @@ export default function Navbar() {
             {/* Right links + CTA */}
             <nav ref={heroRightRef} className="flex flex-1 items-center justify-start gap-5 pl-6 will-change-transform 2xl:gap-10 2xl:pl-16">
               {NAV_LINKS.slice(3).map((l) => <DesktopNavItem key={l} label={l} />)}
+              {/* Internship CTA hidden for now — uncomment to bring it back.
               <div className="ml-auto">
                 <TalkButton label="Internship" href="/internship" />
               </div>
+              */}
             </nav>
 
           </div>
@@ -277,10 +280,11 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Desktop CTA */}
+            {/* Desktop CTA — Internship hidden for now; uncomment to bring it back.
             <div className="hidden xl:block flex-shrink-0">
               <TalkButton label="Internship" href="/internship" />
             </div>
+            */}
 
             {/* Mobile hamburger */}
             <div className="xl:hidden">

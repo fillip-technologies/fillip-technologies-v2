@@ -106,6 +106,17 @@ export function buildSolutionsColumns(
   }));
 }
 
+/**
+ * The curated menu as category objects — same shape the API returns. Used as
+ * the first-render fallback (SSR + hydration) until the live list arrives.
+ */
+export const STATIC_SOLUTION_CATEGORIES: SolutionCategory[] = SOLUTIONS_MENU.map((c) => ({
+  slug: slugifyColumn(c.title),
+  label: c.title,
+  description: c.description,
+  items: c.children,
+}));
+
 /** Kebab-case a column title to match its seeded category slug. */
 function slugifyColumn(title: string): string {
   return title

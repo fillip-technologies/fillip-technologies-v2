@@ -129,12 +129,6 @@ export default function BlogSection({
                       group-hover:scale-105
                     "
                   />
-
-                  {post.category ? (
-                    <div className="absolute right-6 top-6 rounded-full border border-primary/20 bg-white/90 px-3 py-1 text-[11px] font-bold text-primary backdrop-blur shadow-sm">
-                      {post.category}
-                    </div>
-                  ) : null}
                 </Link>
 
                 <div className="flex flex-1 flex-col justify-between px-8 pb-8 pt-7">

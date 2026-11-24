@@ -1,30 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { WhatWeDoCategory } from "./whatWeDoMegaMenuData";
+import { useSharedItems } from "./sharedItems";
 
 /**
  * Reads the published "What We Do" category pages from /api/whatwedo/categories.
  * Returns null until loaded so callers can fall back to the static menu, then
- * the live list once it arrives (updates when categories are published).
+ * the live list once it arrives. Fetched once per page load and shared.
  */
 export function useWhatWeDoCategories(): WhatWeDoCategory[] | null {
-  const [categories, setCategories] = useState<WhatWeDoCategory[] | null>(null);
-
-  useEffect(() => {
-    let alive = true;
-    fetch("/api/whatwedo/categories")
-      .then((r) => r.json())
-      .then((data) => {
-        if (alive && Array.isArray(data?.items)) setCategories(data.items as WhatWeDoCategory[]);
-      })
-      .catch(() => {
-        /* keep the static fallback on failure */
-      });
-    return () => {
-      alive = false;
-    };
-  }, []);
-
-  return categories;
+  return useSharedItems<WhatWeDoCategory>("/api/whatwedo/categories");
 }

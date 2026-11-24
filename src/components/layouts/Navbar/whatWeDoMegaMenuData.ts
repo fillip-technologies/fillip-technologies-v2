@@ -210,6 +210,17 @@ export const WHAT_WE_DO_ITEMS_BY_SLUG: Record<string, MegaMenuItem[]> = Object.f
 );
 
 /**
+ * The curated menu as category objects — same shape the API returns. Used as
+ * the first-render fallback (SSR + hydration) until the live list arrives.
+ */
+export const STATIC_WHAT_WE_DO_CATEGORIES: WhatWeDoCategory[] = WHAT_WE_DO_MENU.flat()
+  .filter((g) => TITLE_TO_SLUG[g.title])
+  .map((g) => {
+    const slug = TITLE_TO_SLUG[g.title];
+    return { slug, label: g.title, href: `/what-we-do/${slug}`, items: g.items ?? [] };
+  });
+
+/**
  * Build the mega-menu columns from the published categories (DB-driven). Each
  * category becomes a group whose header links to its landing page, keeping the
  * curated sub-items for known slugs. Distributed round-robin across `columnCount`

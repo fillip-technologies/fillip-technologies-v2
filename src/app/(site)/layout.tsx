@@ -7,6 +7,7 @@ import SiteConsultationForm from "@/components/form/SiteConsultationForm";
 import { getGlobalTestimonials } from "@/server/content/global-testimonials";
 import { getSitePopup } from "@/server/content/global-popup";
 import SitePopup from "@/components/popup/SitePopup";
+import ServiceDock from "@/components/layouts/ServiceDock/ServiceDock";
 
 // Layout for the public marketing site. The admin area and API routes live
 // outside this group, so they don't get the navbar/footer.
@@ -35,6 +36,9 @@ export default async function SiteLayout({
       <div>
         <Navbar />
         {children}
+        {/* Left-edge service dock — renders only on pages listed in a nav menu
+            (What We Do, AI & Automation, Solutions, Industries). */}
+        <ServiceDock />
 
         <SiteConsultationForm testimonials={testimonials} />
         <Footer />
